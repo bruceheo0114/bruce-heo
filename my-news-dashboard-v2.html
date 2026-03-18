@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>브루스의 뉴스 대시보드</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f5f2ed;
+    --surface: #ffffff;
+    --border: #e2ddd6;
+    --ink: #1c1a17;
+    --ink2: #6b6560;
+    --ink3: #a09890;
+    --green: #2d5a27;
+    --green-bg: #edf4eb;
+    --red: #b03020;
+    --red-bg: #fdf0ee;
+    --blue: #1a3a5c;
+    --blue-bg: #eef3f8;
+    --gold: #9a7010;
+    --gold-bg: #fdf8ed;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Noto Sans KR', sans-serif;
+    min-height: 100vh;
+  }
+
+  /* MASTHEAD */
+  .masthead {
+    background: var(--ink);
+    color: white;
+    text-align: center;
+    padding: 30px 20px 22px;
+  }
+
+  .masthead-date {
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 10px;
+  }
+
+  .masthead-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(32px, 5vw, 56px);
+    font-weight: 700;
+    letter-spacing: -1px;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .masthead-title em {
+    font-style: italic;
+    font-weight: 400;
+    color: rgba(255,255,255,0.55);
+  }
+
+  .masthead-sub {
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 1.5px;
+  }
+
+  /* KEYWORD BAR */
+  .control-bar {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .bar-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--ink3);
+    white-space: nowrap;
+  }
+
+  .chips-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    flex: 1;
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    border: 1.5px solid transparent;
+    transition: all 0.15s;
+    user-select: none;
+  }
+
+  .chip.green { background: var(--green-bg); color: var(--green); border-color: #c5ddc2; }
+  .chip.red   { background: var(--red-bg);   color: var(--red);   border-color: #edc5be; }
+  .chip.blue  { background: var(--blue-bg);  color: var(--blue);  border-color: #bed0e2; }
+  .chip.gold  { background: var(--gold-bg);  color: var(--gold);  border-color: #e0cc98; }
+  .chip.off   { background: transparent;     color: var(--ink3);  border-color: var(--border); }
+
+  .chip-x { font-size: 10px; opacity: 0.5; margin-left: 2px; }
+  .chip:hover .chip-x { opacity: 1; }
+
+  .add-chip-btn {
+    padding: 5px 12px;
+    background: transparent;
+    border: 1.5px dashed var(--border);
+    border-radius: 4px;
+    font-size: 12px;
+    color: var(--ink3);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .add-chip-btn:hover { border-color: var(--ink2); color: var(--ink2); }
+
+  .fetch-btn {
+    padding: 8px 20px;
+    background: var(--ink);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    letter-spacing: 0.3px;
+    transition: opacity 0.15s;
+    white-space: nowrap;
+  }
+  .fetch-btn:hover   { opacity: 0.8; }
+  .fetch-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+
+  /* DIVIDER LINE */
+  .top-rule {
+    height: 2px;
+    background: var(--ink);
+  }
+
+  /* MAIN */
+  .main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 28px 20px 80px;
+  }
+
+  /* SECTION HEADER */
+  .sec-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 8px;
+    margin-bottom: 0;
+  }
+
+  .sec-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .sec-meta {
+    font-size: 11px;
+    color: var(--ink3);
+  }
+
+  /* NEWS LIST */
+  .news-list { margin-bottom: 40px; }
+
+  .news-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 8px;
+    border-bottom: 1px solid var(--border);
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.1s;
+    border-radius: 2px;
+  }
+
+  .news-item:hover {
+    background: rgba(0,0,0,0.025);
+  }
+
+  .news-item:first-child {
+    padding-top: 18px;
+  }
+
+  .news-item.top-story {
+    grid-template-columns: 1fr;
+    padding: 20px 8px;
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .kw-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 2px 7px;
+    border-radius: 2px;
+    margin-bottom: 7px;
+  }
+
+  .badge-green { background: var(--green-bg); color: var(--green); }
+  .badge-red   { background: var(--red-bg);   color: var(--red); }
+  .badge-blue  { background: var(--blue-bg);  color: var(--blue); }
+  .badge-gold  { background: var(--gold-bg);  color: var(--gold); }
+  .badge-gray  { background: var(--bg);       color: var(--ink3); }
+
+  .news-title {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.55;
+    color: var(--ink);
+    margin-bottom: 5px;
+  }
+
+  .top-story .news-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+
+  .news-desc {
+    font-size: 13px;
+    color: var(--ink2);
+    line-height: 1.65;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: 6px;
+  }
+
+  .news-byline {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    font-size: 11px;
+    color: var(--ink3);
+  }
+
+  .news-source { font-weight: 600; text-transform: uppercase; letter-spacing: 0.3px; }
+
+  .arrow {
+    font-size: 22px;
+    color: var(--border);
+    flex-shrink: 0;
+    transition: all 0.15s;
+  }
+  .news-item:hover .arrow { color: var(--ink); transform: translateX(3px); }
+
+  /* KEYWORD GROUP DIVIDER */
+  .kw-group-head {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--ink3);
+    padding: 22px 8px 8px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* STATES */
+  .state-box {
+    text-align: center;
+    padding: 70px 20px;
+    color: var(--ink3);
+  }
+  .state-icon  { font-size: 38px; margin-bottom: 14px; }
+  .state-title { font-size: 16px; font-weight: 500; color: var(--ink2); margin-bottom: 8px; }
+  .state-sub   { font-size: 13px; line-height: 1.7; }
+
+  .progress-wrap { margin: 16px auto; max-width: 260px; }
+  .progress-bar  { height: 2px; background: var(--border); border-radius: 1px; overflow: hidden; }
+  .progress-fill { height: 100%; background: var(--ink); width: 0%; transition: width 0.4s ease; }
+  .progress-label { font-size: 12px; color: var(--ink3); margin-top: 8px; }
+
+  /* ADD MODAL */
+  .backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+    z-index: 300;
+    align-items: center;
+    justify-content: center;
+  }
+  .backdrop.open { display: flex; }
+
+  .modal {
+    background: var(--surface);
+    border-radius: 8px;
+    padding: 28px;
+    width: 340px;
+    box-shadow: 0 24px 64px rgba(0,0,0,0.18);
+  }
+
+  .modal h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+
+  .modal input, .modal select {
+    width: 100%;
+    padding: 10px 13px;
+    border: 1.5px solid var(--border);
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: inherit;
+    margin-bottom: 10px;
+    outline: none;
+    background: var(--bg);
+    transition: border-color 0.15s;
+  }
+  .modal input:focus, .modal select:focus { border-color: var(--ink); background: white; }
+
+  .modal-btns { display: flex; gap: 8px; margin-top: 4px; }
+
+  .btn-primary {
+    flex: 1; padding: 10px;
+    background: var(--ink); color: white;
+    border: none; border-radius: 4px;
+    font-size: 13px; font-weight: 700; cursor: pointer;
+  }
+  .btn-ghost {
+    padding: 10px 16px;
+    background: transparent;
+    border: 1.5px solid var(--border);
+    border-radius: 4px;
+    font-size: 13px; cursor: pointer;
+  }
+
+  /* TIPS */
+  .tips {
+    background: var(--gold-bg);
+    border: 1px solid #e2cc90;
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin-top: 32px;
+  }
+  .tips h4 { font-size: 11px; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+  .tips p  { font-size: 12px; color: #7a6010; line-height: 1.75; }
+  .tips code { background: rgba(0,0,0,0.07); padding: 1px 5px; border-radius: 3px; font-size: 11px; }
+
+  @media (max-width: 600px) {
+    .control-bar { padding: 12px 16px; }
+    .main { padding: 20px 14px 80px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <div class="masthead-date" id="today-str"></div>
+  <div class="masthead-title">브루스의 <em>Daily</em> Brief</div>
+  <div class="masthead-sub">마케팅 · F&amp;B · 뷰티 · 트렌드</div>
+</div>
+<div class="top-rule"></div>
+
+<!-- KEYWORD BAR -->
+<div class="control-bar">
+  <span class="bar-label">키워드</span>
+  <div class="chips-wrap" id="chips-wrap"></div>
+  <button class="add-chip-btn" onclick="openModal()">+ 추가</button>
+  <button class="fetch-btn" id="fetch-btn" onclick="fetchAll()">🔍 뉴스 가져오기</button>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="main">
+  <div id="status-area">
+    <div class="state-box">
+      <div class="state-icon">☕</div>
+      <div class="state-title">"뉴스 가져오기" 버튼을 눌러주세요</div>
+      <div class="state-sub">Google News에서 키워드별 최신 뉴스를 불러옵니다.</div>
+    </div>
+  </div>
+  <div id="results-area" style="display:none"></div>
+</div>
+
+<!-- ADD KEYWORD MODAL -->
+<div class="backdrop" id="modal-backdrop">
+  <div class="modal">
+    <h3>키워드 추가</h3>
+    <input type="text" id="kw-text" placeholder="예: 콘텐츠마케팅" maxlength="20">
+    <select id="kw-color">
+      <option value="green">초록 — 마케팅 계열</option>
+      <option value="red">빨강 — 트렌드 / 이슈</option>
+      <option value="blue">파랑 — F&B / 라이프</option>
+      <option value="gold">골드 — 뷰티 / 웰니스</option>
+    </select>
+    <div class="modal-btns">
+      <button class="btn-ghost" onclick="closeModal()">취소</button>
+      <button class="btn-primary" onclick="confirmAdd()">추가</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── 키워드 초기값 ──
+let keywords = [
+  { text: '마케팅',   color: 'green', on: true },
+  { text: '브랜딩',   color: 'green', on: true },
+  { text: 'F&B',      color: 'blue',  on: true },
+  { text: '뷰티',     color: 'gold',  on: true },
+  { text: 'MZ세대',   color: 'red',   on: true },
+  { text: '트렌드',   color: 'red',   on: false },
+  { text: '오설록',   color: 'blue',  on: false },
+];
+
+const badgeClass = { green: 'badge-green', red: 'badge-red', blue: 'badge-blue', gold: 'badge-gold' };
+
+// ── 날짜 ──
+const now = new Date();
+document.getElementById('today-str').textContent =
+  now.toLocaleDateString('ko-KR', { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' });
+
+// ── 칩 렌더 ──
+function renderChips() {
+  document.getElementById('chips-wrap').innerHTML = keywords.map((kw, i) => `
+    <span class="chip ${kw.on ? kw.color : 'off'}" onclick="toggleKw(${i})">
+      ${kw.text}
+      <span class="chip-x" onclick="deleteKw(event,${i})">✕</span>
+    </span>
+  `).join('');
+}
+
+function toggleKw(i)        { keywords[i].on = !keywords[i].on; renderChips(); }
+function deleteKw(e, i)     { e.stopPropagation(); keywords.splice(i, 1); renderChips(); }
+
+// ── 모달 ──
+function openModal()  { document.getElementById('modal-backdrop').classList.add('open'); document.getElementById('kw-text').focus(); }
+function closeModal() { document.getElementById('modal-backdrop').classList.remove('open'); }
+
+function confirmAdd() {
+  const val = document.getElementById('kw-text').value.trim();
+  const col = document.getElementById('kw-color').value;
+  if (!val) return;
+  keywords.push({ text: val, color: col, on: true });
+  renderChips();
+  document.getElementById('kw-text').value = '';
+  closeModal();
+}
+
+document.getElementById('kw-text').addEventListener('keydown', e => { if (e.key === 'Enter') confirmAdd(); });
+
+// ── Google News RSS via allorigins ──
+async function fetchGoogleNews(keyword) {
+  const googleUrl = `https://news.google.com/rss/search?q=${encodeURIComponent(keyword)}&hl=ko&gl=KR&ceid=KR:ko`;
+  const proxyUrl  = `https://api.allorigins.win/get?url=${encodeURIComponent(googleUrl)}`;
+
+  const res  = await fetch(proxyUrl);
+  const json = await res.json();
+  const xml  = new DOMParser().parseFromString(json.contents, 'text/xml');
+
+  return [...xml.querySelectorAll('item')].map(item => ({
+    title:   item.querySelector('title')?.textContent || '',
+    link:    item.querySelector('link')?.textContent  || '#',
+    source:  item.querySelector('source')?.textContent || 'Google News',
+    date:    item.querySelector('pubDate')?.textContent || '',
+    keyword: keyword,
+  }));
+}
+
+function timeAgo(dateStr) {
+  if (!dateStr) return '';
+  const diff = (Date.now() - new Date(dateStr)) / 1000;
+  if (diff < 3600)  return `${Math.floor(diff / 60)}분 전`;
+  if (diff < 86400) return `${Math.floor(diff / 3600)}시간 전`;
+  return `${Math.floor(diff / 86400)}일 전`;
+}
+
+// ── 결과 렌더 ──
+function renderResults(grouped) {
+  const totalCount = Object.values(grouped).reduce((s, a) => s + a.length, 0);
+  if (totalCount === 0) {
+    document.getElementById('results-area').innerHTML = `
+      <div class="state-box">
+        <div class="state-icon">🔍</div>
+        <div class="state-title">결과가 없어요</div>
+        <div class="state-sub">키워드를 바꿔보거나 다시 시도해주세요.</div>
+      </div>`;
+    return;
+  }
+
+  const kwList = Object.keys(grouped);
+  let html = `
+    <div class="sec-head" style="margin-bottom:0">
+      <span class="sec-title">Today's Signal</span>
+      <span class="sec-meta">총 ${totalCount}건</span>
+    </div>
+    <div class="news-list">
+  `;
+
+  kwList.forEach(kw => {
+    const items = grouped[kw];
+    if (!items.length) return;
+
+    const kwObj = keywords.find(k => k.text === kw) || { color: 'gray' };
+    html += `<div class="kw-group-head"># ${kw} · ${items.length}건</div>`;
+
+    items.forEach((item, idx) => {
+      const isTop = idx === 0;
+      html += `
+        <a class="news-item ${isTop ? 'top-story' : ''}" href="${item.link}" target="_blank" rel="noopener">
+          <div>
+            <span class="kw-badge ${badgeClass[kwObj.color] || 'badge-gray'}">${kw}</span>
+            <div class="news-title">${item.title}</div>
+            <div class="news-byline">
+              <span class="news-source">${item.source}</span>
+              <span>·</span>
+              <span>${timeAgo(item.date)}</span>
+            </div>
+          </div>
+          ${isTop ? '' : '<span class="arrow">›</span>'}
+        </a>`;
+    });
+  });
+
+  html += `</div>
+    <div class="tips">
+      <h4>💡 팁</h4>
+      <p>
+        이 파일을 바탕화면에 저장해두고 브라우저로 열면 언제든 사용 가능해요.<br>
+        키워드는 <code>+ 추가</code> 버튼으로 자유롭게 늘릴 수 있어요.<br>
+        간혹 allorigins 프록시가 느릴 수 있어요 — 그럴 땐 잠깐 기다렸다 다시 눌러보세요.
+      </p>
+    </div>`;
+
+  document.getElementById('results-area').innerHTML = html;
+}
+
+// ── 메인 실행 ──
+async function fetchAll() {
+  const activeKws = keywords.filter(k => k.on);
+  if (!activeKws.length) { alert('키워드를 하나 이상 켜주세요!'); return; }
+
+  const btn = document.getElementById('fetch-btn');
+  btn.disabled = true;
+  btn.textContent = '불러오는 중…';
+
+  document.getElementById('status-area').innerHTML = `
+    <div class="state-box">
+      <div class="state-icon">📡</div>
+      <div class="state-title">${activeKws.length}개 키워드 검색 중…</div>
+      <div class="progress-wrap">
+        <div class="progress-bar"><div class="progress-fill" id="prog-fill"></div></div>
+        <div class="progress-label" id="prog-label">잠시만요…</div>
+      </div>
+    </div>`;
+  document.getElementById('status-area').style.display = '';
+  document.getElementById('results-area').style.display = 'none';
+
+  const grouped = {};
+
+  for (let i = 0; i < activeKws.length; i++) {
+    const kw = activeKws[i];
+    document.getElementById('prog-label').textContent = `"${kw.text}" 검색 중…`;
+    document.getElementById('prog-fill').style.width = `${Math.round((i / activeKws.length) * 100)}%`;
+
+    try {
+      const items = await fetchGoogleNews(kw.text);
+      // 최신 5개만
+      grouped[kw.text] = items.slice(0, 5);
+    } catch (e) {
+      grouped[kw.text] = [];
+    }
+  }
+
+  document.getElementById('prog-fill').style.width = '100%';
+
+  setTimeout(() => {
+    document.getElementById('status-area').style.display = 'none';
+    document.getElementById('results-area').style.display = '';
+    renderResults(grouped);
+    btn.disabled = false;
+    btn.textContent = '🔍 뉴스 가져오기';
+  }, 300);
+}
+
+// ── 초기화 ──
+renderChips();
+</script>
+</body>
+</html>
