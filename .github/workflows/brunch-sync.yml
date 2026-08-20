@@ -4,6 +4,13 @@ name: 브런치 글 동기화
 # 카드뉴스는 자동으로 만들지 않습니다. 아래 '수동 실행'에서 글 번호를 넣었을 때만 만듭니다.
 
 on:
+  # [임시] 이 브랜치에 밀어 넣을 때 한 번 돌려 브런치 목록을 채우기 위한 트리거.
+  # 동기화가 끝나면 지웁니다.
+  push:
+    branches:
+      - claude/brunch-index-cardnews-automation-dy9eek
+    paths:
+      - '.github/workflows/brunch-sync.yml'
   schedule:
     # 매일 오전 9시, 오후 9시 (KST) — cron 은 UTC 기준입니다.
     - cron: '0 0,12 * * *'
