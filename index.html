@@ -899,6 +899,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .posts-more:hover { color: var(--accent-strong); }
 .posts-more::after { content: "→"; transition: transform 180ms ease; }
 .posts-more:hover::after { transform: translateX(4px); }
+.posts-links { display: flex; flex-wrap: wrap; align-items: center; gap: 24px; }
 
 /* ============================================================
    MEDIA CARDS
@@ -1559,6 +1560,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
       </p>
     </div>
 
+    <!-- brunch:posts:start (scripts/sync.js 가 자동으로 갱신합니다. 이 주석 사이는 직접 수정하지 마세요.) -->
     <div class="posts reveal">
       <a class="post" href="https://brunch.co.kr/@heoboram/211" target="_blank" rel="noopener">
         <div class="post__date">2026.08</div>
@@ -1621,8 +1623,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
         <div class="post__arrow">→</div>
       </a>
     </div>
+    <!-- brunch:posts:end -->
 
-    <a href="https://brunch.co.kr/@heoboram" target="_blank" rel="noopener" class="posts-more">브런치에서 전체 글 보기</a>
+    <div class="posts-links">
+      <a href="https://brunch.co.kr/@heoboram" target="_blank" rel="noopener" class="posts-more">브런치에서 전체 글 보기</a>
+      <a href="cardnews/" class="posts-more">카드뉴스 아카이브</a>
+    </div>
   </div>
 </section>
 
