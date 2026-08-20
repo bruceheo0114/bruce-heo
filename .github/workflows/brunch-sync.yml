@@ -49,11 +49,6 @@ jobs:
         if: inputs.cardnews_post_id != ''
         run: npx playwright install --with-deps chromium
 
-      # [임시] 브런치가 어떤 주소로 응답하는지 확인하기 위한 진단 단계.
-      - name: 브런치 응답 진단
-        continue-on-error: true
-        run: node scripts/diagnose-brunch.mjs
-
       - name: 브런치 동기화
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}

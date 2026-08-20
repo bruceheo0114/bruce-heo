@@ -147,8 +147,50 @@ function toPost({ id, title, url, publishedAt, summary }) {
   };
 }
 
+/**
+ * 프로필 페이지 head 에 실린 RSS 주소를 찾아냅니다.
+ * 브런치 RSS 는 아이디가 아니라 블로그 코드를 씁니다 (@heoboram -> /rss/@@2fCF).
+ */
+async function discoverRssUrl() {
+  try {
+    const html = await get(BRUNCH_PROFILE_URL);
+    const m =
+      html.match(/<link[^>]+type=["']application\/rss\+xml["'][^>]*href=["']([^"']+)["']/i) ||
+      html.match(/<link[^>]+href=["']([^"']+)["'][^>]*type=["']application\/rss\+xml["']/i);
+    if (m) {
+      const url = new URL(decodeEntities(m[1]), BRUNCH_ORIGIN).toString();
+      console.log(`  프로필에서 RSS 주소를 찾았습니다: ${url}`);
+      return url;
+    }
+    console.warn('  프로필 페이지에 RSS 링크가 없습니다.');
+  } catch (err) {
+    console.warn(`  프로필 페이지를 읽지 못했습니다: ${err.message}`);
+  }
+  return '';
+}
+
+function parseRss(xml) {
+  const items = xml.match(/<item\b[\s\S]*?<\/item>/gi) || [];
+  return items
+    .map((item) => {
+      const link = tagValue(item, 'link') || tagValue(item, 'guid');
+      const id = postIdFromUrl(link);
+      if (!id) return null;
+      const body = tagValue(item, 'content:encoded') || tagValue(item, 'description');
+      return toPost({
+        id,
+        title: tagValue(item, 'title'),
+        url: link,
+        publishedAt: tagValue(item, 'pubDate'),
+        summary: stripTags(body).slice(0, 400),
+      });
+    })
+    .filter((p) => p && p.title);
+}
+
 async function fromRss() {
-  for (const url of RSS_CANDIDATES) {
+  const discovered = await discoverRssUrl();
+  for (const url of [discovered, ...RSS_CANDIDATES].filter(Boolean)) {
     let xml;
     try {
       xml = await get(url);
@@ -156,23 +198,7 @@ async function fromRss() {
       console.warn(`  RSS 실패 (${url}): ${err.message}`);
       continue;
     }
-    const items = xml.match(/<item\b[\s\S]*?<\/item>/gi) || [];
-    const posts = items
-      .map((item) => {
-        const link = tagValue(item, 'link') || tagValue(item, 'guid');
-        const id = postIdFromUrl(link);
-        if (!id) return null;
-        const body =
-          tagValue(item, 'content:encoded') || tagValue(item, 'description');
-        return toPost({
-          id,
-          title: tagValue(item, 'title'),
-          url: link,
-          publishedAt: tagValue(item, 'pubDate'),
-          summary: stripTags(body).slice(0, 400),
-        });
-      })
-      .filter((p) => p && p.title);
+    const posts = parseRss(xml);
     if (posts.length) {
       console.log(`  RSS ${posts.length}편 확인 (${url})`);
       return posts;
@@ -182,53 +208,60 @@ async function fromRss() {
   return [];
 }
 
-async function fromProfileScrape(limit) {
-  const html = await get(BRUNCH_PROFILE_URL);
-  const ids = [];
-  const re = new RegExp(`/@+${BRUNCH_ID}/(\\d+)`, 'gi');
-  let m;
-  while ((m = re.exec(html)) !== null) {
-    if (!ids.includes(m[1])) ids.push(m[1]);
-  }
-  // 프로필 페이지는 최신 글이 위에 오지만 확실하지 않아 번호 내림차순으로 다시 정렬합니다.
-  ids.sort((a, b) => Number(b) - Number(a));
-  const picked = ids.slice(0, limit);
-  console.log(`  프로필 페이지에서 글 번호 ${picked.length}개 수집`);
+/**
+ * RSS 가 안 될 때 쓰는 대비책.
+ * 프로필 페이지는 글 목록을 자바스크립트로 그려서 HTML 만으로는 목록을 알 수 없습니다.
+ * 그래서 최근 글 번호부터 하나씩 내려가며 글 페이지의 og 메타를 읽습니다.
+ */
+const PROBE_MAX_SCAN = 80; // 훑어볼 글 번호의 최대 개수
+const PROBE_MAX_MISSES = 15; // 글을 찾은 뒤 연속으로 비어 있어도 되는 횟수
 
+async function fromArticleProbe(limit, startId) {
+  console.log(`  글 번호 ${startId}번부터 내려가며 확인합니다.`);
   const posts = [];
-  for (const id of picked) {
+  let misses = 0;
+  let scanned = 0;
+  for (let id = startId; id > 0 && posts.length < limit && scanned < PROBE_MAX_SCAN; id -= 1) {
+    scanned += 1;
     try {
       const page = await get(normalizeUrl(id));
-      const title = metaValue(page, 'og:title') || metaValue(page, 'title');
-      if (!title) continue;
+      const title = metaValue(page, 'og:title');
+      if (!title) {
+        // 아직 첫 글을 못 찾았다면 시작점이 높았던 것뿐이라 미스로 치지 않습니다.
+        if (posts.length && (misses += 1) >= PROBE_MAX_MISSES) break;
+        continue;
+      }
+      misses = 0;
       posts.push(
         toPost({
-          id,
+          id: String(id),
           title,
           url: metaValue(page, 'og:url') || normalizeUrl(id),
           publishedAt:
-            metaValue(page, 'article:published_time') ||
-            metaValue(page, 'og:regDate'),
+            metaValue(page, 'article:published_time') || metaValue(page, 'og:regDate'),
           summary: metaValue(page, 'og:description'),
         })
       );
-    } catch (err) {
-      console.warn(`  글 ${id} 메타 읽기 실패: ${err.message}`);
+    } catch {
+      if (posts.length && (misses += 1) >= PROBE_MAX_MISSES) break;
     }
   }
+  console.log(`  글 페이지에서 ${posts.length}편 확인`);
   return posts;
 }
 
 /**
  * 최신 글 목록을 최신순으로 돌려줍니다.
  * @param {number} limit 가져올 최대 글 수
+ * @param {object} [options]
+ * @param {number} [options.probeFrom] RSS 가 실패했을 때 확인을 시작할 글 번호
  */
-export async function fetchPosts(limit = 20) {
+export async function fetchPosts(limit = 20, { probeFrom = 0 } = {}) {
   console.log(`브런치(@${BRUNCH_ID}) 글 목록을 가져옵니다.`);
   let posts = await fromRss();
-  if (!posts.length) {
-    console.log('  RSS 로 못 가져와 프로필 페이지를 훑습니다.');
-    posts = await fromProfileScrape(limit);
+  if (!posts.length && probeFrom > 0) {
+    console.log('  RSS 로 못 가져와 글 페이지를 직접 확인합니다.');
+    posts = await fromArticleProbe(limit, probeFrom);
   }
   if (!posts.length) throw new Error('브런치에서 글을 하나도 가져오지 못했습니다.');
 

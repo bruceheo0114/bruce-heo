@@ -31,7 +31,11 @@ function parseArgs(argv) {
 async function main() {
   const args = parseArgs(process.argv.slice(2));
   const store = readStore();
-  const fetched = await fetchPosts(Math.max(INDEX_POST_LIMIT, 20));
+  // RSS 가 막혔을 때는 이미 아는 가장 큰 글 번호 언저리부터 훑습니다.
+  const highestKnown = store.posts.reduce((max, p) => Math.max(max, Number(p.id) || 0), 0);
+  const fetched = await fetchPosts(Math.max(INDEX_POST_LIMIT, 20), {
+    probeFrom: highestKnown ? highestKnown + 15 : 0,
+  });
   console.log(`가져온 글 ${fetched.length}편 (최신: ${fetched[0].title})`);
 
   const newPosts = findNewPosts(fetched, store);
