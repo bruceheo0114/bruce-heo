@@ -74,12 +74,23 @@ function normalizeUrl(id) {
   return `${BRUNCH_ORIGIN}/@${BRUNCH_ID}/${id}`;
 }
 
+/**
+ * 브런치북에 묶인 글은 제목 앞에 화수가 붙습니다 ("12화 하인즈는 …").
+ * 사이트 글 목록은 화수 없이 제목만 쓰므로 떼어냅니다.
+ */
+export function cleanTitle(title) {
+  return String(title || '')
+    .replace(/\s*\|\s*브런치.*$/, '')
+    .replace(/^\s*\d+\s*화\s+/, '')
+    .trim();
+}
+
 function toPost({ id, title, url, publishedAt, summary }) {
   const date = publishedAt ? new Date(publishedAt) : null;
   const valid = date && !Number.isNaN(date.getTime());
   return {
     id,
-    title: (title || '').trim(),
+    title: cleanTitle(title),
     url: url || normalizeUrl(id),
     publishedAt: valid ? date.toISOString() : '',
     // index.html 의 post__date 표기 (2026.08)
@@ -147,7 +158,7 @@ async function fromProfileScrape(limit) {
       posts.push(
         toPost({
           id,
-          title: title.replace(/\s*\|\s*브런치.*$/, '').trim(),
+          title,
           url: metaValue(page, 'og:url') || normalizeUrl(id),
           publishedAt:
             metaValue(page, 'article:published_time') ||
