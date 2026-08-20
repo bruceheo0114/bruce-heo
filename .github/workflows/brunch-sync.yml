@@ -11,6 +11,7 @@ on:
       - claude/brunch-index-cardnews-automation-dy9eek
     paths:
       - '.github/workflows/brunch-sync.yml'
+      - 'scripts/**'
   schedule:
     # 매일 오전 9시, 오후 9시 (KST) — cron 은 UTC 기준입니다.
     - cron: '0 0,12 * * *'
