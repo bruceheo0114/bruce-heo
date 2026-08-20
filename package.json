@@ -5,8 +5,8 @@
   "description": "브루스 허 아카이브 사이트 + 브런치 연동 자동화",
   "scripts": {
     "sync": "node scripts/sync.js",
-    "sync:index-only": "node scripts/sync.js --skip-cardnews",
-    "sync:dry": "node scripts/sync.js --dry-run"
+    "sync:dry": "node scripts/sync.js --dry-run",
+    "cardnews": "node scripts/make-cardnews.js"
   },
   "devDependencies": {
     "@anthropic-ai/sdk": "^0.71.0",

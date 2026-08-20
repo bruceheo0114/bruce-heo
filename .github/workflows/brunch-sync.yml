@@ -1,4 +1,7 @@
-name: 브런치 글 동기화 · 카드뉴스 생성
+name: 브런치 글 동기화
+
+# 새 글이 올라오면 index.html 의 글 목록을 갱신합니다.
+# 카드뉴스는 자동으로 만들지 않습니다. 아래 '수동 실행'에서 글 번호를 넣었을 때만 만듭니다.
 
 on:
   schedule:
@@ -6,15 +9,10 @@ on:
     - cron: '0 0,12 * * *'
   workflow_dispatch:
     inputs:
-      force_post_id:
-        description: '카드뉴스를 다시 만들 글 번호 (예: 211). 비워두면 새 글만 처리합니다.'
+      cardnews_post_id:
+        description: '카드뉴스를 만들 글 번호 (예: 211). 비워두면 글 목록만 갱신합니다.'
         required: false
         type: string
-      skip_cardnews:
-        description: '글 목록만 갱신하고 카드뉴스는 건너뜁니다.'
-        required: false
-        type: boolean
-        default: false
 
 concurrency:
   group: brunch-sync
@@ -38,22 +36,22 @@ jobs:
       - name: 의존성 설치
         run: npm ci
 
+      # 카드뉴스를 만들 때만 브라우저를 받습니다. 평소 실행은 그냥 넘어갑니다.
       - name: Chromium 설치
+        if: inputs.cardnews_post_id != ''
         run: npx playwright install --with-deps chromium
 
       - name: 브런치 동기화
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           BRUNCH_ID: ${{ vars.BRUNCH_ID || 'heoboram' }}
+          CARDNEWS_POST_ID: ${{ inputs.cardnews_post_id }}
         run: |
-          ARGS=""
-          if [ -n "${{ inputs.force_post_id }}" ]; then
-            ARGS="$ARGS --force ${{ inputs.force_post_id }}"
+          if [ -n "$CARDNEWS_POST_ID" ]; then
+            node scripts/sync.js --force "$CARDNEWS_POST_ID"
+          else
+            node scripts/sync.js
           fi
-          if [ "${{ inputs.skip_cardnews }}" = "true" ]; then
-            ARGS="$ARGS --skip-cardnews"
-          fi
-          node scripts/sync.js $ARGS
 
       - name: 변경 사항 커밋
         run: |
