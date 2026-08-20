@@ -127,7 +127,10 @@ function normalizeUrl(id) {
 export function cleanTitle(title) {
   return String(title || '')
     .replace(/\s*\|\s*브런치.*$/, '')
+    // 브런치북 글은 제목 앞에 화수가 붙습니다 ("12화 하인즈는 …").
     .replace(/^\s*\d+\s*화\s+/, '')
+    // RSS 제목은 "제목 - 부제" 형태로 옵니다. 사이트 목록은 제목만 씁니다.
+    .split(/\s+[-–—]\s+/)[0]
     .trim();
 }
 
@@ -137,7 +140,8 @@ function toPost({ id, title, url, publishedAt, summary }) {
   return {
     id,
     title: cleanTitle(title),
-    url: url || normalizeUrl(id),
+    // RSS 는 링크를 @@블로그코드 형태로 주지만 사이트는 @아이디 표기를 씁니다.
+    url: normalizeUrl(id),
     publishedAt: valid ? date.toISOString() : '',
     // index.html 의 post__date 표기 (2026.08)
     label: valid
