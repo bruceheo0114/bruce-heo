@@ -10,15 +10,61 @@ import {
 } from './config.js';
 
 const FETCH_TIMEOUT_MS = 20000;
+const MAX_REDIRECTS = 10;
 
-async function get(url) {
-  const res = await fetch(url, {
-    headers: { 'user-agent': USER_AGENT, accept: '*/*' },
-    signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
-    redirect: 'follow',
-  });
-  if (!res.ok) throw new Error(`${res.status} ${res.statusText} — ${url}`);
-  return res.text();
+function browserHeaders(cookies) {
+  const headers = {
+    'user-agent': USER_AGENT,
+    accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+    'accept-language': 'ko-KR,ko;q=0.9,en;q=0.8',
+  };
+  if (cookies.size) {
+    headers.cookie = [...cookies].map(([k, v]) => `${k}=${v}`).join('; ');
+  }
+  return headers;
+}
+
+/**
+ * 브런치는 쿠키를 심어 놓고 리다이렉트로 돌려보냅니다.
+ * fetch 의 자동 리다이렉트는 쿠키를 들고 가지 않아 같은 자리를 맴돌다
+ * 'redirect count exceeded' 로 끝납니다. 그래서 직접 따라가면서
+ * 받은 쿠키를 다음 요청에 실어 보냅니다.
+ */
+export async function get(url) {
+  const cookies = new Map();
+  const visited = [];
+  let current = url;
+
+  for (let hop = 0; hop < MAX_REDIRECTS; hop += 1) {
+    visited.push(current);
+    const res = await fetch(current, {
+      headers: browserHeaders(cookies),
+      signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
+      redirect: 'manual',
+    });
+
+    for (const raw of res.headers.getSetCookie?.() ?? []) {
+      const pair = raw.split(';')[0];
+      const eq = pair.indexOf('=');
+      if (eq > 0) cookies.set(pair.slice(0, eq).trim(), pair.slice(eq + 1).trim());
+    }
+
+    if (res.status >= 300 && res.status < 400) {
+      const location = res.headers.get('location');
+      if (!location) throw new Error(`${res.status} 인데 location 이 없습니다 — ${current}`);
+      const next = new URL(location, current).toString();
+      // 쿠키를 실었는데도 같은 자리를 세 번 이상 맴돌면 포기합니다.
+      if (visited.filter((v) => v === next).length >= 2) {
+        throw new Error(`리다이렉트가 반복됩니다 — ${next}`);
+      }
+      current = next;
+      continue;
+    }
+
+    if (!res.ok) throw new Error(`${res.status} ${res.statusText} — ${current}`);
+    return res.text();
+  }
+  throw new Error(`리다이렉트가 ${MAX_REDIRECTS}번을 넘었습니다 — ${url}`);
 }
 
 function decodeEntities(str) {
