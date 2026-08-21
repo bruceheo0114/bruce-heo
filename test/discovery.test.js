@@ -45,6 +45,7 @@ test("새 글 여러 편을 오래된 순으로 하루 한 편씩 예약한다",
   assert.equal(state.articles["3"].scheduledAt, "2026-08-22T09:30:00.000Z");
   assert.equal(state.articles["2"].batchId, "batch-2");
   assert.equal(state.articles["2"].package.status, "awaiting_review");
+  assert.equal(state.articles["2"].instagram.status, "manual_pending");
 });
 
 test("새 글이 없으면 새 게시 패키지를 만들지 않는다", () => {

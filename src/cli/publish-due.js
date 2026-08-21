@@ -3,7 +3,6 @@ import { PATHS } from "../config.js";
 import { readJson, writeJson } from "../lib/files.js";
 import { selectDueArticle } from "../lib/queue.js";
 import { loadState, saveState } from "../lib/state.js";
-import { publishInstagram } from "../publish/instagram.js";
 import { publishLinkedIn } from "../publish/linkedin.js";
 
 const now = new Date(process.env.AUTOMATION_NOW ?? Date.now());
@@ -15,6 +14,9 @@ for (const tracked of Object.values(state.articles)) {
     await access(tracked.package.manifestPath);
     tracked.package.status = "generated";
     tracked.package.generatedAt ??= now.toISOString();
+    if (tracked.instagram.status === "manual_pending") {
+      tracked.instagram.status = "manual_source_ready";
+    }
     promotedPackage = true;
   } catch (error) {
     if (error.code !== "ENOENT") throw error;
@@ -39,7 +41,7 @@ if (process.env.SOCIAL_DRY_RUN === "true") {
       dryRun: true,
       articleId: article.id,
       linkedinPending: article.linkedin.status !== "published",
-      instagramPending: article.instagram.status !== "published",
+      instagramSourceStatus: article.instagram.status,
       cardCount: manifest.cards.length,
     }),
   );
@@ -106,35 +108,7 @@ if (article.linkedin.status !== "published") {
   }
 }
 
-if (article.instagram.status !== "published") {
-  try {
-    const result = await publishInstagram(manifest);
-    manifest.publishing.instagram = {
-      ...manifest.publishing.instagram,
-      ...result,
-      error: null,
-    };
-    article.instagram = {
-      ...article.instagram,
-      ...result,
-      id: result.mediaId,
-      lastAttemptAt: now.toISOString(),
-      error: null,
-    };
-  } catch (error) {
-    article.instagram.status = "failed";
-    article.instagram.lastAttemptAt = now.toISOString();
-    article.instagram.error = error.message;
-    manifest.publishing.instagram.status = "failed";
-    manifest.publishing.instagram.error = error.message;
-    errors.push(`Instagram: ${error.message}`);
-  }
-}
-
-if (
-  article.linkedin.status === "published" &&
-  article.instagram.status === "published"
-) {
+if (article.linkedin.status === "published") {
   article.completedAt = now.toISOString();
   manifest.schedule.publishedAt = now.toISOString();
   if (!article.approvalCounted) {
@@ -148,7 +122,7 @@ await writeJson(PATHS.result, {
   checkedAt: now.toISOString(),
   publishedArticleId: article.id,
   linkedinStatus: article.linkedin.status,
-  instagramStatus: article.instagram.status,
+  instagramSourceStatus: article.instagram.status,
   reviewSuccessCount: state.reviewSuccessCount,
   mode: state.mode,
   errors,
@@ -158,7 +132,7 @@ console.log(
   JSON.stringify({
     articleId: article.id,
     linkedinStatus: article.linkedin.status,
-    instagramStatus: article.instagram.status,
+    instagramSourceStatus: article.instagram.status,
     reviewSuccessCount: state.reviewSuccessCount,
     mode: state.mode,
   }),

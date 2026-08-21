@@ -10,8 +10,6 @@ export const CONFIG = Object.freeze({
   reviewThreshold: 3,
   firstPublishHourKst: 18,
   firstPublishMinuteKst: 30,
-  publicSiteUrl:
-    process.env.PUBLIC_SITE_URL ?? "https://bruceheo0114.github.io/bruce-heo",
   openaiModel: process.env.OPENAI_MODEL ?? "gpt-5.6-terra",
   fetchHeaders: {
     "user-agent":

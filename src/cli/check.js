@@ -92,6 +92,13 @@ for (const article of Object.values(state.articles)) {
   ) {
     fail(`${article.id} Instagram 캡션 필수 요소가 없습니다.`);
   }
+  const captionPath = path.join(
+    path.dirname(article.package.manifestPath),
+    "instagram-caption.txt",
+  );
+  if ((await readFile(captionPath, "utf8")).trim() !== manifest.instagram.caption.trim()) {
+    fail(`${article.id} Instagram 수동 업로드 캡션 파일이 manifest와 다릅니다.`);
+  }
   await access(path.join(path.dirname(article.package.manifestPath), "preview.html"));
   for (const card of manifest.cards) {
     const cardPath = path.join(path.dirname(article.package.manifestPath), card.file);

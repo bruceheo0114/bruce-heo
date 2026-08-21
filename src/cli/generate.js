@@ -3,7 +3,7 @@ import { PATHS } from "../config.js";
 import { fetchArticle } from "../lib/brunch.js";
 import { renderCards } from "../lib/card-renderer.js";
 import { buildManifest, generateContent } from "../lib/content-generator.js";
-import { readJson, writeJson } from "../lib/files.js";
+import { readJson, writeFileAtomic, writeJson } from "../lib/files.js";
 import { loadState } from "../lib/state.js";
 
 function argument(name) {
@@ -40,6 +40,10 @@ for (const queuedArticle of queued) {
   await renderCards(manifest, outputDir);
   const manifestPath = path.join(outputDir, "manifest.json");
   await writeJson(manifestPath, manifest);
+  await writeFileAtomic(
+    path.join(outputDir, "instagram-caption.txt"),
+    `${manifest.instagram.caption}\n`,
+  );
 
   generatedArticleIds.push(article.id);
 }

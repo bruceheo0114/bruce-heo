@@ -1,4 +1,4 @@
-name: Publish due social content
+name: Publish due LinkedIn content
 
 on:
   schedule:
@@ -27,15 +27,9 @@ jobs:
     env:
       GH_TOKEN: ${{ github.token }}
       OPENAI_MODEL: gpt-5.6-terra
-      PUBLIC_SITE_URL: ${{ vars.PUBLIC_SITE_URL || 'https://bruceheo0114.github.io/bruce-heo' }}
       LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
       LINKEDIN_PERSON_URN: ${{ secrets.LINKEDIN_PERSON_URN }}
       LINKEDIN_API_VERSION: ${{ vars.LINKEDIN_API_VERSION || '202605' }}
-      IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
-      IG_USER_ID: ${{ secrets.IG_USER_ID }}
-      META_GRAPH_VERSION: ${{ vars.META_GRAPH_VERSION || 'v25.0' }}
-      IG_COLLABORATOR_USERNAME: ${{ vars.IG_COLLABORATOR_USERNAME || 'heo.boram' }}
-      IG_TAG_USERNAME: ${{ vars.IG_TAG_USERNAME || 'heo.boram' }}
       SOCIAL_DRY_RUN: ${{ inputs.dry_run || 'false' }}
     steps:
       - name: Check out main
@@ -55,7 +49,7 @@ jobs:
           pnpm test
           pnpm check
 
-      - name: Publish at most one due package
+      - name: Publish at most one due LinkedIn package
         id: publish
         continue-on-error: true
         run: pnpm publish:due
@@ -79,8 +73,8 @@ jobs:
       - name: Report publishing failure
         if: steps.publish.outcome == 'failure'
         run: |
-          title="[자동화] SNS 게시 실패"
-          body=$(printf '실행: https://github.com/%s/actions/runs/%s\n\n성공한 채널 ID는 저장했으며 실패한 채널만 다음 슬롯에 재시도합니다. 토큰 만료, 앱 권한, 공개 이미지 URL을 확인해 주세요.' "$GITHUB_REPOSITORY" "$GITHUB_RUN_ID")
+          title="[자동화] LinkedIn 게시 실패"
+          body=$(printf '실행: https://github.com/%s/actions/runs/%s\n\n게시물 ID가 생성된 경우 먼저 저장했으며 실패한 단계만 다음 슬롯에 재시도합니다. 토큰 만료와 개인 회원 게시·댓글 권한을 확인해 주세요.' "$GITHUB_REPOSITORY" "$GITHUB_RUN_ID")
           issue=$(gh issue list --state open --search "$title in:title" --json number --jq '.[0].number // empty')
           if [ -n "$issue" ]; then
             gh issue comment "$issue" --body "$body"

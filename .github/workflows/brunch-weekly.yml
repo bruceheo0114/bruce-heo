@@ -1,9 +1,9 @@
-name: Brunch weekly content
+name: Brunch daily content
 
 on:
   schedule:
-    # Friday 18:00 Asia/Seoul (GitHub cron uses UTC)
-    - cron: "0 9 * * 5"
+    # Every day 08:00 Asia/Seoul (GitHub cron uses UTC)
+    - cron: "0 23 * * *"
   workflow_dispatch:
 
 concurrency:
@@ -21,7 +21,6 @@ jobs:
     timeout-minutes: 45
     env:
       OPENAI_MODEL: gpt-5.6-terra
-      PUBLIC_SITE_URL: ${{ vars.PUBLIC_SITE_URL || 'https://bruceheo0114.github.io/bruce-heo' }}
       GH_TOKEN: ${{ github.token }}
     steps:
       - name: Check out main
@@ -47,7 +46,7 @@ jobs:
         env:
           GITHUB_RUN_ID: ${{ github.run_id }}
         run: |
-          pnpm weekly:discover
+          pnpm daily:discover
           node -e "const fs=require('fs');const r=JSON.parse(fs.readFileSync('.automation-result.json'));const out=process.env.GITHUB_OUTPUT;fs.appendFileSync(out,'has_package='+(r.packageArticleIds.length?'true':'false')+'\n');fs.appendFileSync(out,'batch_id='+(r.batchId||'')+'\n');fs.appendFileSync(out,'mode='+r.mode+'\n');fs.appendFileSync(out,'article_ids='+r.packageArticleIds.join(' ')+'\n')"
 
       - name: Publish homepage update immediately
@@ -94,7 +93,7 @@ jobs:
         if: steps.discover.outputs.has_package == 'true' && steps.package.outputs.should_build == 'true'
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        run: pnpm weekly:generate -- --batch "${{ steps.discover.outputs.batch_id }}"
+        run: pnpm daily:generate -- --batch "${{ steps.discover.outputs.batch_id }}"
 
       - name: Validate generated package
         if: steps.discover.outputs.has_package == 'true' && steps.package.outputs.should_build == 'true'
@@ -139,7 +138,7 @@ jobs:
       - name: Report failure as GitHub issue
         if: failure()
         run: |
-          title="[자동화] 브런치 주간 작업 실패"
+          title="[자동화] 브런치 일일 작업 실패"
           body=$(printf '실행: https://github.com/%s/actions/runs/%s\n\n브런치 구조 변경, API 키, 렌더링 또는 권한을 확인해 주세요. 자동 SNS 게시는 중단되었고 대기열은 보존됩니다.' "$GITHUB_REPOSITORY" "$GITHUB_RUN_ID")
           issue=$(gh issue list --state open --search "$title in:title" --json number --jq '.[0].number // empty')
           if [ -n "$issue" ]; then

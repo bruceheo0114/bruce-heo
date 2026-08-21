@@ -3,15 +3,15 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Weekly Brunch-to-homepage, LinkedIn and Instagram automation",
+  "description": "Daily Brunch-to-homepage, LinkedIn and Instagram source automation",
   "engines": {
     "node": ">=20"
   },
   "scripts": {
     "test": "node --test --test-reporter spec",
     "check": "node src/cli/check.js",
-    "weekly:discover": "node src/cli/discover.js",
-    "weekly:generate": "node src/cli/generate.js",
+    "daily:discover": "node src/cli/discover.js",
+    "daily:generate": "node src/cli/generate.js",
     "publish:due": "node src/cli/publish-due.js",
     "pr:summary": "node src/cli/pr-summary.js"
   },

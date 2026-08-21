@@ -53,7 +53,7 @@ export function applyDiscovery(state, latest, now, batchId) {
           generatedAt: null,
         },
         linkedin: channelState(),
-        instagram: channelState(),
+        instagram: channelState("manual_pending"),
         scheduledAt: nextKstSlot(now, index),
         completedAt: null,
       };

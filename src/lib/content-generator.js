@@ -109,7 +109,11 @@ export function buildManifest(article, generated, scheduledAt) {
     },
     publishing: {
       linkedin: { status: "pending", postId: null, commentId: null, error: null },
-      instagram: { status: "pending", mediaId: null, error: null },
+      instagram: {
+        status: "manual_source_ready",
+        mediaId: null,
+        error: null,
+      },
     },
     generatedAt,
     generator: {

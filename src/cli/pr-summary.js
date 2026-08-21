@@ -25,7 +25,7 @@ for (const id of ids) {
   sections.push(`## ${manifest.article.title}
 
 - 원문: ${manifest.article.canonicalUrl}
-- 예정 슬롯: ${manifest.schedule.scheduledAt} (승인이 늦으면 다음 18:30 슬롯)
+- LinkedIn 예정 슬롯: ${manifest.schedule.scheduledAt} (승인이 늦으면 다음 18:30 슬롯)
 - 카드: ${manifest.cards.length}장
 
 ### 카드 전체 미리보기
@@ -42,9 +42,11 @@ ${manifest.linkedin.firstComment}
 
 </details>
 
-<details><summary>Instagram 캡션</summary>
+<details><summary>Instagram 수동 업로드 소스</summary>
 
 ${manifest.instagram.caption}
+
+**사용 방법**: 위 카드 이미지를 01번부터 순서대로 내려받고, **instagram-caption.txt**의 문안을 복사해 직접 게시합니다. Instagram API 호출은 하지 않습니다.
 
 </details>`);
 }
