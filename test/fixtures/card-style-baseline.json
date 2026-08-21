@@ -1,0 +1,12 @@
+{
+  "width": 1080,
+  "height": 1080,
+  "format": "jpeg",
+  "background": "#F2F1ED",
+  "accent": "#65B98A",
+  "coverImageStartPercent": 45,
+  "coverPanelPercent": 58,
+  "bodyImagePercent": 52,
+  "bodyPanelPercent": 48,
+  "logoDiameter": 82
+}

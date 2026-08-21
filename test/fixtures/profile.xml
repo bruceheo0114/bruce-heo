@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"><channel>
+  <item><title>새 글 - 부제</title><link>https://brunch.co.kr/@@2fCF/212</link><description>설명&lt;img src="https://example.com/212.jpg" /&gt;</description><pubDate>Mon, 17 Aug 2026 21:00:02 GMT</pubDate></item>
+  <item><title>두 번째 글</title><link>https://brunch.co.kr/@heoboram/211</link><description>설명</description><pubDate>Mon, 10 Aug 2026 21:00:09 GMT</pubDate></item>
+  <item><title>중복</title><link>https://brunch.co.kr/@@2fCF/212</link><description>중복</description><pubDate>Mon, 17 Aug 2026 21:00:02 GMT</pubDate></item>
+</channel></rss>

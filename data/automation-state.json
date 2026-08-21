@@ -1,0 +1,610 @@
+{
+  "version": 1,
+  "initialized": true,
+  "lastCheckedAt": "2026-08-21T02:15:49.509Z",
+  "lastCheckedCanonicalUrl": "https://brunch.co.kr/@heoboram/212",
+  "reviewSuccessCount": 0,
+  "mode": "review",
+  "articles": {
+    "193": {
+      "id": "193",
+      "canonicalUrl": "https://brunch.co.kr/@heoboram/193",
+      "title": "브랜드가 기억되는 건 순간이 아니라 반복이다",
+      "publishedAt": "2026-03-04T12:55:27.000Z",
+      "bodyHash": "d14a7d3bf870b764ca5e39562495d6dfd37754a7902abcb694c2c4ce591d4e8d",
+      "batchId": "bootstrap",
+      "homepage": {
+        "status": "published",
+        "updatedAt": "2026-08-21T02:03:45.911Z"
+      },
+      "package": {
+        "status": "skipped_backfill",
+        "manifestPath": null
+      },
+      "linkedin": {
+        "status": "skipped_backfill",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "instagram": {
+        "status": "skipped_backfill",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "scheduledAt": null,
+      "completedAt": null
+    },
+    "194": {
+      "id": "194",
+      "canonicalUrl": "https://brunch.co.kr/@heoboram/194",
+      "title": "김선태를 만든 건 퇴사가 아니라 회사였다",
+      "publishedAt": "2026-03-11T13:07:52.000Z",
+      "bodyHash": "4a4f2e97bdb601dceee7f659ac38df161bb876ce26e501688877d7744d7f263e",
+      "batchId": "bootstrap",
+      "homepage": {
+        "status": "published",
+        "updatedAt": "2026-08-21T02:03:45.911Z"
+      },
+      "package": {
+        "status": "skipped_backfill",
+        "manifestPath": null
+      },
+      "linkedin": {
+        "status": "skipped_backfill",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "instagram": {
+        "status": "skipped_backfill",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "scheduledAt": null,
+      "completedAt": null
+    },
+    "195": {
+      "id": "195",
+      "canonicalUrl": "https://brunch.co.kr/@heoboram/195",
+      "title": "파격을 만드는 건 아이디어가 아니라 설득이다",
+      "publishedAt": "2026-03-17T12:50:03.000Z",
+      "bodyHash": "44d62745dfe17145b2b409c446950505b7d3906b2dfcad6b7c2d8e7d3d236a17",
+      "batchId": "bootstrap",
+      "homepage": {
+        "status": "published",
+        "updatedAt": "2026-08-21T02:03:45.911Z"
+      },
+      "package": {
+        "status": "skipped_backfill",
+        "manifestPath": null
+      },
+      "linkedin": {
+        "status": "skipped_backfill",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "instagram": {
+        "status": "skipped_backfill",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "scheduledAt": null,
+      "completedAt": null
+    },
+    "196": {
+      "id": "196",
+      "canonicalUrl": "https://brunch.co.kr/@heoboram/196",
+      "title": "10년 경험을 AI에게 인수인계할 수 있나요?",
+      "publishedAt": "2026-03-25T13:00:19.000Z",
+      "bodyHash": "3e01b4116ab51c2c3346ebe852e6c56fc6992c66995a10971517284531a6427c",
+      "batchId": "bootstrap",
+      "homepage": {
+        "status": "published",
+        "updatedAt": "2026-08-21T02:03:45.911Z"
+      },
+      "package": {
+        "status": "skipped_backfill",
+        "manifestPath": null
+      },
+      "linkedin": {
+        "status": "skipped_backfill",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "instagram": {
+        "status": "skipped_backfill",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "scheduledAt": null,
+      "completedAt": null
+    },
+    "197": {
+      "id": "197",
+      "canonicalUrl": "https://brunch.co.kr/@heoboram/197",
+      "title": "브랜드는 이제 시간을 판다",
+      "publishedAt": "2026-04-01T12:00:06.000Z",
+      "bodyHash": "a5fb4f11ce1e79b970cf142d8ebad3b860343441cfe3fe9c9803ea409260c31f",
+      "batchId": "bootstrap",
+      "homepage": {
+        "status": "published",
+        "updatedAt": "2026-08-21T02:03:45.911Z"
+      },
+      "package": {
+        "status": "skipped_backfill",
+        "manifestPath": null
+      },
+      "linkedin": {
+        "status": "skipped_backfill",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "instagram": {
+        "status": "skipped_backfill",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "scheduledAt": null,
+      "completedAt": null
+    },
+    "198": {
+      "id": "198",
+      "canonicalUrl": "https://brunch.co.kr/@heoboram/198",
+      "title": "가본 만큼만 내 땅이다:AI가 줄 수 없는 것",
+      "publishedAt": "2026-04-08T12:48:31.000Z",
+      "bodyHash": "7250b912033f912be09c4237a41804a12566ffe026dbffaab14f5e2813f614de",
+      "batchId": "bootstrap",
+      "homepage": {
+        "status": "published",
+        "updatedAt": "2026-08-21T02:03:45.911Z"
+      },
+      "package": {
+        "status": "skipped_backfill",
+        "manifestPath": null
+      },
+      "linkedin": {
+        "status": "skipped_backfill",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "instagram": {
+        "status": "skipped_backfill",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "scheduledAt": null,
+      "completedAt": null
+    },
+    "199": {
+      "id": "199",
+      "canonicalUrl": "https://brunch.co.kr/@heoboram/199",
+      "title": "교과서 같다는 말이 이제 칭찬이 됐다",
+      "publishedAt": "2026-04-14T12:57:46.000Z",
+      "bodyHash": "70453f4807f68c5bec429832897bbf447d1790bb55b7459ad8334898fb08a27a",
+      "batchId": "bootstrap",
+      "homepage": {
+        "status": "published",
+        "updatedAt": "2026-08-21T02:03:45.911Z"
+      },
+      "package": {
+        "status": "skipped_backfill",
+        "manifestPath": null
+      },
+      "linkedin": {
+        "status": "skipped_backfill",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "instagram": {
+        "status": "skipped_backfill",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "scheduledAt": null,
+      "completedAt": null
+    },
+    "200": {
+      "id": "200",
+      "canonicalUrl": "https://brunch.co.kr/@heoboram/200",
+      "title": "무신사는 왜 매거진 B를 인수했을까?",
+      "publishedAt": "2026-04-22T12:49:16.000Z",
+      "bodyHash": "87cc0688838d6f9c8ac6aef93133a6223c8d91fce9b956e7794ea5379ccef577",
+      "batchId": "bootstrap",
+      "homepage": {
+        "status": "published",
+        "updatedAt": "2026-08-21T02:03:45.911Z"
+      },
+      "package": {
+        "status": "skipped_backfill",
+        "manifestPath": null
+      },
+      "linkedin": {
+        "status": "skipped_backfill",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "instagram": {
+        "status": "skipped_backfill",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "scheduledAt": null,
+      "completedAt": null
+    },
+    "201": {
+      "id": "201",
+      "canonicalUrl": "https://brunch.co.kr/@heoboram/201",
+      "title": "유튜브 콘텐츠는 가구가 되고 있다",
+      "publishedAt": "2026-04-29T12:00:15.000Z",
+      "bodyHash": "ef6cc81aa46f12564a72b470f0bd3b2428901e2b9fff3c7d251d7df164f3f602",
+      "batchId": "bootstrap",
+      "homepage": {
+        "status": "published",
+        "updatedAt": "2026-08-21T02:03:45.911Z"
+      },
+      "package": {
+        "status": "skipped_backfill",
+        "manifestPath": null
+      },
+      "linkedin": {
+        "status": "skipped_backfill",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "instagram": {
+        "status": "skipped_backfill",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "scheduledAt": null,
+      "completedAt": null
+    },
+    "202": {
+      "id": "202",
+      "canonicalUrl": "https://brunch.co.kr/@heoboram/202",
+      "title": "스크럽대디는 왜 청소용품 광고에 임신 테스트기를 썼나",
+      "publishedAt": "2026-05-06T13:06:55.000Z",
+      "bodyHash": "29d2ce82136e155334a375c08e1a71d4a1202079ccb77d682c0a2f24158ae934",
+      "batchId": "bootstrap",
+      "homepage": {
+        "status": "published",
+        "updatedAt": "2026-08-21T02:03:45.911Z"
+      },
+      "package": {
+        "status": "skipped_backfill",
+        "manifestPath": null
+      },
+      "linkedin": {
+        "status": "skipped_backfill",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "instagram": {
+        "status": "skipped_backfill",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "scheduledAt": null,
+      "completedAt": null
+    },
+    "203": {
+      "id": "203",
+      "canonicalUrl": "https://brunch.co.kr/@heoboram/203",
+      "title": "뷰티 브랜드가 걸그룹의 가면을 쓴 이유",
+      "publishedAt": "2026-05-14T16:01:58.000Z",
+      "bodyHash": "f0dae8c8404bc740851bd83664e12bf5aa464b2f03a9bdbd09ed08e643d65fbd",
+      "batchId": "bootstrap",
+      "homepage": {
+        "status": "published",
+        "updatedAt": "2026-08-21T02:03:45.911Z"
+      },
+      "package": {
+        "status": "skipped_backfill",
+        "manifestPath": null
+      },
+      "linkedin": {
+        "status": "skipped_backfill",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "instagram": {
+        "status": "skipped_backfill",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "scheduledAt": null,
+      "completedAt": null
+    },
+    "204": {
+      "id": "204",
+      "canonicalUrl": "https://brunch.co.kr/@heoboram/204",
+      "title": "AI 시대,어떤 마케터가 되고 싶으세요?",
+      "publishedAt": "2026-06-01T13:00:18.000Z",
+      "bodyHash": "7dd16d40ded544995f3bcdbedb79975faa2dfb7367a7952b8b99dd5b32f84267",
+      "batchId": "bootstrap",
+      "homepage": {
+        "status": "published",
+        "updatedAt": "2026-08-21T02:03:45.911Z"
+      },
+      "package": {
+        "status": "skipped_backfill",
+        "manifestPath": null
+      },
+      "linkedin": {
+        "status": "skipped_backfill",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "instagram": {
+        "status": "skipped_backfill",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "scheduledAt": null,
+      "completedAt": null
+    },
+    "205": {
+      "id": "205",
+      "canonicalUrl": "https://brunch.co.kr/@heoboram/205",
+      "title": "리센느의 유튜브가 500만 뷰를 만든 이유",
+      "publishedAt": "2026-06-09T13:00:22.000Z",
+      "bodyHash": "66ba6df58798558e46e9dffb9b9bdae1667a5bc164d192b7a69d2e93186eb9aa",
+      "batchId": "bootstrap",
+      "homepage": {
+        "status": "published",
+        "updatedAt": "2026-08-21T02:03:45.911Z"
+      },
+      "package": {
+        "status": "skipped_backfill",
+        "manifestPath": null
+      },
+      "linkedin": {
+        "status": "skipped_backfill",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "instagram": {
+        "status": "skipped_backfill",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "scheduledAt": null,
+      "completedAt": null
+    },
+    "206": {
+      "id": "206",
+      "canonicalUrl": "https://brunch.co.kr/@heoboram/206",
+      "title": "권위가 있어야 빈틈도 매력이 된다",
+      "publishedAt": "2026-06-17T12:41:35.000Z",
+      "bodyHash": "cdf988c2cabc55a4daab93536b3f8d4b383daace8a79abe00f194e8eaa8f9bbf",
+      "batchId": "bootstrap",
+      "homepage": {
+        "status": "published",
+        "updatedAt": "2026-08-21T02:03:45.911Z"
+      },
+      "package": {
+        "status": "skipped_backfill",
+        "manifestPath": null
+      },
+      "linkedin": {
+        "status": "skipped_backfill",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "instagram": {
+        "status": "skipped_backfill",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "scheduledAt": null,
+      "completedAt": null
+    },
+    "207": {
+      "id": "207",
+      "canonicalUrl": "https://brunch.co.kr/@heoboram/207",
+      "title": "무신사와 지그재그는 왜 서로를 비꼬았을까",
+      "publishedAt": "2026-06-23T12:46:15.000Z",
+      "bodyHash": "66532a662df0b74849a57ea6f9a2d6171f9a221117ffea0143d35a0763a15d09",
+      "batchId": "bootstrap",
+      "homepage": {
+        "status": "published",
+        "updatedAt": "2026-08-21T02:03:45.911Z"
+      },
+      "package": {
+        "status": "skipped_backfill",
+        "manifestPath": null
+      },
+      "linkedin": {
+        "status": "skipped_backfill",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "instagram": {
+        "status": "skipped_backfill",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "scheduledAt": null,
+      "completedAt": null
+    },
+    "208": {
+      "id": "208",
+      "canonicalUrl": "https://brunch.co.kr/@heoboram/208",
+      "title": "하인즈는 케첩이 아니라 기억을 판다",
+      "publishedAt": "2026-06-30T12:40:40.000Z",
+      "bodyHash": "2ccd735c94ee3e2595c20ee92a2ddf0faf654cd0ec030402242b61b435e20b96",
+      "batchId": "bootstrap",
+      "homepage": {
+        "status": "published",
+        "updatedAt": "2026-08-21T02:03:45.911Z"
+      },
+      "package": {
+        "status": "skipped_backfill",
+        "manifestPath": null
+      },
+      "linkedin": {
+        "status": "skipped_backfill",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "instagram": {
+        "status": "skipped_backfill",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "scheduledAt": null,
+      "completedAt": null
+    },
+    "209": {
+      "id": "209",
+      "canonicalUrl": "https://brunch.co.kr/@heoboram/209",
+      "title": "광고는 웃겼는데, 브랜드는 남았나",
+      "publishedAt": "2026-07-08T13:05:52.000Z",
+      "bodyHash": "b08f47aec20ca6507bc06c08d574690551e8519064764ce813e7d93b9b33ea28",
+      "batchId": "bootstrap",
+      "homepage": {
+        "status": "published",
+        "updatedAt": "2026-08-21T02:03:45.911Z"
+      },
+      "package": {
+        "status": "skipped_backfill",
+        "manifestPath": null
+      },
+      "linkedin": {
+        "status": "skipped_backfill",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "instagram": {
+        "status": "skipped_backfill",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "scheduledAt": null,
+      "completedAt": null
+    },
+    "210": {
+      "id": "210",
+      "canonicalUrl": "https://brunch.co.kr/@heoboram/210",
+      "title": "AI가 뭉뚝한 게 아니라, 내가 뭉뚝해지고 있었다",
+      "publishedAt": "2026-08-05T12:37:41.000Z",
+      "bodyHash": "805e91e0ee4ee21d258c12710eff00b10725f3dc3db3bc8340f75bc8006809fd",
+      "batchId": "bootstrap",
+      "homepage": {
+        "status": "published",
+        "updatedAt": "2026-08-21T02:03:45.911Z"
+      },
+      "package": {
+        "status": "skipped_backfill",
+        "manifestPath": null
+      },
+      "linkedin": {
+        "status": "skipped_backfill",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "instagram": {
+        "status": "skipped_backfill",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "scheduledAt": null,
+      "completedAt": null
+    },
+    "211": {
+      "id": "211",
+      "canonicalUrl": "https://brunch.co.kr/@heoboram/211",
+      "title": "버거킹은 왜 기사식당 전단지를 만들었을까",
+      "publishedAt": "2026-08-10T12:00:09.000Z",
+      "bodyHash": "06fbd99b0f773e9ca0e3cd6b9f36a1c5f2e381b21e185c82b498a6a2e9da4db8",
+      "batchId": "bootstrap",
+      "homepage": {
+        "status": "published",
+        "updatedAt": "2026-08-21T02:03:45.911Z"
+      },
+      "package": {
+        "status": "skipped_backfill",
+        "manifestPath": null
+      },
+      "linkedin": {
+        "status": "skipped_backfill",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "instagram": {
+        "status": "skipped_backfill",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "scheduledAt": null,
+      "completedAt": null
+    },
+    "212": {
+      "id": "212",
+      "canonicalUrl": "https://brunch.co.kr/@heoboram/212",
+      "title": "스위첸은 왜 8년째 집 이야기를 할까",
+      "publishedAt": "2026-08-17T12:00:02.000Z",
+      "bodyHash": "87921a63581e3b1b626fe3231ca046e2ef821ab32127317a783ef1b52b4ce882",
+      "batchId": "bootstrap",
+      "homepage": {
+        "status": "published",
+        "updatedAt": "2026-08-21T02:03:45.911Z"
+      },
+      "package": {
+        "status": "skipped_backfill",
+        "manifestPath": null
+      },
+      "linkedin": {
+        "status": "skipped_backfill",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "instagram": {
+        "status": "skipped_backfill",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "scheduledAt": null,
+      "completedAt": null
+    }
+  }
+}

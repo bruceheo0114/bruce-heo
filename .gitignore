@@ -1,0 +1,8 @@
+node_modules/
+.env
+.automation-result.json
+.automation-pr-body.md
+playwright-report/
+.playwright-browsers/
+.smoke/
+test-results/
