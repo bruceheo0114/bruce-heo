@@ -26,8 +26,10 @@
 ## LinkedIn 개인 계정
 
 - 게시 작성자는 회사 페이지가 아니라 인증된 개인 계정입니다.
-- `LINKEDIN_PERSON_URN`은 현재 회원 프로필 API가 반환한 ID 앞에 `urn:li:person:`을 붙인 값입니다.
-- 게시용 토큰에는 개인 게시 권한이 있어야 하며, 첫 댓글 API에 필요한 개인 소셜 쓰기 권한도 함께 있어야 합니다.
+- LinkedIn Developer 앱의 **Products**에서 **Share on LinkedIn**을 추가하면 개인 게시에 필요한 `w_member_social` 권한을 받을 수 있습니다.
+- **Sign In with LinkedIn using OpenID Connect**도 추가하고 `openid profile` 범위로 인증합니다. `userinfo` 응답의 `sub` 앞에 `urn:li:person:`을 붙인 값을 `LINKEDIN_PERSON_URN`으로 사용합니다.
+- 자동 첫 댓글은 별도 Comments API 권한인 `w_member_social_feed`가 필요합니다. 이 권한은 Community Management API 접근 승인이 있어야 토큰 생성 화면에 나타날 수 있습니다.
+- `w_member_social_feed` 승인을 받지 못하면 개인 본문 자동 게시까지만 가능하며, 첫 댓글은 수동 복사 방식으로 바꾸어야 합니다.
 - 토큰이 만료되거나 권한이 철회되면 LinkedIn 게시를 멈추고 GitHub Issue를 만듭니다. 새 토큰을 같은 Secret 이름으로 교체하면 다음 슬롯에 재시도합니다.
 
 ## Instagram 수동 업로드 소스
