@@ -1,0 +1,63 @@
+name: Schedule approved content
+
+on:
+  pull_request:
+    types: [closed]
+  workflow_dispatch:
+    inputs:
+      approved_at:
+        description: Optional ISO approval time; defaults to execution time
+        required: false
+        type: string
+
+concurrency:
+  group: bruce-content-automation
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  schedule-approved:
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      APPROVED_AT: ${{ inputs.approved_at || github.event.pull_request.merged_at }}
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install and validate
+        run: |
+          corepack enable
+          pnpm install --frozen-lockfile
+          pnpm test
+          pnpm check
+
+      - name: Schedule newly approved packages
+        run: |
+          pnpm approve:merged
+          pnpm check
+
+      - name: Persist approval and next-morning slots
+        run: |
+          git config user.name "bruce-content-bot"
+          git config user.email "bruce-content-bot@users.noreply.github.com"
+          git add -- data/automation-state.json
+          while IFS= read -r file; do
+            [ -n "$file" ] && git add -- "$file"
+          done < <(git diff --name-only -- content)
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git commit -m "chore: schedule approved content"
+          git pull --rebase origin main
+          git push origin HEAD:main

@@ -1,0 +1,148 @@
+name: Brunch daily content
+
+on:
+  schedule:
+    # Every day 08:00 Asia/Seoul (GitHub cron uses UTC)
+    - cron: "0 23 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: bruce-content-automation
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  discover-and-package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      OPENAI_MODEL: gpt-5.6-terra
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: |
+          corepack enable
+          pnpm install --frozen-lockfile
+
+      - name: Run tests before discovery
+        run: pnpm test
+
+      - name: Discover Brunch posts and update homepage
+        id: discover
+        env:
+          GITHUB_RUN_ID: ${{ github.run_id }}
+        run: |
+          pnpm daily:discover
+          node -e "const fs=require('fs');const r=JSON.parse(fs.readFileSync('.automation-result.json'));const out=process.env.GITHUB_OUTPUT;fs.appendFileSync(out,'has_package='+(r.packageArticleIds.length?'true':'false')+'\n');fs.appendFileSync(out,'batch_id='+(r.batchId||'')+'\n');fs.appendFileSync(out,'mode='+r.mode+'\n');fs.appendFileSync(out,'article_ids='+r.packageArticleIds.join(' ')+'\n')"
+
+      - name: Publish homepage update immediately
+        run: |
+          if git diff --quiet -- index.html data/brunch-posts.json data/automation-state.json; then
+            exit 0
+          fi
+          git config user.name "bruce-content-bot"
+          git config user.email "bruce-content-bot@users.noreply.github.com"
+          git add -- index.html data/brunch-posts.json data/automation-state.json
+          git commit -m "chore: sync latest Brunch posts"
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+      - name: Check for an existing review PR
+        if: steps.discover.outputs.has_package == 'true'
+        id: package
+        run: |
+          branch="automation/brunch-${{ steps.discover.outputs.batch_id }}"
+          existing=$(gh pr list --state open --head "$branch" --json url --jq '.[0].url // empty')
+          if [ -n "$existing" ]; then
+            echo "should_build=false" >> "$GITHUB_OUTPUT"
+            echo "Existing review PR: $existing"
+          else
+            echo "should_build=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Install browser and Korean fonts
+        if: steps.discover.outputs.has_package == 'true' && steps.package.outputs.should_build == 'true'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-noto-cjk
+          pnpm exec playwright install --with-deps chromium
+
+      - name: Create content branch
+        if: steps.discover.outputs.has_package == 'true' && steps.package.outputs.should_build == 'true'
+        id: branch
+        run: |
+          branch="automation/brunch-${{ steps.discover.outputs.batch_id }}"
+          git switch -c "$branch"
+          echo "name=$branch" >> "$GITHUB_OUTPUT"
+
+      - name: Generate copy and card news
+        if: steps.discover.outputs.has_package == 'true' && steps.package.outputs.should_build == 'true'
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: pnpm daily:generate -- --batch "${{ steps.discover.outputs.batch_id }}"
+
+      - name: Validate generated package
+        if: steps.discover.outputs.has_package == 'true' && steps.package.outputs.should_build == 'true'
+        run: |
+          pnpm test
+          pnpm check
+
+      - name: Commit generated package
+        if: steps.discover.outputs.has_package == 'true' && steps.package.outputs.should_build == 'true'
+        id: content_commit
+        run: |
+          git config user.name "bruce-content-bot"
+          git config user.email "bruce-content-bot@users.noreply.github.com"
+          for id in ${{ steps.discover.outputs.article_ids }}; do
+            git add -- "content/$id"
+          done
+          git commit -m "content: prepare Brunch social package"
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+          git push --set-upstream origin "${{ steps.branch.outputs.name }}"
+
+      - name: Build review summary
+        if: steps.discover.outputs.has_package == 'true' && steps.package.outputs.should_build == 'true'
+        env:
+          AUTOMATION_REF: ${{ steps.content_commit.outputs.sha }}
+        run: pnpm pr:summary
+
+      - name: Open review pull request
+        if: steps.discover.outputs.has_package == 'true' && steps.package.outputs.should_build == 'true'
+        id: pr
+        run: |
+          args=(--base main --head "${{ steps.branch.outputs.name }}" --title "브런치 신규 글 콘텐츠 검수" --body-file .automation-pr-body.md)
+          if [ "${{ steps.discover.outputs.mode }}" = "review" ]; then
+            args+=(--draft)
+          fi
+          pr_url=$(gh pr create "${args[@]}")
+          echo "url=$pr_url" >> "$GITHUB_OUTPUT"
+
+      - name: Auto-merge after three successful reviews
+        if: steps.discover.outputs.has_package == 'true' && steps.package.outputs.should_build == 'true' && steps.discover.outputs.mode == 'auto'
+        run: gh pr merge "${{ steps.pr.outputs.url }}" --squash --delete-branch
+
+      - name: Report failure as GitHub issue
+        if: failure()
+        run: |
+          title="[자동화] 브런치 일일 작업 실패"
+          body=$(printf '실행: https://github.com/%s/actions/runs/%s\n\n브런치 구조 변경, API 키, 렌더링 또는 권한을 확인해 주세요. 자동 SNS 게시는 중단되었고 대기열은 보존됩니다.' "$GITHUB_REPOSITORY" "$GITHUB_RUN_ID")
+          issue=$(gh issue list --state open --search "$title in:title" --json number --jq '.[0].number // empty')
+          if [ -n "$issue" ]; then
+            gh issue comment "$issue" --body "$body"
+          else
+            gh issue create --title "$title" --body "$body"
+          fi

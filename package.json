@@ -1,0 +1,27 @@
+{
+  "name": "bruce-heo-content-automation",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Daily Brunch-to-homepage, LinkedIn and Instagram source automation",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test --test-reporter spec",
+    "check": "node src/cli/check.js",
+    "daily:discover": "node src/cli/discover.js",
+    "daily:generate": "node src/cli/generate.js",
+    "approve:merged": "node src/cli/approve-merged.js",
+    "publish:due": "node src/cli/publish-due.js",
+    "pr:summary": "node src/cli/pr-summary.js"
+  },
+  "dependencies": {
+    "cheerio": "1.2.0",
+    "openai": "7.5.0",
+    "playwright": "1.62.1"
+  },
+  "devDependencies": {
+    "yaml": "2.9.0"
+  }
+}
