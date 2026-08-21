@@ -1,4 +1,3 @@
-import { access } from "node:fs/promises";
 import { PATHS } from "../config.js";
 import { readJson, writeJson } from "../lib/files.js";
 import { selectDueArticle } from "../lib/queue.js";
@@ -7,22 +6,6 @@ import { publishLinkedIn } from "../publish/linkedin.js";
 
 const now = new Date(process.env.AUTOMATION_NOW ?? Date.now());
 const state = await loadState();
-let promotedPackage = false;
-for (const tracked of Object.values(state.articles)) {
-  if (tracked.package.status !== "awaiting_review") continue;
-  try {
-    await access(tracked.package.manifestPath);
-    tracked.package.status = "generated";
-    tracked.package.generatedAt ??= now.toISOString();
-    if (tracked.instagram.status === "manual_pending") {
-      tracked.instagram.status = "manual_source_ready";
-    }
-    promotedPackage = true;
-  } catch (error) {
-    if (error.code !== "ENOENT") throw error;
-  }
-}
-if (promotedPackage) await saveState(state);
 const article = selectDueArticle(state.articles, now);
 if (!article) {
   await writeJson(PATHS.result, {

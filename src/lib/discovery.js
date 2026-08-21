@@ -1,5 +1,4 @@
 import { channelState } from "./state.js";
-import { nextKstSlot } from "./time.js";
 
 export function applyDiscovery(state, latest, now, batchId) {
   for (const current of latest) {
@@ -26,6 +25,7 @@ export function applyDiscovery(state, latest, now, batchId) {
         package: { status: "skipped_backfill", manifestPath: null },
         linkedin: channelState("skipped_backfill"),
         instagram: channelState("skipped_backfill"),
+        approvedAt: null,
         scheduledAt: null,
         completedAt: null,
       };
@@ -38,7 +38,7 @@ export function applyDiscovery(state, latest, now, batchId) {
         (a, b) =>
           new Date(a.publishedAt).valueOf() - new Date(b.publishedAt).valueOf(),
       );
-    newArticles.forEach((article, index) => {
+    newArticles.forEach((article) => {
       state.articles[article.id] = {
         id: article.id,
         canonicalUrl: article.canonicalUrl,
@@ -54,7 +54,8 @@ export function applyDiscovery(state, latest, now, batchId) {
         },
         linkedin: channelState(),
         instagram: channelState("manual_pending"),
-        scheduledAt: nextKstSlot(now, index),
+        approvedAt: null,
+        scheduledAt: null,
         completedAt: null,
       };
     });

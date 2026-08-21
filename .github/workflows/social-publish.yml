@@ -2,8 +2,8 @@ name: Publish due LinkedIn content
 
 on:
   schedule:
-    # Every day 18:30 Asia/Seoul (GitHub cron uses UTC)
-    - cron: "30 9 * * *"
+    # Every day 06:30 Asia/Seoul (GitHub cron uses UTC)
+    - cron: "30 21 * * *"
   workflow_dispatch:
     inputs:
       dry_run:

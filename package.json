@@ -12,6 +12,7 @@
     "check": "node src/cli/check.js",
     "daily:discover": "node src/cli/discover.js",
     "daily:generate": "node src/cli/generate.js",
+    "approve:merged": "node src/cli/approve-merged.js",
     "publish:due": "node src/cli/publish-due.js",
     "pr:summary": "node src/cli/pr-summary.js"
   },

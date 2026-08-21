@@ -1,8 +1,9 @@
 import assert from "node:assert/strict";
 import test from "node:test";
+import { approvePackages } from "../src/lib/approval.js";
 import { selectDueArticle } from "../src/lib/queue.js";
 import { modeForReviewCount } from "../src/lib/state.js";
-import { nextKstSlot } from "../src/lib/time.js";
+import { nextKstApprovalSlot } from "../src/lib/time.js";
 
 function queued(id, scheduledAt, linkedin = "pending") {
   return {
@@ -15,10 +16,49 @@ function queued(id, scheduledAt, linkedin = "pending") {
   };
 }
 
-test("여러 글은 하루 간격 18:30 KST 슬롯을 받는다", () => {
+test("승인 다음 날부터 하루 간격 06:30 KST 슬롯을 받는다", () => {
   const friday = new Date("2026-08-21T09:00:00.000Z");
-  assert.equal(nextKstSlot(friday, 0), "2026-08-21T09:30:00.000Z");
-  assert.equal(nextKstSlot(friday, 1), "2026-08-22T09:30:00.000Z");
+  assert.equal(nextKstApprovalSlot(friday, 0), "2026-08-21T21:30:00.000Z");
+  assert.equal(nextKstApprovalSlot(friday, 1), "2026-08-22T21:30:00.000Z");
+});
+
+test("승인된 여러 글은 오래된 순으로 예약되고 기존 슬롯을 피한다", () => {
+  const state = {
+    articles: {
+      occupied: queued("old", "2026-08-21T21:30:00.000Z"),
+      first: {
+        ...queued("old", null),
+        id: "first",
+        publishedAt: "2026-08-19T00:00:00.000Z",
+        package: { status: "awaiting_review" },
+        instagram: { status: "manual_pending" },
+      },
+      second: {
+        ...queued("newer", null),
+        id: "second",
+        publishedAt: "2026-08-20T00:00:00.000Z",
+        package: { status: "awaiting_review" },
+        instagram: { status: "manual_pending" },
+      },
+    },
+  };
+  const approved = approvePackages(
+    state,
+    [
+      { id: "second", generatedAt: "2026-08-21T08:00:00.000Z" },
+      { id: "first", generatedAt: "2026-08-21T08:00:00.000Z" },
+    ],
+    new Date("2026-08-21T10:00:00.000Z"),
+  );
+
+  assert.deepEqual(
+    approved.map((item) => item.id),
+    ["first", "second"],
+  );
+  assert.equal(state.articles.first.scheduledAt, "2026-08-22T21:30:00.000Z");
+  assert.equal(state.articles.second.scheduledAt, "2026-08-23T21:30:00.000Z");
+  assert.equal(state.articles.first.package.status, "generated");
+  assert.equal(state.articles.first.instagram.status, "manual_source_ready");
 });
 
 test("게시 실행은 오래된 미완료 글 한 편만 고른다", () => {

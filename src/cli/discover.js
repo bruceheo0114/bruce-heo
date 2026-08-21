@@ -42,7 +42,6 @@ for (const tracked of Object.values(state.articles)) {
   if (tracked.package.status !== "awaiting_review") continue;
   try {
     await access(tracked.package.manifestPath);
-    tracked.package.status = "generated";
   } catch (error) {
     if (error.code !== "ENOENT") throw error;
     missingPackageArticles.push(tracked);

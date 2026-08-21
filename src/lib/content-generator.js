@@ -104,6 +104,7 @@ export function buildManifest(article, generated, scheduledAt) {
       collaboratorOrTag: "heo.boram",
     },
     schedule: {
+      approvedAt: null,
       scheduledAt,
       publishedAt: null,
     },

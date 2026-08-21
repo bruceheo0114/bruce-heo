@@ -8,7 +8,7 @@ export const CONFIG = Object.freeze({
   cardWidth: 1080,
   cardHeight: 1080,
   reviewThreshold: 3,
-  firstPublishHourKst: 18,
+  firstPublishHourKst: 6,
   firstPublishMinuteKst: 30,
   openaiModel: process.env.OPENAI_MODEL ?? "gpt-5.6-terra",
   fetchHeaders: {

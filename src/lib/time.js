@@ -16,19 +16,20 @@ export function formatHomepageMonth(value) {
   return `${year}.${String(month).padStart(2, "0")}`;
 }
 
-export function nextKstSlot(from, dayOffset = 0) {
+export function nextKstApprovalSlot(from, additionalDays = 0) {
   const source = new Date(from);
+  if (Number.isNaN(source.valueOf())) throw new Error(`Invalid date: ${from}`);
   const seoul = new Date(source.valueOf() + SEOUL_OFFSET_MS);
-  const slotUtc = Date.UTC(
+  const slotAsKst = Date.UTC(
     seoul.getUTCFullYear(),
     seoul.getUTCMonth(),
-    seoul.getUTCDate() + dayOffset,
-    9,
+    seoul.getUTCDate() + 1 + additionalDays,
+    6,
     30,
     0,
     0,
   );
-  return new Date(slotUtc).toISOString();
+  return new Date(slotAsKst - SEOUL_OFFSET_MS).toISOString();
 }
 
 export function isDue(scheduledAt, now = new Date()) {

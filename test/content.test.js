@@ -103,5 +103,6 @@ test("Responses API에 gpt-5.6-terra 구조화 출력 형식을 전달한다", a
     "2026-08-21T09:30:00Z",
   );
   assert.equal(manifest.linkedin.firstComment, generated.linkedinFirstComment);
+  assert.equal(manifest.schedule.approvedAt, null);
   assert.equal(manifest.publishing.instagram.status, "manual_source_ready");
 });

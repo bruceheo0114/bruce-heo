@@ -74,6 +74,17 @@ for (const article of Object.values(state.articles)) {
   if (manifest.article.canonicalUrl !== article.canonicalUrl) {
     fail(`${article.id} manifest canonical URL이 상태와 다릅니다.`);
   }
+  if (article.package.status === "generated") {
+    if (!article.approvedAt || !article.scheduledAt) {
+      fail(`${article.id} 승인 시각 또는 LinkedIn 게시 시각이 없습니다.`);
+    }
+    if (
+      manifest.schedule.approvedAt !== article.approvedAt ||
+      manifest.schedule.scheduledAt !== article.scheduledAt
+    ) {
+      fail(`${article.id} manifest 예약 정보가 상태와 다릅니다.`);
+    }
+  }
   if (
     manifest.cards.length < CONFIG.cardMin ||
     manifest.cards.length > CONFIG.cardMax
