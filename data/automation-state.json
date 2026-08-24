@@ -1,8 +1,8 @@
 {
   "version": 1,
   "initialized": true,
-  "lastCheckedAt": "2026-08-23T23:12:20.924Z",
-  "lastCheckedCanonicalUrl": "https://brunch.co.kr/@heoboram/212",
+  "lastCheckedAt": "2026-08-24T23:15:35.854Z",
+  "lastCheckedCanonicalUrl": "https://brunch.co.kr/@heoboram/213",
   "reviewSuccessCount": 0,
   "mode": "review",
   "articles": {
@@ -603,6 +603,38 @@
         "lastAttemptAt": null,
         "error": null
       },
+      "scheduledAt": null,
+      "completedAt": null
+    },
+    "213": {
+      "id": "213",
+      "canonicalUrl": "https://brunch.co.kr/@heoboram/213",
+      "title": "사람들은 왜 불편을 살까?",
+      "publishedAt": "2026-08-24T12:00:01.000Z",
+      "bodyHash": "676764ec4fcfb1eea4a04f56a6062dc628321df2dc9ff7166fbd22e415bd17ba",
+      "batchId": "32788513455",
+      "homepage": {
+        "status": "published",
+        "updatedAt": "2026-08-24T23:15:35.854Z"
+      },
+      "package": {
+        "status": "awaiting_review",
+        "manifestPath": "content/213/manifest.json",
+        "generatedAt": null
+      },
+      "linkedin": {
+        "status": "pending",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "instagram": {
+        "status": "manual_pending",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "approvedAt": null,
       "scheduledAt": null,
       "completedAt": null
     }
