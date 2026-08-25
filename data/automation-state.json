@@ -623,7 +623,7 @@
         "generatedAt": null
       },
       "linkedin": {
-        "status": "pending",
+        "status": "manual_pending",
         "id": null,
         "lastAttemptAt": null,
         "error": null
