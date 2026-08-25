@@ -25,7 +25,7 @@ for (const id of ids) {
   sections.push(`## ${manifest.article.title}
 
 - 원문: ${manifest.article.canonicalUrl}
-- LinkedIn 게시: PR 승인·병합 다음 날 오전 06:30(KST)부터 하루 한 편
+- LinkedIn: 직접 게시할 수동 초안
 - 카드: ${manifest.cards.length}장
 
 ### 카드 전체 미리보기
@@ -52,12 +52,11 @@ ${manifest.instagram.caption}
 }
 
 const reviewMessage =
-  state.mode === "review"
-    ? "현재 검수 모드입니다. 카드와 문안을 확인한 뒤 PR을 병합하면 게시 대기열에 들어갑니다."
-    : "3회 연속 승인·게시를 통과한 자동 모드입니다. 테스트 통과 후 이 PR은 자동 병합됩니다.";
+  "카드와 문안을 확인하세요. PR을 병합해도 LinkedIn과 Instagram에는 자동 게시되지 않습니다.";
 
 await writeFileAtomic(
   PATHS.prBody,
   `# 브런치 콘텐츠 자동 생성\n\n${reviewMessage}\n\n${sections.join("\n\n---\n\n")}\n`,
 );
 console.log(JSON.stringify({ articleIds: ids, mode: state.mode }));
+
