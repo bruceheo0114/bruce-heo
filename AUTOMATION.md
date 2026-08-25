@@ -59,3 +59,4 @@
 - LinkedIn 본문 게시 후 첫 댓글만 실패하면 게시물 ID를 저장하고 첫 댓글만 재시도합니다.
 - 실제 LinkedIn 게시 없이 다음 항목을 검사하려면 **Publish due LinkedIn content**를 수동 실행하면서 `dry_run`을 켭니다.
 - GitHub 예약 실행은 UTC 기준입니다. `0 23 * * *`는 매일 08:00 KST, `30 21 * * *`는 다음 날 06:30 KST입니다.
+
