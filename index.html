@@ -161,10 +161,19 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   transition: background 150ms ease;
 }
 .nav__cta:hover { background: var(--accent); }
+.nav__lang {
+  padding: 8px 11px;
+  border: 1px solid var(--border-strong);
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+.nav__lang:hover { border-color: var(--accent); color: var(--accent); }
 
 @media (max-width: 720px) {
   .nav__links { gap: 20px; }
-  .nav__link:not(.nav__cta) { display: none; }
+  .nav__link:not(.nav__cta):not(.nav__lang) { display: none; }
 }
 
 /* ============================================================
@@ -1220,6 +1229,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
       <a href="#knowledge" class="nav__link">세션·강연</a>
       <a href="#writing" class="nav__link">Writing</a>
       <a href="#media" class="nav__link">Media</a>
+      <a href="en/" class="nav__link nav__lang" lang="en" aria-label="View the English site">EN</a>
       <a href="sessions.html" class="nav__link nav__cta">세션 안내</a>
     </div>
   </div>
