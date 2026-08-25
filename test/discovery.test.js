@@ -46,6 +46,7 @@ test("새 글 여러 편은 승인 전 게시 시간이 비어 있다", () => {
   assert.equal(state.articles["3"].scheduledAt, null);
   assert.equal(state.articles["2"].batchId, "batch-2");
   assert.equal(state.articles["2"].package.status, "awaiting_review");
+  assert.equal(state.articles["2"].linkedin.status, "manual_pending");
   assert.equal(state.articles["2"].instagram.status, "manual_pending");
 });
 
@@ -62,3 +63,4 @@ test("새 글이 없으면 새 게시 패키지를 만들지 않는다", () => {
   assert.equal(result.newArticles.length, 0);
   assert.equal(Object.keys(state.articles).length, 1);
 });
+
