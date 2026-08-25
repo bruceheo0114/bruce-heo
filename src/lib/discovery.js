@@ -52,7 +52,7 @@ export function applyDiscovery(state, latest, now, batchId) {
           manifestPath: `content/${article.id}/manifest.json`,
           generatedAt: null,
         },
-        linkedin: channelState(),
+        linkedin: channelState("manual_pending"),
         instagram: channelState("manual_pending"),
         approvedAt: null,
         scheduledAt: null,
@@ -65,3 +65,4 @@ export function applyDiscovery(state, latest, now, batchId) {
   state.lastCheckedCanonicalUrl = latest[0].canonicalUrl;
   return { bootstrap, newArticles };
 }
+
