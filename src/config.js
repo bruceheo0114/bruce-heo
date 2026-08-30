@@ -11,6 +11,17 @@ export const CONFIG = Object.freeze({
   firstPublishHourKst: 6,
   firstPublishMinuteKst: 30,
   openaiModel: process.env.OPENAI_MODEL ?? "gpt-5.6-terra",
+  video: {
+    summaryLanguage: "ko",
+    captionLanguage: "ko",
+    summaryModel: process.env.OPENAI_VIDEO_MODEL ?? process.env.OPENAI_MODEL ?? "gpt-5.6-terra",
+    transcriptionModel: process.env.OPENAI_TRANSCRIPTION_MODEL ?? "gpt-4o-transcribe",
+    chunkCharacters: 12_000,
+    chunkOverlapCharacters: 600,
+    maxChunks: 40,
+    audioSegmentSeconds: 900,
+    maxUploadBytes: 24 * 1024 * 1024,
+  },
   fetchHeaders: {
     "user-agent":
       "Mozilla/5.0 (compatible; BruceInsightAutomation/1.0; +https://bruceheo0114.github.io/bruce-heo/)",
@@ -25,4 +36,5 @@ export const PATHS = Object.freeze({
   content: "content",
   result: ".automation-result.json",
   prBody: ".automation-pr-body.md",
+  videoContent: "content/video",
 });
