@@ -1,8 +1,8 @@
 {
   "version": 1,
   "initialized": true,
-  "lastCheckedAt": "2026-08-30T00:55:17.947Z",
-  "lastCheckedCanonicalUrl": "https://brunch.co.kr/@heoboram/213",
+  "lastCheckedAt": "2026-08-31T01:00:42.507Z",
+  "lastCheckedCanonicalUrl": "https://brunch.co.kr/@heoboram/215",
   "reviewSuccessCount": 0,
   "mode": "review",
   "articles": {
@@ -620,6 +620,38 @@
       "package": {
         "status": "awaiting_review",
         "manifestPath": "content/213/manifest.json",
+        "generatedAt": null
+      },
+      "linkedin": {
+        "status": "manual_pending",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "instagram": {
+        "status": "manual_pending",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "approvedAt": null,
+      "scheduledAt": null,
+      "completedAt": null
+    },
+    "215": {
+      "id": "215",
+      "canonicalUrl": "https://brunch.co.kr/@heoboram/215",
+      "title": "새로운 것을 제안하되, 브랜드보다 앞서가지는 말 것",
+      "publishedAt": "2026-08-30T12:00:05.000Z",
+      "bodyHash": "d6e5d94b5b6b06bb8fe667b464ba1c93ac37d501851eef82b4fe13b3f029b8c5",
+      "batchId": "33346247661",
+      "homepage": {
+        "status": "published",
+        "updatedAt": "2026-08-31T01:00:42.507Z"
+      },
+      "package": {
+        "status": "awaiting_review",
+        "manifestPath": "content/215/manifest.json",
         "generatedAt": null
       },
       "linkedin": {
