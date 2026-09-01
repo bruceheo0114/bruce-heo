@@ -73,6 +73,11 @@ jobs:
           VIDEO_SERIES: ${{ inputs.series }}
         run: pnpm video:add -- "$VIDEO_URL" --series "$VIDEO_SERIES"
 
+      # 설정 문제를 처리 도중이 아니라 로그 맨 앞에서 진단한다. 실행은 막지 않는다.
+      - name: Check setup
+        continue-on-error: true
+        run: pnpm video:check
+
       - name: Discover new channel videos
         run: pnpm video:discover
 

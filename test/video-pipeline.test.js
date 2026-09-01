@@ -278,3 +278,24 @@ test("이름이 안 맞고 같은 타입이 여러 개면 어느 속성도 덮�
   assert.equal(properties["방송일"].date.start, "2026-09-06T02:00:00Z");
   assert.equal("생성일" in properties, false);
 });
+
+test("설정 점검 결과는 고쳐야 할 항목 수를 알려준다", async () => {
+  const { formatReport } = await import("../src/lib/video/setup-check.js");
+  const report = formatReport([
+    { level: "ok", name: "OpenAI 키" },
+    { level: "fail", name: "Notion 토큰", detail: "NOTION_TOKEN이 없습니다." },
+    { level: "warn", name: "yt-dlp" },
+  ]);
+  assert.match(report, /✅ OpenAI 키/);
+  assert.match(report, /❌ Notion 토큰\n {5}NOTION_TOKEN이 없습니다\./);
+  assert.match(report, /1개 항목을 고쳐야/);
+
+  assert.match(
+    formatReport([{ level: "ok", name: "전부" }]),
+    /모든 항목을 통과했습니다/,
+  );
+  assert.match(
+    formatReport([{ level: "warn", name: "쿠키" }]),
+    /필수 항목은 모두 통과했습니다/,
+  );
+});

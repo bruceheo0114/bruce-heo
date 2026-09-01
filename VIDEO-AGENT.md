@@ -92,8 +92,9 @@ npm run video:add -- "<수요 성경대학 주소>" --series wednesday-bible
    - `NOTION_DATABASE_ID`
    - `OPENAI_API_KEY` (브런치 자동화용으로 이미 있다면 그대로 씁니다)
    - `YOUTUBE_COOKIES` (선택이지만 사실상 필요 — 아래 참고)
-5. `npm run video:discover -- --dry-run`으로 제목 패턴을 확인하고 필요하면 고칩니다.
-6. **Actions → Video summary to Notion**을 한 번 수동 실행해 연결을 확인합니다.
+5. `npm run video:check`로 설정이 실제로 동작하는지 확인합니다. Notion 토큰, 데이터베이스 연결, YouTube 접근, 쿠키 유무를 한 번에 짚어 주고 무엇을 고쳐야 하는지 알려줍니다.
+6. `npm run video:discover -- --dry-run`으로 제목 패턴을 확인하고 필요하면 고칩니다.
+7. **Actions → Video summary to Notion**을 한 번 수동 실행해 연결을 확인합니다. 실행 로그 맨 앞의 **Check setup** 단계에 같은 점검 결과가 나옵니다.
 
 데이터베이스 속성은 강제하지 않습니다. 제목 속성에 요약 제목을 넣고, URL·날짜·선택 속성이 **있으면** 영상 주소·방송일·시리즈를 채웁니다. 없으면 그냥 건너뜁니다. 데이터베이스 대신 페이지 밑에 쌓으려면 `NOTION_DATABASE_ID` 대신 `NOTION_PARENT_PAGE_ID`를 씁니다.
 
