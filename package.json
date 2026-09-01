@@ -12,6 +12,12 @@
     "check": "node src/cli/check.js",
     "daily:discover": "node src/cli/discover.js",
     "daily:generate": "node src/cli/generate.js",
+    "video:summarize": "node src/cli/summarize-video.js",
+    "video:transcript": "node src/cli/summarize-video.js --transcript-only",
+    "video:discover": "node src/cli/video-discover.js",
+    "video:add": "node src/cli/video-add.js",
+    "video:process": "node src/cli/video-process.js",
+    "video:check": "node src/cli/video-check.js",
     "pr:summary": "node src/cli/pr-summary.js"
   },
   "dependencies": {
@@ -23,4 +29,3 @@
     "yaml": "2.9.0"
   }
 }
-
