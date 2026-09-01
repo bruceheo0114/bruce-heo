@@ -37,4 +37,6 @@ export const PATHS = Object.freeze({
   result: ".automation-result.json",
   prBody: ".automation-pr-body.md",
   videoContent: "content/video",
+  videoState: "data/video-state.json",
+  videoSeries: "data/video-series.json",
 });

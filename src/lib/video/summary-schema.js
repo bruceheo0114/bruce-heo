@@ -91,6 +91,20 @@ export const SUMMARY_SCHEMA = {
         required: ["timestampSeconds", "speaker", "text"],
       },
     },
+    scriptures: {
+      type: "array",
+      maxItems: 20,
+      items: {
+        type: "object",
+        additionalProperties: false,
+        properties: {
+          timestampSeconds: { type: "number", minimum: 0 },
+          reference: { type: "string", minLength: 1, maxLength: 80 },
+          note: { type: "string", minLength: 1, maxLength: 300 },
+        },
+        required: ["timestampSeconds", "reference", "note"],
+      },
+    },
     actionItems: {
       type: "array",
       maxItems: 8,
@@ -109,6 +123,7 @@ export const SUMMARY_SCHEMA = {
     "chapters",
     "keyPoints",
     "quotes",
+    "scriptures",
     "actionItems",
     "openQuestions",
   ],
@@ -156,6 +171,11 @@ export function validateSummary(summary, context) {
   }
   if (Array.isArray(summary.quotes)) {
     errors.push(...timestampErrors(summary.quotes, duration, "인용", "timestampSeconds"));
+  }
+  if (Array.isArray(summary.scriptures)) {
+    errors.push(
+      ...timestampErrors(summary.scriptures, duration, "성경 본문", "timestampSeconds"),
+    );
   }
   return errors;
 }

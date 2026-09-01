@@ -53,6 +53,12 @@ export function buildSummaryMarkdown(transcript, summary) {
       ]),
     ),
     ...section(
+      "성경 본문",
+      (summary.scriptures ?? []).map(
+        (item) => `- ${link(videoId, item.timestampSeconds)} **${item.reference}** — ${item.note}`,
+      ),
+    ),
+    ...section(
       "인용",
       summary.quotes.map(
         (quote) =>
@@ -91,12 +97,14 @@ export function buildVideoManifest(transcript, summary) {
       notes: transcript.notes,
     },
     summary: {
+      profile: summary.profile ?? "general",
       title: summary.title,
       oneLine: summary.oneLine,
       tldr: summary.tldr,
       chapters: summary.chapters,
       keyPoints: summary.keyPoints,
       quotes: summary.quotes,
+      scriptures: summary.scriptures ?? [],
       actionItems: summary.actionItems,
       openQuestions: summary.openQuestions,
     },

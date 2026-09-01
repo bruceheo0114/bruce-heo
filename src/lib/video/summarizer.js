@@ -1,5 +1,6 @@
 import { CONFIG } from "../../config.js";
 import { resolveClient } from "./openai.js";
+import { resolveProfile } from "./profiles.js";
 import { chunkSegments, transcriptDuration } from "./transcript.js";
 import { formatTimestamp } from "./youtube.js";
 import {
@@ -17,16 +18,6 @@ const NOTE_INSTRUCTIONS = `당신은 영상 대본을 읽고 사실만 추리는
 - 인사말, 광고, 잡담은 노트로 남기지 않는다.
 - 인용은 화자가 실제로 말한 문장을 그대로 옮긴다. 화자를 모르면 speaker를 null로 둔다.`;
 
-const SUMMARY_INSTRUCTIONS = `당신은 마케터 '브루스'가 영상을 다시 보지 않고도 내용을 파악하도록 돕는 요약자다.
-
-절대 규칙:
-- 노트와 대본에 있는 내용만 사용한다. 배경지식으로 보충하지 않는다.
-- 결과는 한국어로 쓴다. 원문에 등장한 고유명사와 영문 용어는 그대로 둔다.
-- 챕터는 영상 흐름을 따라 시간 순서로 정렬하고, startSeconds는 그 주제가 시작된 지점이다.
-- 핵심 포인트는 "무엇을 말했는가"가 아니라 "그래서 무엇이 달라지는가"까지 쓴다.
-- actionItems는 시청자가 바로 실행할 수 있는 행동만 쓴다. 없으면 빈 배열로 둔다.
-- openQuestions는 영상에서 답하지 않고 남겨둔 질문만 쓴다. 없으면 빈 배열로 둔다.
-- 과장, 단정, 감탄사를 쓰지 않고 관찰과 근거로 서술한다.`;
 
 async function structuredCall(client, options) {
   const response = await client.responses.create({
@@ -96,6 +87,7 @@ async function collectNotes(client, model, transcript, chunks) {
 export async function summarizeTranscript(transcript, options = {}) {
   const client = resolveClient(options, "영상 요약");
   const model = options.model ?? CONFIG.video.summaryModel;
+  const profile = resolveProfile(options.profile ?? transcript.profile);
   const chunks = chunkSegments(transcript.segments, options);
   const durationSeconds =
     transcript.metadata?.durationSeconds ?? transcriptDuration(transcript.segments);
@@ -117,7 +109,7 @@ export async function summarizeTranscript(transcript, options = {}) {
   const summary = await structuredCall(client, {
     model,
     effort: "medium",
-    instructions: SUMMARY_INSTRUCTIONS,
+    instructions: profile.instructions,
     input: `다음 영상을 요약하라.\n\n${summaryInput}`,
     schemaName: "video_summary",
     schemaDescription: "영상 챕터, 핵심 포인트, 인용, 실행 항목 요약",
@@ -130,6 +122,7 @@ export async function summarizeTranscript(transcript, options = {}) {
   }
   return {
     ...summary,
+    profile: options.profile ?? transcript.profile ?? "general",
     chunkCount: chunks.length,
     durationSeconds: Math.floor(durationSeconds),
   };

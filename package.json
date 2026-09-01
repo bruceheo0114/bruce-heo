@@ -14,6 +14,9 @@
     "daily:generate": "node src/cli/generate.js",
     "video:summarize": "node src/cli/summarize-video.js",
     "video:transcript": "node src/cli/summarize-video.js --transcript-only",
+    "video:discover": "node src/cli/video-discover.js",
+    "video:add": "node src/cli/video-add.js",
+    "video:process": "node src/cli/video-process.js",
     "pr:summary": "node src/cli/pr-summary.js"
   },
   "dependencies": {

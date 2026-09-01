@@ -2,7 +2,7 @@
 
 이 저장소는 매일 오전 8시(KST)에 브런치 `@heoboram`의 새 글을 확인합니다. 홈페이지는 발견 즉시 최신 공개 글 12개로 갱신하고, 새 글마다 브루스 인사이트 카드뉴스 소스·Instagram 캡션·LinkedIn 문안을 만듭니다. GitHub Actions에서 실행되므로 개인 PC가 꺼져 있어도 동작합니다.
 
-관련 문서: 영상 요약 에이전트는 [VIDEO-AGENT.md](VIDEO-AGENT.md)를 참고하세요.
+관련 문서: 주일 예배·수요 성경대학 영상을 요약해 Notion에 올리는 자동화는 [VIDEO-AGENT.md](VIDEO-AGENT.md)를 참고하세요.
 
 ## 채널별 동작
 

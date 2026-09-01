@@ -18,9 +18,15 @@ export async function hasBinary(command) {
   }
 }
 
+/** 비공개·연령 제한 영상은 쿠키 파일이 있어야 열린다. */
+function withCookies(args) {
+  const cookies = process.env.YOUTUBE_COOKIES_FILE;
+  return cookies ? ["--cookies", cookies, ...args] : args;
+}
+
 async function ytDlp(args, options = {}) {
   try {
-    return await run("yt-dlp", args, { maxBuffer: MAX_BUFFER, ...options });
+    return await run("yt-dlp", withCookies(args), { maxBuffer: MAX_BUFFER, ...options });
   } catch (error) {
     const detail = String(error.stderr ?? error.message).slice(0, 800);
     throw new VideoSourceError(`yt-dlp 실행이 실패했습니다: ${detail}`);
