@@ -1,8 +1,8 @@
 {
   "version": 1,
   "initialized": true,
-  "lastCheckedAt": "2026-08-31T01:00:42.507Z",
-  "lastCheckedCanonicalUrl": "https://brunch.co.kr/@heoboram/215",
+  "lastCheckedAt": "2026-09-01T01:31:32.108Z",
+  "lastCheckedCanonicalUrl": "https://brunch.co.kr/@heoboram/214",
   "reviewSuccessCount": 0,
   "mode": "review",
   "articles": {
@@ -620,6 +620,38 @@
       "package": {
         "status": "awaiting_review",
         "manifestPath": "content/213/manifest.json",
+        "generatedAt": null
+      },
+      "linkedin": {
+        "status": "manual_pending",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "instagram": {
+        "status": "manual_pending",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "approvedAt": null,
+      "scheduledAt": null,
+      "completedAt": null
+    },
+    "214": {
+      "id": "214",
+      "canonicalUrl": "https://brunch.co.kr/@heoboram/214",
+      "title": "AI 시대, 도끼를 든 사람이 되자",
+      "publishedAt": "2026-08-31T12:00:02.000Z",
+      "bodyHash": "7089fafbd7d1bc760d9fe576bacf1d40a08e3cae7d68a4867ae1f352c2eab07a",
+      "batchId": "33459066782",
+      "homepage": {
+        "status": "published",
+        "updatedAt": "2026-09-01T01:31:32.108Z"
+      },
+      "package": {
+        "status": "awaiting_review",
+        "manifestPath": "content/214/manifest.json",
         "generatedAt": null
       },
       "linkedin": {
