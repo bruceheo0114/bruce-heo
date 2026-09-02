@@ -488,6 +488,24 @@ img { max-width: 100%; display: block; }
 @media (min-width: 1000px) {
   .caps { grid-template-columns: repeat(3, 1fr); gap: 14px; }
 }
+.cap--wide { grid-column: 1 / -1; }
+.cap--wide .pillar__proofs {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2px 24px;
+}
+.workflow-note {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  font-size: 11px;
+  color: var(--text-3);
+  line-height: 1.6;
+  word-break: keep-all;
+}
+@media (min-width: 720px) {
+  .cap--wide .pillar__proofs { grid-template-columns: repeat(2, 1fr); }
+}
 
 /* ============================================================
    CASE STUDY (dense, 1-screen-per-case)
@@ -1048,12 +1066,56 @@ img { max-width: 100%; display: block; }
 </div>
 </section>
 <!-- ============================================================
+     WORKFLOW DESIGN
+     ============================================================ -->
+<section class="section" id="workflow">
+<div class="wrap">
+<div class="section-head">
+<span class="section-eyebrow">05 · Workflow Design</span>
+<h2 class="section-title">PR 업무를 ‘개인의 숙련’에서<br/>‘팀이 반복할 수 있는 시스템’으로.</h2>
+<p class="section-desc">데일리 미디어 모니터링, 기사 분류·캡처, 소셜 지표 수집, KOL 계약과 비용 조회, 업무보고처럼 반복 빈도가 높은 PR 업무를 분석해 <strong>9개의 실무 워크플로</strong>로 구조화했습니다.</p>
+</div>
+<div class="caps">
+<div class="cap">
+<h4 class="cap__title" data-num="01">Human-in-the-loop</h4>
+<p class="cap__desc">AI와 자동화는 자료 수집, 초안 분류, 문서 형식화에 활용하되 기사 맥락 판단과 리스크 확인, 최종 보고는 담당자가 검수하도록 설계했습니다.</p>
+</div>
+<div class="cap">
+<h4 class="cap__title" data-num="02">하나의 운영 체계</h4>
+<p class="cap__desc">모니터링 보고서 생성, Instagram·YouTube 지표 수집, KOL 계약·비용 관리, 업무보고 등 분산된 반복 업무를 하나의 허브로 연결했습니다.</p>
+<div class="hero__tags">
+<span class="tag">Monitoring</span>
+<span class="tag">Social Metrics</span>
+<span class="tag">KOL Operations</span>
+<span class="tag">Work Reporting</span>
+</div>
+</div>
+<div class="cap">
+<h4 class="cap__title" data-num="03">Security by design</h4>
+<p class="cap__desc">고객사 자료와 내부 단가는 공개 시스템에서 분리하고, 권한이 있는 저장 공간과 로컬 환경에서만 처리하도록 운영 원칙을 세웠습니다.</p>
+</div>
+<div class="cap cap--wide">
+<h4 class="cap__title" data-num="MY ROLE">문제 정의에서 실제 검증까지</h4>
+<p class="cap__desc">현업의 문제 정의, 업무 순서와 검수 기준 설계, AI를 활용한 프로토타입 구현, 실제 결과물 검증과 개선을 담당했습니다.</p>
+<div class="pillar__proofs">
+<div class="pillar__proof">기사 링크에서 정해진 양식의 모니터링 보고서 생성</div>
+<div class="pillar__proof">Instagram·YouTube 콘텐츠 지표 수집 및 표준화</div>
+<div class="pillar__proof">KOL 계약·비용·업무보고 절차의 반복 작업 축소</div>
+<div class="pillar__proof">여러 업무 도구를 하나의 허브로 통합</div>
+<div class="pillar__proof">자동 생성 결과에 사람의 최종 검수를 두는 안전장치 적용</div>
+</div>
+<p class="workflow-note">※ 고객사 데이터, 내부 단가, 실제 문서, 코드와 시스템 주소는 공개하지 않습니다.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- ============================================================
      HERO PROJECTS INTRO
      ============================================================ -->
 <section class="section">
 <div class="wrap">
 <div class="section-head">
-<span class="section-eyebrow">05 · Hero Projects</span>
+<span class="section-eyebrow">06 · Hero Projects</span>
 <h2 class="section-title">대표 프로젝트 6건을<br/>배경 – 전략 – 실행 – 성과로 정리했습니다.</h2>
 <p class="section-desc">
         "무엇을 했는가"보다 <strong>"왜 그 선택을 했고, 어떤 구조로 실행했으며, 결과가 어떻게 숫자로 남았는가"에</strong> 초점을 맞췄습니다. 최근 진행한 <strong>바이탈뷰티 명작수와</strong> <strong>메타그린 슬림업</strong> 리뉴얼 캠페인까지 포함했습니다.

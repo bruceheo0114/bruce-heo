@@ -580,7 +580,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 @media (min-width: 1000px) {
   .capabilities__grid { grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .capability--system { grid-column: 1 / -1; }
 }
+.capability--system .capability__desc { max-width: 880px; }
 
 /* ============================================================
    JOURNEY
@@ -1441,7 +1443,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
     <div class="capabilities reveal">
       <span class="capabilities__intro">What I do</span>
-      <h3 class="capabilities__lead">맥락 설계자의 일은<br>네 단계로 이어집니다</h3>
+      <h3 class="capabilities__lead">맥락 설계자의 일은<br>다섯 단계로 이어집니다</h3>
       <div class="capabilities__grid">
         <div class="capability">
           <span class="capability__num">01</span>
@@ -1462,6 +1464,11 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
           <span class="capability__num">04</span>
           <div class="capability__verb">증명한다</div>
           <p class="capability__desc">오가닉 단일 조회 <strong>100만+</strong>, 유튜브 <strong>+400%</strong>, 인스타그램 <strong>+200%</strong>. 감이 아니라 숫자로.</p>
+        </div>
+        <div class="capability capability--system">
+          <span class="capability__num">05</span>
+          <div class="capability__verb">시스템화한다</div>
+          <p class="capability__desc">반복되는 PR 업무는 도구로 표준화하고, 맥락 판단과 최종 검수는 사람이 맡는 <strong>Human-in-the-loop 워크플로</strong>를 설계합니다. 미디어 모니터링, 소셜 지표 수집, KOL 계약·비용 관리, 업무보고 등 <strong>9개 실무 도구</strong>를 하나의 운영 체계로 연결했습니다.</p>
         </div>
       </div>
     </div>
