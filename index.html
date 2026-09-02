@@ -3,8 +3,46 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>맥락 설계자 브루스 허 · Bruce Heo</title>
-<meta name="description" content="맥락 설계자 브루스 허의 아카이브. 11년 실무에서 발견한 문제를 일반화해 IMC 전략과 AI 업무 판단을 구조화하는 세션·워크숍·강연을 운영합니다.">
+<title>브루스 허 · Brand Communication &amp; IMC Lead</title>
+<meta name="description" content="11년차 Brand Communication &amp; IMC Lead 브루스 허. F&amp;B·뷰티·웰니스 브랜드의 360° IMC와 통합 PR, 미디어 릴레이션, ESG·사내 커뮤니케이션 경험을 소개합니다.">
+<link rel="canonical" href="https://bruceheo.com/">
+<link rel="alternate" hreflang="ko" href="https://bruceheo.com/">
+<link rel="alternate" hreflang="en" href="https://bruceheo.com/en/">
+<link rel="alternate" hreflang="x-default" href="https://bruceheo.com/">
+<meta property="og:type" content="profile">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="브루스 허 · Brand Communication &amp; IMC Lead">
+<meta property="og:description" content="소비자 맥락을 360° IMC와 통합 커뮤니케이션으로 연결하는 11년차 마케터.">
+<meta property="og:url" content="https://bruceheo.com/">
+<meta property="og:image" content="https://bruceheo.com/en/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="브루스 허 · Brand Communication &amp; IMC Lead">
+<meta name="twitter:description" content="소비자 맥락을 360° IMC와 통합 커뮤니케이션으로 연결합니다.">
+<meta name="twitter:image" content="https://bruceheo.com/en/og.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "허보람",
+  "alternateName": "Bruce Heo",
+  "url": "https://bruceheo.com/",
+  "jobTitle": "Brand Communication & IMC Lead",
+  "worksFor": { "@type": "Organization", "name": "PR ONE" },
+  "sameAs": [
+    "https://www.linkedin.com/in/%EB%B3%B4%EB%9E%8C-%ED%97%88-8557401a7/",
+    "https://brunch.co.kr/@heoboram",
+    "https://www.instagram.com/heo.boram/"
+  ],
+  "knowsAbout": [
+    "Brand Communication",
+    "Integrated Marketing Communications",
+    "Integrated PR",
+    "Media Relations",
+    "Influencer Marketing",
+    "Content Strategy"
+  ]
+}
+</script>
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <style>
@@ -161,10 +199,19 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   transition: background 150ms ease;
 }
 .nav__cta:hover { background: var(--accent); }
+.nav__lang {
+  padding: 8px 11px;
+  border: 1px solid var(--border-strong);
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+.nav__lang:hover { border-color: var(--accent); color: var(--accent); }
 
 @media (max-width: 720px) {
   .nav__links { gap: 20px; }
-  .nav__link:not(.nav__cta) { display: none; }
+  .nav__link:not(.nav__cta):not(.nav__lang) { display: none; }
 }
 
 /* ============================================================
@@ -660,6 +707,71 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .journey-side { gap: 20px; position: sticky; top: 100px; }
   .tl-item::before { left: 20px; top: 40px; }
   .side-item, .side-list li { font-size: 14px; }
+}
+
+/* ============================================================
+   INTEGRATED COMMUNICATIONS
+   ============================================================ */
+.comms-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+.comm-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: clamp(24px, 3vw, 34px);
+  transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+}
+.comm-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+  border-color: var(--border-strong);
+}
+.comm-card__meta {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.comm-card__title {
+  font-size: clamp(19px, 2vw, 23px);
+  font-weight: 800;
+  line-height: 1.35;
+  letter-spacing: -0.025em;
+  color: var(--text);
+  margin-bottom: 12px;
+  word-break: keep-all;
+}
+.comm-card__desc {
+  font-size: 14px;
+  line-height: 1.72;
+  color: var(--text-2);
+  word-break: keep-all;
+}
+.comm-card__proof {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: auto;
+  padding-top: 20px;
+}
+.comm-card__proof span {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text);
+  background: var(--accent-soft);
+  border-radius: 7px;
+  padding: 6px 9px;
+}
+@media (min-width: 760px) {
+  .comms-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 /* ============================================================
@@ -1216,10 +1328,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     <div class="nav__links">
       <a href="#about" class="nav__link">소개</a>
       <a href="#journey" class="nav__link">Journey</a>
+      <a href="#communications" class="nav__link">PR</a>
       <a href="#work" class="nav__link">Work</a>
       <a href="#knowledge" class="nav__link">세션·강연</a>
       <a href="#writing" class="nav__link">Writing</a>
       <a href="#media" class="nav__link">Media</a>
+      <a href="en/" class="nav__link nav__lang" lang="en" aria-label="View the English site">EN</a>
       <a href="sessions.html" class="nav__link nav__cta">세션 안내</a>
     </div>
   </div>
@@ -1231,19 +1345,19 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 <header class="hero" id="hero">
   <div class="wrap hero__grid">
     <div>
-      <span class="hero__eyebrow">맥락 설계자 · Context Designer</span>
+      <span class="hero__eyebrow">Brand Communication &amp; IMC Lead</span>
       <h1 class="hero__title">
         소비자는 브랜드를<br>
         <em>맥락</em>으로 기억합니다
       </h1>
       <p class="hero__sub">
-        11년차 IMC 마케터이자 브런치 작가, 브루스 허의 아카이브. 소비자와 시대의 <strong>맥락을 읽고</strong>, 브랜드가 기억될 이유를 <strong>설계</strong>합니다.
+        소비자와 시대의 <strong>맥락을 읽고</strong>, 콘텐츠·KOL·미디어·디지털·오프라인을 하나의 여정으로 연결해 브랜드가 기억될 이유를 설계하는 <strong>11년차 통합 커뮤니케이션 리드</strong>입니다.
       </p>
       <div class="hero__tags">
         <span class="tag">IMC 캠페인</span>
         <span class="tag">브랜드 커뮤니케이션</span>
-        <span class="tag">콘텐츠 전략</span>
-        <span class="tag">AI 캠페인 제안서</span>
+        <span class="tag">통합 PR · 미디어 릴레이션</span>
+        <span class="tag">KOL · 콘텐츠 전략</span>
       </div>
       <div class="hero__cta">
         <a href="campaign-workbook.html" class="btn btn--primary">무료 캠페인 워크북 →</a>
@@ -1300,7 +1414,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
       </div>
       <div class="about-copy">
         <p>캠페인은 메시지보다 <strong>맥락</strong>에서 시작된다고 믿습니다. 소비자가 왜 움직이고 어디에서 멈추는지 먼저 살피고, 그 자리에 맞는 언어와 경험을 설계합니다.</p>
-        <p>F&B·뷰티·웰니스, 그리고 제약·OTC·건강기능식품 브랜드의 <strong>360° IMC 캠페인</strong>을 총괄해왔습니다. 콘텐츠·인플루언서·퍼포먼스·오프라인을 하나의 고객 여정으로 묶고, 결과는 감이 아니라 숫자로 확인합니다.</p>
+        <p>F&B·뷰티·웰니스, 그리고 제약·OTC·건강기능식품 브랜드의 <strong>360° IMC 캠페인</strong>을 총괄해왔습니다. 콘텐츠·KOL·퍼포먼스·미디어·오프라인을 하나의 고객 여정으로 묶고, 결과는 감이 아니라 숫자로 확인합니다.</p>
+        <p>피알원에서는 브랜드 캠페인뿐 아니라 <strong>통합 PR·미디어 릴레이션·ESG·사내 커뮤니케이션</strong>을 함께 수행했습니다. 브랜드와 기업의 메시지가 소비자·언론·구성원에게 각기 다른 맥락으로 도달하도록 설계합니다.</p>
         <p>현장에서 발견한 장면은 브런치 마케팅 칼럼과 브런치북 <strong>「맥락을 설계하는 일」</strong>로 이어집니다. 관찰하고 해석하고 기록하는 일은 실무의 연장선입니다.</p>
         <p>이제는 AI가 낸 아이디어를 그대로 쓰지 않고, 목표·인사이트·메시지·실행·KPI가 이어지는 <strong>캠페인 제안서로 구조화하는 법</strong>을 가르칩니다.</p>
       </div>
@@ -1308,7 +1423,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     <div class="stats reveal">
       <div class="stat">
         <div class="stat__num">11<sup>년</sup></div>
-        <div class="stat__label">IMC 마케팅 경력</div>
+        <div class="stat__label">Brand Comm. · IMC 경력</div>
       </div>
       <div class="stat">
         <div class="stat__num">200<sup>+</sup></div>
@@ -1341,7 +1456,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
         <div class="capability">
           <span class="capability__num">03</span>
           <div class="capability__verb">연결한다</div>
-          <p class="capability__desc"><strong>콘텐츠·인플루언서·퍼포먼스·바이럴·오프라인</strong>을 하나의 흐름으로 잇습니다. F&B, 뷰티, 웰니스, 헬스케어 브랜드에서.</p>
+          <p class="capability__desc"><strong>콘텐츠·KOL·퍼포먼스·미디어·오프라인</strong>을 하나의 흐름으로 잇습니다. F&B, 뷰티, 웰니스, 헬스케어 브랜드에서.</p>
         </div>
         <div class="capability">
           <span class="capability__num">04</span>
@@ -1361,10 +1476,10 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     <div class="section-head reveal">
       <div>
         <span class="section-eyebrow">02 · Journey</span>
-        <h2 class="section-title">세 개의 세계를<br>건너온 11년</h2>
+        <h2 class="section-title">네 개의 세계를<br>건너온 11년</h2>
       </div>
       <p class="section-desc">
-        스포츠, MCN, 브랜드 마케팅. 매체와 산업이 달랐지만 언제나 <strong style="color:var(--text);">사람의 관심을 읽는 일</strong>이었습니다. 그 궤적이 지금의 맥락 설계자로 이어졌습니다.
+        스포츠, MCN, PR, 브랜드 마케팅. 매체와 산업이 달랐지만 언제나 <strong style="color:var(--text);">사람의 관심을 읽는 일</strong>이었습니다. 그 궤적이 지금의 통합 커뮤니케이션 리드로 이어졌습니다.
       </p>
     </div>
 
@@ -1374,7 +1489,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
           <div class="tl-year">2021 – 현재 · Now</div>
           <div class="tl-role">Senior AE (차장) · 피알원</div>
           <p class="tl-desc">
-            아모레퍼시픽 <strong>오설록·바이탈뷰티</strong> 등 F&B·뷰티·웰니스 브랜드의 360° IMC 캠페인을 총괄하고 있습니다. 콘텐츠·인플루언서·퍼포먼스·오프라인을 하나의 여정으로 설계하고, 결과를 숫자로 증명합니다. <strong>2025 IBA Gold Stevie 수상</strong>.
+            아모레퍼시픽 <strong>오설록·바이탈뷰티</strong> 등 F&B·뷰티·웰니스 브랜드의 360° IMC 캠페인을 총괄하고 있습니다. 콘텐츠·KOL·퍼포먼스·미디어·오프라인을 하나의 여정으로 설계하고, 결과를 숫자로 증명합니다. <strong>2025 IBA Gold Stevie 수상</strong>.
           </p>
           <div class="tl-tags">
             <span class="tl-tag">IMC PM</span>
@@ -1384,15 +1499,15 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
         </div>
 
         <div class="tl-item">
-          <div class="tl-year">Pharma · Health</div>
-          <div class="tl-role">제약 · OTC · 건강기능식품 Digital PR</div>
+          <div class="tl-year">2021 – 2024 · Integrated Communications</div>
+          <div class="tl-role">통합 PR · ESG · 사내 커뮤니케이션</div>
           <p class="tl-desc">
-            규제 산업에서 언론과 소비자를 함께 만나는 법을 익힌 시기. <strong>유통 기반 디지털 매체 중심의 언론 네트워크</strong>를 구축하고, X세대와 MZ세대를 하나의 여정으로 잇는 <strong>고객 여정 마케팅</strong>을 실무에서 다졌습니다.
+            Herbalife·Duracell·LG화학·Macrogen 프로젝트에서 제품 홍보와 미디어 릴레이션, ESG 캠페인, 디지털 사보를 수행했습니다. 소비자뿐 아니라 <strong>언론·임직원까지 이해관계자별 메시지와 채널을 설계</strong>하며 커뮤니케이션의 범위를 확장했습니다.
           </p>
           <div class="tl-tags">
-            <span class="tl-tag">Digital PR</span>
-            <span class="tl-tag">언론 네트워크</span>
-            <span class="tl-tag">고객 여정</span>
+            <span class="tl-tag">Integrated PR</span>
+            <span class="tl-tag">Media Relations</span>
+            <span class="tl-tag">ESG · Internal Comms</span>
           </div>
         </div>
 
@@ -1451,13 +1566,60 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 </section>
 
 <!-- ============================================================
-     PORTFOLIO / CASE STUDIES
+     INTEGRATED COMMUNICATIONS
      ============================================================ -->
-<section class="section" id="work">
+<section class="section" id="communications">
   <div class="wrap">
     <div class="section-head reveal">
       <div>
-        <span class="section-eyebrow">03 · Selected Work</span>
+        <span class="section-eyebrow">03 · Integrated Communications</span>
+        <h2 class="section-title">브랜드에서 기업까지,<br>이해관계자를 연결한 일</h2>
+      </div>
+      <p class="section-desc">
+        IMC를 중심에 두고, 제품 PR·미디어 릴레이션·ESG·사내 커뮤니케이션까지 수행했습니다. 채널을 나열하기보다 <strong style="color:var(--text);">누구에게 어떤 메시지가 왜 필요한지</strong>부터 설계했습니다.
+      </p>
+    </div>
+
+    <div class="comms-grid reveal">
+      <article class="comm-card">
+        <div class="comm-card__meta">2022.08 – 2024.08 · Project Manager</div>
+        <h3 class="comm-card__title">Herbalife Korea · Integrated PR</h3>
+        <p class="comm-card__desc">신제품의 검색 맥락을 반영한 디지털 PR과 보도자료·기획기사·미디어 릴레이션을 통합 운영했습니다. APAC 15개 지사 중 미디어 성과 1위를 기록했습니다.</p>
+        <div class="comm-card__proof"><span>APAC No.1</span><span>월 80–100건 보도</span><span>콘텐츠 누적 500만+ 조회</span></div>
+      </article>
+
+      <article class="comm-card">
+        <div class="comm-card__meta">2021.12 – 2023.01 · Project Manager</div>
+        <h3 class="comm-card__title">Duracell · Power Safely ESG Campaign</h3>
+        <p class="comm-card__desc">글로벌 ESG 메시지를 육아 소비자의 일상 언어로 번역했습니다. 인스타툰 작가, 디지털 광고, 육아 매거진 협업을 연결해 안전한 건전지 사용 인식을 확산했습니다.</p>
+        <div class="comm-card__proof"><span>720만 노출</span><span>30만 클릭</span><span>고객사랑브랜드 2년 연속</span></div>
+      </article>
+
+      <article class="comm-card">
+        <div class="comm-card__meta">2022.01 – 2024.12 · Senior AE</div>
+        <h3 class="comm-card__title">LG Chem · Digital Employee Magazine</h3>
+        <p class="comm-card__desc">LG화학 디지털 사보의 기획·제작·운영을 맡아 기업의 전략과 구성원의 이야기를 읽히는 콘텐츠로 만들었습니다.</p>
+        <div class="comm-card__proof"><span>연간 오가닉 100만 조회</span><span>대한민국 사보대상</span><span>Internal Comms</span></div>
+      </article>
+
+      <article class="comm-card">
+        <div class="comm-card__meta">2021.12 – 2022.04 · Senior AE</div>
+        <h3 class="comm-card__title">Macrogen · Integrated PR</h3>
+        <p class="comm-card__desc">DTC 유전자검사 서비스의 인지 확장을 위해 보도자료·기획기사와 블로그·유튜브 론칭을 연결하고, 기자 미팅과 미디어 피칭을 수행했습니다.</p>
+        <div class="comm-card__proof"><span>평균 20건+ 보도</span><span>TV조선 메인뉴스</span><span>DTC Launch</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PORTFOLIO / CASE STUDIES
+     ============================================================ -->
+<section class="section section--soft" id="work">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="section-eyebrow">04 · Selected Work</span>
         <h2 class="section-title">캠페인이 아니라<br>인식을 바꾼 일</h2>
       </div>
       <p class="section-desc">
@@ -1630,7 +1792,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   <div class="wrap">
     <div class="section-head reveal">
       <div>
-        <span class="section-eyebrow">04 · Knowledge & Sessions</span>
+        <span class="section-eyebrow">05 · Knowledge & Sessions</span>
         <h2 class="section-title">AI가 뽑은 아이디어를,<br>클라이언트가 납득하는 제안서로.</h2>
       </div>
       <p class="section-desc">
@@ -1683,7 +1845,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   <div class="wrap">
     <div class="section-head reveal">
       <div>
-        <span class="section-eyebrow">05 · Writing</span>
+        <span class="section-eyebrow">06 · Writing</span>
         <h2 class="section-title">브랜드는 왜<br>그렇게 움직였을까</h2>
       </div>
       <p class="section-desc">
@@ -1767,7 +1929,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   <div class="wrap">
     <div class="section-head reveal">
       <div>
-        <span class="section-eyebrow">06 · Media & Lectures</span>
+        <span class="section-eyebrow">07 · Media & Lectures</span>
         <h2 class="section-title">밖에서 남긴<br>기록과 강연</h2>
       </div>
       <p class="section-desc">
@@ -1831,7 +1993,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   <div class="wrap">
     <div class="section-head reveal">
       <div>
-        <span class="section-eyebrow">07 · Contact</span>
+        <span class="section-eyebrow">08 · Contact</span>
         <h2 class="section-title">이야기,<br>함께 시작할까요</h2>
       </div>
       <p class="section-desc">
