@@ -9,6 +9,9 @@ test("영문 홈페이지가 독립 URL과 언어 전환 정보를 제공한다"
   assert.match(html, /<link rel="canonical" href="https:\/\/bruceheo\.com\/en\/">/);
   assert.match(html, /href="\.\.\/"[^>]+>KR<\/a>/);
   assert.match(html, /<h1 class="hero__title">[\s\S]*People remember brands/);
+  assert.match(html, /Brand Communication &amp; IMC Lead/);
+  assert.match(html, /id="communications"/);
+  assert.match(html, /Herbalife Korea · Integrated PR/);
   assert.match(html, /property="og:image" content="https:\/\/bruceheo\.com\/en\/og\.png"/);
 
   const visibleMarkup = html
