@@ -663,17 +663,52 @@
   </div>
 
   <div class="chart-card">
-    <div class="chart-title" style="margin-bottom:14px">기본 정보</div>
+    <div class="chart-title" style="margin-bottom:4px">급여명세서에서 읽는 값</div>
+    <div class="tax-hint" style="margin-bottom:14px">
+      2026년 8월 급여명세서 기준으로 채워뒀습니다. 바뀐 달이 있으면 고치세요.
+    </div>
     <div class="tax-inputs">
       <div class="form-group">
-        <label class="form-label">총급여 (연간, 세전)</label>
-        <input type="number" class="form-input" id="tax-salary" inputmode="numeric" oninput="renderTax()">
-        <div class="tax-hint" id="tax-salary-hint"></div>
+        <label class="form-label">월 과세급여</label>
+        <input type="number" class="form-input" id="tax-monthly" value="4491000" inputmode="numeric" oninput="renderTax()">
+        <div class="tax-hint">지급액 계 4,891,000 − 비과세(식대 20만 + 자가운전 20만)</div>
       </div>
       <div class="form-group">
+        <label class="form-label">연간 상여·인센티브 (세전)</label>
+        <input type="number" class="form-input" id="tax-bonus" value="10700000" inputmode="numeric" oninput="renderTax()">
+        <div class="tax-hint" id="tax-bonus-hint"></div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">월 국민연금</label>
+        <input type="number" class="form-input" id="tax-pension" value="237640" inputmode="numeric" oninput="renderTax()">
+      </div>
+      <div class="form-group">
+        <label class="form-label">월 건강 + 장기요양</label>
+        <input type="number" class="form-input" id="tax-health" value="206320" inputmode="numeric" oninput="renderTax()">
+      </div>
+      <div class="form-group">
+        <label class="form-label">월 고용보험</label>
+        <input type="number" class="form-input" id="tax-employ" value="40410" inputmode="numeric" oninput="renderTax()">
+      </div>
+      <div class="form-group">
+        <label class="form-label">월 소득세 (기납부)</label>
+        <input type="number" class="form-input" id="tax-monthlytax" value="260040" inputmode="numeric" oninput="renderTax()">
+        <div class="tax-hint">지방소득세는 빼고 '소득세'만</div>
+      </div>
+    </div>
+    <div class="tax-row total" style="margin-top:14px">
+      <div class="lab">총급여 (연간)</div>
+      <div class="val" id="tax-gross-out">₩0</div>
+    </div>
+  </div>
+
+  <div class="chart-card" style="margin-top:12px">
+    <div class="chart-title" style="margin-bottom:14px">가족</div>
+    <div class="tax-inputs">
+      <div class="form-group">
         <label class="form-label">부양가족 (본인 제외)</label>
-        <input type="number" class="form-input" id="tax-deps" value="1" min="0" oninput="renderTax()">
-        <div class="tax-hint">배우자·부모 등 기본공제 대상</div>
+        <input type="number" class="form-input" id="tax-deps" value="2" min="0" oninput="renderTax()">
+        <div class="tax-hint">배우자 + 9월 출산 자녀 = 2명</div>
       </div>
       <div class="form-group">
         <label class="form-label">자녀 (8세 이상 20세 이하)</label>
@@ -682,13 +717,12 @@
       </div>
       <div class="form-group">
         <label class="form-label">올해 출산·입양</label>
-        <input type="number" class="form-input" id="tax-birth" value="0" min="0" oninput="renderTax()">
+        <input type="number" class="form-input" id="tax-birth" value="1" min="0" oninput="renderTax()">
         <div class="tax-hint">첫째 30만 · 둘째 50만 · 셋째 70만</div>
       </div>
-      <div class="form-group" style="grid-column:1/-1">
-        <label class="form-label">기납부세액 (선택)</label>
-        <input type="number" class="form-input" id="tax-prepaid" placeholder="비워두면 결정세액만 계산" inputmode="numeric" oninput="renderTax()">
-        <div class="tax-hint">급여명세서의 '소득세' 1~12월 합계. 넣으면 환급/추가납부까지 계산해요</div>
+      <div class="form-group">
+        <label class="form-label">기납부세액 직접 입력 (선택)</label>
+        <input type="number" class="form-input" id="tax-prepaid" placeholder="비우면 월 소득세 × 12로 계산" inputmode="numeric" oninput="renderTax()">
       </div>
     </div>
   </div>
@@ -698,6 +732,9 @@
 
   <div class="section-title">신용카드 등 소득공제 <span class="hint">총급여 25% 초과분부터</span></div>
   <div class="chart-card"><div id="tax-card"></div></div>
+
+  <div class="section-title">의료비</div>
+  <div class="chart-card"><div id="tax-medical"></div></div>
 
   <div class="section-title">세액공제</div>
   <div class="chart-card"><div id="tax-credits"></div></div>
@@ -2241,38 +2278,33 @@ function taxYearData() {
   };
 }
 
+const numOf = id => Math.max(0, Number(document.getElementById(id).value) || 0);
+
 function renderTax() {
   const d = taxYearData();
-  const salaryEl = document.getElementById('tax-salary');
 
-  // 총급여 기본값 추정 (사용자가 고치면 그 값을 쓴다)
-  //  - 매달 들어오는 급여는 월평균 × 12 로 연환산
-  //  - 인센티브·상여 같은 일시금은 연환산하지 않고 그대로 더한다
-  const monthly = d.incomeRecords.filter(e => /급여|월급/.test(e.desc) && !/인센|상여|성과/.test(e.desc));
-  const bonus = d.incomeRecords.filter(e => /인센|상여|성과/.test(e.desc));
-  const monthlyPaid = monthly.reduce((s, e) => s + e.amount, 0);
-  const bonusPaid = bonus.reduce((s, e) => s + e.amount, 0);
-  const monthsPaid = new Set(monthly.map(e => e.date.slice(0, 7))).size || 1;
-  // 실수령 → 세전 환산 약 1.22배 (4대보험 + 원천징수 소득세 몫)
-  const NET_TO_GROSS = 1.22;
-  const estimate = Math.round((monthlyPaid / monthsPaid * 12 + bonusPaid) * NET_TO_GROSS / 10000) * 10000;
+  // ── 급여명세서에서 읽은 값 ────────────────────────────────
+  const monthlyTaxable = numOf('tax-monthly');    // 월 과세급여 (지급액 계 − 비과세)
+  const bonusGross = numOf('tax-bonus');          // 연간 상여·인센티브 세전
+  const gross = monthlyTaxable * 12 + bonusGross; // 총급여
+  document.getElementById('tax-gross-out').textContent = fmtFull(gross);
 
-  if (!salaryEl.value) salaryEl.value = estimate;
-  const gross = Number(salaryEl.value) || estimate;
-  document.getElementById('tax-salary-hint').innerHTML =
-    `월급 ${fmtFull(monthlyPaid)}(${monthsPaid}개월) + 인센티브 ${fmtFull(bonusPaid)} 실수령 기준 추정 <b>${fmtFull(estimate)}</b>.
-     실수령을 세전으로 1.22배 환산한 값이라 오차가 큽니다 —
-     <b>원천징수영수증의 '총급여'</b>를 넣으면 훨씬 정확해져요.`;
+  const bonusNet = d.incomeRecords.filter(e => /인센|상여|성과/.test(e.desc)).reduce((s, e) => s + e.amount, 0);
+  document.getElementById('tax-bonus-hint').innerHTML =
+    bonusNet ? `실수령 ${fmtFull(bonusNet)} 입금 확인됨 · 세전은 대략 ${fmtFull(Math.round(bonusNet / 0.8))}` : '없으면 0';
 
-  const deps = Math.max(0, Number(document.getElementById('tax-deps').value) || 0);
-  const kids = Math.max(0, Number(document.getElementById('tax-kids').value) || 0);
-  const births = Math.max(0, Number(document.getElementById('tax-birth').value) || 0);
+  // 4대보험 (소득공제 대상) — 명세서 값을 그대로 연으로 환산
+  const pension = numOf('tax-pension') * 12;
+  const health = numOf('tax-health') * 12;
+  const employ = numOf('tax-employ') * 12;
+
+  const deps = numOf('tax-deps');
+  const kids = numOf('tax-kids');
+  const births = numOf('tax-birth');
 
   // ── 소득공제 ──────────────────────────────────────────
   const eiDeduction = earnedIncomeDeduction(gross);
   const personal = 1500000 * (1 + deps);
-  const pension = Math.min(gross, 62400000) * 0.045;      // 국민연금 근로자부담 4.5%
-  const health = gross * 0.0398;                          // 건강+장기요양 대략
 
   // 신용카드등: 총급여 25% 초과분에 대해 결제수단별 공제율
   const threshold = gross * 0.25;
@@ -2291,7 +2323,7 @@ function renderTax() {
   const cardCap = gross <= 70000000 ? 3000000 : gross <= 120000000 ? 2500000 : 2000000;
   cardDeduction = Math.min(cardDeduction, cardCap);
 
-  const totalDeduction = eiDeduction + personal + pension + health + cardDeduction;
+  const totalDeduction = eiDeduction + personal + pension + health + employ + cardDeduction;
   const taxBase = Math.max(0, gross - totalDeduction);
   const calculated = incomeTax(taxBase);
 
@@ -2308,9 +2340,10 @@ function renderTax() {
   const totalCredit = eiCredit + kidCredit + birthCredit + insCredit + medCredit + donCredit;
   const finalTax = Math.max(0, calculated - totalCredit);
 
-  // 기납부세액은 급여명세서의 '소득세' 합계라서 가계부 데이터로는 알 수 없다.
-  // 넣으면 환급/추납까지 계산하고, 비어 있으면 결정세액만 보여준다.
-  const prepaidInput = Number(document.getElementById('tax-prepaid').value) || 0;
+  // 기납부세액: 직접 입력이 있으면 그 값, 없으면 월 소득세 × 12 + 상여분 원천징수 추정
+  const bonusTax = Math.round(bonusGross * 0.15);          // 상여 원천징수 대략
+  const prepaidAuto = numOf('tax-monthlytax') * 12 + bonusTax;
+  const prepaidInput = numOf('tax-prepaid') || prepaidAuto;
   const hero = document.getElementById('tax-hero');
 
   if (prepaidInput > 0) {
@@ -2323,7 +2356,7 @@ function renderTax() {
       <div class="tax-hero-split">
         <div><div class="account-mini-label">결정세액</div>
           <div class="account-mini-value">${fmtFull(Math.round(finalTax))}</div></div>
-        <div><div class="account-mini-label">기납부세액 (입력값)</div>
+        <div><div class="account-mini-label">기납부세액 ${numOf('tax-prepaid') ? '(입력값)' : '(월 소득세 기준)'}</div>
           <div class="account-mini-value">${fmtFull(prepaidInput)}</div></div>
       </div>`;
   } else {
@@ -2358,6 +2391,31 @@ function renderTax() {
     <div class="tax-row"><div class="lab">대중교통 <span class="sub" style="display:inline">40%</span></div><div class="val">${fmtFull(d.transit)}</div></div>
     <div class="tax-row total"><div class="lab">소득공제액</div><div class="val" style="color:var(--accent)">${fmtFull(Math.round(cardDeduction))}</div></div>`;
 
+  // ── 의료비: 왜 공제가 되는지/안 되는지 그대로 보여준다 ──
+  const medGap = medThreshold - d.medical;
+  document.getElementById('tax-medical').innerHTML = `
+    <div class="tax-row"><div><div class="lab">올해 기록된 의료비</div>
+      <div class="sub">병원·약국 + 육아로 분류된 산부인과·산후조리 포함</div></div>
+      <div class="val">${fmtFull(d.medical)}</div></div>
+    <div class="tax-row"><div><div class="lab">공제 문턱 (총급여 3%)</div>
+      <div class="sub">이 금액을 <b>넘는 부분만</b> 공제 대상이에요</div></div>
+      <div class="val">${fmtFull(Math.round(medThreshold))}</div></div>
+    <div class="tax-bar"><div class="tax-bar-fill" style="width:${Math.min(100, Math.round(d.medical / medThreshold * 100))}%;background:${medBase > 0 ? 'var(--green)' : 'var(--orange)'}"></div></div>
+    ${medBase > 0
+      ? `<div class="tax-row total"><div class="lab">공제 대상 (초과분)</div>
+           <div class="val" style="color:var(--green)">${fmtFull(Math.round(medBase))}</div></div>`
+      : `<div class="tax-note" style="margin:12px 0 0">
+           <strong>아직 문턱을 못 넘었어요 — ${fmtFull(Math.round(medGap))} 부족합니다.</strong>
+           의료비는 <b>총급여의 3%를 넘는 부분만</b> 공제돼서, 총급여 ${fmtFull(gross)} 기준
+           ${fmtFull(Math.round(medThreshold))} 이상 써야 1원이라도 공제가 시작됩니다.
+           지금 기록은 ${fmtFull(d.medical)}이라 그 아래예요.<br><br>
+           다만 놓치기 쉬운 게 있습니다 —
+           <b>배우자·부모 등 부양가족 의료비도 합산</b>되고,
+           <b>산후조리원비는 200만원까지</b> 의료비로 인정됩니다(총급여 7천만원 이하).
+           안경·콘택트렌즈도 1인당 50만원까지 됩니다.
+           9월 출산 이후 분만·조리원·산후 진료가 들어오면 문턱은 쉽게 넘습니다.
+         </div>`}`;
+
   const credits = [
     ['근로소득 세액공제', eiCredit, '산출세액 기준 자동 계산'],
     ['의료비 세액공제', medCredit, `의료비 ${fmt(d.medical)} 중 총급여 3%(${fmt(Math.round(medThreshold))}) 초과분의 15%`],
@@ -2373,11 +2431,12 @@ function renderTax() {
     + `<div class="tax-row total"><div class="lab">세액공제 합계</div><div class="val" style="color:var(--green)">−${fmt(Math.round(totalCredit))}</div></div>`;
 
   const steps = [
-    ['총급여', gross, ''],
+    ['총급여', gross, `월 과세급여 ${fmt(monthlyTaxable)} × 12 + 상여 ${fmt(bonusGross)}`],
     ['− 근로소득공제', -eiDeduction, '구간별 자동'],
     ['− 인적공제', -personal, `본인 + 부양가족 ${deps}명`],
-    ['− 국민연금', -pension, '4.5% 가정'],
-    ['− 건강·장기요양', -health, '약 3.98% 가정'],
+    ['− 국민연금', -pension, '명세서 값 × 12'],
+    ['− 건강·장기요양', -health, '명세서 값 × 12'],
+    ['− 고용보험', -employ, '명세서 값 × 12'],
     ['− 신용카드 등', -cardDeduction, `한도 ${fmt(cardCap)}`],
     ['= 과세표준', taxBase, ''],
     ['× 기본세율 → 산출세액', calculated, ''],
