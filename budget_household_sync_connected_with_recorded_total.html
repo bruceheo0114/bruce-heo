@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>우리집 가계부</title>
 
 <!-- PWA 설정 -->
@@ -18,6 +18,7 @@
 <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAgMTIwIj48cmVjdCB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCIgcng9IjI0IiBmaWxsPSIjMWExYTFhIi8+PHRleHQgeD0iNjAiIHk9Ijc4IiBmb250LXNpemU9IjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj7wn4mAPC90ZXh0Pjwvc3ZnPg==">
 
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <style>
   :root {
     --bg: #0f0f0f;
@@ -133,6 +134,10 @@
   .summary-value.expense { color: var(--red); }
   .summary-value.balance { color: var(--accent); }
   .summary-sub { font-size: 11px; color: var(--text3); margin-top: 4px; }
+  .account-split { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; margin-top:12px; padding-top:12px; border-top:1px solid var(--border); }
+  .account-mini-card { min-width:0; background:var(--surface3); border-radius:var(--radius-sm); padding:10px; }
+  .account-mini-label { font-size:10px; color:var(--text3); margin-bottom:4px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .account-mini-value { font:500 13px 'DM Mono',monospace; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 
   /* ── PROGRESS BAR ── */
   .progress-wrap { margin-top: 8px; }
@@ -311,6 +316,35 @@
   .cat-bar-name { color: var(--text2); display: flex; align-items: center; gap: 6px; }
   .cat-bar-amt { font-family: 'DM Mono', monospace; color: var(--text); }
 
+  /* ── DASHBOARD CHARTS ── */
+  .dashboard-charts { display:grid; grid-template-columns:1fr; gap:12px; margin-top:16px; }
+  .chart-card {
+    min-width:0; background:var(--surface); border:1px solid var(--border);
+    border-radius:var(--radius); padding:16px; overflow:hidden;
+  }
+  .chart-head { display:flex; justify-content:space-between; align-items:flex-start; gap:12px; margin-bottom:12px; }
+  .chart-title { font-size:13px; font-weight:700; color:var(--text); }
+  .chart-caption { font-size:10px; line-height:1.5; color:var(--text3); margin-top:3px; }
+  .chart-total { font:500 13px 'DM Mono',monospace; color:var(--accent); white-space:nowrap; }
+  .trend-chart { width:100%; min-height:220px; }
+  .trend-chart svg { display:block; width:100%; height:auto; min-height:220px; overflow:visible; }
+  .chart-legend { display:flex; gap:12px; flex-wrap:wrap; margin-top:10px; color:var(--text3); font-size:10px; }
+  .legend-item { display:inline-flex; align-items:center; gap:5px; }
+  .legend-dot { width:8px; height:8px; border-radius:2px; display:inline-block; }
+  .donut-layout { display:grid; grid-template-columns:132px 1fr; align-items:center; gap:16px; min-height:190px; }
+  .donut-chart {
+    width:132px; aspect-ratio:1; border-radius:50%; position:relative;
+    background:var(--surface3); box-shadow:inset 0 0 0 1px var(--border);
+  }
+  .donut-chart::after { content:''; position:absolute; inset:28px; border-radius:50%; background:var(--surface); box-shadow:0 0 0 1px var(--border); }
+  .donut-center { position:absolute; inset:0; z-index:1; display:grid; place-content:center; text-align:center; pointer-events:none; }
+  .donut-center strong { font:500 13px 'DM Mono',monospace; color:var(--text); }
+  .donut-center span { font-size:9px; color:var(--text3); margin-top:3px; }
+  .donut-legend { display:flex; flex-direction:column; gap:8px; min-width:0; }
+  .donut-row { display:grid; grid-template-columns:9px minmax(0,1fr) auto; gap:7px; align-items:center; font-size:11px; }
+  .donut-label { white-space:nowrap; overflow:hidden; text-overflow:ellipsis; color:var(--text2); }
+  .donut-value { font:10px 'DM Mono',monospace; color:var(--text); }
+
   /* ── EMPTY STATE ── */
   .empty-state { text-align: center; padding: 40px 20px; color: var(--text3); }
   .empty-icon { font-size: 36px; margin-bottom: 10px; }
@@ -324,11 +358,84 @@
   }
   .expense-item:hover .del-btn { opacity: 1; }
 
+  /* ── IMPORT / DESKTOP READABILITY ── */
+  .privacy-card {
+    background: linear-gradient(135deg, rgba(126,201,154,.12), rgba(122,184,232,.08));
+    border: 1px solid rgba(126,201,154,.35); border-radius: var(--radius);
+    padding: 14px; margin-bottom: 14px; display: flex; gap: 11px; align-items: flex-start;
+  }
+  .privacy-card strong { color: var(--green); display:block; margin-bottom:4px; }
+  .privacy-copy { color: var(--text2); font-size: 12px; line-height: 1.65; }
+  .import-zone {
+    border: 1.5px dashed var(--border2); border-radius: var(--radius); padding: 28px 18px;
+    background: var(--surface); text-align: center; cursor: pointer; transition: .18s ease;
+  }
+  .import-zone:hover, .import-zone.drag { border-color: var(--accent); background: rgba(232,201,122,.05); }
+  .import-zone.loaded { border-color: var(--green); border-style: solid; }
+  .import-zone-icon { font-size: 32px; margin-bottom: 8px; }
+  .import-zone-title { color: var(--text); font-size: 14px; font-weight: 700; }
+  .import-zone-sub { color: var(--text3); font-size: 11px; line-height: 1.6; margin-top: 5px; }
+  .import-actions { display:flex; gap:8px; margin:12px 0; flex-wrap:wrap; }
+  .action-btn {
+    border:1px solid var(--border2); background:var(--surface2); color:var(--text2);
+    padding:9px 12px; border-radius:8px; font:500 12px 'Noto Sans KR',sans-serif; cursor:pointer;
+  }
+  .action-btn:hover { border-color:var(--accent); color:var(--accent); }
+  .action-btn.primary { background:var(--accent); border-color:var(--accent); color:var(--bg); font-weight:700; }
+  .action-btn:disabled { opacity:.45; cursor:not-allowed; }
+  .import-stats { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin:12px 0; }
+  .import-stat { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:11px; }
+  .import-stat-label { font-size:10px; color:var(--text3); margin-bottom:5px; }
+  .import-stat-value { font:500 15px 'DM Mono',monospace; color:var(--text); }
+  .import-table-wrap { overflow:auto; max-height:430px; border:1px solid var(--border); border-radius:var(--radius); }
+  .import-table { width:100%; border-collapse:collapse; min-width:720px; font-size:12px; }
+  .import-table th { position:sticky; top:0; z-index:2; background:var(--surface2); color:var(--text3); padding:9px; text-align:left; border-bottom:1px solid var(--border2); }
+  .import-table td { padding:8px 9px; border-bottom:1px solid var(--border); vertical-align:middle; }
+  .import-table tr:last-child td { border-bottom:none; }
+  .import-table tr.duplicate { opacity:.48; }
+  .import-table select { background:var(--surface3); color:var(--text); border:1px solid var(--border2); border-radius:6px; padding:5px; font:inherit; }
+  .duplicate-badge { color:var(--orange); font-size:10px; white-space:nowrap; }
+  .import-result { display:none; margin-top:12px; padding:11px 12px; border-radius:9px; font-size:12px; line-height:1.55; }
+  .import-result.show { display:block; }
+  .import-result.ok { color:var(--green); background:rgba(126,201,154,.09); border:1px solid rgba(126,201,154,.35); }
+  .import-result.warn { color:var(--orange); background:rgba(232,160,96,.09); border:1px solid rgba(232,160,96,.35); }
+  .expense-toolbar { display:flex; gap:8px; margin-bottom:10px; }
+  .expense-search { flex:1; min-width:0; background:var(--surface); color:var(--text); border:1px solid var(--border); border-radius:9px; padding:10px 12px; font:12px 'Noto Sans KR',sans-serif; outline:none; }
+  .expense-search:focus { border-color:var(--accent); }
+  .cat-filter-btn {
+    white-space:nowrap; background:var(--surface); border:1px solid var(--border);
+    border-radius:20px; padding:6px 12px; color:var(--text2); cursor:pointer;
+    font-size:12px; font-family:'Noto Sans KR',sans-serif; transition:all .15s;
+  }
+  .cat-filter-btn.active { background:var(--accent); color:var(--bg); border-color:var(--accent); font-weight:600; }
+  .month-overview { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:12px; color:var(--text2); font-size:11px; }
+  .month-overview strong { color:var(--text); font:500 13px 'DM Mono',monospace; }
+  .data-tools { display:flex; gap:7px; align-items:center; flex-wrap:wrap; }
+  .preview-limit-note { padding:9px 11px; color:var(--text3); font-size:10px; border:1px solid var(--border); border-bottom:0; border-radius:var(--radius) var(--radius) 0 0; background:var(--surface2); }
+  .preview-limit-note + .import-table-wrap { border-top-left-radius:0; border-top-right-radius:0; }
+
   /* ── DESKTOP LAYOUT ── */
   @media (min-width: 768px) {
-    .page { max-width: 600px; margin: 0 auto; }
+    .page { max-width: 980px; margin: 0 auto; padding:24px; }
+    .summary-grid { grid-template-columns:repeat(3,1fr); }
+    .summary-card.full { grid-column:span 1; }
+    #cat-breakdown { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); column-gap:24px; }
+    .expense-list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); }
+    #fixed-groups-container { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; align-items:start; }
+    .fixed-group { margin-bottom:0; }
+    .dashboard-charts { grid-template-columns:minmax(0,1.35fr) minmax(300px,.65fr); }
+    .account-split { grid-template-columns:repeat(4,minmax(0,1fr)); }
     .modal { border-radius: 16px; margin-bottom: 20px; }
     .modal-overlay { align-items: center; }
+  }
+  @media (max-width: 520px) {
+    .import-stats { grid-template-columns:repeat(2,1fr); }
+    .sync-bar { align-items:flex-start; }
+    .sync-actions { justify-content:flex-end; }
+    .data-tools { justify-content:flex-end; }
+    .donut-layout { grid-template-columns:112px 1fr; gap:12px; }
+    .donut-chart { width:112px; }
+    .donut-chart::after { inset:24px; }
   }
 </style>
 </head>
@@ -356,16 +463,22 @@
 <div class="sync-bar">
   <div class="sync-pill" id="syncPill"><span class="sync-dot"></span><span id="syncStatus">로컬 캐시 모드</span></div>
   <div class="sync-actions">
-    <button class="sync-btn" onclick="forceRefreshFromCloud()">동기화</button>
+    <div class="data-tools">
+      <button class="sync-btn" onclick="exportBackup()">백업</button>
+      <button class="sync-btn" onclick="document.getElementById('backupInput').click()">복원</button>
+      <button class="sync-btn" onclick="forceRefreshFromCloud()">동기화</button>
+    </div>
+    <input type="file" id="backupInput" accept="application/json,.json" hidden onchange="restoreBackup(this.files[0])">
   </div>
 </div>
 
 <!-- NAV TABS -->
 <div class="nav-tabs">
-  <div class="nav-tab active" onclick="showPage('dashboard')">📊 요약</div>
-  <div class="nav-tab" onclick="showPage('expenses')">📋 지출내역</div>
-  <div class="nav-tab" onclick="showPage('fixed')">📌 고정지출</div>
-  <div class="nav-tab" onclick="showPage('longterm')">🎯 장기예산</div>
+  <div class="nav-tab active" onclick="showPage('dashboard',this)">📊 요약</div>
+  <div class="nav-tab" onclick="showPage('expenses',this)">📋 지출내역</div>
+  <div class="nav-tab" onclick="showPage('import',this)">📥 내역 가져오기</div>
+  <div class="nav-tab" onclick="showPage('fixed',this)">📌 고정지출</div>
+  <div class="nav-tab" onclick="showPage('longterm',this)">🎯 장기예산</div>
 </div>
 
 <!-- ====== PAGE: DASHBOARD ====== -->
@@ -415,20 +528,51 @@
     </div>
 
     <!-- ③ 현금 vs 카드 구분 -->
-    <div style="display:flex;gap:8px;margin-top:12px;padding-top:12px;border-top:1px solid var(--border);">
-      <div style="flex:1;background:var(--surface3);border-radius:var(--radius-sm);padding:10px;">
-        <div style="font-size:10px;color:var(--text3);margin-bottom:4px;">💳 카드 지출</div>
-        <div style="font-family:'DM Mono',monospace;font-size:13px;color:var(--red)" id="d-card-total">₩0</div>
+    <div class="account-split">
+      <div class="account-mini-card">
+        <div class="account-mini-label">💳 카드·계좌 지출</div>
+        <div class="account-mini-value" style="color:var(--red)" id="d-card-total">₩0</div>
       </div>
-      <div style="flex:1;background:var(--surface3);border-radius:var(--radius-sm);padding:10px;">
-        <div style="font-size:10px;color:var(--text3);margin-bottom:4px;">💵 현금 지출</div>
-        <div style="font-family:'DM Mono',monospace;font-size:13px;color:var(--orange)" id="d-cash-total">₩0</div>
+      <div class="account-mini-card">
+        <div class="account-mini-label">💵 현금 지출</div>
+        <div class="account-mini-value" style="color:var(--orange)" id="d-cash-total">₩0</div>
       </div>
-      <div style="flex:1;background:var(--surface3);border-radius:var(--radius-sm);padding:10px;">
-        <div style="font-size:10px;color:var(--text3);margin-bottom:4px;">📌 고정지출</div>
-        <div style="font-family:'DM Mono',monospace;font-size:13px;color:var(--blue)" id="d-fixed-total-dash">₩0</div>
+      <div class="account-mini-card">
+        <div class="account-mini-label">📌 고정지출</div>
+        <div class="account-mini-value" style="color:var(--blue)" id="d-fixed-total-dash">₩0</div>
+      </div>
+      <div class="account-mini-card">
+        <div class="account-mini-label" id="d-overdraft-label">🏦 마이너스통장 사용</div>
+        <div class="account-mini-value" style="color:var(--purple)" id="d-overdraft">자료 없음</div>
       </div>
     </div>
+  </div>
+
+  <div class="dashboard-charts">
+    <section class="chart-card" aria-labelledby="trend-title">
+      <div class="chart-head">
+        <div>
+          <div class="chart-title" id="trend-title">월별 지출 추이</div>
+          <div class="chart-caption">고정지출은 매달 자동 반영 · 변동지출은 카드·계좌·현금 기록 기준</div>
+        </div>
+      </div>
+      <div class="trend-chart" id="monthly-trend-chart"></div>
+      <div class="chart-legend">
+        <span class="legend-item"><span class="legend-dot" style="background:var(--blue)"></span>고정지출</span>
+        <span class="legend-item"><span class="legend-dot" style="background:var(--red)"></span>변동지출</span>
+        <span class="legend-item"><span class="legend-dot" style="background:var(--green);border-radius:50%"></span>수입</span>
+      </div>
+    </section>
+    <section class="chart-card" aria-labelledby="donut-title">
+      <div class="chart-head">
+        <div>
+          <div class="chart-title" id="donut-title">이번 달 지출 구성</div>
+          <div class="chart-caption" id="donut-caption">카테고리별 비중</div>
+        </div>
+        <div class="chart-total" id="donut-total">₩0</div>
+      </div>
+      <div id="category-donut"></div>
+    </section>
   </div>
 
   <div class="section-title">카테고리별 지출</div>
@@ -441,6 +585,11 @@
 
 <!-- ====== PAGE: EXPENSES ====== -->
 <div class="page" id="page-expenses">
+  <div class="expense-toolbar">
+    <input class="expense-search" id="expenseSearch" type="search" placeholder="사용처·결제수단·메모 검색" oninput="renderExpenses()">
+    <button class="action-btn" onclick="showPage('import',document.querySelectorAll('.nav-tab')[2])">파일 추가</button>
+  </div>
+  <div class="month-overview" id="expenseMonthOverview"></div>
   <div style="display:flex;gap:8px;margin-bottom:12px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none;">
     <button class="cat-filter-btn active" onclick="filterCat('all')">전체</button>
     <button class="cat-filter-btn" onclick="filterCat('식사')">🍽 식사</button>
@@ -457,6 +606,36 @@
   </div>
   <div class="expense-list" id="full-expense-list"></div>
   <div style="height:80px"></div>
+</div>
+
+<!-- ====== PAGE: IMPORT ====== -->
+<div class="page" id="page-import">
+  <div class="privacy-card">
+    <div style="font-size:24px">🔒</div>
+    <div class="privacy-copy">
+      <strong>원본 금융 파일은 이 브라우저 안에서만 읽습니다</strong>
+      카드사·은행 비밀번호나 자동 연결은 사용하지 않습니다. 파일을 선택해도 원본은 서버나 GitHub에 업로드되지 않습니다. “선택 내역 반영”을 누르면 날짜·금액·사용처 등 정리된 거래만 기존 Google Sheets 동기화 데이터에 저장될 수 있습니다.
+    </div>
+  </div>
+
+  <div class="import-zone" id="statementZone" onclick="document.getElementById('statementInput').click()">
+    <div class="import-zone-icon">📂</div>
+    <div class="import-zone-title" id="statementZoneTitle">카드·계좌 내역 파일 선택</div>
+    <div class="import-zone-sub">여러 파일을 한 번에 선택할 수 있어요 · XLS · XLSX · CSV<br>신한·국민·하나 등 일반적인 승인내역/입출금 표를 자동으로 찾습니다.</div>
+  </div>
+  <input type="file" id="statementInput" accept=".xls,.xlsx,.csv,text/csv" multiple hidden>
+
+  <div class="import-actions">
+    <button class="action-btn" onclick="selectAllImport(true)">전체 선택</button>
+    <button class="action-btn" onclick="selectAllImport(false)">전체 해제</button>
+    <button class="action-btn primary" id="applyImportBtn" onclick="applyImportedRows()" disabled>선택 내역 반영</button>
+  </div>
+  <div class="import-stats" id="importStats" style="display:none"></div>
+  <div id="importPreview">
+    <div class="empty-state"><div class="empty-icon">🧾</div><div>파일을 넣으면 반영 전 미리보기가 표시됩니다.</div></div>
+  </div>
+  <div class="import-result" id="importResult"></div>
+  <div id="importDiagnostics" hidden></div>
 </div>
 
 <!-- ====== PAGE: FIXED ====== -->
@@ -692,12 +871,6 @@
 }
 .color-dot.active { border-color: white; transform:scale(1.15); }
 </style>
-  white-space: nowrap; background: var(--surface); border: 1px solid var(--border);
-  border-radius: 20px; padding: 6px 12px; color: var(--text2); cursor: pointer;
-  font-size: 12px; font-family: 'Noto Sans KR', sans-serif; transition: all 0.15s;
-}
-.cat-filter-btn.active { background: var(--accent); color: var(--bg); border-color: var(--accent); font-weight: 600; }
-</style>
 
 <script>
 // ==============================
@@ -716,6 +889,7 @@ const CATS = [
   { id:'경조사', icon:'🎉', color:'#e8c97a' },
   { id:'기타',   icon:'📦', color:'#888' },
   { id:'수입',   icon:'💰', color:'#7ec99a' },
+  { id:'이체',   icon:'↔️', color:'#666' },
 ];
 
 const CAT_COLORS = {};
@@ -870,6 +1044,7 @@ const SYNC_CONFIG = {
   AUTO_REFRESH_MS: 45000,
   USE_LOCAL_CACHE: true,
 };
+const FORCE_LOCAL_MODE = new URLSearchParams(window.location.search).has('local');
 
 const LOCAL_CACHE_KEY = 'budget_v3_sheet_cache';
 let syncTimer = null;
@@ -878,7 +1053,7 @@ let pendingSync = false;
 let lastSyncedAt = '';
 
 function hasRemoteConfigured() {
-  return !!SYNC_CONFIG.APPS_SCRIPT_URL && !SYNC_CONFIG.APPS_SCRIPT_URL.includes('PASTE_YOUR_WEB_APP_URL_HERE');
+  return !FORCE_LOCAL_MODE && !!SYNC_CONFIG.APPS_SCRIPT_URL && !SYNC_CONFIG.APPS_SCRIPT_URL.includes('PASTE_YOUR_WEB_APP_URL_HERE');
 }
 
 function buildDefaultAppData() {
@@ -887,6 +1062,7 @@ function buildDefaultAppData() {
     fixed: JSON.parse(JSON.stringify(DEFAULT_FIXED)),
     fixedGroups: JSON.parse(JSON.stringify(FIXED_GROUP_DEFAULTS)),
     longterm: JSON.parse(JSON.stringify(DEFAULT_LT)),
+    imports: [],
   };
 }
 
@@ -898,17 +1074,25 @@ function normalizeAppData(raw) {
     fixed: safe.fixed && typeof safe.fixed === 'object' ? safe.fixed : base.fixed,
     fixedGroups: Array.isArray(safe.fixedGroups) && safe.fixedGroups.length ? safe.fixedGroups : base.fixedGroups,
     longterm: Array.isArray(safe.longterm) ? safe.longterm : base.longterm,
+    imports: Array.isArray(safe.imports) ? safe.imports : [],
   };
 
   out.entries = out.entries.map((e, i) => ({
     id: e.id || ('entry_' + i + '_' + Date.now()),
     date: e.date || '',
+    time: e.time || '',
     amount: Number(e.amount || 0),
     cat: e.cat || '식사',
     desc: e.desc || e.cat || '지출',
     pay: e.pay || '기타',
     note: e.note || '',
     type: e.type || 'expense',
+    source: e.source || '',
+    importedAt: e.importedAt || '',
+    sourceFingerprint: e.sourceFingerprint || '',
+    statementKind: e.statementKind || '',
+    direction: e.direction || '',
+    balanceAfter: e.balanceAfter === '' || e.balanceAfter == null ? null : Number(e.balanceAfter),
   }));
 
   out.fixedGroups.forEach((g, idx) => {
@@ -1064,8 +1248,9 @@ function startAutoRefresh() {
 }
 
 let appData = loadData();
-let currentYear = 2026;
-let currentMonth = 3;
+const todayNow = new Date();
+let currentYear = todayNow.getFullYear();
+let currentMonth = todayNow.getMonth() + 1;
 let currentType = 'expense';
 let selectedCat = '식사';
 let filterCatActive = 'all';
@@ -1079,6 +1264,14 @@ function fmt(n) {
 function fmtFull(n) {
   if (n < 0) return '−₩' + Math.abs(n).toLocaleString();
   return '₩' + n.toLocaleString();
+}
+function escHTML(value) {
+  return String(value ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
 }
 function monthKey() { return `${currentYear}-${String(currentMonth).padStart(2,'0')}`; }
 
@@ -1105,6 +1298,78 @@ function getFixedExpenseTotal() {
     .reduce((s,e) => s + e.amount, 0);
 }
 
+function chartMoney(value) {
+  const amount = Math.abs(Number(value || 0));
+  if (amount >= 100000000) return `${(amount / 100000000).toFixed(amount >= 1000000000 ? 0 : 1).replace('.0','')}억`;
+  if (amount >= 10000) return `${Math.round(amount / 10000).toLocaleString()}만`;
+  return Math.round(amount).toLocaleString();
+}
+
+function renderDashboardCharts(entries, fixedExpense, fixedIncome) {
+  const trendRoot = document.getElementById('monthly-trend-chart');
+  const donutRoot = document.getElementById('category-donut');
+  if (!trendRoot || !donutRoot) return;
+
+  const months = [];
+  for (let offset = 5; offset >= 0; offset--) {
+    const date = new Date(currentYear, currentMonth - 1 - offset, 1);
+    const key = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2,'0')}`;
+    const monthEntries = appData.entries.filter(entry => entry.date.startsWith(key));
+    const variable = Math.max(0, monthEntries
+      .filter(entry => (entry.type === 'expense' || entry.type === 'refund') && entry.note !== '고정')
+      .reduce((sum, entry) => sum + entry.amount, 0));
+    const manualIncome = monthEntries
+      .filter(entry => entry.type === 'income' && entry.note !== '고정수입')
+      .reduce((sum, entry) => sum + entry.amount, 0);
+    months.push({ key, label:`${date.getMonth() + 1}월`, variable, fixed:fixedExpense, income:fixedIncome + manualIncome });
+  }
+
+  const width = 640, height = 230, left = 46, right = 14, top = 18, bottom = 32;
+  const chartWidth = width - left - right, chartHeight = height - top - bottom;
+  const maxValue = Math.max(1, ...months.flatMap(month => [month.variable + month.fixed, month.income]));
+  const scaleY = value => top + chartHeight - (value / maxValue * chartHeight);
+  const step = chartWidth / months.length;
+  const barWidth = Math.min(42, step * .46);
+  const grid = [0, .25, .5, .75, 1].map(ratio => {
+    const y = top + chartHeight * (1 - ratio);
+    return `<line x1="${left}" y1="${y}" x2="${width-right}" y2="${y}" stroke="var(--border)" stroke-width="1"/><text x="${left-7}" y="${y+3}" text-anchor="end" fill="var(--text3)" font-size="9">${ratio ? chartMoney(maxValue * ratio) : '0'}</text>`;
+  }).join('');
+  const bars = months.map((month, index) => {
+    const x = left + step * index + (step - barWidth) / 2;
+    const fixedHeight = month.fixed / maxValue * chartHeight;
+    const variableHeight = month.variable / maxValue * chartHeight;
+    const baseY = top + chartHeight;
+    return `<g><title>${month.label}: 고정 ${fmtFull(month.fixed)}, 변동 ${fmtFull(month.variable)}, 수입 ${fmtFull(month.income)}</title><rect x="${x}" y="${baseY-fixedHeight}" width="${barWidth}" height="${fixedHeight}" rx="4" fill="var(--blue)" opacity=".72"/><rect x="${x}" y="${baseY-fixedHeight-variableHeight}" width="${barWidth}" height="${variableHeight}" rx="4" fill="var(--red)" opacity=".9"/><text x="${x+barWidth/2}" y="${height-10}" text-anchor="middle" fill="var(--text3)" font-size="10">${month.label}</text></g>`;
+  }).join('');
+  const points = months.map((month, index) => `${left + step*index + step/2},${scaleY(month.income)}`).join(' ');
+  const incomeLine = `<polyline points="${points}" fill="none" stroke="var(--green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>${months.map((month,index) => `<circle cx="${left + step*index + step/2}" cy="${scaleY(month.income)}" r="3.5" fill="var(--green)" stroke="var(--surface)" stroke-width="2"><title>${month.label} 수입 ${fmtFull(month.income)}</title></circle>`).join('')}`;
+  trendRoot.innerHTML = `<svg viewBox="0 0 ${width} ${height}" role="img" aria-label="최근 6개월 고정지출, 변동지출, 수입 추이"><title>최근 6개월 수입과 지출 추이</title>${grid}${bars}${incomeLine}</svg>`;
+
+  const variableByCategory = {};
+  entries.filter(entry => (entry.type === 'expense' || entry.type === 'refund') && entry.note !== '고정')
+    .forEach(entry => { variableByCategory[entry.cat] = (variableByCategory[entry.cat] || 0) + entry.amount; });
+  const slices = Object.entries(variableByCategory)
+    .filter(([, amount]) => amount > 0)
+    .map(([label, amount]) => ({ label, amount, color:CAT_COLORS[label] || '#888' }));
+  if (fixedExpense > 0) slices.push({ label:'고정지출', amount:fixedExpense, color:'#7ab8e8' });
+  slices.sort((a,b) => b.amount - a.amount);
+  const total = slices.reduce((sum, slice) => sum + slice.amount, 0);
+  document.getElementById('donut-total').textContent = fmtFull(total);
+  document.getElementById('donut-caption').textContent = `${currentYear}년 ${currentMonth}월 · 이체 제외`;
+  if (!total) {
+    donutRoot.innerHTML = '<div class="empty-state"><div class="empty-icon">◌</div><div>지출 내역이 없어요</div></div>';
+    return;
+  }
+  let cursor = 0;
+  const gradient = slices.map(slice => {
+    const start = cursor;
+    cursor += slice.amount / total * 100;
+    return `${slice.color} ${start.toFixed(2)}% ${cursor.toFixed(2)}%`;
+  }).join(',');
+  const topSlices = slices.slice(0, 7);
+  donutRoot.innerHTML = `<div class="donut-layout"><div class="donut-chart" style="background:conic-gradient(${gradient})" role="img" aria-label="이번 달 지출 구성"><div class="donut-center"><strong>${chartMoney(total)}</strong><span>총지출</span></div></div><div class="donut-legend">${topSlices.map(slice => `<div class="donut-row"><span class="legend-dot" style="background:${slice.color}"></span><span class="donut-label">${escHTML(slice.label)}</span><span class="donut-value">${Math.round(slice.amount/total*100)}%</span></div>`).join('')}</div></div>`;
+}
+
 // ==============================
 //  RENDER DASHBOARD
 // ==============================
@@ -1112,7 +1377,7 @@ function renderDashboard() {
   const entries = getMonthEntries();
 
   // 수입 (직접 입력한 수입 + 고정 수입)
-  const manualIncome = entries.filter(e => e.type === 'income').reduce((s,e) => s + e.amount, 0);
+  const manualIncome = entries.filter(e => e.type === 'income' && e.note !== '고정수입').reduce((s,e) => s + e.amount, 0);
   const fixedIncome = getFixedIncomeTotal();
   const totalIncome = manualIncome + fixedIncome;
 
@@ -1133,7 +1398,7 @@ function renderDashboard() {
     (e.type === 'expense' || e.type === 'refund') && e.note !== '고정'
   );
 
-  // 실시간 잔액용 = 변동지출 중 카드만 (현금도 제외)
+  // 실시간 잔액용 = 변동지출 중 카드·계좌만 (현금 제외)
   const cardEntries = varEntries.filter(e => e.pay !== '현금');
   const cardExpense = cardEntries.reduce((s,e) => s + e.amount, 0);
 
@@ -1150,7 +1415,7 @@ function renderDashboard() {
   document.getElementById('d-income').textContent = fmtFull(totalIncome);
   document.getElementById('d-income-sub').textContent = '월급여 기준';
   document.getElementById('d-expense').textContent = fmtFull(Math.max(0, cardExpense));
-  document.getElementById('d-expense-sub').textContent = `카드 지출만 · 현금·고정 제외`;
+  document.getElementById('d-expense-sub').textContent = `카드·계좌 지출 · 현금·고정 제외`;
   document.getElementById('d-recorded-expense').textContent = fmtFull(recordedExpense);
   document.getElementById('d-recorded-expense-sub').textContent = `지출내역 직접 입력 기준 · 총 ${entries.filter(e => e.type === 'expense' || e.type === 'refund').length}건`;
 
@@ -1167,20 +1432,38 @@ function renderDashboard() {
   barEl.style.width = remainPct + '%';
   barEl.style.background = usedPct < 60 ? 'var(--green)' : usedPct < 85 ? 'var(--orange)' : 'var(--red)';
 
-  document.getElementById('d-bar-used-label').textContent = `카드지출 ${fmtFull(Math.max(0,cardExpense))}`;
+  document.getElementById('d-bar-used-label').textContent = `카드·계좌 ${fmtFull(Math.max(0,cardExpense))}`;
   document.getElementById('d-bar-pct-label').textContent = `${usedPct}% 사용`;
 
-  // ── 카드/현금/고정 3분할
+  // ── 카드·계좌/현금/고정 3분할
   document.getElementById('d-card-total').textContent = fmtFull(cardTotal);
   document.getElementById('d-cash-total').textContent = fmtFull(cashTotal);
   document.getElementById('d-fixed-total-dash').textContent = fmtFull(fixedExpense);
+  const overdraftEntries = appData.entries
+    .filter(entry => entry.source === '카카오뱅크' && Number.isFinite(Number(entry.balanceAfter)))
+    .sort((a,b) => `${b.date} ${b.time || ''}`.localeCompare(`${a.date} ${a.time || ''}`));
+  const latestOverdraft = overdraftEntries[0];
+  const overdraftEl = document.getElementById('d-overdraft');
+  const overdraftLabel = document.getElementById('d-overdraft-label');
+  if (latestOverdraft) {
+    const used = Math.max(0, -Number(latestOverdraft.balanceAfter));
+    overdraftEl.textContent = used ? fmtFull(used) : '사용 없음';
+    overdraftEl.style.color = used ? 'var(--purple)' : 'var(--green)';
+    overdraftLabel.textContent = `🏦 마이너스통장 사용 · ${latestOverdraft.date.slice(5).replace('-','/')}`;
+  } else {
+    overdraftEl.textContent = '자료 없음';
+    overdraftEl.style.color = 'var(--text3)';
+    overdraftLabel.textContent = '🏦 마이너스통장 사용';
+  }
 
-  // ── 카테고리 breakdown (카드 지출만)
+  renderDashboardCharts(entries, fixedExpense, fixedIncome);
+
+  // ── 카테고리 breakdown (전체 변동지출)
   const catMap = {};
-  cardEntries.filter(e => e.amount > 0).forEach(e => {
+  varEntries.forEach(e => {
     catMap[e.cat] = (catMap[e.cat] || 0) + e.amount;
   });
-  const sorted = Object.entries(catMap).sort((a,b) => b[1]-a[1]);
+  const sorted = Object.entries(catMap).filter(([,amount]) => amount > 0).sort((a,b) => b[1]-a[1]);
   const maxAmt = sorted[0]?.[1] || 1;
   const bd = document.getElementById('cat-breakdown');
   if (sorted.length === 0) {
@@ -1212,21 +1495,23 @@ function renderEntries(entries) {
     const d = e.date.slice(5);
     const isRefund = e.type === 'refund' || e.amount < 0;
     const isIncome = e.type === 'income';
+    const isTransfer = e.type === 'transfer';
     const absAmt = Math.abs(e.amount);
-    const amtColor = isRefund ? 'var(--orange)' : isIncome ? 'var(--green)' : 'var(--red)';
-    const amtPrefix = isRefund ? '−환불 ' : isIncome ? '+' : '−';
+    const amtColor = isTransfer ? 'var(--text3)' : isRefund ? 'var(--orange)' : isIncome ? 'var(--green)' : 'var(--red)';
+    const amtPrefix = isTransfer ? '↔ ' : isRefund ? '−환불 ' : isIncome ? '+' : '−';
     const borderStyle = e.note==='고정' ? 'border-left:3px solid var(--blue)' : isRefund ? 'border-left:3px solid var(--orange)' : '';
-    return `<div class="expense-item" ${borderStyle ? `style="${borderStyle}"` : ''} onclick="openEditEntry('${e.id}')">
-      <div class="cat-badge" style="background:${color}22">${isRefund ? '↩️' : icon}</div>
+    const safeId = String(e.id).replace(/[^a-zA-Z0-9_-]/g, '');
+    return `<div class="expense-item" ${borderStyle ? `style="${borderStyle}"` : ''} onclick="openEditEntry('${safeId}')">
+      <div class="cat-badge" style="background:${color}22">${isTransfer ? '↔️' : isRefund ? '↩️' : icon}</div>
       <div class="expense-info">
-        <div class="expense-desc">${e.desc}</div>
-        <div class="expense-meta">${d} · ${e.pay}${e.note&&e.note!=='고정'?' · '+e.note:''}</div>
+        <div class="expense-desc">${escHTML(e.desc)}</div>
+        <div class="expense-meta">${escHTML(d)} · ${escHTML(e.pay)}${e.note&&e.note!=='고정'?' · '+escHTML(e.note):''}${e.source?' · '+escHTML(e.source):''}</div>
       </div>
       <div style="text-align:right">
         <div class="expense-amount" style="color:${amtColor}">${amtPrefix}${fmt(absAmt)}</div>
-        <div class="expense-date-badge">${e.note==='고정'?'고정':isRefund?'환불':e.cat}</div>
+        <div class="expense-date-badge">${isTransfer?'지출 제외':e.note==='고정'?'고정':isRefund?'환불':e.cat}</div>
       </div>
-      <button class="del-btn" onclick="deleteEntry('${e.id}',event)">✕</button>
+      <button class="del-btn" onclick="deleteEntry('${safeId}',event)" aria-label="내역 삭제">✕</button>
     </div>`;
   }).join('');
 }
@@ -1237,7 +1522,478 @@ function renderEntries(entries) {
 function renderExpenses() {
   let entries = [...getMonthEntries()].sort((a,b) => b.date.localeCompare(a.date));
   if (filterCatActive !== 'all') entries = entries.filter(e => e.cat === filterCatActive);
+  const query = (document.getElementById('expenseSearch')?.value || '').trim().toLowerCase();
+  if (query) {
+    entries = entries.filter(e => [e.desc, e.pay, e.note, e.cat, e.source].some(v => String(v || '').toLowerCase().includes(query)));
+  }
+  const net = entries.filter(e => e.type === 'expense' || e.type === 'refund').reduce((sum, e) => sum + e.amount, 0);
+  const overview = document.getElementById('expenseMonthOverview');
+  if (overview) overview.innerHTML = `<span>${currentYear}년 ${currentMonth}월 · ${entries.length.toLocaleString()}건</span><strong>${fmtFull(net)}</strong>`;
   document.getElementById('full-expense-list').innerHTML = renderEntries(entries);
+}
+
+// ==============================
+//  CARD / BANK FILE IMPORT
+// ==============================
+let importRows = [];
+let importDiagnostics = [];
+const IMPORT_PREVIEW_LIMIT = 250;
+
+function normalizedHeader(value) {
+  return String(value ?? '').replace(/[\s\n\r()\[\]_/.-]/g, '').toLowerCase();
+}
+
+function findHeaderColumn(headers, candidates) {
+  const normalized = headers.map(normalizedHeader);
+  for (const candidate of candidates) {
+    const target = normalizedHeader(candidate);
+    const idx = normalized.findIndex(h => h === target);
+    if (idx >= 0) return idx;
+  }
+  for (const candidate of candidates) {
+    const target = normalizedHeader(candidate);
+    const idx = normalized.findIndex(h => h.includes(target) && target.length >= 3);
+    if (idx >= 0) return idx;
+  }
+  return -1;
+}
+
+function parseStatementAmount(value) {
+  if (typeof value === 'number' && Number.isFinite(value)) return Math.round(value);
+  const raw = String(value ?? '').trim();
+  if (!raw || raw === '-') return 0;
+  const negative = /^-/.test(raw) || /^\(.*\)$/.test(raw);
+  const amount = Number(raw.replace(/[^0-9.]/g, '')) || 0;
+  return Math.round(negative ? -amount : amount);
+}
+
+function parseStatementDate(value) {
+  if (value instanceof Date && !Number.isNaN(value.getTime())) {
+    return `${value.getFullYear()}-${String(value.getMonth()+1).padStart(2,'0')}-${String(value.getDate()).padStart(2,'0')}`;
+  }
+  if (typeof value === 'number' && window.XLSX?.SSF) {
+    const parsed = XLSX.SSF.parse_date_code(value);
+    if (parsed) return `${parsed.y}-${String(parsed.m).padStart(2,'0')}-${String(parsed.d).padStart(2,'0')}`;
+  }
+  const raw = String(value ?? '').trim();
+  const compact = raw.replace(/\D/g, '');
+  if (/^20\d{6}$/.test(compact)) {
+    return `${compact.slice(0,4)}-${compact.slice(4,6)}-${compact.slice(6,8)}`;
+  }
+  const parts = raw.match(/\d+/g) || [];
+  if (parts.length < 3) return '';
+  let year = Number(parts[0]);
+  if (year < 100) year += 2000;
+  const month = Number(parts[1]);
+  const day = Number(parts[2]);
+  if (year < 2000 || month < 1 || month > 12 || day < 1 || day > 31) return '';
+  return `${year}-${String(month).padStart(2,'0')}-${String(day).padStart(2,'0')}`;
+}
+
+function parseStatementTime(value) {
+  if (value instanceof Date && !Number.isNaN(value.getTime())) {
+    return `${String(value.getHours()).padStart(2,'0')}:${String(value.getMinutes()).padStart(2,'0')}:${String(value.getSeconds()).padStart(2,'0')}`;
+  }
+  if (typeof value === 'number' && Number.isFinite(value) && value >= 0 && value < 1) {
+    const totalSeconds = Math.round(value * 86400) % 86400;
+    const hours = Math.floor(totalSeconds / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+    return `${String(hours).padStart(2,'0')}:${String(minutes).padStart(2,'0')}:${String(seconds).padStart(2,'0')}`;
+  }
+  const raw = String(value ?? '').trim();
+  const match = raw.match(/(?:\s|T)(\d{1,2}):(\d{2})(?::(\d{2}))?/);
+  if (match) return `${String(match[1]).padStart(2,'0')}:${match[2]}${match[3] ? ':' + match[3] : ''}`;
+  const compact = raw.replace(/\D/g, '');
+  if (/^\d{3,6}$/.test(compact)) return `${compact.slice(0,-2).padStart(2,'0')}:${compact.slice(-2)}`;
+  return '';
+}
+
+function detectPaymentMethod(fileName, text='') {
+  const source = `${fileName} ${text}`.toLowerCase();
+  if (/카카오뱅크|kakaobank/.test(source)) return '카카오뱅크';
+  if (/신한|shinhan/.test(source)) return '신한';
+  if (/국민|kbcard|kbstar|kb카드/.test(source)) return '국민';
+  if (/하나|hanacard|kebhana/.test(source)) return '하나';
+  if (/쿠팡|coupang/.test(source)) return '쿠팡';
+  if (/현대|hyundai/.test(source)) return '현대';
+  if (/삼성|samsung/.test(source)) return '삼성';
+  if (/우리|woori/.test(source)) return '우리';
+  if (/농협|nhcard/.test(source)) return '농협';
+  return '기타';
+}
+
+function inferCategory(description, type) {
+  if (type === 'income') return '수입';
+  if (type === 'transfer') return '이체';
+  const text = String(description || '').toLowerCase().replace(/\s+/g, '');
+  const rules = [
+    ['주택', /주담대|대출|아파트|관리비|월세|전기|수도|도시가스|가스요금/],
+    ['자동차', /주유|에너지|칼텍스|s-oil|soil|세차|정비|타이어|하이패스/],
+    ['교통', /지하철|버스|티머니|택시|카카오t|코레일|철도|주차|톨게이트/],
+    ['병원', /병원|의원|약국|치과|산부인과|한의원|건강검진/],
+    ['미용', /미용|헤어|네일|왁싱|바버|이발/],
+    ['경조사', /축의|부의|돌잔치|결혼|장례|경조|헌금/],
+    ['구독', /넷플릭스|유튜브|google|구글|apple|애플|openai|chatgpt|gpt|icloud|아이클라우드|티빙|웨이브|정기결제|멜론|spotify/],
+    ['식비', /이마트|홈플러스|롯데마트|마트|편의점|gs25|cu|세븐일레븐|컬리|마켓컬리|장보기|식자재/],
+    ['식사', /카페|커피|스타벅스|투썸|식당|치킨|피자|배달|요기요|배민|베이커리|빵|레스토랑|순대국/],
+    ['생필품', /다이소|올리브영|생활용품|생필품|쿠팡|오늘의집/],
+  ];
+  return rules.find(([, pattern]) => pattern.test(text))?.[0] || '기타';
+}
+
+function looksLikeFixed(description, amount) {
+  const desc = normalizedHeader(description);
+  if (!desc) return false;
+  if (/주담대|대출원리금|대출이자|관리비|보험|통신|브로드밴드|넷플릭스|티빙|웨이브|유튜브프리미엄|아이클라우드|icloud|openai|chatgpt|제미나이|십일조|평강교회/.test(desc)) return true;
+  return Object.keys(appData.fixed || {}).filter(key => key !== 'income').some(key =>
+    (appData.fixed[key] || []).some(item => {
+      if (Math.abs(Number(item.amount || 0)) !== Math.abs(Number(amount || 0))) return false;
+      const tokens = `${item.label || ''} ${item.note || ''}`.split(/[\s/+(),]+/).map(normalizedHeader).filter(token => token.length >= 3);
+      return tokens.some(token => desc.includes(token) || token.includes(desc) && desc.length >= 3);
+    })
+  );
+}
+
+function looksLikeFixedIncome(description, status, amount) {
+  const incomeItems = appData.fixed?.income || [];
+  const normalized = normalizedHeader(`${description} ${status}`);
+  if (/급여|월급/.test(normalized)) return true;
+  return incomeItems.some(item => Math.abs(Number(item.amount || 0)) === Math.abs(Number(amount || 0)));
+}
+
+function isGenericStatementDescription(description) {
+  return /^(|거래내역|오픈뱅킹출금|전자금융|체크카드|체크카드출금|cms출금|자동이체|일반이체|일반입금)$/i.test(normalizedHeader(description));
+}
+
+function isTransferLike(description, status, statementKind) {
+  if (statementKind !== 'account') return false;
+  const desc = normalizedHeader(description);
+  const kind = normalizedHeader(status);
+  if (/계좌간|대체/.test(kind)) return true;
+  if (/카드/.test(desc) && /자동|cms|지로|결제|출금/.test(kind)) return true;
+  const householdNames = (appData.fixed?.income || [])
+    .map(item => String(item.label || '').trim().split(/\s+/)[0])
+    .filter(name => /^[가-힣]{2,4}$/.test(name));
+  const primaryDescription = normalizedHeader(String(description || '').split('·')[0]);
+  return householdNames.some(name => primaryDescription === normalizedHeader(name));
+}
+
+function baseFingerprint(entry) {
+  let desc = normalizedHeader(entry.desc).replace(/주식회사|유한회사|㈜/g, '');
+  if (isGenericStatementDescription(desc)) desc = '거래내역';
+  const time = String(entry.time || '').replace(/\D/g, '').slice(0, 4);
+  const direction = entry.type === 'income' ? 'in' : entry.type === 'transfer' ? 'transfer' : entry.type === 'refund' ? 'refund' : 'out';
+  return [entry.date, time, Math.abs(Number(entry.amount || 0)), desc, direction].join('|');
+}
+
+function batchDuplicateKeys(entry) {
+  const keys = [`strict|${baseFingerprint(entry)}`];
+  if (entry.statementKind === 'card') {
+    const time = String(entry.time || '').replace(/\D/g, '').slice(0, 4);
+    const direction = entry.type === 'income' ? 'in' : entry.type === 'refund' ? 'refund' : 'out';
+    if (time) keys.push(`card|${entry.date}|${time}|${Math.abs(Number(entry.amount || 0))}|${direction}`);
+  }
+  return keys;
+}
+
+function findStatementHeader(matrix) {
+  let best = null;
+  for (let rowIndex = 0; rowIndex < Math.min(matrix.length, 60); rowIndex++) {
+    const headers = (matrix[rowIndex] || []).map(v => String(v ?? '').trim());
+    const hasDate = findHeaderColumn(headers, ['거래일시','거래일자','거래일','이용일','승인일','사용일','처리일']) >= 0;
+    const hasAmount = findHeaderColumn(headers, ['승인금액','이용금액','사용금액','거래금액','출금금액','출금액','입금금액','입금액','금액']) >= 0;
+    const hasDescription = findHeaderColumn(headers, ['가맹점명','이용하신곳','가맹점','이용가맹점','거래기록사항','보낸분/받는분','받는분/보낸분','받는분','보낸분','상대방','내용','적요','거래내용']) >= 0;
+    const score = Number(hasDate) * 3 + Number(hasAmount) * 3 + Number(hasDescription) * 2;
+    if (!best || score > best.score) best = { rowIndex, headers, score };
+  }
+  return best && best.score >= 6 ? best : null;
+}
+
+function parseStatementMatrix(matrix, fileName, sheetName) {
+  const found = findStatementHeader(matrix);
+  if (!found) throw new Error('날짜와 금액 열이 있는 표를 찾지 못했습니다');
+  const { rowIndex, headers } = found;
+  const col = names => findHeaderColumn(headers, names);
+  const dateCol = col(['거래일시','거래일자','거래일','이용일','승인일','사용일','처리일','결제일']);
+  const timeCol = col(['이용시간','승인시간','거래시간','시간']);
+  const descCol = col(['가맹점명','이용하신곳','이용가맹점','가맹점','거래기록사항','보낸분/받는분','받는분/보낸분','받는분','보낸분','상대방','내용','적요','거래내용']);
+  const detailCol = col(['송금메모','메모','거래기록사항','보낸분/받는분','받는분/보낸분','받는분','보낸분','상대방','내용']);
+  const kindCol = col(['적요','거래구분','거래종류','거래유형']);
+  const amountCol = col(['승인금액','이용금액','사용금액','거래금액','결제금액','금액']);
+  const outCol = col(['출금금액','출금액','지급금액','찾으신금액']);
+  const inCol = col(['입금금액','입금액','맡기신금액']);
+  const balanceCol = col(['거래 후 잔액','거래후잔액','잔액','거래후금액']);
+  const statusCol = col(['상태','승인상태','취소상태','취소여부','매입구분']);
+  const directionCol = col(['입출금구분','거래방향','구분']);
+  const payCol = col(['이용카드','카드명','카드사','결제수단','카드구분']);
+  const workbookHints = matrix.slice(0, Math.min(20, matrix.length)).flat().join(' ');
+  const defaultPayment = detectPaymentMethod(fileName, `${sheetName} ${headers.join(' ')} ${workbookHints}`);
+  const statementKind = outCol >= 0 || inCol >= 0 || directionCol >= 0 || /은행|거래내역조회|계좌/.test(`${fileName} ${sheetName} ${headers.join(' ')}`) ? 'account' : 'card';
+  const parsed = [];
+
+  importDiagnostics.push({
+    sheetName,
+    headers: headers.map(value => String(value || '').trim()).filter(Boolean),
+    statementKind,
+    columns:{ dateCol, timeCol, descCol, detailCol, kindCol, amountCol, outCol, inCol, balanceCol, statusCol, directionCol, payCol },
+  });
+
+  for (let i = rowIndex + 1; i < matrix.length; i++) {
+    const row = matrix[i] || [];
+    const date = parseStatementDate(row[dateCol]);
+    if (!date) continue;
+    const primary = String(row[descCol] ?? '').replace(/\s+/g, ' ').trim();
+    const detail = String(row[detailCol] ?? '').replace(/\s+/g, ' ').trim();
+    const kind = String(row[kindCol] ?? '').replace(/\s+/g, ' ').trim();
+    const descriptionParts = [primary, detail].filter((value, index, array) => value && array.indexOf(value) === index);
+    if (statementKind === 'account' && kind && !descriptionParts.includes(kind)) descriptionParts.push(kind);
+    const description = descriptionParts.join(' · ') || '거래 내역';
+    const status = [String(row[statusCol] ?? '').trim(), kind].filter(Boolean).join(' ');
+    const direction = String(row[directionCol] ?? '').trim();
+    const time = timeCol >= 0 ? parseStatementTime(row[timeCol]) || String(row[timeCol] ?? '').trim() : parseStatementTime(row[dateCol]);
+    const detectedRowPayment = payCol >= 0 ? detectPaymentMethod(fileName, String(row[payCol] ?? '')) : defaultPayment;
+    const payment = detectedRowPayment === '기타' ? defaultPayment : detectedRowPayment;
+    let amount = 0;
+    let type = 'expense';
+
+    const outgoing = outCol >= 0 ? Math.abs(parseStatementAmount(row[outCol])) : 0;
+    const incoming = inCol >= 0 ? Math.abs(parseStatementAmount(row[inCol])) : 0;
+    if (outgoing || incoming) {
+      if (outgoing) { amount = outgoing; type = 'expense'; }
+      else { amount = incoming; type = 'income'; }
+    } else {
+      const rawAmount = amountCol >= 0 ? parseStatementAmount(row[amountCol]) : 0;
+      if (!rawAmount) continue;
+      if (/입금/.test(direction)) { amount = Math.abs(rawAmount); type = 'income'; }
+      else if (/출금/.test(direction)) { amount = Math.abs(rawAmount); type = 'expense'; }
+      else if (/취소|환불|매입취소/.test(status)) { amount = -Math.abs(rawAmount); type = 'refund'; }
+      else if (/입금|급여|이자입금|환급입금/.test(status)) { amount = Math.abs(rawAmount); type = 'income'; }
+      else if (rawAmount < 0 && statementKind === 'card') { amount = -Math.abs(rawAmount); type = 'refund'; }
+      else { amount = Math.abs(rawAmount); type = 'expense'; }
+    }
+    if (!amount) continue;
+    if (isTransferLike(description, `${status} ${direction}`, statementKind)) type = 'transfer';
+    const balanceAfter = balanceCol >= 0 ? parseStatementAmount(row[balanceCol]) : null;
+    const category = inferCategory(description, type);
+    const fixedNote = type === 'income' && looksLikeFixedIncome(description, status, amount)
+      ? '고정수입'
+      : type === 'expense' && looksLikeFixed(description, amount) ? '고정' : '';
+    parsed.push({
+      id: '', date, time, amount, cat: category, desc: description, pay: payment,
+      note: fixedNote, type, statementKind, direction, balanceAfter,
+      source: payment, fileLabel: fileName, selected: true, duplicate: false,
+    });
+  }
+  return parsed;
+}
+
+async function readStatementFile(file) {
+  if (!window.XLSX) throw new Error('엑셀 처리 도구를 불러오지 못했습니다. 인터넷 연결 후 다시 시도해주세요');
+  const bytes = await file.arrayBuffer();
+  let workbook;
+  if (/\.csv$/i.test(file.name)) {
+    let text = new TextDecoder('utf-8').decode(bytes);
+    const replacementCount = (text.match(/�/g) || []).length;
+    if (replacementCount > 2) text = new TextDecoder('euc-kr').decode(bytes);
+    workbook = XLSX.read(text, { type:'string', cellDates:true, raw:true });
+  } else {
+    workbook = XLSX.read(bytes, { type:'array', cellDates:true, raw:true });
+  }
+  const rows = [];
+  const errors = [];
+  workbook.SheetNames.forEach(sheetName => {
+    const matrix = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName], { header:1, defval:'', raw:true });
+    try { rows.push(...parseStatementMatrix(matrix, file.name, sheetName)); }
+    catch (error) { errors.push(`${sheetName}: ${error.message}`); }
+  });
+  if (!rows.length) throw new Error(errors[0] || '가져올 거래가 없습니다');
+  return rows;
+}
+
+function markImportDuplicates(rows) {
+  const existingCounts = new Map();
+  appData.entries.forEach(entry => {
+    const fp = entry.sourceFingerprint || baseFingerprint(entry);
+    existingCounts.set(fp, (existingCounts.get(fp) || 0) + 1);
+  });
+  const seen = new Map();
+  const firstFileByKey = new Map();
+  rows.forEach(row => {
+    const fp = baseFingerprint(row);
+    const ordinal = (seen.get(fp) || 0) + 1;
+    seen.set(fp, ordinal);
+    const keys = batchDuplicateKeys(row);
+    const repeatedAcrossFiles = keys.some(key => firstFileByKey.has(key) && firstFileByKey.get(key) !== row.fileLabel);
+    keys.forEach(key => { if (!firstFileByKey.has(key)) firstFileByKey.set(key, row.fileLabel); });
+    row.sourceFingerprint = fp;
+    row.duplicate = ordinal <= (existingCounts.get(fp) || 0) || repeatedAcrossFiles;
+    row.selected = !row.duplicate;
+  });
+}
+
+function renderImportPreview() {
+  const preview = document.getElementById('importPreview');
+  const stats = document.getElementById('importStats');
+  const applyBtn = document.getElementById('applyImportBtn');
+  if (!importRows.length) {
+    stats.style.display = 'none';
+    applyBtn.disabled = true;
+    preview.innerHTML = '<div class="empty-state"><div class="empty-icon">🧾</div><div>가져올 내역이 없습니다.</div></div>';
+    return;
+  }
+  const duplicateCount = importRows.filter(row => row.duplicate).length;
+  const transferCount = importRows.filter(row => row.type === 'transfer').length;
+  const selected = importRows.filter(row => row.selected);
+  const selectedExpense = selected.filter(row => row.type === 'expense' || row.type === 'refund').reduce((sum, row) => sum + row.amount, 0);
+  stats.style.display = 'grid';
+  stats.innerHTML = `
+    <div class="import-stat"><div class="import-stat-label">읽은 거래</div><div class="import-stat-value">${importRows.length.toLocaleString()}건</div></div>
+    <div class="import-stat"><div class="import-stat-label">중복 제외</div><div class="import-stat-value" style="color:var(--orange)">${duplicateCount.toLocaleString()}건</div></div>
+    <div class="import-stat"><div class="import-stat-label">이체·카드대금 제외</div><div class="import-stat-value" style="color:var(--purple)">${transferCount.toLocaleString()}건</div></div>
+    <div class="import-stat"><div class="import-stat-label">선택 순지출</div><div class="import-stat-value">${fmtFull(selectedExpense)}</div></div>`;
+  applyBtn.disabled = selected.length === 0;
+  const categoryOptions = CATS.map(cat => `<option value="${escHTML(cat.id)}">${cat.icon} ${escHTML(cat.id)}</option>`).join('');
+  const visibleRows = importRows.slice(0, IMPORT_PREVIEW_LIMIT);
+  const limitNote = importRows.length > visibleRows.length
+    ? `<div class="preview-limit-note">빠른 확인을 위해 ${importRows.length.toLocaleString()}건 중 앞 ${visibleRows.length.toLocaleString()}건만 표시합니다. 선택·반영은 전체 내역에 적용됩니다.</div>`
+    : '';
+  preview.innerHTML = `${limitNote}<div class="import-table-wrap"><table class="import-table">
+    <thead><tr><th><input type="checkbox" ${selected.length ? 'checked' : ''} onchange="selectAllImport(this.checked)"></th><th>날짜</th><th>사용처 / 내용</th><th>금액</th><th>구분</th><th>카테고리</th><th>출처</th></tr></thead>
+    <tbody>${visibleRows.map((row, index) => `<tr class="${row.duplicate ? 'duplicate' : ''}">
+      <td><input type="checkbox" ${row.selected ? 'checked' : ''} ${row.duplicate ? 'disabled' : ''} onchange="toggleImportRow(${index},this.checked)"></td>
+      <td style="white-space:nowrap">${escHTML(row.date)}${row.time ? `<div style="color:var(--text3);font-size:10px">${escHTML(row.time)}</div>` : ''}</td>
+      <td>${escHTML(row.desc)}${row.note === '고정' ? '<div class="duplicate-badge">고정지출 자동 매칭</div>' : row.duplicate ? '<div class="duplicate-badge">이미 반영된 거래</div>' : ''}</td>
+      <td style="white-space:nowrap;font-family:'DM Mono',monospace;color:${row.type === 'income' ? 'var(--green)' : row.type === 'refund' ? 'var(--orange)' : row.type === 'transfer' ? 'var(--text3)' : 'var(--text)'}">${row.type === 'refund' ? '−' : row.type === 'income' ? '+' : row.type === 'transfer' ? '↔ ' : ''}${fmt(Math.abs(row.amount))}</td>
+      <td>${row.type === 'income' ? '입금' : row.type === 'refund' ? '환불' : row.type === 'transfer' ? '이체 제외' : '지출'}</td>
+      <td><select onchange="updateImportCategory(${index},this.value)">${categoryOptions.replace(`value="${escHTML(row.cat)}"`,`value="${escHTML(row.cat)}" selected`)}</select></td>
+      <td>${escHTML(row.source)}</td>
+    </tr>`).join('')}</tbody></table></div>`;
+}
+
+async function handleStatementFiles(fileList) {
+  const files = Array.from(fileList || []);
+  if (!files.length) return;
+  const result = document.getElementById('importResult');
+  result.className = 'import-result show warn';
+  result.textContent = `${files.length}개 파일을 브라우저에서 읽는 중입니다…`;
+  const collected = [];
+  const errors = [];
+  importDiagnostics = [];
+  for (const file of files) {
+    try { collected.push(...await readStatementFile(file)); }
+    catch (error) { errors.push(`${file.name}: ${error.message}`); }
+  }
+  importRows = collected.sort((a,b) => a.date.localeCompare(b.date) || String(a.time).localeCompare(String(b.time)));
+  markImportDuplicates(importRows);
+  window.__budgetImportDiagnostics = importDiagnostics;
+  window.__budgetImportSummary = {
+    count: importRows.length,
+    duplicates: importRows.filter(row => row.duplicate).length,
+    genericDescriptions: importRows.filter(row => isGenericStatementDescription(row.desc)).length,
+    byType: importRows.reduce((out,row) => ({ ...out, [row.type]:(out[row.type] || 0) + 1 }), {}),
+    bySource: importRows.reduce((out,row) => ({ ...out, [row.source]:(out[row.source] || 0) + 1 }), {}),
+  };
+  const safeFileName = (name, index) => {
+    if (/^[4-8]월\.xlsx$/i.test(name)) return name;
+    if (/카카오뱅크/.test(name)) return '카카오뱅크 계좌';
+    if (/거래내역조회/.test(name)) return `국민은행 계좌 ${index + 1}`;
+    if (/카드이용내역/.test(name)) return `카드 누적내역 ${index + 1}`;
+    return `파일 ${index + 1}`;
+  };
+  document.getElementById('importDiagnostics').textContent = JSON.stringify({
+    files: files.map((file,index) => ({
+      label:safeFileName(file.name,index),
+      rows:importRows.filter(row => row.fileLabel === file.name).length,
+      duplicates:importRows.filter(row => row.fileLabel === file.name && row.duplicate).length,
+      generic:importRows.filter(row => row.fileLabel === file.name && isGenericStatementDescription(row.desc)).length,
+      kinds:[...new Set(importRows.filter(row => row.fileLabel === file.name).map(row => row.statementKind))],
+      byType:importRows.filter(row => row.fileLabel === file.name).reduce((out,row) => {
+        out[row.type] = (out[row.type] || 0) + 1;
+        return out;
+      }, {}),
+      spending:importRows.filter(row => row.fileLabel === file.name && (row.type === 'expense' || row.type === 'refund')).reduce((sum,row) => sum + row.amount, 0),
+    })),
+    sheets:importDiagnostics,
+  });
+  renderImportPreview();
+  const zone = document.getElementById('statementZone');
+  zone.classList.toggle('loaded', importRows.length > 0);
+  document.getElementById('statementZoneTitle').textContent = importRows.length ? `${files.length}개 파일 · ${importRows.length}건 확인` : '가져올 거래를 찾지 못했습니다';
+  result.className = `import-result show ${errors.length ? 'warn' : 'ok'}`;
+  result.textContent = errors.length ? `일부 파일을 읽지 못했습니다: ${errors.join(' / ')}` : '표 형식을 자동 인식했습니다. 카테고리를 확인한 뒤 선택 내역을 반영하세요.';
+}
+
+function toggleImportRow(index, checked) {
+  if (importRows[index] && !importRows[index].duplicate) importRows[index].selected = checked;
+  renderImportPreview();
+}
+function selectAllImport(checked) {
+  importRows.forEach(row => { if (!row.duplicate) row.selected = checked; });
+  renderImportPreview();
+}
+function updateImportCategory(index, category) {
+  if (importRows[index]) importRows[index].cat = category;
+}
+
+function applyImportedRows() {
+  const selected = importRows.filter(row => row.selected && !row.duplicate);
+  if (!selected.length) return;
+  const importedAt = new Date().toISOString();
+  selected.forEach((row, index) => {
+    appData.entries.push({
+      id: `imp_${Date.now()}_${index}`,
+      date: row.date, time: row.time, amount: row.amount, cat: row.cat,
+      desc: row.desc, pay: row.pay, note: row.note, type: row.type,
+      source: row.source, importedAt, sourceFingerprint: row.sourceFingerprint,
+      statementKind: row.statementKind, direction: row.direction, balanceAfter:row.balanceAfter,
+    });
+  });
+  appData.imports = Array.isArray(appData.imports) ? appData.imports : [];
+  appData.imports.unshift({ importedAt, count:selected.length, sources:[...new Set(selected.map(row => row.source))] });
+  appData.imports = appData.imports.slice(0, 24);
+  const newest = selected.map(row => row.date).sort().at(-1);
+  if (newest) {
+    currentYear = Number(newest.slice(0,4));
+    currentMonth = Number(newest.slice(5,7));
+    document.getElementById('monthLabel').textContent = `${currentYear}.${String(currentMonth).padStart(2,'0')}`;
+  }
+  saveData();
+  const count = selected.length;
+  markImportDuplicates(importRows);
+  renderImportPreview();
+  const result = document.getElementById('importResult');
+  result.className = 'import-result show ok';
+  result.textContent = `${count.toLocaleString()}건을 반영했습니다. 같은 파일을 다시 넣어도 중복 거래는 자동 제외됩니다.`;
+}
+
+function exportBackup() {
+  const payload = JSON.stringify({ version:4, exportedAt:new Date().toISOString(), data:appData }, null, 2);
+  const blob = new Blob([payload], { type:'application/json;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = `우리집가계부_백업_${new Date().toISOString().slice(0,10)}.json`;
+  link.click();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+async function restoreBackup(file) {
+  if (!file) return;
+  try {
+    const parsed = JSON.parse(await file.text());
+    const data = parsed.data || parsed;
+    if (!data || !Array.isArray(data.entries) || !data.fixed) throw new Error('가계부 백업 형식이 아닙니다');
+    if (!confirm(`백업의 ${data.entries.length.toLocaleString()}건으로 현재 가계부를 복원할까요?`)) return;
+    appData = normalizeAppData(data);
+    saveData();
+    renderActive();
+    setSyncStatus('백업 복원 완료 · 저장 중', 'ok');
+  } catch (error) {
+    alert('백업 복원 실패: ' + error.message);
+  } finally {
+    document.getElementById('backupInput').value = '';
+  }
 }
 
 // ==============================
@@ -1333,13 +2089,14 @@ function renderLongterm() {
 // ==============================
 //  INTERACTIONS
 // ==============================
-function showPage(id) {
+function showPage(id, tabElement) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
   document.getElementById('page-' + id).classList.add('active');
-  event.target.classList.add('active');
+  if (tabElement) tabElement.classList.add('active');
   if (id === 'dashboard') renderDashboard();
   else if (id === 'expenses') renderExpenses();
+  else if (id === 'import') renderImportPreview();
   else if (id === 'fixed') renderFixed();
   else if (id === 'longterm') renderLongterm();
 }
@@ -1356,6 +2113,7 @@ function renderActive() {
   const active = document.querySelector('.page.active').id.replace('page-','');
   if (active === 'dashboard') renderDashboard();
   else if (active === 'expenses') renderExpenses();
+  else if (active === 'import') renderImportPreview();
   else if (active === 'fixed') renderFixed();
   else if (active === 'longterm') renderLongterm();
 }
@@ -1699,6 +2457,21 @@ function dismissBanner() {
   document.getElementById('install-banner').style.display = 'none';
   localStorage.setItem('install_dismissed', '1');
 }
+
+// 파일 드래그/선택은 원본을 네트워크로 보내지 않고 브라우저 메모리에서만 처리한다.
+const statementZone = document.getElementById('statementZone');
+const statementInput = document.getElementById('statementInput');
+statementInput.addEventListener('change', event => handleStatementFiles(event.target.files));
+statementZone.addEventListener('dragover', event => {
+  event.preventDefault();
+  statementZone.classList.add('drag');
+});
+statementZone.addEventListener('dragleave', () => statementZone.classList.remove('drag'));
+statementZone.addEventListener('drop', event => {
+  event.preventDefault();
+  statementZone.classList.remove('drag');
+  handleStatementFiles(event.dataTransfer.files);
+});
 
 // ==============================
 //  INIT
