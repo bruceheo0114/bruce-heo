@@ -1,8 +1,8 @@
 {
   "version": 1,
   "initialized": true,
-  "lastCheckedAt": "2026-09-06T00:24:30.080Z",
-  "lastCheckedCanonicalUrl": "https://brunch.co.kr/@heoboram/214",
+  "lastCheckedAt": "2026-09-07T00:31:15.714Z",
+  "lastCheckedCanonicalUrl": "https://brunch.co.kr/@heoboram/216",
   "reviewSuccessCount": 0,
   "mode": "review",
   "articles": {
@@ -684,6 +684,38 @@
       "package": {
         "status": "awaiting_review",
         "manifestPath": "content/215/manifest.json",
+        "generatedAt": null
+      },
+      "linkedin": {
+        "status": "manual_pending",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "instagram": {
+        "status": "manual_pending",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "approvedAt": null,
+      "scheduledAt": null,
+      "completedAt": null
+    },
+    "216": {
+      "id": "216",
+      "canonicalUrl": "https://brunch.co.kr/@heoboram/216",
+      "title": "우리도 요즘 애들이 좋아하는 거 해보면 어떨까요",
+      "publishedAt": "2026-09-06T12:00:02.000Z",
+      "bodyHash": "b7d23987bcb6c0fca40080b41865d7387db86edf290ee292e681da9944d8ba24",
+      "batchId": "34070067778",
+      "homepage": {
+        "status": "published",
+        "updatedAt": "2026-09-07T00:31:15.714Z"
+      },
+      "package": {
+        "status": "awaiting_review",
+        "manifestPath": "content/216/manifest.json",
         "generatedAt": null
       },
       "linkedin": {
