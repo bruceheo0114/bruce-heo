@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "channelSeed": "https://www.youtube.com/watch?v=AKdwQeu7Ed4",
+  "captionLanguage": "ko",
+  "lookbackDays": 21,
+  "processAfterDays": 2,
+  "retryDays": 7,
+  "series": [
+    {
+      "id": "wednesday-bible",
+      "label": "수요 성경대학",
+      "profile": "lecture",
+      "titlePatterns": ["수요", "성경\\s*대학"],
+      "weekdayKst": 3,
+      "processAfterDays": 2
+    },
+    {
+      "id": "sunday-service",
+      "label": "주일 예배",
+      "profile": "sermon",
+      "titlePatterns": ["주일", "\\d+부\\s*예배"],
+      "weekdayKst": 0,
+      "processAfterDays": 2
+    }
+  ]
+}
