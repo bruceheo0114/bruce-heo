@@ -1,8 +1,8 @@
 {
   "version": 1,
   "initialized": true,
-  "lastCheckedAt": "2026-09-09T00:53:37.864Z",
-  "lastCheckedCanonicalUrl": "https://brunch.co.kr/@heoboram/216",
+  "lastCheckedAt": "2026-09-10T00:43:36.819Z",
+  "lastCheckedCanonicalUrl": "https://brunch.co.kr/@heoboram/221",
   "reviewSuccessCount": 0,
   "mode": "review",
   "articles": {
@@ -716,6 +716,38 @@
       "package": {
         "status": "awaiting_review",
         "manifestPath": "content/216/manifest.json",
+        "generatedAt": null
+      },
+      "linkedin": {
+        "status": "manual_pending",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "instagram": {
+        "status": "manual_pending",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "approvedAt": null,
+      "scheduledAt": null,
+      "completedAt": null
+    },
+    "221": {
+      "id": "221",
+      "canonicalUrl": "https://brunch.co.kr/@heoboram/221",
+      "title": "사람들은 왜 만든 사람을 궁금해할까?",
+      "publishedAt": "2026-09-09T15:00:09.000Z",
+      "bodyHash": "d872f745a714c0e28a4c71e0d040795cbc711e81009eb9f41a40bfff8aaf41be",
+      "batchId": "34422489071",
+      "homepage": {
+        "status": "published",
+        "updatedAt": "2026-09-10T00:43:36.819Z"
+      },
+      "package": {
+        "status": "awaiting_review",
+        "manifestPath": "content/221/manifest.json",
         "generatedAt": null
       },
       "linkedin": {
