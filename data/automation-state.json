@@ -1,8 +1,8 @@
 {
   "version": 1,
   "initialized": true,
-  "lastCheckedAt": "2026-09-13T00:30:19.054Z",
-  "lastCheckedCanonicalUrl": "https://brunch.co.kr/@heoboram/221",
+  "lastCheckedAt": "2026-09-14T00:32:56.703Z",
+  "lastCheckedCanonicalUrl": "https://brunch.co.kr/@heoboram/217",
   "reviewSuccessCount": 0,
   "mode": "review",
   "articles": {
@@ -716,6 +716,38 @@
       "package": {
         "status": "awaiting_review",
         "manifestPath": "content/216/manifest.json",
+        "generatedAt": null
+      },
+      "linkedin": {
+        "status": "manual_pending",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "instagram": {
+        "status": "manual_pending",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "approvedAt": null,
+      "scheduledAt": null,
+      "completedAt": null
+    },
+    "217": {
+      "id": "217",
+      "canonicalUrl": "https://brunch.co.kr/@heoboram/217",
+      "title": "후기를 많이 쌓으면 해결되는 거 아닐까요",
+      "publishedAt": "2026-09-13T12:00:02.000Z",
+      "bodyHash": "6a37f7b060507d1a1fc7200a70be965b98685efd551be64f6e6c947ea090b562",
+      "batchId": "34793027631",
+      "homepage": {
+        "status": "published",
+        "updatedAt": "2026-09-14T00:32:56.703Z"
+      },
+      "package": {
+        "status": "awaiting_review",
+        "manifestPath": "content/217/manifest.json",
         "generatedAt": null
       },
       "linkedin": {
