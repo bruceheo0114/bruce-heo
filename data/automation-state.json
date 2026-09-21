@@ -1,8 +1,8 @@
 {
   "version": 1,
   "initialized": true,
-  "lastCheckedAt": "2026-09-20T00:30:53.925Z",
-  "lastCheckedCanonicalUrl": "https://brunch.co.kr/@heoboram/217",
+  "lastCheckedAt": "2026-09-21T00:40:49.230Z",
+  "lastCheckedCanonicalUrl": "https://brunch.co.kr/@heoboram/218",
   "reviewSuccessCount": 0,
   "mode": "review",
   "articles": {
@@ -748,6 +748,38 @@
       "package": {
         "status": "awaiting_review",
         "manifestPath": "content/217/manifest.json",
+        "generatedAt": null
+      },
+      "linkedin": {
+        "status": "manual_pending",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "instagram": {
+        "status": "manual_pending",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "approvedAt": null,
+      "scheduledAt": null,
+      "completedAt": null
+    },
+    "218": {
+      "id": "218",
+      "canonicalUrl": "https://brunch.co.kr/@heoboram/218",
+      "title": "IMC 캠페인은 인플루언서가 전부 아닌가요",
+      "publishedAt": "2026-09-20T12:00:01.000Z",
+      "bodyHash": "a0e3b70ddb4ccb7c8cc6acbf0523f3286b3729d4d6f7dc797574f02b18c720b1",
+      "batchId": "35548446969",
+      "homepage": {
+        "status": "published",
+        "updatedAt": "2026-09-21T00:40:49.230Z"
+      },
+      "package": {
+        "status": "awaiting_review",
+        "manifestPath": "content/218/manifest.json",
         "generatedAt": null
       },
       "linkedin": {
