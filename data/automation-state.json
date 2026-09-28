@@ -1,8 +1,8 @@
 {
   "version": 1,
   "initialized": true,
-  "lastCheckedAt": "2026-09-27T01:01:35.626Z",
-  "lastCheckedCanonicalUrl": "https://brunch.co.kr/@heoboram/218",
+  "lastCheckedAt": "2026-09-28T01:19:12.031Z",
+  "lastCheckedCanonicalUrl": "https://brunch.co.kr/@heoboram/219",
   "reviewSuccessCount": 0,
   "mode": "review",
   "articles": {
@@ -780,6 +780,38 @@
       "package": {
         "status": "awaiting_review",
         "manifestPath": "content/218/manifest.json",
+        "generatedAt": null
+      },
+      "linkedin": {
+        "status": "manual_pending",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "instagram": {
+        "status": "manual_pending",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "approvedAt": null,
+      "scheduledAt": null,
+      "completedAt": null
+    },
+    "219": {
+      "id": "219",
+      "canonicalUrl": "https://brunch.co.kr/@heoboram/219",
+      "title": "지난 캠페인에서도 했던 말인데, 또 해야 하나요",
+      "publishedAt": "2026-09-27T12:00:00.000Z",
+      "bodyHash": "41ffee171ddb136fe803a277b9d60ccb8d2c04b6b99d01de20a801682845347f",
+      "batchId": "36365516639",
+      "homepage": {
+        "status": "published",
+        "updatedAt": "2026-09-28T01:19:12.031Z"
+      },
+      "package": {
+        "status": "awaiting_review",
+        "manifestPath": "content/219/manifest.json",
         "generatedAt": null
       },
       "linkedin": {
