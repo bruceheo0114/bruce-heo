@@ -33,7 +33,7 @@
      - 라벨 좌표는 이미지를 직접 보고 정한다(패널 기준 0~1, 4:3로 자른 화면 기준).
    - QA: 샌드박스에서 `ffmpeg ... select=...,tile=5x2` 로 10프레임 시트를 만들어 올리고, 내려받아 직접 본다. 라벨이 엉뚱한 곳을 가리키거나 자막이 빠졌으면 spec 만 고쳐 다시 합성한다(생성 재시도 금지).
    - 업로드 후 `media_confirm`.
-7. 캡션: 첫 줄 훅 → 빈 줄 → 인사이트 2~3문장 → 질문 → 빈 줄 → "원문은 브런치 「브루스」에서 (프로필 링크)" → 해시태그 5개. 멘션은 게시기가 붙이므로 넣지 않는다.
+7. 캡션: 첫 줄 훅 → 빈 줄 → 인사이트 2~3문장 → 질문 → 빈 줄 → "원문은 브런치 「브루스」에서 (프로필 링크)" → 빈 줄 → 해시태그 5개. 멘션은 넣지 않는다 — 게시기가 "원문은" 줄 바로 위에 `✍️ 글·목소리 마케터 브루스 @heo.boram` 서명을 끼운다.
 8. 완성 영상과 표지를 저장소에도 보관한다: `curl -sfL -o insight-reels/media/<날짜>.mp4 <video_url>`, `insight-reels/media/<날짜>.jpg` 도 같은 방식. 크기가 0이면 다시 받는다.
 9. `posts/<날짜>.json` 작성(`insight-reels/posts/2026-10-06.json` 형식 그대로, status `scheduled`, `video_backup_url`/`cover_backup_url` 은 `https://bruceheo.com/insight-reels/media/<날짜>.mp4`/`.jpg`), `queue.json` 해당 항목 `status: "made"`, `slot: <날짜>`, `ledger.json` 에 실제 지출을 기록한다(힉스필드는 `transactions` 로 확인한 실제 값).
 

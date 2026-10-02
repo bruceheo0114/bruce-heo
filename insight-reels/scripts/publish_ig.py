@@ -49,9 +49,22 @@ if post.get("status") != "scheduled":
 if not (UID and TOKEN):
     sys.exit("IG_USER_ID / IG_ACCESS_TOKEN 시크릿이 없습니다")
 
-caption = post["caption"]
-if MENTION and f"@{MENTION}" not in caption:
-    caption += f"\n\nby @{MENTION}"
+def sign(caption):
+    # 글쓴이 서명형: "원문은…" 줄 바로 위(없으면 해시태그 줄 위, 그것도 없으면 맨 끝)에 서명 한 줄
+    if not MENTION or f"@{MENTION}" in caption:
+        return caption
+    line = f"✍️ 글·목소리 마케터 브루스 @{MENTION}"
+    rows = caption.split("\n")
+    for i, r in enumerate(rows):
+        if r.startswith("원문은"):
+            return "\n".join(rows[:i] + [line] + rows[i:])
+    for i, r in enumerate(rows):
+        if r.startswith("#"):
+            return "\n".join(rows[:i] + [line, ""] + rows[i:])
+    return caption + "\n\n" + line
+
+
+caption = sign(post["caption"])
 
 def alive(url):
     # 힉스필드 CDN 링크가 사라졌으면 저장소 사본(bruceheo.com)으로 대체한다
