@@ -23,7 +23,7 @@
 6. 합성: 힉스필드 `sandbox_exec` 에서
    - 먼저 `media_upload` 로 `compose.py`, `spec.json`, 결과 `reel.mp4`, `cover.jpg`, `qa.jpg` 업로드 URL을 받는다. compose.py 는 저장소 `insight-reels/scripts/compose.py` 를 그대로 올린다(로컬 curl PUT). 파일 맨 위 주석에 spec 형식이 있다.
    - 샌드박스 한 명령 안에서: 재료 다운로드 → faster-whisper(`small`, language ko, word_timestamps)로 단어 시작 시각 → `python3 compose.py spec.json` → 결과 PUT 업로드. 오래 걸리면 `background: true` 후 폴링.
-   - spec 연출 원칙(샘플: 저장소 `insight-reels/posts/2026-10-06.json` 의 202편):
+   - spec 연출 원칙(샘플: 저장소 `insight-reels/posts/2026-10-06.spec.json` 의 202편):
      - 장면 5~6개, 장면마다 다른 연출을 쓴다. 같은 연출을 연달아 쓰지 않는다.
      - `image` + `punch`: 핵심 단어가 들리는 순간 그 물체로 툭 확대. `labels`: 이미지 속 물체에 이름표(대사에 그 단어가 나오는 시각에 맞춘다). `spot`: 결론 직전 한 곳만 밝히기.
      - `phone` + `likes`: 숫자(조회수·좋아요)가 나오는 장면. `split`: "A가 아니라 B" 구조의 문장.
@@ -39,7 +39,7 @@
 ## 4. 저장과 알림
 - `git pull --rebase` 후 커밋·푸시한다. 메시지: `chore: insight reels for <날짜들>`.
 - Gmail 로 `heoboram0114@gmail.com` 에 보낸다. 제목: `[브루스 인사이트] 이번 주 릴스 미리보기 (<날짜들>)`.
-  본문: 편마다 게시일 · 원문 제목·링크 · 영상 링크 · 표지 링크 · 대본 · 캡션. 맨 아래: 이번 사이클 크레딧 사용(힉스필드 x/270, 상한 120 · 일레븐랩스 이번 주 x).
+  본문: 편마다 게시일 · 원문 제목·링크 · 영상 링크 · 표지 링크 · 대본 · 캡션. 맨 아래: 이번 사이클 크레딧 사용(힉스필드 x/270, 상한 30 · 일레븐랩스 이번 주 x).
   마지막 줄: "게시하지 않을 편이 있으면 이 메일에 `보류 MM/DD` 라고 회신해 주세요. 회신이 없으면 예정대로 07:00에 올라갑니다."
 
 ## 하지 말 것
