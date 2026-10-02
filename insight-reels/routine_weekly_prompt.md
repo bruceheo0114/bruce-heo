@@ -14,7 +14,7 @@
 - 힉스필드 `balance` 로 잔액을 본다. `ledger.json` 의 이번 사이클(매월 2일 시작, 키는 `YYYY-MM`) 누적 지출을 본다.
 - 편당 이미지 4장(1크레딧)이 표준. 이번 사이클 누적이 30을 넘으면 이미지 재생성 없이 진행한다.
 
-## 3. 편마다 제작 (큐의 status=todo 를 위에서부터, 마케팅·일 축이 번갈아 오도록)
+## 3. 편마다 제작 (큐에서 해당 날짜 slot 이 붙은 항목, 없으면 status=todo 를 위에서부터. 화=브랜드 사례, 목=마케터의 판단. 2026년 글만. 항목의 note 를 반드시 지킨다)
 1. 원문 전체를 읽는다.
 2. 대본: 230~250자, 한국어 구어체 존댓말, 첫 문장은 장면/역설 훅, 마지막은 시청자에게 던지는 질문. 시의성 표현·광고주 실명 금지. 숫자는 한글로 읽히게.
 3. 내레이션: 일레븐랩스 `creative_generate_speech` — voice_id `ZuzhDyVIYUQSaEkxo38e`, model `eleven_multilingual_v2`, **generations_count 1**. 끝나면 `creative_show_flow_results` 로 mp3 URL을 얻는다(2시간 뒤 만료되니 바로 쓴다). 재시도 금지.
