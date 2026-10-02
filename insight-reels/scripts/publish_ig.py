@@ -53,9 +53,23 @@ caption = post["caption"]
 if MENTION and f"@{MENTION}" not in caption:
     caption += f"\n\nby @{MENTION}"
 
-params = dict(media_type="REELS", video_url=post["video_url"], caption=caption, share_to_feed="true")
-if post.get("cover_url"):
-    params["cover_url"] = post["cover_url"]
+def alive(url):
+    # 힉스필드 CDN 링크가 사라졌으면 저장소 사본(bruceheo.com)으로 대체한다
+    try:
+        with urllib.request.urlopen(urllib.request.Request(url, method="HEAD"), timeout=30) as r:
+            return r.status == 200
+    except Exception:
+        return False
+
+
+video = post["video_url"] if alive(post["video_url"]) else post.get("video_backup_url")
+if not video:
+    sys.exit("영상 URL 이 모두 죽었습니다")
+print("영상:", video)
+params = dict(media_type="REELS", video_url=video, caption=caption, share_to_feed="true")
+cover = post.get("cover_url") if post.get("cover_url") and alive(post["cover_url"]) else post.get("cover_backup_url")
+if cover:
+    params["cover_url"] = cover
 if AI_LABEL:
     params["is_ai_generated"] = "true"  # AI 이미지·클론 음성 사용 자기 표시
 container = call("POST", f"{UID}/media", **params)["id"]

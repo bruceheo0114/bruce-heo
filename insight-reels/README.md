@@ -62,6 +62,7 @@ Instagram 로그인 방식(`graph.instagram.com`)을 쓴다. **페이스북 페�
 
 - `queue.json` 제작 순서와 상태(todo/made/skip)
 - `posts/YYYY-MM-DD.json` 게시 예약(scheduled/hold/posted)
+- `media/YYYY-MM-DD.mp4`·`.jpg` 완성 영상·표지 보관본(편당 약 4.5MB, 연 약 450MB). 힉스필드 링크가 죽으면 게시기가 `bruceheo.com/insight-reels/media/` 사본으로 올린다
 - `ledger.json` 월별 크레딧 지출 기록
 - `scripts/compose.py` 합성기(힉스필드 샌드박스에서 실행)
 - `scripts/publish_ig.py` 게시기(GitHub Actions)
