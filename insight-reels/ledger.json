@@ -1,0 +1,14 @@
+{
+  "cycle_resets_on_day": 2,
+  "higgsfield_monthly_grant": 270,
+  "higgsfield_monthly_cap": 120,
+  "cycles": {
+    "2026-10": {
+      "higgsfield_spent": 11.0,
+      "elevenlabs_spent": 234,
+      "entries": [
+        {"date": "2026-10-02", "what": "파일럿 202 — 이미지 4장(1.0) + grok lite 5초 2컷(10.0, 1컷은 일그러져 미사용)", "higgsfield": 11.0, "elevenlabs": 234}
+      ]
+    }
+  }
+}
