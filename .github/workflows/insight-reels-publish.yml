@@ -32,7 +32,7 @@ jobs:
 
       - name: Publish today's reel
         env:
-          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID || '17841459178252032' }}
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           IG_MENTION: ${{ vars.IG_MENTION || 'heo.boram' }}
           IG_GRAPH_HOST: ${{ vars.IG_GRAPH_HOST }}

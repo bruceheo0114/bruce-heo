@@ -49,7 +49,7 @@ Instagram 로그인 방식(`graph.instagram.com`)을 쓴다. **페이스북 페�
 4. 같은 화면에 나오는 **Instagram 비즈니스 계정 ID**(숫자)를 확인
 5. 이 저장소 Settings → Secrets and variables → Actions → Secrets
    - `IG_ACCESS_TOKEN` = 3번 토큰
-   - `IG_USER_ID` = 4번 숫자 ID
+   - `IG_USER_ID` — 워크플로 기본값 `17841459178252032`(@bruce.insight)라 등록 불필요
 6. Actions 탭 → Insight reels publish → Run workflow → 날짜 입력으로 시험 게시
 
 선택 Variables: `IG_MENTION`(기본 `heo.boram`), `IG_AI_LABEL`(기본 true — AI 사용 표시, 끄려면 false), `IG_GRAPH_HOST`(페이스북 로그인 방식 토큰이면 `graph.facebook.com`).
