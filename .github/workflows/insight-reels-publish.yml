@@ -9,6 +9,10 @@ on:
       post_date:
         description: "게시할 날짜(YYYY-MM-DD, 비우면 오늘 KST)"
         required: false
+      check_only:
+        description: "게시하지 않고 토큰·계정만 확인"
+        type: boolean
+        default: false
 
 concurrency:
   group: insight-reels-publish
@@ -38,6 +42,7 @@ jobs:
           IG_GRAPH_HOST: ${{ vars.IG_GRAPH_HOST }}
           IG_AI_LABEL: ${{ vars.IG_AI_LABEL }}
           POST_DATE: ${{ inputs.post_date }}
+          CHECK_ONLY: ${{ inputs.check_only }}
         run: python3 insight-reels/scripts/publish_ig.py
 
       - name: Record result

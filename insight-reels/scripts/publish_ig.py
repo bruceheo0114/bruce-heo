@@ -28,6 +28,15 @@ def call(method, path, **params):
         sys.exit(f"Graph API 오류 {e.code}: {e.read().decode()[:500]}")
 
 
+if os.environ.get("CHECK_ONLY") == "true":  # 게시 없이 토큰·계정만 확인
+    if not (UID and TOKEN):
+        sys.exit("IG_USER_ID / IG_ACCESS_TOKEN 시크릿이 없습니다")
+    me = call("GET", "me", fields="user_id,username,account_type")
+    lim = call("GET", f"{UID}/content_publishing_limit", fields="quota_usage,config")
+    print("토큰 정상:", json.dumps(me, ensure_ascii=False))
+    print("게시 한도:", json.dumps(lim, ensure_ascii=False))
+    sys.exit(0)
+
 today = os.environ.get("POST_DATE") or (datetime.datetime.utcnow() + datetime.timedelta(hours=9)).strftime("%Y-%m-%d")
 f = ROOT / "posts" / f"{today}.json"
 if not f.exists():
