@@ -36,6 +36,7 @@ jobs:
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           IG_MENTION: ${{ vars.IG_MENTION || 'heo.boram' }}
           IG_GRAPH_HOST: ${{ vars.IG_GRAPH_HOST }}
+          IG_AI_LABEL: ${{ vars.IG_AI_LABEL }}
           POST_DATE: ${{ inputs.post_date }}
         run: python3 insight-reels/scripts/publish_ig.py
 

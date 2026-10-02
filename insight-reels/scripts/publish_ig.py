@@ -1,11 +1,14 @@
 # 오늘 날짜(KST)의 posts/YYYY-MM-DD.json 을 인스타그램 릴스로 게시한다.
 # GitHub Actions 에서 실행. 표준 라이브러리만 사용.
-# 필요: secrets IG_USER_ID, IG_ACCESS_TOKEN / vars IG_MENTION(선택), IG_GRAPH_HOST(선택, 기본 graph.facebook.com)
+# 필요: secrets IG_USER_ID, IG_ACCESS_TOKEN / vars IG_MENTION(선택), IG_GRAPH_HOST(선택), IG_AI_LABEL(선택)
+# 기본은 Instagram 로그인 방식(graph.instagram.com) — 페이스북 페이지 연결 없이 게시 가능.
+# 페이스북 로그인 방식 토큰이면 IG_GRAPH_HOST=graph.facebook.com 으로 바꾼다.
 import datetime, json, os, pathlib, sys, time, urllib.parse, urllib.request
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-HOST = os.environ.get("IG_GRAPH_HOST") or "graph.facebook.com"
-API = f"https://{HOST}/v23.0"
+HOST = os.environ.get("IG_GRAPH_HOST") or "graph.instagram.com"
+API = f"https://{HOST}/{os.environ.get('IG_API_VERSION') or 'v25.0'}"
+AI_LABEL = (os.environ.get("IG_AI_LABEL") or "true").lower() != "false"
 UID, TOKEN = os.environ.get("IG_USER_ID"), os.environ.get("IG_ACCESS_TOKEN")
 MENTION = (os.environ.get("IG_MENTION") or "").strip().lstrip("@")
 
@@ -44,15 +47,17 @@ if MENTION and f"@{MENTION}" not in caption:
 params = dict(media_type="REELS", video_url=post["video_url"], caption=caption, share_to_feed="true")
 if post.get("cover_url"):
     params["cover_url"] = post["cover_url"]
+if AI_LABEL:
+    params["is_ai_generated"] = "true"  # AI 이미지·클론 음성 사용 자기 표시
 container = call("POST", f"{UID}/media", **params)["id"]
 
-for _ in range(40):  # 최대 약 10분 대기
+for _ in range(10):  # Meta 권장: 1분에 한 번, 최대 약 10분
     st = call("GET", container, fields="status_code,status").get("status_code")
     if st == "FINISHED":
         break
     if st in ("ERROR", "EXPIRED"):
         sys.exit(f"컨테이너 처리 실패: {st}")
-    time.sleep(15)
+    time.sleep(60)
 else:
     sys.exit("컨테이너 처리 시간 초과")
 

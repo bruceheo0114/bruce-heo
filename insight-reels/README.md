@@ -39,15 +39,24 @@ PC가 꺼져 있어도 셋 다 돈다.
 - 광고주(클라이언트) 실명·내부 수치 금지. 원문에 있으면 "한 브랜드"로 익명화.
 - 숫자는 한글로 읽히게 쓴다(200만 → 이백만). 자막은 아라비아 숫자.
 
-## 업로드 설정 (1회, 사용자 직접)
+## 업로드 설정 (1회, 사용자 직접 — 토큰은 Claude가 다룰 수 없음)
 
-1. 인스타 「브루스 인사이트」를 프로페셔널(크리에이터/비즈니스) 계정으로 전환하고 페이스북 페이지에 연결
-2. Meta 개발자 앱에서 `instagram_basic`, `instagram_content_publish`, `pages_show_list`, `pages_read_engagement` 권한으로 토큰 발급 — 만료 없는 **시스템 사용자 토큰**(비즈니스 관리자) 권장. 60일 토큰이면 만료 전에 갱신 필요
-3. 이 저장소 Settings → Secrets and variables → Actions
-   - Secrets: `IG_USER_ID`(인스타 비즈니스 계정 ID), `IG_ACCESS_TOKEN`
-   - Variables(선택): `IG_MENTION` — 기본값 `heo.boram`. 바꿀 때만 설정
-   - (인스타그램 로그인 방식 토큰이면 Variables `IG_GRAPH_HOST` = `graph.instagram.com`)
-4. Actions 탭 → Insight reels publish → Run workflow 로 날짜를 넣어 시험 게시 가능
+Instagram 로그인 방식(`graph.instagram.com`)을 쓴다. **페이스북 페이지 연결이 필요 없다.**
+
+1. 인스타 앱 → @bruce.insight → 설정 → 계정 유형 → **프로페셔널(크리에이터 또는 비즈니스)** 전환
+2. developers.facebook.com → 앱 만들기 → 유형 「비즈니스」 → 제품 **Instagram** 추가 → 「Instagram 로그인을 통한 API 설정」
+3. 「액세스 토큰 생성」에서 @bruce.insight 로그인 → 권한 `instagram_business_basic`, `instagram_business_content_publish` 승인 → 장기 토큰(60일) 발급
+4. 같은 화면에 나오는 **Instagram 비즈니스 계정 ID**(숫자)를 확인
+5. 이 저장소 Settings → Secrets and variables → Actions → Secrets
+   - `IG_ACCESS_TOKEN` = 3번 토큰
+   - `IG_USER_ID` = 4번 숫자 ID
+6. Actions 탭 → Insight reels publish → Run workflow → 날짜 입력으로 시험 게시
+
+선택 Variables: `IG_MENTION`(기본 `heo.boram`), `IG_AI_LABEL`(기본 true — AI 사용 표시, 끄려면 false), `IG_GRAPH_HOST`(페이스북 로그인 방식 토큰이면 `graph.facebook.com`).
+
+**토큰 만료**: 장기 토큰은 60일. 만료 전에 `GET https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=<토큰>` 으로 갱신하고 Secret 을 바꿔 넣는다(발급일 + 50일쯤 캘린더 알림 권장).
+
+**게시 흐름**(Meta 문서 기준): `POST /{IG_ID}/media`(media_type=REELS, video_url, caption, cover_url, share_to_feed, is_ai_generated) → `GET /{container}?fields=status_code` 를 1분 간격으로 FINISHED 까지 → `POST /{IG_ID}/media_publish`. 영상은 힉스필드 CDN 공개 URL이라 Meta가 직접 가져간다. 24시간 100건 제한은 주 2건이라 무관.
 
 ## 파일
 
