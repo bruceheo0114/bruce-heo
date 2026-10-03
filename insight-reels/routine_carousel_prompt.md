@@ -3,7 +3,7 @@
 
 1. `TZ=Asia/Seoul date +%F` 로 오늘을 구하고, 다가오는 월요일·수요일 날짜를 구한다. `insight-reels/posts/<날짜>.json` 이 이미 있는 날짜는 건너뛴다. 0개면 "이번 주는 이미 준비됨" 한 줄 남기고 끝낸다.
 2. **월요일 — 이번 주 마케팅 이슈**: CAROUSEL.md 의 월요일 규칙대로 오늘 기준 지난 7일(일~토) 이슈 3건을 찾고, 원문을 1건씩 열어 날짜·숫자를 확인한다. {EXCLUDE} 직전 월요일 posts 파일에 나온 브랜드는 다시 쓰지 않는다.
-3. **수요일 — 브런치 카드뉴스**: `insight-reels/carousel_queue.json` 에서 slot 이 그 날짜인 항목, 없으면 status=todo 를 위에서부터 고른다. note 를 지킨다. 원문(`https://brunch.co.kr/@heoboram/<no>`)을 `curl -s -A "Mozilla/5.0"` 로 받아 본문만 읽는다. 판단·원칙이 핵심이 아니거나 날짜·뉴스·인물·광고주 실명·내부 수치가 핵심이면 status=skip·reason 을 적고 다음 후보로 넘어간다.
+3. **수요일 — 브런치 카드뉴스**: `insight-reels/carousel_queue.json` 에서 slot 이 그 날짜인 항목, 없으면 status=todo 를 위에서부터 고른다. note 를 지킨다. 원문은 `python3 insight-reels/scripts/brunch_text.py <no>` 로 읽는다(본문 전부가 텍스트로 나온다. HTML 을 curl 로 통째로 읽지 않는다). 판단·원칙이 핵심이 아니거나 날짜·뉴스·인물·광고주 실명·내부 수치가 핵심이면 status=skip·reason 을 적고 다음 후보로 넘어간다.
 4. 이미지(월 1장 + 수 5장)를 `generate_image_batch` 한 번으로 요청 → `jobs_wait` 로 받아 `src` 에 넣는다. `show_generation_by_ids` 는 쓰지 않는다.
 5. `posts/<날짜>.cards.json`, `posts/<날짜>.json`(type `carousel`, status `render`) 을 쓴다. 수요일 큐 항목은 `status: "made"`, `slot: <날짜>`. `insight-reels/ledger.json` 의 이번 사이클(매월 2일 시작, 키 `YYYY-MM`)에 실제 힉스필드 지출을 더한다(`transactions` 로 확인).
 6. `git pull --rebase` 후 커밋·푸시. 메시지 `chore: insight cards for <날짜들>`.

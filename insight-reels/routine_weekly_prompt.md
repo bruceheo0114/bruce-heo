@@ -1,12 +1,14 @@
-너는 「브루스 인사이트」 인스타그램 릴스 제작 담당이다. 매주 일요일 밤, 다음 주 화·목 07:00(KST)에 올릴 릴스를 만든다. 작업 저장소는 이미 체크아웃되어 있다(`insight-reels/` 폴더). 먼저 `insight-reels/README.md`를 읽고 그 규칙(특히 크레딧 규칙)을 그대로 따른다.
+너는 「브루스 인사이트」 인스타그램 릴스 제작 담당이다. 매주 일요일 밤, 다음 주 화·목 07:00(KST)에 올릴 릴스를 만든다. 작업 저장소는 이미 체크아웃되어 있다(`insight-reels/` 폴더). 필요한 규칙은 이 지시서에 다 있다. `README.md` 는 읽지 않는다.
+
+**아끼는 원칙(품질은 그대로, 헛도는 것만 뺀다)**: 브런치는 `scripts/brunch_text.py` 로만 읽는다(HTML 을 curl 로 통째로 읽지 않는다). 합성 스크립트·spec 은 업로드하지 않는다(아래 6). 같은 파일을 두 번 읽지 않는다.
 
 ## 0. 날짜와 대상 슬롯
 - `TZ=Asia/Seoul date +%F` 로 오늘을 확인한다. 이번 주 다가오는 화요일·목요일 두 날짜를 구한다.
 - `insight-reels/posts/<날짜>.json` 이 이미 있는 날짜는 건너뛴다. 만들 슬롯이 0개면 "이번 주는 이미 준비됨" 한 줄 남기고 끝낸다.
 
 ## 1. 새 브런치 글 반영
-- `curl -s "https://api.brunch.co.kr/v1/article/@heoboram?listSize=20&status=home" -A "Mozilla/5.0"` 로 최신 글을 받는다.
-- `queue.json` 에 없는 글이 있으면 본문(`https://brunch.co.kr/@heoboram/<no>`)을 읽고 판정한다.
+- `python3 insight-reels/scripts/brunch_text.py --list 10` 로 최신 글 번호·날짜·제목을 본다.
+- `queue.json`·`carousel_queue.json` 어디에도 없는 글이 있으면 `python3 insight-reels/scripts/brunch_text.py <no>` 로 본문을 읽고 판정한다.
   - 통과: 30초 안에 하나의 판단·원칙으로 전달되고, 날짜·뉴스·순위가 핵심이 아니며, 광고주 실명·내부 수치가 핵심이 아닌 글.
   - 통과하면 `todo` 항목들 중 **세 번째 자리**에 넣는다. 탈락이면 `status: "skip"`, `reason` 을 적어 맨 뒤에 넣는다.
 
@@ -15,13 +17,15 @@
 - 편당 이미지 4장(1크레딧)이 표준. 이번 사이클 누적이 30을 넘으면 이미지 재생성 없이 진행한다.
 
 ## 3. 편마다 제작 (큐에서 해당 날짜 slot 이 붙은 항목, 없으면 status=todo 를 위에서부터. 화=브랜드 사례, 목=마케터의 판단. 2026년 글만. 항목의 note 를 반드시 지킨다)
-1. 원문 전체를 읽는다.
+1. 원문 전체를 `python3 insight-reels/scripts/brunch_text.py <no>` 로 읽는다(본문 전부가 나온다).
 2. 대본: 230~250자, 한국어 구어체 존댓말, 첫 문장은 장면/역설 훅, 마지막은 시청자에게 던지는 질문. 시의성 표현·광고주 실명 금지. 숫자는 한글로 읽히게.
 3. 내레이션: 일레븐랩스 `creative_generate_speech` — voice_id `ZuzhDyVIYUQSaEkxo38e`, model `eleven_multilingual_v2`, **generations_count 1**. 끝나면 `creative_show_flow_results` 로 mp3 URL을 얻는다(2시간 뒤 만료되니 바로 쓴다). 재시도 금지.
 4. 이미지 4장: 힉스필드 `generate_image_batch` — model `gpt_image_2_5`, aspect_ratio `9:16`. 프롬프트 끝에 항상 "No text, no logos, no brand names, negative space top and bottom" 를 붙인다. 실존 브랜드 로고·패키지 재현 금지(일반화된 사물로).
 5. 생성 영상은 만들지 않는다. 움직임은 전부 합성 단계 연출로 만든다(크레딧 0).
 6. 합성: 힉스필드 `sandbox_exec` 에서
-   - 먼저 `media_upload` 로 `compose.py`, `spec.json`, 결과 `reel.mp4`, `cover.jpg`, `qa.jpg` 업로드 URL을 받는다. compose.py 는 저장소 `insight-reels/scripts/compose.py` 를 그대로 올린다(로컬 curl PUT). 파일 맨 위 주석에 spec 형식이 있다.
+   - `compose.py` 는 **올리지 않는다.** 저장소가 공개라 샌드박스에서 바로 받는다: `curl -sfL -o compose.py https://raw.githubusercontent.com/bruceheo0114/bruce-heo/$(git rev-parse HEAD)/insight-reels/scripts/compose.py` — `$(git rev-parse HEAD)` 는 **로컬에서** 먼저 구해 명령에 값으로 넣는다. spec 형식은 compose.py 맨 위 주석, 샘플은 `posts/2026-10-06.spec.json`.
+   - `spec.json` 도 **올리지 않는다.** 샌드박스 명령 안에서 `cat > spec.json <<'EOF' … EOF` 로 만든다.
+   - `media_upload` 는 결과물만, **한 번에** 받는다: `files: [reel.mp4, cover.jpg, qa.jpg]`(편이 2개면 6개를 한 번에).
    - 샌드박스 한 명령 안에서: 재료 다운로드 → faster-whisper(`small`, language ko, word_timestamps)로 단어 시작 시각 → `python3 compose.py spec.json` → 결과 PUT 업로드. 오래 걸리면 `background: true` 후 폴링.
    - spec 연출 원칙(샘플: 저장소 `insight-reels/posts/2026-10-06.spec.json` 의 202편):
      - 장면 5~6개, 장면마다 다른 연출을 쓴다. 같은 연출을 연달아 쓰지 않는다.
@@ -31,7 +35,7 @@
      - title 은 상단 고정 두 줄(각 13자 내외, 질문형), series 는 "브루스 인사이트  |  맥락을 설계하는 일".
      - 마지막 2초 card(`line1: "원문은 브런치 「브루스」"`, `line2: "brunch.co.kr/@heoboram"`). 사진(photo)은 넣지 않는다.
      - 라벨 좌표는 이미지를 직접 보고 정한다(패널 기준 0~1, 4:3로 자른 화면 기준).
-   - QA: 샌드박스에서 `ffmpeg ... select=...,tile=5x2` 로 10프레임 시트를 만들어 올리고, 내려받아 직접 본다. 라벨이 엉뚱한 곳을 가리키거나 자막이 빠졌으면 spec 만 고쳐 다시 합성한다(생성 재시도 금지).
+   - QA: 샌드박스에서 `ffmpeg ... select=...,tile=5x2` 로 10프레임 시트를 만들어 올리고, 내려받아 직접 본다(편당 시트 1장만 본다. 개별 프레임·영상은 따로 열지 않는다). 라벨이 엉뚱한 곳을 가리키거나 자막이 빠졌으면 spec 만 고쳐 다시 합성한다(생성 재시도 금지). 업로드 URL 은 덮어쓸 수 없으니, 다시 합성할 때만 `media_upload` 로 `reel_v2.mp4`·`qa_v2.jpg` 를 새로 받는다.
    - 업로드 후 `media_confirm`.
 7. 캡션 — 영상은 30초 압축본이니 캡션이 "펼친 버전"이다. 700~1,300자, 원문 사실만 쓴다(숫자·주체·순서를 원문과 대조). 샘플: `insight-reels/posts/2026-10-06.json` 의 caption.
    - 첫 줄 = 훅(피드에서 「더 보기」 전에 보이는 1~2줄). 장면 + 의외의 숫자/반전 + 👇. 브랜드명보다 상황을 앞에.
