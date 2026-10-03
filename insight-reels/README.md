@@ -1,16 +1,19 @@
 # 브루스 인사이트 릴스 자동화
 
 브런치 @heoboram 글 → 30초 릴스(본인 클론 목소리) → 인스타그램 @bruce.insight 화·목 07:00 게시, 캡션에 @heo.boram 멘션.
+카드뉴스(캐러셀)는 월 07:00 「이번 주 마케팅 이슈」, 수 07:00 브런치 카드뉴스 — 규칙은 `CAROUSEL.md`, 수요일 큐는 `carousel_queue.json`.
 
 ## 흐름
 
 | 언제 (KST) | 누가 | 하는 일 |
 |---|---|---|
+| 매주 토 21:00 | 클라우드 루틴 「브루스 인사이트 카드뉴스 제작」(Sonnet) | 월=이번 주 이슈 3건 검색·확인, 수=카드 큐 1편 → 카드 원고·이미지·캡션 → `status=render` 커밋 → 미리보기 메일 |
+| 커밋 직후 | GitHub Actions `insight-reels-cards.yml` | `cards.py` 로 카드 렌더링 → `media/날짜/` 커밋 → `status=scheduled` |
 | 매주 일 21:00 | 클라우드 루틴 「브루스 인사이트 릴스 제작」 | 새 글 확인 → 큐에서 다음 2편 → 대본·내레이션·영상 제작 → `posts/날짜.json` 커밋 → 미리보기 메일 |
-| 화·목 06:30 | 클라우드 루틴 「브루스 인사이트 보류 확인」 | 미리보기 메일에 `보류` 회신이 있으면 그 편 `status`를 `hold`로 바꿔 커밋 |
-| 화·목 07:00 | GitHub Actions `insight-reels-publish.yml` | 오늘 날짜 `status=scheduled` 파일을 Graph API로 게시, 결과를 `posted`로 기록 |
+| 월~목 06:30 | 클라우드 루틴 「브루스 인사이트 보류 확인」(Haiku) | 미리보기 메일에 `보류` 회신이 있으면 그 편 `status`를 `hold`로 바꿔 커밋 |
+| 월~목 07:00 | GitHub Actions `insight-reels-publish.yml` | 오늘 날짜 `status=scheduled` 파일을 Graph API로 게시(type=carousel 이면 캐러셀), 결과를 `posted`로 기록 |
 
-PC가 꺼져 있어도 셋 다 돈다.
+PC가 꺼져 있어도 전부 돈다.
 
 ## 크레딧 배분 (매월 2일 리셋 기준)
 

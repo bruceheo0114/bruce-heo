@@ -4,10 +4,12 @@
   "higgsfield_monthly_cap": 120,
   "cycles": {
     "2026-10": {
-      "higgsfield_spent": 11.0,
+      "higgsfield_spent": 12.5,
       "elevenlabs_spent": 234,
       "entries": [
-        {"date": "2026-10-02", "what": "파일럿 202 — 이미지 4장(1.0) + grok lite 5초 2컷(10.0, 1컷은 일그러져 미사용)", "higgsfield": 11.0, "elevenlabs": 234}
+        {"date": "2026-10-02", "what": "파일럿 202 — 이미지 4장(1.0) + grok lite 5초 2컷(10.0, 1컷은 일그러져 미사용)", "higgsfield": 11.0, "elevenlabs": 234},
+        {"date": "2026-10-03", "what": "카드뉴스 샘플 186(10/7 게시분) — 이미지 5장 4:5", "higgsfield": 1.25, "elevenlabs": 0},
+        {"date": "2026-10-03", "what": "이번 주 마케팅 이슈 샘플(10/5 게시분) — 표지 이미지 1장", "higgsfield": 0.25, "elevenlabs": 0}
       ]
     }
   }

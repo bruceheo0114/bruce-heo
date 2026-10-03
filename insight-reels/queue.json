@@ -145,21 +145,21 @@
    "title": "브랜드가 기억되는 건 순간이 아니라 반복이다",
    "axis": "브랜드 사례",
    "insight": "취향은 반복으로 아비투스가 된다",
-   "status": "todo"
+   "status": "carousel", "reason": "카드뉴스로 이관(carousel_queue.json)"
   },
   {
    "no": 209,
    "title": "광고는 웃겼는데, 브랜드는 남았나",
    "axis": "브랜드 사례",
    "insight": "화제성은 이어질 때 자산이 된다",
-   "status": "todo"
+   "status": "carousel", "reason": "카드뉴스로 이관(carousel_queue.json)"
   },
   {
    "no": 188,
    "title": "필코노미 시대, 감정은 ‘팔지 말고 설계'해야한다.",
    "axis": "브랜드 사례",
    "insight": "감정은 팔지 말고 설계한다",
-   "status": "todo"
+   "status": "carousel", "reason": "카드뉴스로 이관(carousel_queue.json)"
   },
   {
    "no": 201,
@@ -173,21 +173,21 @@
    "title": "가본 만큼만 내 땅이다:AI가 줄 수 없는 것",
    "axis": "마케터의 판단",
    "insight": "가본 만큼만 내 땅이다",
-   "status": "todo"
+   "status": "carousel", "reason": "카드뉴스로 이관(carousel_queue.json)"
   },
   {
    "no": 196,
    "title": "10년 경험을 AI에게 인수인계할 수 있나요?",
    "axis": "마케터의 판단",
    "insight": "10년 경험은 AI에게 인수인계되지 않는다",
-   "status": "todo"
+   "status": "carousel", "reason": "카드뉴스로 이관(carousel_queue.json)"
   },
   {
    "no": 187,
    "title": "“AI가 만든 겁니다”라는 스티커의 가격",
    "axis": "마케터의 판단",
    "insight": "AI 표기보다 중요한 건 책임",
-   "status": "todo",
+   "status": "carousel", "reason": "카드뉴스로 이관(carousel_queue.json)",
    "note": "AI 기본법 시행일 대신 원칙 중심"
   },
   {
@@ -195,7 +195,7 @@
    "title": "AI에게 선택을 받으려면 맥락을 지배해야해요.",
    "axis": "마케터의 판단",
    "insight": "AI에게 선택받으려면 맥락을 지배하라",
-   "status": "todo"
+   "status": "carousel", "reason": "카드뉴스로 이관(carousel_queue.json)"
   },
   {
    "no": 207,

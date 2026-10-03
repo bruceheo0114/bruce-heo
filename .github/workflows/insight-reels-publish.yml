@@ -2,8 +2,8 @@ name: Insight reels publish
 
 on:
   schedule:
-    # 화·목 07:00 KST 게시 목표. GitHub 예약은 수 분 지연되므로 06:50 KST(월·수 21:50 UTC)에 시작한다.
-    - cron: "50 21 * * 1,3"
+    # 월·수 카드뉴스, 화·목 릴스 07:00 KST 게시 목표. GitHub 예약은 수 분 지연되므로 06:50 KST(일~수 21:50 UTC)에 시작한다.
+    - cron: "50 21 * * 0,1,2,3"
   workflow_dispatch:
     inputs:
       post_date:

@@ -1,0 +1,50 @@
+{
+  "slides": [
+    {
+      "kind": "cover",
+      "src": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261003_151445_bd9c884d-b9d9-4afc-bf9c-71043dbcf85b.png",
+      "pill": "이번 주 마케팅 이슈",
+      "title": "이번 주\n주목할 마케팅\n이슈 3.",
+      "sub": "2026년 10월 1주(9/28~10/3)\n아마존 · KFC · 구글"
+    },
+    {
+      "kind": "issue",
+      "no": 1,
+      "tag": "글로벌 · 광고 플랫폼",
+      "title": "아마존, 광고 운영을\nAI 에이전트에게 맡긴다.",
+      "body": "9월 29일 연례 행사 unBoxed에서\n'Amazon Ads Agent'를 공개했다.\n검색·디스플레이·영상·오디오 광고를\n하나의 AI 화면에서 운영한다.\n\n목표·예산·소재를 정하면\n나머지 운영은 AI가 맡는 구조다.",
+      "point": "운영 실력보다 '무엇을 목표로 할지'\n정하는 판단이 경쟁력이 된다.",
+      "source": "출처: Marketing Dive · Adweek (9/29)"
+    },
+    {
+      "kind": "issue",
+      "no": 2,
+      "tag": "글로벌 · 팬덤 콘텐츠",
+      "title": "KFC, 광고 대신\n30분짜리 게임쇼를 만들었다.",
+      "body": "영국 KFC가 9월 30일 유튜브에\n게임쇼 'Don't Crack'을 공개했다.\n약 5만 명이 지원했고,\n팬 30명이 상금 5만 파운드를 두고\n네 단계 미션에 도전한다.",
+      "point": "2024년부터 쌓은 'Believe in Chicken'\n세계관을 팬이 직접 증명하는 무대로.",
+      "source": "출처: Creative Review · Adweek (9/30~10/1)"
+    },
+    {
+      "kind": "issue",
+      "no": 3,
+      "tag": "국내 · AI 서비스",
+      "title": "구글, 제미나이를\n'준비하는 순간'으로 판다.",
+      "body": "10월 2일 'Google AI Pro' 캠페인\n영상 6편을 공개했다.\n배우, 경제 크리에이터, 출판 편집자가\n각자의 일을 준비하는 장면을 담았다.\n\n캠페인은 10월 31일까지 이어진다.",
+      "point": "기능을 나열하는 대신\n'내 일의 과정'으로 AI를 번역했다.",
+      "source": "출처: Google 코리아 블로그 (10/2)"
+    },
+    {
+      "kind": "text",
+      "title": "세 이슈를\n꿰는 한 줄.",
+      "body": "운영은 점점 자동화되고,\n남는 경쟁력은 맥락이다.\n\n무엇을 목표로 할지(아마존),\n어떤 세계관을 쌓을지(KFC),\n고객의 어떤 순간에 들어갈지(구글)."
+    },
+    {
+      "kind": "close",
+      "src": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261003_151445_bd9c884d-b9d9-4afc-bf9c-71043dbcf85b.png",
+      "focus_y": 0.3,
+      "title": "이번 주\n가장 기억에 남은\n캠페인은.",
+      "body": "여러분이 본 캠페인 중\n오래 남은 하나를 댓글로 알려주세요.\n\n다음 주 이슈 정리에 함께 담아볼게요."
+    }
+  ]
+}

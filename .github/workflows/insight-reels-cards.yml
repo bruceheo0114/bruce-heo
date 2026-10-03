@@ -1,0 +1,40 @@
+name: Insight cards render
+
+# 카드 제작 루틴이 posts/DATE.json(status=render)과 posts/DATE.cards.json 을 커밋하면
+# 카드 이미지를 그려 media/DATE/ 에 커밋한다. Claude 를 쓰지 않는다.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "insight-reels/posts/*.json"
+      - "insight-reels/scripts/cards.py"
+  workflow_dispatch:
+
+concurrency:
+  group: insight-cards-render
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Pillow
+        run: pip install --quiet pillow
+
+      - name: Render pending carousels
+        run: python3 insight-reels/scripts/render_pending.py
+
+      - name: Commit cards
+        run: |
+          git add insight-reels/posts insight-reels/media
+          git diff --cached --quiet && exit 0
+          git config user.name "bruce-content-bot"
+          git config user.email "bruce-content-bot@users.noreply.github.com"
+          git commit -m "chore: render insight cards"
+          git pull --rebase -q && git push

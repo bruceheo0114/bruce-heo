@@ -1,0 +1,59 @@
+{
+  "slides": [
+    {
+      "kind": "cover",
+      "src": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261003_141020_7009daaa-15ec-49fa-a45c-e7b73299cc20.png",
+      "tone": "dark",
+      "title": "AI는\n맥락을 아는\n브랜드를 고른다.",
+      "sub": "검색하지 않는 시대,\n마케터가 다시 설계해야 할 것"
+    },
+    {
+      "kind": "photo",
+      "src": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261003_141159_d8e900c6-41e3-4fe9-a9f6-9fd8b852d973.png",
+      "focus_y": 0.35,
+      "title": "이제 사람들은\n검색 대신 AI에게 묻는다.",
+      "body": "구글·네이버에서 검색하지 않는 제로클릭 시대.\nSEO를 넘어 GEO(생성형 엔진 최적화)가\n마케팅의 화두가 됐다.\n\n사람의 선택보다 먼저\n인공지능의 선택을 받아야 하는 상황이다."
+    },
+    {
+      "kind": "photo",
+      "src": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261003_141019_d0375c13-5776-4666-8c33-592c256b98de.png",
+      "focus_y": 0.3,
+      "title": "구조화된 글만으로는\n부족하다.",
+      "body": "AI는 출처가 명확하고 구조화된 글을\n잘 인용한다고들 말한다.\n그래서 많은 기업이 웹 곳곳에 콘텐츠를 심는다.\n\n하지만 핵심은 그다음이다.\n'우리 제품을 떠올리는 맥락'이 더 중요해졌다."
+    },
+    {
+      "kind": "text",
+      "title": "사람들은 AI에게\n제품이 아니라\n**상황**을 묻는다.",
+      "body": "내가 겪는 이 상황에서\n무엇을 써야 맞는지.\n\nAI가 그 질문에 답하려면\n우리 제품에 대한 '맥락 중심의 데이터'가\n먼저 깔려 있어야 한다."
+    },
+    {
+      "kind": "compare",
+      "title": "맥락은 더 잘게\n쪼개져야 한다.",
+      "left": {"head": "예전의 맥락", "items": ["과체중일 때", "여름 전,\n결혼 전"]},
+      "right": {"head": "이제의 맥락", "items": ["살쪘다는 말을\n들었을 때", "더 건강하게\n살고 싶을 때", "맛있게 먹으려면\n최소한의 관리가\n필요할 때"]},
+      "note": "다이어트 제품의 예. 취향과 감정까지 고려한\n맥락 설계가 필요하다."
+    },
+    {
+      "kind": "checks",
+      "title": "그래서 무엇을\n바꿔야 할까.",
+      "items": [
+        {"head": "채널을 분산한다", "text": "블로그 키워드 대응만으로는 부족하다.\nAI가 참고하는 채널에도 맥락을 쌓는다."},
+        {"head": "플랫폼 안을 채운다", "text": "쇼핑 플랫폼의 AI 추천은 내부 정보로 이뤄진다.\n후기와 Q&A를 촘촘히 쌓는 장치가 필요하다."},
+        {"head": "질문을 먼저 정의한다", "text": "상황별 질문에 답하는 Q&A 클러스터,\n비교표·체크리스트처럼 재구성하기 쉬운 형태로."}
+      ]
+    },
+    {
+      "kind": "photo",
+      "src": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261003_141020_07c13acd-d031-4793-9e00-fceb8d7434d2.png",
+      "focus_y": 0.3,
+      "title": "소비자는 무엇을\n물어야 할지 모른다.",
+      "body": "\"소비자는 본인이 무엇이 필요한지 모른다.\"\n마케팅의 오래된 격언이다.\n\n그래서 콘텐츠가 먼저\n소비자의 질문을 이끌어내야 한다."
+    },
+    {
+      "kind": "close",
+      "src": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261003_141020_987776a0-9f08-471c-a922-927c6ac93121.png",
+      "title": "결국 중요한 건\n떠올리는 맥락과\n그 뒤의 감정이다.",
+      "body": "어떤 감정 상태에서\n우리 제품을 떠올리고, 사게 되는가.\n\n우리 브랜드는 지금\n어떤 상황에서 떠오르고 있나요?"
+    }
+  ]
+}
