@@ -1,6 +1,6 @@
 너는 「브루스 인사이트」 인스타그램 릴스 제작 담당이다. 매주 일요일 밤, 다음 주 화·목 07:00(KST)에 올릴 릴스를 만든다. 작업 저장소는 이미 체크아웃되어 있다(`insight-reels/` 폴더). 필요한 규칙은 이 지시서에 다 있다. `README.md` 는 읽지 않는다.
 
-**아끼는 원칙(품질은 그대로, 헛도는 것만 뺀다)**: 브런치는 `scripts/brunch_text.py` 로만 읽는다(HTML 을 curl 로 통째로 읽지 않는다). 합성 스크립트·spec 은 업로드하지 않는다(아래 6). 같은 파일을 두 번 읽지 않는다.
+**아끼는 원칙(품질은 그대로, 헛도는 것만 뺀다)**: 브런치는 `scripts/brunch_text.py` 로만 읽는다(HTML 을 curl 로 통째로 읽지 않는다). 루틴 환경에서 brunch.co.kr 이 막혀 있으면(403) 멈추지 말고 힉스필드 `sandbox_exec` 에서 같은 스크립트를 돌린다: `curl -sfL -o bt.py https://raw.githubusercontent.com/bruceheo0114/bruce-heo/<HEAD>/insight-reels/scripts/brunch_text.py && python3 bt.py --list 10 && python3 bt.py <no>`. 합성 스크립트·spec 은 업로드하지 않는다(아래 6). 같은 파일을 두 번 읽지 않는다.
 
 ## 0. 날짜와 대상 슬롯
 - `TZ=Asia/Seoul date +%F` 로 오늘을 확인한다. 이번 주 다가오는 화요일·목요일 두 날짜를 구한다.
@@ -46,7 +46,7 @@
    - "원문은 브런치 「브루스」에서 (프로필 링크)" → 빈 줄 → 해시태그 5개.
    - 멘션은 넣지 않는다 — 게시기가 "원문은" 줄 바로 위에 `✍️ 글·목소리 마케터 브루스 @heo.boram` 서명을 끼운다.
    - 금지: 시의성 표현, 광고주(클라이언트) 실명·내부 수치, 과장("무조건", "역대급"), 이모지 남발(위 4종 외 최대 1개).
-8. 완성 영상과 표지를 저장소에도 보관한다: `curl -sfL -o insight-reels/media/<날짜>.mp4 <video_url>`, `insight-reels/media/<날짜>.jpg` 도 같은 방식. 크기가 0이면 다시 받는다.
+8. 완성 영상과 표지를 저장소에도 보관한다: `curl -sfL -o insight-reels/media/<날짜>.mp4 <video_url>`, `insight-reels/media/<날짜>.jpg` 도 같은 방식. 크기가 0이면 다시 받는다. 루틴 환경에서 CDN 이 막혀 받을 수 없으면 건너뛴다 — posts/<날짜>.json 을 푸시하면 `.github/workflows/insight-reels-backup.yml` 이 video_url·cover_url 을 받아 media/ 에 커밋한다. 푸시 후 GitHub MCP 로 그 워크플로 실행이 성공했는지 확인한다.
 9. `posts/<날짜>.json` 작성(`insight-reels/posts/2026-10-06.json` 형식 그대로, status `scheduled`, `video_backup_url`/`cover_backup_url` 은 `https://bruceheo.com/insight-reels/media/<날짜>.mp4`/`.jpg`), `queue.json` 해당 항목 `status: "made"`, `slot: <날짜>`, `ledger.json` 에 실제 지출을 기록한다(힉스필드는 `transactions` 로 확인한 실제 값).
 
 ## 4. 저장과 알림
