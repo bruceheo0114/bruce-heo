@@ -6,7 +6,7 @@
 
 1. Actions(08:00 KST)가 새 글을 찾아 홈페이지를 갱신하고, 원고가 필요한 글마다 원문을 `content/{article-id}/source.json`으로 저장합니다.
 2. Claude 루틴(매일 13:47 KST)이 `content/routine_writer_prompt.md` 규칙대로 가장 오래된 글 한 편의 원고를 `content/{article-id}/draft.json`으로 쓰고, `node src/cli/validate-draft.js {article-id}` 검사를 통과하면 main에 푸시합니다.
-3. `draft.json` 푸시가 Actions를 다시 실행해 카드 이미지·manifest·검수 PR을 만듭니다. 원고가 아직 없는 글은 실패 없이 다음 실행으로 넘어갑니다.
+3. `draft.json` 푸시가 Actions를 다시 실행해 카드 이미지·manifest·PR을 만들고, PR은 확인 없이 바로 자동 병합됩니다. 원고가 아직 없는 글은 실패 없이 다음 실행으로 넘어갑니다.
 
 ## 채널별 동작
 

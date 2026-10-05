@@ -127,15 +127,13 @@ jobs:
         if: steps.discover.outputs.has_package == 'true' && steps.package.outputs.should_build == 'true'
         id: pr
         run: |
-          args=(--base main --head "${{ steps.branch.outputs.name }}" --title "브런치 신규 글 콘텐츠 검수" --body-file .automation-pr-body.md)
-          if [ "${{ steps.discover.outputs.mode }}" = "review" ]; then
-            args+=(--draft)
-          fi
+          args=(--base main --head "${{ steps.branch.outputs.name }}" --title "브런치 신규 글 콘텐츠" --body-file .automation-pr-body.md)
           pr_url=$(gh pr create "${args[@]}")
           echo "url=$pr_url" >> "$GITHUB_OUTPUT"
 
-      - name: Auto-merge after three successful reviews
-        if: steps.discover.outputs.has_package == 'true' && steps.package.outputs.should_build == 'true' && steps.discover.outputs.mode == 'auto'
+      # 사람이 확인하지 않고 바로 병합한다(2026-10-06 사용자 요청). PR은 기록용으로만 남는다.
+      - name: Merge content PR automatically
+        if: steps.discover.outputs.has_package == 'true' && steps.package.outputs.should_build == 'true'
         run: gh pr merge "${{ steps.pr.outputs.url }}" --squash --delete-branch
 
       - name: Report failure as GitHub issue
