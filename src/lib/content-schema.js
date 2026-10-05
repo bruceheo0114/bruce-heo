@@ -68,6 +68,10 @@ export function validateGeneratedContent(generated, article) {
   } else {
     if (generated.cards[0]?.kind !== "cover") errors.push("첫 카드는 cover여야 합니다.");
     if (generated.cards.at(-1)?.kind !== "cta") errors.push("마지막 카드는 cta여야 합니다.");
+    const lastBody = generated.cards.at(-1)?.body ?? "";
+    if (!lastBody.includes("bruceheo.com") || lastBody.includes("브런치")) {
+      errors.push("마지막 카드는 브런치 대신 bruceheo.com을 안내해야 합니다.");
+    }
     generated.cards.forEach((card, index) => {
       if (!card.title?.trim() || card.title.length > 70) {
         errors.push(`${index + 1}번 카드 제목 길이가 잘못되었습니다.`);

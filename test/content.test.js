@@ -20,7 +20,7 @@ const generated = {
     { kind: "evidence", title: "8년의 일관성", body: "원문 속 수치를 근거로 봅니다.", imageIndex: null, altText: "근거 카드" },
     { kind: "interpretation", title: "감정은 자산이 된다", body: "마케팅 관점에서 해석합니다.", imageIndex: null, altText: "해석 카드" },
     { kind: "application", title: "질문을 바꿔야 합니다", body: "브랜드 적용점을 정리합니다.", imageIndex: null, altText: "적용 카드" },
-    { kind: "cta", title: "당신의 브랜드는 무엇을 반복하나요", body: "브런치 원문을 읽고 저장해 보세요.", imageIndex: null, altText: "원문 안내 카드" },
+    { kind: "cta", title: "당신의 브랜드는 무엇을 반복하나요", body: "이런 브랜드 이야기를 더 보고 싶다면\nbruceheo.com 에서 만나보세요.", imageIndex: null, altText: "홈페이지 안내 카드" },
   ],
   linkedinBody: "\"모두를 울린 광고는 매출에 도움이 될까?\"\n\n8년 동안 이어진 질문입니다.\n\n그렇다면 질문을 바꿔야 합니다. 당신의 브랜드는 무엇을 반복하고 있나요?\n\n#마케팅 #브랜딩 #광고 #콘텐츠 #브랜드전략",
   linkedinFirstComment: "원문은 브런치에서 읽을 수 있습니다. https://brunch.co.kr/@heoboram/212",
@@ -38,6 +38,13 @@ test("LinkedIn 본문 URL과 잘못된 Instagram CTA를 거부한다", () => {
   const errors = validateGeneratedContent(invalid, article);
   assert.ok(errors.some((error) => error.includes("LinkedIn 본문")));
   assert.ok(errors.some((error) => error.includes("원문 안내")));
+});
+
+test("마지막 카드가 브런치를 안내하면 거부한다", () => {
+  const invalid = structuredClone(generated);
+  invalid.cards.at(-1).body = "전체 이야기는 브런치 @heoboram 에서 읽을 수 있어요.";
+  const errors = validateGeneratedContent(invalid, article);
+  assert.ok(errors.some((error) => error.includes("bruceheo.com")));
 });
 
 test("7장과 10장 미리보기를 모두 만든다", () => {
