@@ -1,8 +1,8 @@
 {
   "version": 1,
   "initialized": true,
-  "lastCheckedAt": "2026-10-05T01:25:36.368Z",
-  "lastCheckedCanonicalUrl": "https://brunch.co.kr/@heoboram/219",
+  "lastCheckedAt": "2026-10-05T22:25:25.704Z",
+  "lastCheckedCanonicalUrl": "https://brunch.co.kr/@heoboram/222",
   "reviewSuccessCount": 0,
   "mode": "review",
   "articles": {
@@ -844,6 +844,38 @@
       "package": {
         "status": "awaiting_review",
         "manifestPath": "content/221/manifest.json",
+        "generatedAt": null
+      },
+      "linkedin": {
+        "status": "manual_pending",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "instagram": {
+        "status": "manual_pending",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "approvedAt": null,
+      "scheduledAt": null,
+      "completedAt": null
+    },
+    "222": {
+      "id": "222",
+      "canonicalUrl": "https://brunch.co.kr/@heoboram/222",
+      "title": "AI 시대, 당신의 진짜 일은 무엇입니까?",
+      "publishedAt": "2026-10-05T12:00:05.000Z",
+      "bodyHash": "f61473da6e7d9aeb86746cecc4440b409a161328f70c1e075b266f6d9458c6d8",
+      "batchId": "37382343788",
+      "homepage": {
+        "status": "published",
+        "updatedAt": "2026-10-05T22:25:25.704Z"
+      },
+      "package": {
+        "status": "awaiting_review",
+        "manifestPath": "content/222/manifest.json",
         "generatedAt": null
       },
       "linkedin": {
