@@ -3,7 +3,10 @@ import { readFile } from "node:fs/promises";
 import test from "node:test";
 import { parse } from "yaml";
 
-for (const file of [".github/workflows/brunch-weekly.yml"]) {
+for (const file of [
+  ".github/workflows/brunch-weekly.yml",
+  ".github/workflows/publish-clock.yml",
+]) {
   test(`${file}은 유효한 GitHub Actions YAML이다`, async () => {
     const workflow = parse(await readFile(file, "utf8"));
     assert.ok(workflow.name);
@@ -30,3 +33,12 @@ test("LinkedIn 자동 게시 워크플로는 존재하지 않는다", async () =
   await assert.rejects(readFile(".github/workflows/content-approved.yml", "utf8"));
 });
 
+
+test("게시 시계는 게시 워크플로를 직접 시작할 권한이 있다", async () => {
+  const workflow = parse(
+    await readFile(".github/workflows/publish-clock.yml", "utf8"),
+  );
+  assert.equal(workflow.permissions.actions, "write");
+  assert.equal(workflow.concurrency["cancel-in-progress"], false);
+  assert.ok(workflow.on.workflow_dispatch !== undefined);
+});
