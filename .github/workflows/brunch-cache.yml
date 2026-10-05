@@ -1,0 +1,34 @@
+name: Brunch text cache
+
+# 클라우드 루틴 환경은 brunch.co.kr 접속이 막혀 있다. 그래서 인터넷이 열린 Actions 가 매일
+# 전체 글 목록과 새 글 본문을 insight-reels/brunch_cache/ 에 저장해 두고, 루틴은 캐시만 읽는다.
+on:
+  schedule:
+    - cron: "17 22 * * *"  # 07:17 KST
+  workflow_dispatch:
+
+concurrency:
+  group: brunch-cache
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  cache:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Refresh cache
+        run: python3 insight-reels/scripts/brunch_text.py --refresh
+
+      - name: Commit
+        run: |
+          git add insight-reels/brunch_cache
+          git diff --cached --quiet && exit 0
+          git config user.name "bruce-content-bot"
+          git config user.email "bruce-content-bot@users.noreply.github.com"
+          git commit -m "chore: refresh brunch text cache"
+          git pull --rebase -q && git push
