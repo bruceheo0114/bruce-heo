@@ -2,8 +2,11 @@ name: Insight reels publish
 
 on:
   schedule:
-    # 월·수 카드뉴스, 화·목 릴스 07:00 KST 게시 목표. GitHub 예약은 수 분 지연되므로 06:50 KST(일~수 21:50 UTC)에 시작한다.
-    - cron: "50 21 * * 0,1,2,3"
+    # 월·수 카드뉴스, 화·목 릴스 07:00 KST 게시 목표.
+    # GitHub 예약은 몇 시간씩 밀릴 수 있다(2026-10-05: 06:50 예정 → 09:12 시작). 그래서 일찍 한 번, 늦게 한 번 건다.
+    # 이미 posted 면 두 번째 실행은 아무것도 하지 않는다.
+    - cron: "15 21 * * 0,1,2,3"  # 06:15 KST
+    - cron: "30 23 * * 0,1,2,3"  # 08:30 KST(앞 실행이 밀리거나 실패했을 때)
   workflow_dispatch:
     inputs:
       post_date:
@@ -24,15 +27,17 @@ permissions:
 jobs:
   publish:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 75
     steps:
       - uses: actions/checkout@v4
 
       - name: Wait until 07:00 KST
         if: github.event_name == 'schedule'
         run: |
-          now=$(date -u +%s); target=$(date -u -d "$(date -u +%F) 22:00" +%s)
-          [ "$now" -lt "$target" ] && sleep $((target - now)) || true
+          # 오늘(KST) 07:00 까지 기다린다. 이미 지났으면(예약이 밀린 경우) 바로 게시한다.
+          now=$(date +%s); today_kst=$(date -u -d "@$((now + 9*3600))" +%F)
+          target=$(date -d "$today_kst 07:00 +0900" +%s)
+          if [ "$now" -lt "$target" ]; then echo "07:00 KST 까지 $(( (target-now)/60 ))분 대기"; sleep $((target - now)); else echo "07:00 KST 지남 — 바로 게시"; fi
 
       - name: Publish today's reel
         env:
