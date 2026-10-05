@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { mkdir, readFile, rm, writeFile } from "node:fs/promises";
-import { buildPreviewHtml, CARD_STYLE } from "../src/lib/card-renderer.js";
+import { buildPreviewHtml, CARD_FONT_FAMILY, CARD_STYLE } from "../src/lib/card-renderer.js";
 import { validateGeneratedContent } from "../src/lib/content-schema.js";
 import { buildManifest, draftPath, loadDraft } from "../src/lib/content-generator.js";
 
@@ -53,6 +53,14 @@ test("7장과 10장 미리보기를 모두 만든다", () => {
     assert.equal((html.match(/data-document-role="page"/g) ?? []).length, count);
     assert.match(html, /1080px;height:1080px/);
   }
+});
+
+test("카드 글꼴은 프리텐다드 하나로 고정한다", () => {
+  const html = buildPreviewHtml({ article: { title: "글꼴" }, cards: [] });
+  assert.match(html, /@font-face\{font-family:"Pretendard Variable"/);
+  assert.match(html, /font-family:"Pretendard Variable",sans-serif/);
+  assert.doesNotMatch(html, /Noto Sans KR/);
+  assert.equal(CARD_FONT_FAMILY, "Pretendard Variable");
 });
 
 test("브루스 인사이트 색상·비율·로고 크기 기준을 회귀 검사한다", async () => {
