@@ -2,7 +2,7 @@ import path from "node:path";
 import { PATHS } from "../config.js";
 import { fetchArticle } from "../lib/brunch.js";
 import { renderCards } from "../lib/card-renderer.js";
-import { buildManifest, generateContent } from "../lib/content-generator.js";
+import { buildManifest, loadDraft } from "../lib/content-generator.js";
 import { readJson, writeFileAtomic, writeJson } from "../lib/files.js";
 import { loadState } from "../lib/state.js";
 
@@ -19,10 +19,13 @@ if (!batchId) {
   process.exit(0);
 }
 
+const packageIds = new Set(discovery.packageArticleIds ?? []);
 const queued = Object.values(state.articles)
   .filter(
     (article) =>
-      article.batchId === batchId && article.package.status === "awaiting_review",
+      article.batchId === batchId &&
+      article.package.status === "awaiting_review" &&
+      packageIds.has(article.id),
   )
   .sort((a, b) => new Date(a.publishedAt) - new Date(b.publishedAt));
 
@@ -34,7 +37,7 @@ for (const queuedArticle of queued) {
       `브런치 원문이 발견 이후 변경되었습니다: ${article.canonicalUrl}. 새 검수가 필요합니다.`,
     );
   }
-  const generated = await generateContent(article);
+  const generated = await loadDraft(article);
   const manifest = buildManifest(article, generated, queuedArticle.scheduledAt);
   const outputDir = path.join(PATHS.content, article.id);
   await renderCards(manifest, outputDir);

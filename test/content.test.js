@@ -1,9 +1,9 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { readFile } from "node:fs/promises";
+import { mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { buildPreviewHtml, CARD_STYLE } from "../src/lib/card-renderer.js";
 import { validateGeneratedContent } from "../src/lib/content-schema.js";
-import { buildManifest, generateContent } from "../src/lib/content-generator.js";
+import { buildManifest, draftPath, loadDraft } from "../src/lib/content-generator.js";
 
 const article = {
   id: "212",
@@ -82,27 +82,28 @@ test("긴 제목과 이미지 부족 조건은 축소 타이포·텍스트 카�
   assert.match(html, /body-title--xs/);
 });
 
-test("Responses API에 gpt-5.6-terra 구조화 출력 형식을 전달한다", async () => {
-  let request;
-  const client = {
-    responses: {
-      create: async (value) => {
-        request = value;
-        return { status: "completed", output_text: JSON.stringify(generated) };
-      },
-    },
-  };
-  const output = await generateContent(article, { apiKey: "test", client });
-  assert.equal(output.cards.length, 7);
-  assert.equal(request.model, "gpt-5.6-terra");
-  assert.equal(request.text.format.type, "json_schema");
-  assert.equal(request.text.format.strict, true);
-  const manifest = buildManifest(
-    { ...article, title: "테스트", subtitle: "", publishedAt: "2026-08-17T12:00:02Z", excerpt: "", bodyHash: "abc" },
-    output,
-    "2026-08-21T09:30:00Z",
-  );
-  assert.equal(manifest.linkedin.firstComment, generated.linkedinFirstComment);
-  assert.equal(manifest.schedule.approvedAt, null);
-  assert.equal(manifest.publishing.instagram.status, "manual_source_ready");
+test("Claude 루틴 원고(draft.json)를 검사해 manifest로 만든다", async () => {
+  const draftArticle = { ...article, id: "test-draft-212" };
+  await mkdir(`content/${draftArticle.id}`, { recursive: true });
+  try {
+    await writeFile(draftPath(draftArticle.id), JSON.stringify(generated));
+    const output = await loadDraft(draftArticle);
+    assert.equal(output.cards.length, 7);
+    const manifest = buildManifest(
+      { ...draftArticle, title: "테스트", subtitle: "", publishedAt: "2026-08-17T12:00:02Z", excerpt: "", bodyHash: "abc" },
+      output,
+      "2026-08-21T09:30:00Z",
+    );
+    assert.equal(manifest.linkedin.firstComment, generated.linkedinFirstComment);
+    assert.equal(manifest.schedule.approvedAt, null);
+    assert.equal(manifest.publishing.instagram.status, "manual_source_ready");
+    assert.equal(manifest.generator.model, "claude-routine");
+
+    const invalid = structuredClone(generated);
+    invalid.linkedinBody += " https://example.com";
+    await writeFile(draftPath(draftArticle.id), JSON.stringify(invalid));
+    await assert.rejects(loadDraft(draftArticle), /LinkedIn 본문/);
+  } finally {
+    await rm(`content/${draftArticle.id}`, { recursive: true, force: true });
+  }
 });

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Daily Brunch-to-homepage, LinkedIn and Instagram source automation",
+  "description": "Daily Brunch-to-homepage, LinkedIn and Instagram source automation (copy written by a Claude routine)",
   "engines": {
     "node": ">=20"
   },
@@ -12,11 +12,11 @@
     "check": "node src/cli/check.js",
     "daily:discover": "node src/cli/discover.js",
     "daily:generate": "node src/cli/generate.js",
-    "pr:summary": "node src/cli/pr-summary.js"
+    "pr:summary": "node src/cli/pr-summary.js",
+    "draft:validate": "node src/cli/validate-draft.js"
   },
   "dependencies": {
     "cheerio": "1.2.0",
-    "openai": "7.5.0",
     "playwright": "1.62.1"
   },
   "devDependencies": {

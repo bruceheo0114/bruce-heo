@@ -18,6 +18,13 @@ test("브런치 확인은 매일 08:00 KST에 실행된다", async () => {
   assert.equal(workflow.on.schedule[0].cron, "0 23 * * *");
 });
 
+test("콘텐츠 생성은 OpenAI 없이 Claude 원고 push로도 실행된다", async () => {
+  const text = await readFile(".github/workflows/brunch-weekly.yml", "utf8");
+  const workflow = parse(text);
+  assert.deepEqual(workflow.on.push.paths, ["content/*/draft.json"]);
+  assert.doesNotMatch(text, /OPENAI/);
+});
+
 test("LinkedIn 자동 게시 워크플로는 존재하지 않는다", async () => {
   await assert.rejects(readFile(".github/workflows/social-publish.yml", "utf8"));
   await assert.rejects(readFile(".github/workflows/content-approved.yml", "utf8"));

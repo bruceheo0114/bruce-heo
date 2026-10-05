@@ -1,6 +1,7 @@
 import { CONFIG, PATHS } from "../config.js";
 import { access } from "node:fs/promises";
-import { fetchLatestArticles } from "../lib/brunch.js";
+import { fetchArticle, fetchLatestArticles } from "../lib/brunch.js";
+import { draftPath, sourceForWriter, sourcePath } from "../lib/content-generator.js";
 import { applyDiscovery } from "../lib/discovery.js";
 import { readJson, writeJson } from "../lib/files.js";
 import { updateHomepage } from "../lib/homepage.js";
@@ -52,14 +53,37 @@ await writeJson(PATHS.posts, homepagePosts);
 await updateHomepage(homepagePosts);
 await saveState(state);
 
-const activeBatchId =
-  newArticles[0]?.batchId ?? missingPackageArticles[0]?.batchId ?? null;
-const packageArticleIds = activeBatchId
-  ? missingPackageArticles
-      .filter((article) => article.batchId === activeBatchId)
-      .sort((a, b) => new Date(a.publishedAt) - new Date(b.publishedAt))
-      .map((article) => article.id)
-  : [];
+// Claude 루틴은 brunch.co.kr에 접속할 수 없으므로 원문을 source.json으로 남겨 둔다.
+const draftedArticles = [];
+for (const tracked of missingPackageArticles) {
+  try {
+    await access(sourcePath(tracked.id));
+  } catch (error) {
+    if (error.code !== "ENOENT") throw error;
+    try {
+      const article = await fetchArticle(tracked.id);
+      await writeJson(sourcePath(tracked.id), sourceForWriter(article));
+    } catch (fetchError) {
+      console.warn(`원문 저장 실패 (${tracked.id}): ${fetchError.message}`);
+    }
+  }
+  try {
+    await access(draftPath(tracked.id));
+    draftedArticles.push(tracked);
+  } catch (error) {
+    if (error.code !== "ENOENT") throw error;
+  }
+}
+
+// 원고(draft.json)가 준비된 글 중 가장 오래된 배치만 이번에 패키징한다.
+draftedArticles.sort((a, b) => new Date(a.publishedAt) - new Date(b.publishedAt));
+const activeBatchId = draftedArticles[0]?.batchId ?? null;
+const packageArticleIds = draftedArticles
+  .filter((article) => article.batchId === activeBatchId)
+  .map((article) => article.id);
+const awaitingDraftIds = missingPackageArticles
+  .filter((article) => !draftedArticles.includes(article))
+  .map((article) => article.id);
 await writeJson(PATHS.result, {
   checkedAt: now.toISOString(),
   bootstrap,
@@ -67,6 +91,7 @@ await writeJson(PATHS.result, {
   homepageCount: homepagePosts.length,
   newArticleIds: newArticles.map((article) => article.id),
   packageArticleIds,
+  awaitingDraftIds,
   batchId: activeBatchId,
   mode: state.mode,
 });
@@ -77,6 +102,7 @@ console.log(
     homepageCount: homepagePosts.length,
     newArticleIds: newArticles.map((article) => article.id),
     packageArticleIds,
+    awaitingDraftIds,
     batchId: activeBatchId,
     mode: state.mode,
   }),

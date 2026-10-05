@@ -10,7 +10,6 @@ export const CONFIG = Object.freeze({
   reviewThreshold: 3,
   firstPublishHourKst: 6,
   firstPublishMinuteKst: 30,
-  openaiModel: process.env.OPENAI_MODEL ?? "gpt-5.6-terra",
   fetchHeaders: {
     "user-agent":
       "Mozilla/5.0 (compatible; BruceInsightAutomation/1.0; +https://bruceheo0114.github.io/bruce-heo/)",

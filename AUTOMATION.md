@@ -2,6 +2,12 @@
 
 이 저장소는 매일 오전 8시(KST)에 브런치 `@heoboram`의 새 글을 확인합니다. 홈페이지는 발견 즉시 최신 공개 글 12개로 갱신하고, 새 글마다 브루스 인사이트 카드뉴스 소스·Instagram 캡션·LinkedIn 문안을 만듭니다. GitHub Actions에서 실행되므로 개인 PC가 꺼져 있어도 동작합니다.
 
+## 원고 작성 흐름 (OpenAI 미사용)
+
+1. Actions(08:00 KST)가 새 글을 찾아 홈페이지를 갱신하고, 원고가 필요한 글마다 원문을 `content/{article-id}/source.json`으로 저장합니다.
+2. Claude 루틴(매일 13:47 KST)이 `content/routine_writer_prompt.md` 규칙대로 가장 오래된 글 한 편의 원고를 `content/{article-id}/draft.json`으로 쓰고, `node src/cli/validate-draft.js {article-id}` 검사를 통과하면 main에 푸시합니다.
+3. `draft.json` 푸시가 Actions를 다시 실행해 카드 이미지·manifest·검수 PR을 만듭니다. 원고가 아직 없는 글은 실패 없이 다음 실행으로 넘어갑니다.
+
 ## 채널별 동작
 
 - 홈페이지: 새 글을 최신순으로 반영하고 항상 12개만 유지합니다.
@@ -14,7 +20,6 @@
 1. GitHub 저장소의 **Settings → Pages**에서 `main` 브랜치 루트를 배포 대상으로 유지합니다.
 2. **Settings → Actions → General → Workflow permissions**에서 읽기·쓰기 권한과 Actions의 Pull Request 생성을 허용합니다.
 3. **Settings → Secrets and variables → Actions**의 Secrets에 다음 값을 추가합니다.
-   - `OPENAI_API_KEY`
    - `LINKEDIN_ACCESS_TOKEN`
    - `LINKEDIN_PERSON_URN` (`urn:li:person:...`)
 4. 같은 화면의 Variables에 `LINKEDIN_API_VERSION`을 추가합니다. 기본값은 `202605`입니다.
@@ -55,7 +60,7 @@
 
 ## 운영과 복구
 
-- 브런치 구조가 바뀌거나 OpenAI·LinkedIn 토큰 오류가 나면 열린 장애 Issue에 실행 링크가 누적됩니다.
+- 브런치 구조가 바뀌거나 원고 품질 검사·LinkedIn 토큰 오류가 나면 열린 장애 Issue에 실행 링크가 누적됩니다.
 - LinkedIn 본문 게시 후 첫 댓글만 실패하면 게시물 ID를 저장하고 첫 댓글만 재시도합니다.
 - 실제 LinkedIn 게시 없이 다음 항목을 검사하려면 **Publish due LinkedIn content**를 수동 실행하면서 `dry_run`을 켭니다.
 - GitHub 예약 실행은 UTC 기준입니다. `0 23 * * *`는 매일 08:00 KST, `30 21 * * *`는 다음 날 06:30 KST입니다.

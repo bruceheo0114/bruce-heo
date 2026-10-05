@@ -4,6 +4,11 @@ on:
   schedule:
     # Every day 08:00 Asia/Seoul (GitHub cron uses UTC)
     - cron: "0 23 * * *"
+  # Claude 루틴이 원고(draft.json)를 올리면 바로 카드와 검수 PR을 만든다.
+  push:
+    branches: [main]
+    paths:
+      - "content/*/draft.json"
   workflow_dispatch:
 
 concurrency:
@@ -20,7 +25,6 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 45
     env:
-      OPENAI_MODEL: gpt-5.6-terra
       GH_TOKEN: ${{ github.token }}
     steps:
       - name: Check out main
@@ -49,14 +53,15 @@ jobs:
           pnpm daily:discover
           node -e "const fs=require('fs');const r=JSON.parse(fs.readFileSync('.automation-result.json'));const out=process.env.GITHUB_OUTPUT;fs.appendFileSync(out,'has_package='+(r.packageArticleIds.length?'true':'false')+'\n');fs.appendFileSync(out,'batch_id='+(r.batchId||'')+'\n');fs.appendFileSync(out,'mode='+r.mode+'\n');fs.appendFileSync(out,'article_ids='+r.packageArticleIds.join(' ')+'\n')"
 
-      - name: Publish homepage update immediately
+      - name: Publish homepage update and writer sources immediately
         run: |
-          if git diff --quiet -- index.html data/brunch-posts.json data/automation-state.json; then
+          git add -- index.html data/brunch-posts.json data/automation-state.json
+          git add -- 'content/*/source.json' 2>/dev/null || true
+          if git diff --cached --quiet; then
             exit 0
           fi
           git config user.name "bruce-content-bot"
           git config user.email "bruce-content-bot@users.noreply.github.com"
-          git add -- index.html data/brunch-posts.json data/automation-state.json
           git commit -m "chore: sync latest Brunch posts"
           git pull --rebase origin main
           git push origin HEAD:main
@@ -89,10 +94,8 @@ jobs:
           git switch -c "$branch"
           echo "name=$branch" >> "$GITHUB_OUTPUT"
 
-      - name: Generate copy and card news
+      - name: Render card news from Claude drafts
         if: steps.discover.outputs.has_package == 'true' && steps.package.outputs.should_build == 'true'
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: pnpm daily:generate -- --batch "${{ steps.discover.outputs.batch_id }}"
 
       - name: Validate generated package
@@ -139,7 +142,7 @@ jobs:
         if: failure()
         run: |
           title="[자동화] 브런치 일일 작업 실패"
-          body=$(printf '실행: https://github.com/%s/actions/runs/%s\n\n브런치 구조 변경, API 키, 렌더링 또는 권한을 확인해 주세요. 자동 SNS 게시는 중단되었고 대기열은 보존됩니다.' "$GITHUB_REPOSITORY" "$GITHUB_RUN_ID")
+          body=$(printf '실행: https://github.com/%s/actions/runs/%s\n\n브런치 구조 변경, 원고(draft.json) 품질 검사, 렌더링 또는 권한을 확인해 주세요. 자동 SNS 게시는 중단되었고 대기열은 보존됩니다.' "$GITHUB_REPOSITORY" "$GITHUB_RUN_ID")
           issue=$(gh issue list --state open --search "$title in:title" --json number --jq '.[0].number // empty')
           if [ -n "$issue" ]; then
             gh issue comment "$issue" --body "$body"
