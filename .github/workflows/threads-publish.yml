@@ -1,0 +1,62 @@
+name: Threads publish
+
+# @heo.boram 스레드 매일 12:30 KST 게시. GitHub 예약이 밀릴 수 있어 10~12시에 미리 세 번 시작하고,
+# 먼저 시작한 실행이 12:30 까지 기다렸다 올린다. 이미 posted 면 나머지는 아무것도 하지 않는다.
+on:
+  schedule:
+    - cron: "7 1 * * *"   # 10:07 KST
+    - cron: "7 2 * * *"   # 11:07 KST
+    - cron: "37 2 * * *"  # 11:37 KST
+  workflow_dispatch:
+    inputs:
+      post_date:
+        description: "게시할 날짜(YYYY-MM-DD, 비우면 오늘 KST)"
+        required: false
+      post_at:
+        description: "이 시각(KST HH:MM)까지 기다렸다 게시. 비우면 바로"
+        required: false
+      check_only:
+        description: "게시하지 않고 토큰·계정만 확인"
+        type: boolean
+        default: false
+
+concurrency:
+  group: threads-publish
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 200
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Wait until posting time (KST)
+        if: github.event_name == 'schedule' || inputs.post_at != ''
+        env:
+          POST_AT: ${{ github.event_name == 'schedule' && '12:30' || inputs.post_at }}
+        run: |
+          now=$(date +%s); today_kst=$(date -u -d "@$((now + 9*3600))" +%F)
+          target=$(date -d "$today_kst $POST_AT +0900" +%s)
+          if [ "$now" -lt "$target" ]; then echo "$POST_AT KST 까지 $(( (target-now)/60 ))분 대기"; sleep $((target - now)); else echo "$POST_AT KST 지남 — 바로 게시"; fi
+          # 기다리는 동안 승인·보류·게시 상태가 바뀌었을 수 있어 최신 상태를 다시 받는다
+          git pull -q --rebase || echo "::warning::최신 상태를 받지 못해 시작 시점 상태로 진행"
+
+      - name: Publish today's thread
+        env:
+          THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
+          POST_DATE: ${{ inputs.post_date }}
+          CHECK_ONLY: ${{ inputs.check_only }}
+        run: python3 threads/scripts/publish_threads.py
+
+      - name: Record result
+        run: |
+          git diff --quiet -- threads/posts && exit 0
+          git config user.name "bruce-content-bot"
+          git config user.email "bruce-content-bot@users.noreply.github.com"
+          git add threads/posts
+          git commit -m "chore: mark thread posted"
+          git pull --rebase -q && git push
