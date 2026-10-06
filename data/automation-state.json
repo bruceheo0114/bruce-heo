@@ -1,7 +1,7 @@
 {
   "version": 1,
   "initialized": true,
-  "lastCheckedAt": "2026-10-06T00:02:32.620Z",
+  "lastCheckedAt": "2026-10-06T00:20:44.639Z",
   "lastCheckedCanonicalUrl": "https://brunch.co.kr/@heoboram/222",
   "reviewSuccessCount": 0,
   "mode": "review",
@@ -618,9 +618,10 @@
         "updatedAt": "2026-08-24T23:15:35.854Z"
       },
       "package": {
-        "status": "awaiting_review",
+        "status": "generated",
         "manifestPath": "content/213/manifest.json",
-        "generatedAt": null
+        "generatedAt": "2026-10-05T22:40:21.955Z",
+        "approvedAt": "2026-10-06T00:20:50.177Z"
       },
       "linkedin": {
         "status": "manual_pending",
@@ -629,13 +630,13 @@
         "error": null
       },
       "instagram": {
-        "status": "manual_pending",
+        "status": "manual_source_ready",
         "id": null,
         "lastAttemptAt": null,
         "error": null
       },
-      "approvedAt": null,
-      "scheduledAt": null,
+      "approvedAt": "2026-10-06T00:20:50.177Z",
+      "scheduledAt": "2026-10-06T21:30:00.000Z",
       "completedAt": null
     },
     "214": {

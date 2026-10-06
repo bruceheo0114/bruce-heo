@@ -116,8 +116,8 @@
     "collaboratorOrTag": "heo.boram"
   },
   "schedule": {
-    "approvedAt": null,
-    "scheduledAt": null,
+    "approvedAt": "2026-10-06T00:20:50.177Z",
+    "scheduledAt": "2026-10-06T21:30:00.000Z",
     "publishedAt": null
   },
   "publishing": {
