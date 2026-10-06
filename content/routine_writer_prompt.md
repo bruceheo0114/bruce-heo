@@ -2,7 +2,7 @@
 
 ## 할 일 (한 번에 한 편)
 
-1. `git pull --rebase -q` 후 `data/automation-state.json` 에서 `package.status` 가 `awaiting_review` 인 글 중, `content/<id>/source.json` 은 있고 `content/<id>/draft.json` 과 `content/<id>/manifest.json` 은 없는 글을 `publishedAt` 이 가장 오래된 것 **하나만** 고른다. 없으면 "작성할 글 없음" 한 줄 남기고 끝낸다.
+1. `git pull --rebase -q` 후 `data/automation-state.json` 에서 `package.status` 가 `awaiting_review` 인 글 중, `content/<id>/source.json` 은 있고 `content/<id>/draft.json` 과 `content/<id>/manifest.json` 은 없는 글을 `publishedAt` 이 가장 오래된 것 **하나만** 고른다. 없으면 "작성할 글 없음" 한 줄 남기고 7번(미리보기 메일)으로 간다.
    - 고를 때 `cardOnly: true` 가 아닌 글(새 글)을 먼저 고른다. 새 글이 없을 때만 `cardOnly` 글을 고른다.
 2. 원문은 `content/<id>/source.json` 만 읽는다(brunch.co.kr 에 접속하지 않는다). `body`, `title`, `canonicalUrl`, `images`(index·url) 를 쓴다.
 3. 아래 규칙과 형식대로 세 파일을 쓴다. **source.json 에 `cardOnly: true` 가 있으면 `draft.json` 하나만 쓰고, 6번 메일도 보내지 않는다**(지난 글·카드뉴스 큐 — 인스타그램 카드뉴스만 만든다).
@@ -16,7 +16,14 @@
    - 본문 순서: 한 줄 안내("뉴스레터를 발행할 때 아래 소개 포스트를 함께 넣으면 포스팅까지 끝납니다.") → `■ LinkedIn 뉴스레터 「맥락을 설계하는 일」` 아래에 제목·부제·본문 전문 → `■ 뉴스레터 발행 시 소개 포스트` 아래에 draft.json 의 `linkedinBody` 전문 → `■ 리멤버 커넥트` 아래에 본문 전문 → 브런치 원문 링크.
    - Gmail 도구가 없으면 메일은 건너뛰고 "메일 도구 없음" 한 줄을 남긴다(파일은 저장소에 있다).
 
-하지 말 것: 다른 파일 수정, 두 편 이상 작성, LinkedIn·Instagram·리멤버에 직접 게시, 원문에 없는 내용 추가.
+7. **카드뉴스 미리보기 메일** — 푸시 후 Actions 가 카드를 만들고 수·금 게시일을 잡을 때까지 기다린다: 2분마다 `git pull -q` 해서 `insight-reels/posts/*.json` 중 `source: "brunch-card-news"`, `status: "scheduled"`, `preview_sent: false` 인 파일이 생겼는지 본다(최대 12분). 이번에 쓴 글이 아니어도 `preview_sent: false` 인 파일은 모두 보낸다. 작성할 글이 없던 날(1번에서 끝난 날)에도 이 단계는 한다.
+   - 파일마다 Gmail 로 heoboram0114@gmail.com 에 한 통: 제목 `[브루스 인사이트] 브런치 카드뉴스 미리보기 (M/D)` (M/D = 게시일).
+   - 본문: `M/D(요일) 07:00 게시 예정` · 원문 제목·`brunch_url` · 카드 전체 보기 `preview_url` · 카드 이미지 링크(`images`) · 캡션 전문.
+   - 마지막 줄(그대로): "게시하지 않으려면 이 메일에 `보류 M/D` 라고 회신해 주세요. 회신이 없으면 예정대로 07:00에 올라갑니다."
+   - 보낸 파일은 `preview_sent: true` 로 바꾸고 `git pull --rebase -q` 후 커밋·푸시(`chore: card news preview sent`).
+   - Gmail 도구가 없으면 보내지 않고 `preview_sent` 도 그대로 둔다.
+
+하지 말 것: 다른 파일 수정(위에 적은 파일 외), 두 편 이상 작성, LinkedIn·Instagram·리멤버에 직접 게시, 원문에 없는 내용 추가.
 
 ## 작성 규칙
 
