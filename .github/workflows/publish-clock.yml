@@ -2,7 +2,7 @@ name: Publish clock
 
 # GitHub 예약(cron)은 몇 시간씩 밀리거나 아예 빠지는 날이 있다(2026-10-06: 04~06시 예약 3번 모두 미실행).
 # 그래서 이 시계가 계속 이어서 돌며 정해진 KST 시각에 게시 워크플로를 직접 시작한다.
-#   06:30 LinkedIn publish · 07:00 월~목 Insight reels publish · 07:17 Brunch text cache · 08:00 Brunch daily content · 12:30 Threads publish
+#   07:00 월~목 Insight reels publish · 07:17 Brunch text cache · 08:00 Brunch daily content · 12:30 Threads publish
 # 한 실행은 약 5시간 40분 뒤 자기 자신을 다시 시작한다. 사슬이 끊겨도 아래 예약이 시계를 되살린다.
 # 공개 저장소라 Actions 사용 시간은 무료다.
 on:

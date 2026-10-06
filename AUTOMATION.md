@@ -29,11 +29,10 @@
 
 토큰과 키는 파일에 기록하지 않습니다. `.env.example`은 로컬 변수 이름만 설명하며 실제 값은 GitHub Secrets에만 둡니다.
 
-## LinkedIn 자동 게시
+## LinkedIn 뉴스레터와 포스팅
 
-- 병합된 글은 다음 날 06:30 KST부터 하루 한 편씩 **LinkedIn publish** 워크플로가 개인 계정에 올립니다(Publish clock이 시작).
-- 필요한 Secret은 `LINKEDIN_ACCESS_TOKEN` 하나입니다. `LINKEDIN_PERSON_URN`이 없으면 토큰으로 자동 조회합니다. 토큰이 없으면 게시를 건너뜁니다.
-- 첫 댓글(원문 링크) 권한이 없으면 본문만 게시하고 완료 처리합니다.
+- 브런치 새 글은 뉴스레터 「맥락을 설계하는 일」 원고로 다시 쓰여 Gmail로 옵니다. 뉴스레터를 발행할 때 메일 속 **소개 포스트**를 함께 넣으면 뉴스레터 링크가 담긴 포스트가 피드에 올라갑니다.
+- 별도 LinkedIn 자동 게시(**LinkedIn publish** 워크플로)는 같은 글이 두 번 올라가지 않도록 시계에서 뺐습니다. 필요하면 수동 실행할 수 있고, Secret은 `LINKEDIN_ACCESS_TOKEN` 하나면 됩니다.
 
 ## LinkedIn 개인 계정
 

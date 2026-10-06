@@ -29,13 +29,13 @@ test("콘텐츠 생성은 OpenAI 없이 Claude 원고 push로도 실행된다", 
   assert.doesNotMatch(text, /OPENAI/);
 });
 
-test("LinkedIn 게시는 시계가 06:30에 시작하고 토큰이 없으면 건너뛴다", async () => {
+test("LinkedIn 별도 게시는 시계가 시작하지 않고 토큰이 없으면 건너뛴다", async () => {
   const text = await readFile(".github/workflows/linkedin-publish.yml", "utf8");
   const workflow = parse(text);
   assert.ok(workflow.on.workflow_dispatch !== undefined);
   assert.match(text, /LINKEDIN_ACCESS_TOKEN Secret 이 없어/);
   const clock = await readFile("scripts/publish_clock.py", "utf8");
-  assert.match(clock, /\(6, 30, None, "linkedin-publish\.yml"/);
+  assert.doesNotMatch(clock, /\(6, 30, None, "linkedin-publish\.yml"/);
 });
 
 
