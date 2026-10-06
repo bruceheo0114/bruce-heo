@@ -90,3 +90,14 @@ test("PR 병합 전 콘텐츠는 게시 대상이 아니며 네 번째부터 자
   assert.equal(modeForReviewCount(2), "review");
   assert.equal(modeForReviewCount(3), "auto");
 });
+
+test("카드뉴스만 만드는 글(skipped_*)은 LinkedIn 게시 대상이 아니다", () => {
+  const article = {
+    id: "214",
+    publishedAt: "2026-09-01T00:00:00Z",
+    scheduledAt: "2026-10-01T00:00:00Z",
+    package: { status: "generated" },
+    linkedin: { status: "skipped_card_only" },
+  };
+  assert.equal(selectDueArticle({ 214: article }, new Date("2026-10-06T00:00:00Z")), null);
+});

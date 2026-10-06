@@ -98,5 +98,15 @@ for (const article of ready) {
   scheduled.push({ id: article.id, date });
 }
 
-if (scheduled.length) await saveState(state);
+// 카드뉴스 큐(carousel_queue.json)에 있던 글이면 made 로 표시한다.
+if (scheduled.length) {
+  const queuePath = "insight-reels/carousel_queue.json";
+  const queue = await readJson(queuePath);
+  for (const { id, date } of scheduled) {
+    const item = queue.items.find((entry) => String(entry.no) === id);
+    if (item) Object.assign(item, { status: "made", slot: date });
+  }
+  await writeJson(queuePath, queue);
+  await saveState(state);
+}
 console.log(JSON.stringify({ instagramScheduled: scheduled }));

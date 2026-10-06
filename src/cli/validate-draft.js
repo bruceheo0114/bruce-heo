@@ -33,11 +33,12 @@ async function longform(file, min, max, checks) {
   }
   for (const [ok, message] of checks(text)) if (!ok) errors.push(`${file}: ${message}`);
 }
-await longform("linkedin-newsletter.md", 1500, 3300, (text) => [
+// cardOnly(지난 글·카드뉴스 큐) 는 카드뉴스만 만든다.
+if (!source.cardOnly) await longform("linkedin-newsletter.md", 1500, 3300, (text) => [
   [text.includes(source.canonicalUrl), "맨 끝에 브런치 원문 링크가 있어야 합니다."],
   [text.includes("bruceheo.com"), "맨 끝에 bruceheo.com 안내가 있어야 합니다."],
 ]);
-await longform("remember.md", 800, 1600, (text) => [
+if (!source.cardOnly) await longform("remember.md", 800, 1600, (text) => [
   [text.trim().endsWith("?"), "독자 질문(?)으로 끝나야 합니다."],
   [!/https?:\/\//.test(text), "외부 링크를 넣지 않습니다."],
   [!/#[\p{L}\p{N}_]+/u.test(text.replace(/^#+ .*$/gm, "")), "해시태그를 넣지 않습니다."],

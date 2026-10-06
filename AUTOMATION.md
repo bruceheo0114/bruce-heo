@@ -52,6 +52,7 @@
 | 수·금 | 브런치 글 카드뉴스(이 저장소의 브런치 자동화) |
 
 - 병합된 브런치 카드뉴스는 `src/cli/schedule-instagram.js`가 수·금 빈 날짜에 오래된 글부터 배정합니다(`insight-reels/posts/<날짜>.json`, type carousel). 같은 주에 같은 글이 릴스로 잡혀 있으면 다음 주로 넘깁니다.
+- 새 글이 없을 때는 릴스처럼 아직 다루지 않은 글을 `insight-reels/carousel_queue.json` 위에서부터 하나씩 꺼내 카드뉴스로 만듭니다(`src/cli/card-backlog.js`, 미리 쌓아 두는 건 최대 4편). 이런 글과 지난 글(214~222)은 `cardOnly`라 뉴스레터·리멤버 원고 없이 카드뉴스만 만듭니다.
 - 이미지는 GitHub Pages(`https://bruceheo.com/content/<id>/cards/NN.jpg`)에서 가져오고, 안 되면 raw.githubusercontent 사본을 씁니다.
 
 ## Instagram 업로드 소스

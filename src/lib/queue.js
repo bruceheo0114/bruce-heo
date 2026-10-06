@@ -7,7 +7,8 @@ export function selectDueArticle(articles, now = new Date()) {
         article.package.status === "generated" &&
         article.scheduledAt &&
         isDue(article.scheduledAt, now) &&
-        article.linkedin.status !== "published",
+        article.linkedin.status !== "published" &&
+        !String(article.linkedin.status).startsWith("skipped"),
     )
     .sort(
       (a, b) =>

@@ -59,10 +59,11 @@ jobs:
         run: |
           node src/cli/approve-merged.js
           node src/cli/schedule-instagram.js
+          node src/cli/card-backlog.js || echo "::warning::카드뉴스 큐 준비 실패(다음 실행에 다시 시도)"
 
       - name: Publish homepage update and writer sources immediately
         run: |
-          git add -- index.html data/brunch-posts.json data/automation-state.json 'content/*/manifest.json' 'insight-reels/posts/*.json' 
+          git add -- index.html data/brunch-posts.json data/automation-state.json 'content/*/manifest.json' 'insight-reels/posts/*.json' insight-reels/carousel_queue.json 
           git add -- 'content/*/source.json' 2>/dev/null || true
           if git diff --cached --quiet; then
             exit 0
@@ -150,7 +151,8 @@ jobs:
           git switch -q -C main origin/main
           node src/cli/approve-merged.js
           node src/cli/schedule-instagram.js
-          git add -- data/automation-state.json 'content/*/manifest.json' 'insight-reels/posts/*.json'
+          node src/cli/card-backlog.js || echo "::warning::카드뉴스 큐 준비 실패(다음 실행에 다시 시도)"
+          git add -- data/automation-state.json 'content/*/manifest.json' 'content/*/source.json' 'insight-reels/posts/*.json' insight-reels/carousel_queue.json
           git diff --cached --quiet && exit 0
           git commit -m "chore: schedule Brunch card news for Instagram"
           git pull --rebase -q origin main && git push origin HEAD:main

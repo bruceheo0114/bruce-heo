@@ -3,8 +3,9 @@
 ## 할 일 (한 번에 한 편)
 
 1. `git pull --rebase -q` 후 `data/automation-state.json` 에서 `package.status` 가 `awaiting_review` 인 글 중, `content/<id>/source.json` 은 있고 `content/<id>/draft.json` 과 `content/<id>/manifest.json` 은 없는 글을 `publishedAt` 이 가장 오래된 것 **하나만** 고른다. 없으면 "작성할 글 없음" 한 줄 남기고 끝낸다.
+   - 고를 때 `cardOnly: true` 가 아닌 글(새 글)을 먼저 고른다. 새 글이 없을 때만 `cardOnly` 글을 고른다.
 2. 원문은 `content/<id>/source.json` 만 읽는다(brunch.co.kr 에 접속하지 않는다). `body`, `title`, `canonicalUrl`, `images`(index·url) 를 쓴다.
-3. 아래 규칙과 형식대로 세 파일을 쓴다.
+3. 아래 규칙과 형식대로 세 파일을 쓴다. **source.json 에 `cardOnly: true` 가 있으면 `draft.json` 하나만 쓰고, 6번 메일도 보내지 않는다**(지난 글·카드뉴스 큐 — 인스타그램 카드뉴스만 만든다).
    - `content/<id>/draft.json` — 카드뉴스·LinkedIn 포스트·Instagram 캡션
    - `content/<id>/linkedin-newsletter.md` — LinkedIn 뉴스레터 「맥락을 설계하는 일」 원고
    - `content/<id>/remember.md` — 리멤버 커넥트 원고
