@@ -43,9 +43,15 @@
 - `w_member_social_feed` 승인을 받지 못하면 개인 본문 자동 게시까지만 가능하며, 첫 댓글은 수동 복사 방식으로 바꾸어야 합니다.
 - 토큰이 만료되거나 권한이 철회되면 LinkedIn 게시를 멈추고 GitHub Issue를 만듭니다. 새 토큰을 같은 Secret 이름으로 교체하면 다음 슬롯에 재시도합니다.
 
-## Instagram 자동 게시
+## Instagram 자동 게시 (@bruce.insight, 매일 07:00 KST)
 
-- 병합된 브런치 카드뉴스는 `insight-reels/posts/<날짜>.json`(type carousel)으로 금·토·일 07:00(KST)에 하루 한 편씩 배정되고, **Insight reels publish**가 @bruce.insight에 올립니다. 월~목은 기존 인사이트 릴스·카드뉴스 자리입니다.
+| 요일 | 내용 |
+|---|---|
+| 월 | 이번 주 마케팅 이슈 10건 카드뉴스(토요일 카드 루틴) |
+| 화·목 | 브런치 글 릴스(일요일 릴스 루틴) |
+| 수·금 | 브런치 글 카드뉴스(이 저장소의 브런치 자동화) |
+
+- 병합된 브런치 카드뉴스는 `src/cli/schedule-instagram.js`가 수·금 빈 날짜에 오래된 글부터 배정합니다(`insight-reels/posts/<날짜>.json`, type carousel). 같은 주에 같은 글이 릴스로 잡혀 있으면 다음 주로 넘깁니다.
 - 이미지는 GitHub Pages(`https://bruceheo.com/content/<id>/cards/NN.jpg`)에서 가져오고, 안 되면 raw.githubusercontent 사본을 씁니다.
 
 ## Instagram 업로드 소스

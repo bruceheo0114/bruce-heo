@@ -1,13 +1,14 @@
-import { access, readFile } from "node:fs/promises";
+import { access, readdir, readFile } from "node:fs/promises";
 import path from "node:path";
 import { readJson, writeJson } from "../lib/files.js";
 import { loadState, saveState } from "../lib/state.js";
 
 // 병합된 브런치 카드뉴스를 @bruce.insight 인스타그램 게시 대기열(insight-reels/posts/<날짜>.json)에 넣는다.
-// 월~목은 인사이트 릴스·카드뉴스 자리라서 금·토·일 07:00(KST)에 하루 한 편씩 배정한다.
+// 요일: 월=업계 트렌드 10건, 화·목=브런치 릴스, 수·금=브런치 카드뉴스(여기서 배정).
+// 같은 주(월~일)에 같은 브런치 글이 릴스로 잡혀 있으면 그 주는 건너뛴다. 다른 주라면 겹쳐도 된다.
 // 실제 게시는 insight-reels-publish 워크플로(Publish clock 이 매일 07:00 에 시작)가 한다.
 const POSTS_DIR = "insight-reels/posts";
-const WEEKDAYS = new Set([5, 6, 0]); // 금·토·일
+const WEEKDAYS = new Set([3, 5]); // 수·금
 const SITE = "https://bruceheo.com";
 const RAW = "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main";
 
@@ -24,12 +25,34 @@ function kstDate(date) {
   return new Date(date.valueOf() + 9 * 3600 * 1000).toISOString().slice(0, 10);
 }
 
-async function nextFreeDate(from, taken) {
+function weekOf(date) {
+  const day = new Date(`${date}T00:00:00Z`);
+  day.setUTCDate(day.getUTCDate() - ((day.getUTCDay() + 6) % 7));
+  return day.toISOString().slice(0, 10);
+}
+
+// 주(월요일 날짜) → 그 주에 릴스로 잡힌 브런치 글 번호
+async function reelsByWeek() {
+  const weeks = new Map();
+  for (const name of await readdir(POSTS_DIR)) {
+    const match = name.match(/^(\d{4}-\d{2}-\d{2})\.json$/);
+    if (!match) continue;
+    const post = await readJson(path.join(POSTS_DIR, name));
+    if ((post.type ?? "reel") === "carousel" || !post.brunch_no) continue;
+    const key = weekOf(match[1]);
+    if (!weeks.has(key)) weeks.set(key, new Set());
+    weeks.get(key).add(String(post.brunch_no));
+  }
+  return weeks;
+}
+
+async function nextFreeDate(from, taken, articleId, reels) {
   const day = new Date(`${kstDate(from)}T00:00:00Z`);
   for (let i = 1; i <= 400; i += 1) {
     day.setUTCDate(day.getUTCDate() + 1);
     const date = day.toISOString().slice(0, 10);
     if (!WEEKDAYS.has(day.getUTCDay()) || taken.has(date)) continue;
+    if (reels.get(weekOf(date))?.has(String(articleId))) continue;
     if (await exists(path.join(POSTS_DIR, `${date}.json`))) continue;
     return date;
   }
@@ -47,6 +70,7 @@ const ready = Object.values(state.articles)
   .sort((a, b) => new Date(a.publishedAt) - new Date(b.publishedAt));
 
 const taken = new Set();
+const reels = await reelsByWeek();
 const scheduled = [];
 for (const article of ready) {
   const manifest = await readJson(article.package.manifestPath);
@@ -56,7 +80,7 @@ for (const article of ready) {
   for (const file of files) {
     if (!(await exists(path.join(dir, file)))) throw new Error(`${dir}/${file} 카드가 없습니다.`);
   }
-  const date = await nextFreeDate(now, taken);
+  const date = await nextFreeDate(now, taken, article.id, reels);
   taken.add(date);
   await writeJson(path.join(POSTS_DIR, `${date}.json`), {
     date,

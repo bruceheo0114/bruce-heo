@@ -10,6 +10,7 @@
 #   checks : title, items[{head, text}], note                               — 초록 체크 목록
 #   close  : src, title, body                                               — 어두운 전면 사진, 마지막 질문
 #   issue  : no, tag, title, body, point, source                            — 「이번 주 마케팅 이슈」 한 건(사진 없음)
+#   issues : items[{no, tag, title, body, point, source}] 2건                — 한 장에 이슈 두 건(월요일 10건 = 5장)
 # 제목: 줄바꿈은 \n, 끝 점(.)은 초록 점으로 그린다. 「**단어**」는 진초록 강조.
 # body: 빈 줄(\n\n)로 문단을 나눈다.
 import hashlib, json, os, re, sys, urllib.request
@@ -246,7 +247,36 @@ def s_issue(s):
     return im
 
 
-KIND = dict(cover=s_cover, photo=s_photo, text=s_text, compare=s_compare, checks=s_checks, close=s_close, issue=s_issue)
+def s_issues(s):
+    """이슈 두 건을 위아래로. title 2줄·body 3줄·point 1줄 이내."""
+    im = Image.new("RGB", (W, H), IVORY)
+    d = ImageDraw.Draw(im)
+    half = (H - 120 - 150) // 2
+    for k, it in enumerate(s["items"][:2]):
+        top = 110 + k * half
+        if k:
+            d.line([M, top - 20, W - M, top - 20], fill=(222, 216, 205), width=2)
+        d.text((M, top), f"{int(it['no']):02d}", font=font("ExtraBold", 58), fill=GREEN)
+        d.text((M + 100, top + 22), it.get("tag", ""), font=font("Medium", 26), fill=MUTED)
+        y = title(d, M, top + 90, it["title"], 44, INK, lh=1.3) + 14
+        y = body(d, M, y, it.get("body", ""), 27, BODY, lh=1.5, gap=0.4)
+        if it.get("point"):
+            f = font("Medium", 27)
+            label = "브루스의 한 줄  "
+            lw = d.textlength(label, font=font("Bold", 25))
+            d.rounded_rectangle([M, y + 4, W - M, y + 70], 18, fill=WHITE, outline=GREEN, width=2)
+            d.text((M + 26, y + 22), label, font=font("Bold", 25), fill=DEEP)
+            d.text((M + 26 + lw, y + 20), it["point"], font=f, fill=INK)
+            y += 78
+        if it.get("source"):
+            f = font("Regular", 22)
+            d.text((W - M - d.textlength(it["source"], font=f), y + 6), it["source"], font=f, fill=MUTED)
+    logo(d, M, H - 60 - 60, False)
+    return im
+
+
+KIND = dict(cover=s_cover, photo=s_photo, text=s_text, compare=s_compare, checks=s_checks, close=s_close, issue=s_issue,
+            issues=s_issues)
 
 def render(spec_path, out_dir="."):
     global BASE
