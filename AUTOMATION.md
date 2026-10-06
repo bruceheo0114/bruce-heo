@@ -6,7 +6,7 @@
 
 1. Actions(08:00 KST)가 새 글을 찾아 홈페이지를 갱신하고, 원고가 필요한 글마다 원문을 `content/{article-id}/source.json`으로 저장합니다.
 2. Claude 루틴(매일 13:47 KST)이 `content/routine_writer_prompt.md` 규칙대로 가장 오래된 글 한 편의 원고를 `content/{article-id}/draft.json`으로 쓰고, `node src/cli/validate-draft.js {article-id}` 검사를 통과하면 main에 푸시합니다.
-   같은 실행에서 LinkedIn 뉴스레터(`linkedin-newsletter.md`)·리멤버 커넥트(`remember.md`) 원고도 쓰고, 두 원고는 LinkedIn 노출이 많은 **화요일 07:50**에 일주일에 한 편씩 Gmail로 보냅니다(두 서비스는 게시 API가 없어 직접 붙여 넣습니다. 뉴스레터는 08:00, 리멤버는 12:00 발행 권장).
+   같은 실행에서 LinkedIn 뉴스레터(`linkedin-newsletter.md`)·리멤버 커넥트(`remember.md`) 원고도 쓰고, 두 원고는 LinkedIn 노출이 많은 브런치 새 글이 올라온 **다음 날 07:50**에 Gmail로 보냅니다(밤 22:00 새 글 확인 → 22:30 원고 작성)(두 서비스는 게시 API가 없어 직접 붙여 넣습니다. 뉴스레터는 08:00, 리멤버는 12:00 발행 권장).
 3. `draft.json` 푸시가 Actions를 다시 실행해 카드 이미지·manifest·PR을 만들고, PR은 확인 없이 바로 자동 병합됩니다. 원고가 아직 없는 글은 실패 없이 다음 실행으로 넘어갑니다.
 
 ## 채널별 동작

@@ -21,6 +21,7 @@ SLOTS = [
     (7, 0, None, "insight-reels-publish.yml", True),  # 월 업계 트렌드, 화·목 브런치 릴스, 수·금 브런치 카드뉴스
     (7, 17, None, "brunch-cache.yml", False),
     (8, 0, None, "brunch-weekly.yml", False),
+    (22, 0, None, "brunch-weekly.yml", False),  # 밤에 올라온 브런치 새 글을 당일 밤 원고로 → 다음 날 07:50 LinkedIn 메일
     (12, 30, None, "threads-publish.yml", True),
 ]
 

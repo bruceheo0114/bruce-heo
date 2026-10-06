@@ -11,7 +11,7 @@
    - `content/<id>/remember.md` — 리멤버 커넥트 원고
 4. `node src/cli/validate-draft.js <id>` 로 검사한다. 실패하면 메시지대로 고치고 OK 가 나올 때까지 반복한다.
 5. 세 파일을 `git add` → 커밋 `content: draft for Brunch <id>` → `git pull --rebase -q && git push`. 푸시하면 Actions 가 카드 이미지를 만들어 자동 병합한다.
-6. 메일은 보내지 않는다. 뉴스레터·리멤버 원고 메일은 LinkedIn 노출이 많은 화요일 07:50 에(일주일에 한 편) `content/routine_newsletter_mail_prompt.md` 루틴이 보낸다.
+6. 메일은 보내지 않는다. 뉴스레터·리멤버 원고 메일은 브런치 새 글 다음 날 07:50 에 `content/routine_newsletter_mail_prompt.md` 루틴이 보낸다.
 
 하지 말 것: 다른 파일 수정, 두 편 이상 작성, LinkedIn·Instagram·리멤버에 직접 게시, 원문에 없는 내용 추가.
 
