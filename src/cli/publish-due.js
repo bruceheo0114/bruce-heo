@@ -2,13 +2,20 @@ import { PATHS } from "../config.js";
 import { readJson, writeJson } from "../lib/files.js";
 import { selectDueArticle } from "../lib/queue.js";
 import { loadState, saveState } from "../lib/state.js";
-import { ensurePersonUrn, publishLinkedIn } from "../publish/linkedin.js";
+import { publishLinkedIn } from "../publish/linkedin.js";
 
 const now = new Date(process.env.AUTOMATION_NOW ?? Date.now());
 if (process.env.SOCIAL_DRY_RUN === "true" && process.env.LINKEDIN_ACCESS_TOKEN) {
-  // 시험 실행에서도 토큰이 살아 있는지 LinkedIn 에 확인한다(게시는 하지 않는다).
-  const urn = await ensurePersonUrn();
-  console.log(JSON.stringify({ tokenValid: true, personUrn: urn.replace(/:[^:]+$/, ":***") }));
+  // 시험 실행에서도 토큰이 살아 있는지 LinkedIn 에 직접 묻는다(게시는 하지 않는다).
+  // 401 = 만료·잘못된 토큰, 403 = 토큰은 유효하지만 openid 권한 없음(게시에는 문제 없음).
+  const response = await fetch("https://api.linkedin.com/v2/userinfo", {
+    headers: { authorization: `Bearer ${process.env.LINKEDIN_ACCESS_TOKEN}` },
+  });
+  console.log(JSON.stringify({ tokenCheckStatus: response.status, tokenValid: response.status !== 401 }));
+  if (response.status === 401) {
+    console.error("LinkedIn 토큰이 만료됐거나 잘못됐습니다. 새 토큰을 LINKEDIN_ACCESS_TOKEN 에 저장해 주세요.");
+    process.exit(1);
+  }
 }
 const state = await loadState();
 const article = selectDueArticle(state.articles, now);
