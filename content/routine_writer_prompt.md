@@ -11,10 +11,7 @@
    - `content/<id>/remember.md` — 리멤버 커넥트 원고
 4. `node src/cli/validate-draft.js <id>` 로 검사한다. 실패하면 메시지대로 고치고 OK 가 나올 때까지 반복한다.
 5. 세 파일을 `git add` → 커밋 `content: draft for Brunch <id>` → `git pull --rebase -q && git push`. 푸시하면 Actions 가 카드 이미지를 만들어 자동 병합한다.
-6. Gmail 로 heoboram0114@gmail.com 에 한 통 보낸다(뉴스레터·리멤버는 API 가 없어 직접 붙여 넣는다). LinkedIn 은 뉴스레터를 발행할 때 나오는 소개 포스트 칸에 글을 넣으면 뉴스레터 링크와 함께 피드에 올라가므로, 별도 포스트를 따로 올리지 않는다.
-   - 제목: `[브런치 → 뉴스레터·리멤버] <글 제목>`
-   - 본문 순서: 한 줄 안내("뉴스레터를 발행할 때 아래 소개 포스트를 함께 넣으면 포스팅까지 끝납니다.") → `■ LinkedIn 뉴스레터 「맥락을 설계하는 일」` 아래에 제목·부제·본문 전문 → `■ 뉴스레터 발행 시 소개 포스트` 아래에 draft.json 의 `linkedinBody` 전문 → `■ 리멤버 커넥트` 아래에 본문 전문 → 브런치 원문 링크.
-   - Gmail 도구가 없으면 메일은 건너뛰고 "메일 도구 없음" 한 줄을 남긴다(파일은 저장소에 있다).
+6. 메일은 보내지 않는다. 뉴스레터·리멤버 원고 메일은 LinkedIn 노출이 많은 화·목 07:50 에 `content/routine_newsletter_mail_prompt.md` 루틴이 보낸다.
 
 하지 말 것: 다른 파일 수정, 두 편 이상 작성, LinkedIn·Instagram·리멤버에 직접 게시, 원문에 없는 내용 추가.
 
