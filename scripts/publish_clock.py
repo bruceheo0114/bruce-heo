@@ -18,7 +18,7 @@ CATCH_UP = dt.timedelta(minutes=20)  # 시계가 이어지는 사이에 놓친 �
 # (KST 시, 분, 요일(월=0) 또는 None=매일, 워크플로 파일, 날짜를 post_date 로 넘길지)
 SLOTS = [
     # LinkedIn 은 뉴스레터를 발행할 때 소개 포스트가 함께 올라가므로 별도 자동 게시(linkedin-publish.yml)는 돌리지 않는다.
-    (7, 0, {0, 1, 2, 3}, "insight-reels-publish.yml", True),  # 월·수 카드뉴스, 화·목 릴스
+    (7, 0, None, "insight-reels-publish.yml", True),  # 월·수 카드뉴스, 화·목 릴스, 금·토·일 브런치 카드뉴스
     (7, 17, None, "brunch-cache.yml", False),
     (8, 0, None, "brunch-weekly.yml", False),
     (12, 30, None, "threads-publish.yml", True),

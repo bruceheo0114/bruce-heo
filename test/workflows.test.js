@@ -47,3 +47,12 @@ test("게시 시계는 게시 워크플로를 직접 시작할 권한이 있다"
   assert.equal(workflow.concurrency["cancel-in-progress"], false);
   assert.ok(workflow.on.workflow_dispatch !== undefined);
 });
+
+test("브런치 카드뉴스는 금·토·일 인스타그램 대기열에 들어가고 시계가 매일 07:00 게시를 시작한다", async () => {
+  const workflow = await readFile(".github/workflows/brunch-weekly.yml", "utf8");
+  assert.match(workflow, /node src\/cli\/schedule-instagram\.js/);
+  const clock = await readFile("scripts/publish_clock.py", "utf8");
+  assert.match(clock, /\(7, 0, None, "insight-reels-publish\.yml", True\)/);
+  const script = await readFile("src/cli/schedule-instagram.js", "utf8");
+  assert.match(script, /new Set\(\[5, 6, 0\]\)/);
+});

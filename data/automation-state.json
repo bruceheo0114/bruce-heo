@@ -630,10 +630,11 @@
         "error": null
       },
       "instagram": {
-        "status": "manual_source_ready",
+        "status": "scheduled",
         "id": null,
         "lastAttemptAt": null,
-        "error": null
+        "error": null,
+        "scheduledDate": "2026-10-09"
       },
       "approvedAt": "2026-10-06T00:20:50.177Z",
       "scheduledAt": "2026-10-06T21:30:00.000Z",
