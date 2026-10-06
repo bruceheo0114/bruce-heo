@@ -2,9 +2,14 @@ import { PATHS } from "../config.js";
 import { readJson, writeJson } from "../lib/files.js";
 import { selectDueArticle } from "../lib/queue.js";
 import { loadState, saveState } from "../lib/state.js";
-import { publishLinkedIn } from "../publish/linkedin.js";
+import { ensurePersonUrn, publishLinkedIn } from "../publish/linkedin.js";
 
 const now = new Date(process.env.AUTOMATION_NOW ?? Date.now());
+if (process.env.SOCIAL_DRY_RUN === "true" && process.env.LINKEDIN_ACCESS_TOKEN) {
+  // 시험 실행에서도 토큰이 살아 있는지 LinkedIn 에 확인한다(게시는 하지 않는다).
+  const urn = await ensurePersonUrn();
+  console.log(JSON.stringify({ tokenValid: true, personUrn: urn.replace(/:[^:]+$/, ":***") }));
+}
 const state = await loadState();
 const article = selectDueArticle(state.articles, now);
 if (!article) {
