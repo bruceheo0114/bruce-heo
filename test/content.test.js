@@ -24,7 +24,7 @@ const generated = {
   ],
   linkedinBody: "\"모두를 울린 광고는 매출에 도움이 될까?\"\n\n8년 동안 이어진 질문입니다.\n\n그렇다면 질문을 바꿔야 합니다. 당신의 브랜드는 무엇을 반복하고 있나요?\n\n#마케팅 #브랜딩 #광고 #콘텐츠 #브랜드전략",
   linkedinFirstComment: "원문은 브런치에서 읽을 수 있습니다. https://brunch.co.kr/@heoboram/212",
-  instagramCaption: "🏠 집을 말하는 브랜드\n\n사례를 살펴봅니다.\n\n📌 질문을 바꿔야 합니다.\n\n마케팅 관점의 해석입니다. 무엇을 반복하고 있나요?\n\n🔍 원문은 브런치에서 더 길게\n저장해 두고 다시 읽어보세요.\n\n#브루스매거진 #마케팅 #브랜딩 #광고 #콘텐츠",
+  instagramCaption: "🏠 집을 말하는 브랜드\n\n사례를 살펴봅니다.\n\n📌 질문을 바꿔야 합니다.\n\n마케팅 관점의 해석입니다. 무엇을 반복하고 있나요?\n\n🔍 더 많은 브랜드 이야기는 bruceheo.com 에서 만나보세요.\n저장해 두고 다시 읽어보세요.\n\n#브루스매거진 #마케팅 #브랜딩 #광고 #콘텐츠",
 };
 
 test("채널 문안 품질 규칙을 통과한다", () => {
@@ -37,7 +37,7 @@ test("LinkedIn 본문 URL과 잘못된 Instagram CTA를 거부한다", () => {
   invalid.instagramCaption = "#브루스매거진 #a #b #c";
   const errors = validateGeneratedContent(invalid, article);
   assert.ok(errors.some((error) => error.includes("LinkedIn 본문")));
-  assert.ok(errors.some((error) => error.includes("원문 안내")));
+  assert.ok(errors.some((error) => error.includes("홈페이지 안내")));
 });
 
 test("마지막 카드가 브런치를 안내하면 거부한다", () => {

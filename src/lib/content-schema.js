@@ -112,8 +112,11 @@ export function validateGeneratedContent(generated, article) {
   }
 
   const instagram = generated.instagramCaption ?? "";
-  if (!instagram.includes("🔍") || !instagram.includes("브런치")) {
-    errors.push("Instagram 캡션에 브런치 원문 안내가 없습니다.");
+  if (!instagram.includes("🔍") || !instagram.includes("bruceheo.com")) {
+    errors.push("Instagram 캡션에 🔍 bruceheo.com 홈페이지 안내가 없습니다.");
+  }
+  if (instagram.includes("브런치")) {
+    errors.push("Instagram 캡션은 브런치 대신 bruceheo.com을 안내해야 합니다.");
   }
   if (!instagram.includes("저장")) {
     errors.push("Instagram 캡션에 저장 CTA가 없습니다.");
