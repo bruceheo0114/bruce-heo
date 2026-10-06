@@ -1,4 +1,16 @@
-import { jsonRequest, requireEnvironment } from "../lib/http.js";
+import { ApiError, jsonRequest, requireEnvironment } from "../lib/http.js";
+
+// LINKEDIN_PERSON_URN 이 없으면 토큰의 OpenID userinfo(sub)로 채운다. 그래서 Secret 은 토큰 하나면 된다.
+export async function ensurePersonUrn() {
+  requireEnvironment(["LINKEDIN_ACCESS_TOKEN"]);
+  if (process.env.LINKEDIN_PERSON_URN) return process.env.LINKEDIN_PERSON_URN;
+  const { body } = await jsonRequest("LinkedIn", "https://api.linkedin.com/v2/userinfo", {
+    headers: { authorization: `Bearer ${process.env.LINKEDIN_ACCESS_TOKEN}` },
+  });
+  if (!body?.sub) throw new Error("LinkedIn userinfo 응답에 sub가 없습니다. openid profile 권한을 확인해 주세요.");
+  process.env.LINKEDIN_PERSON_URN = `urn:li:person:${body.sub}`;
+  return process.env.LINKEDIN_PERSON_URN;
+}
 
 function headers() {
   requireEnvironment([
@@ -38,6 +50,7 @@ export function linkedInCommentPayload(postUrn, text) {
 }
 
 export async function publishLinkedIn(manifest, existing = {}, checkpoint = null) {
+  await ensurePersonUrn();
   const requestHeaders = headers();
   let postId = existing.postId ?? null;
   let commentId = existing.commentId ?? null;
@@ -59,14 +72,22 @@ export async function publishLinkedIn(manifest, existing = {}, checkpoint = null
 
   if (!commentId) {
     const endpoint = `https://api.linkedin.com/rest/socialActions/${encodeURIComponent(postId)}/comments`;
-    const { response, body } = await jsonRequest("LinkedIn", endpoint, {
-      method: "POST",
-      headers: requestHeaders,
-      body: JSON.stringify(
-        linkedInCommentPayload(postId, manifest.linkedin.firstComment),
-      ),
-    });
-    commentId = response.headers.get("x-restli-id") ?? body?.id ?? body?.commentUrn;
+    try {
+      const { response, body } = await jsonRequest("LinkedIn", endpoint, {
+        method: "POST",
+        headers: requestHeaders,
+        body: JSON.stringify(
+          linkedInCommentPayload(postId, manifest.linkedin.firstComment),
+        ),
+      });
+      commentId = response.headers.get("x-restli-id") ?? body?.id ?? body?.commentUrn;
+    } catch (error) {
+      // 첫 댓글은 별도 권한(w_member_social_feed)이 있어야 한다. 권한이 없으면 본문 게시만으로 끝낸다.
+      if (error instanceof ApiError && [401, 403].includes(error.status)) {
+        return { status: "published", postId, commentId: null, commentSkipped: error.message.slice(0, 300) };
+      }
+      throw error;
+    }
     if (!commentId) throw new Error("LinkedIn 첫 댓글 ID를 확인하지 못했습니다.");
     await checkpoint?.({ status: "published", postId, commentId });
   }

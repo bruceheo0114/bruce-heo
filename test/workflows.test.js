@@ -6,6 +6,7 @@ import { parse } from "yaml";
 for (const file of [
   ".github/workflows/brunch-weekly.yml",
   ".github/workflows/publish-clock.yml",
+  ".github/workflows/linkedin-publish.yml",
 ]) {
   test(`${file}은 유효한 GitHub Actions YAML이다`, async () => {
     const workflow = parse(await readFile(file, "utf8"));
@@ -28,9 +29,13 @@ test("콘텐츠 생성은 OpenAI 없이 Claude 원고 push로도 실행된다", 
   assert.doesNotMatch(text, /OPENAI/);
 });
 
-test("LinkedIn 자동 게시 워크플로는 존재하지 않는다", async () => {
-  await assert.rejects(readFile(".github/workflows/social-publish.yml", "utf8"));
-  await assert.rejects(readFile(".github/workflows/content-approved.yml", "utf8"));
+test("LinkedIn 게시는 시계가 06:30에 시작하고 토큰이 없으면 건너뛴다", async () => {
+  const text = await readFile(".github/workflows/linkedin-publish.yml", "utf8");
+  const workflow = parse(text);
+  assert.ok(workflow.on.workflow_dispatch !== undefined);
+  assert.match(text, /LINKEDIN_ACCESS_TOKEN Secret 이 없어/);
+  const clock = await readFile("scripts/publish_clock.py", "utf8");
+  assert.match(clock, /\(6, 30, None, "linkedin-publish\.yml"/);
 });
 
 

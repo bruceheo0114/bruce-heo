@@ -53,9 +53,13 @@ jobs:
           pnpm daily:discover
           node -e "const fs=require('fs');const r=JSON.parse(fs.readFileSync('.automation-result.json'));const out=process.env.GITHUB_OUTPUT;fs.appendFileSync(out,'has_package='+(r.packageArticleIds.length?'true':'false')+'\n');fs.appendFileSync(out,'batch_id='+(r.batchId||'')+'\n');fs.appendFileSync(out,'mode='+r.mode+'\n');fs.appendFileSync(out,'article_ids='+r.packageArticleIds.join(' ')+'\n')"
 
+      # main 에 병합된 콘텐츠(manifest 있음)를 승인 처리해 다음 날 06:30 KST LinkedIn 게시 대기열에 넣는다.
+      - name: Schedule merged content for LinkedIn
+        run: node src/cli/approve-merged.js
+
       - name: Publish homepage update and writer sources immediately
         run: |
-          git add -- index.html data/brunch-posts.json data/automation-state.json
+          git add -- index.html data/brunch-posts.json data/automation-state.json 'content/*/manifest.json' 
           git add -- 'content/*/source.json' 2>/dev/null || true
           if git diff --cached --quiet; then
             exit 0
@@ -135,6 +139,17 @@ jobs:
       - name: Merge content PR automatically
         if: steps.discover.outputs.has_package == 'true' && steps.package.outputs.should_build == 'true'
         run: gh pr merge "${{ steps.pr.outputs.url }}" --squash --delete-branch
+
+      - name: Schedule the merged content for LinkedIn
+        if: steps.discover.outputs.has_package == 'true' && steps.package.outputs.should_build == 'true'
+        run: |
+          git fetch -q origin main
+          git switch -q -C main origin/main
+          node src/cli/approve-merged.js
+          git add -- data/automation-state.json 'content/*/manifest.json'
+          git diff --cached --quiet && exit 0
+          git commit -m "chore: schedule Brunch content for LinkedIn"
+          git pull --rebase -q origin main && git push origin HEAD:main
 
       - name: Report failure as GitHub issue
         if: failure()

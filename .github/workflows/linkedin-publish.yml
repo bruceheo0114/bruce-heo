@@ -1,0 +1,84 @@
+name: LinkedIn publish
+
+# 브런치 새 글 콘텐츠(content/<id>/manifest.json)의 LinkedIn 본문을 개인 계정에 올리고,
+# 원문 링크를 첫 댓글로 단다. 병합된 글은 다음 날 06:30 KST 부터 하루 한 편씩 게시된다.
+# Publish clock 이 매일 06:30 KST 에 이 워크플로를 시작한다.
+# Secret LINKEDIN_ACCESS_TOKEN 이 없으면 아무것도 하지 않고 끝난다.
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "게시하지 않고 다음 게시 대상만 확인"
+        type: boolean
+        default: false
+
+concurrency:
+  group: bruce-content-automation
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check LinkedIn token
+        id: token
+        env:
+          LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
+        run: |
+          if [ -z "$LINKEDIN_ACCESS_TOKEN" ]; then
+            echo "::warning::LINKEDIN_ACCESS_TOKEN Secret 이 없어 LinkedIn 게시를 건너뜁니다."
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: actions/setup-node@v4
+        if: steps.token.outputs.ready == 'true'
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        if: steps.token.outputs.ready == 'true'
+        run: |
+          corepack enable
+          pnpm install --frozen-lockfile
+
+      - name: Publish due LinkedIn post
+        if: steps.token.outputs.ready == 'true'
+        env:
+          LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
+          LINKEDIN_PERSON_URN: ${{ secrets.LINKEDIN_PERSON_URN }}
+          LINKEDIN_API_VERSION: ${{ vars.LINKEDIN_API_VERSION || '202605' }}
+          SOCIAL_DRY_RUN: ${{ inputs.dry_run && 'true' || 'false' }}
+        run: node src/cli/publish-due.js
+
+      - name: Record result
+        if: always() && steps.token.outputs.ready == 'true'
+        run: |
+          git add -- data/automation-state.json 'content/*/manifest.json' 2>/dev/null || true
+          git diff --cached --quiet && exit 0
+          git config user.name "bruce-content-bot"
+          git config user.email "bruce-content-bot@users.noreply.github.com"
+          git commit -m "chore: record LinkedIn publish"
+          git pull --rebase -q origin main && git push origin HEAD:main
+
+      - name: Report failure as GitHub issue
+        if: failure()
+        run: |
+          title="[자동화] LinkedIn 게시 실패"
+          body=$(printf '실행: https://github.com/%s/actions/runs/%s\n\nLINKEDIN_ACCESS_TOKEN 만료(60일) 또는 권한을 확인해 주세요. 새 토큰을 같은 이름으로 저장하면 다음 06:30 에 다시 시도합니다.' "$GITHUB_REPOSITORY" "$GITHUB_RUN_ID")
+          issue=$(gh issue list --state open --search "$title in:title" --json number --jq '.[0].number // empty')
+          if [ -n "$issue" ]; then
+            gh issue comment "$issue" --body "$body"
+          else
+            gh issue create --title "$title" --body "$body"
+          fi

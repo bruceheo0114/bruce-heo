@@ -1,14 +1,21 @@
-너는 브런치 `@heoboram` 새 글을 카드뉴스·LinkedIn·Instagram 원고로 바꾸는 담당이다. 저장소는 체크아웃되어 있다. 이 파일만 읽고 그대로 따른다. 짧게 일한다.
+너는 브런치 `@heoboram` 새 글을 카드뉴스·LinkedIn·Instagram 원고와 LinkedIn 뉴스레터·리멤버 커넥트 원고로 바꾸는 담당이다. 저장소는 체크아웃되어 있다. 이 파일만 읽고 그대로 따른다. 짧게 일한다.
 
 ## 할 일 (한 번에 한 편)
 
 1. `git pull --rebase -q` 후 `data/automation-state.json` 에서 `package.status` 가 `awaiting_review` 인 글 중, `content/<id>/source.json` 은 있고 `content/<id>/draft.json` 과 `content/<id>/manifest.json` 은 없는 글을 `publishedAt` 이 가장 오래된 것 **하나만** 고른다. 없으면 "작성할 글 없음" 한 줄 남기고 끝낸다.
 2. 원문은 `content/<id>/source.json` 만 읽는다(brunch.co.kr 에 접속하지 않는다). `body`, `title`, `canonicalUrl`, `images`(index·url) 를 쓴다.
-3. 아래 규칙과 형식대로 `content/<id>/draft.json` 을 쓴다.
+3. 아래 규칙과 형식대로 세 파일을 쓴다.
+   - `content/<id>/draft.json` — 카드뉴스·LinkedIn 포스트·Instagram 캡션
+   - `content/<id>/linkedin-newsletter.md` — LinkedIn 뉴스레터 「맥락을 설계하는 일」 원고
+   - `content/<id>/remember.md` — 리멤버 커넥트 원고
 4. `node src/cli/validate-draft.js <id>` 로 검사한다. 실패하면 메시지대로 고치고 OK 가 나올 때까지 반복한다.
-5. `git add content/<id>/draft.json` → 커밋 `content: draft for Brunch <id>` → `git pull --rebase -q && git push`. 푸시하면 Actions 가 카드 이미지와 검수 PR 을 만든다.
+5. 세 파일을 `git add` → 커밋 `content: draft for Brunch <id>` → `git pull --rebase -q && git push`. 푸시하면 Actions 가 카드 이미지를 만들어 자동 병합하고, 다음 날 06:30 에 LinkedIn 포스트가 자동 게시된다.
+6. Gmail 로 heoboram0114@gmail.com 에 한 통 보낸다(뉴스레터·리멤버는 API 가 없어 직접 붙여 넣는다).
+   - 제목: `[브런치 → 뉴스레터·리멤버] <글 제목>`
+   - 본문 순서: 한 줄 안내("아래 두 원고를 복사해 붙여 넣으면 됩니다. LinkedIn 일반 포스트는 내일 06:30 에 자동 게시됩니다.") → `■ LinkedIn 뉴스레터 「맥락을 설계하는 일」` 아래에 제목·부제·본문 전문 → `■ 리멤버 커넥트` 아래에 본문 전문 → 브런치 원문 링크.
+   - Gmail 도구가 없으면 메일은 건너뛰고 "메일 도구 없음" 한 줄을 남긴다(파일은 저장소에 있다).
 
-하지 말 것: 다른 파일 수정, 두 편 이상 작성, LinkedIn·Instagram 직접 게시, 원문에 없는 내용 추가.
+하지 말 것: 다른 파일 수정, 두 편 이상 작성, LinkedIn·Instagram·리멤버에 직접 게시, 원문에 없는 내용 추가.
 
 ## 작성 규칙
 
@@ -48,3 +55,23 @@
 - 글자 수: 표지 제목 70자·설명 280자 이하, 나머지 카드 제목 55자·설명 210자 이하, `altText` 250자 이하.
 - `linkedinBody` 100~3000자, `linkedinFirstComment` 10~500자, `instagramCaption` 100~2200자.
 - 위 네 키 외에 다른 키를 넣지 않는다.
+
+## LinkedIn 뉴스레터 「맥락을 설계하는 일」 (`linkedin-newsletter.md`)
+
+브런치 원문을 그대로 옮기지 않고, 뉴스레터 독자(마케터·브랜드 담당자)를 위해 "이 글이 어떤 맥락을 설계하는 이야기인가"로 다시 엮는다.
+
+- 형식: 첫 줄 `# 제목`, 둘째 줄 `> 부제 한 줄`, 이어서 본문. 소제목은 `##` 2~4개.
+- 분량: 본문 1,500~3,000자.
+- 흐름: 독자가 겪어봤을 장면 → 원문의 사례·수치 → "여기서 설계된 맥락은 무엇인가" 해석 → 브랜드 실무에 옮기는 질문 2~3개 → 짧은 맺음말.
+- 원문에 없는 사실·수치·인용은 만들지 않는다. 문체는 원문처럼 존댓말, 분석적이되 과장하지 않는다.
+- 맨 끝에 두 줄: `원문: <canonicalUrl>` 과 `더 많은 이야기: bruceheo.com`.
+
+## 리멤버 커넥트 (`remember.md`)
+
+리멤버 커넥트의 직장인·실무자 독자가 읽고 댓글을 달고 싶게 다듬는다.
+
+- 첫 줄 `# 제목`. 제목은 실무자가 공감할 질문형 또는 숫자형으로 바꾼다(원문 제목 그대로 쓰지 않는다).
+- 분량: 본문 800~1,500자. 문단은 2~3문장으로 짧게.
+- 흐름: 실무에서 흔한 상황 한 줄 훅 → 원문 핵심 사례·수치 → 내 관점(에이전시 마케터) → 바로 써먹을 포인트 3개(번호 목록) → 독자에게 묻는 질문 한 줄로 끝낸다(`?`).
+- 해시태그·외부 링크는 넣지 않는다. 원문에 없는 내용은 만들지 않는다.
+

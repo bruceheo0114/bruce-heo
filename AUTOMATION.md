@@ -6,6 +6,7 @@
 
 1. Actions(08:00 KST)가 새 글을 찾아 홈페이지를 갱신하고, 원고가 필요한 글마다 원문을 `content/{article-id}/source.json`으로 저장합니다.
 2. Claude 루틴(매일 13:47 KST)이 `content/routine_writer_prompt.md` 규칙대로 가장 오래된 글 한 편의 원고를 `content/{article-id}/draft.json`으로 쓰고, `node src/cli/validate-draft.js {article-id}` 검사를 통과하면 main에 푸시합니다.
+   같은 실행에서 LinkedIn 뉴스레터(`linkedin-newsletter.md`)·리멤버 커넥트(`remember.md`) 원고도 쓰고, 두 원고를 Gmail로 보냅니다(두 서비스는 게시 API가 없어 직접 붙여 넣습니다).
 3. `draft.json` 푸시가 Actions를 다시 실행해 카드 이미지·manifest·PR을 만들고, PR은 확인 없이 바로 자동 병합됩니다. 원고가 아직 없는 글은 실패 없이 다음 실행으로 넘어갑니다.
 
 ## 채널별 동작
@@ -27,6 +28,12 @@
 6. PR을 병합한 뒤 Actions의 **Brunch daily content**를 한 번 수동 실행해 연결 상태를 확인합니다.
 
 토큰과 키는 파일에 기록하지 않습니다. `.env.example`은 로컬 변수 이름만 설명하며 실제 값은 GitHub Secrets에만 둡니다.
+
+## LinkedIn 자동 게시
+
+- 병합된 글은 다음 날 06:30 KST부터 하루 한 편씩 **LinkedIn publish** 워크플로가 개인 계정에 올립니다(Publish clock이 시작).
+- 필요한 Secret은 `LINKEDIN_ACCESS_TOKEN` 하나입니다. `LINKEDIN_PERSON_URN`이 없으면 토큰으로 자동 조회합니다. 토큰이 없으면 게시를 건너뜁니다.
+- 첫 댓글(원문 링크) 권한이 없으면 본문만 게시하고 완료 처리합니다.
 
 ## LinkedIn 개인 계정
 
