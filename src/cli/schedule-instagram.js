@@ -93,8 +93,6 @@ for (const article of ready) {
     caption,
     images: files.map((file) => `${SITE}/${dir}/${file}`),
     images_backup: files.map((file) => `${RAW}/${dir}/${file}`),
-    preview_url: `${SITE}/${dir}/preview.html`,
-    preview_sent: false,
   });
   article.instagram = { ...article.instagram, status: "scheduled", scheduledDate: date };
   scheduled.push({ id: article.id, date });
