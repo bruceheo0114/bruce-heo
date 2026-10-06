@@ -1,0 +1,21 @@
+name: Instagram insights (read only)
+
+# 팔로워 접속 시간대·최근 게시물 반응을 로그로 본다. 게시하지 않는다.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  insights:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Print insights
+        env:
+          IG_USER_ID: ${{ secrets.IG_USER_ID || '17841459178252032' }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_GRAPH_HOST: ${{ vars.IG_GRAPH_HOST }}
+        run: python3 insight-reels/scripts/ig_best_time.py
