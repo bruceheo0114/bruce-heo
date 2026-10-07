@@ -46,7 +46,7 @@ Hook → Phenomenon → Case → Question → Analysis → Contrast → Insight 
         넘길 수 없으므로, 사용자가 드라이브 폴더를 '링크가 있는 모든 사용자'로 공유하거나 앱에서 직접 정리해 준다.
    3. `report`로 AI 장면 계획을 보여주고 승인을 받는다. 승인 전에는 생성하지 않는다. 사용자가 "AI 없이"라고 하면 건너뛴다.
    4. 승인된 Scene만 생성 → `can-generate` → Higgsfield → 결과를 `assets/generated/<EP>/<Scene>.png|mp4`로 저장 → `record-generation`
-   5. `node src/cli/youtube.js render <EP> <CH01.mp3 …> --no-cleanup` (복제 목소리는 잡음 정리가 필요 없다)
+   5. `node src/cli/youtube.js render <EP> <CH01.mp3 …> --no-cleanup --voice-clone` (복제 목소리는 잡음 정리가 필요 없다)
       → `output/<EP>/`에 `<EP>.mp4`, `thumbnail.png`, `upload.md`, `subtitles.srt`
    6. 완성 영상의 몇 장면을 뽑아 확인한 뒤 mp4·썸네일을 사용자에게 보내고 upload.md 내용을 그대로 전한다.
       복제 목소리를 썼으면 업로드 설정에서 '변경된 콘텐츠(합성 음성)'를 '예'로 하라고 알린다.
