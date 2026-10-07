@@ -92,6 +92,12 @@ HIGGSFIELD_REQUIRED: YES
 - `AI`인 Scene만 `HIGGSFIELD_REQUIRED: YES`. 나머지는 `NO`.
 - 화면 비중(시간 기준): REAL 30~40%, TYPE+GRAPHIC 35~50%, AI 25% 이하. AI는 최대 8 Scene, 한 Scene 4~8초.
 - REAL 자료(광고·SNS 영상)는 비평·해설 목적의 짧은 인용으로만 쓴다: 한 번에 10초 이내, 화면에 출처(브랜드·채널명) 표기.
+- 영상은 자동 편집된다(`render`). 그래서:
+  - NARRATION에는 02_script.md 문장을 그대로 나눠 담는다. 자막이 이 글로 만들어진다.
+  - REAL Scene은 실제 영상 대신 사례 카드로 그려진다. ON_SCREEN_TEXT에 캠페인 이름·연도·핵심 숫자 같은 사실 1~2줄을 쓴다.
+  - TYPE의 ON_SCREEN_TEXT는 1~3줄, 줄당 18자 이내.
+  - GRAPHIC의 ON_SCREEN_TEXT는 흐름이면 `현상 → 맥락 → 판단` 한 줄, 비교면 `고관여 → 브랜딩` / `저관여 → 가격`처럼 줄마다 하나, 목록이면 줄마다 항목.
+  - 02_script.md 챕터 제목은 반드시 `## CH01 제목 (00:00-02:00)` 형식. 녹음 파일과 챕터를 이 번호로 맞춘다.
 - 실제 자료가 있는 장면은 AI로 대체하지 않는다. AI는 오프닝 Hook, 챕터 전환, 추상 개념, 촬영이 어려운 B-roll에만 쓴다.
 - REAL Scene의 ASSET에는 04_assets.md의 ASSET ID(A001 등)를 적는다. 같은 자료를 여러 Scene에서 재사용한다.
 - 한 Scene은 보통 6~20초. 긴 REAL 자료는 Scene을 쪼개지 말고 한 Scene에 길게 둬도 된다.

@@ -7,8 +7,9 @@
 Actions(매일 07:17) brunch_cache 갱신
 수 05:13 클라우드 루틴(Sonnet) ─ sync --cache ─ next --weekly(queue.json 맨 위 글) ─ 00_score~06_shorts ─ finalize
    ─▶ WAITING_APPROVAL → main 커밋 → Claude 앱 푸시 알림
-Bruce 녹음(아이폰) → 길이 회신 → narration 등록 → 타임코드 조정
-report → 승인 회신 → approve → Higgsfield 생성(can-generate·record-generation, ledger.json) → 편집 → 업로드
+Bruce 녹음(아이폰, 챕터별 m4a) → Claude 대화창에 첨부
+narration → report → 승인 한마디 → Higgsfield 생성 → render(자동 편집: 화면·자막·음량·썸네일·업로드 정보) → mp4 전달
+Bruce가 YouTube 앱에서 업로드
 ```
 
 ## 파일
@@ -38,6 +39,7 @@ node src/cli/youtube.js report EP001             Higgsfield 생성 계획 + 이�
 node src/cli/youtube.js approve EP001 S003 S005  일부 Scene만 승인 (생략하면 전체)
 node src/cli/youtube.js can-generate EP001 S003
 node src/cli/youtube.js record-generation EP001 S003 --credits 5 --job <id>
+node src/cli/youtube.js render EP001 EP001_CH01.m4a EP001_CH02.m4a [--preview]
 node src/cli/youtube.js credits
 node src/cli/youtube.js resolve-update EP001 keep|regenerate
 ```
