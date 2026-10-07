@@ -146,3 +146,19 @@ test("대본을 챕터별 읽기용 텍스트로 바꾼다", async () => {
     { id: "CH02", text: "점유율 60퍼센트 ... 이상, 두 배 반." },
   ]);
 });
+
+test("업로드 출처는 같은 출처를 모으고 AI 이미지는 한 줄, 복제 목소리면 변경된 콘텐츠 '예'", async () => {
+  const { uploadSources, buildUploadKit } = await import("../src/youtube/render/compose.js");
+  const shot = (credit, url, kind = "image") => ({ media: { credit, url, kind } });
+  const sources = uploadSources([
+    shot("AI 생성 이미지 (Higgsfield)", "https://cdn/a.png", "ai"),
+    shot("Heinz 공식 홈페이지", "https://www.heinz.com/"),
+    shot("AI 생성 이미지 (Higgsfield)", "https://cdn/b.png", "ai"),
+    shot("Heinz 공식 홈페이지", "https://www.heinz.com/"),
+  ]);
+  assert.deepEqual(sources.map((item) => [item.source, item.url]), [["Heinz 공식 홈페이지", "https://www.heinz.com/"], ["AI 생성 이미지 (Higgsfield)", null]]);
+  const episode = { status: { episode: "EP001", article: { url: "https://brunch.co.kr/@heoboram/1", title: "t" }, generated: {} } };
+  const kit = buildUploadKit(episode, "", { chapters: [] }, sources, { aiImages: true, syntheticVoice: true });
+  assert.match(kit, /변경된 콘텐츠 표시: '예' \(내레이션이 본인 복제 목소리, AI 생성 이미지 포함\)/);
+  assert.doesNotMatch(kit, /cdn\/a\.png/);
+});

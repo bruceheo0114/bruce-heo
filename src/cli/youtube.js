@@ -48,7 +48,7 @@ const USAGE = `사용법: node src/cli/youtube.js <명령> [인자]
                                  직접 녹음한 내레이션 등록 (ffprobe가 없으면 --duration으로 길이 입력)
   narration-text <EP> [--out 폴더] 대본을 챕터별 읽기용 텍스트(CH01.txt …)로 저장 (ElevenLabs 복제 목소리 입력)
   references [EP] [--changed]     references.json의 실제 자료를 받아 assets/references/<EP>/에 저장 (GitHub Actions에서 실행)
-  render <EP> <녹음 파일...> [--preview] [--no-cleanup] [--out 폴더]
+  render <EP> <녹음 파일...> [--preview] [--no-cleanup] [--voice-clone] [--out 폴더]
                                  녹음 + 화면 + 자막 → 완성 영상 mp4, 썸네일, 업로드 정보 (ffmpeg·playwright 필요)
   thumbnails <EP> [--out 폴더]   썸네일 3안 (references.json의 thumbnail 계획 또는 자동 선택)
   resolve-update <EP> keep|regenerate
@@ -333,6 +333,7 @@ const commands = {
       outDir,
       preview: args.includes("--preview"),
       cleanup: !args.includes("--no-cleanup"),
+      syntheticVoice: args.includes("--voice-clone"),
       log: (line) => console.log(line),
     });
     console.log(`완성: ${result.file} · ${formatDuration(result.seconds)} · Scene ${result.scenes} · 자막 ${result.cues}줄`);
