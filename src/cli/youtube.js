@@ -32,7 +32,7 @@ const USAGE = `사용법: node src/cli/youtube.js <명령> [인자]
                                  --cache: insight-reels/brunch_cache (클라우드 루틴 기본)
                                  --local: content/*/source.json, 생략하면 브런치 RSS 직접 접속
   next [--weekly]                 제작할 Episode 1편 (PACKAGE_PENDING이 없으면 큐 맨 위 글로 새로 만든다)
-                                 --weekly: 최근 7일 안에 기획안을 만들었으면 비워 둔다
+                                 --weekly: 최근 6일 안에 기획안을 만들었으면 비워 둔다
   episode <글번호>                큐와 상관없이 글 하나로 Episode를 만든다
   pending                         PACKAGE_PENDING Episode 목록
   status [EP]                     Episode 상태 목록 또는 한 편의 상세
@@ -159,12 +159,13 @@ const commands = {
       if (episode.status.status === STATUS.PACKAGE_PENDING) console.log(episode.name);
     }
   },
-  // 주 1편 상한: 최근 7일 안에 WAITING_APPROVAL/SHORTS_ONLY로 넘어간 Episode가 있으면 아무것도 돌려주지 않는다.
+  // 주 1편 상한: 최근 6일 안에 WAITING_APPROVAL/SHORTS_ONLY로 넘어간 Episode가 있으면 아무것도 돌려주지 않는다.
+  // (7일이 아니라 6일: 수동 실행 뒤 다음 주 같은 요일 예약 실행이 막히지 않게)
   // HOLD/SKIP 판정은 상한에 넣지 않아 같은 주에 다음 글로 넘어갈 수 있다.
   async next() {
     const episodes = await listEpisodes(paths);
     if (args.includes("--weekly")) {
-      const weekAgo = now.valueOf() - 7 * 24 * 60 * 60 * 1000;
+      const weekAgo = now.valueOf() - 6 * 24 * 60 * 60 * 1000;
       const made = episodes.some((episode) =>
         (episode.status.history ?? []).some(
           (entry) =>
