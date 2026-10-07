@@ -9,11 +9,17 @@ const COLORS = { ivory: "#F2F1ED", mint: "#65B98A", green: "#23744c", ink: "#111
 const escapeHtml = (value) =>
   String(value ?? "").replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[char]);
 
+// 화면 문구. "출처: …" 줄은 실제 그림의 출처 표시(오른쪽 위)와 어긋날 수 있어 문구에서 뺀다.
 function cleanLines(value) {
   return String(value ?? "")
     .split(/\r?\n/)
     .map((line) => line.replace(/^\s*[-*•]\s*/, "").replace(/\*\*/g, "").trim())
-    .filter((line) => line && !/^(없음|none|-)$/i.test(line));
+    .filter((line) => line && !/^(없음|none|-)$/i.test(line) && !/^(출처|source)\s*[:：]/i.test(line) && !/^\[.*\]$/.test(line));
+}
+
+export function shortBrand(value) {
+  const brand = String(value ?? "").replace(/\(.*?\)/g, "").split(/[·,/]/)[0].trim();
+  return brand.length > 14 ? `${brand.slice(0, 13)}…` : brand;
 }
 
 async function fontFace() {
@@ -105,9 +111,10 @@ function graphicFrame(scene, label) {
       `<div class="pill">${escapeHtml(label)}</div><div class="mark">BR.</div><div class="flow">${boxes}</div>`,
     );
   }
+  const big = lines.length <= 2;
   return shell(
-    `.list{position:absolute;left:180px;right:180px;top:0;bottom:200px;display:flex;flex-direction:column;justify-content:center;gap:30px}
-     .row{display:flex;gap:28px;align-items:baseline;font-size:52px;font-weight:800;letter-spacing:-.04em;line-height:1.25}
+    `.list{position:absolute;left:180px;right:180px;top:0;bottom:200px;display:flex;flex-direction:column;justify-content:center;gap:${big ? 44 : 30}px}
+     .row{display:flex;gap:28px;align-items:baseline;font-size:${big ? 84 : 52}px;font-weight:${big ? 900 : 800};letter-spacing:-.045em;line-height:1.2}
      .no{color:${COLORS.mint};font-size:40px;font-weight:900;min-width:70px}`,
     `<div class="pill">${escapeHtml(label)}</div><div class="mark">BR.</div>
      <div class="list">${lines.slice(0, 5).map((line, index) => `<div class="row"><span class="no">${String(index + 1).padStart(2, "0")}</span><span>${escapeHtml(line)}</span></div>`).join("")}</div>`,
@@ -116,7 +123,7 @@ function graphicFrame(scene, label) {
 
 // 실제 광고 영상을 쓰지 않을 때의 사례 카드. 캠페인 이름·사실·출처를 보여준다.
 function caseFrame(scene, asset) {
-  const brand = asset?.BRAND || "사례";
+  const brand = shortBrand(asset?.BRAND) || "사례";
   const title = cleanLines(asset?.["NEEDED MATERIAL"])[0] || cleanLines(scene.fields.VISUAL)[0] || "";
   const lines = cleanLines(scene.fields.ON_SCREEN_TEXT);
   const source = cleanLines(asset?.["EXPECTED SOURCE"])[0];
