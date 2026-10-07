@@ -1,6 +1,7 @@
 import path from "node:path";
 import { readFile } from "node:fs/promises";
 import { parseFrontMatter } from "./source.js";
+import { validateReferences } from "./references.js";
 import {
   EPISODE_FILES,
   RECOMMENDATIONS,
@@ -142,7 +143,7 @@ export function analyzeStoryboard(markdown) {
       errors.push(`03_storyboard.md: 전체 길이 ${formatDuration(runtime)}는 ${RULES.runtimeMinSeconds / 60}~${RULES.runtimeMaxSeconds / 60}분 범위를 벗어납니다.`);
     }
     if (share("AI") > RULES.aiShareMax) {
-      errors.push(`03_storyboard.md: AI 화면 비중 ${(share("AI") * 100).toFixed(1)}%가 25%를 넘습니다.`);
+      errors.push(`03_storyboard.md: AI 화면 비중 ${(share("AI") * 100).toFixed(1)}%가 ${RULES.aiShareMax * 100}%를 넘습니다.`);
     }
     if (countByType.AI > RULES.aiSceneMax) {
       errors.push(`03_storyboard.md: AI Scene ${countByType.AI}개는 최대 ${RULES.aiSceneMax}개를 넘습니다.`);
@@ -295,6 +296,16 @@ export async function validatePackage(episode, paths = youtubePaths()) {
       const promptIds = new Set(result.higgsfield.scenes.map((scene) => scene.id));
       for (const id of aiIds) if (!promptIds.has(id)) errors.push(`05_higgsfield.md: AI Scene ${id}의 프롬프트가 없습니다.`);
       for (const id of promptIds) if (!aiIds.has(id)) errors.push(`05_higgsfield.md: ${id}는 storyboard의 AI Scene이 아닙니다.`);
+    }
+  }
+
+  const references = await read("references.json");
+  if (!references) warnings.push("references.json이 없습니다. 실제 자료 화면 없이 카드·AI 이미지로만 만들어집니다.");
+  else {
+    try {
+      errors.push(...validateReferences(JSON.parse(references)));
+    } catch {
+      errors.push("references.json이 올바른 JSON이 아닙니다.");
     }
   }
 

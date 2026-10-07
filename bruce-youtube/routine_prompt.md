@@ -21,7 +21,7 @@ Higgsfield·ElevenLabs·Instagram 도구는 쓰지 않는다. 생성은 사용�
 ## 2. 제작
 
 `bruce-youtube/prompts/youtube_producer.md`를 읽고 EPISODE 하나를 그대로 만든다.
-끝은 `node src/cli/youtube.js finalize <EPISODE>`가 통과한 상태여야 한다. 통과하지 못하면 오류만 고쳐 다시 실행한다(최대 3회).
+`references.json`(실제 자료 주소)까지 쓴다. 끝은 `node src/cli/youtube.js finalize <EPISODE>`가 통과한 상태여야 한다. 통과하지 못하면 오류만 고쳐 다시 실행한다(최대 3회).
 
 - 결과가 HOLD 또는 SKIP이면 1단계를 **한 번만** 더 해서 다음 글로 2단계를 반복한다.
 - 3회 안에 통과하지 못하면 커밋하지 말고 마지막 메시지에 "<EPISODE> 기획안 검사 실패"와 오류 목록만 적는다.
@@ -59,5 +59,5 @@ Gmail 도구가 있을 때만 같은 내용을 heoboram0114@gmail.com 에 한 �
 ## 아끼는 원칙
 
 - 원문·지시서·이번 Episode 폴더만 읽는다. 다른 Episode, `insight-reels/`, `content/`는 열지 않는다.
-- 웹 검색은 최대 6회, 페이지 전체를 가져오지 않는다.
+- 웹 검색은 최대 10회(references.json의 공식 홈페이지·기사 주소 찾기 포함), 페이지 전체를 가져오지 않는다.
 - 같은 파일을 두 번 읽지 않는다.

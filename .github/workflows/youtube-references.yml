@@ -1,0 +1,49 @@
+name: YouTube references
+
+# 유튜브 Episode의 references.json(공식 홈페이지·기사·이미지 주소)이 커밋되면
+# 화면 캡처와 이미지를 받아 bruce-youtube/assets/references/<EP>/ 에 커밋한다.
+# 클라우드 Claude 세션은 외부 사이트에 접속할 수 없어서 인터넷이 열린 Actions가 대신 받는다. Claude를 쓰지 않는다.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "bruce-youtube/episodes/*/references.json"
+  workflow_dispatch:
+
+concurrency:
+  group: youtube-references
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: |
+          corepack enable
+          pnpm install --frozen-lockfile
+          pnpm exec playwright install --with-deps chromium
+          sudo apt-get install -y -qq ffmpeg
+
+      - name: Fetch references
+        run: node src/cli/youtube.js references --changed
+
+      - name: Commit references
+        run: |
+          git add bruce-youtube/assets/references
+          git diff --cached --quiet && exit 0
+          git config user.name "bruce-content-bot"
+          git config user.email "bruce-content-bot@users.noreply.github.com"
+          git commit -m "chore: fetch YouTube references"
+          git pull --rebase -q && git push

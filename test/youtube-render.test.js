@@ -60,3 +60,28 @@ test("업로드 정보에 실제 녹음 기준 챕터 시간이 들어간다", (
   assert.match(kit, /'아니요'/);
   assert.equal(formatClock(3725), "1:02:05");
 });
+
+test("긴 장면은 카드 → 자료 → 공용 그림으로 컷을 나누고 같은 그림을 되풀이하지 않는다", async () => {
+  const { planShots } = await import("../src/youtube/render/compose.js");
+  const scene = (id, type, start, end, asset = "-") => ({ id, sourceType: type, start, end, asset, fields: {} });
+  const timeline = { scenes: [scene("S001", "TYPE", 0, 20), scene("S002", "GRAPHIC", 20, 35), scene("S003", "REAL", 35, 45, "A001"), scene("S004", "TYPE", 45, 50)] };
+  const byKey = new Map([["A001", [{ file: "a.jpg", kind: "screen", credit: "공식 홈페이지" }]]]);
+  const pool = [{ file: "b1.jpg", kind: "image", credit: "브런치" }, { file: "b2.jpg", kind: "image", credit: "브런치" }];
+  const shots = planShots(timeline, { byKey, pool });
+  const s1 = shots.filter((shot) => shot.scene.id === "S001");
+  assert.equal(s1[0].media, null);
+  assert.equal(s1[0].end, 6);
+  assert.deepEqual(s1.slice(1).map((shot) => shot.media.file), ["b1.jpg", "b2.jpg"]);
+  assert.equal(shots.filter((shot) => shot.scene.id === "S002").length, 1);
+  assert.deepEqual(shots.filter((shot) => shot.scene.id === "S003").map((shot) => shot.media?.file), ["a.jpg", "b1.jpg"]);
+  assert.deepEqual(shots.filter((shot) => shot.scene.id === "S004").map((shot) => shot.media), [null]);
+  for (let index = 1; index < shots.length; index += 1) assert.equal(shots[index].start, shots[index - 1].end);
+});
+
+test("references.json 형식 검사", async () => {
+  const { validateReferences } = await import("../src/youtube/references.js");
+  assert.deepEqual(validateReferences({ items: [{ id: "A001", kind: "page", url: "https://www.heinz.com", source: "하인즈 공식 홈페이지", scenes: ["S003"] }] }), []);
+  const errors = validateReferences({ items: [{ id: "A001", kind: "video", url: "youtube", scenes: [] }] });
+  assert.ok(errors.some((error) => error.includes("kind")));
+  assert.ok(errors.some((error) => error.includes("source")));
+});
