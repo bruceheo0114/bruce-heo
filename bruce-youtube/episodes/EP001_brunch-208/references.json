@@ -420,20 +420,19 @@
   ],
   "thumbnail": [
     {
-      "image": "R001",
-      "copy": "로고를 가려도 안다",
-      "layout": "split",
-      "focus": "right center"
-    },
-    {
       "image": "A003B-img1",
-      "copy": "1만 달러 vs / 2,500만 달러",
+      "copy": "1만 달러로 / 월드컵을 이겼다",
       "layout": "full"
     },
     {
-      "image": "G011",
-      "copy": "먼저 떠오르는 / 브랜드",
-      "layout": "bar"
+      "image": "A003B-img1",
+      "copy": "1만 달러 대 / 2,500만 달러",
+      "layout": "full"
+    },
+    {
+      "image": "A003B-img1",
+      "copy": "케첩 회사가 / 월드컵을 이긴 법",
+      "layout": "full"
     }
   ]
 }
