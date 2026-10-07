@@ -13,7 +13,8 @@
     "daily:discover": "node src/cli/discover.js",
     "daily:generate": "node src/cli/generate.js",
     "pr:summary": "node src/cli/pr-summary.js",
-    "draft:validate": "node src/cli/validate-draft.js"
+    "draft:validate": "node src/cli/validate-draft.js",
+    "youtube": "node src/cli/youtube.js"
   },
   "dependencies": {
     "cheerio": "1.2.0",
