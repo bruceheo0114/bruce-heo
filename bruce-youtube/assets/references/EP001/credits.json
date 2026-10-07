@@ -1,6 +1,6 @@
 {
-  "references_hash": "1338f4a8e04ddae1",
-  "fetched_at": "2026-10-07T02:43:35.989Z",
+  "references_hash": "3db40cff33378afa",
+  "fetched_at": "2026-10-07T02:51:02.461Z",
   "items": [
     {
       "file": "B01.jpg",
@@ -589,38 +589,6 @@
       "kind": "screen",
       "source": "Edelman — Heinz to Hellmann's (Thomas Heinz)",
       "url": "https://www.edelman.com/work/heinz-hellmanns"
-    },
-    {
-      "file": "brunch-01.jpg",
-      "id": "brunch",
-      "scenes": [],
-      "kind": "image",
-      "source": "브런치 @heoboram 원문",
-      "url": "https://brunch.co.kr/@heoboram/208"
-    },
-    {
-      "file": "brunch-02.jpg",
-      "id": "brunch",
-      "scenes": [],
-      "kind": "image",
-      "source": "브런치 @heoboram 원문",
-      "url": "https://brunch.co.kr/@heoboram/208"
-    },
-    {
-      "file": "brunch-03.jpg",
-      "id": "brunch",
-      "scenes": [],
-      "kind": "image",
-      "source": "브런치 @heoboram 원문",
-      "url": "https://brunch.co.kr/@heoboram/208"
-    },
-    {
-      "file": "brunch-04.jpg",
-      "id": "brunch",
-      "scenes": [],
-      "kind": "image",
-      "source": "브런치 @heoboram 원문",
-      "url": "https://brunch.co.kr/@heoboram/208"
     }
   ],
   "failures": []
