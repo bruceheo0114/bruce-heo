@@ -10,7 +10,8 @@ import { readEpisodeFile } from "../episode.js";
 import { findSection, parseBlocks } from "../parse.js";
 import { analyzeStoryboard } from "../validate.js";
 import { FRAME, isTransition, logoHtml, overlayHtml, renderFrames, sceneFrameHtml, screenLines } from "./frames.js";
-import { buildTimeline, formatClock, parseScriptChapters, subtitleCues } from "./timeline.js";
+import { alignedCues, alignScenes } from "./align.js";
+import { buildTimeline, chapterNarrationTexts, formatClock, parseScriptChapters, subtitleCues } from "./timeline.js";
 
 const run = promisify(execFile);
 const FPS = 30;
@@ -50,6 +51,16 @@ async function exists(file) {
   } catch {
     return false;
   }
+}
+
+const CHAPTER_GAP = 1.2; // 챕터 사이 무음(초)
+
+async function readWords(audioFile) {
+  const file = audioFile.replace(/\.[^./]+$/, ".words.json");
+  if (!(await exists(file))) return null;
+  const data = JSON.parse(await readFile(file, "utf8"));
+  const words = Array.isArray(data) ? data : data.words;
+  return Array.isArray(words) && words.length ? words : null;
 }
 
 const CONCURRENCY = Math.max(1, Math.min(4, cpus().length));
@@ -398,10 +409,17 @@ export async function renderEpisode(episode, audioFiles, { root, outDir, preview
 
   const storyboard = analyzeStoryboard(storyboardText);
   const chapters = parseScriptChapters(script);
+  // 챕터 사이에 숨 쉴 틈(CHAPTER_GAP초)을 둔다. 챕터 전환 카드가 이 자리에 나온다.
   const audio = [];
-  for (const file of audioFiles) audio.push({ file, seconds: await probeSeconds(file) });
+  for (const [index, file] of audioFiles.entries()) {
+    const gap = audioFiles.length > 1 && index < audioFiles.length - 1 ? CHAPTER_GAP : 0;
+    audio.push({ file, seconds: (await probeSeconds(file)) + gap, gap, words: await readWords(file) });
+  }
   const timeline = buildTimeline(storyboard.scenes, chapters, audio);
-  log(`타임라인 ${formatClock(timeline.total)} · Scene ${timeline.scenes.length}개 · ${timeline.mode === "chapter" ? "챕터별 맞춤" : "전체 비율 맞춤"}`);
+  // 받아쓰기(<녹음 파일 이름>.words.json)가 챕터마다 있으면 장면 전환과 자막을 실제 말소리에 맞춘다.
+  const groupWords = timeline.mode === "chapter" && timeline.groups.length === audio.length ? audio.map((item) => item.words) : [];
+  const aligned = groupWords.length && groupWords.every(Boolean) ? alignScenes(timeline, groupWords) : 0;
+  log(`타임라인 ${formatClock(timeline.total)} · Scene ${timeline.scenes.length}개 · ${timeline.mode === "chapter" ? "챕터별 맞춤" : "전체 비율 맞춤"}${aligned ? ` · 받아쓰기로 ${aligned}개 장면 시작을 맞춤` : ""}`);
 
   const work = path.join(outDir, "work");
   await mkdir(work, { recursive: true });
@@ -499,7 +517,8 @@ export async function renderEpisode(episode, audioFiles, { root, outDir, preview
   //    ElevenLabs Voice Isolator로 이미 정리한 파일이면 cleanup=false로 건너뛴다.
   const audioOut = path.join(work, "narration.m4a");
   const inputs = audio.flatMap((item) => ["-i", item.file]);
-  const join = audio.map((_, index) => `[${index}:a]`).join("");
+  const pads = audio.map((item, index) => `[${index}:a]aformat=sample_rates=48000:channel_layouts=stereo,apad=pad_dur=${item.gap}[p${index}]`).join(";");
+  const join = `${pads};${audio.map((_, index) => `[p${index}]`).join("")}`;
   // 음량은 두 번에 나눠 맞춘다(먼저 재고, 같은 비율로 키운다). 한 번에 하면 말이 없는 구간의 잡음까지 말소리만큼 커진다.
   const chain = `${join}concat=n=${audio.length}:v=0:a=1,${cleanup ? "highpass=f=80,afftdn=nf=-25:tn=1," : ""}`;
   const target = "I=-14:TP=-1.5:LRA=11";
@@ -510,7 +529,8 @@ export async function renderEpisode(episode, audioFiles, { root, outDir, preview
   await ffmpeg([...inputs, "-filter_complex", `${chain}loudnorm=${target}${linear}[a]`, "-map", "[a]", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", audioOut]);
 
   // 4) 자막을 입혀 최종본
-  const cues = subtitleCues(timeline);
+  const chapterTexts = chapterNarrationTexts(script).map((item) => item.text);
+  const cues = aligned && chapterTexts.length === audio.length ? alignedCues(timeline, chapterTexts, groupWords) : subtitleCues(timeline);
   const assFile = path.join(work, "subtitles.ass");
   await writeFile(assFile, buildAss(cues));
   await writeFile(path.join(outDir, "subtitles.srt"), buildSrt(cues));

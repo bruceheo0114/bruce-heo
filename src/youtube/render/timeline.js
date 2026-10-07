@@ -46,6 +46,11 @@ export function chapterNarrationTexts(script) {
   return texts;
 }
 
+// 내레이션이 '챕터 전환' 같은 메모뿐인(말이 없는) 장면
+export function isTransitionText(narration) {
+  return /^(챕터\s*전환|전환|무음|-)?$/.test(String(narration ?? "").trim());
+}
+
 export function chapterIdFromFile(file) {
   const match = String(file).match(/CH\s?(\d+)/i);
   return match ? `CH${match[1].padStart(2, "0")}` : null;
@@ -67,15 +72,17 @@ export function buildTimeline(scenes, chapters, audio) {
   const marks = [];
   let offset = 0;
 
-  for (const group of byChapter) {
+  const groups = [];
+  for (const [groupIndex, group] of byChapter.entries()) {
     const from = Math.min(...group.scenes.map((scene) => scene.time.start));
     const to = Math.max(...group.scenes.map((scene) => scene.time.end));
     const k = group.seconds / Math.max(to - from, 1);
     if (group.title !== null) marks.push({ title: group.title, start: offset });
+    groups.push({ start: offset, seconds: group.seconds });
     group.scenes.forEach((scene, index) => {
       const start = offset + (scene.time.start - from) * k;
       const end = index === group.scenes.length - 1 ? offset + group.seconds : offset + (scene.time.end - from) * k;
-      placed.push({ ...scene, start, end });
+      placed.push({ ...scene, start, end, group: groupIndex });
     });
     offset += group.seconds;
   }
@@ -92,7 +99,7 @@ export function buildTimeline(scenes, chapters, audio) {
         .map((chapter) => ({ title: chapter.title, start: (chapter.start / runtime) * offset })),
     );
   }
-  return { scenes: placed, total: offset, chapters: marks, mode: byChapter.mode };
+  return { scenes: placed, total: offset, chapters: marks, mode: byChapter.mode, groups };
 }
 
 function chapterGroups(scenes, chapters, audio) {
@@ -138,7 +145,7 @@ export function subtitleCues(timeline, maxChars = 28) {
   const cues = [];
   for (const scene of timeline.scenes) {
     const raw = String(scene.fields?.NARRATION ?? "").trim();
-    if (/^(챕터\s*전환|전환|무음|-)$/.test(raw)) continue; // 제작 메모뿐인 무음 장면
+    if (isTransitionText(raw)) continue; // 제작 메모뿐인 무음 장면
     const text = raw
       .replace(/\[[^\]]*\]|\//g, " ") // [쉼]·[확인 필요] 같은 대본 메모
       .replace(/\*\*/g, "")
@@ -159,7 +166,7 @@ export function subtitleCues(timeline, maxChars = 28) {
   return cues;
 }
 
-function splitChunks(text, maxChars) {
+export function splitChunks(text, maxChars) {
   const sentences = text.split(/(?<=[.?!。…])\s+/).filter(Boolean);
   const chunks = [];
   for (const sentence of sentences) {

@@ -162,3 +162,24 @@ test("업로드 출처는 같은 출처를 모으고 AI 이미지는 한 줄, �
   assert.match(kit, /변경된 콘텐츠 표시: '예' \(내레이션이 본인 복제 목소리, AI 생성 이미지 포함\)/);
   assert.doesNotMatch(kit, /cdn\/a\.png/);
 });
+
+test("받아쓰기 시간으로 장면 시작과 자막을 실제 말소리에 맞춘다", async () => {
+  const { alignScenes, alignedCues, locate, normalize } = await import("../src/youtube/render/align.js");
+  const word = (text, start, end) => ({ text, start, end, type: "word" });
+  const words = [word("로고는", 0, 0.5), word("검은", 0.6, 1), word("테이프로", 1.1, 1.6), word("가려집니다.", 1.7, 2.5),
+    word("하인즈는", 4, 4.6), word("케첩병을", 4.7, 5.3), word("내놓았어요.", 5.4, 6.2), word("끝까지", 8, 8.5), word("보시죠.", 8.6, 9)];
+  const scene = (id, narration, start, end) => ({ id, fields: { NARRATION: narration }, start, end, group: 0 });
+  const timeline = {
+    groups: [{ start: 0, seconds: 10 }],
+    scenes: [scene("S001", "로고는 검은 테이프로", 0, 2), scene("S003", "끝까지 보시죠.", 2, 4), scene("S002", "하인즈는 케첩병을 내놓았어요", 4, 8), scene("S004", "챕터 전환", 8, 10)],
+  };
+  assert.equal(alignScenes(timeline, [words]), 3);
+  // 실제로 읽은 순서(S002 → S003)대로 다시 놓이고, 챕터 전환은 마지막 말 뒤
+  assert.deepEqual(timeline.scenes.map((item) => item.id), ["S001", "S002", "S003", "S004"]);
+  assert.ok(Math.abs(timeline.scenes[1].start - 3.88) < 0.01);
+  assert.ok(Math.abs(timeline.scenes[2].start - 7.88) < 0.01);
+  assert.ok(timeline.scenes[3].start > 9 && timeline.scenes[3].end === 10);
+  const cues = alignedCues(timeline, ["로고는 검은 테이프로 가려집니다. 하인즈는 케첩병을 내놓았어요. 끝까지 보시죠."], [words]);
+  assert.deepEqual(cues.map((cue) => [cue.text, Number(cue.start.toFixed(1))]), [["로고는 검은 테이프로 가려집니다.", 0], ["하인즈는 케첩병을 내놓았어요.", 4], ["끝까지 보시죠.", 8]]);
+  assert.ok(locate(normalize("1,400만 회 노출이었습니다"), normalize("천사백만 회 노출이었습니다"), 0) <= 1); // 표기가 달라도 근처를 찾는다
+});

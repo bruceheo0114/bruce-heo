@@ -40,6 +40,9 @@ Hook → Phenomenon → Case → Question → Analysis → Contrast → Insight 
         먼저 `estimate_only`로 비용을 보여 주고, 사용자가 이 방식을 이미 승인했으면 바로 생성한다.
       - 결과의 `content_url`(storage.googleapis.com)을 curl로 받아 `EP001_CH01.mp3` …로 저장한다. 링크는 2시간 뒤 만료된다.
       - 대본에 클라이언트를 짐작할 수 있는 업종·지역·수치가 있으면 생성 전에 일반적인 표현으로 바꾼다.
+      - **싱크용 받아쓰기(필수):** 챕터 음성 노드마다 `creative_transcribe_audio`(`eleven_scribe_v1`, `connect_from`에 그 음성 노드)를
+        돌리고, 결과의 `words_download_url`을 받아 음성 파일 옆에 `EP001_CH01.words.json`처럼 저장한다(현재 0크레딧).
+        render가 이 파일로 장면 전환과 자막을 실제 말소리에 맞춘다. 없으면 글자 수 비율로 추정해서 어긋난다.
    2. 사용자가 직접 녹음을 주면 그걸 쓴다. 잡음 확인: `ffmpeg -i <파일> -af astats -f null -` 와 사용자 말로 판단한다.
       - 에어컨·팬 같은 일정한 잡음뿐이면 render의 기본 정리(무료)로 충분하다.
       - 말소리·발소리처럼 불규칙한 잡음이면 ElevenLabs Voice Isolator가 필요하다. 이 환경에서는 파일을 ElevenLabs로 직접
