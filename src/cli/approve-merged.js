@@ -29,8 +29,5 @@ for (const item of approved) {
 }
 
 if (approved.length) await saveState(state);
-await writeJson(PATHS.result, {
-  approvedAt: approvedAt.toISOString(),
-  approved,
-});
+// .automation-result.json 은 discover → generate 가 쓰는 파일이라 여기서 덮어쓰지 않는다.
 console.log(JSON.stringify({ approved }));

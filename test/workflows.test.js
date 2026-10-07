@@ -56,3 +56,10 @@ test("브런치 카드뉴스는 수·금 인스타그램 대기열에 들어가�
   const script = await readFile("src/cli/schedule-instagram.js", "utf8");
   assert.match(script, /new Set\(\[3, 5\]\)/);
 });
+
+test("승인·예약 단계는 discover 결과 파일(.automation-result.json)을 덮어쓰지 않는다", async () => {
+  for (const file of ["src/cli/approve-merged.js", "src/cli/schedule-instagram.js", "src/cli/card-backlog.js"]) {
+    const text = await readFile(file, "utf8");
+    assert.doesNotMatch(text, /writeJson\(PATHS\.result/, file);
+  }
+});
