@@ -31,7 +31,9 @@
   "sameAs": [
     "https://www.linkedin.com/in/%EB%B3%B4%EB%9E%8C-%ED%97%88-8557401a7/",
     "https://brunch.co.kr/@heoboram",
-    "https://www.instagram.com/heo.boram/"
+    "https://www.instagram.com/heo.boram/",
+    "https://www.instagram.com/bruce.insight/",
+    "https://www.youtube.com/@bruce.insight"
   ],
   "knowsAbout": [
     "Brand Communication",
@@ -1110,6 +1112,54 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .media--placeholder .media__body { padding: clamp(24px, 3vw, 32px) clamp(22px, 2.6vw, 28px); gap: 16px; }
 .media--placeholder .media__type { color: var(--text-3); }
 .media--placeholder .media__title { color: var(--text-3); }
+.channels {
+  margin-top: clamp(40px, 6vw, 64px);
+  padding: clamp(24px, 3.4vw, 36px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--bg-card);
+}
+.channels__eyebrow { font-size: 12px; font-weight: 700; color: var(--accent); letter-spacing: 0.06em; }
+.channels__title { margin-top: 10px; font-size: clamp(20px, 2.4vw, 26px); font-weight: 800; letter-spacing: -0.03em; color: var(--text); word-break: keep-all; }
+.channels__desc { margin-top: 10px; font-size: 15px; line-height: 1.7; color: var(--text-2); word-break: keep-all; max-width: var(--column); }
+.channels__grid { margin-top: 24px; display: grid; grid-template-columns: 1fr; gap: 12px; }
+.channel {
+  display: flex; flex-direction: column; gap: 8px;
+  padding: 20px 22px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-soft);
+  transition: all 200ms ease;
+}
+.channel:hover { border-color: var(--accent); background: var(--bg-card); transform: translateY(-2px); }
+.channel__name { font-size: 16px; font-weight: 700; color: var(--text); }
+.channel__desc { font-size: 14px; line-height: 1.65; color: var(--text-2); word-break: keep-all; }
+.channel__cta { margin-top: 4px; font-size: 13px; font-weight: 600; color: var(--accent); }
+@media (min-width: 720px) {
+  .channels__grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+}
+.media--video { grid-column: 1 / -1; cursor: default; }
+.media--video:hover { transform: none; box-shadow: var(--shadow); }
+.media__video {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  background: #111;
+  border-bottom: 1px solid var(--border);
+}
+.media__video iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.media--video .media__source { color: var(--accent); font-weight: 600; text-decoration: none; }
+.media--video .media__source:hover::after { color: var(--accent); transform: translateX(4px); }
+@media (min-width: 1000px) {
+  .media--video { flex-direction: row; }
+  .media--video .media__video { flex: 0 0 62%; border-bottom: 0; border-right: 1px solid var(--border); }
+}
 
 @media (min-width: 720px) {
   .media-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
@@ -1395,6 +1445,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
           <a class="hero__social" href="https://brunch.co.kr/@heoboram" target="_blank" rel="noopener">Brunch</a>
           <a class="hero__social" href="https://www.linkedin.com/in/%EB%B3%B4%EB%9E%8C-%ED%97%88-8557401a7/" target="_blank" rel="noopener">LinkedIn</a>
           <a class="hero__social" href="https://www.instagram.com/heo.boram/" target="_blank" rel="noopener">Instagram</a>
+          <a class="hero__social" href="https://www.instagram.com/bruce.insight/" target="_blank" rel="noopener">Insight</a>
+          <a class="hero__social" href="https://www.youtube.com/@bruce.insight" target="_blank" rel="noopener">YouTube</a>
           <a class="hero__social" href="mailto:heoboram0114@gmail.com">Email</a>
         </div>
       </div>
@@ -1919,6 +1971,23 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     </div>
 
     <a href="https://brunch.co.kr/@heoboram" target="_blank" rel="noopener" class="posts-more">View All Essays on Brunch</a>
+    <div class="channels reveal">
+      <span class="channels__eyebrow">BRUCE INSIGHT</span>
+      <h3 class="channels__title">Bruce Insight</h3>
+      <p class="channels__desc">A channel that turns my Brunch essays into short videos and cards. Following notable campaigns and brand decisions, it focuses on context over answers and judgment over ideas (in Korean).</p>
+      <div class="channels__grid">
+        <a class="channel" href="https://www.instagram.com/bruce.insight/" target="_blank" rel="noopener">
+          <span class="channel__name">Instagram · @bruce.insight</span>
+          <span class="channel__desc">30-second reels on Tuesdays and Thursdays, card posts on Mondays and Wednesdays—brand cases and this week’s marketing issues, made short and clear.</span>
+          <span class="channel__cta">View on Instagram →</span>
+        </a>
+        <a class="channel" href="https://www.youtube.com/@bruce.insight" target="_blank" rel="noopener">
+          <span class="channel__name">YouTube · Bruce Insight</span>
+          <span class="channel__desc">Each essay becomes a video essay of about ten minutes, following a case to explain why a brand moved the way it did.</span>
+          <span class="channel__cta">Watch on YouTube →</span>
+        </a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1938,6 +2007,17 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     </div>
 
     <div class="media-grid reveal">
+      <div class="media media--video">
+        <div class="media__video">
+          <iframe src="https://www.youtube-nocookie.com/embed/n_dz1Q3K3_g?rel=0" title="Heinz Sells Memory, Not Ketchup — Bruce Insight" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="media__body">
+          <div class="media__type">▶ Video · Bruce Insight on YouTube</div>
+          <div class="media__title">Heinz Sells Memory, Not Ketchup</div>
+          <div class="media__desc">A ketchup bottle with its own logo taped over at the World Cup, and a $10,000 stunt that beat official sponsors. A video essay on why low-involvement products need branding the most (in Korean).</div>
+          <a class="media__source" href="https://www.youtube.com/@bruce.insight" target="_blank" rel="noopener">Visit the Bruce Insight channel</a>
+        </div>
+      </div>
       <a class="media" href="#" target="_blank" rel="noopener">
         <div class="media__body">
           <div class="media__type">▶ Video · Documentary</div>
@@ -2041,6 +2121,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
       <a href="https://brunch.co.kr/@heoboram" target="_blank" rel="noopener">Brunch</a>
       <a href="https://www.linkedin.com/in/%EB%B3%B4%EB%9E%8C-%ED%97%88-8557401a7/" target="_blank" rel="noopener">LinkedIn</a>
       <a href="https://www.instagram.com/heo.boram/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.instagram.com/bruce.insight/" target="_blank" rel="noopener">Insight</a>
+      <a href="https://www.youtube.com/@bruce.insight" target="_blank" rel="noopener">YouTube</a>
       <a href="mailto:heoboram0114@gmail.com">Email</a>
     </div>
   </div>
