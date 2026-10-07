@@ -31,7 +31,7 @@ Hook → Phenomenon → Case → Question → Analysis → Contrast → Insight 
 
 ## 제작 순서 (Bruce는 대본 확인·승인 한마디·업로드만 한다)
 
-1. 수요일 05:13 루틴이 큐 맨 위 글로 제작 패키지 생성 → `WAITING_APPROVAL` → 푸시 알림(대본 링크)
+1. 수요일 05:13 루틴이 제작 패키지 생성 — 그 주 월요일에 새 브런치 글이 올라왔으면 그 글, 없으면 큐의 예비 글(todo → reserve) → `WAITING_APPROVAL` → 푸시 알림(대본 링크)
 2. Bruce가 02_script.md를 보고 "진행"이라고 하면 이 순서로 끝까지 진행한다:
    1. 내레이션은 ElevenLabs의 Bruce 본인 복제 목소리로 만든다(직접 녹음하지 않는다).
       - `node src/cli/youtube.js narration-text <EP> --out <폴더>` → 챕터별 `CH01.txt` …

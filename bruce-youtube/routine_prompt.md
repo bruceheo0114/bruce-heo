@@ -16,6 +16,7 @@ Higgsfield·ElevenLabs·Instagram 도구는 쓰지 않는다. 생성은 사용�
 ## 1. 이번 주 대상
 
 `node src/cli/youtube.js next --weekly`의 출력이 Episode 폴더 이름(EPISODE)이다.
+고르는 순서(CLI가 정한다): 이번 주 월요일에 올라온 새 브런치 글(최근 7일) → 없으면 `queue.json`의 예비 글(todo, 그다음 reserve).
 비어 있으면 4단계(커밋)만 하고 "이번 주 제작 없음" 한 줄로 끝낸다.
 
 ## 2. 제작

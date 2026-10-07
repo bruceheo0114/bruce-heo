@@ -27,3 +27,19 @@ export function enqueueNew(queue, entries) {
 export function nextTodo(queue) {
   return queue.items.find((item) => item.status === "todo") ?? null;
 }
+
+const FRESH_DAYS = 7;
+const WAITING = ["todo", "reserve"];
+
+/**
+ * 이번 주 제작할 글 (사용자 결정 2026-10-07).
+ * 1) 최근 7일 안에 발행된 새 글(월요일 글) → 2) 큐의 todo → 3) 예비 글(reserve). 모두 큐 순서대로.
+ */
+export function pickNext(queue, index, now) {
+  const since = now.valueOf() - FRESH_DAYS * 24 * 60 * 60 * 1000;
+  const fresh = queue.items.find((item) => {
+    const entry = index.articles[String(item.no)];
+    return WAITING.includes(item.status) && entry && new Date(entry.publishedAt).valueOf() > since;
+  });
+  return fresh ?? nextTodo(queue) ?? queue.items.find((item) => item.status === "reserve") ?? null;
+}

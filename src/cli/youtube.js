@@ -2,7 +2,7 @@ import { appendFile, mkdir } from "node:fs/promises";
 import path from "node:path";
 import { RULES, STATUS, youtubePaths } from "../youtube/config.js";
 import { addSpend, loadLedger, monthSpent } from "../youtube/ledger.js";
-import { enqueueNew, loadQueue, nextTodo, saveQueue } from "../youtube/queue.js";
+import { enqueueNew, loadQueue, pickNext, saveQueue } from "../youtube/queue.js";
 import { createEpisode, findEpisode, listEpisodes, markUpdateAvailable, resolveUpdate } from "../youtube/episode.js";
 import {
   archiveArticles,
@@ -31,7 +31,7 @@ const USAGE = `사용법: node src/cli/youtube.js <명령> [인자]
   sync [--cache|--local]         브런치 글 → source/brunch Markdown, 새 글은 queue.json 뒤에 추가
                                  --cache: insight-reels/brunch_cache (클라우드 루틴 기본)
                                  --local: content/*/source.json, 생략하면 브런치 RSS 직접 접속
-  next [--weekly]                 제작할 Episode 1편 (PACKAGE_PENDING이 없으면 큐 맨 위 글로 새로 만든다)
+  next [--weekly]                 제작할 Episode 1편 (PACKAGE_PENDING이 없으면 이번 주 새 글 → 큐 todo → 예비 글 순으로 새로 만든다)
                                  --weekly: 최근 6일 안에 기획안을 만들었으면 비워 둔다
   episode <글번호>                큐와 상관없이 글 하나로 Episode를 만든다
   pending                         PACKAGE_PENDING Episode 목록
@@ -188,11 +188,11 @@ const commands = {
     }
     const queue = await loadQueue(paths);
     const index = await loadSourceIndex(paths);
-    let item = nextTodo(queue);
+    let item = pickNext(queue, index, now);
     while (item && !index.articles[String(item.no)]) {
       item.status = "missing";
       item.note = "source/brunch에 원문 없음";
-      item = nextTodo(queue);
+      item = pickNext(queue, index, now);
     }
     if (!item) {
       await saveQueue(queue, paths);
