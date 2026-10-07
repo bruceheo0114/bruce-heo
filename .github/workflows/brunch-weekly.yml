@@ -32,6 +32,10 @@ jobs:
         with:
           fetch-depth: 0
 
+      # 대기 중이던 실행도 최신 main(앞선 실행이 만든 패키지 포함)에서 시작한다.
+      - name: Update to latest main
+        run: git pull --ff-only -q origin main
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
@@ -121,6 +125,10 @@ jobs:
           for id in ${{ steps.discover.outputs.article_ids }}; do
             git add -- "content/$id"
           done
+          if git diff --cached --quiet; then
+            echo "::warning::새로 만들 패키지가 없습니다(이미 앞선 실행이 처리)."
+            exit 1
+          fi
           git commit -m "content: prepare Brunch social package"
           echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
           git push --set-upstream origin "${{ steps.branch.outputs.name }}"
