@@ -1,6 +1,6 @@
 {
-  "references_hash": "09262560b1727163",
-  "fetched_at": "2026-10-07T02:39:39.176Z",
+  "references_hash": "1338f4a8e04ddae1",
+  "fetched_at": "2026-10-07T02:43:35.989Z",
   "items": [
     {
       "file": "B01.jpg",
@@ -447,6 +447,148 @@
       "kind": "image",
       "source": "Heinz 공식 홈페이지",
       "url": "https://www.heinz.com/our-story"
+    },
+    {
+      "file": "K001-screen.jpg",
+      "id": "K001",
+      "scenes": [
+        "S037"
+      ],
+      "kind": "screen",
+      "source": "Kraft Heinz 공식 뉴스룸 (2026-07-23)",
+      "url": "https://news.kraftheinzcompany.com/stories-details/2026/How-Kraft-Heinz-Turned-Soccers-Biggest-Tournament-into-a-Global-Moment--2026-fMdq6RW4ft/default.aspx"
+    },
+    {
+      "file": "K001-scroll.jpg",
+      "id": "K001",
+      "scenes": [
+        "S037"
+      ],
+      "kind": "scroll",
+      "source": "Kraft Heinz 공식 뉴스룸 (2026-07-23)",
+      "url": "https://news.kraftheinzcompany.com/stories-details/2026/How-Kraft-Heinz-Turned-Soccers-Biggest-Tournament-into-a-Global-Moment--2026-fMdq6RW4ft/default.aspx"
+    },
+    {
+      "file": "K001-img1.jpg",
+      "id": "K001",
+      "scenes": [
+        "S037"
+      ],
+      "kind": "image",
+      "source": "Kraft Heinz 공식 뉴스룸 (2026-07-23)",
+      "url": "https://news.kraftheinzcompany.com/stories-details/2026/How-Kraft-Heinz-Turned-Soccers-Biggest-Tournament-into-a-Global-Moment--2026-fMdq6RW4ft/default.aspx"
+    },
+    {
+      "file": "K001-img2.jpg",
+      "id": "K001",
+      "scenes": [
+        "S037"
+      ],
+      "kind": "image",
+      "source": "Kraft Heinz 공식 뉴스룸 (2026-07-23)",
+      "url": "https://news.kraftheinzcompany.com/stories-details/2026/How-Kraft-Heinz-Turned-Soccers-Biggest-Tournament-into-a-Global-Moment--2026-fMdq6RW4ft/default.aspx"
+    },
+    {
+      "file": "K001-img3.jpg",
+      "id": "K001",
+      "scenes": [
+        "S037"
+      ],
+      "kind": "image",
+      "source": "Kraft Heinz 공식 뉴스룸 (2026-07-23)",
+      "url": "https://news.kraftheinzcompany.com/stories-details/2026/How-Kraft-Heinz-Turned-Soccers-Biggest-Tournament-into-a-Global-Moment--2026-fMdq6RW4ft/default.aspx"
+    },
+    {
+      "file": "K003.jpg",
+      "id": "K003",
+      "scenes": [
+        "S003",
+        "S006",
+        "S043"
+      ],
+      "kind": "image",
+      "source": "Kraft Heinz 공식 뉴스룸 (2026-07-23)",
+      "url": "https://news.kraftheinzcompany.com/stories-details/2026/How-Kraft-Heinz-Turned-Soccers-Biggest-Tournament-into-a-Global-Moment--2026-fMdq6RW4ft/default.aspx"
+    },
+    {
+      "file": "K001I.jpg",
+      "id": "K001I",
+      "scenes": [
+        "S031",
+        "S035"
+      ],
+      "kind": "image",
+      "source": "Kraft Heinz 공식 뉴스룸 (2026-07-23)",
+      "url": "https://news.kraftheinzcompany.com/stories-details/2026/How-Kraft-Heinz-Turned-Soccers-Biggest-Tournament-into-a-Global-Moment--2026-fMdq6RW4ft/default.aspx"
+    },
+    {
+      "file": "K002.jpg",
+      "id": "K002",
+      "scenes": [
+        "S005",
+        "S016"
+      ],
+      "kind": "image",
+      "source": "Kraft Heinz 공식 뉴스룸 (2026-07-23)",
+      "url": "https://news.kraftheinzcompany.com/stories-details/2026/How-Kraft-Heinz-Turned-Soccers-Biggest-Tournament-into-a-Global-Moment--2026-fMdq6RW4ft/default.aspx"
+    },
+    {
+      "file": "K002B.jpg",
+      "id": "K002B",
+      "scenes": [],
+      "kind": "image",
+      "source": "Kraft Heinz 공식 뉴스룸 (2026-07-23) — HEINZ × Heineken",
+      "url": "https://news.kraftheinzcompany.com/stories-details/2026/How-Kraft-Heinz-Turned-Soccers-Biggest-Tournament-into-a-Global-Moment--2026-fMdq6RW4ft/default.aspx"
+    },
+    {
+      "file": "K005.jpg",
+      "id": "K005",
+      "scenes": [
+        "S048"
+      ],
+      "kind": "image",
+      "source": "Kraft Heinz 공식 뉴스룸 (2026-07-23) — HEINZ Penalty Packets",
+      "url": "https://news.kraftheinzcompany.com/stories-details/2026/How-Kraft-Heinz-Turned-Soccers-Biggest-Tournament-into-a-Global-Moment--2026-fMdq6RW4ft/default.aspx"
+    },
+    {
+      "file": "K006.jpg",
+      "id": "K006",
+      "scenes": [],
+      "kind": "image",
+      "source": "Kraft Heinz 공식 뉴스룸 (2026-07-23)",
+      "url": "https://news.kraftheinzcompany.com/stories-details/2026/How-Kraft-Heinz-Turned-Soccers-Biggest-Tournament-into-a-Global-Moment--2026-fMdq6RW4ft/default.aspx"
+    },
+    {
+      "file": "R001.jpg",
+      "id": "R001",
+      "scenes": [
+        "S003",
+        "S031",
+        "S055"
+      ],
+      "kind": "image",
+      "source": "Heinz Canada 공식 키비주얼 (Rethink, LBB Online 게재)",
+      "url": "https://lbbonline.com/news/HEINZ-Viral-Censored-Stadium-Moment-Limited-Edition-Bottle-Canada"
+    },
+    {
+      "file": "X001-screen.jpg",
+      "id": "X001",
+      "scenes": [
+        "S002"
+      ],
+      "kind": "screen",
+      "source": "Kevin V. Nguyen X (2026-06-13)",
+      "url": "https://x.com/KevinNguyen_89/status/2065887598589968877"
+    },
+    {
+      "file": "E001-screen.jpg",
+      "id": "E001",
+      "scenes": [
+        "S010"
+      ],
+      "kind": "screen",
+      "source": "Edelman — Heinz to Hellmann's (Thomas Heinz)",
+      "url": "https://www.edelman.com/work/heinz-hellmanns"
     },
     {
       "file": "brunch-01.jpg",
