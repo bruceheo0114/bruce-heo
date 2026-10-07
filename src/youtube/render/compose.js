@@ -58,12 +58,16 @@ async function imageSize(file) {
  */
 async function loadMedia(episode, referenceDir, root) {
   const credits = await readJson(path.join(referenceDir, "credits.json"), { items: [] });
+  // references.json의 exclude: 받아 보니 쓸모없는 그림(광고 배너·아이콘·유료벽 화면 등). 파일 이름(확장자 생략 가능)
+  const references = await readJson(path.join(episode.dir, "references.json"), {});
+  const excluded = new Set((references.exclude ?? []).map((name) => String(name).replace(/\.[a-z]+$/i, "").toUpperCase()));
+  const isExcluded = (file) => excluded.has(path.parse(file).name.toUpperCase());
   const byKey = new Map();
   const pool = [];
   const add = (key, media) => byKey.set(key, [...(byKey.get(key) ?? []), media]);
   for (const item of credits.items ?? []) {
     const file = path.join(referenceDir, item.file);
-    if (!(await exists(file))) continue;
+    if (isExcluded(item.file) || !(await exists(file))) continue;
     const media = { file, kind: item.kind, credit: item.source, url: item.url };
     if (item.scenes?.length) for (const scene of item.scenes) add(scene.toUpperCase(), media);
     else if (/^A\d+/i.test(item.id)) add(item.id.toUpperCase(), media);
@@ -77,7 +81,7 @@ async function loadMedia(episode, referenceDir, root) {
     names = [];
   }
   for (const name of names) {
-    if (!MEDIA.test(name) || known.has(name)) continue;
+    if (!MEDIA.test(name) || known.has(name) || isExcluded(name)) continue;
     const key = path.parse(name).name.toUpperCase().replace(/[-_].*$/, "");
     if (/^(S|A)\d+$/.test(key)) add(key, { file: path.join(referenceDir, name), kind: /\.(mp4|mov|m4v)$/i.test(name) ? "video" : "image", credit: "제공 자료" });
   }
