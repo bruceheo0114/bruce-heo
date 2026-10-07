@@ -885,9 +885,10 @@
         "updatedAt": "2026-10-05T22:25:25.704Z"
       },
       "package": {
-        "status": "awaiting_review",
+        "status": "generated",
         "manifestPath": "content/222/manifest.json",
-        "generatedAt": null
+        "generatedAt": "2026-10-07T00:58:41.967Z",
+        "approvedAt": "2026-10-07T00:58:53.336Z"
       },
       "linkedin": {
         "status": "manual_pending",
@@ -896,13 +897,14 @@
         "error": null
       },
       "instagram": {
-        "status": "manual_pending",
+        "status": "scheduled",
         "id": null,
         "lastAttemptAt": null,
-        "error": null
+        "error": null,
+        "scheduledDate": "2026-10-16"
       },
-      "approvedAt": null,
-      "scheduledAt": null,
+      "approvedAt": "2026-10-07T00:58:53.336Z",
+      "scheduledAt": "2026-10-08T21:30:00.000Z",
       "completedAt": null
     }
   }
