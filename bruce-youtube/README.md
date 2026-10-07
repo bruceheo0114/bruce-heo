@@ -6,7 +6,7 @@
 ```text
 브런치 새 글 ─ sync ─▶ source/brunch/<글번호>.md ─▶ episodes/EP###_brunch-<글번호>/ (PACKAGE_PENDING)
             (매일 3회, Claude 미사용)
-주 1회(수 10:00) Claude Code ─▶ 00_score ~ 06_shorts ─ finalize ─▶ WAITING_APPROVAL / SHORTS_ONLY / HOLD / SKIP
+주 1회(수 21:00) Claude Code ─▶ 00_score ~ 06_shorts ─ finalize ─▶ WAITING_APPROVAL / SHORTS_ONLY / HOLD / SKIP
 직접 녹음 ─ narration ─▶ 길이 비교 → 타임코드 조정
 report → 사용자 승인 → approve ─▶ APPROVED ─ Higgsfield 생성 ─ record-generation ─▶ ASSETS_READY → 편집
 ```
@@ -32,7 +32,7 @@ report → 사용자 승인 → approve ─▶ APPROVED ─ Higgsfield 생성 �
 3. 저장소를 클론하고 `pnpm install` (또는 `npm install`).
 4. PowerShell에서 `powershell -ExecutionPolicy Bypass -File bruce-youtube\scripts\register_task.ps1`
    - `bruce-youtube-sync`: 매일 10:00·14:00·20:00 새 글 확인 (Claude 미사용)
-   - `bruce-youtube-weekly`: 매주 수 10:00 Episode 1편 제작 (Claude Sonnet, Higgsfield 차단)
+   - `bruce-youtube-weekly`: 매주 수 21:00 Episode 1편 제작 (Claude Sonnet, Higgsfield 차단)
 5. 수동 실행: `powershell -ExecutionPolicy Bypass -File bruce-youtube\scripts\run_pipeline.ps1 -NoPush`
 
 ## 명령
