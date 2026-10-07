@@ -421,10 +421,11 @@ export async function renderEpisode(episode, audioFiles, { root, outDir, preview
         "-t", seconds, ...encode, clip]);
     } else {
       const { width, height } = await imageSize(shot.media.file);
-      const wide = width / height >= 1.3;
+      // 16:9에 가까운 그림만 화면을 꽉 채운다. 세로로 길거나 배너처럼 아주 가로로 긴 그림은 잘리지 않게 전체를 보이고 뒤는 흐리게.
+      const wide = width / height >= 1.3 && width / height <= 2.1;
       const base = wide
         ? `[0:v]scale=2304:1296:force_original_aspect_ratio=increase,crop=2304:1296[b]`
-        : `[0:v]split[a][f];[a]scale=2304:1296:force_original_aspect_ratio=increase,crop=2304:1296,boxblur=40:2,eq=brightness=-0.18[bg];[f]scale=-2:1150[fg];[bg][fg]overlay=(W-w)/2:(H-h)/2[b]`;
+        : `[0:v]split[a][f];[a]scale=2304:1296:force_original_aspect_ratio=increase,crop=2304:1296,boxblur=40:2,eq=brightness=-0.18[bg];[f]scale=2200:1150:force_original_aspect_ratio=decrease[fg];[bg][fg]overlay=(W-w)/2:(H-h)/2[b]`;
       await ffmpeg([...still, "-i", shot.media.file, "-loop", "1", "-i", frame, "-filter_complex",
         `${base};[b]${pushIn(frames, shot.close)}[v];[v][1:v]overlay=0:0,scale=${size}`,
         "-t", seconds, ...encode, clip]);
