@@ -184,7 +184,7 @@ function splitHalf(value) {
 /**
  * 영상 만들기. audioFiles: 녹음 파일 경로(챕터 순서). outDir에 <EP>.mp4, subtitles.srt, thumbnail.png, upload.md를 만든다.
  */
-export async function renderEpisode(episode, audioFiles, { root, outDir, preview = false, log = () => {} }) {
+export async function renderEpisode(episode, audioFiles, { root, outDir, preview = false, cleanup = true, log = () => {} }) {
   const storyboardText = await readEpisodeFile(episode, "03_storyboard.md");
   const script = await readEpisodeFile(episode, "02_script.md");
   const brief = (await readEpisodeFile(episode, "01_brief.md")) ?? "";
@@ -250,11 +250,12 @@ export async function renderEpisode(episode, audioFiles, { root, outDir, preview
   const video = path.join(work, "video.mp4");
   await ffmpeg(["-f", "concat", "-safe", "0", "-i", clipList, "-c", "copy", video]);
 
-  // 3) 녹음 이어붙이기 + 유튜브 기준 음량(-14 LUFS)
+  // 3) 녹음 이어붙이기 + 저음 웅웅거림·일정한 잡음(에어컨·팬) 줄이기 + 유튜브 기준 음량(-14 LUFS)
+  //    ElevenLabs Voice Isolator로 이미 정리한 파일이면 cleanup=false로 건너뛴다.
   const audioOut = path.join(work, "narration.m4a");
   const inputs = audio.flatMap((item) => ["-i", item.file]);
   const join = audio.map((_, index) => `[${index}:a]`).join("");
-  await ffmpeg([...inputs, "-filter_complex", `${join}concat=n=${audio.length}:v=0:a=1,loudnorm=I=-14:TP=-1.5:LRA=11[a]`, "-map", "[a]", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", audioOut]);
+  await ffmpeg([...inputs, "-filter_complex", `${join}concat=n=${audio.length}:v=0:a=1,${cleanup ? "highpass=f=80,afftdn=nf=-25:tn=1," : ""}loudnorm=I=-14:TP=-1.5:LRA=11[a]`, "-map", "[a]", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", audioOut]);
 
   // 4) 자막을 입혀 최종본
   const cues = subtitleCues(timeline);

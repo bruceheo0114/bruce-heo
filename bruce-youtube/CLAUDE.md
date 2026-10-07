@@ -35,16 +35,20 @@ Hook → Phenomenon → Case → Question → Analysis → Contrast → Insight 
 2. Bruce가 02_script.md를 보고 아이폰으로 챕터별 녹음(`EP001_CH01.m4a` …) → Claude 대화창에 m4a 첨부
 3. 녹음을 받으면 이 순서로 끝까지 진행한다:
    1. `node src/cli/youtube.js narration <EP> <파일...>` (ffprobe로 길이 자동 측정)
-   2. `report`로 AI 장면 계획을 보여주고 승인을 받는다. 승인 전에는 생성하지 않는다. 사용자가 "AI 없이"라고 하면 건너뛴다.
-   3. 승인된 Scene만 생성 → `can-generate` → Higgsfield → 결과를 `assets/generated/<EP>/<Scene>.png|mp4`로 저장 → `record-generation`
-   4. `node src/cli/youtube.js render <EP> <녹음 파일...>` → `output/<EP>/`에 `<EP>.mp4`, `thumbnail.png`, `upload.md`, `subtitles.srt`
-   5. 완성 영상의 몇 장면을 뽑아 확인한 뒤 mp4·썸네일을 사용자에게 보내고 upload.md 내용을 그대로 전한다.
+   2. 잡음 확인: 각 파일 앞 10초를 들어볼 수는 없으니 `ffmpeg -i <파일> -af astats -f null -` 의 Noise floor/RMS와 사용자 말로 판단한다.
+      - 에어컨·팬 같은 일정한 잡음뿐이면 render의 기본 정리(무료)로 충분하다.
+      - 말소리·TV·차 소리처럼 불규칙한 잡음이면 ElevenLabs Voice Isolator(`voice-isolator` 노드, `audio_isolation`)를 쓴다.
+        먼저 `estimate_only`로 비용을 사용자에게 보여주고 승인받은 뒤 실행한다. 결과 파일로 render하고 `--no-cleanup`을 붙인다.
+   3. `report`로 AI 장면 계획을 보여주고 승인을 받는다. 승인 전에는 생성하지 않는다. 사용자가 "AI 없이"라고 하면 건너뛴다.
+   4. 승인된 Scene만 생성 → `can-generate` → Higgsfield → 결과를 `assets/generated/<EP>/<Scene>.png|mp4`로 저장 → `record-generation`
+   5. `node src/cli/youtube.js render <EP> <녹음 파일...>` → `output/<EP>/`에 `<EP>.mp4`, `thumbnail.png`, `upload.md`, `subtitles.srt`
+   6. 완성 영상의 몇 장면을 뽑아 확인한 뒤 mp4·썸네일을 사용자에게 보내고 upload.md 내용을 그대로 전한다.
 4. Bruce가 YouTube 앱에서 업로드
 
 실제 광고 영상은 내려받지 않는다. REAL Scene은 사례 카드(캠페인 이름·핵심 사실·출처)로 그린다.
 사용자가 클립·사진을 주면 `assets/references/<EP>/<ASSET ID 또는 Scene ID>.mp4|jpg|png`로 두면 render가 그 자료를 쓴다.
 
-내레이션은 TTS로 만들지 않는다. ElevenLabs 등 음성 생성 도구를 쓰지 않는다.
+내레이션은 TTS로 만들지 않는다. ElevenLabs는 잡음 제거(Voice Isolator)와 받아쓰기에만 쓴다.
 
 ## HIGGSFIELD
 
