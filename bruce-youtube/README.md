@@ -5,8 +5,8 @@
 
 ```text
 Actions(매일 07:17) brunch_cache 갱신
-수 21:00 클라우드 루틴(Sonnet) ─ sync --cache ─ next --weekly(queue.json 맨 위 글) ─ 00_score~06_shorts ─ finalize
-   ─▶ WAITING_APPROVAL → main 커밋 → 미리보기 메일
+수 05:13 클라우드 루틴(Sonnet) ─ sync --cache ─ next --weekly(queue.json 맨 위 글) ─ 00_score~06_shorts ─ finalize
+   ─▶ WAITING_APPROVAL → main 커밋 → Claude 앱 푸시 알림
 Bruce 녹음(아이폰) → 길이 회신 → narration 등록 → 타임코드 조정
 report → 승인 회신 → approve → Higgsfield 생성(can-generate·record-generation, ledger.json) → 편집 → 업로드
 ```
@@ -50,7 +50,7 @@ node src/cli/youtube.js resolve-update EP001 keep|regenerate
 
 ## 안전장치
 
-- 주 1편: 최근 7일 안에 기획안(WAITING_APPROVAL/SHORTS_ONLY)을 만들었으면 루틴이 제작하지 않는다. HOLD/SKIP은 세지 않는다.
+- 주 1편: 최근 6일 안에 기획안(WAITING_APPROVAL/SHORTS_ONLY)을 만들었으면 루틴이 제작하지 않는다. HOLD/SKIP은 세지 않는다.
 - 원문이 수정되면 Episode를 덮어쓰지 않고 `UPDATE_AVAILABLE` + Higgsfield 생성 중지.
 - 루틴은 대상 Episode 밖의 `episodes/` 변경이 있으면 되돌린 뒤 커밋한다(`guard`).
 - 루틴에는 Higgsfield·ElevenLabs 커넥터를 연결하지 않는다.

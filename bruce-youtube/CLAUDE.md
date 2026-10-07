@@ -31,7 +31,7 @@ Hook → Phenomenon → Case → Question → Analysis → Contrast → Insight 
 
 ## 제작 순서
 
-1. 수요일 21:00 클라우드 루틴이 큐 맨 위 글로 제작 패키지 생성 → `WAITING_APPROVAL` → 미리보기 메일
+1. 수요일 05:13 클라우드 루틴이 큐 맨 위 글로 제작 패키지 생성 → `WAITING_APPROVAL` → Claude 앱 푸시 알림
 2. Bruce가 02_script.md를 보고 아이폰으로 챕터별 녹음(`EP001_CH01.m4a` …). 녹음 파일은 git에 올리지 않고 편집 PC에 둔다
 3. 길이를 알려주면 `node src/cli/youtube.js narration <EP> <파일...> --duration mm:ss ...`로 등록. 스토리보드와 10% 넘게 차이 나면 타임코드를 녹음에 맞춰 고친다.
 4. `report` → 사용자 승인 → `approve` → Higgsfield 생성
