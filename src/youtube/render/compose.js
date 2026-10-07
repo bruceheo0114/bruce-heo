@@ -538,7 +538,7 @@ export async function renderEpisode(episode, audioFiles, { root, outDir, preview
       const delays = cardStarts.map((start, index) => `[1:a]adelay=${Math.round(start * 1000)}:all=1,volume=${SFX_VOLUME}[s${index}]`);
       const split = `[1:a]asplit=${cardStarts.length}${cardStarts.map((_, index) => `[c${index}]`).join("")}`;
       const placed = delays.map((line, index) => line.replace("[1:a]", `[c${index}]`));
-      const mix = `[0:a]${cardStarts.map((_, index) => `[s${index}]`).join("")}amix=inputs=${cardStarts.length + 1}:normalize=0:duration=first,alimiter=limit=0.89[a]`;
+      const mix = `[0:a]${cardStarts.map((_, index) => `[s${index}]`).join("")}amix=inputs=${cardStarts.length + 1}:normalize=0:duration=first,alimiter=limit=0.84:level=false[a]`;
       await ffmpeg(["-i", voiceOut, "-i", sfx, "-filter_complex", [split, ...placed, mix].join(";"), "-map", "[a]", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", audioOut]);
     } else {
       log(`! 효과음 파일이 없어 간지에 소리를 넣지 않았습니다: ${sfx}`);
