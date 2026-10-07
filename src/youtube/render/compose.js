@@ -532,7 +532,7 @@ export async function renderEpisode(episode, audioFiles, { root, outDir, preview
   const voiceOut = cardStarts.length ? path.join(work, "voice.m4a") : audioOut;
   await ffmpeg([...inputs, "-filter_complex", `${chain}loudnorm=${target}${linear}[a]`, "-map", "[a]", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", voiceOut]);
   // 챕터 간지마다 짧은 효과음(bruce-youtube/channel/sfx/chapter.mp3)을 작게 깐다.
-  const sfx = path.join(root, "bruce-youtube", "channel", "sfx", "chapter.mp3");
+  const sfx = path.join(root, "channel", "sfx", "chapter.mp3"); // root = bruce-youtube
   if (cardStarts.length) {
     if (await exists(sfx)) {
       const delays = cardStarts.map((start, index) => `[1:a]adelay=${Math.round(start * 1000)}:all=1,volume=${SFX_VOLUME}[s${index}]`);
@@ -541,6 +541,7 @@ export async function renderEpisode(episode, audioFiles, { root, outDir, preview
       const mix = `[0:a]${cardStarts.map((_, index) => `[s${index}]`).join("")}amix=inputs=${cardStarts.length + 1}:normalize=0:duration=first,alimiter=limit=0.89[a]`;
       await ffmpeg(["-i", voiceOut, "-i", sfx, "-filter_complex", [split, ...placed, mix].join(";"), "-map", "[a]", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", audioOut]);
     } else {
+      log(`! 효과음 파일이 없어 간지에 소리를 넣지 않았습니다: ${sfx}`);
       await ffmpeg(["-i", voiceOut, "-c", "copy", audioOut]);
     }
   }
