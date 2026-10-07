@@ -53,7 +53,7 @@ async function exists(file) {
   }
 }
 
-const SFX_VOLUME = 0.45; // 효과음 크기(내레이션 대비)
+const SFX_VOLUME = 0.7; // 효과음 크기(내레이션 대비)
 const CHAPTER_GAP = 2.6; // 챕터 사이 무음(초). 이 자리에 챕터 간지와 효과음이 들어간다
 
 async function readWords(audioFile) {
