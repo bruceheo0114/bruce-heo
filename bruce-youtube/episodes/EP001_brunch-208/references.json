@@ -1,5 +1,5 @@
 {
-  "brunch": true,
+  "brunch": false,
   "_note": "Firecrawl로 찾은 실제 자료 주소 (2026-10-07). 공식 출처 우선: Kraft Heinz 뉴스룸, Heinz 공식 홈페이지·키비주얼, Oreo 공식 X, 기사에서 언급된 원 게시물.",
   "items": [
     {
@@ -261,5 +261,23 @@
       ],
       "max_images": 2
     }
+  ],
+  "exclude": [
+    "A001-img1",
+    "A001-img2",
+    "A001-img3",
+    "A001-scroll",
+    "A003-img1",
+    "A004-img1",
+    "A006-img1",
+    "A006-img3",
+    "A009-screen",
+    "A009-scroll",
+    "H001-img2",
+    "H001-img4",
+    "brunch-01",
+    "brunch-02",
+    "brunch-03",
+    "brunch-04"
   ]
 }

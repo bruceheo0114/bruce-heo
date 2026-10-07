@@ -12,8 +12,10 @@ const run = promisify(execFile);
 const UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126 Safari/537.36";
 const MIN_WIDTH = 600;
 
+// exclude(화면에서 뺄 그림)만 바뀐 경우에는 다시 받지 않는다.
 export function referencesHash(text) {
-  return createHash("sha256").update(text).digest("hex").slice(0, 16);
+  const { exclude, _note, ...rest } = JSON.parse(text);
+  return createHash("sha256").update(JSON.stringify(rest)).digest("hex").slice(0, 16);
 }
 
 export function validateReferences(data) {
