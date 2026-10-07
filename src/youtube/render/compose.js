@@ -9,7 +9,7 @@ import { cpus } from "node:os";
 import { readEpisodeFile } from "../episode.js";
 import { findSection, parseBlocks } from "../parse.js";
 import { analyzeStoryboard } from "../validate.js";
-import { FRAME, logoHtml, overlayHtml, renderFrames, sceneFrameHtml, screenLines } from "./frames.js";
+import { FRAME, isTransition, logoHtml, overlayHtml, renderFrames, sceneFrameHtml, screenLines } from "./frames.js";
 import { buildTimeline, formatClock, parseScriptChapters, subtitleCues } from "./timeline.js";
 
 const run = promisify(execFile);
@@ -389,7 +389,9 @@ export async function renderEpisode(episode, audioFiles, { root, outDir, preview
       const lines = shot.mode === "type" || shot.mode === "caption" ? screenLines(scene) : [];
       jobs.push({ file: shot.frame, html: overlayHtml({ chapter: shot.chapter, credit: shot.media.credit, mode: shot.mode, lines }), transparent: true });
     } else {
-      jobs.push({ file: shot.frame, html: sceneFrameHtml(scene, { chapter: shot.chapter, asset: assets.get(assetId) }).html });
+      // 챕터 전환 장면은 앞 챕터 끝에 있어도 다음 챕터 제목을 보여 준다
+      const chapter = isTransition(scene) ? chapterLabelAt(timeline, scene.end) : shot.chapter;
+      jobs.push({ file: shot.frame, html: sceneFrameHtml(scene, { chapter, asset: assets.get(assetId) }).html });
     }
   });
   await renderFrames(jobs, work);
