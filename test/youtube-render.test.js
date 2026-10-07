@@ -196,3 +196,13 @@ test("챕터마다(첫 챕터 제외) 녹음 끝 무음 자리에 간지를 넣�
   assert.deepEqual(timeline.scenes.map((item) => [item.id, item.start, item.end]), [["S001", 0, 6], ["S002", 6, 10], ["CARD02", 10, 12.6], ["S004", 12.6, 22.6]]);
   assert.ok(timeline.scenes[2].chapterCard);
 });
+
+test("사진 확대는 소수점 좌표(perspective)로 해서 떨리지 않는다", async () => {
+  const { pushIn } = await import("../src/youtube/render/compose.js");
+  const normal = pushIn(105);
+  assert.match(normal, /^perspective=/);
+  assert.match(normal, /interpolation=cubic/);
+  assert.match(normal, /eval=frame/);
+  assert.doesNotMatch(normal, /zoompan/);
+  assert.match(pushIn(105, true), /H\*0\.42/); // 클로즈업은 가운데보다 조금 위
+});

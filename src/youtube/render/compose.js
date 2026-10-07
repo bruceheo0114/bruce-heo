@@ -277,10 +277,16 @@ export function planMappedShots(timeline, sceneImages) {
 
 // 정지 그림은 모두 같은 방식으로 아주 천천히 밀고 들어간다(1.00 → 1.05). 방향을 바꾸지 않아 산만하지 않다.
 // close: 같은 그림의 두 번째 컷. 1.25배로 가까이(가운데보다 조금 위) 당겨 다른 컷처럼 보이게 한다.
-function pushIn(frames, close = false) {
-  const z = close ? `1.25+0.05*on/${frames}` : `1+0.05*on/${frames}`;
-  const y = close ? "ih*0.42-(ih/zoom/2)" : "ih/2-(ih/zoom/2)";
-  return `zoompan=z='${z}':x='iw/2-(iw/zoom/2)':y='${y}':d=1:s=${FRAME.width}x${FRAME.height}:fps=${FPS}`;
+// zoompan은 위치를 정수 픽셀로 반올림해 확대 중에 화면이 덜덜 떨린다(프레임당 최대 2px 튐).
+// perspective는 소수점 좌표로 보간해서 매끄럽다(측정: 떨림 0.76px → 0.06px).
+export function pushIn(frames, close = false) {
+  const zoom = close ? `(1.25+0.05*in/${frames})` : `(1+0.05*in/${frames})`;
+  const cy = close ? "H*0.42" : "H/2";
+  const left = `W/2-W/2/${zoom}`;
+  const right = `W/2+W/2/${zoom}`;
+  const top = `${cy}-H/2/${zoom}`;
+  const bottom = `${cy}+H/2/${zoom}`;
+  return `perspective=x0='${left}':y0='${top}':x1='${right}':y1='${top}':x2='${left}':y2='${bottom}':x3='${right}':y3='${bottom}':interpolation=cubic:sense=source:eval=frame`;
 }
 
 function assTime(seconds) {
@@ -471,19 +477,25 @@ export async function renderEpisode(episode, audioFiles, { root, outDir, preview
         `[0:v]scale=${FRAME.width}:${FRAME.height}:force_original_aspect_ratio=increase,crop=${FRAME.width}:${FRAME.height},setsar=1,fps=${FPS}[v];[v][1:v]overlay=0:0,scale=${size}`,
         ...encode, clip]);
     } else if (shot.media.kind === "scroll") {
+      // 2배 크기에서 내려가며 자르고 줄여서 한 칸씩 끊기지 않게(0.5px 단위로) 움직인다
+      const W2 = FRAME.width * 2;
+      const H2 = FRAME.height * 2;
       await ffmpeg([...still, "-i", shot.media.file, "-loop", "1", "-i", frame, "-filter_complex",
-        `[0:v]scale=${FRAME.width}:-2,crop=${FRAME.width}:${FRAME.height}:0:'(ih-${FRAME.height})*t/${seconds}'[v];[v][1:v]overlay=0:0,scale=${size}`,
+        `[0:v]scale=${W2}:-2:flags=lanczos,crop=${W2}:${H2}:0:'(ih-${H2})*t/${seconds}',scale=${FRAME.width}:${FRAME.height}:flags=lanczos[v];[v][1:v]overlay=0:0,scale=${size}`,
         "-t", seconds, ...encode, clip]);
     } else {
       const { width, height } = await imageSize(shot.media.file);
       // 16:9에 가까운 그림만 화면을 꽉 채운다. 세로로 길거나 배너처럼 아주 가로로 긴 그림은 잘리지 않게 전체를 보이고 뒤는 흐리게.
       const wide = width / height >= 1.3 && width / height <= 2.1;
+      const { width: W, height: H } = FRAME;
       const base = wide
-        ? `[0:v]scale=2304:1296:force_original_aspect_ratio=increase,crop=2304:1296[b]`
-        : `[0:v]split[a][f];[a]scale=2304:1296:force_original_aspect_ratio=increase,crop=2304:1296,boxblur=40:2,eq=brightness=-0.18[bg];[f]scale=2200:1150:force_original_aspect_ratio=decrease[fg];[bg][fg]overlay=(W-w)/2:(H-h)/2[b]`;
-      await ffmpeg([...still, "-i", shot.media.file, "-loop", "1", "-i", frame, "-filter_complex",
-        `${base};[b]${pushIn(frames, shot.close)}[v];[v][1:v]overlay=0:0,scale=${size}`,
-        "-t", seconds, ...encode, clip]);
+        ? `[0:v]scale=${W}:${H}:force_original_aspect_ratio=increase:flags=lanczos,crop=${W}:${H}[b]`
+        : `[0:v]split[a][f];[a]scale=${W}:${H}:force_original_aspect_ratio=increase,crop=${W}:${H},boxblur=34:2,eq=brightness=-0.18[bg];` +
+          `[f]scale=${Math.round(W * 0.955)}:${Math.round(H * 0.887)}:force_original_aspect_ratio=decrease:flags=lanczos[fg];[bg][fg]overlay=(W-w)/2:(H-h)/2[b]`;
+      // 바탕 그림은 한 번만 만들고(loop) 프레임마다 소수점 좌표로 확대한다
+      await ffmpeg(["-i", shot.media.file, "-loop", "1", "-framerate", String(FPS), "-i", frame, "-filter_complex",
+        `${base};[b]format=yuv444p,loop=loop=${frames - 1}:size=1:start=0,setpts=N/${FPS}/TB,${pushIn(frames, shot.close)}[v];[v][1:v]overlay=0:0:shortest=1,scale=${size}`,
+        "-frames:v", String(frames), ...encode, clip]);
     }
     return clip;
   });
