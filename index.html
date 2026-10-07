@@ -1117,6 +1117,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .media-grid--feature { margin-bottom: clamp(28px, 4vw, 44px); }
 .writing-subhead { margin: clamp(48px, 7vw, 72px) 0 18px; font-size: 13px; font-weight: 700; color: var(--text-3); letter-spacing: 0.06em; }
 .channels__video { margin-top: 24px; }
+.channels__video--top { margin-top: 0; margin-bottom: 16px; }
 .channels__video .media--video { border-color: var(--border); }
 .channels {
   margin-top: clamp(40px, 6vw, 64px);
@@ -1387,8 +1388,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
       <a href="#communications" class="nav__link">PR</a>
       <a href="#work" class="nav__link">Work</a>
       <a href="#knowledge" class="nav__link">세션·강연</a>
-      <a href="#writing" class="nav__link">Writing</a>
-      <a href="#media" class="nav__link">Lectures</a>
+      <a href="#writing" class="nav__link">글</a>
+      <a href="#content" class="nav__link">콘텐츠</a>
+      <a href="#media" class="nav__link">외부강연</a>
       <a href="en/" class="nav__link nav__lang" lang="en" aria-label="View the English site">EN</a>
       <a href="sessions.html" class="nav__link nav__cta">세션 안내</a>
     </div>
@@ -1982,11 +1984,26 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     </div>
 
     <a href="https://brunch.co.kr/@heoboram" target="_blank" rel="noopener" class="posts-more">브런치에서 전체 글 보기</a>
-    <div class="channels reveal">
-      <span class="channels__eyebrow">CONTENT CHANNEL</span>
-      <h3 class="channels__title">브루스 인사이트</h3>
-      <p class="channels__desc">브런치 글을 영상과 카드로 다시 풀어내는 콘텐츠 채널입니다. 화제가 된 캠페인과 브랜드의 선택을 따라가며, 정답보다 맥락을, 아이디어보다 판단을 이야기합니다.</p>
-      <div class="channels__video">
+  </div>
+</section>
+
+<!-- ============================================================
+     CONTENT
+     ============================================================ -->
+<section class="section" id="content">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="section-eyebrow">07 · Content</span>
+        <h2 class="section-title">글을 영상과<br>카드로</h2>
+      </div>
+      <p class="section-desc">
+        브런치 글을 영상과 카드로 다시 풀어내는 콘텐츠 채널 「브루스 인사이트」입니다. 화제가 된 캠페인과 브랜드의 선택을 따라가며, 정답보다 맥락을, 아이디어보다 판단을 이야기합니다.
+      </p>
+    </div>
+
+    <div class="reveal">
+      <div class="channels__video channels__video--top">
         <div class="media media--video">
           <div class="media__video">
             <iframe src="https://www.youtube-nocookie.com/embed/n_dz1Q3K3_g?rel=0" title="하인즈는 케첩이 아니라 기억을 판다 — 브루스 인사이트" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -2046,12 +2063,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 <!-- ============================================================
      MEDIA & LECTURES
      ============================================================ -->
-<section class="section" id="media">
+<section class="section section--soft" id="media">
   <div class="wrap">
     <div class="section-head reveal">
       <div>
-        <span class="section-eyebrow">07 · Lectures</span>
-        <h2 class="section-title">밖에서 나눈<br>강의</h2>
+        <span class="section-eyebrow">08 · Lectures</span>
+        <h2 class="section-title">밖에서 나눈<br>강연</h2>
       </div>
       <p class="section-desc">
         기관과 학교에서 진행한 외부 강의입니다. 브랜드가 사람의 관심을 어떻게 다루는지, 마케터는 무엇을 판단하는지 현장의 언어로 나눕니다.
@@ -2085,11 +2102,11 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 <!-- ============================================================
      CONTACT
      ============================================================ -->
-<section class="section section--soft" id="contact">
+<section class="section" id="contact">
   <div class="wrap">
     <div class="section-head reveal">
       <div>
-        <span class="section-eyebrow">08 · Contact</span>
+        <span class="section-eyebrow">09 · Contact</span>
         <h2 class="section-title">이야기,<br>함께 시작할까요</h2>
       </div>
       <p class="section-desc">
