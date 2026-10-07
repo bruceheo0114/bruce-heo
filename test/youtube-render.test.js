@@ -134,7 +134,7 @@ test("대본 메모([확인 필요]·챕터 전환)는 자막과 화면 문구�
   assert.deepEqual(screenLines(scene("S001", "", "1,500만 노출 [확인 필요]")), ["1,500만 노출"]);
   assert.ok(isTransition(scene("S002", "챕터 전환")));
   const { html } = sceneFrameHtml(scene("S002", "챕터 전환", "04"), { chapter: { no: "CH04", title: "1등이기 때문에" } });
-  assert.match(html, /CH04/);
+  assert.match(html, /CHAPTER 04/);
   assert.match(html, /1등이기 때문에/);
 });
 
@@ -182,4 +182,17 @@ test("받아쓰기 시간으로 장면 시작과 자막을 실제 말소리에 �
   const cues = alignedCues(timeline, ["로고는 검은 테이프로 가려집니다. 하인즈는 케첩병을 내놓았어요. 끝까지 보시죠."], [words]);
   assert.deepEqual(cues.map((cue) => [cue.text, Number(cue.start.toFixed(1))]), [["로고는 검은 테이프로 가려집니다.", 0], ["하인즈는 케첩병을 내놓았어요.", 4], ["끝까지 보시죠.", 8]]);
   assert.ok(locate(normalize("1,400만 회 노출이었습니다"), normalize("천사백만 회 노출이었습니다"), 0) <= 1); // 표기가 달라도 근처를 찾는다
+});
+
+test("챕터마다(첫 챕터 제외) 녹음 끝 무음 자리에 간지를 넣고 '챕터 전환' 장면은 대신한다", async () => {
+  const { insertChapterCards } = await import("../src/youtube/render/align.js");
+  const scene = (id, narration, start, end, group) => ({ id, fields: { NARRATION: narration }, start, end, group });
+  const timeline = {
+    mode: "chapter",
+    groups: [{ start: 0, seconds: 12.6 }, { start: 12.6, seconds: 10 }],
+    scenes: [scene("S001", "가", 0, 6), scene("S002", "나", 6, 11), scene("S003", "챕터 전환", 11, 12.6, 0), scene("S004", "다", 12.6, 22.6, 1)].map((item, index) => ({ ...item, group: index < 3 ? 0 : 1 })),
+  };
+  assert.deepEqual(insertChapterCards(timeline, 2.6), [10]);
+  assert.deepEqual(timeline.scenes.map((item) => [item.id, item.start, item.end]), [["S001", 0, 6], ["S002", 6, 10], ["CARD02", 10, 12.6], ["S004", 12.6, 22.6]]);
+  assert.ok(timeline.scenes[2].chapterCard);
 });
