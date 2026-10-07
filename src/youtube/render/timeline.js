@@ -22,6 +22,30 @@ export function parseScriptChapters(script) {
   return chapters;
 }
 
+/**
+ * 02_script.md를 챕터별 읽기용 텍스트로 바꾼다(ElevenLabs 복제 목소리 입력).
+ * 굵게·[쉼]·[확인 필요] 같은 표시와 '/' 끊어 읽기 표시를 지우고, "English(한글)"은 한글만 남긴다.
+ */
+export function chapterNarrationTexts(script) {
+  const parts = String(script ?? "").split(/^#{2,3}\s*(CH\s?\d+).*$/im);
+  const texts = [];
+  for (let index = 1; index < parts.length; index += 2) {
+    const text = parts[index + 1]
+      .replace(/^#.*$/gm, "")
+      .replace(/\*\*/g, "")
+      .replace(/\[쉼\]/g, "...")
+      .replace(/\[[^\]]*\]/g, "")
+      .replace(/(?:[A-Za-z][A-Za-z0-9 '’.&-]*|\d[^\s(]*)\(([^)]*[가-힣][^)]*)\)/g, "$1")
+      .replace(/\s\/\s|\//g, " ")
+      .replace(/(\d+)%/g, "$1퍼센트")
+      .replace(/[ \t]+/g, " ")
+      .replace(/\n\s*\n+/g, "\n\n")
+      .trim();
+    texts.push({ id: `CH${parts[index].replace(/\D/g, "").padStart(2, "0")}`, text });
+  }
+  return texts;
+}
+
 export function chapterIdFromFile(file) {
   const match = String(file).match(/CH\s?(\d+)/i);
   return match ? `CH${match[1].padStart(2, "0")}` : null;
