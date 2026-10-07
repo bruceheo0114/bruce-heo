@@ -234,9 +234,14 @@ export function planMappedShots(timeline, sceneImages) {
     }
     // 그림이 컷 수보다 적으면 같은 그림을 가까이 당겨(클로즈업) 한 컷 더 쓴다. 장면 안에서만, 그림당 최대 2컷.
     const wanted = Math.max(1, Math.round((scene.end - at) / SHOT_SECONDS));
-    const count = Math.min(wanted, images.length * 2);
+    // 기사·홈페이지 캡처(screen·scroll)는 당기면 글자만 잘려 보이므로 클로즈업하지 않는다.
+    const closable = images.filter((media) => media.kind === "image" || media.kind === "ai");
+    const count = Math.min(wanted, images.length + closable.length);
     const order = images.slice(0, count).map((media) => ({ media, close: false }));
-    for (let index = 0; order.length < count; index += 1) order.splice(index * 2 + 1, 0, { media: images[index], close: true });
+    for (const media of closable) {
+      if (order.length >= count) break;
+      order.splice(order.findIndex((item) => item.media === media) + 1, 0, { media, close: true });
+    }
     const startedWithCard = at > scene.start;
     splitShots(at, scene.end, count).forEach((shot, index) => {
       const mode = scene.sourceType === "TYPE" ? "type" : !startedWithCard && index === 0 ? "caption" : "none";
