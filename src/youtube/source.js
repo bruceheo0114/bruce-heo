@@ -1,3 +1,4 @@
+import { createHash } from "node:crypto";
 import { readdir, readFile } from "node:fs/promises";
 import path from "node:path";
 import { readJson, writeFileAtomic, writeJson } from "../lib/files.js";
@@ -104,6 +105,45 @@ export async function loadLocalArticles(contentDir = "content") {
     } catch (error) {
       if (error.code !== "ENOENT") throw error;
     }
+  }
+  return articles.sort((a, b) => Number(a.id) - Number(b.id));
+}
+
+/**
+ * 클라우드 루틴용: GitHub Actions(brunch-cache.yml)가 매일 저장하는 insight-reels/brunch_cache 를 읽는다.
+ * since 이전에 발행된 글은 건너뛴다.
+ */
+export async function loadCacheArticles(cacheDir = "insight-reels/brunch_cache", since = null) {
+  const index = JSON.parse(await readFile(path.join(cacheDir, "index.json"), "utf8"));
+  const articles = [];
+  for (const item of index) {
+    if (since && item.date < since) continue;
+    let text;
+    try {
+      text = await readFile(path.join(cacheDir, `${item.no}.txt`), "utf8");
+    } catch (error) {
+      if (error.code === "ENOENT") continue;
+      throw error;
+    }
+    // 형식: "# 제목" 다음 줄부터 "부제 | 본문…"
+    let body = text.split("\n").slice(1).join("\n").trim();
+    let subtitle = "";
+    const divider = body.indexOf(" | ");
+    if (divider > 0 && divider < 120 && !body.slice(0, divider).includes("\n")) {
+      subtitle = body.slice(0, divider).trim();
+      body = body.slice(divider + 3).trim();
+    }
+    if (body.length < 80) continue;
+    articles.push({
+      id: String(item.no),
+      canonicalUrl: `https://brunch.co.kr/@heoboram/${item.no}`,
+      title: String(item.title).trim(),
+      subtitle,
+      publishedAt: new Date(`${item.date}T12:00:00+09:00`).toISOString(),
+      body,
+      images: [],
+      bodyHash: createHash("sha256").update(body).digest("hex"),
+    });
   }
   return articles.sort((a, b) => Number(a.id) - Number(b.id));
 }

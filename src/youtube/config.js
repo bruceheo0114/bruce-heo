@@ -10,6 +10,8 @@ export function youtubePaths(root = youtubeRoot()) {
     root,
     sources: path.join(root, "source", "brunch"),
     sourceIndex: path.join(root, "source", "brunch", "index.json"),
+    queue: path.join(root, "queue.json"),
+    ledger: path.join(root, "ledger.json"),
     episodes: path.join(root, "episodes"),
     generated: path.join(root, "assets", "generated"),
     logs: path.join(root, "logs"),
@@ -43,19 +45,25 @@ export const SOURCE_TYPES = Object.freeze(["REAL", "TYPE", "GRAPHIC", "AI"]);
 
 // 지침서의 제작 원칙을 숫자로 옮긴 값. 바꾸려면 여기만 고친다.
 export const RULES = Object.freeze({
-  runtimeMinSeconds: 20 * 60,
-  runtimeMaxSeconds: 30 * 60,
+  // 브루스 인사이트 인스타그램과 같은 기준: 2026년 이후 글만 쓴다 (사용자 결정 2026-10-02)
+  sourceSince: "2026-01-01",
+  runtimeMinSeconds: 10 * 60,
+  runtimeMaxSeconds: 15 * 60,
   aiShareMax: 0.25,
-  aiSceneMax: 10,
+  aiSceneMax: 8,
   aiSceneMinSeconds: 4,
   aiSceneMaxSeconds: 8,
   shortsMin: 3,
   shortsMax: 5,
   titleCandidates: 5,
   thumbnailCopies: 5,
-  scriptMinChars: 6600,
+  // 낭독 분당 약 330자(공백 제외) × 10분
+  scriptMinChars: 3300,
   verbatimShareMax: 0.2,
   realShareMin: 0.3,
-  // Starter 플랜 월 270 크레딧 중 릴스·카드뉴스 루틴 몫(월 약 15)을 빼고 주 1편 기준으로 나눈 상한
-  creditBudgetPerEpisode: 50,
+  // Higgsfield Starter 월 270 크레딧 = 인스타그램 상한 120(insight-reels/ledger.json) + YouTube 150.
+  // 주 1편(월 4~5편) 기준 편당 30.
+  creditBudgetPerEpisode: 30,
+  monthlyCreditCap: 150,
+  creditCycleResetDay: 2,
 });

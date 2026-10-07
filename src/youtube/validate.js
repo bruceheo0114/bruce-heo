@@ -139,7 +139,7 @@ export function analyzeStoryboard(markdown) {
 
   if (scenes.length) {
     if (runtime < RULES.runtimeMinSeconds || runtime > RULES.runtimeMaxSeconds) {
-      errors.push(`03_storyboard.md: 전체 길이 ${formatDuration(runtime)}는 20~30분 범위를 벗어납니다.`);
+      errors.push(`03_storyboard.md: 전체 길이 ${formatDuration(runtime)}는 ${RULES.runtimeMinSeconds / 60}~${RULES.runtimeMaxSeconds / 60}분 범위를 벗어납니다.`);
     }
     if (share("AI") > RULES.aiShareMax) {
       errors.push(`03_storyboard.md: AI 화면 비중 ${(share("AI") * 100).toFixed(1)}%가 25%를 넘습니다.`);
@@ -253,7 +253,7 @@ export async function validatePackage(episode, paths = youtubePaths()) {
   if (script) {
     const chars = script.replace(/\s/g, "").length;
     if (chars < RULES.scriptMinChars) {
-      warnings.push(`02_script.md: 공백 제외 ${chars}자로 20분 내레이션에 짧을 수 있습니다.`);
+      warnings.push(`02_script.md: 공백 제외 ${chars}자로 ${RULES.runtimeMinSeconds / 60}분 내레이션에 짧을 수 있습니다.`);
     }
     try {
       const source = await readFile(path.join(paths.root, episode.status.article.source_file), "utf8");

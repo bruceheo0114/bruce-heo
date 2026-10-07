@@ -1,9 +1,16 @@
 import { appendFile, mkdir } from "node:fs/promises";
 import path from "node:path";
-import { fetchLatestArticles } from "../lib/brunch.js";
-import { STATUS, youtubePaths } from "../youtube/config.js";
+import { RULES, STATUS, youtubePaths } from "../youtube/config.js";
+import { addSpend, loadLedger, monthSpent } from "../youtube/ledger.js";
+import { enqueueNew, loadQueue, nextTodo, saveQueue } from "../youtube/queue.js";
 import { createEpisode, findEpisode, listEpisodes, markUpdateAvailable, resolveUpdate } from "../youtube/episode.js";
-import { archiveArticles, loadLocalArticles, loadSourceIndex, saveSourceIndex } from "../youtube/source.js";
+import {
+  archiveArticles,
+  loadCacheArticles,
+  loadLocalArticles,
+  loadSourceIndex,
+  saveSourceIndex,
+} from "../youtube/source.js";
 import { validatePackage } from "../youtube/validate.js";
 import { formatDuration, parseTimecode } from "../youtube/parse.js";
 import {
@@ -21,10 +28,13 @@ import {
 
 const USAGE = `사용법: node src/cli/youtube.js <명령> [인자]
 
-  sync [--local] [--limit N]     브런치 새 글 → source/brunch Markdown → 새 Episode
-                                 --local: brunch.co.kr 대신 content/*/source.json 사용
-  episode <글번호>                과거 글로 Episode를 직접 만든다
-  pending [--weekly]              패키지가 필요한 Episode 폴더 (--weekly: 주 1편 상한)
+  sync [--cache|--local]         브런치 글 → source/brunch Markdown, 새 글은 queue.json 뒤에 추가
+                                 --cache: insight-reels/brunch_cache (클라우드 루틴 기본)
+                                 --local: content/*/source.json, 생략하면 브런치 RSS 직접 접속
+  next [--weekly]                 제작할 Episode 1편 (PACKAGE_PENDING이 없으면 큐 맨 위 글로 새로 만든다)
+                                 --weekly: 최근 7일 안에 기획안을 만들었으면 비워 둔다
+  episode <글번호>                큐와 상관없이 글 하나로 Episode를 만든다
+  pending                         PACKAGE_PENDING Episode 목록
   status [EP]                     Episode 상태 목록 또는 한 편의 상세
   validate <EP>                   제작 패키지 형식·원칙 검사
   finalize <EP>                   검사 통과 시 평가 결과대로 WAITING_APPROVAL/SHORTS_ONLY/HOLD/SKIP
@@ -32,7 +42,8 @@ const USAGE = `사용법: node src/cli/youtube.js <명령> [인자]
   approve <EP> [S003 S005 ...]    Higgsfield 생성 승인 (Scene 생략 시 전체 AI Scene)
   revoke <EP>                     승인 취소
   can-generate <EP> <Scene>       생성해도 되는지 확인 (안 되면 exit 1)
-  record-generation <EP> <Scene> [--job ID] [--file 경로...]
+  record-generation <EP> <Scene> --credits N [--job ID] [--file 경로...]
+  credits                         이번 달 YouTube Higgsfield 사용량
   narration <EP> <파일...> [--duration mm:ss ...]
                                  직접 녹음한 내레이션 등록 (ffprobe가 없으면 --duration으로 길이 입력)
   resolve-update <EP> keep|regenerate
@@ -78,22 +89,25 @@ function printValidation(validation) {
 
 async function sync() {
   const limit = Number(option("--limit")?.[0] ?? 20);
-  const articles = args.includes("--local") ? await loadLocalArticles() : await fetchLatestArticles(limit);
+  let articles;
+  if (args.includes("--cache")) articles = await loadCacheArticles(undefined, RULES.sourceSince);
+  else if (args.includes("--local")) articles = await loadLocalArticles();
+  else {
+    const { fetchLatestArticles } = await import("../lib/brunch.js");
+    articles = await fetchLatestArticles(limit);
+  }
   const index = await loadSourceIndex(paths);
   const bootstrap = !index.initializedAt;
   const { added, changed } = await archiveArticles(index, articles, now, paths);
 
-  const created = [];
-  // 처음 실행 이전에 발행된 글은 원문으로만 보관한다. 지난 글은 `episode <글번호>`로 직접 만든다.
+  // 처음 실행 이전에 발행된 글은 원문으로만 보관한다(지난 글은 queue.json에 직접 고른다).
+  // 이후 새로 발행된 글만 큐 맨 뒤에 붙인다.
+  const queue = await loadQueue(paths);
   const episodesFrom = new Date(index.initializedAt ?? now);
-  if (!bootstrap) {
-    for (const entry of added) {
-      if (new Date(entry.publishedAt) < episodesFrom) continue;
-      const { episode, created: isNew } = await createEpisode(entry, now, paths);
-      entry.episode = episode.status.episode;
-      if (isNew) created.push(episode);
-    }
-  }
+  const queued = bootstrap
+    ? []
+    : enqueueNew(queue, added.filter((entry) => new Date(entry.publishedAt) >= episodesFrom));
+  if (queued.length) await saveQueue(queue, paths);
   const updated = [];
   for (const entry of changed) {
     const episode = await markUpdateAvailable(entry, now, paths);
@@ -104,9 +118,9 @@ async function sync() {
   await saveSourceIndex(index, paths);
 
   console.log(`원문 ${articles.length}편 확인 · 새 원문 ${added.length} · 수정 ${changed.length}${bootstrap ? " (첫 실행: Episode 생성 생략)" : ""}`);
-  for (const episode of created) console.log(`새 Episode ${episode.name} (PACKAGE_PENDING)`);
+  for (const item of queued) console.log(`큐에 추가: ${item.no} ${item.title}`);
   for (const episode of updated) console.log(`원문 수정 → ${episode.name} UPDATE_AVAILABLE`);
-  await log("INFO", `articles=${articles.length} added=${added.length} changed=${changed.length} episodes=${created.length}`);
+  await log("INFO", `articles=${articles.length} added=${added.length} changed=${changed.length} queued=${queued.length}`);
 }
 
 async function episodeFromArticle() {
@@ -140,21 +154,52 @@ const commands = {
   sync,
   episode: episodeFromArticle,
   status: showStatus,
-  // --weekly: 최근 7일 안에 패키지를 만든 Episode가 있으면 아무것도 돌려주지 않는다 (주 1편 상한).
   async pending() {
+    for (const episode of await listEpisodes(paths)) {
+      if (episode.status.status === STATUS.PACKAGE_PENDING) console.log(episode.name);
+    }
+  },
+  // 주 1편 상한: 최근 7일 안에 WAITING_APPROVAL/SHORTS_ONLY로 넘어간 Episode가 있으면 아무것도 돌려주지 않는다.
+  // HOLD/SKIP 판정은 상한에 넣지 않아 같은 주에 다음 글로 넘어갈 수 있다.
+  async next() {
     const episodes = await listEpisodes(paths);
-    const pending = episodes.filter((episode) => episode.status.status === STATUS.PACKAGE_PENDING);
     if (args.includes("--weekly")) {
       const weekAgo = now.valueOf() - 7 * 24 * 60 * 60 * 1000;
-      const recent = episodes.some((episode) =>
+      const made = episodes.some((episode) =>
         (episode.status.history ?? []).some(
-          (entry) => entry.from === STATUS.PACKAGE_PENDING && new Date(entry.at).valueOf() > weekAgo,
+          (entry) =>
+            entry.from === STATUS.PACKAGE_PENDING &&
+            [STATUS.WAITING_APPROVAL, STATUS.SHORTS_ONLY].includes(entry.to) &&
+            new Date(entry.at).valueOf() > weekAgo,
         ),
       );
-      if (recent) return;
-      pending.splice(1);
+      if (made) return;
     }
-    for (const episode of pending) console.log(episode.name);
+    const pending = episodes.find((episode) => episode.status.status === STATUS.PACKAGE_PENDING);
+    if (pending) {
+      console.log(pending.name);
+      return;
+    }
+    const queue = await loadQueue(paths);
+    const index = await loadSourceIndex(paths);
+    let item = nextTodo(queue);
+    while (item && !index.articles[String(item.no)]) {
+      item.status = "missing";
+      item.note = "source/brunch에 원문 없음";
+      item = nextTodo(queue);
+    }
+    if (!item) {
+      await saveQueue(queue, paths);
+      return;
+    }
+    const entry = index.articles[String(item.no)];
+    const { episode } = await createEpisode(entry, now, paths);
+    entry.episode = episode.status.episode;
+    item.status = "episode";
+    item.episode = episode.status.episode;
+    await saveQueue(queue, paths);
+    await saveSourceIndex(index, paths);
+    console.log(episode.name);
   },
   async validate() {
     const episode = await findEpisode(positional()[0], paths);
@@ -179,6 +224,12 @@ const commands = {
   },
   async report() {
     console.log(formatPlan((await findEpisode(positional()[0], paths)).status));
+    const ledger = await loadLedger(paths);
+    console.log(`\n이번 달 YouTube Higgsfield 사용: ${monthSpent(ledger, now)}/${ledger.monthly_cap} 크레딧`);
+  },
+  async credits() {
+    const ledger = await loadLedger(paths);
+    console.log(`이번 달 YouTube Higgsfield 사용: ${monthSpent(ledger, now)}/${ledger.monthly_cap} 크레딧`);
   },
   async approve() {
     const [reference, ...scenes] = positional();
@@ -197,7 +248,11 @@ const commands = {
   async "can-generate"() {
     const [reference, scene] = positional();
     const episode = await findEpisode(reference, paths);
-    const blocker = generationBlocker(episode.status, normalizeSceneId(scene));
+    const ledger = await loadLedger(paths);
+    const blocker = generationBlocker(episode.status, normalizeSceneId(scene), {
+      spent: monthSpent(ledger, now),
+      cap: ledger.monthly_cap,
+    });
     console.log(blocker ? `생성 불가: ${blocker}` : "생성 가능");
     if (blocker) process.exitCode = 1;
   },
@@ -205,8 +260,12 @@ const commands = {
     const [reference, scene] = positional();
     const episode = await findEpisode(reference, paths);
     const sceneId = normalizeSceneId(scene);
-    await recordGeneration(episode, sceneId, { job: option("--job")?.[0] ?? null, files: option("--file") ?? [] }, now);
-    console.log(`${episode.name} ${sceneId} 생성 기록 → ${episode.status.status}`);
+    const credits = Number(option("--credits")?.[0]);
+    if (!Number.isFinite(credits)) throw new Error("--credits 로 이번 생성에 쓴 크레딧을 적어 주세요.");
+    await recordGeneration(episode, sceneId, { job: option("--job")?.[0] ?? null, files: option("--file") ?? [], credits }, now);
+    const ledger = await loadLedger(paths);
+    const spent = await addSpend(ledger, now, { episode: episode.status.episode, scene: sceneId, credits }, paths);
+    console.log(`${episode.name} ${sceneId} 생성 기록 → ${episode.status.status} · 이번 달 ${spent}/${ledger.monthly_cap} 크레딧`);
     await log("INFO", `${episode.name} generated ${sceneId}`);
   },
   async narration() {

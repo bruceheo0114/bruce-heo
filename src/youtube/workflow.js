@@ -141,8 +141,11 @@ export function normalizeSceneId(value) {
 }
 
 /** Higgsfield를 호출하기 직전에 반드시 확인한다. 이유가 있으면 생성하면 안 된다. */
-export function generationBlocker(status, sceneId) {
+export function generationBlocker(status, sceneId, budget = null) {
   if (status.status !== STATUS.APPROVED) return `상태가 APPROVED가 아닙니다 (${status.status}).`;
+  if (budget && budget.spent >= budget.cap) {
+    return `이번 달 YouTube Higgsfield 크레딧 상한(${budget.cap})을 다 썼습니다 (${budget.spent}).`;
+  }
   if (!status.higgsfield_generation) return "higgsfield_generation이 false입니다.";
   if (!status.approved_scenes?.includes(sceneId)) return `${sceneId}는 승인된 Scene이 아닙니다.`;
   if (status.generated?.[sceneId]) return `${sceneId}는 이미 생성되었습니다.`;

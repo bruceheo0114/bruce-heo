@@ -8,7 +8,8 @@ import { promisify } from "node:util";
 import { youtubePaths } from "../src/youtube/config.js";
 import { createEpisode, findEpisode, markUpdateAvailable, resolveUpdate } from "../src/youtube/episode.js";
 import { parseBlocks, parseTimeRange } from "../src/youtube/parse.js";
-import { archiveArticles, articleToMarkdown, loadSourceIndex, parseFrontMatter, saveSourceIndex } from "../src/youtube/source.js";
+import { addSpend, cycleKey, loadLedger, monthSpent } from "../src/youtube/ledger.js";
+import { archiveArticles, articleToMarkdown, loadCacheArticles, loadSourceIndex, parseFrontMatter, saveSourceIndex } from "../src/youtube/source.js";
 import { analyzeStoryboard, parseScore, validatePackage } from "../src/youtube/validate.js";
 import {
   approveEpisode,
@@ -35,8 +36,8 @@ const article = {
 
 const mmss = (seconds) => `${String(Math.floor(seconds / 60)).padStart(2, "0")}:${String(seconds % 60).padStart(2, "0")}`;
 
-// 24분, AI 6 Scene(6초씩) 짜리 정상 스토리보드
-function storyboard({ aiScenes = 6, aiSeconds = 6, totalSeconds = 24 * 60 } = {}) {
+// 12분, AI 6 Scene(6초씩) 짜리 정상 스토리보드
+function storyboard({ aiScenes = 6, aiSeconds = 6, totalSeconds = 12 * 60 } = {}) {
   const scenes = [];
   let time = 0;
   let index = 1;
@@ -74,7 +75,7 @@ function storyboard({ aiScenes = 6, aiSeconds = 6, totalSeconds = 24 * 60 } = {}
   return { text: `# Storyboard\n\n\`\`\`text\n${text}\n\`\`\`\n`, aiIds: scenes.filter((s) => s.type === "AI").map((s) => s.id) };
 }
 
-function higgsfield(ids, credits = 32) {
+function higgsfield(ids, credits = 20) {
   const blocks = ids.map((id) => [
     `SCENE ID: ${id}`,
     "PURPOSE: 챕터 전환",
@@ -101,7 +102,7 @@ const brief = `# Brief
 ## Why Now
 AI 도입
 ## Expected Runtime
-24분
+12분
 ## Title Candidates
 - 1
 - 2
@@ -216,7 +217,7 @@ test("정상 패키지는 통과하고 finalize 후 WAITING_APPROVAL이 된다",
   assert.equal(episode.status.status, "WAITING_APPROVAL");
   assert.equal(episode.status.higgsfield_generation, false);
   assert.equal(episode.status.plan.scenes_by_type.AI, 6);
-  assert.equal(episode.status.plan.estimated_credits, 32);
+  assert.equal(episode.status.plan.estimated_credits, 20);
   assert.equal(episode.status.video_potential.TOTAL, 51);
 });
 
@@ -225,7 +226,7 @@ test("AI 비중·크레딧 상한·원문 복사를 막는다", async () => {
   await writePackage(episode, { storyboard: { aiScenes: 12, aiSeconds: 8 }, credits: 75 });
   const errors = (await validatePackage(episode, paths)).errors.join("\n");
   assert.match(errors, /AI Scene 12개/);
-  assert.match(errors, /크레딧이 Episode 상한 50/);
+  assert.match(errors, /크레딧이 Episode 상한 30/);
 
   const share = analyzeStoryboard(storyboard({ aiScenes: 10, aiSeconds: 40 }).text);
   assert.ok(share.errors.some((error) => error.includes("AI 화면 비중")));
@@ -256,7 +257,9 @@ test("승인 전에는 생성할 수 없고, 승인한 Scene만 한 번씩 생�
   assert.match(generationBlocker(episode.status, second), /승인된 Scene이 아닙니다/);
   assert.equal(generationBlocker(episode.status, first), null);
 
-  await recordGeneration(episode, first, { job: "job-1", files: [] }, NOW);
+  assert.match(generationBlocker(episode.status, first, { spent: 150, cap: 150 }), /상한/);
+  assert.equal(generationBlocker(episode.status, first, { spent: 20, cap: 150 }), null);
+  await recordGeneration(episode, first, { job: "job-1", files: [], credits: 5 }, NOW);
   assert.equal(episode.status.status, "ASSETS_READY");
   assert.equal(episode.status.higgsfield_generation, false);
 
@@ -292,43 +295,82 @@ test("직접 녹음한 내레이션 길이를 스토리보드와 비교한다", 
   const { paths, episode } = await setup();
   await writePackage(episode);
   await finalizeEpisode(episode, NOW, paths);
-  const result = await recordNarration(episode, ["narration/EP001/EP001_CH01.m4a", "narration/EP001/EP001_CH02.m4a"], [600, 1000], NOW);
-  assert.equal(result.total, 1600);
-  assert.equal(result.planned, 24 * 60);
+  const result = await recordNarration(episode, ["narration/EP001/EP001_CH01.m4a", "narration/EP001/EP001_CH02.m4a"], [300, 600], NOW);
+  assert.equal(result.total, 900);
+  assert.equal(result.planned, 12 * 60);
   assert.ok(result.drift > 0.1);
   assert.equal(episode.status.narration.takes.length, 2);
 });
 
-test("CLI: 첫 sync는 원문만 보관하고, 이후 새 글만 Episode가 되며 주 1편만 제작 대상이 된다", async () => {
+test("크레딧 장부는 매월 2일에 새로 센다", async () => {
+  const root = await mkdtemp(path.join(tmpdir(), "bruce-youtube-ledger-"));
+  const paths = youtubePaths(root);
+  assert.equal(cycleKey(new Date("2026-10-01T10:00:00Z")), "2026-09");
+  assert.equal(cycleKey(new Date("2026-10-01T16:00:00Z")), "2026-10"); // KST 10/2 01:00
+  const ledger = await loadLedger(paths);
+  assert.equal(ledger.monthly_cap, 150);
+  await addSpend(ledger, NOW, { episode: "EP001", scene: "S001", credits: 5 }, paths);
+  await addSpend(ledger, NOW, { episode: "EP001", scene: "S004", credits: 0.25 }, paths);
+  assert.equal(monthSpent(await loadLedger(paths), NOW), 5.25);
+});
+
+test("브런치 캐시에서 2026년 이후 글만 읽는다", async () => {
+  const dir = await mkdtemp(path.join(tmpdir(), "brunch-cache-"));
+  await writeFile(path.join(dir, "index.json"), JSON.stringify([
+    { no: 212, date: "2026-08-18", title: "스위첸은 왜 8년째 집 이야기를 할까" },
+    { no: 179, date: "2025-06-25", title: "지난 글" },
+  ]));
+  const body = "광고의 반응은 뜨거웠다. ".repeat(10);
+  await writeFile(path.join(dir, "212.txt"), `# 스위첸은 왜 8년째 집 이야기를 할까\n모두를 울린 광고는 매출에 도움이 될까? | ${body}`);
+  await writeFile(path.join(dir, "179.txt"), `# 지난 글\n${body}`);
+  const articles = await loadCacheArticles(dir, "2026-01-01");
+  assert.deepEqual(articles.map((item) => item.id), ["212"]);
+  assert.equal(articles[0].subtitle, "모두를 울린 광고는 매출에 도움이 될까?");
+  assert.ok(articles[0].body.startsWith("광고의 반응은"));
+  assert.equal(articles[0].publishedAt, "2026-08-18T03:00:00.000Z");
+});
+
+test("CLI: 첫 sync는 원문만 보관하고, 새 글은 큐에 쌓이며 주 1편만 Episode가 된다", async () => {
   const root = await mkdtemp(path.join(tmpdir(), "bruce-youtube-cli-"));
   const content = path.join(root, "content");
   const env = { ...process.env, YOUTUBE_ROOT: path.join(root, "yt"), AUTOMATION_NOW: NOW.toISOString() };
   const cli = path.resolve("src/cli/youtube.js");
+  const { mkdir } = await import("node:fs/promises");
   const save = async (item) => {
-    const { mkdir } = await import("node:fs/promises");
     await mkdir(path.join(content, item.id), { recursive: true });
-    await writeFile(path.join(content, item.id, "source.json"), JSON.stringify({ ...item, canonicalUrl: item.canonicalUrl }));
+    await writeFile(path.join(content, item.id, "source.json"), JSON.stringify(item));
   };
+  const post = (id, day) => ({ ...article, id, canonicalUrl: `https://brunch.co.kr/@heoboram/${id}`, publishedAt: `2026-10-${day}T12:00:00.000Z`, bodyHash: `h${id}` });
   await save(article);
   let out = await run("node", [cli, "sync", "--local"], { env, cwd: root });
   assert.match(out.stdout, /첫 실행/);
 
-  await save({ ...article, id: "223", canonicalUrl: "https://brunch.co.kr/@heoboram/223", publishedAt: "2026-10-08T12:00:00.000Z", bodyHash: "h223" });
-  await save({ ...article, id: "224", canonicalUrl: "https://brunch.co.kr/@heoboram/224", publishedAt: "2026-10-09T12:00:00.000Z", bodyHash: "h224" });
+  for (const [id, day] of [["223", "08"], ["224", "09"], ["225", "09"]]) await save(post(id, day));
   const later = { ...env, AUTOMATION_NOW: "2026-10-10T01:00:00Z" };
   out = await run("node", [cli, "sync", "--local"], { env: later, cwd: root });
-  assert.match(out.stdout, /EP001_brunch-223/);
-  assert.match(out.stdout, /EP002_brunch-224/);
+  assert.match(out.stdout, /큐에 추가: 223/);
 
-  out = await run("node", [cli, "pending", "--weekly"], { env: later, cwd: root });
+  out = await run("node", [cli, "next", "--weekly"], { env: later, cwd: root });
+  assert.equal(out.stdout.trim(), "EP001_brunch-223");
+  // 아직 패키지 전이면 같은 Episode를 다시 돌려준다
+  out = await run("node", [cli, "next", "--weekly"], { env: later, cwd: root });
   assert.equal(out.stdout.trim(), "EP001_brunch-223");
 
   const paths = youtubePaths(path.join(root, "yt"));
-  const episode = await findEpisode("EP001", paths);
-  await writeFile(path.join(episode.dir, "00_score.md"), score("SKIP"));
-  await finalizeEpisode(episode, new Date("2026-10-10T02:00:00Z"), paths);
-  out = await run("node", [cli, "pending", "--weekly"], { env: later, cwd: root });
-  assert.equal(out.stdout.trim(), "");
-  out = await run("node", [cli, "pending", "--weekly"], { env: { ...env, AUTOMATION_NOW: "2026-10-18T01:00:00Z" }, cwd: root });
+  // SKIP은 주 1편 상한에 넣지 않는다
+  await writeFile(path.join((await findEpisode("EP001", paths)).dir, "00_score.md"), score("SKIP"));
+  await finalizeEpisode(await findEpisode("EP001", paths), new Date("2026-10-10T02:00:00Z"), paths);
+  out = await run("node", [cli, "next", "--weekly"], { env: later, cwd: root });
   assert.equal(out.stdout.trim(), "EP002_brunch-224");
+
+  const second = await findEpisode("EP002", paths);
+  await writeFile(path.join(second.dir, "00_score.md"), score("SHORTS_ONLY"));
+  await writeFile(path.join(second.dir, "06_shorts.md"), shorts);
+  assert.ok((await finalizeEpisode(second, new Date("2026-10-10T03:00:00Z"), paths)).ok);
+  out = await run("node", [cli, "next", "--weekly"], { env: later, cwd: root });
+  assert.equal(out.stdout.trim(), "");
+  out = await run("node", [cli, "next", "--weekly"], { env: { ...env, AUTOMATION_NOW: "2026-10-18T01:00:00Z" }, cwd: root });
+  assert.equal(out.stdout.trim(), "EP003_brunch-225");
+  const queue = JSON.parse(await readFile(path.join(root, "yt", "queue.json"), "utf8"));
+  assert.deepEqual(queue.items.map((item) => item.status), ["episode", "episode", "episode"]);
 });
