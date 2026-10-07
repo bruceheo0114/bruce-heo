@@ -6,3 +6,6 @@ narration/
 *.wav
 *.mp3
 assets/generated/**/*.mp4
+
+# 완성 영상·작업 파일
+output/
