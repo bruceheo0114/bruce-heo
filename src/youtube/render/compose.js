@@ -111,6 +111,7 @@ function splitShots(start, end, count) {
   return Array.from({ length: count }, (_, index) => ({ start: start + span * index, end: index === count - 1 ? end : start + span * (index + 1) }));
 }
 
+const MAX_REUSE = 2;
 const XFADE = 0.3; // 같은 장면 안 컷 사이 부드러운 전환(초)
 
 /**
@@ -121,10 +122,26 @@ const XFADE = 0.3; // 같은 장면 안 컷 사이 부드러운 전환(초)
  */
 export function planShots(timeline, { byKey, pool }) {
   const shots = [];
-  let poolIndex = 0;
-  const takePool = (count) => {
+  // 그림이 모자란 장면은 같은 챕터의 다른 장면 그림을 먼저 빌려 쓰고(내용이 맞는 그림), 그다음 공용 그림.
+  // 한 그림은 영상 전체에서 최대 MAX_REUSE번까지만 쓴다.
+  const used = new Map();
+  const canUse = (media) => (used.get(media.file) ?? 0) < MAX_REUSE;
+  const markUsed = (media) => used.set(media.file, (used.get(media.file) ?? 0) + 1);
+  const chapterIndexAt = (time) => (timeline.chapters ?? []).reduce((found, chapter, index) => (chapter.start <= time + 0.01 ? index : found), -1);
+  const chapterMedia = new Map();
+  for (const other of timeline.scenes) {
+    const index = chapterIndexAt(other.start);
+    chapterMedia.set(index, [...(chapterMedia.get(index) ?? []), ...sceneMedia(other, byKey).filter((media) => media.kind !== "scroll")]);
+  }
+  const takePool = (count, scene, exclude = []) => {
     const picked = [];
-    for (let index = 0; index < count && index < pool.length; index += 1) picked.push(pool[poolIndex++ % pool.length]);
+    const candidates = [...(chapterMedia.get(chapterIndexAt(scene.start)) ?? []), ...pool];
+    for (const media of candidates) {
+      if (picked.length >= count) break;
+      if (!canUse(media) || picked.some((item) => item.file === media.file) || exclude.some((item) => item.file === media.file)) continue;
+      picked.push(media);
+    }
+    picked.forEach(markUsed);
     return picked;
   };
   const chapterAt = (time) => {
@@ -145,7 +162,8 @@ export function planShots(timeline, { byKey, pool }) {
     const fillsFor = (seconds, first = []) => {
       const count = wanted(seconds);
       const fills = [...first].slice(0, count);
-      if (fills.length < count) fills.push(...takePool(count - fills.length));
+      fills.forEach(markUsed);
+      if (fills.length < count) fills.push(...takePool(count - fills.length, scene, fills));
       return fills;
     };
 
