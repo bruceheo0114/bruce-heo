@@ -652,9 +652,10 @@
         "updatedAt": "2026-09-01T01:31:32.108Z"
       },
       "package": {
-        "status": "awaiting_review",
+        "status": "generated",
         "manifestPath": "content/214/manifest.json",
-        "generatedAt": null
+        "generatedAt": "2026-10-07T04:49:54.088Z",
+        "approvedAt": "2026-10-07T04:50:05.499Z"
       },
       "linkedin": {
         "status": "skipped_card_only",
@@ -663,13 +664,14 @@
         "error": null
       },
       "instagram": {
-        "status": "manual_pending",
+        "status": "scheduled",
         "id": null,
         "lastAttemptAt": null,
-        "error": null
+        "error": null,
+        "scheduledDate": "2026-10-21"
       },
-      "approvedAt": null,
-      "scheduledAt": null,
+      "approvedAt": "2026-10-07T04:50:05.499Z",
+      "scheduledAt": "2026-10-09T21:30:00.000Z",
       "completedAt": null,
       "cardOnly": true
     },
