@@ -25,6 +25,17 @@ async function ffmpeg(args) {
   }
 }
 
+async function measureLoudness(args) {
+  try {
+    const { stderr } = await run("ffmpeg", ["-hide_banner", "-nostats", ...args, "-f", "null", "-"], { maxBuffer: 1 << 26 });
+    const json = stderr.slice(stderr.lastIndexOf("{"), stderr.lastIndexOf("}") + 1);
+    const values = JSON.parse(json);
+    return [values.input_i, values.input_tp, values.input_lra, values.input_thresh].every((value) => Number.isFinite(Number(value))) ? values : null;
+  } catch {
+    return null;
+  }
+}
+
 export async function probeSeconds(file) {
   const { stdout } = await run("ffprobe", ["-v", "error", "-show_entries", "format=duration", "-of", "default=nw=1:nk=1", file]);
   const seconds = Number(stdout.trim());
@@ -468,7 +479,14 @@ export async function renderEpisode(episode, audioFiles, { root, outDir, preview
   const audioOut = path.join(work, "narration.m4a");
   const inputs = audio.flatMap((item) => ["-i", item.file]);
   const join = audio.map((_, index) => `[${index}:a]`).join("");
-  await ffmpeg([...inputs, "-filter_complex", `${join}concat=n=${audio.length}:v=0:a=1,${cleanup ? "highpass=f=80,afftdn=nf=-25:tn=1," : ""}loudnorm=I=-14:TP=-1.5:LRA=11[a]`, "-map", "[a]", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", audioOut]);
+  // 음량은 두 번에 나눠 맞춘다(먼저 재고, 같은 비율로 키운다). 한 번에 하면 말이 없는 구간의 잡음까지 말소리만큼 커진다.
+  const chain = `${join}concat=n=${audio.length}:v=0:a=1,${cleanup ? "highpass=f=80,afftdn=nf=-25:tn=1," : ""}`;
+  const target = "I=-14:TP=-1.5:LRA=11";
+  const measured = await measureLoudness([...inputs, "-filter_complex", `${chain}loudnorm=${target}:print_format=json`]);
+  const linear = measured
+    ? `:measured_I=${measured.input_i}:measured_TP=${measured.input_tp}:measured_LRA=${measured.input_lra}:measured_thresh=${measured.input_thresh}:offset=${measured.target_offset}:linear=true`
+    : "";
+  await ffmpeg([...inputs, "-filter_complex", `${chain}loudnorm=${target}${linear}[a]`, "-map", "[a]", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", audioOut]);
 
   // 4) 자막을 입혀 최종본
   const cues = subtitleCues(timeline);
