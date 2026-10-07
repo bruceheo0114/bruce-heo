@@ -1,0 +1,23 @@
+{
+  "brunch": true,
+  "_note": "Firecrawl로 찾은 실제 자료 주소 (2026-10-07). GitHub Actions가 화면 캡처·이미지를 받아 assets/references/EP001/에 넣는다.",
+  "items": [
+    { "id": "B01", "kind": "image", "url": "https://img1.kakaocdn.net/thumb/R1280x0.fpng/?fname=http://t1.kakaocdn.net/brunch/service/user/2fCF/image/2svH2mJWtTm9-og_S9JlZfQ7-0I.png", "page": "https://brunch.co.kr/@heoboram/208", "source": "브런치 @heoboram 원문", "scenes": ["S001", "S019"] },
+    { "id": "B02", "kind": "image", "url": "https://img1.kakaocdn.net/thumb/R1280x0.fpng/?fname=http://t1.kakaocdn.net/brunch/service/user/2fCF/image/xPJ8rW-kyN8n4G4n2bslPCvj3Dg.png", "page": "https://brunch.co.kr/@heoboram/208", "source": "브런치 @heoboram 원문", "scenes": ["S006", "S043"] },
+    { "id": "B03", "kind": "image", "url": "https://img1.kakaocdn.net/thumb/R1280x0.fpng/?fname=http://t1.kakaocdn.net/brunch/service/user/2fCF/image/OemgyDybcGFIuyxTNSrSbIP41ZI.png", "page": "https://brunch.co.kr/@heoboram/208", "source": "브런치 @heoboram 원문", "scenes": ["S025", "S030"] },
+    { "id": "B04", "kind": "image", "url": "https://img1.kakaocdn.net/thumb/R1280x0.fpng/?fname=http://t1.kakaocdn.net/brunch/service/user/2fCF/image/IRVgBPTcqP8pfRc1tw4BrjoBThA.png", "page": "https://brunch.co.kr/@heoboram/208", "source": "브런치 @heoboram 원문", "scenes": ["S055"] },
+
+    { "id": "A001", "kind": "article", "url": "https://sports.yahoo.com/articles/heinz-pokes-fun-fifa-clean-082103084.html", "source": "Yahoo Sports", "scenes": ["S002"] },
+    { "id": "A002", "kind": "article", "url": "https://lbbonline.com/news/HEINZ-Viral-Censored-Stadium-Moment-Limited-Edition-Bottle-Canada", "source": "LBB Online (2026-06-19)", "scenes": ["S003", "S031"] },
+    { "id": "A002I", "kind": "image", "url": "https://d3q27bh1u24u2o.cloudfront.net/resized/1200/news_hero/2026-06/Heinz.-28nDYKw.png", "page": "https://lbbonline.com/news/HEINZ-Viral-Censored-Stadium-Moment-Limited-Edition-Bottle-Canada", "source": "Heinz Canada · LBB Online", "scenes": ["S003", "S006", "S043", "S055"] },
+    { "id": "A003", "kind": "page", "url": "https://www.warc.com/en/campaigns/heinz%3A-heinzjacking-the-world-cup-a5e4868369be4f109f4167f5397da47d", "source": "WARC — Heinz: Heinzjacking the World Cup", "scenes": ["S009"] },
+    { "id": "A003B", "kind": "article", "url": "https://dohanews.co/how-heinz-used-an-innovative-marketing-stunt-at-the-world-cup-in-qatar/", "source": "Doha News", "scenes": ["S010"] },
+    { "id": "A004", "kind": "page", "url": "https://caples.org/2023-winners-results/?id=247&cat=Integrated", "source": "The Caples Awards 2023 — Heinz Arabia \"The Heinzjack\"", "scenes": ["S013"] },
+    { "id": "A005", "kind": "article", "url": "https://digiday.com/marketing/oral-history-oreo-tweet/", "source": "Digiday", "scenes": ["S017"] },
+    { "id": "A005I", "kind": "image", "url": "https://pbs.twimg.com/media/BCOVrUMCIAAdN5J?format=jpg&name=large", "page": "https://x.com/Oreo/status/298246571718483968", "source": "Oreo 공식 X (2013-02-04)", "scenes": ["S017"] },
+    { "id": "A006", "kind": "article", "url": "https://www.campaignlive.com/article/brand-sneakiest-bypassing-world-cup-stadium-rules/1962449", "source": "Campaign", "scenes": ["S019"] },
+    { "id": "A009", "kind": "article", "url": "https://www.economist.com/culture/2026/07/02/heinz-tomato-ketchup-and-the-sweet-taste-of-market-dominance", "source": "The Economist (2026-07-02)", "scenes": ["S034"] },
+    { "id": "H001", "kind": "page", "url": "https://www.heinz.com/", "source": "Heinz 공식 홈페이지", "scenes": ["S031", "S035"], "max_images": 4 },
+    { "id": "H002", "kind": "page", "url": "https://www.heinz.com/our-story", "source": "Heinz 공식 홈페이지", "scenes": [], "max_images": 4 }
+  ]
+}
