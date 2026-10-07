@@ -9,7 +9,7 @@ import { cpus } from "node:os";
 import { readEpisodeFile } from "../episode.js";
 import { findSection, parseBlocks } from "../parse.js";
 import { analyzeStoryboard } from "../validate.js";
-import { FRAME, overlayHtml, renderFrames, sceneFrameHtml, screenLines, shortBrand } from "./frames.js";
+import { FRAME, logoHtml, overlayHtml, renderFrames, sceneFrameHtml, screenLines } from "./frames.js";
 import { buildTimeline, formatClock, parseScriptChapters, subtitleCues } from "./timeline.js";
 
 const run = promisify(execFile);
@@ -110,67 +110,65 @@ function splitShots(start, end, count) {
   return Array.from({ length: count }, (_, index) => ({ start: start + span * index, end: index === count - 1 ? end : start + span * (index + 1) }));
 }
 
+const XFADE = 0.5; // 같은 장면 안 컷 사이 부드러운 전환(초)
+
 /**
- * 장면을 3~6초 컷으로 나눈다. 같은 그림을 되풀이하지 않는다.
- * - TYPE: 문구 카드 먼저(최대 6초) → 그 장면 자료 → 공용 풀(브런치 이미지 등)
- * - GRAPHIC: 도식이 내용이라 카드만 (천천히 확대)
- * - REAL·AI: 자료가 있으면 자료만(첫 컷에 문구), 없으면 카드 → 공용 풀
+ * 장면을 컷으로 나눈다. 같은 그림을 되풀이하지 않는다.
+ * - GRAPHIC: 도식 카드 하나 (움직이지 않음)
+ * - TYPE: 그 장면 그림(실제 자료·AI 배경)이 있으면 그림 위에 큰 문구, 없으면 문구 카드 → 길면 공용 그림 위에 문구
+ * - REAL·AI: 자료 그림을 5초 안팎으로 돌려 가며(첫 컷에 설명 한 줄), 없으면 사례 카드
  */
 export function planShots(timeline, { byKey, pool }) {
   const shots = [];
   let poolIndex = 0;
-  let motionIndex = 0;
+  const takePool = (count) => {
+    const picked = [];
+    for (let index = 0; index < count && index < pool.length; index += 1) picked.push(pool[poolIndex++ % pool.length]);
+    return picked;
+  };
+  const chapterAt = (time) => {
+    let current = null;
+    (timeline.chapters ?? []).forEach((chapter, index) => {
+      if (chapter.start <= time + 0.01) current = { no: `CH${String(index + 1).padStart(2, "0")}`, title: chapter.title };
+    });
+    return current;
+  };
+  const push = (scene, start, end, media, mode) => shots.push({ start, end, scene, media, mode, chapter: chapterAt(start) });
+
   for (const scene of timeline.scenes) {
     const own = sceneMedia(scene, byKey);
     const span = scene.end - scene.start;
-    const mediaFirst = (scene.sourceType === "REAL" || scene.sourceType === "AI") && own.length;
-    let at = scene.start;
+    const isType = scene.sourceType === "TYPE";
 
-    if (scene.sourceType === "GRAPHIC" || (!own.length && !pool.length)) {
-      shots.push({ start: scene.start, end: scene.end, scene, media: null });
+    if (scene.sourceType === "GRAPHIC") {
+      push(scene, scene.start, scene.end, null, null);
       continue;
     }
-    if (!mediaFirst) {
-      const cardEnd = span <= CARD_SECONDS + 2 && !own.length ? scene.end : scene.start + Math.min(CARD_SECONDS, span / 2);
-      shots.push({ start: scene.start, end: cardEnd, scene, media: null });
-      at = cardEnd;
-    }
-    const rest = scene.end - at;
-    if (rest < 0.5) {
-      shots.at(-1).end = scene.end;
+    if (own.length) {
+      const wanted = Math.max(1, Math.round(span / (isType ? 7 : SHOT_SECONDS)));
+      const fills = own.slice(0, wanted);
+      if (!isType && fills.length < wanted) fills.push(...takePool(wanted - fills.length));
+      splitShots(scene.start, scene.end, fills.length).forEach((shot, index) =>
+        push(scene, shot.start, shot.end, fills[index], isType ? "type" : index === 0 ? "caption" : "none"),
+      );
       continue;
     }
-    const wanted = Math.max(1, Math.round(rest / SHOT_SECONDS));
-    const fills = own.slice(0, wanted);
-    while (fills.length < wanted && pool.length && fills.length < pool.length + own.length) {
-      fills.push(pool[poolIndex++ % pool.length]);
-    }
-    if (!fills.length) {
-      shots.at(-1).end = scene.end;
+    // 그림이 없는 장면: 카드. 길면 카드 다음에 공용 그림을 이어 붙인다.
+    if (span <= CARD_SECONDS + 2 || !pool.length) {
+      push(scene, scene.start, scene.end, null, null);
       continue;
     }
-    // 기사 전체 화면(위→아래 스크롤)은 다른 컷보다 길게
-    const weights = fills.map((media) => (media.kind === "scroll" ? 2 : 1));
-    const total = weights.reduce((sum, weight) => sum + weight, 0);
-    fills.forEach((media, index) => {
-      const length = (rest * weights[index]) / total;
-      shots.push({ start: at, end: index === fills.length - 1 ? scene.end : at + length, scene, media, motion: motionIndex++ });
-      at += length;
-    });
+    const cardEnd = scene.start + Math.min(CARD_SECONDS, span / 2);
+    push(scene, scene.start, cardEnd, null, null);
+    const extra = takePool(Math.max(1, Math.round((scene.end - cardEnd) / SHOT_SECONDS)));
+    splitShots(cardEnd, scene.end, extra.length).forEach((shot, index) => push(scene, shot.start, shot.end, extra[index], isType ? "type" : "none"));
   }
   return shots;
 }
 
-// 정지 화면도 천천히 움직이게: 확대·축소·좌우 이동을 번갈아 쓴다.
-function motion(index, frames) {
-  const kinds = [
-    { z: `1+0.08*on/${frames}`, x: "iw/2-(iw/zoom/2)", y: "ih/2-(ih/zoom/2)" },
-    { z: `1.08-0.08*on/${frames}`, x: "iw/2-(iw/zoom/2)", y: "ih/2-(ih/zoom/2)" },
-    { z: "1.1", x: `(iw-iw/zoom)*on/${frames}`, y: "ih/2-(ih/zoom/2)" },
-    { z: "1.1", x: `(iw-iw/zoom)*(1-on/${frames})`, y: "ih/2-(ih/zoom/2)" },
-  ];
-  const kind = kinds[index % kinds.length];
-  return `zoompan=z='${kind.z}':x='${kind.x}':y='${kind.y}':d=1:s=${FRAME.width}x${FRAME.height}:fps=${FPS}`;
+// 정지 그림은 모두 같은 방식으로 아주 천천히 밀고 들어간다(1.00 → 1.05). 방향을 바꾸지 않아 산만하지 않다.
+function pushIn(frames) {
+  return `zoompan=z='1+0.05*on/${frames}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=1:s=${FRAME.width}x${FRAME.height}:fps=${FPS}`;
 }
 
 function assTime(seconds) {
@@ -198,7 +196,7 @@ WrapStyle: 0
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: Default,Pretendard SemiBold,52,&H00FFFFFF,&H00FFFFFF,&H64111111,&H64111111,0,0,0,0,100,100,0,0,3,14,0,2,160,160,70,1
+Style: Default,Pretendard SemiBold,50,&H00FFFFFF,&H00FFFFFF,&H64111111,&H64111111,0,0,0,0,100,100,0,0,3,14,0,2,260,260,92,1
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
@@ -316,48 +314,47 @@ export async function renderEpisode(episode, audioFiles, { root, outDir, preview
   await mkdir(work, { recursive: true });
   const assets = new Map(parseBlocks(assetsText, "ASSET ID", ASSET_FIELDS).map((block) => [block["ASSET ID"]?.split(/\s/)[0], block]));
   const referenceDir = path.join(root, "assets", "references", episode.status.episode);
-  const labels = { REAL: "사례", TYPE: "브루스 인사이트", GRAPHIC: "브루스 인사이트", AI: "브루스 인사이트" };
   const media = await loadMedia(episode, referenceDir, root);
   const shots = planShots(timeline, media);
-  log(`화면 ${shots.length}컷 (실제·브런치 자료 ${shots.filter((shot) => shot.media && shot.media.kind !== "ai").length}컷, AI ${shots.filter((shot) => shot.media?.kind === "ai").length}컷)`);
+  log(`화면 ${shots.length}컷 (실제 자료 ${shots.filter((shot) => shot.media && shot.media.kind !== "ai").length}컷, AI 이미지 ${shots.filter((shot) => shot.media?.kind === "ai").length}컷, 카드 ${shots.filter((shot) => !shot.media).length}컷)`);
 
-  // 1) 컷마다 카드 또는 투명 오버레이(라벨·문구·출처) 그리기
-  const jobs = [];
+  // 1) 컷마다 카드 또는 투명 레이어(챕터·출처·문구) 그리기, 그리고 고정 로고
+  const jobs = [{ file: "logo.png", html: logoHtml(), transparent: true }];
   shots.forEach((shot, index) => {
     const scene = shot.scene;
     const assetId = String(scene.asset).match(/A\d+/i)?.[0];
-    const label = scene.sourceType === "REAL" ? `사례 · ${shortBrand(assets.get(assetId)?.BRAND) || "사례"}` : labels[scene.sourceType] ?? "브루스 인사이트";
     shot.frame = `frame_${String(index).padStart(4, "0")}.png`;
     if (shot.media) {
-      const first = index === 0 || shots[index - 1].scene !== scene;
-      jobs.push({ file: shot.frame, html: overlayHtml({ label, lines: first || shot.media.kind === "ai" ? screenLines(scene) : [], credit: shot.media.credit }), transparent: true });
+      const lines = shot.mode === "type" || shot.mode === "caption" ? screenLines(scene) : [];
+      jobs.push({ file: shot.frame, html: overlayHtml({ chapter: shot.chapter, credit: shot.media.credit, mode: shot.mode, lines }), transparent: true });
     } else {
-      jobs.push({ file: shot.frame, html: sceneFrameHtml(scene, { label: labels[scene.sourceType] ?? "브루스 인사이트", asset: assets.get(assetId) }).html });
+      jobs.push({ file: shot.frame, html: sceneFrameHtml(scene, { chapter: shot.chapter, asset: assets.get(assetId) }).html });
     }
   });
   await renderFrames(jobs, work);
 
-  // 2) 컷별 영상 조각
+  // 2) 컷별 영상 조각. 같은 장면 안에서 다음 컷이 있으면 겹칠 시간(XFADE)만큼 길게 만든다.
   const size = preview ? "960:540" : `${FRAME.width}:${FRAME.height}`;
   const encode = ["-c:v", "libx264", "-preset", "ultrafast", "-pix_fmt", "yuv420p", "-r", String(FPS), "-an"];
+  shots.forEach((shot, index) => {
+    shot.overlap = shots[index + 1]?.scene === shot.scene ? XFADE : 0;
+  });
   log(`컷 ${shots.length}개 인코딩 중 (동시 ${CONCURRENCY}개)`);
   const clips = await mapLimit(shots, CONCURRENCY, async (shot, index) => {
-    const seconds = Math.max(shot.end - shot.start, 1 / FPS).toFixed(3);
-    const frames = Math.max(1, Math.round((shot.end - shot.start) * FPS));
+    const length = Math.max(shot.end - shot.start, 1 / FPS) + shot.overlap;
+    const seconds = length.toFixed(3);
+    const frames = Math.max(1, Math.round(length * FPS));
     const clip = path.join(work, `clip_${String(index).padStart(4, "0")}.mp4`);
     const frame = path.join(work, shot.frame);
     const still = ["-loop", "1", "-framerate", String(FPS), "-t", seconds];
     if (!shot.media) {
-      // 카드: 아주 천천히 확대
-      await ffmpeg([...still, "-i", frame, "-filter_complex",
-        `[0:v]scale=2112:1188,zoompan=z='1+0.03*on/${frames}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=1:s=${FRAME.width}x${FRAME.height}:fps=${FPS},scale=${size}`,
-        ...encode, clip]);
+      // 카드는 움직이지 않는다(글자가 흔들리지 않게)
+      await ffmpeg([...still, "-i", frame, "-vf", `scale=${size}`, ...encode, clip]);
     } else if (shot.media.kind === "video") {
       await ffmpeg(["-stream_loop", "-1", "-i", shot.media.file, "-i", frame, "-t", seconds, "-filter_complex",
         `[0:v]scale=${FRAME.width}:${FRAME.height}:force_original_aspect_ratio=increase,crop=${FRAME.width}:${FRAME.height},setsar=1,fps=${FPS}[v];[v][1:v]overlay=0:0,scale=${size}`,
         ...encode, clip]);
     } else if (shot.media.kind === "scroll") {
-      // 기사 전체 화면: 위에서 아래로 천천히 내려간다
       await ffmpeg([...still, "-i", shot.media.file, "-loop", "1", "-i", frame, "-filter_complex",
         `[0:v]scale=${FRAME.width}:-2,crop=${FRAME.width}:${FRAME.height}:0:'(ih-${FRAME.height})*t/${seconds}'[v];[v][1:v]overlay=0:0,scale=${size}`,
         "-t", seconds, ...encode, clip]);
@@ -368,13 +365,37 @@ export async function renderEpisode(episode, audioFiles, { root, outDir, preview
         ? `[0:v]scale=2304:1296:force_original_aspect_ratio=increase,crop=2304:1296[b]`
         : `[0:v]split[a][f];[a]scale=2304:1296:force_original_aspect_ratio=increase,crop=2304:1296,boxblur=40:2,eq=brightness=-0.18[bg];[f]scale=-2:1150[fg];[bg][fg]overlay=(W-w)/2:(H-h)/2[b]`;
       await ffmpeg([...still, "-i", shot.media.file, "-loop", "1", "-i", frame, "-filter_complex",
-        `${base};[b]${motion(shot.motion ?? index, frames)}[v];[v][1:v]overlay=0:0,scale=${size}`,
+        `${base};[b]${pushIn(frames)}[v];[v][1:v]overlay=0:0,scale=${size}`,
         "-t", seconds, ...encode, clip]);
     }
     return clip;
   });
+
+  // 같은 장면의 컷끼리는 부드럽게 겹쳐 넘기고(크로스페이드), 장면이 바뀔 때는 바로 넘긴다.
+  const groups = [];
+  shots.forEach((shot, index) => {
+    if (!index || shots[index - 1].scene !== shot.scene) groups.push([]);
+    groups.at(-1).push({ shot, clip: clips[index] });
+  });
+  const sceneClips = await mapLimit(groups, CONCURRENCY, async (group, index) => {
+    if (group.length === 1) return group[0].clip;
+    const out = path.join(work, `scene_${String(index).padStart(3, "0")}.mp4`);
+    const inputs = group.flatMap((item) => ["-i", item.clip]);
+    const normalize = group.map((_, i) => `[${i}:v]settb=AVTB,fps=${FPS},format=yuv420p[n${i}]`).join(";");
+    let chain = "";
+    let previous = "n0";
+    let offset = 0;
+    group.slice(0, -1).forEach((item, i) => {
+      offset += item.shot.end - item.shot.start;
+      const label = i === group.length - 2 ? "out" : `x${i}`;
+      chain += `;[${previous}][n${i + 1}]xfade=transition=fade:duration=${XFADE}:offset=${offset.toFixed(3)}[${label}]`;
+      previous = label;
+    });
+    await ffmpeg([...inputs, "-filter_complex", `${normalize}${chain}`, "-map", "[out]", ...encode, out]);
+    return out;
+  });
   const clipList = path.join(work, "clips.txt");
-  await writeFile(clipList, clips.map((clip) => `file '${clip.replace(/'/g, "'\\''")}'`).join("\n"));
+  await writeFile(clipList, sceneClips.map((clip) => `file '${clip.replace(/'/g, "'\\''")}'`).join("\n"));
   const video = path.join(work, "video.mp4");
   await ffmpeg(["-f", "concat", "-safe", "0", "-i", clipList, "-c", "copy", video]);
 
@@ -394,8 +415,9 @@ export async function renderEpisode(episode, audioFiles, { root, outDir, preview
   const finalFile = path.join(outDir, `${episode.status.episode}${preview ? "_preview" : ""}.mp4`);
   log("최종 인코딩 중");
   await ffmpeg([
-    "-i", video, "-i", audioOut,
-    "-vf", `ass=${assFile.replace(/:/g, "\\:")}:fontsdir=${fontsDir}`,
+    "-i", video, "-i", audioOut, "-loop", "1", "-i", path.join(work, "logo.png"),
+    "-filter_complex", `[2:v]scale=${size}[logo];[0:v][logo]overlay=0:0:shortest=1,ass=${assFile.replace(/:/g, "\\:")}:fontsdir=${fontsDir}[v]`,
+    "-map", "[v]", "-map", "1:a",
     "-c:v", "libx264", "-preset", preview ? "ultrafast" : "veryfast", "-crf", preview ? "30" : "21", "-pix_fmt", "yuv420p",
     "-c:a", "copy", "-shortest", "-movflags", "+faststart", finalFile,
   ]);

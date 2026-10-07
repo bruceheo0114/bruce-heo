@@ -1,0 +1,19 @@
+{
+  "monthly_cap": 150,
+  "cycle_resets_on_day": 2,
+  "note": "Higgsfield Starter 270 = 인스타그램 120 + YouTube 150",
+  "cycles": {
+    "2026-10": {
+      "spent": 3,
+      "entries": [
+        {
+          "date": "2026-10-07",
+          "episode": "EP001",
+          "scene": "fill-12",
+          "credits": 3,
+          "note": "빈 장면 배경 이미지 12장 (gpt_image_2_5)"
+        }
+      ]
+    }
+  }
+}

@@ -131,7 +131,7 @@ export async function fetchReferences(episode, root, { log = () => {} } = {}) {
           const ok = await normalizeImage(raw, path.join(dir, `${item.id}.jpg`));
           await rm(raw, { force: true });
           if (!ok) throw new Error("그림이 너무 작습니다");
-          credits.push({ file: `${item.id}.jpg`, id: item.id, scenes: item.scenes, kind: "image", source: item.source, url: item.page ?? item.url });
+          credits.push({ file: `${item.id}.jpg`, id: item.id, scenes: item.scenes, kind: item.ai ? "ai" : "image", source: item.source, url: item.page ?? item.url });
         } else {
           await capturePage(context, item, dir, credits, item.max_images ?? 3);
         }
