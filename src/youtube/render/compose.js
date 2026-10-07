@@ -316,7 +316,28 @@ function list(text) {
     .filter(Boolean);
 }
 
-export function buildUploadKit(episode, brief, timeline, sources = []) {
+// 영상 설명의 '자료 출처'. 같은 출처는 한 줄로 모으고, AI 이미지는 주소 없이 한 줄로 적는다.
+export function uploadSources(shots) {
+  const sources = [];
+  for (const shot of shots) {
+    const media = shot.media;
+    if (!media?.credit) continue;
+    const isAi = media.kind === "ai" || /AI 생성/.test(media.credit);
+    const url = isAi ? null : media.url ?? null;
+    if (sources.some((item) => item.source === media.credit && (isAi || item.url === url))) continue;
+    if (url && sources.some((item) => item.url === url)) continue; // 같은 페이지는 한 번만
+    sources.push({ source: media.credit, url, ai: isAi });
+  }
+  return [...sources.filter((item) => !item.ai), ...sources.filter((item) => item.ai)];
+}
+
+function alteredNote({ aiImages, syntheticVoice }) {
+  if (syntheticVoice) return `'예' (내레이션이 본인 복제 목소리${aiImages ? ", AI 생성 이미지 포함" : ""})`;
+  if (aiImages) return "AI 생성 이미지 있음 → 실제처럼 보이는 장면이 있으면 '예'";
+  return "AI 생성 장면 없음 → '아니요'";
+}
+
+export function buildUploadKit(episode, brief, timeline, sources = [], { aiImages, syntheticVoice = false } = {}) {
   const titles = list(findSection(brief, "Title Candidates"));
   const thesis = list(findSection(brief, "One Sentence Thesis"))[0] ?? "";
   const chapters = [...timeline.chapters];
@@ -359,7 +380,7 @@ export function buildUploadKit(episode, brief, timeline, sources = []) {
     "",
     "- 썸네일: thumbnail_1.png ~ thumbnail_3.png 중 하나 (thumbnail.png = 1안)",
     "- 자막: 영상에 들어가 있음. 검색용으로 subtitles.srt를 '자막 → 업로드'에 올려도 된다(선택).",
-    `- 변경된 콘텐츠 표시: ${Object.keys(episode.status.generated ?? {}).length ? "AI 생성 장면 있음 → 사실적인 장면이면 '예'" : "AI 생성 장면 없음 → '아니요'"}`,
+    `- 변경된 콘텐츠 표시: ${alteredNote({ aiImages: aiImages ?? Object.keys(episode.status.generated ?? {}).length > 0, syntheticVoice })}`,
     "- 공개: 비공개로 올려 확인 후 공개 또는 예약",
     "",
   ].join("\n");
@@ -368,7 +389,7 @@ export function buildUploadKit(episode, brief, timeline, sources = []) {
 /**
  * 영상 만들기. audioFiles: 녹음 파일 경로(챕터 순서). outDir에 <EP>.mp4, subtitles.srt, thumbnail.png, upload.md를 만든다.
  */
-export async function renderEpisode(episode, audioFiles, { root, outDir, preview = false, cleanup = true, log = () => {} }) {
+export async function renderEpisode(episode, audioFiles, { root, outDir, preview = false, cleanup = true, syntheticVoice = false, log = () => {} }) {
   const storyboardText = await readEpisodeFile(episode, "03_storyboard.md");
   const script = await readEpisodeFile(episode, "02_script.md");
   const brief = (await readEpisodeFile(episode, "01_brief.md")) ?? "";
@@ -507,11 +528,8 @@ export async function renderEpisode(episode, audioFiles, { root, outDir, preview
   // 5) 썸네일과 업로드 정보
   const { renderThumbnails } = await import("./thumbnail.js");
   await renderThumbnails(episode, root, outDir);
-  const sources = [];
-  for (const shot of shots) {
-    if (!shot.media?.credit || sources.some((item) => item.source === shot.media.credit && item.url === shot.media.url)) continue;
-    sources.push({ source: shot.media.credit, url: shot.media.url });
-  }
-  await writeFile(path.join(outDir, "upload.md"), buildUploadKit(episode, brief, timeline, sources));
+  const sources = uploadSources(shots);
+  const aiImages = shots.some((shot) => shot.media?.kind === "ai") || Object.keys(episode.status.generated ?? {}).length > 0;
+  await writeFile(path.join(outDir, "upload.md"), buildUploadKit(episode, brief, timeline, sources, { aiImages, syntheticVoice }));
   return { file: finalFile, seconds: timeline.total, scenes: timeline.scenes.length, shots: shots.length, cues: cues.length };
 }
