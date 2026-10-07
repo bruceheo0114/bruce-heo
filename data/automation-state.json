@@ -888,7 +888,7 @@
         "generatedAt": null
       },
       "linkedin": {
-        "status": "skipped_card_only",
+        "status": "manual_pending",
         "id": null,
         "lastAttemptAt": null,
         "error": null
@@ -901,8 +901,7 @@
       },
       "approvedAt": null,
       "scheduledAt": null,
-      "completedAt": null,
-      "cardOnly": true
+      "completedAt": null
     }
   }
 }
