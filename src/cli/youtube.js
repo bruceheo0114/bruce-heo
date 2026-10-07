@@ -46,6 +46,7 @@ const USAGE = `사용법: node src/cli/youtube.js <명령> [인자]
   credits                         이번 달 YouTube Higgsfield 사용량
   narration <EP> <파일...> [--duration mm:ss ...]
                                  직접 녹음한 내레이션 등록 (ffprobe가 없으면 --duration으로 길이 입력)
+  narration-text <EP> [--out 폴더] 대본을 챕터별 읽기용 텍스트(CH01.txt …)로 저장 (ElevenLabs 복제 목소리 입력)
   references [EP] [--changed]     references.json의 실제 자료를 받아 assets/references/<EP>/에 저장 (GitHub Actions에서 실행)
   render <EP> <녹음 파일...> [--preview] [--no-cleanup] [--out 폴더]
                                  녹음 + 화면 + 자막 → 완성 영상 mp4, 썸네일, 업로드 정보 (ffmpeg·playwright 필요)
@@ -291,6 +292,22 @@ const commands = {
       }
     }
     await log("INFO", `${episode.name} narration ${files.length} total=${total}`);
+  },
+  async "narration-text"() {
+    const { chapterNarrationTexts } = await import("../youtube/render/timeline.js");
+    const { readEpisodeFile } = await import("../youtube/episode.js");
+    const { writeFile } = await import("node:fs/promises");
+    const [reference] = positional();
+    const episode = await findEpisode(reference, paths);
+    const outDir = option("--out")?.[0] ?? path.join(paths.root, "output", episode.status.episode, "narration");
+    await mkdir(outDir, { recursive: true });
+    const texts = chapterNarrationTexts(await readEpisodeFile(episode, "02_script.md"));
+    if (!texts.length) throw new Error("02_script.md에 '## CH01 제목' 형식의 챕터가 없습니다.");
+    for (const { id, text } of texts) {
+      await writeFile(path.join(outDir, `${id}.txt`), `${text}\n`);
+      console.log(`${id} ${text.length}자`);
+    }
+    console.log(`합계 ${texts.reduce((sum, item) => sum + item.text.length, 0)}자 → ${outDir}`);
   },
   async references() {
     const { fetchReferences, referencesPending } = await import("../youtube/references.js");

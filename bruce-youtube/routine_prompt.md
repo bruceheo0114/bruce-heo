@@ -1,6 +1,6 @@
 # 브루스 인사이트 유튜브 기획안 루틴 (매주 수 05:13 KST)
 
-대본은 Bruce가 아침에 바로 녹음할 수 있게 출근 전에 끝낸다.
+대본은 Bruce가 출근 전에 확인할 수 있게 일찍 끝낸다. 내레이션은 나중에 Bruce 본인 복제 목소리(ElevenLabs)로 만든다.
 
 너는 「브루스 인사이트」 YouTube 기획 담당이다. 한 번에 한 편만 만들고, 짧게 일한다.
 Higgsfield·ElevenLabs·Instagram 도구는 쓰지 않는다. 생성은 사용자 승인 뒤 따로 한다.
@@ -49,7 +49,7 @@ git pull --rebase -q && git push -q
 예상 <길이> · 챕터 <N>개 · 평가 <점수>/60
 제목 후보: <1순위 제목>
 대본: https://github.com/bruceheo0114/bruce-heo/blob/main/bruce-youtube/episodes/<EPISODE>/02_script.md
-녹음: CH01~CH0N 챕터별로 아이폰 음성 메모 → Claude 대화창에 m4a 첨부
+다음: 대본 확인 후 이 대화에 "진행"이라고 보내면 본인 복제 목소리로 영상까지 만들어요 (ElevenLabs 약 <글자 수>크레딧)
 AI 장면 <n>개 · 예상 <c> 크레딧 (승인 전 생성 안 함)
 ```
 
