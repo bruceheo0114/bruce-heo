@@ -223,12 +223,12 @@ test("정상 패키지는 통과하고 finalize 후 WAITING_APPROVAL이 된다",
 
 test("AI 비중·크레딧 상한·원문 복사를 막는다", async () => {
   const { paths, episode } = await setup();
-  await writePackage(episode, { storyboard: { aiScenes: 12, aiSeconds: 8 }, credits: 75 });
+  await writePackage(episode, { storyboard: { aiScenes: 30, aiSeconds: 8 }, credits: 75 });
   const errors = (await validatePackage(episode, paths)).errors.join("\n");
-  assert.match(errors, /AI Scene 12개/);
+  assert.match(errors, /AI Scene 30개/);
   assert.match(errors, /크레딧이 Episode 상한 30/);
 
-  const share = analyzeStoryboard(storyboard({ aiScenes: 10, aiSeconds: 40 }).text);
+  const share = analyzeStoryboard(storyboard({ aiScenes: 10, aiSeconds: 80 }).text);
   assert.ok(share.errors.some((error) => error.includes("AI 화면 비중")));
 
   await writePackage(episode, { script: `${article.body}\n\n${article.body}` });

@@ -46,6 +46,7 @@ const USAGE = `사용법: node src/cli/youtube.js <명령> [인자]
   credits                         이번 달 YouTube Higgsfield 사용량
   narration <EP> <파일...> [--duration mm:ss ...]
                                  직접 녹음한 내레이션 등록 (ffprobe가 없으면 --duration으로 길이 입력)
+  references [EP] [--changed]     references.json의 실제 자료를 받아 assets/references/<EP>/에 저장 (GitHub Actions에서 실행)
   render <EP> <녹음 파일...> [--preview] [--no-cleanup] [--out 폴더]
                                  녹음 + 화면 + 자막 → 완성 영상 mp4, 썸네일, 업로드 정보 (ffmpeg·playwright 필요)
   resolve-update <EP> keep|regenerate
@@ -289,6 +290,19 @@ const commands = {
       }
     }
     await log("INFO", `${episode.name} narration ${files.length} total=${total}`);
+  },
+  async references() {
+    const { fetchReferences, referencesPending } = await import("../youtube/references.js");
+    const [reference] = positional();
+    const targets = reference ? [await findEpisode(reference, paths)] : await listEpisodes(paths);
+    for (const episode of targets) {
+      if (args.includes("--changed") && !(await referencesPending(episode, paths.root))) continue;
+      if (!reference && !(await referencesPending(episode, paths.root))) continue;
+      console.log(`${episode.name} 자료 받는 중`);
+      const { credits, failures } = await fetchReferences(episode, paths.root, { log: (line) => console.log(`  ${line}`) });
+      console.log(`${episode.name} 자료 ${credits.length}개 · 실패 ${failures.length}개`);
+      await log("INFO", `${episode.name} references ${credits.length} failed=${failures.length}`);
+    }
   },
   async render() {
     const [reference, ...audioFiles] = positional();

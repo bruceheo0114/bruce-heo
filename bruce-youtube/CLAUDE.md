@@ -45,14 +45,17 @@ Hook → Phenomenon → Case → Question → Analysis → Contrast → Insight 
    6. 완성 영상의 몇 장면을 뽑아 확인한 뒤 mp4·썸네일을 사용자에게 보내고 upload.md 내용을 그대로 전한다.
 4. Bruce가 YouTube 앱에서 업로드
 
-실제 광고 영상은 내려받지 않는다. REAL Scene은 사례 카드(캠페인 이름·핵심 사실·출처)로 그린다.
+실제 자료는 `references.json`(공식 홈페이지·기사·이미지 주소)을 main에 올리면 GitHub Actions(`youtube-references.yml`)가 받아
+`assets/references/<EP>/`와 `credits.json`에 넣는다. render는 이 자료와 브런치 원문 이미지를 5초 컷으로 번갈아 쓰고, 모든 자료 화면에 출처를 표시하며,
+upload.md의 설명에 '자료 출처' 목록을 넣는다. 자료가 없는 REAL Scene은 사례 카드로 그린다. 영상 클립은 받지 않는다.
+render 전에 `git pull`로 Actions가 받은 자료를 가져온다.
 사용자가 클립·사진을 주면 `assets/references/<EP>/<ASSET ID 또는 Scene ID>.mp4|jpg|png`로 두면 render가 그 자료를 쓴다.
 
 내레이션은 TTS로 만들지 않는다. ElevenLabs는 잡음 제거(Voice Isolator)와 받아쓰기에만 쓴다.
 
 ## HIGGSFIELD
 
-- 영상 전체를 만드는 도구가 아니다. AI 화면 비중은 25% 이하, AI Scene은 Episode당 8개 이하, 한 Scene 4~8초.
+- 영상 전체를 만드는 도구가 아니다. AI 화면 비중은 40% 이하, AI Scene은 Episode당 24개 이하(대부분 정지 이미지), 영상 클립은 4개 이하.
 - 사람 얼굴이 나오는 장면은 영상 생성 금지(정지 이미지 또는 뒷모습·손).
 - 기준 이미지 → image-to-video, 같은 분위기·장소는 같은 reference asset 재사용.
 - 예산: Episode당 30, 월 150 크레딧 (Starter 월 270 = 인스타그램 120 + YouTube 150). 장부는 `ledger.json`.

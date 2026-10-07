@@ -90,7 +90,9 @@ HIGGSFIELD_REQUIRED: YES
 - SCENE ID는 S001부터 순서대로, TIME은 겹치거나 비지 않게 이어 붙인다. 마지막 Scene 끝이 10:00~15:00 사이여야 한다.
 - SOURCE_TYPE: `REAL`(실제 광고·SNS·기사·웹사이트), `TYPE`(타이포그래피), `GRAPHIC`(도식·프레임워크·정지 이미지), `AI`(Higgsfield).
 - `AI`인 Scene만 `HIGGSFIELD_REQUIRED: YES`. 나머지는 `NO`.
-- 화면 비중(시간 기준): REAL 30~40%, TYPE+GRAPHIC 35~50%, AI 25% 이하. AI는 최대 8 Scene, 한 Scene 4~8초.
+- 화면 비중(시간 기준): REAL 30~40%, TYPE+GRAPHIC 25~40%, AI 40% 이하. AI Scene은 최대 24개, 한 Scene 4~8초.
+- **지루하지 않게:** 한 Scene은 4~10초. 같은 화면이 10초 넘게 머물면 안 된다. 긴 설명은 Scene을 나눠 TYPE → REAL → AI처럼 화면 종류를 바꾼다.
+  편집기가 긴 Scene을 5초 컷으로 나눠 자료 이미지·브런치 이미지를 번갈아 넣고, 모든 정지 화면을 천천히 움직인다.
 - REAL 자료(광고·SNS 영상)는 비평·해설 목적의 짧은 인용으로만 쓴다: 한 번에 10초 이내, 화면에 출처(브랜드·채널명) 표기.
 - 영상은 자동 편집된다(`render`). 그래서:
   - NARRATION에는 02_script.md 문장을 그대로 나눠 담는다. 자막이 이 글로 만들어진다.
@@ -101,6 +103,29 @@ HIGGSFIELD_REQUIRED: YES
 - 실제 자료가 있는 장면은 AI로 대체하지 않는다. AI는 오프닝 Hook, 챕터 전환, 추상 개념, 촬영이 어려운 B-roll에만 쓴다.
 - REAL Scene의 ASSET에는 04_assets.md의 ASSET ID(A001 등)를 적는다. 같은 자료를 여러 Scene에서 재사용한다.
 - 한 Scene은 보통 6~20초. 긴 REAL 자료는 Scene을 쪼개지 말고 한 Scene에 길게 둬도 된다.
+
+## references.json (실제 자료 주소 — 꼭 쓴다)
+
+화면에 쓸 실제 자료의 **주소**를 적는다. 클라우드에서는 외부 사이트에 접속할 수 없어서, 이 파일이 main에 올라가면
+GitHub Actions가 화면 캡처와 이미지를 받아 `assets/references/<EP>/`에 넣는다. 출처는 화면과 영상 설명에 자동으로 표시된다.
+
+```json
+{
+  "brunch": true,
+  "items": [
+    { "id": "A001", "kind": "page", "url": "https://브랜드 공식 홈페이지의 캠페인·제품 페이지", "source": "하인즈 공식 홈페이지", "scenes": ["S004", "S005"] },
+    { "id": "A002", "kind": "article", "url": "https://기사 주소", "source": "Marketing Dive (2026-06-12)", "scenes": ["S010"] },
+    { "id": "A003", "kind": "image", "url": "https://공식 보도자료 이미지 주소.jpg", "page": "https://보도자료 페이지", "source": "Kraft Heinz 보도자료", "scenes": ["S012"] }
+  ]
+}
+```
+
+- `kind`: `page`(공식 홈페이지·캠페인 페이지·공식 SNS 게시물 페이지 → 화면 캡처 + 큰 이미지 최대 3장), `article`(기사 → 화면 캡처 + 위→아래 스크롤 화면), `image`(이미지 주소를 직접 알 때).
+- **공식 홈페이지·공식 보도자료를 우선**한다. WebSearch로 실제 주소를 찾고, 찾지 못한 주소를 지어내지 않는다.
+- `id`는 04_assets.md의 ASSET ID와 같게 쓴다. `scenes`는 그 자료를 보여줄 Scene들. 비워 두면 긴 장면을 채우는 공용 자료가 된다.
+- `source`는 화면에 그대로 나간다: `브랜드 공식 홈페이지`, `매체명 (YYYY-MM-DD)`, `브랜드 공식 인스타그램`처럼 누가 봐도 알 수 있게.
+- `brunch: true`면 브런치 원문에 들어 있는 이미지도 받아 공용 자료로 쓴다.
+- 6~12개. 유튜브·인스타그램 동영상 주소는 쓰지 않는다(받을 수 없다). 그 게시물이 실린 공식 페이지나 기사를 쓴다.
 
 ## 04_assets.md
 
@@ -126,7 +151,7 @@ ESTIMATED CREDITS: 46
 
 예상 생성 횟수 = 새 기준 이미지 수 + AI Scene 영상 수 + 재시도 여유(보통 20%).
 크레딧 계산 기준(사용자 계정 실제 차감 기록): 이미지(GPT Image 2.5) 0.25, 5초 영상(Grok Video 1.5 Lite) 5.
-**Episode당 30 크레딧을 넘으면 검사에서 실패한다.** (YouTube 몫은 월 150. 인스타그램이 120을 쓴다.) 영상 생성은 4개 이하로 잡고,
+**Episode당 30 크레딧을 넘으면 검사에서 실패한다.** (YouTube 몫은 월 150. 인스타그램이 120을 쓴다.) 정지 이미지 위주로 12~24장(3~6 크레딧), 영상 생성은 4개 이하로 잡고,
 나머지 AI Scene은 기준 이미지 한 장을 편집에서 천천히 움직이는 방식(STYLE에 `still + slow push-in in edit` 표기)으로 바꾼다. 그 다음 `## Reference Images`에 기준 이미지(REF01…)와 프롬프트를 적고,
 각 AI Scene을 아래 블록으로 적는다.
 

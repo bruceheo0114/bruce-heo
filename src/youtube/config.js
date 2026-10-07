@@ -49,8 +49,9 @@ export const RULES = Object.freeze({
   sourceSince: "2026-01-01",
   runtimeMinSeconds: 10 * 60,
   runtimeMaxSeconds: 15 * 60,
-  aiShareMax: 0.25,
-  aiSceneMax: 8,
+  // 화면이 지루하지 않게 AI 정지 이미지를 넉넉히 쓴다(장당 0.25 크레딧). 영상 클립은 편당 4개 이하.
+  aiShareMax: 0.4,
+  aiSceneMax: 24,
   aiSceneMinSeconds: 4,
   aiSceneMaxSeconds: 8,
   shortsMin: 3,

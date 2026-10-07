@@ -134,19 +134,25 @@ function caseFrame(scene, asset) {
   );
 }
 
-// 사진·영상 위에 얹는 아래쪽 라벨 (ON_SCREEN_TEXT)
-function overlayFrame(scene, label) {
-  const lines = cleanLines(scene.fields.ON_SCREEN_TEXT);
+// 사진·영상 위에 얹는 라벨·문구·출처. 배경은 투명.
+export function overlayHtml({ label, lines = [], credit = null }) {
   return `<!doctype html><meta charset="utf-8"><style>__FONT__
 *{box-sizing:border-box;margin:0}body{width:${FRAME.width}px;height:${FRAME.height}px;background:transparent;font-family:P,sans-serif;position:relative;word-break:keep-all}
+.shade{position:absolute;left:0;top:0;right:0;height:520px;background:linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,0))}
 .pill{position:absolute;left:96px;top:84px;border:4px solid ${COLORS.mint};border-radius:999px;padding:12px 26px 15px;background:rgba(17,17,17,.55);color:#fff;font-size:30px;font-weight:800;line-height:1}
-.text{position:absolute;left:96px;top:170px;max-width:1100px;color:#fff;font-size:76px;font-weight:900;letter-spacing:-.05em;line-height:1.15;text-shadow:0 4px 24px rgba(0,0,0,.45)}
-.dot{color:${COLORS.mint}}</style><body><div class="pill">${escapeHtml(label)}</div>
-${lines.length ? `<div class="text">${lines.map(escapeHtml).join("<br>")}<span class="dot">.</span></div>` : ""}</body>`;
+.text{position:absolute;left:96px;top:170px;max-width:1300px;color:#fff;font-size:72px;font-weight:900;letter-spacing:-.05em;line-height:1.15;text-shadow:0 4px 24px rgba(0,0,0,.45)}
+.credit{position:absolute;right:40px;top:40px;max-width:900px;padding:8px 16px;border-radius:8px;background:rgba(17,17,17,.62);color:#f2f1ed;font-size:24px;font-weight:600}
+.dot{color:${COLORS.mint}}</style><body>
+${lines.length ? '<div class="shade"></div>' : ""}<div class="pill">${escapeHtml(label)}</div>
+${lines.length ? `<div class="text">${lines.map(escapeHtml).join("<br>")}<span class="dot">.</span></div>` : ""}
+${credit ? `<div class="credit">출처: ${escapeHtml(credit)}</div>` : ""}</body>`;
 }
 
-export function sceneFrameHtml(scene, { label, asset, media }) {
-  if (media) return { html: overlayFrame(scene, label), transparent: true };
+export function screenLines(scene) {
+  return cleanLines(scene.fields.ON_SCREEN_TEXT).slice(0, 3);
+}
+
+export function sceneFrameHtml(scene, { label, asset }) {
   if (scene.sourceType === "TYPE") return { html: typeFrame(scene, label) };
   if (scene.sourceType === "GRAPHIC") return { html: graphicFrame(scene, label) };
   if (scene.sourceType === "REAL") return { html: caseFrame(scene, asset) };
