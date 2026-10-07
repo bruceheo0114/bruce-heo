@@ -49,6 +49,7 @@ Hook → Phenomenon → Case → Question → Analysis → Contrast → Insight 
 `assets/references/<EP>/`와 `credits.json`에 넣는다. render는 이 자료와 브런치 원문 이미지를 5초 컷으로 번갈아 쓰고, 모든 자료 화면에 출처를 표시하며,
 upload.md의 설명에 '자료 출처' 목록을 넣는다. 자료가 없는 REAL Scene은 사례 카드로 그린다. 영상 클립은 받지 않는다.
 render 전에 `git pull`로 Actions가 받은 자료를 가져온다.
+받은 그림을 확인한 뒤 references.json에 `scene_images`(장면별로 내레이션과 맞는 그림 목록)를 적고 render한다. 있으면 render는 그 배치를 그대로 따른다.
 사용자가 클립·사진을 주면 `assets/references/<EP>/<ASSET ID 또는 Scene ID>.mp4|jpg|png`로 두면 render가 그 자료를 쓴다.
 
 내레이션은 TTS로 만들지 않는다. ElevenLabs는 잡음 제거(Voice Isolator)와 받아쓰기에만 쓴다.

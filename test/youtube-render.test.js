@@ -91,6 +91,30 @@ test("장면을 3~4초 컷으로 나누고 카드는 짧게, 그림은 장면 �
   for (let index = 1; index < shots.length; index += 1) assert.equal(shots[index].start, shots[index - 1].end);
 });
 
+test("scene_images가 있으면 장면마다 지정한 그림만 쓴다", async () => {
+  const { planShots } = await import("../src/youtube/render/compose.js");
+  const scene = (id, type, start, end) => ({ id, sourceType: type, start, end, asset: "-", fields: {} });
+  const timeline = {
+    chapters: [{ title: "오프닝", start: 0 }],
+    scenes: [scene("S001", "REAL", 0, 10), scene("S002", "TYPE", 10, 14), scene("S003", "GRAPHIC", 14, 30), scene("S004", "AI", 30, 40)],
+  };
+  const img = (file) => ({ file, kind: "image", credit: "공식" });
+  const sceneImages = new Map([["S001", [img("a.jpg"), img("b.jpg")]], ["S002", [img("c.jpg")]], ["S003", [img("d.jpg")]], ["S004", []]]);
+  const pool = [img("pool.jpg")];
+  const shots = planShots(timeline, { byKey: new Map(), pool, sceneImages });
+  const of = (id) => shots.filter((shot) => shot.scene.id === id);
+  assert.deepEqual(of("S001").map((shot) => [shot.media.file, shot.mode]), [["a.jpg", "caption"], ["a.jpg", "none"], ["b.jpg", "none"]]);
+  // 그림 1장에 긴 장면: 같은 그림 클로즈업으로 한 컷 더
+  const long = planShots({ chapters: [], scenes: [scene("S009", "REAL", 0, 8)] }, { sceneImages: new Map([["S009", [img("x.jpg")]]]) });
+  assert.deepEqual(long.map((shot) => [shot.media.file, Boolean(shot.close)]), [["x.jpg", false], ["x.jpg", true]]);
+  assert.deepEqual(of("S002").map((shot) => [shot.media.file, shot.mode]), [["c.jpg", "type"]]);
+  assert.deepEqual(of("S003").map((shot) => shot.media?.file ?? null), [null, "d.jpg", "d.jpg"]);
+  assert.equal(of("S003")[0].end, 20);
+  assert.deepEqual(of("S004").map((shot) => shot.media), [null]);
+  assert.ok(!shots.some((shot) => shot.media?.file === "pool.jpg"));
+  for (let index = 1; index < shots.length; index += 1) assert.equal(shots[index].start, shots[index - 1].end);
+});
+
 test("references.json 형식 검사", async () => {
   const { validateReferences } = await import("../src/youtube/references.js");
   assert.deepEqual(validateReferences({ items: [{ id: "A001", kind: "page", url: "https://www.heinz.com", source: "하인즈 공식 홈페이지", scenes: ["S003"] }] }), []);

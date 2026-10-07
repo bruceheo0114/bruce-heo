@@ -64,12 +64,14 @@ async function loadMedia(episode, referenceDir, root) {
   const excluded = new Set((references.exclude ?? []).map((name) => String(name).replace(/\.[a-z]+$/i, "").toUpperCase()));
   const isExcluded = (file) => excluded.has(path.parse(file).name.toUpperCase());
   const byKey = new Map();
+  const byName = new Map();
   const pool = [];
   const add = (key, media) => byKey.set(key, [...(byKey.get(key) ?? []), media]);
   for (const item of credits.items ?? []) {
     const file = path.join(referenceDir, item.file);
     if (isExcluded(item.file) || !(await exists(file))) continue;
     const media = { file, kind: item.kind, credit: item.source, url: item.url };
+    byName.set(path.parse(item.file).name.toUpperCase(), media);
     if (item.scenes?.length) for (const scene of item.scenes) add(scene.toUpperCase(), media);
     else if (/^A\d+/i.test(item.id)) add(item.id.toUpperCase(), media);
     else if (media.kind !== "scroll") pool.push(media);
@@ -94,7 +96,17 @@ async function loadMedia(episode, referenceDir, root) {
       }
     }
   }
-  return { byKey, pool };
+  // references.json의 scene_images: { "S001": ["G000", "A006-img2"], ... } 내레이션에 맞춰 장면마다 고른 그림
+  let sceneImages = null;
+  if (references.scene_images && typeof references.scene_images === "object") {
+    sceneImages = new Map();
+    for (const [scene, names] of Object.entries(references.scene_images)) {
+      if (scene.startsWith("_")) continue;
+      const picked = (Array.isArray(names) ? names : []).map((name) => byName.get(String(name).replace(/\.[a-z]+$/i, "").toUpperCase())).filter(Boolean);
+      sceneImages.set(scene.toUpperCase(), picked);
+    }
+  }
+  return { byKey, pool, sceneImages };
 }
 
 // 기사 전체 스크롤 화면은 글자가 작아 비어 보이므로, 그 장면에 다른 그림이 없을 때만 쓴다.
@@ -120,7 +132,8 @@ const XFADE = 0.3; // 같은 장면 안 컷 사이 부드러운 전환(초)
  * - TYPE: 그 장면 그림(실제 자료·AI 배경)이 있으면 그림 위에 큰 문구, 없으면 문구 카드 → 길면 공용 그림 위에 문구
  * - REAL·AI: 자료 그림을 5초 안팎으로 돌려 가며(첫 컷에 설명 한 줄), 없으면 사례 카드
  */
-export function planShots(timeline, { byKey, pool }) {
+export function planShots(timeline, { byKey, pool, sceneImages }) {
+  if (sceneImages) return planMappedShots(timeline, sceneImages);
   const shots = [];
   // 그림이 모자란 장면은 같은 챕터의 다른 장면 그림을 먼저 빌려 쓰고(내용이 맞는 그림), 그다음 공용 그림.
   // 한 그림은 영상 전체에서 최대 MAX_REUSE번까지만 쓴다.
@@ -191,9 +204,55 @@ export function planShots(timeline, { byKey, pool }) {
   return shots;
 }
 
+function chapterLabelAt(timeline, time) {
+  let current = null;
+  (timeline.chapters ?? []).forEach((chapter, index) => {
+    if (chapter.start <= time + 0.01) current = { no: `CH${String(index + 1).padStart(2, "0")}`, title: chapter.title };
+  });
+  return current;
+}
+
+/**
+ * scene_images가 있으면 그 배치를 그대로 따른다(내레이션과 그림을 맞추기 위해 다른 장면 그림으로 채우지 않는다).
+ * - 목록이 빈 장면: 카드 하나
+ * - GRAPHIC: 도식 카드(최대 6초) → 남은 시간은 목록 그림
+ * - TYPE: 목록 그림 위에 큰 문구
+ * - REAL·AI: 목록 그림을 차례로(첫 컷에 설명 한 줄). 장면이 길면 같은 그림을 다시 쓰지 않고 컷을 길게 둔다.
+ */
+export function planMappedShots(timeline, sceneImages) {
+  const shots = [];
+  const push = (scene, start, end, media, mode) => shots.push({ start, end, scene, media, mode, chapter: chapterLabelAt(timeline, start) });
+  for (const scene of timeline.scenes) {
+    const images = sceneImages.get(scene.id.toUpperCase()) ?? [];
+    const span = scene.end - scene.start;
+    let at = scene.start;
+    if (!images.length || scene.sourceType === "GRAPHIC") {
+      const cardEnd = !images.length || span <= GRAPHIC_SECONDS + 1.5 ? scene.end : scene.start + GRAPHIC_SECONDS;
+      push(scene, scene.start, cardEnd, null, null);
+      at = cardEnd;
+      if (at >= scene.end - 0.01) continue;
+    }
+    // 그림이 컷 수보다 적으면 같은 그림을 가까이 당겨(클로즈업) 한 컷 더 쓴다. 장면 안에서만, 그림당 최대 2컷.
+    const wanted = Math.max(1, Math.round((scene.end - at) / SHOT_SECONDS));
+    const count = Math.min(wanted, images.length * 2);
+    const order = images.slice(0, count).map((media) => ({ media, close: false }));
+    for (let index = 0; order.length < count; index += 1) order.splice(index * 2 + 1, 0, { media: images[index], close: true });
+    const startedWithCard = at > scene.start;
+    splitShots(at, scene.end, count).forEach((shot, index) => {
+      const mode = scene.sourceType === "TYPE" ? "type" : !startedWithCard && index === 0 ? "caption" : "none";
+      push(scene, shot.start, shot.end, order[index].media, mode);
+      if (order[index].close) shots.at(-1).close = true;
+    });
+  }
+  return shots;
+}
+
 // 정지 그림은 모두 같은 방식으로 아주 천천히 밀고 들어간다(1.00 → 1.05). 방향을 바꾸지 않아 산만하지 않다.
-function pushIn(frames) {
-  return `zoompan=z='1+0.05*on/${frames}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=1:s=${FRAME.width}x${FRAME.height}:fps=${FPS}`;
+// close: 같은 그림의 두 번째 컷. 1.25배로 가까이(가운데보다 조금 위) 당겨 다른 컷처럼 보이게 한다.
+function pushIn(frames, close = false) {
+  const z = close ? `1.25+0.05*on/${frames}` : `1+0.05*on/${frames}`;
+  const y = close ? "ih*0.42-(ih/zoom/2)" : "ih/2-(ih/zoom/2)";
+  return `zoompan=z='${z}':x='iw/2-(iw/zoom/2)':y='${y}':d=1:s=${FRAME.width}x${FRAME.height}:fps=${FPS}`;
 }
 
 function assTime(seconds) {
@@ -362,7 +421,7 @@ export async function renderEpisode(episode, audioFiles, { root, outDir, preview
         ? `[0:v]scale=2304:1296:force_original_aspect_ratio=increase,crop=2304:1296[b]`
         : `[0:v]split[a][f];[a]scale=2304:1296:force_original_aspect_ratio=increase,crop=2304:1296,boxblur=40:2,eq=brightness=-0.18[bg];[f]scale=-2:1150[fg];[bg][fg]overlay=(W-w)/2:(H-h)/2[b]`;
       await ffmpeg([...still, "-i", shot.media.file, "-loop", "1", "-i", frame, "-filter_complex",
-        `${base};[b]${pushIn(frames)}[v];[v][1:v]overlay=0:0,scale=${size}`,
+        `${base};[b]${pushIn(frames, shot.close)}[v];[v][1:v]overlay=0:0,scale=${size}`,
         "-t", seconds, ...encode, clip]);
     }
     return clip;
