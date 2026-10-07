@@ -1,0 +1,485 @@
+{
+  "references_hash": "09262560b1727163",
+  "fetched_at": "2026-10-07T02:39:39.176Z",
+  "items": [
+    {
+      "file": "B01.jpg",
+      "id": "B01",
+      "scenes": [
+        "S001",
+        "S019"
+      ],
+      "kind": "image",
+      "source": "브런치 @heoboram 원문",
+      "url": "https://brunch.co.kr/@heoboram/208"
+    },
+    {
+      "file": "B02.jpg",
+      "id": "B02",
+      "scenes": [
+        "S006",
+        "S043"
+      ],
+      "kind": "image",
+      "source": "브런치 @heoboram 원문",
+      "url": "https://brunch.co.kr/@heoboram/208"
+    },
+    {
+      "file": "B03.jpg",
+      "id": "B03",
+      "scenes": [
+        "S025",
+        "S030"
+      ],
+      "kind": "image",
+      "source": "브런치 @heoboram 원문",
+      "url": "https://brunch.co.kr/@heoboram/208"
+    },
+    {
+      "file": "B04.jpg",
+      "id": "B04",
+      "scenes": [
+        "S055"
+      ],
+      "kind": "image",
+      "source": "브런치 @heoboram 원문",
+      "url": "https://brunch.co.kr/@heoboram/208"
+    },
+    {
+      "file": "A001-screen.jpg",
+      "id": "A001",
+      "scenes": [
+        "S002"
+      ],
+      "kind": "screen",
+      "source": "Yahoo Sports",
+      "url": "https://sports.yahoo.com/articles/heinz-pokes-fun-fifa-clean-082103084.html"
+    },
+    {
+      "file": "A001-scroll.jpg",
+      "id": "A001",
+      "scenes": [
+        "S002"
+      ],
+      "kind": "scroll",
+      "source": "Yahoo Sports",
+      "url": "https://sports.yahoo.com/articles/heinz-pokes-fun-fifa-clean-082103084.html"
+    },
+    {
+      "file": "A001-img1.jpg",
+      "id": "A001",
+      "scenes": [
+        "S002"
+      ],
+      "kind": "image",
+      "source": "Yahoo Sports",
+      "url": "https://sports.yahoo.com/articles/heinz-pokes-fun-fifa-clean-082103084.html"
+    },
+    {
+      "file": "A001-img2.jpg",
+      "id": "A001",
+      "scenes": [
+        "S002"
+      ],
+      "kind": "image",
+      "source": "Yahoo Sports",
+      "url": "https://sports.yahoo.com/articles/heinz-pokes-fun-fifa-clean-082103084.html"
+    },
+    {
+      "file": "A001-img3.jpg",
+      "id": "A001",
+      "scenes": [
+        "S002"
+      ],
+      "kind": "image",
+      "source": "Yahoo Sports",
+      "url": "https://sports.yahoo.com/articles/heinz-pokes-fun-fifa-clean-082103084.html"
+    },
+    {
+      "file": "A002-screen.jpg",
+      "id": "A002",
+      "scenes": [
+        "S003",
+        "S031"
+      ],
+      "kind": "screen",
+      "source": "LBB Online (2026-06-19)",
+      "url": "https://lbbonline.com/news/HEINZ-Viral-Censored-Stadium-Moment-Limited-Edition-Bottle-Canada"
+    },
+    {
+      "file": "A002-scroll.jpg",
+      "id": "A002",
+      "scenes": [
+        "S003",
+        "S031"
+      ],
+      "kind": "scroll",
+      "source": "LBB Online (2026-06-19)",
+      "url": "https://lbbonline.com/news/HEINZ-Viral-Censored-Stadium-Moment-Limited-Edition-Bottle-Canada"
+    },
+    {
+      "file": "A002-img1.jpg",
+      "id": "A002",
+      "scenes": [
+        "S003",
+        "S031"
+      ],
+      "kind": "image",
+      "source": "LBB Online (2026-06-19)",
+      "url": "https://lbbonline.com/news/HEINZ-Viral-Censored-Stadium-Moment-Limited-Edition-Bottle-Canada"
+    },
+    {
+      "file": "A002-img2.jpg",
+      "id": "A002",
+      "scenes": [
+        "S003",
+        "S031"
+      ],
+      "kind": "image",
+      "source": "LBB Online (2026-06-19)",
+      "url": "https://lbbonline.com/news/HEINZ-Viral-Censored-Stadium-Moment-Limited-Edition-Bottle-Canada"
+    },
+    {
+      "file": "A002-img3.jpg",
+      "id": "A002",
+      "scenes": [
+        "S003",
+        "S031"
+      ],
+      "kind": "image",
+      "source": "LBB Online (2026-06-19)",
+      "url": "https://lbbonline.com/news/HEINZ-Viral-Censored-Stadium-Moment-Limited-Edition-Bottle-Canada"
+    },
+    {
+      "file": "A002I.jpg",
+      "id": "A002I",
+      "scenes": [
+        "S003",
+        "S006",
+        "S043",
+        "S055"
+      ],
+      "kind": "image",
+      "source": "Heinz Canada · LBB Online",
+      "url": "https://lbbonline.com/news/HEINZ-Viral-Censored-Stadium-Moment-Limited-Edition-Bottle-Canada"
+    },
+    {
+      "file": "A003-screen.jpg",
+      "id": "A003",
+      "scenes": [
+        "S009"
+      ],
+      "kind": "screen",
+      "source": "WARC — Heinz: Heinzjacking the World Cup",
+      "url": "https://www.warc.com/en/campaigns/heinz%3A-heinzjacking-the-world-cup-a5e4868369be4f109f4167f5397da47d"
+    },
+    {
+      "file": "A003-img1.jpg",
+      "id": "A003",
+      "scenes": [
+        "S009"
+      ],
+      "kind": "image",
+      "source": "WARC — Heinz: Heinzjacking the World Cup",
+      "url": "https://www.warc.com/en/campaigns/heinz%3A-heinzjacking-the-world-cup-a5e4868369be4f109f4167f5397da47d"
+    },
+    {
+      "file": "A003B-screen.jpg",
+      "id": "A003B",
+      "scenes": [
+        "S010"
+      ],
+      "kind": "screen",
+      "source": "Doha News",
+      "url": "https://dohanews.co/how-heinz-used-an-innovative-marketing-stunt-at-the-world-cup-in-qatar/"
+    },
+    {
+      "file": "A003B-scroll.jpg",
+      "id": "A003B",
+      "scenes": [
+        "S010"
+      ],
+      "kind": "scroll",
+      "source": "Doha News",
+      "url": "https://dohanews.co/how-heinz-used-an-innovative-marketing-stunt-at-the-world-cup-in-qatar/"
+    },
+    {
+      "file": "A003B-img1.jpg",
+      "id": "A003B",
+      "scenes": [
+        "S010"
+      ],
+      "kind": "image",
+      "source": "Doha News",
+      "url": "https://dohanews.co/how-heinz-used-an-innovative-marketing-stunt-at-the-world-cup-in-qatar/"
+    },
+    {
+      "file": "A004-screen.jpg",
+      "id": "A004",
+      "scenes": [
+        "S013"
+      ],
+      "kind": "screen",
+      "source": "The Caples Awards 2023 — Heinz Arabia \"The Heinzjack\"",
+      "url": "https://caples.org/2023-winners-results/?id=247&cat=Integrated"
+    },
+    {
+      "file": "A004-img1.jpg",
+      "id": "A004",
+      "scenes": [
+        "S013"
+      ],
+      "kind": "image",
+      "source": "The Caples Awards 2023 — Heinz Arabia \"The Heinzjack\"",
+      "url": "https://caples.org/2023-winners-results/?id=247&cat=Integrated"
+    },
+    {
+      "file": "A005-screen.jpg",
+      "id": "A005",
+      "scenes": [
+        "S017"
+      ],
+      "kind": "screen",
+      "source": "Digiday",
+      "url": "https://digiday.com/marketing/oral-history-oreo-tweet/"
+    },
+    {
+      "file": "A005-scroll.jpg",
+      "id": "A005",
+      "scenes": [
+        "S017"
+      ],
+      "kind": "scroll",
+      "source": "Digiday",
+      "url": "https://digiday.com/marketing/oral-history-oreo-tweet/"
+    },
+    {
+      "file": "A005-img1.jpg",
+      "id": "A005",
+      "scenes": [
+        "S017"
+      ],
+      "kind": "image",
+      "source": "Digiday",
+      "url": "https://digiday.com/marketing/oral-history-oreo-tweet/"
+    },
+    {
+      "file": "A005-img2.jpg",
+      "id": "A005",
+      "scenes": [
+        "S017"
+      ],
+      "kind": "image",
+      "source": "Digiday",
+      "url": "https://digiday.com/marketing/oral-history-oreo-tweet/"
+    },
+    {
+      "file": "A005I.jpg",
+      "id": "A005I",
+      "scenes": [
+        "S017"
+      ],
+      "kind": "image",
+      "source": "Oreo 공식 X (2013-02-04)",
+      "url": "https://x.com/Oreo/status/298246571718483968"
+    },
+    {
+      "file": "A006-screen.jpg",
+      "id": "A006",
+      "scenes": [
+        "S019"
+      ],
+      "kind": "screen",
+      "source": "Campaign",
+      "url": "https://www.campaignlive.com/article/brand-sneakiest-bypassing-world-cup-stadium-rules/1962449"
+    },
+    {
+      "file": "A006-scroll.jpg",
+      "id": "A006",
+      "scenes": [
+        "S019"
+      ],
+      "kind": "scroll",
+      "source": "Campaign",
+      "url": "https://www.campaignlive.com/article/brand-sneakiest-bypassing-world-cup-stadium-rules/1962449"
+    },
+    {
+      "file": "A006-img1.jpg",
+      "id": "A006",
+      "scenes": [
+        "S019"
+      ],
+      "kind": "image",
+      "source": "Campaign",
+      "url": "https://www.campaignlive.com/article/brand-sneakiest-bypassing-world-cup-stadium-rules/1962449"
+    },
+    {
+      "file": "A006-img2.jpg",
+      "id": "A006",
+      "scenes": [
+        "S019"
+      ],
+      "kind": "image",
+      "source": "Campaign",
+      "url": "https://www.campaignlive.com/article/brand-sneakiest-bypassing-world-cup-stadium-rules/1962449"
+    },
+    {
+      "file": "A006-img3.jpg",
+      "id": "A006",
+      "scenes": [
+        "S019"
+      ],
+      "kind": "image",
+      "source": "Campaign",
+      "url": "https://www.campaignlive.com/article/brand-sneakiest-bypassing-world-cup-stadium-rules/1962449"
+    },
+    {
+      "file": "A009-screen.jpg",
+      "id": "A009",
+      "scenes": [
+        "S034"
+      ],
+      "kind": "screen",
+      "source": "The Economist (2026-07-02)",
+      "url": "https://www.economist.com/culture/2026/07/02/heinz-tomato-ketchup-and-the-sweet-taste-of-market-dominance"
+    },
+    {
+      "file": "A009-scroll.jpg",
+      "id": "A009",
+      "scenes": [
+        "S034"
+      ],
+      "kind": "scroll",
+      "source": "The Economist (2026-07-02)",
+      "url": "https://www.economist.com/culture/2026/07/02/heinz-tomato-ketchup-and-the-sweet-taste-of-market-dominance"
+    },
+    {
+      "file": "H001-screen.jpg",
+      "id": "H001",
+      "scenes": [
+        "S031",
+        "S035"
+      ],
+      "kind": "screen",
+      "source": "Heinz 공식 홈페이지",
+      "url": "https://www.heinz.com/"
+    },
+    {
+      "file": "H001-img1.jpg",
+      "id": "H001",
+      "scenes": [
+        "S031",
+        "S035"
+      ],
+      "kind": "image",
+      "source": "Heinz 공식 홈페이지",
+      "url": "https://www.heinz.com/"
+    },
+    {
+      "file": "H001-img2.jpg",
+      "id": "H001",
+      "scenes": [
+        "S031",
+        "S035"
+      ],
+      "kind": "image",
+      "source": "Heinz 공식 홈페이지",
+      "url": "https://www.heinz.com/"
+    },
+    {
+      "file": "H001-img3.jpg",
+      "id": "H001",
+      "scenes": [
+        "S031",
+        "S035"
+      ],
+      "kind": "image",
+      "source": "Heinz 공식 홈페이지",
+      "url": "https://www.heinz.com/"
+    },
+    {
+      "file": "H001-img4.jpg",
+      "id": "H001",
+      "scenes": [
+        "S031",
+        "S035"
+      ],
+      "kind": "image",
+      "source": "Heinz 공식 홈페이지",
+      "url": "https://www.heinz.com/"
+    },
+    {
+      "file": "H002-screen.jpg",
+      "id": "H002",
+      "scenes": [],
+      "kind": "screen",
+      "source": "Heinz 공식 홈페이지",
+      "url": "https://www.heinz.com/our-story"
+    },
+    {
+      "file": "H002-img1.jpg",
+      "id": "H002",
+      "scenes": [],
+      "kind": "image",
+      "source": "Heinz 공식 홈페이지",
+      "url": "https://www.heinz.com/our-story"
+    },
+    {
+      "file": "H002-img2.jpg",
+      "id": "H002",
+      "scenes": [],
+      "kind": "image",
+      "source": "Heinz 공식 홈페이지",
+      "url": "https://www.heinz.com/our-story"
+    },
+    {
+      "file": "H002-img3.jpg",
+      "id": "H002",
+      "scenes": [],
+      "kind": "image",
+      "source": "Heinz 공식 홈페이지",
+      "url": "https://www.heinz.com/our-story"
+    },
+    {
+      "file": "H002-img4.jpg",
+      "id": "H002",
+      "scenes": [],
+      "kind": "image",
+      "source": "Heinz 공식 홈페이지",
+      "url": "https://www.heinz.com/our-story"
+    },
+    {
+      "file": "brunch-01.jpg",
+      "id": "brunch",
+      "scenes": [],
+      "kind": "image",
+      "source": "브런치 @heoboram 원문",
+      "url": "https://brunch.co.kr/@heoboram/208"
+    },
+    {
+      "file": "brunch-02.jpg",
+      "id": "brunch",
+      "scenes": [],
+      "kind": "image",
+      "source": "브런치 @heoboram 원문",
+      "url": "https://brunch.co.kr/@heoboram/208"
+    },
+    {
+      "file": "brunch-03.jpg",
+      "id": "brunch",
+      "scenes": [],
+      "kind": "image",
+      "source": "브런치 @heoboram 원문",
+      "url": "https://brunch.co.kr/@heoboram/208"
+    },
+    {
+      "file": "brunch-04.jpg",
+      "id": "brunch",
+      "scenes": [],
+      "kind": "image",
+      "source": "브런치 @heoboram 원문",
+      "url": "https://brunch.co.kr/@heoboram/208"
+    }
+  ],
+  "failures": []
+}
