@@ -113,8 +113,10 @@ function chapterGroups(scenes, chapters, audio) {
 export function subtitleCues(timeline, maxChars = 28) {
   const cues = [];
   for (const scene of timeline.scenes) {
-    const text = String(scene.fields?.NARRATION ?? "")
-      .replace(/\[쉼\]|\//g, " ")
+    const raw = String(scene.fields?.NARRATION ?? "").trim();
+    if (/^(챕터\s*전환|전환|무음|-)$/.test(raw)) continue; // 제작 메모뿐인 무음 장면
+    const text = raw
+      .replace(/\[[^\]]*\]|\//g, " ") // [쉼]·[확인 필요] 같은 대본 메모
       .replace(/\*\*/g, "")
       .replace(/\([^)]*\)/g, (match) => (/[가-힣]/.test(match) && /[A-Za-z0-9]/.test(match) ? "" : match))
       .replace(/\s+/g, " ")
