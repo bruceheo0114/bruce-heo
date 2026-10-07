@@ -135,12 +135,12 @@ HIGGSFIELD_REQUIRED: NO
 SCENE ID: S012
 TIME: 02:04-02:16
 NARRATION:
-노출 약 1,500만 회, 도달 약 900만 명. [확인 필요]
+광고제 출품 자료에 따르면 노출 1,400만 회, 도달 700만 명 이상.
 VISUAL:
 숫자 두 개를 크게 보여주는 타이포그래피.
 SOURCE_TYPE: TYPE
 ON_SCREEN_TEXT:
-1,500만 노출 · 900만 도달
+1,400만 노출 · 700만 도달
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
@@ -197,7 +197,7 @@ TIME: 02:58-03:08
 NARRATION:
 비교 사례. 2013년 슈퍼볼 정전 때 오레오의 '어둠 속에서도 덩크할 수 있다' 트윗.
 VISUAL:
-Oreo 'You can still dunk in the dark' 트윗 화면 인용(출처 표기). [확인 필요]
+Oreo 'You can still dunk in the dark' 트윗 화면 인용(출처 표기).
 SOURCE_TYPE: REAL
 ON_SCREEN_TEXT:
 출처: Oreo 공식 X 계정
@@ -399,7 +399,7 @@ HIGGSFIELD_REQUIRED: NO
 SCENE ID: S034
 TIME: 06:07-06:17
 NARRATION:
-하인즈는 미국 케첩 시장에서 점유율 60% 이상을 가진 1등으로 알려져 있어요. [확인 필요]
+하인즈는 미국 케첩 시장에서 점유율 60% 이상을 가진 1등으로 알려져 있어요.
 VISUAL:
 시장 점유율을 다룬 공개 기사/보고서 화면 일부.
 SOURCE_TYPE: REAL

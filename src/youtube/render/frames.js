@@ -14,13 +14,18 @@ const escapeHtml = (value) =>
 function cleanLines(value) {
   return String(value ?? "")
     .split(/\r?\n/)
-    .map((line) => line.replace(/^\s*[-*•]\s*/, "").replace(/\*\*/g, "").trim())
+    .map((line) => line.replace(/^\s*[-*•]\s*/, "").replace(/\*\*/g, "").replace(/\s*\[[^\]]*\]/g, "").trim())
     .filter((line) => line && !/^(없음|none|-)$/i.test(line) && !/^(출처|source)\s*[:：]/i.test(line) && !/^\[.*\]$/.test(line));
 }
 
 export function shortBrand(value) {
   const brand = String(value ?? "").replace(/\(.*?\)/g, "").split(/[·,/]/)[0].trim();
   return brand.length > 14 ? `${brand.slice(0, 13)}…` : brand;
+}
+
+// 내레이션이 '챕터 전환' 같은 제작 메모뿐인 무음 장면
+export function isTransition(scene) {
+  return /^(챕터\s*전환|전환|무음|-)?$/.test(String(scene.fields?.NARRATION ?? "").trim());
 }
 
 export function screenLines(scene) {
@@ -77,6 +82,16 @@ function typeCard(scene, chapter) {
     `.copy{position:absolute;left:150px;right:150px;top:140px;bottom:200px;display:flex;align-items:center}
      h1{font-size:${size}px;line-height:1.18;font-weight:900;letter-spacing:-.05em}`,
     `${chrome({ chapter })}<div class="copy"><h1>${text.map(escapeHtml).join("<br>")}<span class="dot">.</span></h1></div>`,
+  );
+}
+
+// 챕터가 바뀌는 무음 장면: 큰 챕터 번호와 제목
+function chapterCard(chapter) {
+  return page(
+    `.copy{position:absolute;left:150px;right:150px;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center}
+     .num{font-size:40px;font-weight:800;color:#65B98A;letter-spacing:.02em;margin-bottom:28px}
+     h1{font-size:${chapter.title.length > 16 ? 84 : 104}px;line-height:1.15;font-weight:900;letter-spacing:-.05em}`,
+    `<div class="copy"><div class="num">${escapeHtml(chapter.no)}</div><h1>${escapeHtml(chapter.title)}<span class="dot">.</span></h1></div>`,
   );
 }
 
@@ -182,6 +197,7 @@ export function logoHtml() {
 }
 
 export function sceneFrameHtml(scene, { chapter, asset }) {
+  if (isTransition(scene) && chapter) return { html: chapterCard(chapter) };
   if (scene.sourceType === "GRAPHIC") return { html: graphicCard(scene, chapter) };
   if (scene.sourceType === "REAL") return { html: caseCard(scene, asset, chapter) };
   return { html: typeCard(scene, chapter) }; // TYPE, 또는 그림이 없는 AI 장면

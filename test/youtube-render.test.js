@@ -124,3 +124,16 @@ test("references.json 형식 검사", async () => {
   assert.ok(errors.some((error) => error.includes("kind")));
   assert.ok(errors.some((error) => error.includes("source")));
 });
+
+test("대본 메모([확인 필요]·챕터 전환)는 자막과 화면 문구에 나오지 않는다", async () => {
+  const { subtitleCues } = await import("../src/youtube/render/timeline.js");
+  const { screenLines, isTransition, sceneFrameHtml } = await import("../src/youtube/render/frames.js");
+  const scene = (id, narration, text = "") => ({ id, sourceType: "GRAPHIC", start: 0, end: 5, asset: "-", fields: { NARRATION: narration, ON_SCREEN_TEXT: text } });
+  const cues = subtitleCues({ scenes: [scene("S001", "노출 약 1,500만 회. [확인 필요]"), scene("S002", "챕터 전환")] });
+  assert.deepEqual(cues.map((cue) => cue.text), ["노출 약 1,500만 회."]);
+  assert.deepEqual(screenLines(scene("S001", "", "1,500만 노출 [확인 필요]")), ["1,500만 노출"]);
+  assert.ok(isTransition(scene("S002", "챕터 전환")));
+  const { html } = sceneFrameHtml(scene("S002", "챕터 전환", "04"), { chapter: { no: "CH04", title: "1등이기 때문에" } });
+  assert.match(html, /CH04/);
+  assert.match(html, /1등이기 때문에/);
+});
