@@ -1,0 +1,79 @@
+{
+  "episode": "EP001",
+  "folder": "EP001_brunch-208",
+  "article": {
+    "id": "208",
+    "url": "https://brunch.co.kr/@heoboram/208",
+    "title": "하인즈는 케첩이 아니라 기억을 판다",
+    "published_at": "2026-07-01T03:00:00.000Z",
+    "source_file": "source/brunch/208.md",
+    "body_hash": "7b661081aa1c389fadcfbb9da626fb1bb3fbd9947128d0216680b30b11eea768"
+  },
+  "status": "WAITING_APPROVAL",
+  "higgsfield_generation": false,
+  "recommendation": "MAKE_VIDEO",
+  "video_potential": {
+    "NARRATIVE": 7,
+    "CASE STUDY": 8,
+    "VISUAL MATERIAL": 8,
+    "TIMELINESS": 7,
+    "ORIGINAL POV": 8,
+    "30MIN POTENTIAL": 6,
+    "TOTAL": 44,
+    "MAX": 60
+  },
+  "approved_scenes": [],
+  "generated": {},
+  "plan": {
+    "runtime_seconds": 662,
+    "runtime": "11:02",
+    "total_scenes": 56,
+    "scenes_by_type": {
+      "REAL": 13,
+      "TYPE": 18,
+      "GRAPHIC": 20,
+      "AI": 5
+    },
+    "seconds_by_type": {
+      "REAL": 128,
+      "TYPE": 234,
+      "GRAPHIC": 266,
+      "AI": 34
+    },
+    "ai_share": 0.051,
+    "ai_scenes": [
+      "S001",
+      "S015",
+      "S025",
+      "S039",
+      "S049"
+    ],
+    "estimated_generations": 10,
+    "estimated_credits": 20,
+    "reusable_assets": [],
+    "cost_saving": [
+      "AI Scene 5개 중 영상은 3개, 나머지 2개는 기준 이미지 + 편집 push-in",
+      "사람 얼굴 장면 없음(손·빈 공간만) — 얼굴 일그러짐 재생성 방지",
+      "기준 이미지 5장을 챕터 전환·엔딩에 재사용",
+      "하인즈 병·로고는 AI로 만들지 않고 공식 영상(REAL)과 실루엣 도식(GRAPHIC) 사용",
+      "영상은 5초 클립으로 만들고 편집에서 속도·길이 조절"
+    ]
+  },
+  "update": null,
+  "created_at": "2026-10-07T01:54:06.073Z",
+  "updated_at": "2026-10-07T01:57:08.674Z",
+  "history": [
+    {
+      "at": "2026-10-07T01:54:06.073Z",
+      "from": null,
+      "to": "PACKAGE_PENDING",
+      "note": "새 브런치 글"
+    },
+    {
+      "at": "2026-10-07T01:57:08.674Z",
+      "from": "PACKAGE_PENDING",
+      "to": "WAITING_APPROVAL",
+      "note": "영상화 평가 44/60 · MAKE_VIDEO"
+    }
+  ]
+}
