@@ -6,7 +6,6 @@
 
 1. Actions(08:00 KST)가 새 글을 찾아 홈페이지를 갱신하고, 원고가 필요한 글마다 원문을 `content/{article-id}/source.json`으로 저장합니다.
 2. Claude 루틴(매일 13:47 KST)이 `content/routine_writer_prompt.md` 규칙대로 가장 오래된 글 한 편의 원고를 `content/{article-id}/draft.json`으로 쓰고, `node src/cli/validate-draft.js {article-id}` 검사를 통과하면 main에 푸시합니다.
-   같은 실행에서 LinkedIn 뉴스레터(`linkedin-newsletter.md`)·리멤버 커넥트(`remember.md`) 원고도 쓰고, 두 원고는 LinkedIn 노출이 많은 브런치 새 글이 올라온 **다음 날 07:50**에 Gmail로 보냅니다(밤 22:00 새 글 확인 → 22:30 원고 작성)(두 서비스는 게시 API가 없어 직접 붙여 넣습니다. 뉴스레터는 08:00, 리멤버는 12:00 발행 권장).
 3. `draft.json` 푸시가 Actions를 다시 실행해 카드 이미지·manifest·PR을 만들고, PR은 확인 없이 바로 자동 병합됩니다. 원고가 아직 없는 글은 실패 없이 다음 실행으로 넘어갑니다.
 
 ## 채널별 동작
@@ -29,10 +28,9 @@
 
 토큰과 키는 파일에 기록하지 않습니다. `.env.example`은 로컬 변수 이름만 설명하며 실제 값은 GitHub Secrets에만 둡니다.
 
-## LinkedIn 뉴스레터와 포스팅
+## LinkedIn·리멤버 커넥트
 
-- 브런치 새 글은 뉴스레터 「맥락을 설계하는 일」 원고로 다시 쓰여 Gmail로 옵니다. 뉴스레터를 발행할 때 메일 속 **소개 포스트**를 함께 넣으면 뉴스레터 링크가 담긴 포스트가 피드에 올라갑니다.
-- 별도 LinkedIn 자동 게시(**LinkedIn publish** 워크플로)는 같은 글이 두 번 올라가지 않도록 시계에서 뺐습니다. 필요하면 수동 실행할 수 있고, Secret은 `LINKEDIN_ACCESS_TOKEN` 하나면 됩니다.
+- 자동화하지 않습니다. 사용자가 요청하면 브런치 원글을 바탕으로 직접 진행합니다.
 
 ## LinkedIn 개인 계정
 
