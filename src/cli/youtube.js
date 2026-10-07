@@ -46,7 +46,7 @@ const USAGE = `사용법: node src/cli/youtube.js <명령> [인자]
   credits                         이번 달 YouTube Higgsfield 사용량
   narration <EP> <파일...> [--duration mm:ss ...]
                                  직접 녹음한 내레이션 등록 (ffprobe가 없으면 --duration으로 길이 입력)
-  render <EP> <녹음 파일...> [--preview] [--out 폴더]
+  render <EP> <녹음 파일...> [--preview] [--no-cleanup] [--out 폴더]
                                  녹음 + 화면 + 자막 → 완성 영상 mp4, 썸네일, 업로드 정보 (ffmpeg·playwright 필요)
   resolve-update <EP> keep|regenerate
   guard <EP>                      대상 Episode 밖의 episodes/ 변경이 있으면 exit 1`;
@@ -300,6 +300,7 @@ const commands = {
       root: paths.root,
       outDir,
       preview: args.includes("--preview"),
+      cleanup: !args.includes("--no-cleanup"),
       log: (line) => console.log(line),
     });
     console.log(`완성: ${result.file} · ${formatDuration(result.seconds)} · Scene ${result.scenes} · 자막 ${result.cues}줄`);
