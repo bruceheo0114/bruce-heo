@@ -14,7 +14,7 @@ const MIN_WIDTH = 600;
 
 // exclude(화면에서 뺄 그림)만 바뀐 경우에는 다시 받지 않는다.
 export function referencesHash(text) {
-  const { exclude, _note, ...rest } = JSON.parse(text);
+  const { exclude, _note, scene_images, thumbnail, ...rest } = JSON.parse(text); // 배치·썸네일만 바꾼 경우는 다시 받지 않는다
   return createHash("sha256").update(JSON.stringify(rest)).digest("hex").slice(0, 16);
 }
 
