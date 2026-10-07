@@ -1,0 +1,8 @@
+logs/*.log
+logs/*.json
+# 직접 녹음한 내레이션과 대용량 생성물은 PC에만 둔다
+narration/
+*.m4a
+*.wav
+*.mp3
+assets/generated/**/*.mp4
