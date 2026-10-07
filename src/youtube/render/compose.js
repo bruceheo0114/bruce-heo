@@ -42,8 +42,9 @@ async function exists(file) {
 }
 
 const CONCURRENCY = Math.max(1, Math.min(4, cpus().length));
-const SHOT_SECONDS = 5; // 한 화면이 이보다 길면 다음 그림으로 넘긴다
-const CARD_SECONDS = 6; // 타이포 카드를 보여주는 최대 시간
+const SHOT_SECONDS = 3.5; // 그림 한 컷 길이. 영상 호흡이 늘어지지 않게 3~4초마다 넘긴다
+const CARD_SECONDS = 4; // 문구 카드를 보여주는 최대 시간
+const GRAPHIC_SECONDS = 6; // 도식 카드를 보여주는 최대 시간
 
 async function imageSize(file) {
   const { stdout } = await run("ffprobe", ["-v", "error", "-select_streams", "v:0", "-show_entries", "stream=width,height", "-of", "csv=p=0", file]);
@@ -110,7 +111,7 @@ function splitShots(start, end, count) {
   return Array.from({ length: count }, (_, index) => ({ start: start + span * index, end: index === count - 1 ? end : start + span * (index + 1) }));
 }
 
-const XFADE = 0.5; // 같은 장면 안 컷 사이 부드러운 전환(초)
+const XFADE = 0.3; // 같은 장면 안 컷 사이 부드러운 전환(초)
 
 /**
  * 장면을 컷으로 나눈다. 같은 그림을 되풀이하지 않는다.
@@ -139,29 +140,35 @@ export function planShots(timeline, { byKey, pool }) {
     const own = sceneMedia(scene, byKey);
     const span = scene.end - scene.start;
     const isType = scene.sourceType === "TYPE";
+    const wanted = (seconds) => Math.max(1, Math.round(seconds / SHOT_SECONDS));
+    // 그 장면 그림 → 모자라면 공용 그림. 같은 그림을 한 장면에서 되풀이하지 않는다.
+    const fillsFor = (seconds, first = []) => {
+      const count = wanted(seconds);
+      const fills = [...first].slice(0, count);
+      if (fills.length < count) fills.push(...takePool(count - fills.length));
+      return fills;
+    };
 
-    if (scene.sourceType === "GRAPHIC") {
-      push(scene, scene.start, scene.end, null, null);
+    // 도식: 최대 6초 보여주고, 길면 그림 위에 같은 장면 설명으로 이어 간다.
+    // 문구 카드(그림 없는 TYPE·REAL·AI): 최대 4초.
+    const cardLimit = scene.sourceType === "GRAPHIC" ? GRAPHIC_SECONDS : CARD_SECONDS;
+    const startWithCard = scene.sourceType === "GRAPHIC" || !own.length;
+    let at = scene.start;
+    if (startWithCard) {
+      const cardEnd = span <= cardLimit + 1.5 ? scene.end : scene.start + cardLimit;
+      push(scene, scene.start, cardEnd, null, null);
+      at = cardEnd;
+      if (at >= scene.end - 0.01) continue;
+    }
+    const fills = fillsFor(scene.end - at, own);
+    if (!fills.length) {
+      shots.at(-1).end = scene.end;
       continue;
     }
-    if (own.length) {
-      const wanted = Math.max(1, Math.round(span / (isType ? 7 : SHOT_SECONDS)));
-      const fills = own.slice(0, wanted);
-      if (!isType && fills.length < wanted) fills.push(...takePool(wanted - fills.length));
-      splitShots(scene.start, scene.end, fills.length).forEach((shot, index) =>
-        push(scene, shot.start, shot.end, fills[index], isType ? "type" : index === 0 ? "caption" : "none"),
-      );
-      continue;
-    }
-    // 그림이 없는 장면: 카드. 길면 카드 다음에 공용 그림을 이어 붙인다.
-    if (span <= CARD_SECONDS + 2 || !pool.length) {
-      push(scene, scene.start, scene.end, null, null);
-      continue;
-    }
-    const cardEnd = scene.start + Math.min(CARD_SECONDS, span / 2);
-    push(scene, scene.start, cardEnd, null, null);
-    const extra = takePool(Math.max(1, Math.round((scene.end - cardEnd) / SHOT_SECONDS)));
-    splitShots(cardEnd, scene.end, extra.length).forEach((shot, index) => push(scene, shot.start, shot.end, extra[index], isType ? "type" : "none"));
+    splitShots(at, scene.end, fills.length).forEach((shot, index) => {
+      const mode = isType ? "type" : !startWithCard && index === 0 ? "caption" : scene.sourceType === "GRAPHIC" ? "none" : "none";
+      push(scene, shot.start, shot.end, fills[index], mode);
+    });
   }
   return shots;
 }
@@ -257,40 +264,12 @@ export function buildUploadKit(episode, brief, timeline, sources = []) {
     "",
     "## 설정",
     "",
-    "- 썸네일: thumbnail.png",
+    "- 썸네일: thumbnail_1.png ~ thumbnail_3.png 중 하나 (thumbnail.png = 1안)",
     "- 자막: 영상에 들어가 있음. 검색용으로 subtitles.srt를 '자막 → 업로드'에 올려도 된다(선택).",
     `- 변경된 콘텐츠 표시: ${Object.keys(episode.status.generated ?? {}).length ? "AI 생성 장면 있음 → 사실적인 장면이면 '예'" : "AI 생성 장면 없음 → '아니요'"}`,
     "- 공개: 비공개로 올려 확인 후 공개 또는 예약",
     "",
   ].join("\n");
-}
-
-function thumbnailHtml(copy, pill, imageUrl) {
-  const lines = String(copy).split(/\s*\/\s*|\n/).filter(Boolean);
-  const text = lines.length > 1 ? lines : String(copy).length > 9 ? splitHalf(String(copy)) : [String(copy)];
-  return `<!doctype html><meta charset="utf-8"><style>__FONT__
-*{box-sizing:border-box;margin:0}body{width:1280px;height:720px;background:#F2F1ED;position:relative;overflow:hidden;font-family:P,sans-serif;word-break:keep-all}
-.img{position:absolute;right:0;top:0;width:46%;height:100%;background:${imageUrl ? `url('${imageUrl}') center/cover` : "#111"}}
-.copy{position:absolute;left:64px;top:64px;width:720px;height:592px;display:flex;flex-direction:column}
-.pill{align-self:flex-start;border:4px solid #65B98A;border-radius:999px;padding:10px 22px 13px;color:#23744c;font-size:26px;font-weight:800;line-height:1}
-h1{margin-top:auto;font-size:${Math.max(...text.map((l) => l.length)) > 8 ? 78 : 92}px;font-weight:900;letter-spacing:-.055em;line-height:1.08;color:#111}
-.dot{color:#65B98A}.mark{width:84px;height:84px;border-radius:50%;background:#111;color:#fff;display:flex;align-items:center;justify-content:center;font-size:31px;font-weight:900;letter-spacing:-.08em;margin-top:40px}
-</style><body><div class="img"></div><div class="copy"><span class="pill">${pill}</span><h1>${text.join("<br>")}<span class="dot">.</span></h1><div class="mark">BR.</div></div></body>`;
-}
-
-function splitHalf(value) {
-  const words = value.split(" ");
-  if (words.length < 2) return [value];
-  let best = 1;
-  let diff = Infinity;
-  for (let i = 1; i < words.length; i += 1) {
-    const d = Math.abs(words.slice(0, i).join(" ").length - words.slice(i).join(" ").length);
-    if (d < diff) {
-      diff = d;
-      best = i;
-    }
-  }
-  return [words.slice(0, best).join(" "), words.slice(best).join(" ")];
 }
 
 /**
@@ -423,10 +402,8 @@ export async function renderEpisode(episode, audioFiles, { root, outDir, preview
   ]);
 
   // 5) 썸네일과 업로드 정보
-  const thumbCopy = list(findSection(brief, "Thumbnail Copy"))[0] || episode.status.article.title;
-  const aiImage = shots.find((shot) => shot.media && shot.media.kind !== "video" && shot.media.kind !== "scroll")?.media.file;
-  const imageUrl = aiImage ? `data:image/${path.extname(aiImage).slice(1).replace("jpg", "jpeg")};base64,${(await readFile(aiImage)).toString("base64")}` : null;
-  await renderFrames([{ file: "thumbnail.png", html: thumbnailHtml(thumbCopy, "브랜드 사례", imageUrl), viewport: { width: 1280, height: 720 } }], outDir);
+  const { renderThumbnails } = await import("./thumbnail.js");
+  await renderThumbnails(episode, root, outDir);
   const sources = [];
   for (const shot of shots) {
     if (!shot.media?.credit || sources.some((item) => item.source === shot.media.credit && item.url === shot.media.url)) continue;

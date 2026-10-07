@@ -61,20 +61,33 @@ test("업로드 정보에 실제 녹음 기준 챕터 시간이 들어간다", (
   assert.equal(formatClock(3725), "1:02:05");
 });
 
-test("긴 장면은 카드 → 자료 → 공용 그림으로 컷을 나누고 같은 그림을 되풀이하지 않는다", async () => {
+test("장면을 3~4초 컷으로 나누고 카드는 짧게, 그림은 장면 안에서 되풀이하지 않는다", async () => {
   const { planShots } = await import("../src/youtube/render/compose.js");
   const scene = (id, type, start, end, asset = "-") => ({ id, sourceType: type, start, end, asset, fields: {} });
-  const timeline = { scenes: [scene("S001", "TYPE", 0, 20), scene("S002", "GRAPHIC", 20, 35), scene("S003", "REAL", 35, 45, "A001"), scene("S004", "TYPE", 45, 50)] };
+  const timeline = {
+    chapters: [{ title: "오프닝", start: 0 }, { title: "사례", start: 35 }],
+    scenes: [scene("S001", "TYPE", 0, 20), scene("S002", "GRAPHIC", 20, 35), scene("S003", "REAL", 35, 45, "A001"), scene("S004", "TYPE", 45, 50)],
+  };
   const byKey = new Map([["A001", [{ file: "a.jpg", kind: "screen", credit: "공식 홈페이지" }]]]);
   const pool = [{ file: "b1.jpg", kind: "image", credit: "브런치" }, { file: "b2.jpg", kind: "image", credit: "브런치" }];
   const shots = planShots(timeline, { byKey, pool });
-  const s1 = shots.filter((shot) => shot.scene.id === "S001");
-  assert.equal(s1[0].media, null);
-  assert.equal(s1[0].end, 6);
-  assert.deepEqual(s1.slice(1).map((shot) => shot.media.file), ["b1.jpg", "b2.jpg"]);
-  assert.equal(shots.filter((shot) => shot.scene.id === "S002").length, 1);
-  assert.deepEqual(shots.filter((shot) => shot.scene.id === "S003").map((shot) => shot.media?.file), ["a.jpg", "b1.jpg"]);
-  assert.deepEqual(shots.filter((shot) => shot.scene.id === "S004").map((shot) => shot.media), [null]);
+  const of = (id) => shots.filter((shot) => shot.scene.id === id);
+
+  // TYPE 20초: 문구 카드 4초 → 그림 위 문구
+  assert.equal(of("S001")[0].media, null);
+  assert.equal(of("S001")[0].end, 4);
+  assert.deepEqual(of("S001").slice(1).map((shot) => [shot.media.file, shot.mode]), [["b1.jpg", "type"], ["b2.jpg", "type"]]);
+  // 도식 15초: 카드 6초 → 그림
+  assert.equal(of("S002")[0].end, 26);
+  assert.ok(of("S002").length > 1);
+  // REAL 10초: 자기 자료 먼저(첫 컷 설명), 모자라면 공용 그림
+  assert.deepEqual(of("S003").map((shot) => shot.media.file)[0], "a.jpg");
+  assert.equal(of("S003")[0].mode, "caption");
+  assert.equal(new Set(of("S003").map((shot) => shot.media.file)).size, of("S003").length);
+  // 짧은 TYPE: 카드 하나
+  assert.deepEqual(of("S004").map((shot) => shot.media), [null]);
+  // 챕터 표시와 빈틈 없는 이어 붙이기
+  assert.deepEqual(of("S003")[0].chapter, { no: "CH02", title: "사례" });
   for (let index = 1; index < shots.length; index += 1) assert.equal(shots[index].start, shots[index - 1].end);
 });
 

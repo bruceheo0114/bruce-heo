@@ -49,6 +49,7 @@ const USAGE = `사용법: node src/cli/youtube.js <명령> [인자]
   references [EP] [--changed]     references.json의 실제 자료를 받아 assets/references/<EP>/에 저장 (GitHub Actions에서 실행)
   render <EP> <녹음 파일...> [--preview] [--no-cleanup] [--out 폴더]
                                  녹음 + 화면 + 자막 → 완성 영상 mp4, 썸네일, 업로드 정보 (ffmpeg·playwright 필요)
+  thumbnails <EP> [--out 폴더]   썸네일 3안 (references.json의 thumbnail 계획 또는 자동 선택)
   resolve-update <EP> keep|regenerate
   guard <EP>                      대상 Episode 밖의 episodes/ 변경이 있으면 exit 1`;
 
@@ -319,6 +320,14 @@ const commands = {
     });
     console.log(`완성: ${result.file} · ${formatDuration(result.seconds)} · Scene ${result.scenes} · 자막 ${result.cues}줄`);
     await log("INFO", `${episode.name} render ${result.file}`);
+  },
+  async thumbnails() {
+    const episode = await findEpisode(positional()[0], paths);
+    const { renderThumbnails } = await import("../youtube/render/thumbnail.js");
+    const outDir = option("--out")?.[0] ?? path.join(paths.root, "output", episode.status.episode);
+    const { mkdir } = await import("node:fs/promises");
+    await mkdir(outDir, { recursive: true });
+    for (const file of await renderThumbnails(episode, paths.root, outDir)) console.log(file);
   },
   async "resolve-update"() {
     const [reference, mode] = positional();
