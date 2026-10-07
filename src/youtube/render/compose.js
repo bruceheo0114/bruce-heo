@@ -9,7 +9,7 @@ import { cpus } from "node:os";
 import { readEpisodeFile } from "../episode.js";
 import { findSection, parseBlocks } from "../parse.js";
 import { analyzeStoryboard } from "../validate.js";
-import { FRAME, overlayHtml, renderFrames, sceneFrameHtml, screenLines } from "./frames.js";
+import { FRAME, overlayHtml, renderFrames, sceneFrameHtml, screenLines, shortBrand } from "./frames.js";
 import { buildTimeline, formatClock, parseScriptChapters, subtitleCues } from "./timeline.js";
 
 const run = promisify(execFile);
@@ -71,7 +71,7 @@ async function loadMedia(episode, referenceDir, root) {
     const media = { file, kind: item.kind, credit: item.source, url: item.url };
     if (item.scenes?.length) for (const scene of item.scenes) add(scene.toUpperCase(), media);
     else if (/^A\d+/i.test(item.id)) add(item.id.toUpperCase(), media);
-    else pool.push(media);
+    else if (media.kind !== "scroll") pool.push(media);
   }
   const known = new Set((credits.items ?? []).map((item) => item.file));
   let names = [];
@@ -96,10 +96,13 @@ async function loadMedia(episode, referenceDir, root) {
   return { byKey, pool };
 }
 
+// 기사 전체 스크롤 화면은 글자가 작아 비어 보이므로, 그 장면에 다른 그림이 없을 때만 쓴다.
 function sceneMedia(scene, byKey) {
   const keys = [scene.id, ...String(scene.asset).split(/[,\s]+/).filter((key) => /^A\d+/i.test(key))].map((key) => key.toUpperCase());
   const seen = new Set();
-  return keys.flatMap((key) => byKey.get(key) ?? []).filter((media) => !seen.has(media.file) && seen.add(media.file));
+  const all = keys.flatMap((key) => byKey.get(key) ?? []).filter((media) => !seen.has(media.file) && seen.add(media.file));
+  const rest = all.filter((media) => media.kind !== "scroll");
+  return rest.length ? rest : all;
 }
 
 function splitShots(start, end, count) {
@@ -323,7 +326,7 @@ export async function renderEpisode(episode, audioFiles, { root, outDir, preview
   shots.forEach((shot, index) => {
     const scene = shot.scene;
     const assetId = String(scene.asset).match(/A\d+/i)?.[0];
-    const label = scene.sourceType === "REAL" ? `사례 · ${assets.get(assetId)?.BRAND || "사례"}` : labels[scene.sourceType] ?? "브루스 인사이트";
+    const label = scene.sourceType === "REAL" ? `사례 · ${shortBrand(assets.get(assetId)?.BRAND) || "사례"}` : labels[scene.sourceType] ?? "브루스 인사이트";
     shot.frame = `frame_${String(index).padStart(4, "0")}.png`;
     if (shot.media) {
       const first = index === 0 || shots[index - 1].scene !== scene;
