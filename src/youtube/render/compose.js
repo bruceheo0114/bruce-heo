@@ -10,7 +10,7 @@ import { readEpisodeFile } from "../episode.js";
 import { findSection, parseBlocks } from "../parse.js";
 import { analyzeStoryboard } from "../validate.js";
 import { FRAME, isTransition, logoHtml, overlayHtml, renderFrames, sceneFrameHtml, screenLines } from "./frames.js";
-import { alignedCues, alignScenes } from "./align.js";
+import { alignedCues, alignScenes, insertChapterCards } from "./align.js";
 import { buildTimeline, chapterNarrationTexts, formatClock, parseScriptChapters, subtitleCues } from "./timeline.js";
 
 const run = promisify(execFile);
@@ -53,7 +53,8 @@ async function exists(file) {
   }
 }
 
-const CHAPTER_GAP = 1.2; // 챕터 사이 무음(초)
+const SFX_VOLUME = 0.45; // 효과음 크기(내레이션 대비)
+const CHAPTER_GAP = 2.6; // 챕터 사이 무음(초). 이 자리에 챕터 간지와 효과음이 들어간다
 
 async function readWords(audioFile) {
   const file = audioFile.replace(/\.[^./]+$/, ".words.json");
@@ -419,6 +420,7 @@ export async function renderEpisode(episode, audioFiles, { root, outDir, preview
   // 받아쓰기(<녹음 파일 이름>.words.json)가 챕터마다 있으면 장면 전환과 자막을 실제 말소리에 맞춘다.
   const groupWords = timeline.mode === "chapter" && timeline.groups.length === audio.length ? audio.map((item) => item.words) : [];
   const aligned = groupWords.length && groupWords.every(Boolean) ? alignScenes(timeline, groupWords) : 0;
+  const cardStarts = insertChapterCards(timeline, CHAPTER_GAP);
   log(`타임라인 ${formatClock(timeline.total)} · Scene ${timeline.scenes.length}개 · ${timeline.mode === "chapter" ? "챕터별 맞춤" : "전체 비율 맞춤"}${aligned ? ` · 받아쓰기로 ${aligned}개 장면 시작을 맞춤` : ""}`);
 
   const work = path.join(outDir, "work");
@@ -461,8 +463,9 @@ export async function renderEpisode(episode, audioFiles, { root, outDir, preview
     const frame = path.join(work, shot.frame);
     const still = ["-loop", "1", "-framerate", String(FPS), "-t", seconds];
     if (!shot.media) {
-      // 카드는 움직이지 않는다(글자가 흔들리지 않게)
-      await ffmpeg([...still, "-i", frame, "-vf", `scale=${size}`, ...encode, clip]);
+      // 카드는 움직이지 않는다(글자가 흔들리지 않게). 챕터 간지는 어둠에서 떠올랐다 사라진다.
+      const fade = shot.scene.chapterCard ? `,fade=t=in:st=0:d=0.35,fade=t=out:st=${Math.max(0, length - 0.35).toFixed(3)}:d=0.35` : "";
+      await ffmpeg([...still, "-i", frame, "-vf", `scale=${size}${fade}`, ...encode, clip]);
     } else if (shot.media.kind === "video") {
       await ffmpeg(["-stream_loop", "-1", "-i", shot.media.file, "-i", frame, "-t", seconds, "-filter_complex",
         `[0:v]scale=${FRAME.width}:${FRAME.height}:force_original_aspect_ratio=increase,crop=${FRAME.width}:${FRAME.height},setsar=1,fps=${FPS}[v];[v][1:v]overlay=0:0,scale=${size}`,
@@ -526,7 +529,21 @@ export async function renderEpisode(episode, audioFiles, { root, outDir, preview
   const linear = measured
     ? `:measured_I=${measured.input_i}:measured_TP=${measured.input_tp}:measured_LRA=${measured.input_lra}:measured_thresh=${measured.input_thresh}:offset=${measured.target_offset}:linear=true`
     : "";
-  await ffmpeg([...inputs, "-filter_complex", `${chain}loudnorm=${target}${linear}[a]`, "-map", "[a]", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", audioOut]);
+  const voiceOut = cardStarts.length ? path.join(work, "voice.m4a") : audioOut;
+  await ffmpeg([...inputs, "-filter_complex", `${chain}loudnorm=${target}${linear}[a]`, "-map", "[a]", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", voiceOut]);
+  // 챕터 간지마다 짧은 효과음(bruce-youtube/channel/sfx/chapter.mp3)을 작게 깐다.
+  const sfx = path.join(root, "bruce-youtube", "channel", "sfx", "chapter.mp3");
+  if (cardStarts.length) {
+    if (await exists(sfx)) {
+      const delays = cardStarts.map((start, index) => `[1:a]adelay=${Math.round(start * 1000)}:all=1,volume=${SFX_VOLUME}[s${index}]`);
+      const split = `[1:a]asplit=${cardStarts.length}${cardStarts.map((_, index) => `[c${index}]`).join("")}`;
+      const placed = delays.map((line, index) => line.replace("[1:a]", `[c${index}]`));
+      const mix = `[0:a]${cardStarts.map((_, index) => `[s${index}]`).join("")}amix=inputs=${cardStarts.length + 1}:normalize=0:duration=first,alimiter=limit=0.89[a]`;
+      await ffmpeg(["-i", voiceOut, "-i", sfx, "-filter_complex", [split, ...placed, mix].join(";"), "-map", "[a]", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", audioOut]);
+    } else {
+      await ffmpeg(["-i", voiceOut, "-c", "copy", audioOut]);
+    }
+  }
 
   // 4) 자막을 입혀 최종본
   const chapterTexts = chapterNarrationTexts(script).map((item) => item.text);

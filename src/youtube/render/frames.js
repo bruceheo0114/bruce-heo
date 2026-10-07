@@ -85,13 +85,18 @@ function typeCard(scene, chapter) {
   );
 }
 
-// 챕터가 바뀌는 무음 장면: 큰 챕터 번호와 제목
+// 챕터 간지: 어두운 바탕에 큰 챕터 번호와 제목
 function chapterCard(chapter) {
+  const number = chapter.no.replace(/\D/g, "").padStart(2, "0");
   return page(
-    `.copy{position:absolute;left:150px;right:150px;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center}
-     .num{font-size:40px;font-weight:800;color:#65B98A;letter-spacing:.02em;margin-bottom:28px}
-     h1{font-size:${chapter.title.length > 16 ? 84 : 104}px;line-height:1.15;font-weight:900;letter-spacing:-.05em}`,
-    `<div class="copy"><div class="num">${escapeHtml(chapter.no)}</div><h1>${escapeHtml(chapter.title)}<span class="dot">.</span></h1></div>`,
+    `.big{position:absolute;right:120px;top:50%;transform:translateY(-54%);font-size:460px;font-weight:900;letter-spacing:-.06em;line-height:1;
+       color:transparent;-webkit-text-stroke:3px rgba(242,241,237,.16)}
+     .copy{position:absolute;left:150px;right:520px;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center}
+     .label{font-size:30px;font-weight:800;color:${COLORS.mint};letter-spacing:.18em;margin-bottom:30px}
+     .rule{width:96px;height:6px;background:${COLORS.mint};border-radius:3px;margin-bottom:36px}
+     h1{font-size:${chapter.title.length > 14 ? 80 : 100}px;line-height:1.16;font-weight:900;letter-spacing:-.05em}`,
+    `<div class="big">${number}</div><div class="copy"><div class="label">CHAPTER ${number}</div><div class="rule"></div><h1>${escapeHtml(chapter.title)}<span class="dot">.</span></h1></div>`,
+    { dark: true },
   );
 }
 

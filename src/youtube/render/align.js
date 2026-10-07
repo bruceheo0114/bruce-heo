@@ -151,3 +151,33 @@ export function alignedCues(timeline, chapterTexts, groupWords, maxChars = 28) {
   });
   return cues;
 }
+
+/**
+ * 챕터마다(첫 챕터 제외) 간지 장면을 넣는다. 녹음 끝에 붙인 무음(gap초) 자리에 놓이고, 다음 챕터 제목을 보여 준다.
+ * 스토리보드의 '챕터 전환' 장면은 이 간지로 대신한다. 반환: 간지 시작 시간 목록(효과음 자리)
+ */
+export function insertChapterCards(timeline, gap) {
+  if (timeline.mode !== "chapter" || !(gap > 0)) return [];
+  const starts = [];
+  const result = [];
+  timeline.groups.forEach((group, groupIndex) => {
+    const end = group.start + group.seconds;
+    const last = groupIndex === timeline.groups.length - 1;
+    const cardStart = last ? end : end - gap;
+    // 간지 자리에 밀려난 장면은 뺀다(첫 장면은 남긴다)
+    const keep = timeline.scenes
+      .filter((scene) => scene.group === groupIndex && !isTransitionText(scene.fields?.NARRATION))
+      .filter((scene, index) => index === 0 || scene.start < cardStart - 0.3);
+    keep.forEach((scene, index) => {
+      if (index === 0) scene.start = group.start;
+      scene.end = keep[index + 1]?.start ?? cardStart;
+    });
+    result.push(...keep);
+    if (!last) {
+      starts.push(cardStart);
+      result.push({ id: `CARD${String(groupIndex + 2).padStart(2, "0")}`, sourceType: "GRAPHIC", asset: "-", fields: { NARRATION: "-" }, start: cardStart, end, group: groupIndex, chapterCard: true });
+    }
+  });
+  timeline.scenes.splice(0, timeline.scenes.length, ...result);
+  return starts;
+}
