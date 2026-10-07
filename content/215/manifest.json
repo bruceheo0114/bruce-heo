@@ -1,0 +1,150 @@
+{
+  "version": 1,
+  "article": {
+    "id": "215",
+    "canonicalUrl": "https://brunch.co.kr/@heoboram/215",
+    "title": "새로운 것을 제안하되, 브랜드보다 앞서가지는 말 것",
+    "subtitle": "제안서에서 새로움의 경계를 판단하는 법",
+    "publishedAt": "2026-08-30T12:00:05.000Z",
+    "excerpt": "제안서에서 새로움의 경계를 판단하는 법 | 맥락을 설계하는 마케터의 판단 ① / 5 RFP를 받으면 가장 먼저 드는 생각이 있다. 이번에는 무엇을 새롭게 해야 하지. 경쟁 제안이면 더 그렇다. 광고주도 새로운 방향을 기대한다. 지난해와 같은 이야기를 듣기 위해 새로운 파트너를 찾지는 않는다. 그래서 타깃을 다시 정의하고, 요즘 반응이 좋은 콘텐츠를 찾고, 새로운 채널과 크리에이터를 붙인다. 그",
+    "bodyHash": "d6e5d94b5b6b06bb8fe667b464ba1c93ac37d501851eef82b4fe13b3f029b8c5",
+    "sourceImages": [
+      "https://img1.kakaocdn.net/thumb/R1280x0.fpng/?fname=http://t1.kakaocdn.net/brunch/service/user/2fCF/image/IEwomZRMiBRD53vjDl2A9PCFQpg.png",
+      "https://img1.kakaocdn.net/thumb/R1280x0.fpng/?fname=http://t1.kakaocdn.net/brunch/service/user/2fCF/image/BQf5SsNTc_6eL5HAl7fhnFDaXAI.png"
+    ]
+  },
+  "cards": [
+    {
+      "sequence": 1,
+      "kind": "cover",
+      "title": "새로운 것을 제안하되, 브랜드보다 앞서가지는 말 것",
+      "body": "제안서에서 새로움의 경계를 판단하는 법\n맥락을 설계하는 마케터의 판단 ①",
+      "imageUrl": null,
+      "sourceImageIndex": null,
+      "altText": "새로운 것을 제안하되 브랜드보다 앞서가지 말라는 제안서 판단법 카드뉴스 표지",
+      "file": "cards/01.jpg"
+    },
+    {
+      "sequence": 2,
+      "kind": "hook",
+      "title": "RFP를 받으면 가장 먼저 드는 생각",
+      "body": "\"이번에는 무엇을 새롭게 해야 하지.\"\n경쟁 제안이면 더 그래요.\n광고주도 새로운 방향을 기대하니까요.\n지난해와 같은 이야기를 들으려고 새 파트너를 찾진 않아요.",
+      "imageUrl": null,
+      "sourceImageIndex": null,
+      "altText": "RFP를 받고 새로움을 고민하는 마케터의 장면",
+      "file": "cards/02.jpg"
+    },
+    {
+      "sequence": 3,
+      "kind": "question",
+      "title": "그런데 새로워질 수 있는 범위는 어디까지일까?",
+      "body": "제안서를 오래 쓰다 보니 순서가 바뀌었어요.\n새로운 것을 찾기 전에\n이 브랜드가 새로워질 수 있는 범위부터 확인해요.",
+      "imageUrl": null,
+      "sourceImageIndex": null,
+      "altText": "새로운 것을 찾기 전에 브랜드가 새로워질 수 있는 범위를 묻는 질문",
+      "file": "cards/03.jpg"
+    },
+    {
+      "sequence": 4,
+      "kind": "context",
+      "title": "다가가는 것과 바뀌는 것은 다르다",
+      "body": "고급스러운 이미지를 쌓아온 F&B 브랜드가 1020에게 다가간다고 해볼게요.\n밈과 요즘 말투, 10대 크리에이터가 필요할 수는 있어요.\n다만 기존 고객이 알던 품질의 이유까지 흐려지면 캠페인은 주목을 얻고 브랜드는 잃어요.",
+      "imageUrl": null,
+      "sourceImageIndex": null,
+      "altText": "고급 F&B 브랜드가 젊은 타깃에게 다가갈 때 정체성이 흐려질 수 있다는 사례",
+      "file": "cards/04.jpg"
+    },
+    {
+      "sequence": 5,
+      "kind": "example",
+      "title": "브랜드는 그대로, 장면만 바꿨다",
+      "body": "전문적인 소비재는 '나의 취향을 찾는 선택지'로 번역했어요.\n다른 캠페인은 기능 대신 '저녁의 쉼'이라는 장면을 설계했어요.\n달라진 건 브랜드가 사람을 만나는 장면이었어요.",
+      "imageUrl": null,
+      "sourceImageIndex": null,
+      "altText": "제품의 본질은 두고 언어와 장면을 바꾼 두 캠페인 사례",
+      "file": "cards/05.jpg"
+    },
+    {
+      "sequence": 6,
+      "kind": "interpretation",
+      "title": "새로움은 밖에서 가져오고, 기준은 안에 둔다",
+      "body": "형식은 빌릴 수 있어요. 말투도 조정할 수 있어요.\n하지만 브랜드가 왜 존재하는지, 어떤 약속을 지켜왔는지까지 바뀌면\n새로운 캠페인이 아니라 갑자기 다른 브랜드가 돼요.",
+      "imageUrl": null,
+      "sourceImageIndex": null,
+      "altText": "빌려올 수 있는 것과 바꾸면 안 되는 것의 경계 설명",
+      "file": "cards/06.jpg"
+    },
+    {
+      "sequence": 7,
+      "kind": "application",
+      "title": "아이디어 전에 세 가지를 나눠보세요",
+      "body": "① 지켜야 할 것: 핵심 가치, 신뢰의 이유, 실제 효용\n② 번역할 수 있는 것: 타깃의 언어, 제품을 만나는 장면, 메시지 순서\n③ 실험할 수 있는 것: 채널, 포맷, 크리에이터, 콘텐츠 리듬",
+      "imageUrl": null,
+      "sourceImageIndex": null,
+      "altText": "지켜야 할 것, 번역할 수 있는 것, 실험할 수 있는 것으로 나누는 세 가지 구분",
+      "file": "cards/07.jpg"
+    },
+    {
+      "sequence": 8,
+      "kind": "evidence",
+      "title": "경계를 정한 뒤 아이디어에 던지는 네 질문",
+      "body": "왜 지금 이 브랜드가 해야 하는가? (시의성)\n브랜드 이름을 지워도 구분되는가? (고유성)\n기존 고객이 알던 이유가 남아 있는가? (일관성)\n캠페인 뒤에 쓸 자산이 남는가? (축적 가능성)",
+      "imageUrl": null,
+      "sourceImageIndex": null,
+      "altText": "시의성, 고유성, 일관성, 축적 가능성을 보는 네 가지 질문",
+      "file": "cards/08.jpg"
+    },
+    {
+      "sequence": 9,
+      "kind": "conclusion",
+      "title": "오늘 해볼 한 가지: 우리 제안서를 점검해보세요",
+      "body": "지금 쓰는 제안서는 브랜드보다 앞서 있나요?\n아니면 브랜드를 지금의 소비자 앞에 데려다 놓고 있나요?\n좋은 제안서는 브랜드가 어디까지 움직일 수 있는지 정확히 아는 제안서예요.",
+      "imageUrl": null,
+      "sourceImageIndex": null,
+      "altText": "제안서가 브랜드보다 앞서 있는지 점검하는 질문",
+      "file": "cards/09.jpg"
+    },
+    {
+      "sequence": 10,
+      "kind": "cta",
+      "title": "나중에 다시 보려면 저장해두세요",
+      "body": "이런 브랜드 이야기를 더 보고 싶다면\nbruceheo.com 에서 만나보세요.",
+      "imageUrl": null,
+      "sourceImageIndex": null,
+      "altText": "저장을 권하고 bruceheo.com 을 안내하는 마무리 카드",
+      "file": "cards/10.jpg"
+    }
+  ],
+  "linkedin": {
+    "body": "\"이번에는 무엇을 새롭게 해야 하지.\"\n\nRFP를 받으면 가장 먼저 드는 생각입니다. 경쟁 제안이면 더 그렇습니다. 광고주도 지난해와 같은 이야기를 듣기 위해 새로운 파트너를 찾지는 않으니까요.\n\n그런데 제안서를 오래 쓰다 보니 순서가 바뀌었습니다. 새로운 것을 찾기 전에 먼저 확인합니다. 이 브랜드가 새로워질 수 있는 범위는 어디까지일까.\n\n오랜 시간 고급스러운 이미지를 쌓아온 F&B 브랜드가 1020 소비자에게 다가가려 한다고 해보겠습니다. 유행하는 밈과 요즘 말투, 10대가 좋아하는 크리에이터가 필요할 수는 있습니다. 다만 그 순간부터 회의마다 확인해야 할 질문이 생깁니다. 이걸 우리 브랜드가 해도 이상하지 않은가.\n\n새로운 타깃에게 다가가는 것과 새로운 브랜드가 되는 것은 전혀 다른 이야기입니다. 기존 고객이 알던 품질의 이유까지 흐려지면, 캠페인은 주목을 얻고 브랜드는 잃습니다.\n\n그래서 제안 초기에는 아이디어를 꺼내기 전에 세 가지를 나눕니다. 지켜야 할 것, 번역할 수 있는 것, 실험할 수 있는 것입니다.\n\n이 경계를 먼저 합의하면 회의는 '재미있다'와 '우리답지 않다'의 감상 싸움이 아니라 전략의 문제가 됩니다. 새로움은 브랜드 밖에서 가져오되, 선택의 기준은 브랜드 안에 있어야 합니다.\n\n지금 우리가 쓰고 있는 제안서는 브랜드보다 앞서 있나요, 아니면 브랜드를 지금의 소비자 앞에 데려다 놓고 있나요?\n\n#마케팅 #브랜딩 #제안서 #캠페인기획 #브랜드전략 #에이전시 #맥락을설계하는마케터 #브루스매거진",
+    "firstComment": "제안서에서 새로움의 경계를 판단하는 법, 원문은 여기서 읽을 수 있어요: https://brunch.co.kr/@heoboram/215"
+  },
+  "instagram": {
+    "caption": "🧭 새로운 것을 제안하되, 브랜드보다 앞서가지는 마세요.\n\nRFP를 받으면 '이번에는 무엇을 새롭게 해야 하지'부터 떠올리게 돼요. 그런데 고급스러운 이미지를 쌓아온 F&B 브랜드가 1020에게 다가가겠다고 밈과 요즘 말투만 빌려오면, 기존 고객이 알던 품질의 이유까지 흐려질 수 있어요. 캠페인은 주목을 얻고 브랜드는 잃는 거죠.\n\n📌 새로운 타깃에게 다가가는 것과 새로운 브랜드가 되는 것은 달라요.\n\n그래서 아이디어를 꺼내기 전에 세 가지를 먼저 나눠요. 지켜야 할 것(핵심 가치·신뢰의 이유), 번역할 수 있는 것(타깃의 언어·장면), 실험할 수 있는 것(채널·포맷·크리에이터). 이 경계가 정해지면 새로움은 취향이 아니라 전략의 문제가 돼요.\n\n지금 쓰고 있는 제안서는 브랜드보다 앞서 있나요, 아니면 브랜드를 지금의 소비자 앞에 데려다 놓고 있나요?\n\n🔍 더 많은 브랜드 이야기는 bruceheo.com 에서 만나보세요.\n\n나중에 다시 보고 싶다면 저장 꾹 👆\n\n#브루스매거진 #마케팅 #브랜딩 #제안서 #캠페인기획",
+    "account": "bruce.insight",
+    "collaboratorOrTag": "heo.boram"
+  },
+  "schedule": {
+    "approvedAt": null,
+    "scheduledAt": null,
+    "publishedAt": null
+  },
+  "publishing": {
+    "linkedin": {
+      "status": "pending",
+      "postId": null,
+      "commentId": null,
+      "error": null
+    },
+    "instagram": {
+      "status": "manual_source_ready",
+      "mediaId": null,
+      "error": null
+    }
+  },
+  "generatedAt": "2026-10-07T00:55:54.498Z",
+  "generator": {
+    "model": "claude-routine",
+    "renderer": "bruce-insight-html-css-v1"
+  }
+}
