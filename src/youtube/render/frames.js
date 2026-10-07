@@ -119,6 +119,8 @@ function graphicCard(scene, chapter) {
       `${chrome({ chapter })}<div class="flow">${boxes}</div>`,
     );
   }
+  // 한 줄짜리는 목록이 아니라 큰 문구로
+  if (lines.length === 1) return typeCard({ ...scene, fields: { ...scene.fields, ON_SCREEN_TEXT: lines[0].replace(/^\d+[.)]?\s*/, "") } }, chapter);
   const shown = lines.slice(0, 5);
   const big = shown.length <= 2;
   return page(
