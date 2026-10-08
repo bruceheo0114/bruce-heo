@@ -1014,7 +1014,7 @@ NARRATION:
 한국 전담 마케팅이 본격화되던 2024년 11월, 국내 월간 활성 이용자는 약 62만 명이었어요.
 VISUAL:
 기고문 속 수치 부분. 출처: 작성자 기고문.
-SOURCE_TYPE: GRAPHIC
+SOURCE_TYPE: TYPE
 ON_SCREEN_TEXT:
 2024년 11월
 국내 월간 활성 이용자 약 62만 명
@@ -1027,7 +1027,7 @@ NARRATION:
 그게 2026년 7월에는 약 208만 명까지 늘었습니다.
 VISUAL:
 기고문 이미지 재사용, 증가 화살표 오버레이.
-SOURCE_TYPE: GRAPHIC
+SOURCE_TYPE: TYPE
 ON_SCREEN_TEXT:
 2026년 7월
 약 208만 명
