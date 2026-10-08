@@ -1,0 +1,140 @@
+{
+  "version": 1,
+  "article": {
+    "id": "216",
+    "canonicalUrl": "https://brunch.co.kr/@heoboram/216",
+    "title": "우리도 요즘 애들이 좋아하는 거 해보면 어떨까요",
+    "subtitle": "밈은 터졌는데 브랜드는 남지 않았을 때",
+    "publishedAt": "2026-09-06T12:00:02.000Z",
+    "excerpt": "밈은 터졌는데 브랜드는 남지 않았을 때 | 맥락을 설계하는 마케터의 판단 ② / 5 콘텐츠를 만들다 보면 놓치고 싶지 않은 것이 있다. 밈이다. 잘 만든 밈 콘텐츠 하나가 터지면 평소 콘텐츠로는 상상하기 힘든 조회수가 나온다. 사람들이 댓글을 달고, 친구를 태그하고, 다른 커뮤니티로 퍼간다. 무엇보다 비용 대비 효율이 좋아 보인다. 콘텐츠를 만드는 입장에서는 욕심이 날 수밖에 없다. 나도 한때",
+    "bodyHash": "b7d23987bcb6c0fca40080b41865d7387db86edf290ee292e681da9944d8ba24",
+    "sourceImages": [
+      "https://img1.kakaocdn.net/thumb/R1280x0.fpng/?fname=http://t1.kakaocdn.net/brunch/service/user/2fCF/image/J52WT0GI8rsOtYnWUTp2YijsCac.png",
+      "https://img1.kakaocdn.net/thumb/R1280x0.fpng/?fname=http://t1.kakaocdn.net/brunch/service/user/2fCF/image/_CXI5z0hRChpcDFHC65cwrolE0g.png"
+    ]
+  },
+  "cards": [
+    {
+      "sequence": 1,
+      "kind": "cover",
+      "title": "밈은 터졌는데 브랜드는 남지 않았을 때",
+      "body": "\"우리도 요즘 애들이 좋아하는 거 해보면 어떨까요\"\n맥락을 설계하는 마케터의 판단 ②",
+      "imageUrl": null,
+      "sourceImageIndex": null,
+      "altText": "밈은 터졌는데 브랜드는 남지 않았을 때를 다루는 카드뉴스 표지",
+      "file": "cards/01.jpg"
+    },
+    {
+      "sequence": 2,
+      "kind": "hook",
+      "title": "밈 하나가 터지면 욕심이 날 수밖에 없다",
+      "body": "평소 콘텐츠로는 상상하기 힘든 조회수가 나와요.\n댓글을 달고, 친구를 태그하고, 다른 커뮤니티로 퍼가요.\n비용 대비 효율도 좋아 보이죠.",
+      "imageUrl": null,
+      "sourceImageIndex": null,
+      "altText": "밈 콘텐츠가 터졌을 때 나타나는 조회수와 공유 반응",
+      "file": "cards/02.jpg"
+    },
+    {
+      "sequence": 3,
+      "kind": "context",
+      "title": "저도 한때 밈에 꽤 집착했어요",
+      "body": "재미있는 콘텐츠의 조회수가 잘 나왔기 때문이에요.\n운영하던 한 채널은 구독자가 300% 이상 성장했어요.\n하지만 모든 채널이 그렇지는 않았어요.",
+      "imageUrl": null,
+      "sourceImageIndex": null,
+      "altText": "밈에 집착하던 경험과 구독자가 300% 이상 성장한 채널",
+      "file": "cards/03.jpg"
+    },
+    {
+      "sequence": 4,
+      "kind": "question",
+      "title": "조회수는 높은데, 브랜드를 아는 사람은 왜 없을까?",
+      "body": "다음 콘텐츠에서 바로 원래 수준으로 돌아간 경우가 많았어요.\n시간이 지나 확인하니 그 콘텐츠로 브랜드를 새로 알게 됐다는 사람이 거의 없었어요.",
+      "imageUrl": null,
+      "sourceImageIndex": null,
+      "altText": "조회수는 높았지만 브랜드 인지로 이어지지 않은 문제",
+      "file": "cards/04.jpg"
+    },
+    {
+      "sequence": 5,
+      "kind": "evidence",
+      "title": "사람들은 밈을 기억하고, 브랜드는 잊는다",
+      "body": "출연한 사람과 콘텐츠 속 농담은 기억돼요.\n브랜드는 재미있는 계정 중 하나로 남아요.\n조회수는 정지 신호일 뿐, 그 뒤에 무엇이 남았는지는 브랜드 회상이 보여줘요.",
+      "imageUrl": null,
+      "sourceImageIndex": null,
+      "altText": "조회수와 브랜드 회상의 차이를 설명하는 카드",
+      "file": "cards/05.jpg"
+    },
+    {
+      "sequence": 6,
+      "kind": "interpretation",
+      "title": "밈은 목적이 아니라 번역 장치다",
+      "body": "브랜드의 태도나 제품의 쓰임을 지금의 문법으로 바꾸는 방식이에요.\n번역할 원문이 없으면 밈만 남아요.\n말투를 쌓은 브랜드의 밈은 '브랜드답다'로 읽혀요.",
+      "imageUrl": null,
+      "sourceImageIndex": null,
+      "altText": "밈을 브랜드 메시지의 번역 장치로 보는 관점",
+      "file": "cards/06.jpg"
+    },
+    {
+      "sequence": 7,
+      "kind": "application",
+      "title": "밈을 쓰기 전에 확인하는 네 가지",
+      "body": "① 웃음이 제품·캐릭터·소비 상황과 연결되는가\n② 로고 없이도 말투나 장면에 브랜드가 남는가\n③ 다음 콘텐츠로 이어질 수 있는가\n④ 유행의 맥락을 이해하고, 감당 못 할 해석은 없는가",
+      "imageUrl": null,
+      "sourceImageIndex": null,
+      "altText": "밈을 콘텐츠로 옮기기 전 확인하는 네 가지 체크리스트",
+      "file": "cards/07.jpg"
+    },
+    {
+      "sequence": 8,
+      "kind": "conclusion",
+      "title": "오늘 해볼 한 가지: 성과를 한 걸음 더 보세요",
+      "body": "프로필 방문, 브랜드명 검색, 다음 콘텐츠의 반응,\n댓글 속 브랜드 언급 비율을 함께 봐요.\n밈이 단순 노출이었는지 브랜드 진입로였는지 구분할 수 있어요.",
+      "imageUrl": null,
+      "sourceImageIndex": null,
+      "altText": "조회수 외에 프로필 방문과 브랜드 검색 등을 함께 보는 성과 측정 제안",
+      "file": "cards/08.jpg"
+    },
+    {
+      "sequence": 9,
+      "kind": "cta",
+      "title": "나중에 다시 보려면 저장해두세요",
+      "body": "이런 브랜드 이야기를 더 보고 싶다면\nbruceheo.com 에서 만나보세요.",
+      "imageUrl": null,
+      "sourceImageIndex": null,
+      "altText": "저장을 권하고 bruceheo.com 을 안내하는 마무리 카드",
+      "file": "cards/09.jpg"
+    }
+  ],
+  "linkedin": {
+    "body": "\"우리도 요즘 애들이 좋아하는 거 해보면 어떨까요?\"\n\n잘 만든 밈 하나가 터지면 평소 콘텐츠로는 상상하기 힘든 조회수가 나옵니다. 비용 대비 효율도 좋아 보이니 욕심이 날 수밖에 없습니다. 저도 한때 밈에 꽤 집착했고, 운영하던 한 채널은 구독자가 300% 이상 성장했습니다.\n\n그런데 같은 방식으로 모든 채널이 성장하지는 않았습니다. 조회수는 높았지만 다음 콘텐츠에서 원래 수준으로 돌아간 경우가 많았고, 그 콘텐츠로 브랜드를 새롭게 알게 됐다는 사람은 거의 없었습니다.\n\n사람들은 밈을 기억합니다. 출연한 사람과 농담을 기억합니다. 브랜드는 재미있는 계정 중 하나로 남습니다. 조회수는 정지 신호이고, 그 멈춤 뒤에 무엇이 남았는지는 브랜드 회상이 보여줍니다.\n\n그래서 지금은 밈을 볼 때 이렇게 묻습니다. 이 밈이 우리 브랜드의 어떤 면을 강화해줄까.\n\n밈은 목적이 아니라 번역 장치입니다. 번역할 원문이 없으면 밈만 남습니다. 말투를 오래 쌓아온 브랜드가 밈을 쓰면 '브랜드답다'로 읽히고, 그렇지 않으면 '갑자기 왜 저러나'가 됩니다.\n\n성과도 조회수에서 끝내지 않고 프로필 방문, 브랜드명 검색, 댓글 속 브랜드 언급 비율을 함께 봅니다.\n\n유행은 빠르게 사라집니다. 이 유행을 빌려서 우리는 무엇을 남길 수 있을까요?\n\n#마케팅 #브랜딩 #밈마케팅 #콘텐츠마케팅 #브랜드회상 #SNS마케팅 #에이전시마케터 #브루스매거진",
+    "firstComment": "밈은 터졌는데 브랜드는 남지 않았을 때, 전체 글은 여기서 읽을 수 있어요: https://brunch.co.kr/@heoboram/216"
+  },
+  "instagram": {
+    "caption": "😂 밈은 터졌는데, 브랜드는 남지 않았다면?\n\n잘 만든 밈 하나가 터지면 조회수가 폭발해요. 저도 한때 밈에 집착했고, 운영하던 한 채널은 구독자가 300% 이상 성장했어요. 그런데 같은 방식이 모든 채널에서 통하진 않았어요. 조회수는 높은데 그 콘텐츠로 브랜드를 새로 알게 됐다는 사람은 거의 없었죠.\n\n📌 콘텐츠의 성공과 브랜드의 성공은 같은 게 아니에요. 조회수는 정지 신호이고, 그 뒤에 남는 건 브랜드 회상이에요.\n\n그래서 밈을 볼 때 먼저 물어요. 웃음이 제품이나 캐릭터와 연결되는가, 로고 없이도 말투에서 브랜드가 남는가, 다음 콘텐츠로 이어지는가. 밈은 목적이 아니라 브랜드를 지금의 문법으로 바꿔주는 번역 장치예요.\n\n이 유행을 빌려서, 우리는 무엇을 남길 건가요?\n\n🔍 더 많은 브랜드 이야기는 bruceheo.com 에서 만나보세요.\n\n나중에 다시 보고 싶다면 저장 꾹 👆\n\n#브루스매거진 #밈마케팅 #브랜딩 #콘텐츠마케팅 #브랜드회상",
+    "account": "bruce.insight",
+    "collaboratorOrTag": "heo.boram"
+  },
+  "schedule": {
+    "approvedAt": null,
+    "scheduledAt": null,
+    "publishedAt": null
+  },
+  "publishing": {
+    "linkedin": {
+      "status": "pending",
+      "postId": null,
+      "commentId": null,
+      "error": null
+    },
+    "instagram": {
+      "status": "manual_source_ready",
+      "mediaId": null,
+      "error": null
+    }
+  },
+  "generatedAt": "2026-10-08T04:49:47.775Z",
+  "generator": {
+    "model": "claude-routine",
+    "renderer": "bruce-insight-html-css-v1"
+  }
+}
