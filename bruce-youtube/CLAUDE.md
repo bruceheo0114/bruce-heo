@@ -10,8 +10,8 @@
 ## 권한
 
 - 최종 관점, 영상화 여부, Higgsfield 생성 승인, 출판 여부는 사용자가 정한다.
-- **주간 루틴 상시 승인 (사용자 결정 2026-10-08):** 수요일 루틴은 대본 확인을 받지 않고 대본 → 소리 내어 읽고 다듬기 → 복제 목소리 내레이션 →
-  AI 장면(예산 안) → render → 1편 편집 방향 확인 → YouTube 공개 업로드까지 바로 한다. 절차와 품질 관문은 `routine_prompt.md`.
+- **주간 루틴 상시 승인 (사용자 결정 2026-10-08):** 화요일 밤 루틴은 대본 확인을 받지 않고 대본 → 소리 내어 읽고 다듬기 → 복제 목소리 내레이션 →
+  AI 장면(예산 안) → render → 1편 편집 방향 확인 → 완성 영상 전달까지 바로 한다. YouTube 업로드는 Bruce가 직접 한다. 절차와 품질 관문은 `routine_prompt.md`.
   루틴 밖의 대화에서 하는 작업은 아래 COST CONTROL을 그대로 따른다.
 - 브런치 원문(`source/brunch/`, 2026년 이후 글)이 콘텐츠의 원본이다. 제작 순서는 `queue.json`. AI가 새 생각을 지어내지 않고, 원문의 관점과 판단을 영상 언어로 옮긴다.
 
@@ -32,11 +32,15 @@ Hook → Phenomenon → Case → Question → Analysis → Contrast → Insight 
 - Visual identity: minimal, modern, editorial, documentary. 오프화이트·블랙·그레이 + 포인트 컬러 1개. Pretendard 계열 산세리프.
 - 지향: 브랜드 다큐멘터리, 디자인 매거진, 비디오 에세이. 화려한 예능 스타일 금지.
 
-## 제작 순서 (Bruce는 아무것도 하지 않는다 — 2026-10-08부터)
+## 제작 순서 (Bruce는 수요일에 받은 영상을 올리기만 한다 — 2026-10-08부터)
 
-1. 수요일 05:13 루틴이 그 주 월요일에 새 브런치 글이 올라왔으면 그 글, 없으면 큐의 예비 글(todo → reserve)로 패키지를 만들고,
+1. 화요일 21:13 루틴이 그 주 월요일에 새 브런치 글이 올라왔으면 그 글, 없으면 큐의 예비 글(todo → reserve)로 패키지를 만들고,
    `readback`으로 소리 내어 읽기 검사를 하며 대본을 다듬는다.
-2. 이어서 같은 루틴이 이 순서로 끝까지 진행한다(루틴 밖에서는 Bruce가 "진행"이라고 했을 때):
+   **미리 만들기:** Bruce가 대화에서 "글이 있어"라며 발행 전 원고를 주면 루틴을 기다리지 않고 바로 만든다(상시 승인 범위 그대로).
+   원고를 `# 제목` + 본문 Markdown으로 저장 → `node src/cli/youtube.js prebuild <원고.md> --slug <영문-이름>` → `EP###_brunch-pre-<이름>`
+   → 아래 2번 순서대로 완성 영상까지 만들어 보낸다. 브런치에 같은 제목 글이 올라오면 `sync`가 그 Episode에 연결하고,
+   그 주 화요일 루틴은 새로 만들지 않는다. 영상 설명의 브런치 링크는 프로필 주소이므로, 업로드할 때 글 주소로 바꾸면 좋다.
+2. 이어서 같은 루틴이 이 순서로 끝까지 진행한다(루틴 밖에서는 Bruce가 "진행"이라고 했을 때, 또는 미리 만들기):
    1. 내레이션은 ElevenLabs의 Bruce 본인 복제 목소리로 만든다(직접 녹음하지 않는다).
       - `node src/cli/youtube.js narration-text <EP> --out <폴더>` → 챕터별 `CH01.txt` …
       - ElevenLabs `creative_generate_speech`: voice `Bruce Heo | 브루스`(voice_id `ZuzhDyVIYUQSaEkxo38e`),
@@ -57,8 +61,8 @@ Hook → Phenomenon → Case → Question → Analysis → Contrast → Insight 
       → `output/<EP>/`에 `<EP>.mp4`, `thumbnail.png`, `upload.md`, `subtitles.srt`
    (챕터 사이에는 render가 2.6초 간지와 `channel/sfx/chapter.mp3` 효과음을 자동으로 넣는다. 스토리보드에 따로 챕터 전환 장면을 만들 필요 없다.)
    6. 완성 영상의 프레임을 뽑아 1편 편집 방향 체크리스트(`routine_prompt.md` 9단계)로 확인한다.
-   7. `node src/cli/youtube.js upload <EP>`로 공개 업로드(합성 콘텐츠 '예' 신고, upload.md의 제목·설명·태그, 썸네일).
-      `YOUTUBE_*` 환경 변수가 없으면 mp4·썸네일·upload.md를 사용자에게 보내 YouTube 앱에서 올리게 한다.
+   7. mp4·썸네일·upload.md를 사용자에게 보낸다. Bruce가 YouTube 앱에서 올린다(변경된 콘텐츠 '예').
+      (`upload` 명령은 YouTube API 인증이 있을 때만 쓰는 예비 기능이다. 사용자가 요청할 때만 쓴다.)
 
 실제 자료는 `references.json`(공식 홈페이지·기사·이미지 주소)을 main에 올리면 GitHub Actions(`youtube-references.yml`)가 받아
 `assets/references/<EP>/`와 `credits.json`에 넣는다. render는 이 자료와 브런치 원문 이미지를 5초 컷으로 번갈아 쓰고, 모든 자료 화면에 출처를 표시하며,
@@ -102,12 +106,13 @@ node src/cli/youtube.js next --weekly     이번 주 제작할 Episode
 node src/cli/youtube.js credits           이번 달 크레딧
 node src/cli/youtube.js status [EP]       상태
 node src/cli/youtube.js episode <글번호>   지난 글로 Episode 만들기
+node src/cli/youtube.js prebuild <원고.md> --slug <이름>   발행 전 원고로 미리 만들기
 node src/cli/youtube.js validate <EP>     제작 패키지 검사
 node src/cli/youtube.js finalize <EP>     검사 통과 → WAITING_APPROVAL 등
 node src/cli/youtube.js report <EP>       Higgsfield 생성 계획
 node src/cli/youtube.js approve <EP> [Scene...]
 node src/cli/youtube.js readback <EP>     소리 내어 읽기 검사(긴 문장·읽는 법·복제 목소리가 다르게 읽은 곳)
-node src/cli/youtube.js upload <EP>       YouTube 공개 업로드
+node src/cli/youtube.js upload <EP>       YouTube 업로드(예비 — 사용자가 요청할 때만)
 ```
 
 새 Episode 제작 패키지를 만들 때의 상세 형식은 `prompts/youtube_producer.md`를 따른다.
