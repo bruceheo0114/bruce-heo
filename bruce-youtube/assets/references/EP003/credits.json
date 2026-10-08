@@ -1,0 +1,419 @@
+{
+  "references_hash": "da42e2fbe91322c4",
+  "fetched_at": "2026-10-08T08:35:10.338Z",
+  "items": [
+    {
+      "file": "A001-screen.jpg",
+      "id": "A001",
+      "scenes": [
+        "S006",
+        "S008",
+        "S010",
+        "S070",
+        "S082",
+        "S083"
+      ],
+      "kind": "screen",
+      "source": "오픈애즈 기고 (브루스)",
+      "url": "https://www.openads.co.kr/content/contentDetail?contsId=20648"
+    },
+    {
+      "file": "A001-scroll.jpg",
+      "id": "A001",
+      "scenes": [
+        "S006",
+        "S008",
+        "S010",
+        "S070",
+        "S082",
+        "S083"
+      ],
+      "kind": "scroll",
+      "source": "오픈애즈 기고 (브루스)",
+      "url": "https://www.openads.co.kr/content/contentDetail?contsId=20648"
+    },
+    {
+      "file": "A001-img1.jpg",
+      "id": "A001",
+      "scenes": [
+        "S006",
+        "S008",
+        "S010",
+        "S070",
+        "S082",
+        "S083"
+      ],
+      "kind": "image",
+      "source": "오픈애즈 기고 (브루스)",
+      "url": "https://www.openads.co.kr/content/contentDetail?contsId=20648"
+    },
+    {
+      "file": "A001-img2.jpg",
+      "id": "A001",
+      "scenes": [
+        "S006",
+        "S008",
+        "S010",
+        "S070",
+        "S082",
+        "S083"
+      ],
+      "kind": "image",
+      "source": "오픈애즈 기고 (브루스)",
+      "url": "https://www.openads.co.kr/content/contentDetail?contsId=20648"
+    },
+    {
+      "file": "A001-img3.jpg",
+      "id": "A001",
+      "scenes": [
+        "S006",
+        "S008",
+        "S010",
+        "S070",
+        "S082",
+        "S083"
+      ],
+      "kind": "image",
+      "source": "오픈애즈 기고 (브루스)",
+      "url": "https://www.openads.co.kr/content/contentDetail?contsId=20648"
+    },
+    {
+      "file": "A002-screen.jpg",
+      "id": "A002",
+      "scenes": [
+        "S002",
+        "S003",
+        "S004",
+        "S066",
+        "S067"
+      ],
+      "kind": "screen",
+      "source": "듀오링고 코리아 인스타그램",
+      "url": "https://www.instagram.com/p/DZE3VhAEU8d/"
+    },
+    {
+      "file": "A002-img1.jpg",
+      "id": "A002",
+      "scenes": [
+        "S002",
+        "S003",
+        "S004",
+        "S066",
+        "S067"
+      ],
+      "kind": "image",
+      "source": "듀오링고 코리아 인스타그램",
+      "url": "https://www.instagram.com/p/DZE3VhAEU8d/"
+    },
+    {
+      "file": "A002-img2.jpg",
+      "id": "A002",
+      "scenes": [
+        "S002",
+        "S003",
+        "S004",
+        "S066",
+        "S067"
+      ],
+      "kind": "image",
+      "source": "듀오링고 코리아 인스타그램",
+      "url": "https://www.instagram.com/p/DZE3VhAEU8d/"
+    },
+    {
+      "file": "A003-screen.jpg",
+      "id": "A003",
+      "scenes": [
+        "S072"
+      ],
+      "kind": "screen",
+      "source": "듀오링고 코리아 인스타그램",
+      "url": "https://www.instagram.com/p/DJWO4NQy_aP/"
+    },
+    {
+      "file": "A003-img1.jpg",
+      "id": "A003",
+      "scenes": [
+        "S072"
+      ],
+      "kind": "image",
+      "source": "듀오링고 코리아 인스타그램",
+      "url": "https://www.instagram.com/p/DJWO4NQy_aP/"
+    },
+    {
+      "file": "A003-img2.jpg",
+      "id": "A003",
+      "scenes": [
+        "S072"
+      ],
+      "kind": "image",
+      "source": "듀오링고 코리아 인스타그램",
+      "url": "https://www.instagram.com/p/DJWO4NQy_aP/"
+    },
+    {
+      "file": "A003-img3.jpg",
+      "id": "A003",
+      "scenes": [
+        "S072"
+      ],
+      "kind": "image",
+      "source": "듀오링고 코리아 인스타그램",
+      "url": "https://www.instagram.com/p/DJWO4NQy_aP/"
+    },
+    {
+      "file": "A004-screen.jpg",
+      "id": "A004",
+      "scenes": [
+        "S038",
+        "S039",
+        "S040",
+        "S041",
+        "S045",
+        "S087",
+        "S098",
+        "S103"
+      ],
+      "kind": "screen",
+      "source": "Duolingo 브랜드 가이드",
+      "url": "https://design.duolingo.com/"
+    },
+    {
+      "file": "A004-img1.jpg",
+      "id": "A004",
+      "scenes": [
+        "S038",
+        "S039",
+        "S040",
+        "S041",
+        "S045",
+        "S087",
+        "S098",
+        "S103"
+      ],
+      "kind": "image",
+      "source": "Duolingo 브랜드 가이드",
+      "url": "https://design.duolingo.com/"
+    },
+    {
+      "file": "A004-img2.jpg",
+      "id": "A004",
+      "scenes": [
+        "S038",
+        "S039",
+        "S040",
+        "S041",
+        "S045",
+        "S087",
+        "S098",
+        "S103"
+      ],
+      "kind": "image",
+      "source": "Duolingo 브랜드 가이드",
+      "url": "https://design.duolingo.com/"
+    },
+    {
+      "file": "A004-img3.jpg",
+      "id": "A004",
+      "scenes": [
+        "S038",
+        "S039",
+        "S040",
+        "S041",
+        "S045",
+        "S087",
+        "S098",
+        "S103"
+      ],
+      "kind": "image",
+      "source": "Duolingo 브랜드 가이드",
+      "url": "https://design.duolingo.com/"
+    },
+    {
+      "file": "A005-screen.jpg",
+      "id": "A005",
+      "scenes": [
+        "S020",
+        "S036"
+      ],
+      "kind": "screen",
+      "source": "Duolingo 블로그",
+      "url": "https://blog.duolingo.com/hub/design/"
+    },
+    {
+      "file": "A005-img1.jpg",
+      "id": "A005",
+      "scenes": [
+        "S020",
+        "S036"
+      ],
+      "kind": "image",
+      "source": "Duolingo 블로그",
+      "url": "https://blog.duolingo.com/hub/design/"
+    },
+    {
+      "file": "A005-img2.jpg",
+      "id": "A005",
+      "scenes": [
+        "S020",
+        "S036"
+      ],
+      "kind": "image",
+      "source": "Duolingo 블로그",
+      "url": "https://blog.duolingo.com/hub/design/"
+    },
+    {
+      "file": "A005-img3.jpg",
+      "id": "A005",
+      "scenes": [
+        "S020",
+        "S036"
+      ],
+      "kind": "image",
+      "source": "Duolingo 블로그",
+      "url": "https://blog.duolingo.com/hub/design/"
+    },
+    {
+      "file": "A006-screen.jpg",
+      "id": "A006",
+      "scenes": [
+        "S054",
+        "S055"
+      ],
+      "kind": "screen",
+      "source": "Canny Creative",
+      "url": "https://www.canny-creative.com/atlas/brand/duolingo/"
+    },
+    {
+      "file": "A006-scroll.jpg",
+      "id": "A006",
+      "scenes": [
+        "S054",
+        "S055"
+      ],
+      "kind": "scroll",
+      "source": "Canny Creative",
+      "url": "https://www.canny-creative.com/atlas/brand/duolingo/"
+    },
+    {
+      "file": "A006-img1.jpg",
+      "id": "A006",
+      "scenes": [
+        "S054",
+        "S055"
+      ],
+      "kind": "image",
+      "source": "Canny Creative",
+      "url": "https://www.canny-creative.com/atlas/brand/duolingo/"
+    },
+    {
+      "file": "A006-img2.jpg",
+      "id": "A006",
+      "scenes": [
+        "S054",
+        "S055"
+      ],
+      "kind": "image",
+      "source": "Canny Creative",
+      "url": "https://www.canny-creative.com/atlas/brand/duolingo/"
+    },
+    {
+      "file": "A006-img3.jpg",
+      "id": "A006",
+      "scenes": [
+        "S054",
+        "S055"
+      ],
+      "kind": "image",
+      "source": "Canny Creative",
+      "url": "https://www.canny-creative.com/atlas/brand/duolingo/"
+    },
+    {
+      "file": "A007-screen.jpg",
+      "id": "A007",
+      "scenes": [
+        "S012",
+        "S035",
+        "S049"
+      ],
+      "kind": "screen",
+      "source": "Lippincott",
+      "url": "https://www.lippincott.com/ideas/go-to-brand-spotlight-duolingo/"
+    },
+    {
+      "file": "A007-scroll.jpg",
+      "id": "A007",
+      "scenes": [
+        "S012",
+        "S035",
+        "S049"
+      ],
+      "kind": "scroll",
+      "source": "Lippincott",
+      "url": "https://www.lippincott.com/ideas/go-to-brand-spotlight-duolingo/"
+    },
+    {
+      "file": "A007-img1.jpg",
+      "id": "A007",
+      "scenes": [
+        "S012",
+        "S035",
+        "S049"
+      ],
+      "kind": "image",
+      "source": "Lippincott",
+      "url": "https://www.lippincott.com/ideas/go-to-brand-spotlight-duolingo/"
+    },
+    {
+      "file": "A007-img2.jpg",
+      "id": "A007",
+      "scenes": [
+        "S012",
+        "S035",
+        "S049"
+      ],
+      "kind": "image",
+      "source": "Lippincott",
+      "url": "https://www.lippincott.com/ideas/go-to-brand-spotlight-duolingo/"
+    },
+    {
+      "file": "A007-img3.jpg",
+      "id": "A007",
+      "scenes": [
+        "S012",
+        "S035",
+        "S049"
+      ],
+      "kind": "image",
+      "source": "Lippincott",
+      "url": "https://www.lippincott.com/ideas/go-to-brand-spotlight-duolingo/"
+    },
+    {
+      "file": "A011-screen.jpg",
+      "id": "A011",
+      "scenes": [
+        "S019",
+        "S022",
+        "S023",
+        "S078",
+        "S090"
+      ],
+      "kind": "screen",
+      "source": "Duolingo 공식 홈페이지",
+      "url": "https://www.duolingo.com/"
+    },
+    {
+      "file": "A011-img1.jpg",
+      "id": "A011",
+      "scenes": [
+        "S019",
+        "S022",
+        "S023",
+        "S078",
+        "S090"
+      ],
+      "kind": "image",
+      "source": "Duolingo 공식 홈페이지",
+      "url": "https://www.duolingo.com/"
+    }
+  ],
+  "failures": []
+}
