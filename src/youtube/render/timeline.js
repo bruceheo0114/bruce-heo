@@ -50,14 +50,36 @@ export function chapterNarrationTexts(script) {
 export function readingPairs(script) {
   const pairs = new Map();
   const pattern = /((?:[A-Za-z][A-Za-z0-9 '’.&-]*|\d[^\s(]*))\(([^)]*[가-힣][^)]*)\)/g;
-  for (const [, display, reading] of String(script ?? "").matchAll(pattern)) {
+  const text = String(script ?? "");
+  for (const [, display, reading] of text.matchAll(pattern)) {
     if (!pairs.has(reading.trim())) pairs.set(reading.trim(), display.trim());
   }
-  return [...pairs].sort((a, b) => b[0].length - a[0].length);
+  // 읽는 법이 다른 한글 낱말의 앞부분일 때(듀오 → 듀오링고)는 그 낱말을 바꾸지 않는다.
+  const plain = text.replace(pattern, " ");
+  return [...pairs]
+    .map(([reading, display]) => {
+      const keep = new Set();
+      for (const [word] of plain.matchAll(new RegExp(`${escapeRegExp(reading)}[가-힣]`, "g"))) keep.add(word);
+      return [reading, display, [...keep]];
+    })
+    .sort((a, b) => b[0].length - a[0].length);
+}
+
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
 export function displayText(text, pairs) {
-  return pairs.reduce((result, [reading, display]) => result.split(reading).join(display), String(text ?? ""));
+  return pairs.reduce((result, [reading, display, keep = []]) => {
+    let out = "";
+    let from = 0;
+    for (let at = result.indexOf(reading); at !== -1; at = result.indexOf(reading, at + reading.length)) {
+      if (keep.some((word) => result.startsWith(word, at))) continue;
+      out += result.slice(from, at) + display;
+      from = at + reading.length;
+    }
+    return out + result.slice(from);
+  }, String(text ?? ""));
 }
 
 // 내레이션이 '챕터 전환' 같은 메모뿐인(말이 없는) 장면
