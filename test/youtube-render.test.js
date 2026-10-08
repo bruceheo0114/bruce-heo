@@ -225,3 +225,10 @@ test("자막은 읽는 법 대신 원래 표기로 보여 준다", async () => {
   const duo = readingPairs("듀오링고의 캐릭터 Duo(듀오)의 생일카페. Duo(듀오)는 듀오링고를 떠올리게 한다.");
   assert.equal(displayText("듀오링고의 캐릭터 듀오의 생일. 듀오는 듀오링고를", duo), "듀오링고의 캐릭터 Duo의 생일. Duo는 듀오링고를");
 });
+
+test("balanceLines wraps long card lines instead of shrinking them", async () => {
+  const { balanceLines } = await import("../src/youtube/render/frames.js");
+  assert.deepEqual(balanceLines(["② 패키지 · 상세 페이지 · 광고 · 고객 응대에서", "같은 관점이 보이나"]), ["② 패키지 · 상세 페이지", "광고 · 고객 응대에서", "같은 관점이 보이나"]);
+  assert.deepEqual(balanceLines(["① 출발한 문제의식은", "제품 어디에 남아 있나"]), ["① 출발한 문제의식은", "제품 어디에 남아 있나"]);
+  assert.deepEqual(balanceLines(["같은 콘텐츠를 옮기나 같은 역할을 옮기나"]), ["같은 콘텐츠를 옮기나", "같은 역할을 옮기나"]);
+});
