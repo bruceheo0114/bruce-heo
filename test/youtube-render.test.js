@@ -61,6 +61,17 @@ test("업로드 정보에 실제 녹음 기준 챕터 시간이 들어간다", (
   assert.equal(formatClock(3725), "1:02:05");
 });
 
+test("업로드 정보에 그 편의 해시태그·태그·고정 댓글이 들어간다", () => {
+  const kit = buildUploadKit(
+    { status: { episode: "EP002", article: { url: "https://brunch.co.kr/@heoboram/223", title: "LG" }, generated: {} } },
+    "## Title Candidates\n- 제목\n## Hashtags\n#르게다꼼 #브랜드마케팅 #마케팅\n## Tags\n르게다꼼, LG전자 광고\n## Pinned Comment\n여러분 브랜드는 어떻게 읽히나요?\n",
+    { chapters: [{ title: "오프닝", start: 0 }] },
+  );
+  assert.match(kit, /#르게다꼼 #브랜드마케팅 #마케팅 #브루스인사이트 #브랜딩/);
+  assert.match(kit, /르게다꼼, LG전자 광고, 마케팅, 브랜딩/);
+  assert.match(kit, /## 고정 댓글\n\n```\n여러분 브랜드는 어떻게 읽히나요\?/);
+});
+
 test("장면을 3~4초 컷으로 나누고 카드는 짧게, 그림은 장면 안에서 되풀이하지 않는다", async () => {
   const { planShots } = await import("../src/youtube/render/compose.js");
   const scene = (id, type, start, end, asset = "-") => ({ id, sourceType: type, start, end, asset, fields: {} });

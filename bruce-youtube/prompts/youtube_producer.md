@@ -54,6 +54,8 @@ RECOMMENDATION은 `MAKE_VIDEO` / `SHORTS_ONLY` / `HOLD` / `SKIP` 중 하나. 아
 `## Title Candidates` (목록 5개) · `## Thumbnail Copy` (목록 5개) · `## Opening Hook` (첫 30초 내레이션) ·
 `## Main Question` · `## Core Argument` · `## Chapter Structure` (타임코드 포함) · `## Key Examples` · `## Ending Question / Statement`
 
+업로드용으로 `## Hashtags`(이번 편 해시태그 5~7개, 한 줄, 첫 3개가 제목 위에 보이니 가장 중요한 것부터), `## Tags`(쉼표로 구분한 검색 태그 12~20개, 합쳐서 450자 이내), `## Pinned Comment`(시청자에게 묻는 질문 1~2문장 + 브런치 원문 안내)도 쓴다.
+
 ## 02_script.md
 
 - 10~15분 내레이션 전체 대본. 공백 제외 3,800~5,500자 (복제 목소리는 분당 약 370자로 빨리 읽는다. EP002는 3,250자가 8분 52초였다).
