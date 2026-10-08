@@ -422,7 +422,7 @@ export function buildUploadKit(episode, brief, timeline, sources = [], { aiImage
     ...(pinned ? ["## 고정 댓글", "", "```", pinned, "```", ""] : []),
     "## 설정",
     "",
-    "- 썸네일: thumbnail_1.png ~ thumbnail_3.png 중 하나 (thumbnail.png = 1안)",
+    "- 썸네일: thumbnail_1.png ~ thumbnail_3.png 중 하나 (thumbnail.png = 1안, 세 안 모두 같은 스타일)",
     "- 자막: 영상에 들어가 있음. 검색용으로 subtitles.srt를 '자막 → 업로드'에 올려도 된다(선택).",
     `- 변경된 콘텐츠 표시: ${alteredNote({ aiImages: aiImages ?? Object.keys(episode.status.generated ?? {}).length > 0, syntheticVoice })}`,
     "- 공개: 비공개로 올려 확인 후 공개 또는 예약",

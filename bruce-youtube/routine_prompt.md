@@ -120,7 +120,10 @@ SendUserFile은 30MB까지라 1080p 원본(보통 60MB 안팎)은 GitHub 다운�
    `<EP>_1080p.mp4`, `thumbnail_1~3.png`, `업로드정보.md`(= upload.md), `subtitles.srt`, 맨 위 `README.md`(파일별 raw 링크 표)를 넣어 푸시한다.
    main에는 올리지 않는다. 링크: `https://github.com/bruceheo0114/bruce-heo/raw/media/<ep>/<EP>/<EP>_1080p.mp4`
 3. 폰에서 바로 보게 720p 사본(2-pass, 30MB 미만)과 썸네일 3안·upload.md를 SendUserFile(status `proactive`)로 보낸다.
-4. 마지막 메시지에 1080p 다운로드 링크와 README 링크(`https://github.com/bruceheo0114/bruce-heo/tree/media/<ep>`)를 적는다.
+4. 마지막 메시지에 1080p 다운로드 링크와 README 링크를 **마크다운 링크**(`[바로 내려받기](https://raw.githubusercontent.com/bruceheo0114/bruce-heo/media/<ep>/<EP>/<EP>_1080p.mp4)`)로 적는다.
+   주소를 괄호·글자에 붙여 쓰면 앱에서 주소가 잘못 잡힌다.
+5. Bruce가 "올렸어/지워"라고 하면: 이 환경은 원격 브랜치 삭제가 막혀 있으니, 빈 고아 커밋(README 한 줄)을 `media/<ep>`에 강제 푸시해 파일을 지우고,
+   브랜치 자체는 GitHub에서 지워도 된다고 알린다.
 
 ## 11. 커밋
 

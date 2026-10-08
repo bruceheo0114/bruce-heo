@@ -425,7 +425,7 @@
     {
       "image": "A006",
       "copy": "다르게 읽으면/새 이야기",
-      "layout": "bar"
+      "layout": "full"
     }
   ]
 }

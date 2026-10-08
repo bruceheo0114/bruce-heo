@@ -9,7 +9,8 @@ import { findSection } from "../parse.js";
 import { renderFrames } from "./frames.js";
 
 const SIZE = { width: 1280, height: 720 };
-const LAYOUTS = ["split", "full", "bar"];
+// 채널 썸네일은 전면 이미지 + 왼쪽 어둡게 + 큰 흰 글씨(full)로 통일한다 (사용자 결정 2026-10-08). split·bar는 references.json에서 직접 고를 때만.
+const DEFAULT_LAYOUT = "full";
 
 const escapeHtml = (value) =>
   String(value ?? "").replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[char]);
@@ -106,7 +107,7 @@ export async function renderThumbnails(episode, root, outDir, { pill = "브랜�
     const copy = plan.copy || copies[index] || episode.status.article.title;
     jobs.push({
       file: `thumbnail_${index + 1}.png`,
-      html: thumbnailHtml({ layout: plan.layout ?? LAYOUTS[index % LAYOUTS.length], lines: splitCopy(copy), pill: plan.pill ?? pill, image, focus: plan.focus }),
+      html: thumbnailHtml({ layout: plan.layout ?? DEFAULT_LAYOUT, lines: splitCopy(copy), pill: plan.pill ?? pill, image, focus: plan.focus }),
       viewport: SIZE,
     });
   }
