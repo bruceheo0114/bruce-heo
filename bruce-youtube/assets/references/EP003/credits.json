@@ -1,6 +1,6 @@
 {
-  "references_hash": "9b8aa05fb91fe382",
-  "fetched_at": "2026-10-08T08:37:57.609Z",
+  "references_hash": "f3e689384f33381d",
+  "fetched_at": "2026-10-08T09:12:36.726Z",
   "items": [
     {
       "file": "A001-screen.jpg",
@@ -9,9 +9,7 @@
         "S006",
         "S008",
         "S010",
-        "S070",
-        "S082",
-        "S083"
+        "S070"
       ],
       "kind": "screen",
       "source": "오픈애즈 기고 (브루스)",
@@ -24,9 +22,7 @@
         "S006",
         "S008",
         "S010",
-        "S070",
-        "S082",
-        "S083"
+        "S070"
       ],
       "kind": "scroll",
       "source": "오픈애즈 기고 (브루스)",
@@ -39,9 +35,7 @@
         "S006",
         "S008",
         "S010",
-        "S070",
-        "S082",
-        "S083"
+        "S070"
       ],
       "kind": "image",
       "source": "오픈애즈 기고 (브루스)",
@@ -54,9 +48,7 @@
         "S006",
         "S008",
         "S010",
-        "S070",
-        "S082",
-        "S083"
+        "S070"
       ],
       "kind": "image",
       "source": "오픈애즈 기고 (브루스)",
@@ -69,9 +61,7 @@
         "S006",
         "S008",
         "S010",
-        "S070",
-        "S082",
-        "S083"
+        "S070"
       ],
       "kind": "image",
       "source": "오픈애즈 기고 (브루스)",
@@ -290,6 +280,39 @@
         "S055"
       ],
       "kind": "scroll",
+      "source": "Canny Creative",
+      "url": "https://www.canny-creative.com/atlas/brand/duolingo/"
+    },
+    {
+      "file": "A006-img1.jpg",
+      "id": "A006",
+      "scenes": [
+        "S054",
+        "S055"
+      ],
+      "kind": "image",
+      "source": "Canny Creative",
+      "url": "https://www.canny-creative.com/atlas/brand/duolingo/"
+    },
+    {
+      "file": "A006-img2.jpg",
+      "id": "A006",
+      "scenes": [
+        "S054",
+        "S055"
+      ],
+      "kind": "image",
+      "source": "Canny Creative",
+      "url": "https://www.canny-creative.com/atlas/brand/duolingo/"
+    },
+    {
+      "file": "A006-img3.jpg",
+      "id": "A006",
+      "scenes": [
+        "S054",
+        "S055"
+      ],
+      "kind": "image",
       "source": "Canny Creative",
       "url": "https://www.canny-creative.com/atlas/brand/duolingo/"
     },
