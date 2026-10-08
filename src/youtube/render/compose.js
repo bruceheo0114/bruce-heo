@@ -55,7 +55,8 @@ async function exists(file) {
 
 const SFX_VOLUME = 0.7; // 효과음 크기(내레이션 대비)
 const CHAPTER_GAP = 2.6; // 챕터 사이 무음(초). 이 자리에 챕터 간지와 효과음이 들어간다
-const VOICE_LEVELER = "dynaudnorm=f=500:g=31:p=0.9:m=20:r=0.1:b=1"; // 챕터 안 문장 크기 고르기(약 15초 창)
+// 챕터 안 문장 크기 고르기(약 15초 창) + 문장 끝이 작아지는 합성 음성 버릇을 가볍게 눌러 맞춤(EP004 문장 앞뒤 차이 9dB → 4dB)
+const VOICE_LEVELER = "dynaudnorm=f=500:g=31:p=0.9:m=20:r=0.1:b=1,acompressor=threshold=-28dB:ratio=4:attack=5:release=120";
 // 채널 BGM(bruce-youtube/channel/bgm/bgm.mp3). 영상 내내 반복해서 깔고, 내레이션이 나오면 자동으로 줄였다가
 // 말이 멈추는 곳(챕터 간지·마지막 여운)에서 다시 올라온다(사이드체인 덕킹).
 const BGM_LUFS = -27; // 말이 없을 때 BGM 크기(내레이션 -14 LUFS 대비 약 13dB 아래)
