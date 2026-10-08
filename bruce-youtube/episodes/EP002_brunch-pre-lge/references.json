@@ -1,0 +1,145 @@
+{
+  "brunch": false,
+  "_note": "발행 전 원고로 미리 만든 Episode라 브런치 이미지는 쓰지 않는다. LG전자 뉴스룸 콘텐츠는 자유 이용(운영정책), 출처 표기. KFC는 비평·비교 목적의 짧은 인용.",
+  "items": [
+    {
+      "id": "A001",
+      "kind": "page",
+      "url": "https://www.lge.co.kr/story/newsroom/236186",
+      "source": "LG전자 뉴스룸 (2026-09-21)",
+      "scenes": [
+        "S004",
+        "S008",
+        "S039",
+        "S040",
+        "S051"
+      ]
+    },
+    {
+      "id": "A002",
+      "kind": "image",
+      "url": "https://static-store.lge.co.kr/editor/697/2609210032697.jpg",
+      "page": "https://www.lge.co.kr/story/newsroom/236186",
+      "source": "LG전자 뉴스룸",
+      "scenes": [
+        "S002",
+        "S030",
+        "S078"
+      ]
+    },
+    {
+      "id": "A003",
+      "kind": "image",
+      "url": "https://static.lge.co.kr/newsroom/uploads/2026/09/2609210032698.jpg",
+      "page": "https://www.lge.co.kr/story/newsroom/236186",
+      "source": "LG전자 뉴스룸",
+      "scenes": [
+        "S053"
+      ]
+    },
+    {
+      "id": "A004",
+      "kind": "page",
+      "url": "https://www.lge.co.kr/story/newsroom/234257",
+      "source": "LG전자 뉴스룸 (2025-11-17)",
+      "scenes": [
+        "S016",
+        "S018"
+      ]
+    },
+    {
+      "id": "A005",
+      "kind": "image",
+      "url": "https://static.lge.co.kr/newsroom/uploads/2025/11/2511-lg-homestyle-1-1920x1357.jpg",
+      "page": "https://www.lge.co.kr/story/newsroom/234257",
+      "source": "LG전자 뉴스룸",
+      "scenes": [
+        "S017",
+        "S021"
+      ]
+    },
+    {
+      "id": "A006",
+      "kind": "image",
+      "url": "https://static.lge.co.kr/newsroom/uploads/2025/11/2511-lg-homestyle-2-1920x1357.jpg",
+      "page": "https://www.lge.co.kr/story/newsroom/234257",
+      "source": "LG전자 뉴스룸",
+      "scenes": [
+        "S019"
+      ]
+    },
+    {
+      "id": "A007",
+      "kind": "image",
+      "url": "https://www.lge.co.kr/kr/upload/admin/display/displayObject/lge%20marked_%ED%99%88%EC%8A%A4%ED%83%80%EC%9D%BC_PC_20260930_152720.png",
+      "page": "https://www.lge.co.kr/",
+      "source": "LGE.COM 공식 홈페이지",
+      "scenes": [
+        "S020",
+        "S046",
+        "S090"
+      ]
+    },
+    {
+      "id": "A008",
+      "kind": "image",
+      "url": "https://www.lge.co.kr/kr/upload/admin/display/displayObject/lge%20marked_%EB%83%89%EC%9E%A5%EA%B3%A0_PC_20260930_152753.png",
+      "page": "https://www.lge.co.kr/",
+      "source": "LGE.COM 공식 홈페이지",
+      "scenes": [
+        "S044",
+        "S045"
+      ]
+    },
+    {
+      "id": "A009",
+      "kind": "page",
+      "url": "https://blog.hsad.co.kr/3787",
+      "source": "HSAD 공식 블로그",
+      "scenes": [
+        "S034"
+      ]
+    },
+    {
+      "id": "A010",
+      "kind": "article",
+      "url": "https://www.ebn.co.kr/news/articleView.html?idxno=1725010",
+      "source": "EBN",
+      "scenes": [
+        "S047"
+      ]
+    },
+    {
+      "id": "A011",
+      "kind": "article",
+      "url": "https://www.itsnicethat.com/news/mother-london-kfc-advert-apology-230218",
+      "source": "It's Nice That (2018-02-23)",
+      "scenes": [
+        "S069"
+      ]
+    },
+    {
+      "id": "A012",
+      "kind": "image",
+      "url": "https://m.itsnicethat.com/original_images/5a8fefb07fa44c36a5000b53.jpg",
+      "page": "https://www.itsnicethat.com/news/mother-london-kfc-advert-apology-230218",
+      "source": "KFC UK 광고 (Mother London) · It's Nice That",
+      "scenes": [
+        "S071",
+        "S073"
+      ]
+    },
+    {
+      "id": "A013",
+      "kind": "page",
+      "url": "https://www.lge.co.kr/",
+      "source": "LGE.COM 공식 홈페이지",
+      "scenes": [
+        "S003",
+        "S012",
+        "S014",
+        "S080"
+      ]
+    }
+  ]
+}

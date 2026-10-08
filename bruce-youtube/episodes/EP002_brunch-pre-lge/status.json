@@ -1,0 +1,100 @@
+{
+  "episode": "EP002",
+  "folder": "EP002_brunch-pre-lge",
+  "article": {
+    "id": "pre-lge",
+    "url": "https://brunch.co.kr/@heoboram",
+    "title": "LG전자는 왜 발음하기도 어려운 닉네임을 만들었을까?",
+    "published_at": "2026-10-08T01:19:31.938Z",
+    "source_file": "source/brunch/pre-lge.md",
+    "body_hash": "6ed259199d4dc890733ba881b128824589828432b6d5a99065076af2d25a20c8",
+    "prebuilt": true
+  },
+  "status": "WAITING_APPROVAL",
+  "higgsfield_generation": false,
+  "recommendation": "MAKE_VIDEO",
+  "video_potential": {
+    "NARRATIVE": 8,
+    "CASE STUDY": 8,
+    "VISUAL MATERIAL": 7,
+    "TIMELINESS": 9,
+    "ORIGINAL POV": 8,
+    "30MIN POTENTIAL": 6,
+    "TOTAL": 46,
+    "MAX": 60
+  },
+  "approved_scenes": [],
+  "generated": {},
+  "plan": {
+    "runtime_seconds": 633,
+    "runtime": "10:33",
+    "total_scenes": 94,
+    "scenes_by_type": {
+      "REAL": 28,
+      "TYPE": 32,
+      "GRAPHIC": 24,
+      "AI": 10
+    },
+    "seconds_by_type": {
+      "REAL": 201,
+      "TYPE": 197,
+      "GRAPHIC": 173,
+      "AI": 62
+    },
+    "ai_share": 0.098,
+    "ai_scenes": [
+      "S001",
+      "S010",
+      "S015",
+      "S025",
+      "S033",
+      "S063",
+      "S068",
+      "S070",
+      "S085",
+      "S093"
+    ],
+    "estimated_generations": 10,
+    "estimated_credits": 14,
+    "reusable_assets": [
+      {
+        "reference": "REF01",
+        "scenes": [
+          "S001",
+          "S033"
+        ]
+      },
+      {
+        "reference": "REF06",
+        "scenes": [
+          "S010",
+          "S085"
+        ]
+      }
+    ],
+    "cost_saving": [
+      "영상 생성은 2개(S001 손, S015 빈 거실)만. 사람 얼굴 없음.",
+      "나머지 AI Scene 8개는 기준 이미지 정지 컷 + 편집 push-in.",
+      "REF01·REF06을 두 번씩 재사용.",
+      "LG 로고·제품·광고 장면은 AI로 만들지 않고 LG전자 뉴스룸·LGE.COM 공식 이미지(REAL)와 도식(GRAPHIC)으로.",
+      "KFC 광고는 AI로 재현하지 않고 기사 이미지(REAL)를 인용."
+    ]
+  },
+  "update": null,
+  "created_at": "2026-10-08T01:19:31.938Z",
+  "updated_at": "2026-10-08T01:26:11.249Z",
+  "history": [
+    {
+      "at": "2026-10-08T01:19:31.938Z",
+      "from": null,
+      "to": "PACKAGE_PENDING",
+      "note": "발행 전 원고로 미리 제작"
+    },
+    {
+      "at": "2026-10-08T01:26:11.249Z",
+      "from": "PACKAGE_PENDING",
+      "to": "WAITING_APPROVAL",
+      "note": "영상화 평가 46/60 · MAKE_VIDEO"
+    }
+  ]
+}
