@@ -46,6 +46,20 @@ export function chapterNarrationTexts(script) {
   return texts;
 }
 
+/** 대본의 `표기(읽는 법)` 쌍. 자막은 읽는 법 대신 원래 표기(LG전자, TV)로 보여 준다. [[읽는 법, 표기], ...] 긴 것부터 */
+export function readingPairs(script) {
+  const pairs = new Map();
+  const pattern = /((?:[A-Za-z][A-Za-z0-9 '’.&-]*|\d[^\s(]*))\(([^)]*[가-힣][^)]*)\)/g;
+  for (const [, display, reading] of String(script ?? "").matchAll(pattern)) {
+    if (!pairs.has(reading.trim())) pairs.set(reading.trim(), display.trim());
+  }
+  return [...pairs].sort((a, b) => b[0].length - a[0].length);
+}
+
+export function displayText(text, pairs) {
+  return pairs.reduce((result, [reading, display]) => result.split(reading).join(display), String(text ?? ""));
+}
+
 // 내레이션이 '챕터 전환' 같은 메모뿐인(말이 없는) 장면
 export function isTransitionText(narration) {
   return /^(챕터\s*전환|전환|무음|-)?$/.test(String(narration ?? "").trim());
