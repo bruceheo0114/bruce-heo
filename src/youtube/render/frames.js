@@ -77,10 +77,35 @@ function fitSize(lines, steps) {
   return steps.find(([limit]) => longest <= limit)?.[1] ?? steps.at(-1)[1];
 }
 
+// 한 줄이 길면 글씨를 줄이지 않고 두 줄로 나눈다(같은 묶음의 카드끼리 글씨 크기가 들쭉날쭉하지 않게).
+// '·'로 이은 목록은 '·' 자리에서, 아니면 가운데에 가까운 띄어쓰기에서 나눈다.
+export function balanceLines(lines, max = 18) {
+  if (lines.length >= 3) return lines;
+  return lines.flatMap((line) => {
+    if (line.length <= max) return [line];
+    const items = line.split(" · ");
+    if (items.length > 1) {
+      let best = 1;
+      for (let i = 1; i < items.length; i += 1) {
+        const left = items.slice(0, i).join(" · ").length;
+        const bestLeft = items.slice(0, best).join(" · ").length;
+        if (Math.abs(left - line.length / 2) < Math.abs(bestLeft - line.length / 2)) best = i;
+      }
+      return [items.slice(0, best).join(" · "), items.slice(best).join(" · ")];
+    }
+    const spaces = [...line.matchAll(/ /g)].map((match) => match.index);
+    if (!spaces.length) return [line];
+    const cut = spaces.reduce((a, b) => (Math.abs(b - line.length / 2) < Math.abs(a - line.length / 2) ? b : a));
+    return [line.slice(0, cut), line.slice(cut + 1)];
+  });
+}
+
 function typeCard(scene, chapter) {
-  const lines = screenLines(scene);
+  const lines = balanceLines(screenLines(scene));
   const text = lines.length ? lines : [String(scene.fields.NARRATION ?? "").split(/(?<=[.?!])\s/)[0]];
-  const size = fitSize(text, [[12, 124], [18, 100], [26, 80], [999, 64]]);
+  // ①②③처럼 번호를 붙인 질문 카드는 한 묶음이라 같은 크기로 맞춘다.
+  const numbered = /^[\u2460-\u2473]/.test(text[0] ?? "");
+  const size = Math.min(fitSize(text, [[12, 124], [18, 100], [26, 80], [999, 64]]), numbered ? 100 : 124);
   return page(
     `.copy{position:absolute;left:150px;right:150px;top:140px;bottom:200px;display:flex;align-items:center}
      h1{font-size:${size}px;line-height:1.18;font-weight:900;letter-spacing:-.05em}`,
