@@ -35,7 +35,7 @@ const USAGE = `사용법: node src/cli/youtube.js <명령> [인자]
   next [--weekly]                 제작할 Episode 1편 (PACKAGE_PENDING이 없으면 이번 주 새 글 → 큐 todo → 예비 글 순으로 새로 만든다)
                                  --weekly: 최근 6일 안에 기획안을 만들었으면 비워 둔다
   episode <글번호>                큐와 상관없이 글 하나로 Episode를 만든다
-  prebuild <원고.md> --slug 이름   발행 전 원고(# 제목 + 본문)로 미리 Episode를 만든다. 같은 제목 글이 발행되면 sync가 연결하고,
+  prebuild <원고.md> --slug 이름 [--url 브런치 주소]   발행 전 원고(# 제목 + 본문)로 미리 Episode를 만든다. 같은 제목 글이 발행되면 sync가 연결하고,
                                  그 주 next --weekly는 새로 만들지 않는다
   pending                         PACKAGE_PENDING Episode 목록
   status [EP]                     Episode 상태 목록 또는 한 편의 상세
@@ -356,6 +356,12 @@ const commands = {
       articleToMarkdown({ id: `pre-${slug}`, canonicalUrl: "https://brunch.co.kr/@heoboram", title, subtitle: "", publishedAt: "", bodyHash, body }),
     );
     const { episode, created } = await createPrebuiltEpisode({ slug, title, file: sourceFile, bodyHash }, now, paths);
+    // 예약 발행 글이라 주소를 이미 알면 영상 설명의 브런치 링크로 쓴다
+    const url = option("--url")?.[0];
+    if (created && url) {
+      episode.status.article.url = url;
+      await (await import("../youtube/episode.js")).saveStatus(episode);
+    }
     console.log(created ? episode.name : `이미 있는 Episode ${episode.name}`);
   },
   async readback() {
