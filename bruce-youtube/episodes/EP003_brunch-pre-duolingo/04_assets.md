@@ -1,7 +1,7 @@
 # EP003 REAL 자료 목록
 
 ASSET ID: A001
-SCENE: S006, S008, S010, S070, S082, S083
+SCENE: S006, S008, S010, S070
 NEEDED MATERIAL: 작성자 기고문 속 Duo 생일카페 포스터·현장 이미지, 국내 월간 활성 이용자 수치
 BRAND: 듀오링고
 SOURCE TYPE: REAL
