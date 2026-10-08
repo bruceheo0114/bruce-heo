@@ -618,7 +618,7 @@ VISUAL:
 두 줄 타이포.
 SOURCE_TYPE: TYPE
 ON_SCREEN_TEXT:
-2025.02
+2025년 2월
 Duo 사망 발표
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
@@ -1016,7 +1016,8 @@ VISUAL:
 기고문 속 수치 부분. 출처: 작성자 기고문.
 SOURCE_TYPE: GRAPHIC
 ON_SCREEN_TEXT:
-2024.11 국내 월간 활성 이용자 약 62만 명
+2024년 11월
+국내 월간 활성 이용자 약 62만 명
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
@@ -1028,7 +1029,8 @@ VISUAL:
 기고문 이미지 재사용, 증가 화살표 오버레이.
 SOURCE_TYPE: GRAPHIC
 ON_SCREEN_TEXT:
-2026.07 약 208만 명
+2026년 7월
+약 208만 명
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
