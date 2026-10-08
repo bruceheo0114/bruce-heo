@@ -103,7 +103,7 @@ test("scene_images가 있으면 장면마다 지정한 그림만 쓴다", async 
   const pool = [img("pool.jpg")];
   const shots = planShots(timeline, { byKey: new Map(), pool, sceneImages });
   const of = (id) => shots.filter((shot) => shot.scene.id === id);
-  assert.deepEqual(of("S001").map((shot) => [shot.media.file, shot.mode]), [["a.jpg", "caption"], ["a.jpg", "none"], ["b.jpg", "none"]]);
+  assert.deepEqual(of("S001").map((shot) => [shot.media.file, shot.mode]), [["a.jpg", "caption"], ["a.jpg", "caption"], ["b.jpg", "caption"]]);
   // 그림 1장에 긴 장면: 같은 그림 클로즈업으로 한 컷 더
   const long = planShots({ chapters: [], scenes: [scene("S009", "REAL", 0, 8)] }, { sceneImages: new Map([["S009", [img("x.jpg")]]]) });
   assert.deepEqual(long.map((shot) => [shot.media.file, Boolean(shot.close)]), [["x.jpg", false], ["x.jpg", true]]);

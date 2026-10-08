@@ -41,7 +41,7 @@ async function fontFace() {
 // 모든 화면이 함께 쓰는 고정 요소(챕터·출처)
 function chrome({ chapter, credit, onPhoto }) {
   const chapterHtml = chapter
-    ? `<div class="chapter ${onPhoto ? "on-photo" : ""}"><span class="no">${escapeHtml(chapter.no)}</span><span class="title">${escapeHtml(chapter.title)}</span></div>`
+    ? `<div class="chapter ${onPhoto ? "on-photo" : ""}"><span class="ch-no">${escapeHtml(chapter.no)}</span><span class="title">${escapeHtml(chapter.title)}</span></div>`
     : "";
   const creditHtml = credit ? `<div class="credit ${onPhoto ? "on-photo" : ""}">출처 · ${escapeHtml(credit)}</div>` : "";
   return chapterHtml + creditHtml;
@@ -51,13 +51,16 @@ const BASE_CSS = `*{box-sizing:border-box;margin:0}
 body{width:${FRAME.width}px;height:${FRAME.height}px;overflow:hidden;font-family:P,sans-serif;word-break:keep-all;position:relative}
 .chapter{position:absolute;left:56px;top:48px;display:flex;align-items:center;gap:14px;padding:12px 22px 13px 18px;border-radius:12px;
   background:rgba(17,17,17,.06);color:${COLORS.ink};font-size:28px;line-height:1;letter-spacing:-.03em}
-.chapter .no{font-weight:900;color:${COLORS.green}}
+.chapter .ch-no{font-weight:900;color:${COLORS.green}}
 .chapter .title{font-weight:700}
+.chapter span{font-size:28px;line-height:1}
 .chapter.on-photo{background:rgba(17,17,17,.55);color:#fff}
-.chapter.on-photo .no{color:${COLORS.mint}}
-.credit{position:absolute;right:48px;bottom:26px;max-width:980px;padding:7px 14px;border-radius:8px;background:rgba(17,17,17,.08);
-  color:#55554f;font-size:22px;font-weight:600;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.credit.on-photo{background:rgba(17,17,17,.6);color:#f2f1ed}
+.chapter.on-photo .ch-no{color:${COLORS.mint}}
+/* 출처는 상자 없이 오른쪽 끝에 맞춘 글자만. 상자가 있으면 출처 길이마다 상자 왼쪽 끝이 왔다 갔다 해 보인다 */
+.credit{position:absolute;right:52px;bottom:30px;max-width:980px;text-align:right;
+  color:#77776f;font-size:21px;font-weight:600;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* 사진 위 출처는 폭이 고정된 반투명 띠: 흰 화면(웹페이지 캡처)에서도 읽히고, 출처 길이가 달라도 띠 크기는 그대로 */
+.credit.on-photo{width:640px;padding:7px 16px;border-radius:8px;background:rgba(17,17,17,.5);color:#f2f1ed}
 .dot{color:${COLORS.mint}}`;
 
 function page(css, body, { dark = false, transparent = false } = {}) {
@@ -146,7 +149,7 @@ function graphicCard(scene, chapter) {
   return page(
     `.list{position:absolute;left:180px;right:180px;top:140px;bottom:200px;display:flex;flex-direction:column;justify-content:center;gap:${big ? 44 : 30}px}
      .row{display:flex;gap:28px;align-items:baseline;font-size:${big ? 84 : 52}px;font-weight:${big ? 900 : 800};letter-spacing:-.045em;line-height:1.2}
-     .no{color:${COLORS.mint};font-size:${big ? 56 : 40}px;font-weight:900;min-width:70px}`,
+     .list .no{color:${COLORS.mint};font-size:${big ? 56 : 40}px;font-weight:900;min-width:70px}`,
     `${chrome({ chapter })}<div class="list">${shown.map((line, index) => `<div class="row"><span class="no">${String(index + 1).padStart(2, "0")}</span><span>${escapeHtml(line)}</span></div>`).join("")}</div>`,
   );
 }

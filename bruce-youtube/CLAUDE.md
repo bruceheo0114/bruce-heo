@@ -59,7 +59,8 @@ Hook → Phenomenon → Case → Question → Analysis → Contrast → Insight 
    4. 승인된 Scene만 생성 → `can-generate` → Higgsfield → 결과를 `assets/generated/<EP>/<Scene>.png|mp4`로 저장 → `record-generation`
    5. `node src/cli/youtube.js render <EP> <CH01.mp3 …> --no-cleanup --voice-clone` (복제 목소리는 잡음 정리가 필요 없다)
       → `output/<EP>/`에 `<EP>.mp4`, `thumbnail.png`, `upload.md`, `subtitles.srt`
-   (챕터 사이에는 render가 2.6초 간지와 `channel/sfx/chapter.mp3` 효과음을 자동으로 넣는다. 스토리보드에 따로 챕터 전환 장면을 만들 필요 없다.)
+   (챕터 사이에는 render가 2.6초 간지와 `channel/sfx/chapter.mp3` 효과음을 자동으로 넣는다. 스토리보드에 따로 챕터 전환 장면을 만들 필요 없다.
+    채널 BGM `channel/bgm/bgm.mp3`도 render가 영상 내내 깔고 내레이션에 맞춰 자동으로 줄였다 올린다. 마지막 말 뒤 4초 여운.)
    6. 완성 영상의 프레임을 뽑아 1편 편집 방향 체크리스트(`routine_prompt.md` 9단계)로 확인한다.
    7. mp4·썸네일·upload.md를 사용자에게 보낸다. Bruce가 YouTube 앱에서 올린다(변경된 콘텐츠 '예').
       (`upload` 명령은 YouTube API 인증이 있을 때만 쓰는 예비 기능이다. 사용자가 요청할 때만 쓴다.)
