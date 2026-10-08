@@ -1,0 +1,295 @@
+{
+  "references_hash": "80c54e8a99f14a4e",
+  "fetched_at": "2026-10-08T12:46:55.761Z",
+  "items": [
+    {
+      "file": "A001-screen.jpg",
+      "id": "A001",
+      "scenes": [
+        "S008",
+        "S017",
+        "S023",
+        "S100"
+      ],
+      "kind": "screen",
+      "source": "CJ올리브영 뉴스룸 (앳홈 양정호 대표 인터뷰)",
+      "url": "https://corp.oliveyoung.com/ko/newsroom/editorial/149"
+    },
+    {
+      "file": "A001-scroll.jpg",
+      "id": "A001",
+      "scenes": [
+        "S008",
+        "S017",
+        "S023",
+        "S100"
+      ],
+      "kind": "scroll",
+      "source": "CJ올리브영 뉴스룸 (앳홈 양정호 대표 인터뷰)",
+      "url": "https://corp.oliveyoung.com/ko/newsroom/editorial/149"
+    },
+    {
+      "file": "A001-img1.jpg",
+      "id": "A001",
+      "scenes": [
+        "S008",
+        "S017",
+        "S023",
+        "S100"
+      ],
+      "kind": "image",
+      "source": "CJ올리브영 뉴스룸 (앳홈 양정호 대표 인터뷰)",
+      "url": "https://corp.oliveyoung.com/ko/newsroom/editorial/149"
+    },
+    {
+      "file": "A001-img2.jpg",
+      "id": "A001",
+      "scenes": [
+        "S008",
+        "S017",
+        "S023",
+        "S100"
+      ],
+      "kind": "image",
+      "source": "CJ올리브영 뉴스룸 (앳홈 양정호 대표 인터뷰)",
+      "url": "https://corp.oliveyoung.com/ko/newsroom/editorial/149"
+    },
+    {
+      "file": "A001-img3.jpg",
+      "id": "A001",
+      "scenes": [
+        "S008",
+        "S017",
+        "S023",
+        "S100"
+      ],
+      "kind": "image",
+      "source": "CJ올리브영 뉴스룸 (앳홈 양정호 대표 인터뷰)",
+      "url": "https://corp.oliveyoung.com/ko/newsroom/editorial/149"
+    },
+    {
+      "file": "A002-screen.jpg",
+      "id": "A002",
+      "scenes": [
+        "S009",
+        "S016",
+        "S054",
+        "S055",
+        "S083"
+      ],
+      "kind": "screen",
+      "source": "THOME 공식 홈페이지",
+      "url": "https://thome.kr/about/about.html"
+    },
+    {
+      "file": "A002-img1.jpg",
+      "id": "A002",
+      "scenes": [
+        "S009",
+        "S016",
+        "S054",
+        "S055",
+        "S083"
+      ],
+      "kind": "image",
+      "source": "THOME 공식 홈페이지",
+      "url": "https://thome.kr/about/about.html"
+    },
+    {
+      "file": "A002-img2.jpg",
+      "id": "A002",
+      "scenes": [
+        "S009",
+        "S016",
+        "S054",
+        "S055",
+        "S083"
+      ],
+      "kind": "image",
+      "source": "THOME 공식 홈페이지",
+      "url": "https://thome.kr/about/about.html"
+    },
+    {
+      "file": "A002-img3.jpg",
+      "id": "A002",
+      "scenes": [
+        "S009",
+        "S016",
+        "S054",
+        "S055",
+        "S083"
+      ],
+      "kind": "image",
+      "source": "THOME 공식 홈페이지",
+      "url": "https://thome.kr/about/about.html"
+    },
+    {
+      "file": "A003.jpg",
+      "id": "A003",
+      "scenes": [
+        "S026",
+        "S056"
+      ],
+      "kind": "image",
+      "source": "THOME '나의 광채 선언' 키비주얼 (뉴스탭 보도)",
+      "url": "https://www.newstap.co.kr/news/articleView.html?idxno=305365"
+    },
+    {
+      "file": "A005-screen.jpg",
+      "id": "A005",
+      "scenes": [
+        "S032"
+      ],
+      "kind": "screen",
+      "source": "전자신문 (2026-08-06)",
+      "url": "https://www.etnews.com/20260806000328"
+    },
+    {
+      "file": "A005-scroll.jpg",
+      "id": "A005",
+      "scenes": [
+        "S032"
+      ],
+      "kind": "scroll",
+      "source": "전자신문 (2026-08-06)",
+      "url": "https://www.etnews.com/20260806000328"
+    },
+    {
+      "file": "A005-img1.jpg",
+      "id": "A005",
+      "scenes": [
+        "S032"
+      ],
+      "kind": "image",
+      "source": "전자신문 (2026-08-06)",
+      "url": "https://www.etnews.com/20260806000328"
+    },
+    {
+      "file": "A006-screen.jpg",
+      "id": "A006",
+      "scenes": [
+        "S040",
+        "S041",
+        "S051"
+      ],
+      "kind": "screen",
+      "source": "메디큐브 공식 홈페이지",
+      "url": "https://m.themedicube.co.kr/age-r/main2.html"
+    },
+    {
+      "file": "A006-img1.jpg",
+      "id": "A006",
+      "scenes": [
+        "S040",
+        "S041",
+        "S051"
+      ],
+      "kind": "image",
+      "source": "메디큐브 공식 홈페이지",
+      "url": "https://m.themedicube.co.kr/age-r/main2.html"
+    },
+    {
+      "file": "A006-img2.jpg",
+      "id": "A006",
+      "scenes": [
+        "S040",
+        "S041",
+        "S051"
+      ],
+      "kind": "image",
+      "source": "메디큐브 공식 홈페이지",
+      "url": "https://m.themedicube.co.kr/age-r/main2.html"
+    },
+    {
+      "file": "A006-img3.jpg",
+      "id": "A006",
+      "scenes": [
+        "S040",
+        "S041",
+        "S051"
+      ],
+      "kind": "image",
+      "source": "메디큐브 공식 홈페이지",
+      "url": "https://m.themedicube.co.kr/age-r/main2.html"
+    },
+    {
+      "file": "A007-screen.jpg",
+      "id": "A007",
+      "scenes": [
+        "S039",
+        "S046"
+      ],
+      "kind": "screen",
+      "source": "에이피알 공식 홈페이지",
+      "url": "https://apr-in.com/apr_medicube.html"
+    },
+    {
+      "file": "A007-img1.jpg",
+      "id": "A007",
+      "scenes": [
+        "S039",
+        "S046"
+      ],
+      "kind": "image",
+      "source": "에이피알 공식 홈페이지",
+      "url": "https://apr-in.com/apr_medicube.html"
+    },
+    {
+      "file": "A008-screen.jpg",
+      "id": "A008",
+      "scenes": [
+        "S045"
+      ],
+      "kind": "screen",
+      "source": "에이피알 블로그",
+      "url": "https://apr-blog.com/age-r-sales"
+    },
+    {
+      "file": "A008-scroll.jpg",
+      "id": "A008",
+      "scenes": [
+        "S045"
+      ],
+      "kind": "scroll",
+      "source": "에이피알 블로그",
+      "url": "https://apr-blog.com/age-r-sales"
+    },
+    {
+      "file": "A008-img1.jpg",
+      "id": "A008",
+      "scenes": [
+        "S045"
+      ],
+      "kind": "image",
+      "source": "에이피알 블로그",
+      "url": "https://apr-blog.com/age-r-sales"
+    },
+    {
+      "file": "A008-img2.jpg",
+      "id": "A008",
+      "scenes": [
+        "S045"
+      ],
+      "kind": "image",
+      "source": "에이피알 블로그",
+      "url": "https://apr-blog.com/age-r-sales"
+    },
+    {
+      "file": "A008-img3.jpg",
+      "id": "A008",
+      "scenes": [
+        "S045"
+      ],
+      "kind": "image",
+      "source": "에이피알 블로그",
+      "url": "https://apr-blog.com/age-r-sales"
+    }
+  ],
+  "failures": [
+    {
+      "id": "A004",
+      "url": "http://www.apparelnews.co.kr/upfiles/manage/202609/fc29f5bb9dd1afa3bc5875ebf176eb8d.jpg",
+      "error": "apiRequestContext.get: Timeout 30000ms exceeded.\nCall log:\n  - → GET http://www.apparelnews.co.kr/upfiles/manage/202609/fc29f5bb9dd1afa3bc5875ebf176eb8d.jpg\n    - user-agent: Mozilla/5.0 (Macintosh; I"
+    }
+  ]
+}
