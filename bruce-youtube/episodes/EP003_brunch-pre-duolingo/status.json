@@ -1,0 +1,98 @@
+{
+  "episode": "EP003",
+  "folder": "EP003_brunch-pre-duolingo",
+  "article": {
+    "id": "pre-duolingo",
+    "url": "https://brunch.co.kr/@heoboram/223",
+    "title": "영어 공부 앱이 왜 생일카페를 열까?",
+    "published_at": "2026-10-08T08:26:24.984Z",
+    "source_file": "source/brunch/pre-duolingo.md",
+    "body_hash": "7581b38eea92d86cfcc3df12c65c59ef852c0a1f703f8775da8875610fb12fe0",
+    "prebuilt": true
+  },
+  "status": "WAITING_APPROVAL",
+  "higgsfield_generation": false,
+  "recommendation": "MAKE_VIDEO",
+  "video_potential": {
+    "NARRATIVE": 8,
+    "CASE STUDY": 9,
+    "VISUAL MATERIAL": 6,
+    "TIMELINESS": 7,
+    "ORIGINAL POV": 8,
+    "30MIN POTENTIAL": 6,
+    "TOTAL": 44,
+    "MAX": 60
+  },
+  "approved_scenes": [],
+  "generated": {},
+  "plan": {
+    "runtime_seconds": 617,
+    "runtime": "10:17",
+    "total_scenes": 110,
+    "scenes_by_type": {
+      "REAL": 32,
+      "TYPE": 38,
+      "GRAPHIC": 30,
+      "AI": 10
+    },
+    "seconds_by_type": {
+      "REAL": 185,
+      "TYPE": 194,
+      "GRAPHIC": 184,
+      "AI": 54
+    },
+    "ai_share": 0.088,
+    "ai_scenes": [
+      "S001",
+      "S009",
+      "S013",
+      "S027",
+      "S030",
+      "S061",
+      "S069",
+      "S074",
+      "S085",
+      "S107"
+    ],
+    "estimated_generations": 8,
+    "estimated_credits": 3,
+    "reusable_assets": [
+      {
+        "reference": "REF01",
+        "scenes": [
+          "S001",
+          "S069"
+        ]
+      },
+      {
+        "reference": "REF06",
+        "scenes": [
+          "S013",
+          "S061"
+        ]
+      }
+    ],
+    "cost_saving": [
+      "영상 생성 없음. AI Scene 10개 모두 기준 이미지 정지 컷 + 편집 push-in.",
+      "REF01·REF06을 두 번씩 재사용.",
+      "듀오링고 캐릭터(Duo)·로고·앱 화면은 AI로 만들지 않고 공식 페이지·작성자 기고문(REAL)과 도식(GRAPHIC)으로."
+    ]
+  },
+  "update": null,
+  "created_at": "2026-10-08T08:26:24.984Z",
+  "updated_at": "2026-10-08T08:32:51.735Z",
+  "history": [
+    {
+      "at": "2026-10-08T08:26:24.984Z",
+      "from": null,
+      "to": "PACKAGE_PENDING",
+      "note": "발행 전 원고로 미리 제작"
+    },
+    {
+      "at": "2026-10-08T08:32:51.735Z",
+      "from": "PACKAGE_PENDING",
+      "to": "WAITING_APPROVAL",
+      "note": "영상화 평가 44/60 · MAKE_VIDEO"
+    }
+  ]
+}

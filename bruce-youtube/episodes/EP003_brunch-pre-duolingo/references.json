@@ -1,0 +1,102 @@
+{
+  "brunch": false,
+  "_note": "발행 전 원고로 미리 만든 Episode라 브런치 이미지는 쓰지 않는다. 듀오링고 공식 페이지·게시물은 비평·소개 목적의 짧은 인용, 출처 표기. 캐릭터·로고는 AI로 재현하지 않는다.",
+  "items": [
+    {
+      "id": "A001",
+      "kind": "article",
+      "url": "https://www.openads.co.kr/content/contentDetail?contsId=20648",
+      "source": "오픈애즈 기고 (브루스)",
+      "scenes": [
+        "S006",
+        "S008",
+        "S010",
+        "S070",
+        "S082",
+        "S083"
+      ]
+    },
+    {
+      "id": "A002",
+      "kind": "page",
+      "url": "https://www.instagram.com/p/DZE3VhAEU8d/",
+      "source": "듀오링고 코리아 인스타그램",
+      "scenes": [
+        "S002",
+        "S003",
+        "S004",
+        "S066",
+        "S067"
+      ]
+    },
+    {
+      "id": "A003",
+      "kind": "page",
+      "url": "https://www.instagram.com/p/DJWO4NQy_aP/",
+      "source": "듀오링고 코리아 인스타그램",
+      "scenes": [
+        "S072"
+      ]
+    },
+    {
+      "id": "A004",
+      "kind": "page",
+      "url": "https://design.duolingo.com/",
+      "source": "Duolingo 브랜드 가이드",
+      "scenes": [
+        "S038",
+        "S039",
+        "S040",
+        "S041",
+        "S045",
+        "S087",
+        "S098",
+        "S103"
+      ]
+    },
+    {
+      "id": "A005",
+      "kind": "page",
+      "url": "https://blog.duolingo.com/hub/design/",
+      "source": "Duolingo 블로그",
+      "scenes": [
+        "S020",
+        "S036"
+      ]
+    },
+    {
+      "id": "A006",
+      "kind": "article",
+      "url": "https://www.canny-creative.com/atlas/brand/duolingo/",
+      "source": "Canny Creative",
+      "scenes": [
+        "S054",
+        "S055"
+      ]
+    },
+    {
+      "id": "A007",
+      "kind": "article",
+      "url": "https://www.lippincott.com/ideas/go-to-brand-spotlight-duolingo/",
+      "source": "Lippincott",
+      "scenes": [
+        "S012",
+        "S035",
+        "S049"
+      ]
+    },
+    {
+      "id": "A011",
+      "kind": "page",
+      "url": "https://www.duolingo.com/",
+      "source": "Duolingo 공식 홈페이지",
+      "scenes": [
+        "S019",
+        "S022",
+        "S023",
+        "S078",
+        "S090"
+      ]
+    }
+  ]
+}
