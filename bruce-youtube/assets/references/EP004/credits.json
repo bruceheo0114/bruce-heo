@@ -1,6 +1,6 @@
 {
-  "references_hash": "80c54e8a99f14a4e",
-  "fetched_at": "2026-10-08T12:46:55.761Z",
+  "references_hash": "fec3e8f255697108",
+  "fetched_at": "2026-10-08T12:54:31.247Z",
   "items": [
     {
       "file": "A001-screen.jpg",
@@ -9,7 +9,7 @@
         "S008",
         "S017",
         "S023",
-        "S100"
+        "S099"
       ],
       "kind": "screen",
       "source": "CJ올리브영 뉴스룸 (앳홈 양정호 대표 인터뷰)",
@@ -22,7 +22,7 @@
         "S008",
         "S017",
         "S023",
-        "S100"
+        "S099"
       ],
       "kind": "scroll",
       "source": "CJ올리브영 뉴스룸 (앳홈 양정호 대표 인터뷰)",
@@ -35,7 +35,7 @@
         "S008",
         "S017",
         "S023",
-        "S100"
+        "S099"
       ],
       "kind": "image",
       "source": "CJ올리브영 뉴스룸 (앳홈 양정호 대표 인터뷰)",
@@ -48,7 +48,7 @@
         "S008",
         "S017",
         "S023",
-        "S100"
+        "S099"
       ],
       "kind": "image",
       "source": "CJ올리브영 뉴스룸 (앳홈 양정호 대표 인터뷰)",
@@ -61,7 +61,7 @@
         "S008",
         "S017",
         "S023",
-        "S100"
+        "S099"
       ],
       "kind": "image",
       "source": "CJ올리브영 뉴스룸 (앳홈 양정호 대표 인터뷰)",
@@ -73,9 +73,9 @@
       "scenes": [
         "S009",
         "S016",
+        "S053",
         "S054",
-        "S055",
-        "S083"
+        "S082"
       ],
       "kind": "screen",
       "source": "THOME 공식 홈페이지",
@@ -87,9 +87,9 @@
       "scenes": [
         "S009",
         "S016",
+        "S053",
         "S054",
-        "S055",
-        "S083"
+        "S082"
       ],
       "kind": "image",
       "source": "THOME 공식 홈페이지",
@@ -101,9 +101,9 @@
       "scenes": [
         "S009",
         "S016",
+        "S053",
         "S054",
-        "S055",
-        "S083"
+        "S082"
       ],
       "kind": "image",
       "source": "THOME 공식 홈페이지",
@@ -115,9 +115,9 @@
       "scenes": [
         "S009",
         "S016",
+        "S053",
         "S054",
-        "S055",
-        "S083"
+        "S082"
       ],
       "kind": "image",
       "source": "THOME 공식 홈페이지",
@@ -128,7 +128,7 @@
       "id": "A003",
       "scenes": [
         "S026",
-        "S056"
+        "S055"
       ],
       "kind": "image",
       "source": "THOME '나의 광채 선언' 키비주얼 (뉴스탭 보도)",
@@ -168,9 +168,9 @@
       "file": "A006-screen.jpg",
       "id": "A006",
       "scenes": [
+        "S039",
         "S040",
-        "S041",
-        "S051"
+        "S050"
       ],
       "kind": "screen",
       "source": "메디큐브 공식 홈페이지",
@@ -180,9 +180,9 @@
       "file": "A006-img1.jpg",
       "id": "A006",
       "scenes": [
+        "S039",
         "S040",
-        "S041",
-        "S051"
+        "S050"
       ],
       "kind": "image",
       "source": "메디큐브 공식 홈페이지",
@@ -192,9 +192,9 @@
       "file": "A006-img2.jpg",
       "id": "A006",
       "scenes": [
+        "S039",
         "S040",
-        "S041",
-        "S051"
+        "S050"
       ],
       "kind": "image",
       "source": "메디큐브 공식 홈페이지",
@@ -204,9 +204,9 @@
       "file": "A006-img3.jpg",
       "id": "A006",
       "scenes": [
+        "S039",
         "S040",
-        "S041",
-        "S051"
+        "S050"
       ],
       "kind": "image",
       "source": "메디큐브 공식 홈페이지",
@@ -216,8 +216,8 @@
       "file": "A007-screen.jpg",
       "id": "A007",
       "scenes": [
-        "S039",
-        "S046"
+        "S038",
+        "S045"
       ],
       "kind": "screen",
       "source": "에이피알 공식 홈페이지",
@@ -227,8 +227,8 @@
       "file": "A007-img1.jpg",
       "id": "A007",
       "scenes": [
-        "S039",
-        "S046"
+        "S038",
+        "S045"
       ],
       "kind": "image",
       "source": "에이피알 공식 홈페이지",
@@ -238,7 +238,7 @@
       "file": "A008-screen.jpg",
       "id": "A008",
       "scenes": [
-        "S045"
+        "S044"
       ],
       "kind": "screen",
       "source": "에이피알 블로그",
@@ -248,7 +248,7 @@
       "file": "A008-scroll.jpg",
       "id": "A008",
       "scenes": [
-        "S045"
+        "S044"
       ],
       "kind": "scroll",
       "source": "에이피알 블로그",
@@ -258,7 +258,7 @@
       "file": "A008-img1.jpg",
       "id": "A008",
       "scenes": [
-        "S045"
+        "S044"
       ],
       "kind": "image",
       "source": "에이피알 블로그",
@@ -268,7 +268,7 @@
       "file": "A008-img2.jpg",
       "id": "A008",
       "scenes": [
-        "S045"
+        "S044"
       ],
       "kind": "image",
       "source": "에이피알 블로그",
@@ -278,18 +278,86 @@
       "file": "A008-img3.jpg",
       "id": "A008",
       "scenes": [
-        "S045"
+        "S044"
       ],
       "kind": "image",
       "source": "에이피알 블로그",
       "url": "https://apr-blog.com/age-r-sales"
+    },
+    {
+      "file": "G01.jpg",
+      "id": "G01",
+      "scenes": [
+        "S001",
+        "S015",
+        "S073"
+      ],
+      "kind": "ai",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261008_124515_4d8d8067-bd9c-4732-b1f1-6877f145dac4.png"
+    },
+    {
+      "file": "G03.jpg",
+      "id": "G03",
+      "scenes": [
+        "S024"
+      ],
+      "kind": "ai",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261008_124516_738cfc72-e1f8-410b-9ff7-65e737adb9a1.png"
+    },
+    {
+      "file": "G04.jpg",
+      "id": "G04",
+      "scenes": [
+        "S020"
+      ],
+      "kind": "ai",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261008_124515_5d64d04d-00b0-4695-b7c7-71258750fe65.png"
+    },
+    {
+      "file": "G05.jpg",
+      "id": "G05",
+      "scenes": [
+        "S061",
+        "S096"
+      ],
+      "kind": "ai",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261008_124514_9d8edda6-d92b-4dba-bdf2-39809b19df88.png"
+    },
+    {
+      "file": "G06.jpg",
+      "id": "G06",
+      "scenes": [
+        "S063"
+      ],
+      "kind": "ai",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261008_124613_912f6004-fed2-43e1-a34c-87f924d242fa.png"
+    },
+    {
+      "file": "G07.jpg",
+      "id": "G07",
+      "scenes": [
+        "S006",
+        "S088"
+      ],
+      "kind": "ai",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261008_124614_079c455a-94d8-4b44-9010-60bb492f4352.png"
+    },
+    {
+      "file": "G08.jpg",
+      "id": "G08",
+      "scenes": [
+        "S104"
+      ],
+      "kind": "ai",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261008_124613_10302a9e-20b7-4bfd-a478-4872f78a85d3.png"
     }
   ],
-  "failures": [
-    {
-      "id": "A004",
-      "url": "http://www.apparelnews.co.kr/upfiles/manage/202609/fc29f5bb9dd1afa3bc5875ebf176eb8d.jpg",
-      "error": "apiRequestContext.get: Timeout 30000ms exceeded.\nCall log:\n  - → GET http://www.apparelnews.co.kr/upfiles/manage/202609/fc29f5bb9dd1afa3bc5875ebf176eb8d.jpg\n    - user-agent: Mozilla/5.0 (Macintosh; I"
-    }
-  ]
+  "failures": []
 }
