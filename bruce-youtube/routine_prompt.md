@@ -73,7 +73,10 @@ Bruce는 중간 확인을 하지 않는다(사용자 결정 2026-10-08). 대본 
 
 1. `node src/cli/youtube.js report <EP>` → `node src/cli/youtube.js approve <EP>` (계획 전체 승인 기록)
 2. `balance`로 남은 크레딧 확인. 기본 모델(이미지 GPT Image 2.5, 영상 Grok Video 1.5 Lite)만 쓴다.
-3. Scene마다 직전에 `can-generate <EP> <Scene>` → "생성 가능"일 때만 생성 → `assets/generated/<EP>/<Scene>.png|mp4` 저장 → `record-generation`.
+3. Scene마다 직전에 `can-generate <EP> <Scene>` → "생성 가능"일 때만 생성 → `record-generation <EP> <Scene> --credits <차감> --job <id> --file bruce-youtube/assets/references/<EP>/G01.png`.
+   클라우드에서는 Higgsfield 결과 주소(cloudfront)에 직접 접속할 수 없다. 결과 이미지 주소를 references.json에
+   `{"id": "G01", "kind": "image", "ai": true, "url": "<result_url>", "source": "AI 생성 이미지 (Higgsfield)", "scenes": [...]}`로 넣고
+   main에 올리면 Actions가 받아 준다(EP001·EP002 방식). 영상 클립은 이 방법으로 받을 수 없으므로 **AI 영상은 만들지 않고 정지 이미지만** 만든다.
 4. 마음에 들지 않아도 다시 생성하지 않는다(실패한 작업만 1회 재시도). Episode당 30, 월 150 크레딧을 넘기지 않는다.
 
 ## 7. 실제 자료
