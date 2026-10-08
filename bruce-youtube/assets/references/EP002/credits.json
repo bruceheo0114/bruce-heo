@@ -1,0 +1,302 @@
+{
+  "references_hash": "1738b7a6509196d6",
+  "fetched_at": "2026-10-08T01:28:55.631Z",
+  "items": [
+    {
+      "file": "A001-screen.jpg",
+      "id": "A001",
+      "scenes": [
+        "S004",
+        "S008",
+        "S039",
+        "S040",
+        "S051"
+      ],
+      "kind": "screen",
+      "source": "LG전자 뉴스룸 (2026-09-21)",
+      "url": "https://www.lge.co.kr/story/newsroom/236186"
+    },
+    {
+      "file": "A001-img1.jpg",
+      "id": "A001",
+      "scenes": [
+        "S004",
+        "S008",
+        "S039",
+        "S040",
+        "S051"
+      ],
+      "kind": "image",
+      "source": "LG전자 뉴스룸 (2026-09-21)",
+      "url": "https://www.lge.co.kr/story/newsroom/236186"
+    },
+    {
+      "file": "A001-img2.jpg",
+      "id": "A001",
+      "scenes": [
+        "S004",
+        "S008",
+        "S039",
+        "S040",
+        "S051"
+      ],
+      "kind": "image",
+      "source": "LG전자 뉴스룸 (2026-09-21)",
+      "url": "https://www.lge.co.kr/story/newsroom/236186"
+    },
+    {
+      "file": "A002.jpg",
+      "id": "A002",
+      "scenes": [
+        "S002",
+        "S030",
+        "S078"
+      ],
+      "kind": "image",
+      "source": "LG전자 뉴스룸",
+      "url": "https://www.lge.co.kr/story/newsroom/236186"
+    },
+    {
+      "file": "A003.jpg",
+      "id": "A003",
+      "scenes": [
+        "S053"
+      ],
+      "kind": "image",
+      "source": "LG전자 뉴스룸",
+      "url": "https://www.lge.co.kr/story/newsroom/236186"
+    },
+    {
+      "file": "A004-screen.jpg",
+      "id": "A004",
+      "scenes": [
+        "S016",
+        "S018"
+      ],
+      "kind": "screen",
+      "source": "LG전자 뉴스룸 (2025-11-17)",
+      "url": "https://www.lge.co.kr/story/newsroom/234257"
+    },
+    {
+      "file": "A004-img1.jpg",
+      "id": "A004",
+      "scenes": [
+        "S016",
+        "S018"
+      ],
+      "kind": "image",
+      "source": "LG전자 뉴스룸 (2025-11-17)",
+      "url": "https://www.lge.co.kr/story/newsroom/234257"
+    },
+    {
+      "file": "A004-img2.jpg",
+      "id": "A004",
+      "scenes": [
+        "S016",
+        "S018"
+      ],
+      "kind": "image",
+      "source": "LG전자 뉴스룸 (2025-11-17)",
+      "url": "https://www.lge.co.kr/story/newsroom/234257"
+    },
+    {
+      "file": "A004-img3.jpg",
+      "id": "A004",
+      "scenes": [
+        "S016",
+        "S018"
+      ],
+      "kind": "image",
+      "source": "LG전자 뉴스룸 (2025-11-17)",
+      "url": "https://www.lge.co.kr/story/newsroom/234257"
+    },
+    {
+      "file": "A005.jpg",
+      "id": "A005",
+      "scenes": [
+        "S017",
+        "S021"
+      ],
+      "kind": "image",
+      "source": "LG전자 뉴스룸",
+      "url": "https://www.lge.co.kr/story/newsroom/234257"
+    },
+    {
+      "file": "A006.jpg",
+      "id": "A006",
+      "scenes": [
+        "S019"
+      ],
+      "kind": "image",
+      "source": "LG전자 뉴스룸",
+      "url": "https://www.lge.co.kr/story/newsroom/234257"
+    },
+    {
+      "file": "A007.jpg",
+      "id": "A007",
+      "scenes": [
+        "S020",
+        "S046",
+        "S090"
+      ],
+      "kind": "image",
+      "source": "LGE.COM 공식 홈페이지",
+      "url": "https://www.lge.co.kr/"
+    },
+    {
+      "file": "A008.jpg",
+      "id": "A008",
+      "scenes": [
+        "S044",
+        "S045"
+      ],
+      "kind": "image",
+      "source": "LGE.COM 공식 홈페이지",
+      "url": "https://www.lge.co.kr/"
+    },
+    {
+      "file": "A009-screen.jpg",
+      "id": "A009",
+      "scenes": [
+        "S034"
+      ],
+      "kind": "screen",
+      "source": "HSAD 공식 블로그",
+      "url": "https://blog.hsad.co.kr/3787"
+    },
+    {
+      "file": "A009-img1.jpg",
+      "id": "A009",
+      "scenes": [
+        "S034"
+      ],
+      "kind": "image",
+      "source": "HSAD 공식 블로그",
+      "url": "https://blog.hsad.co.kr/3787"
+    },
+    {
+      "file": "A009-img2.jpg",
+      "id": "A009",
+      "scenes": [
+        "S034"
+      ],
+      "kind": "image",
+      "source": "HSAD 공식 블로그",
+      "url": "https://blog.hsad.co.kr/3787"
+    },
+    {
+      "file": "A010-screen.jpg",
+      "id": "A010",
+      "scenes": [
+        "S047"
+      ],
+      "kind": "screen",
+      "source": "EBN",
+      "url": "https://www.ebn.co.kr/news/articleView.html?idxno=1725010"
+    },
+    {
+      "file": "A010-scroll.jpg",
+      "id": "A010",
+      "scenes": [
+        "S047"
+      ],
+      "kind": "scroll",
+      "source": "EBN",
+      "url": "https://www.ebn.co.kr/news/articleView.html?idxno=1725010"
+    },
+    {
+      "file": "A010-img1.jpg",
+      "id": "A010",
+      "scenes": [
+        "S047"
+      ],
+      "kind": "image",
+      "source": "EBN",
+      "url": "https://www.ebn.co.kr/news/articleView.html?idxno=1725010"
+    },
+    {
+      "file": "A011-screen.jpg",
+      "id": "A011",
+      "scenes": [
+        "S069"
+      ],
+      "kind": "screen",
+      "source": "It's Nice That (2018-02-23)",
+      "url": "https://www.itsnicethat.com/news/mother-london-kfc-advert-apology-230218"
+    },
+    {
+      "file": "A011-scroll.jpg",
+      "id": "A011",
+      "scenes": [
+        "S069"
+      ],
+      "kind": "scroll",
+      "source": "It's Nice That (2018-02-23)",
+      "url": "https://www.itsnicethat.com/news/mother-london-kfc-advert-apology-230218"
+    },
+    {
+      "file": "A012.jpg",
+      "id": "A012",
+      "scenes": [
+        "S071",
+        "S073"
+      ],
+      "kind": "image",
+      "source": "KFC UK 광고 (Mother London) · It's Nice That",
+      "url": "https://www.itsnicethat.com/news/mother-london-kfc-advert-apology-230218"
+    },
+    {
+      "file": "A013-screen.jpg",
+      "id": "A013",
+      "scenes": [
+        "S003",
+        "S012",
+        "S014",
+        "S080"
+      ],
+      "kind": "screen",
+      "source": "LGE.COM 공식 홈페이지",
+      "url": "https://www.lge.co.kr/"
+    },
+    {
+      "file": "A013-img1.jpg",
+      "id": "A013",
+      "scenes": [
+        "S003",
+        "S012",
+        "S014",
+        "S080"
+      ],
+      "kind": "image",
+      "source": "LGE.COM 공식 홈페이지",
+      "url": "https://www.lge.co.kr/"
+    },
+    {
+      "file": "A013-img2.jpg",
+      "id": "A013",
+      "scenes": [
+        "S003",
+        "S012",
+        "S014",
+        "S080"
+      ],
+      "kind": "image",
+      "source": "LGE.COM 공식 홈페이지",
+      "url": "https://www.lge.co.kr/"
+    },
+    {
+      "file": "A013-img3.jpg",
+      "id": "A013",
+      "scenes": [
+        "S003",
+        "S012",
+        "S014",
+        "S080"
+      ],
+      "kind": "image",
+      "source": "LGE.COM 공식 홈페이지",
+      "url": "https://www.lge.co.kr/"
+    }
+  ],
+  "failures": []
+}
