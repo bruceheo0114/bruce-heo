@@ -36,19 +36,20 @@ node src/cli/youtube.js upload EP002             YouTube 공개 업로드 (YOUTU
 node src/cli/youtube.js episode 222              큐와 상관없이 Episode 만들기
 node src/cli/youtube.js status [EP001]
 node src/cli/youtube.js validate EP001 / finalize EP001
-node src/cli/youtube.js narration EP001 EP001_CH01.m4a EP001_CH02.m4a --duration 03:10 04:05
+node src/cli/youtube.js narration-text EP001 --out <폴더>   챕터별 낭독 텍스트 (복제 목소리 입력용)
+node src/cli/youtube.js narration EP001 EP001_CH01.mp3 EP001_CH02.mp3   길이 기록
 node src/cli/youtube.js report EP001             Higgsfield 생성 계획 + 이번 달 크레딧
 node src/cli/youtube.js approve EP001 S003 S005  일부 Scene만 승인 (생략하면 전체)
 node src/cli/youtube.js can-generate EP001 S003
 node src/cli/youtube.js record-generation EP001 S003 --credits 5 --job <id>
-node src/cli/youtube.js render EP001 EP001_CH01.m4a EP001_CH02.m4a [--preview]
+node src/cli/youtube.js render EP001 EP001_CH01.mp3 EP001_CH02.mp3 --no-cleanup --voice-clone [--preview]
 node src/cli/youtube.js credits
 node src/cli/youtube.js resolve-update EP001 keep|regenerate
 ```
 
 ## 검사 기준 (`src/youtube/config.js`의 RULES)
 
-- 전체 10~15분, AI 화면 25% 이하, AI Scene 8개 이하(4~8초), REAL 30% 미만이면 경고
+- 전체 10~15분, AI 화면 40% 이하, AI Scene 24개 이하(4~8초, 영상 클립 4개 이하), REAL 30% 미만이면 경고
 - Higgsfield 예상 30 크레딧/Episode 이하, 월 150 크레딧 상한(장부 기준으로 생성 차단)
 - 제목·썸네일 카피 각 5개, Shorts 3~5개, 원문과 같은 문장 20% 이하
 
@@ -57,4 +58,16 @@ node src/cli/youtube.js resolve-update EP001 keep|regenerate
 - 주 1편: 최근 6일 안에 기획안(WAITING_APPROVAL/SHORTS_ONLY)을 만들었으면 루틴이 제작하지 않는다. HOLD/SKIP은 세지 않는다.
 - 원문이 수정되면 Episode를 덮어쓰지 않고 `UPDATE_AVAILABLE` + Higgsfield 생성 중지.
 - 루틴은 대상 Episode 밖의 `episodes/` 변경이 있으면 되돌린 뒤 커밋한다(`guard`).
-- 루틴에는 Higgsfield·ElevenLabs 커넥터를 연결하지 않는다.
+- 루틴은 Higgsfield(AI 장면)와 ElevenLabs(Bruce 복제 목소리 내레이션·받아쓰기) 커넥터가 필요하다. ElevenLabs가 없으면 대본까지만 만들고 멈춘다.
+- 내레이션은 Bruce 본인 복제 목소리(voice_id `ZuzhDyVIYUQSaEkxo38e`)만 쓴다. 직접 녹음하지 않는다.
+
+## 편집 방향 (1편 EP001 기준 — 모든 편이 같은 방향)
+
+`routine_prompt.md` 9단계 체크리스트가 정본이다. 요약:
+
+- 복제 목소리 내레이션 + 단어 단위 받아쓰기(`words.json`)로 자막·장면 전환을 실제 말소리에 맞춘다 (#27).
+- 챕터마다 2.6초 간지(CHAPTER 0N + 제목, 페이드)와 효과음 `channel/sfx/chapter.mp3`(음량 0.7, 리미터 자동 보정 끔) (#28~#31).
+- 오프화이트·블랙·그레이 + 포인트 컬러 1개, 빠른 호흡의 5초 컷, 장면별로 내레이션과 맞는 그림을 `references.json`의 `scene_images`로 고정 (#16~#21).
+- 정지 화면은 perspective 이동으로 떨림 없이, 기사·홈페이지 캡처는 확대하지 않고 전체를 보여 준다 (#33).
+- 대본 메모(`[확인 필요]`·`챕터 전환`)는 화면에 나오지 않는다 (#22). 모든 자료 화면에 출처 표기, 설명에 자료 출처·복제 목소리 고지 (#26).
+- 썸네일 3안, 사람 얼굴 AI 영상 금지, 업로드 전 프레임 점검 후 한 번만 재렌더.
