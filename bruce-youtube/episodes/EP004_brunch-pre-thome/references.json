@@ -1,0 +1,92 @@
+{
+  "brunch": false,
+  "_note": "발행 전 원고로 미리 만든 Episode라 브런치 이미지는 쓰지 않는다. 두 브랜드 공식 페이지·보도 이미지는 비평·비교 목적의 짧은 인용, 출처 표기. 두 브랜드 제품·로고는 AI로 다시 그리지 않는다.",
+  "items": [
+    {
+      "id": "A001",
+      "kind": "article",
+      "url": "https://corp.oliveyoung.com/ko/newsroom/editorial/149",
+      "source": "CJ올리브영 뉴스룸 (앳홈 양정호 대표 인터뷰)",
+      "scenes": [
+        "S008",
+        "S017",
+        "S023",
+        "S100"
+      ]
+    },
+    {
+      "id": "A002",
+      "kind": "page",
+      "url": "https://thome.kr/about/about.html",
+      "source": "THOME 공식 홈페이지",
+      "scenes": [
+        "S009",
+        "S016",
+        "S054",
+        "S055",
+        "S083"
+      ]
+    },
+    {
+      "id": "A003",
+      "kind": "image",
+      "url": "https://cdn.newstap.co.kr/news/photo/202506/305365_406219_1642.jpg",
+      "source": "THOME '나의 광채 선언' 키비주얼 (뉴스탭 보도)",
+      "scenes": [
+        "S026",
+        "S056"
+      ],
+      "page": "https://www.newstap.co.kr/news/articleView.html?idxno=305365"
+    },
+    {
+      "id": "A004",
+      "kind": "image",
+      "url": "http://www.apparelnews.co.kr/upfiles/manage/202609/fc29f5bb9dd1afa3bc5875ebf176eb8d.jpg",
+      "source": "THOME 뷰티 디바이스 (어패럴뉴스)",
+      "scenes": [
+        "S031",
+        "S033"
+      ],
+      "page": "https://www.apparelnews.co.kr/news/news_view/?cat=CAT310&idx=227599"
+    },
+    {
+      "id": "A005",
+      "kind": "article",
+      "url": "https://www.etnews.com/20260806000328",
+      "source": "전자신문 (2026-08-06)",
+      "scenes": [
+        "S032"
+      ]
+    },
+    {
+      "id": "A006",
+      "kind": "page",
+      "url": "https://m.themedicube.co.kr/age-r/main2.html",
+      "source": "메디큐브 공식 홈페이지",
+      "scenes": [
+        "S040",
+        "S041",
+        "S051"
+      ]
+    },
+    {
+      "id": "A007",
+      "kind": "page",
+      "url": "https://apr-in.com/apr_medicube.html",
+      "source": "에이피알 공식 홈페이지",
+      "scenes": [
+        "S039",
+        "S046"
+      ]
+    },
+    {
+      "id": "A008",
+      "kind": "article",
+      "url": "https://apr-blog.com/age-r-sales",
+      "source": "에이피알 블로그",
+      "scenes": [
+        "S045"
+      ]
+    }
+  ]
+}

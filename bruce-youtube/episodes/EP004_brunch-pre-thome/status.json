@@ -1,0 +1,107 @@
+{
+  "episode": "EP004",
+  "folder": "EP004_brunch-pre-thome",
+  "article": {
+    "id": "pre-thome",
+    "url": "https://brunch.co.kr/@heoboram",
+    "title": "후발주자는 어떻게 브랜딩해야 할까?",
+    "published_at": "2026-10-08T12:40:00.638Z",
+    "source_file": "source/brunch/pre-thome.md",
+    "body_hash": "cafe1f03d53295429e6c2550f240b18019dbf5093999a4dee741c6f669dccebd",
+    "prebuilt": true
+  },
+  "status": "WAITING_APPROVAL",
+  "higgsfield_generation": false,
+  "recommendation": "MAKE_VIDEO",
+  "video_potential": {
+    "NARRATIVE": 8,
+    "CASE STUDY": 8,
+    "VISUAL MATERIAL": 6,
+    "TIMELINESS": 7,
+    "ORIGINAL POV": 9,
+    "30MIN POTENTIAL": 6,
+    "TOTAL": 44,
+    "MAX": 60
+  },
+  "approved_scenes": [],
+  "generated": {},
+  "plan": {
+    "runtime_seconds": 621,
+    "runtime": "10:21",
+    "total_scenes": 106,
+    "scenes_by_type": {
+      "REAL": 20,
+      "TYPE": 41,
+      "GRAPHIC": 34,
+      "AI": 11
+    },
+    "seconds_by_type": {
+      "REAL": 119,
+      "TYPE": 220,
+      "GRAPHIC": 220,
+      "AI": 62
+    },
+    "ai_share": 0.1,
+    "ai_scenes": [
+      "S001",
+      "S006",
+      "S015",
+      "S020",
+      "S024",
+      "S062",
+      "S064",
+      "S074",
+      "S089",
+      "S097",
+      "S105"
+    ],
+    "estimated_generations": 7,
+    "estimated_credits": 2.5,
+    "reusable_assets": [
+      {
+        "reference": "REF01",
+        "scenes": [
+          "S001",
+          "S015",
+          "S074"
+        ]
+      },
+      {
+        "reference": "REF07",
+        "scenes": [
+          "S006",
+          "S089"
+        ]
+      },
+      {
+        "reference": "REF05",
+        "scenes": [
+          "S062",
+          "S097"
+        ]
+      }
+    ],
+    "cost_saving": [
+      "영상 생성 없음. AI Scene 11개 모두 기준 이미지 7장의 정지 컷 + 편집 push-in.",
+      "REF01·REF05·REF07 재사용.",
+      "THOME·메디큐브 제품과 광고는 AI로 재현하지 않고 공식 페이지·보도 이미지(REAL)와 도식(GRAPHIC)으로."
+    ]
+  },
+  "update": null,
+  "created_at": "2026-10-08T12:40:00.638Z",
+  "updated_at": "2026-10-08T12:44:14.980Z",
+  "history": [
+    {
+      "at": "2026-10-08T12:40:00.638Z",
+      "from": null,
+      "to": "PACKAGE_PENDING",
+      "note": "발행 전 원고로 미리 제작"
+    },
+    {
+      "at": "2026-10-08T12:44:14.980Z",
+      "from": "PACKAGE_PENDING",
+      "to": "WAITING_APPROVAL",
+      "note": "영상화 평가 44/60 · MAKE_VIDEO"
+    }
+  ]
+}
