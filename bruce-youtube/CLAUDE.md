@@ -10,6 +10,9 @@
 ## 권한
 
 - 최종 관점, 영상화 여부, Higgsfield 생성 승인, 출판 여부는 사용자가 정한다.
+- **주간 루틴 상시 승인 (사용자 결정 2026-10-08):** 수요일 루틴은 대본 확인을 받지 않고 대본 → 소리 내어 읽고 다듬기 → 복제 목소리 내레이션 →
+  AI 장면(예산 안) → render → 1편 편집 방향 확인 → YouTube 공개 업로드까지 바로 한다. 절차와 품질 관문은 `routine_prompt.md`.
+  루틴 밖의 대화에서 하는 작업은 아래 COST CONTROL을 그대로 따른다.
 - 브런치 원문(`source/brunch/`, 2026년 이후 글)이 콘텐츠의 원본이다. 제작 순서는 `queue.json`. AI가 새 생각을 지어내지 않고, 원문의 관점과 판단을 영상 언어로 옮긴다.
 
 ## WRITING
@@ -29,10 +32,11 @@ Hook → Phenomenon → Case → Question → Analysis → Contrast → Insight 
 - Visual identity: minimal, modern, editorial, documentary. 오프화이트·블랙·그레이 + 포인트 컬러 1개. Pretendard 계열 산세리프.
 - 지향: 브랜드 다큐멘터리, 디자인 매거진, 비디오 에세이. 화려한 예능 스타일 금지.
 
-## 제작 순서 (Bruce는 대본 확인·승인 한마디·업로드만 한다)
+## 제작 순서 (Bruce는 아무것도 하지 않는다 — 2026-10-08부터)
 
-1. 수요일 05:13 루틴이 제작 패키지 생성 — 그 주 월요일에 새 브런치 글이 올라왔으면 그 글, 없으면 큐의 예비 글(todo → reserve) → `WAITING_APPROVAL` → 푸시 알림(대본 링크)
-2. Bruce가 02_script.md를 보고 "진행"이라고 하면 이 순서로 끝까지 진행한다:
+1. 수요일 05:13 루틴이 그 주 월요일에 새 브런치 글이 올라왔으면 그 글, 없으면 큐의 예비 글(todo → reserve)로 패키지를 만들고,
+   `readback`으로 소리 내어 읽기 검사를 하며 대본을 다듬는다.
+2. 이어서 같은 루틴이 이 순서로 끝까지 진행한다(루틴 밖에서는 Bruce가 "진행"이라고 했을 때):
    1. 내레이션은 ElevenLabs의 Bruce 본인 복제 목소리로 만든다(직접 녹음하지 않는다).
       - `node src/cli/youtube.js narration-text <EP> --out <폴더>` → 챕터별 `CH01.txt` …
       - ElevenLabs `creative_generate_speech`: voice `Bruce Heo | 브루스`(voice_id `ZuzhDyVIYUQSaEkxo38e`),
@@ -47,14 +51,14 @@ Hook → Phenomenon → Case → Question → Analysis → Contrast → Insight 
       - 에어컨·팬 같은 일정한 잡음뿐이면 render의 기본 정리(무료)로 충분하다.
       - 말소리·발소리처럼 불규칙한 잡음이면 ElevenLabs Voice Isolator가 필요하다. 이 환경에서는 파일을 ElevenLabs로 직접
         넘길 수 없으므로, 사용자가 드라이브 폴더를 '링크가 있는 모든 사용자'로 공유하거나 앱에서 직접 정리해 준다.
-   3. `report`로 AI 장면 계획을 보여주고 승인을 받는다. 승인 전에는 생성하지 않는다. 사용자가 "AI 없이"라고 하면 건너뛴다.
+   3. `report`로 AI 장면 계획을 보여주고 승인을 받는다(주간 루틴은 상시 승인 — `approve <EP>`로 기록만 한다). 사용자가 "AI 없이"라고 하면 건너뛴다.
    4. 승인된 Scene만 생성 → `can-generate` → Higgsfield → 결과를 `assets/generated/<EP>/<Scene>.png|mp4`로 저장 → `record-generation`
    5. `node src/cli/youtube.js render <EP> <CH01.mp3 …> --no-cleanup --voice-clone` (복제 목소리는 잡음 정리가 필요 없다)
       → `output/<EP>/`에 `<EP>.mp4`, `thumbnail.png`, `upload.md`, `subtitles.srt`
    (챕터 사이에는 render가 2.6초 간지와 `channel/sfx/chapter.mp3` 효과음을 자동으로 넣는다. 스토리보드에 따로 챕터 전환 장면을 만들 필요 없다.)
-   6. 완성 영상의 몇 장면을 뽑아 확인한 뒤 mp4·썸네일을 사용자에게 보내고 upload.md 내용을 그대로 전한다.
-      복제 목소리를 썼으면 업로드 설정에서 '변경된 콘텐츠(합성 음성)'를 '예'로 하라고 알린다.
-3. Bruce가 YouTube 앱에서 업로드
+   6. 완성 영상의 프레임을 뽑아 1편 편집 방향 체크리스트(`routine_prompt.md` 9단계)로 확인한다.
+   7. `node src/cli/youtube.js upload <EP>`로 공개 업로드(합성 콘텐츠 '예' 신고, upload.md의 제목·설명·태그, 썸네일).
+      `YOUTUBE_*` 환경 변수가 없으면 mp4·썸네일·upload.md를 사용자에게 보내 YouTube 앱에서 올리게 한다.
 
 실제 자료는 `references.json`(공식 홈페이지·기사·이미지 주소)을 main에 올리면 GitHub Actions(`youtube-references.yml`)가 받아
 `assets/references/<EP>/`와 `credits.json`에 넣는다. render는 이 자료와 브런치 원문 이미지를 5초 컷으로 번갈아 쓰고, 모든 자료 화면에 출처를 표시하며,
@@ -102,6 +106,8 @@ node src/cli/youtube.js validate <EP>     제작 패키지 검사
 node src/cli/youtube.js finalize <EP>     검사 통과 → WAITING_APPROVAL 등
 node src/cli/youtube.js report <EP>       Higgsfield 생성 계획
 node src/cli/youtube.js approve <EP> [Scene...]
+node src/cli/youtube.js readback <EP>     소리 내어 읽기 검사(긴 문장·읽는 법·복제 목소리가 다르게 읽은 곳)
+node src/cli/youtube.js upload <EP>       YouTube 공개 업로드
 ```
 
 새 Episode 제작 패키지를 만들 때의 상세 형식은 `prompts/youtube_producer.md`를 따른다.
