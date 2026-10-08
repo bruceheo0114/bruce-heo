@@ -4,7 +4,7 @@
   "note": "Higgsfield Starter 270 = 인스타그램 120 + YouTube 150",
   "cycles": {
     "2026-10": {
-      "spent": 7,
+      "spent": 8.75,
       "entries": [
         {
           "date": "2026-10-07",
@@ -131,6 +131,72 @@
           "date": "2026-10-08",
           "episode": "EP003",
           "scene": "S009",
+          "credits": 0.25
+        },
+        {
+          "date": "2026-10-08",
+          "episode": "EP004",
+          "scene": "S001",
+          "credits": 0.25
+        },
+        {
+          "date": "2026-10-08",
+          "episode": "EP004",
+          "scene": "S015",
+          "credits": 0
+        },
+        {
+          "date": "2026-10-08",
+          "episode": "EP004",
+          "scene": "S073",
+          "credits": 0
+        },
+        {
+          "date": "2026-10-08",
+          "episode": "EP004",
+          "scene": "S024",
+          "credits": 0.25
+        },
+        {
+          "date": "2026-10-08",
+          "episode": "EP004",
+          "scene": "S020",
+          "credits": 0.25
+        },
+        {
+          "date": "2026-10-08",
+          "episode": "EP004",
+          "scene": "S061",
+          "credits": 0.25
+        },
+        {
+          "date": "2026-10-08",
+          "episode": "EP004",
+          "scene": "S096",
+          "credits": 0
+        },
+        {
+          "date": "2026-10-08",
+          "episode": "EP004",
+          "scene": "S063",
+          "credits": 0.25
+        },
+        {
+          "date": "2026-10-08",
+          "episode": "EP004",
+          "scene": "S006",
+          "credits": 0.25
+        },
+        {
+          "date": "2026-10-08",
+          "episode": "EP004",
+          "scene": "S088",
+          "credits": 0
+        },
+        {
+          "date": "2026-10-08",
+          "episode": "EP004",
+          "scene": "S104",
           "credits": 0.25
         }
       ]
