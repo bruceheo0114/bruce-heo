@@ -28,7 +28,7 @@ CAMERA: still + slow push-in in edit
 LIGHTING: soft natural light
 STYLE: modern editorial, documentary, minimal, still + slow push-in in edit
 ASPECT RATIO: 16:9
-REUSE POSSIBILITY: S015·S074에서 재사용
+REUSE POSSIBILITY: S015·S073에서 재사용
 
 SCENE ID: S006
 PURPOSE: 우리만의 단어 찾기
@@ -39,7 +39,7 @@ CAMERA: still + slow push-in in edit
 LIGHTING: soft natural light
 STYLE: modern editorial, documentary, minimal, still + slow push-in in edit
 ASPECT RATIO: 16:9
-REUSE POSSIBILITY: S089에서 재사용
+REUSE POSSIBILITY: S088에서 재사용
 
 SCENE ID: S015
 PURPOSE: 이번 편의 질문
@@ -74,7 +74,7 @@ STYLE: modern editorial, documentary, minimal, still + slow push-in in edit
 ASPECT RATIO: 16:9
 REUSE POSSIBILITY: -
 
-SCENE ID: S062
+SCENE ID: S061
 PURPOSE: 흰 셔츠 비유
 DURATION: 5s
 REFERENCE ASSET: REF05 (still + slow push-in in edit)
@@ -83,9 +83,9 @@ CAMERA: still + slow push-in in edit
 LIGHTING: soft natural light
 STYLE: modern editorial, documentary, minimal, still + slow push-in in edit
 ASPECT RATIO: 16:9
-REUSE POSSIBILITY: S097에서 재사용
+REUSE POSSIBILITY: S096에서 재사용
 
-SCENE ID: S064
+SCENE ID: S063
 PURPOSE: 같은 셔츠, 다른 인상
 DURATION: 5s
 REFERENCE ASSET: REF06 (still + slow push-in in edit)
@@ -96,7 +96,7 @@ STYLE: modern editorial, documentary, minimal, still + slow push-in in edit
 ASPECT RATIO: 16:9
 REUSE POSSIBILITY: -
 
-SCENE ID: S074
+SCENE ID: S073
 PURPOSE: 실무 — 같은 인사이트 보고서
 DURATION: 5s
 REFERENCE ASSET: REF01 (still + slow push-in in edit)
@@ -107,7 +107,7 @@ STYLE: modern editorial, documentary, minimal, still + slow push-in in edit
 ASPECT RATIO: 16:9
 REUSE POSSIBILITY: S001 재사용
 
-SCENE ID: S089
+SCENE ID: S088
 PURPOSE: 흔한 키워드
 DURATION: 5s
 REFERENCE ASSET: REF07 (still + slow push-in in edit)
@@ -118,7 +118,7 @@ STYLE: modern editorial, documentary, minimal, still + slow push-in in edit
 ASPECT RATIO: 16:9
 REUSE POSSIBILITY: S006 재사용
 
-SCENE ID: S097
+SCENE ID: S096
 PURPOSE: 같은 흰 셔츠라도
 DURATION: 5s
 REFERENCE ASSET: REF05 (still + slow push-in in edit)
@@ -127,9 +127,9 @@ CAMERA: still + slow push-in in edit
 LIGHTING: soft natural light
 STYLE: modern editorial, documentary, minimal, still + slow push-in in edit
 ASPECT RATIO: 16:9
-REUSE POSSIBILITY: S062 재사용
+REUSE POSSIBILITY: S061 재사용
 
-SCENE ID: S105
+SCENE ID: S104
 PURPOSE: 엔딩 — 스스로를 돌보는 시간
 DURATION: 5s
 REFERENCE ASSET: REF08 (still + slow push-in in edit)

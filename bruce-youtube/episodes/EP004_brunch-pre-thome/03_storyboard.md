@@ -432,9 +432,9 @@ ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
 SCENE ID: S036
-TIME: 03:14-03:19
+TIME: 03:14-03:22
 NARRATION:
-소비자의 불편에서 출발해서 하나의 브랜드를 만들어 낸 셈입니다.
+소비자의 불편에서 출발해서 하나의 브랜드를 만들어 낸 거죠. 여기까지 들으면 잘 만든 창업 스토리처럼 들립니다.
 VISUAL:
 도식.
 SOURCE_TYPE: GRAPHIC
@@ -444,22 +444,9 @@ ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
 SCENE ID: S037
-TIME: 03:19-03:26
+TIME: 03:22-03:28
 NARRATION:
-여기까지 들으면 잘 만든 창업 스토리처럼 들립니다. 그런데 저는 이 대목에서 고개가 조금 갸웃해졌어요.
-VISUAL:
-두 줄 타이포.
-SOURCE_TYPE: TYPE
-ON_SCREEN_TEXT:
-잘 만든 창업 스토리.
-그런데
-ASSET: -
-HIGGSFIELD_REQUIRED: NO
-
-SCENE ID: S038
-TIME: 03:26-03:30
-NARRATION:
-이 흐름, 어디서 본 것 같았거든요.
+그런데 저는 이 대목에서 고개가 조금 갸웃해졌어요. 이 흐름, 어디서 본 것 같았거든요.
 VISUAL:
 두 줄 타이포.
 SOURCE_TYPE: TYPE
@@ -469,8 +456,8 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S039
-TIME: 03:30-03:35
+SCENE ID: S038
+TIME: 03:28-03:33
 NARRATION:
 바로 메디큐브였습니다. 메디큐브도 기능성 화장품에서 출발한 브랜드예요.
 VISUAL:
@@ -481,8 +468,8 @@ ON_SCREEN_TEXT:
 ASSET: A007
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S040
-TIME: 03:35-03:40
+SCENE ID: S039
+TIME: 03:33-03:38
 NARRATION:
 그리고 2021년에 에이지알이라는 뷰티 디바이스를 내놓았죠.
 VISUAL:
@@ -493,8 +480,8 @@ ON_SCREEN_TEXT:
 ASSET: A006
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S041
-TIME: 03:40-03:48
+SCENE ID: S040
+TIME: 03:38-03:46
 NARRATION:
 얼굴 근육을 자극하는 기기, 화장품 흡수를 돕는 기기처럼 관리 목적별로 기기를 나눠서 라인업을 넓혀 왔습니다.
 VISUAL:
@@ -505,8 +492,8 @@ ON_SCREEN_TEXT:
 ASSET: A006
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S042
-TIME: 03:48-03:52
+SCENE ID: S041
+TIME: 03:46-03:50
 NARRATION:
 집에서도 전문적인 피부 관리를 경험할 수 있다.
 VISUAL:
@@ -518,8 +505,8 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S043
-TIME: 03:52-03:56
+SCENE ID: S042
+TIME: 03:50-03:54
 NARRATION:
 문제를 정의하는 방식만 보면 톰과 크게 다르지 않습니다.
 VISUAL:
@@ -530,8 +517,8 @@ THOME = 메디큐브? (문제 정의)
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S044
-TIME: 03:56-04:00
+SCENE ID: S043
+TIME: 03:54-03:58
 NARRATION:
 게다가 메디큐브는 이 시장을 먼저 크게 키운 브랜드입니다.
 VISUAL:
@@ -543,8 +530,8 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S045
-TIME: 04:00-04:05
+SCENE ID: S044
+TIME: 03:58-04:03
 NARRATION:
 회사 발표로는 뷰티 디바이스 누적 판매가 수백만 대를 넘었다고 하고요.
 VISUAL:
@@ -555,8 +542,8 @@ ON_SCREEN_TEXT:
 ASSET: A008
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S046
-TIME: 04:05-04:10
+SCENE ID: S045
+TIME: 04:03-04:08
 NARRATION:
 회사는 스스로를 국내 1위 홈 뷰티 디바이스 브랜드라고 소개하죠.
 VISUAL:
@@ -567,8 +554,8 @@ ON_SCREEN_TEXT:
 ASSET: A007
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S047
-TIME: 04:10-04:17
+SCENE ID: S046
+TIME: 04:08-04:15
 NARRATION:
 그러니까 톰이 등장했을 때 이미 시장에는 비슷한 문제를 풀고 있는 강한 선발주자가 있었던 겁니다.
 VISUAL:
@@ -579,8 +566,8 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S048
-TIME: 04:17-04:24
+SCENE ID: S047
+TIME: 04:15-04:22
 NARRATION:
 그렇다면 톰은 무엇이 다를까요? 두 브랜드가 소비자에게 말을 거는 방식을 보면 차이가 보입니다.
 VISUAL:
@@ -592,8 +579,8 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S049
-TIME: 04:24-04:28
+SCENE ID: S048
+TIME: 04:22-04:26
 NARRATION:
 메디큐브는 기술과 효능을 앞에 세웁니다.
 VISUAL:
@@ -604,8 +591,8 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S050
-TIME: 04:28-04:34
+SCENE ID: S049
+TIME: 04:26-04:32
 NARRATION:
 임상시험 결과, 피부가 어떻게 달라졌는지, 디바이스에 어떤 기술이 들어갔는지.
 VISUAL:
@@ -616,8 +603,8 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S051
-TIME: 04:34-04:42
+SCENE ID: S050
+TIME: 04:32-04:40
 NARRATION:
 이걸로 피부 고민을 해결할 수 있다는 믿음을 만들죠. 광고를 보면 기기의 원리와 숫자가 화면 한가운데에 놓입니다.
 VISUAL:
@@ -628,8 +615,8 @@ ON_SCREEN_TEXT:
 ASSET: A006
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S052
-TIME: 04:42-04:49
+SCENE ID: S051
+TIME: 04:40-04:47
 NARRATION:
 말하자면 "이 기술이 당신의 피부를 바꾼다"에 가까운 메시지예요. 문장의 주어가 기술인 셈이죠.
 VISUAL:
@@ -640,8 +627,8 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S053
-TIME: 04:49-04:55
+SCENE ID: S052
+TIME: 04:47-04:53
 NARRATION:
 기기를 고르는 기준도 자연스럽게 성능과 숫자가 됩니다. 톰은 경험에 무게를 둡니다.
 VISUAL:
@@ -653,8 +640,8 @@ THOME — 경험
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S054
-TIME: 04:55-04:59
+SCENE ID: S053
+TIME: 04:53-04:57
 NARRATION:
 브랜드 이름 앞에 붙은 말부터 프라이빗 에스테틱이에요.
 VISUAL:
@@ -665,8 +652,8 @@ THOME — 프라이빗 에스테틱
 ASSET: A002
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S055
-TIME: 04:59-05:07
+SCENE ID: S054
+TIME: 04:57-05:05
 NARRATION:
 관리 순서대로 구성된 제품, 화장대 위에 오브제처럼 놓이도록 만든 정육면체 모양의 용기, 트레이와 브러시까지 맞춘 키트.
 VISUAL:
@@ -677,8 +664,8 @@ ON_SCREEN_TEXT:
 ASSET: A002
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S056
-TIME: 05:07-05:15
+SCENE ID: S055
+TIME: 05:05-05:13
 NARRATION:
 그리고 '나의 광채 선언'이라는 캠페인이 있습니다. 캠페인은 이렇게 말해요. "아름다움은 정해져 있지 않다.
 VISUAL:
@@ -689,8 +676,8 @@ ON_SCREEN_TEXT:
 ASSET: A003
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S057
-TIME: 05:15-05:23
+SCENE ID: S056
+TIME: 05:13-05:21
 NARRATION:
 자신을 바라보는 태도가 아름다움을 결정한다." 피부 관리를 스스로를 돌보는 시간으로 다시 해석하는 겁니다.
 VISUAL:
@@ -702,8 +689,8 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S058
-TIME: 05:23-05:30
+SCENE ID: S057
+TIME: 05:21-05:28
 NARRATION:
 여기서는 문장의 주어가 관리하는 사람 자신이에요. 말하자면 "이 시간이 당신을 돌본다"에 가깝죠.
 VISUAL:
@@ -714,8 +701,8 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S059
-TIME: 05:30-05:34
+SCENE ID: S058
+TIME: 05:28-05:32
 NARRATION:
 물론 두 브랜드가 완전히 다른 이야기를 하는 건 아닙니다.
 VISUAL:
@@ -727,8 +714,8 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S060
-TIME: 05:34-05:39
+SCENE ID: S059
+TIME: 05:32-05:37
 NARRATION:
 메디큐브도 관리 경험을 이야기하고, 톰도 기술과 효능을 강조하니까요.
 VISUAL:
@@ -739,8 +726,8 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S061
-TIME: 05:39-05:44
+SCENE ID: S060
+TIME: 05:37-05:42
 NARRATION:
 차이는 같은 소비자의 욕망을 어떤 관점으로 해석하느냐에 있습니다.
 VISUAL:
@@ -752,8 +739,8 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S062
-TIME: 05:44-05:51
+SCENE ID: S061
+TIME: 05:42-05:49
 NARRATION:
 흰 셔츠를 한번 떠올려 볼까요. 똑같은 흰 셔츠라도 누가, 어떻게 입느냐에 따라 전혀 다른 인상이 남습니다.
 VISUAL:
@@ -764,8 +751,8 @@ ON_SCREEN_TEXT:
 ASSET: REF05
 HIGGSFIELD_REQUIRED: YES
 
-SCENE ID: S063
-TIME: 05:51-05:55
+SCENE ID: S062
+TIME: 05:49-05:53
 NARRATION:
 옷은 같은데 그 사람의 취향과 태도가 다른 이미지를 만들죠.
 VISUAL:
@@ -777,8 +764,8 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S064
-TIME: 05:55-06:00
+SCENE ID: S063
+TIME: 05:53-05:58
 NARRATION:
 어떤 사람이 입으면 단정하고, 어떤 사람이 입으면 여유로워 보입니다.
 VISUAL:
@@ -789,8 +776,8 @@ ON_SCREEN_TEXT:
 ASSET: REF06
 HIGGSFIELD_REQUIRED: YES
 
-SCENE ID: S065
-TIME: 06:00-06:06
+SCENE ID: S064
+TIME: 05:58-06:04
 NARRATION:
 셔츠를 새로 발명하지 않아도 충분히 다르게 기억될 수 있다는 거죠. 브랜드도 마찬가지입니다.
 VISUAL:
@@ -802,8 +789,8 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S066
-TIME: 06:06-06:11
+SCENE ID: S065
+TIME: 06:04-06:09
 NARRATION:
 마케팅을 하면서 우리는 소비자의 맥락을 읽어야 한다고 말합니다.
 VISUAL:
@@ -815,8 +802,8 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S067
-TIME: 06:11-06:17
+SCENE ID: S066
+TIME: 06:09-06:15
 NARRATION:
 소비자가 어떤 상황에 있고, 어떤 욕망과 불편을 가지고 있는지 이해해야 한다는 뜻이죠.
 VISUAL:
@@ -827,8 +814,8 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S068
-TIME: 06:17-06:21
+SCENE ID: S067
+TIME: 06:15-06:19
 NARRATION:
 그런데 여기에 잘 이야기되지 않는 함정이 하나 있습니다.
 VISUAL:
@@ -840,8 +827,8 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S069
-TIME: 06:21-06:27
+SCENE ID: S068
+TIME: 06:19-06:25
 NARRATION:
 소비자의 맥락을 발견했다고 해서 그게 꼭 우리 브랜드만의 발견은 아니라는 겁니다.
 VISUAL:
@@ -852,8 +839,8 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S070
-TIME: 06:27-06:34
+SCENE ID: S069
+TIME: 06:25-06:32
 NARRATION:
 시장이 이미 있다는 건 여러 브랜드가 비슷한 소비자의 문제를 마주하고 있다는 뜻이기도 하니까요.
 VISUAL:
@@ -864,8 +851,8 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S071
-TIME: 06:34-06:40
+SCENE ID: S070
+TIME: 06:32-06:38
 NARRATION:
 피부 관리를 하고 싶은데 시간과 비용이 부담된다. 이 불편은 톰만 발견한 게 아닙니다.
 VISUAL:
@@ -876,8 +863,8 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S072
-TIME: 06:40-06:45
+SCENE ID: S071
+TIME: 06:38-06:43
 NARRATION:
 메디큐브도, 다른 디바이스 브랜드들도 같은 지점을 보고 있었죠.
 VISUAL:
@@ -888,8 +875,8 @@ THOME · 메디큐브 · 다른 디바이스 브랜드
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S073
-TIME: 06:45-06:51
+SCENE ID: S072
+TIME: 06:43-06:49
 NARRATION:
 소비자를 제대로 이해할수록 오히려 경쟁 브랜드와 비슷한 결론에 도착할 수 있는 겁니다.
 VISUAL:
@@ -901,8 +888,8 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S074
-TIME: 06:51-06:55
+SCENE ID: S073
+TIME: 06:49-06:53
 NARRATION:
 실무에서도 자주 겪는 일입니다.
 VISUAL:
@@ -913,8 +900,8 @@ ON_SCREEN_TEXT:
 ASSET: REF01
 HIGGSFIELD_REQUIRED: YES
 
-SCENE ID: S075
-TIME: 06:55-07:03
+SCENE ID: S074
+TIME: 06:53-07:01
 NARRATION:
 고객 인터뷰를 하고, 리뷰를 분석하고, 인사이트를 정리해서 가져가면 경쟁사 보고서에도 거의 같은 문장이 들어 있어요.
 VISUAL:
@@ -925,8 +912,8 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S076
-TIME: 07:03-07:07
+SCENE ID: S075
+TIME: 07:01-07:05
 NARRATION:
 다들 같은 소비자를 열심히 보고 있으니까요.
 VISUAL:
@@ -938,8 +925,8 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S077
-TIME: 07:07-07:13
+SCENE ID: S076
+TIME: 07:05-07:11
 NARRATION:
 그래서 인사이트 장표만 놓고 보면 어느 회사 보고서인지 구분하기 어려울 때도 있습니다.
 VISUAL:
@@ -950,8 +937,8 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S078
-TIME: 07:13-07:21
+SCENE ID: S077
+TIME: 07:11-07:19
 NARRATION:
 그렇다면 차별화는 어디에서 시작될까요? 저는 같은 욕망을 어떤 관점으로 해석하느냐에서 시작된다고 봅니다.
 VISUAL:
@@ -963,8 +950,8 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S079
-TIME: 07:21-07:28
+SCENE ID: S078
+TIME: 07:19-07:26
 NARRATION:
 같은 문제를 풀어도 어떤 브랜드는 기술에 집중하고, 어떤 브랜드는 제품을 쓰는 경험 자체를 바꾸려고 합니다.
 VISUAL:
@@ -975,8 +962,8 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S080
-TIME: 07:28-07:35
+SCENE ID: S079
+TIME: 07:26-07:33
 NARRATION:
 무엇을 중요하게 여기느냐에 따라 제품의 모양도, 말하는 방식도 달라지죠. 창업 스토리도 마찬가지예요.
 VISUAL:
@@ -987,8 +974,8 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S081
-TIME: 07:35-07:42
+SCENE ID: S080
+TIME: 07:33-07:40
 NARRATION:
 어머니와 아내의 이야기 그 자체가 차별화는 아닙니다. 비슷한 창업 스토리는 생각보다 많으니까요.
 VISUAL:
@@ -1000,8 +987,8 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S082
-TIME: 07:42-07:46
+SCENE ID: S081
+TIME: 07:40-07:44
 NARRATION:
 중요한 건 그 문제의식이 어디까지 이어지느냐입니다.
 VISUAL:
@@ -1013,8 +1000,8 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S083
-TIME: 07:46-07:56
+SCENE ID: S082
+TIME: 07:44-07:54
 NARRATION:
 톰의 경우에는 관리 순서대로 짜인 제품 구성, 화장대 위의 패키지 디자인, 그리고 스스로 돌보는 아름다움이라는 메시지까지 한 줄로 이어집니다.
 VISUAL:
@@ -1025,8 +1012,8 @@ ON_SCREEN_TEXT:
 ASSET: A002
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S084
-TIME: 07:56-08:01
+SCENE ID: S083
+TIME: 07:54-07:59
 NARRATION:
 그렇게 이어질 때 소비자에게 이 브랜드를 이해할 이유가 생깁니다.
 VISUAL:
@@ -1038,8 +1025,8 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S085
-TIME: 08:01-08:10
+SCENE ID: S084
+TIME: 07:59-08:08
 NARRATION:
 반대로 창업 스토리는 감동적인데 제품과 광고가 다른 말을 하고 있다면, 그 이야기는 상세 페이지 맨 아래에 한 번 읽히고 끝나겠죠.
 VISUAL:
@@ -1050,8 +1037,8 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S086
-TIME: 08:10-08:14
+SCENE ID: S085
+TIME: 08:08-08:12
 NARRATION:
 그래서 저는 브랜드 스토리는 출발점일 뿐이라고 생각합니다.
 VISUAL:
@@ -1063,8 +1050,8 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S087
-TIME: 08:14-08:21
+SCENE ID: S086
+TIME: 08:12-08:19
 NARRATION:
 그 이야기가 소비자가 만나는 여러 접점에서 일관되게 구현될 때, 비로소 브랜드만의 맥락이 쌓이니까요.
 VISUAL:
@@ -1075,8 +1062,8 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S088
-TIME: 08:21-08:28
+SCENE ID: S087
+TIME: 08:19-08:26
 NARRATION:
 실무에서 경쟁사를 분석하다 보면 비슷한 키워드를 자주 만납니다. 전문성, 프리미엄, 소비자 중심.
 VISUAL:
@@ -1087,8 +1074,8 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S089
-TIME: 08:28-08:32
+SCENE ID: S088
+TIME: 08:26-08:30
 NARRATION:
 이미 누군가 다 쓰고 있는 말들이죠.
 VISUAL:
@@ -1099,8 +1086,8 @@ ON_SCREEN_TEXT:
 ASSET: REF07
 HIGGSFIELD_REQUIRED: YES
 
-SCENE ID: S090
-TIME: 08:32-08:40
+SCENE ID: S089
+TIME: 08:30-08:38
 NARRATION:
 그러다 보면 우리 브랜드가 가진 이야기를 들여다보기보다 경쟁사가 아직 안 쓴 단어를 찾는 데 시간을 쓰게 됩니다.
 VISUAL:
@@ -1111,8 +1098,8 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S091
-TIME: 08:40-08:45
+SCENE ID: S090
+TIME: 08:38-08:43
 NARRATION:
 하지만 새로운 단어를 만든다고 새로운 브랜드가 되지는 않습니다.
 VISUAL:
@@ -1124,8 +1111,8 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S092
-TIME: 08:45-08:50
+SCENE ID: S091
+TIME: 08:43-08:48
 NARRATION:
 그래서 저는 경쟁사 분석표 대신 이런 질문을 먼저 해 보면 좋겠다고 생각합니다.
 VISUAL:
@@ -1137,8 +1124,8 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S093
-TIME: 08:50-08:55
+SCENE ID: S092
+TIME: 08:48-08:53
 NARRATION:
 첫째, 우리 브랜드가 출발한 문제의식은 지금 제품의 어디에 남아 있는가.
 VISUAL:
@@ -1150,8 +1137,8 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S094
-TIME: 08:55-09:01
+SCENE ID: S093
+TIME: 08:53-08:59
 NARRATION:
 둘째, 그 관점이 패키지와 상세 페이지, 광고와 고객 응대에서도 똑같이 보이는가.
 VISUAL:
@@ -1163,8 +1150,8 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S095
-TIME: 09:01-09:07
+SCENE ID: S094
+TIME: 08:59-09:05
 NARRATION:
 셋째, 경쟁사와 같은 단어를 쓸 때 우리가 그 말을 쓰는 이유를 한 문장으로 설명할 수 있는가.
 VISUAL:
@@ -1176,8 +1163,8 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S096
-TIME: 09:07-09:16
+SCENE ID: S095
+TIME: 09:05-09:14
 NARRATION:
 누구나 말하는 가치라도 우리가 왜 그걸 중요하게 생각하는지, 그리고 어떤 방식으로 구현하는지가 분명하면 이야기는 달라집니다.
 VISUAL:
@@ -1188,8 +1175,8 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S097
-TIME: 09:16-09:21
+SCENE ID: S096
+TIME: 09:14-09:19
 NARRATION:
 같은 흰 셔츠라도 입는 사람이 분명하면 다르게 기억되는 것처럼요.
 VISUAL:
@@ -1200,8 +1187,8 @@ ON_SCREEN_TEXT:
 ASSET: REF05
 HIGGSFIELD_REQUIRED: YES
 
-SCENE ID: S098
-TIME: 09:21-09:26
+SCENE ID: S097
+TIME: 09:19-09:24
 NARRATION:
 물론 톰의 시도가 얼마나 강한 브랜드 자산으로 이어질지는 더 지켜봐야 합니다.
 VISUAL:
@@ -1213,8 +1200,8 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S099
-TIME: 09:26-09:32
+SCENE ID: S098
+TIME: 09:24-09:30
 NARRATION:
 브랜드가 다르게 이야기하는 것과 소비자가 다르게 기억하는 것은 별개의 문제니까요.
 VISUAL:
@@ -1225,8 +1212,8 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S100
-TIME: 09:32-09:40
+SCENE ID: S099
+TIME: 09:30-09:38
 NARRATION:
 다만 후발주자가 선발주자와 같은 문제를 풀면서도 자기 자리를 만들어 가는 방식으로는 한번 눈여겨볼 만합니다.
 VISUAL:
@@ -1237,8 +1224,8 @@ ON_SCREEN_TEXT:
 ASSET: A001
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S101
-TIME: 09:40-09:46
+SCENE ID: S100
+TIME: 09:38-09:44
 NARRATION:
 선발주자를 이기는 새 단어를 찾기보다, 같은 문제를 다른 각도에서 풀어 보이는 방식이니까요.
 VISUAL:
@@ -1250,8 +1237,8 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S102
-TIME: 09:46-09:53
+SCENE ID: S101
+TIME: 09:44-09:51
 NARRATION:
 정리해 보면 이렇습니다. 차별화가 반드시 남들이 하지 않은 이야기에서만 시작되는 건 아닙니다.
 VISUAL:
@@ -1263,8 +1250,8 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S103
-TIME: 09:53-10:03
+SCENE ID: S102
+TIME: 09:51-10:01
 NARRATION:
 소비자의 맥락을 읽는 게 시장을 이해하는 일이라면, 브랜드의 맥락을 만드는 건 그 시장에서 우리가 어떤 존재가 될지 정하는 일에 가깝습니다.
 VISUAL:
@@ -1276,8 +1263,8 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S104
-TIME: 10:03-10:11
+SCENE ID: S103
+TIME: 10:01-10:09
 NARRATION:
 같은 시장에 늦게 들어왔다는 건 약점이기도 하지만, 선발주자가 이미 던져 놓은 질문을 다르게 읽어 볼 기회이기도 합니다.
 VISUAL:
@@ -1289,8 +1276,8 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S105
-TIME: 10:11-10:17
+SCENE ID: S104
+TIME: 10:09-10:15
 NARRATION:
 그래서 오늘은 이 질문을 남기고 싶습니다. 우리는 소비자의 맥락을 읽는 데서 멈춰 있나요?
 VISUAL:
@@ -1301,8 +1288,8 @@ ON_SCREEN_TEXT:
 ASSET: REF08
 HIGGSFIELD_REQUIRED: YES
 
-SCENE ID: S106
-TIME: 10:17-10:21
+SCENE ID: S105
+TIME: 10:15-10:19
 NARRATION:
 아니면 그 위에 우리 브랜드만의 맥락을 쌓아 가고 있나요?
 VISUAL:

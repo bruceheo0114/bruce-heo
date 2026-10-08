@@ -11,7 +11,7 @@
         "S008",
         "S017",
         "S023",
-        "S100"
+        "S099"
       ]
     },
     {
@@ -22,9 +22,9 @@
       "scenes": [
         "S009",
         "S016",
+        "S053",
         "S054",
-        "S055",
-        "S083"
+        "S082"
       ]
     },
     {
@@ -34,7 +34,7 @@
       "source": "THOME '나의 광채 선언' 키비주얼 (뉴스탭 보도)",
       "scenes": [
         "S026",
-        "S056"
+        "S055"
       ],
       "page": "https://www.newstap.co.kr/news/articleView.html?idxno=305365"
     },
@@ -64,9 +64,9 @@
       "url": "https://m.themedicube.co.kr/age-r/main2.html",
       "source": "메디큐브 공식 홈페이지",
       "scenes": [
+        "S039",
         "S040",
-        "S041",
-        "S051"
+        "S050"
       ]
     },
     {
@@ -75,8 +75,8 @@
       "url": "https://apr-in.com/apr_medicube.html",
       "source": "에이피알 공식 홈페이지",
       "scenes": [
-        "S039",
-        "S046"
+        "S038",
+        "S045"
       ]
     },
     {
@@ -85,7 +85,7 @@
       "url": "https://apr-blog.com/age-r-sales",
       "source": "에이피알 블로그",
       "scenes": [
-        "S045"
+        "S044"
       ]
     }
   ]

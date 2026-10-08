@@ -29,28 +29,34 @@
     "S015",
     "S020",
     "S024",
+    "S061",
     "S062",
+    "S063",
     "S064",
+    "S073",
     "S074",
+    "S088",
     "S089",
+    "S096",
     "S097",
+    "S104",
     "S105"
   ],
   "generated": {},
   "plan": {
-    "runtime_seconds": 621,
-    "runtime": "10:21",
-    "total_scenes": 106,
+    "runtime_seconds": 619,
+    "runtime": "10:19",
+    "total_scenes": 105,
     "scenes_by_type": {
       "REAL": 20,
-      "TYPE": 41,
+      "TYPE": 40,
       "GRAPHIC": 34,
       "AI": 11
     },
     "seconds_by_type": {
       "REAL": 119,
-      "TYPE": 220,
-      "GRAPHIC": 220,
+      "TYPE": 215,
+      "GRAPHIC": 223,
       "AI": 62
     },
     "ai_share": 0.1,
@@ -60,12 +66,12 @@
       "S015",
       "S020",
       "S024",
-      "S062",
-      "S064",
-      "S074",
-      "S089",
-      "S097",
-      "S105"
+      "S061",
+      "S063",
+      "S073",
+      "S088",
+      "S096",
+      "S104"
     ],
     "estimated_generations": 7,
     "estimated_credits": 2.5,
@@ -75,21 +81,21 @@
         "scenes": [
           "S001",
           "S015",
-          "S074"
+          "S073"
         ]
       },
       {
         "reference": "REF07",
         "scenes": [
           "S006",
-          "S089"
+          "S088"
         ]
       },
       {
         "reference": "REF05",
         "scenes": [
-          "S062",
-          "S097"
+          "S061",
+          "S096"
         ]
       }
     ],
@@ -101,7 +107,7 @@
   },
   "update": null,
   "created_at": "2026-10-08T12:40:00.638Z",
-  "updated_at": "2026-10-08T12:44:23.222Z",
+  "updated_at": "2026-10-08T12:44:58.299Z",
   "history": [
     {
       "at": "2026-10-08T12:40:00.638Z",
@@ -120,7 +126,13 @@
       "from": "WAITING_APPROVAL",
       "to": "APPROVED",
       "note": "Higgsfield 승인: S001, S006, S015, S020, S024, S062, S064, S074, S089, S097, S105"
+    },
+    {
+      "at": "2026-10-08T12:44:58.299Z",
+      "from": "APPROVED",
+      "to": "APPROVED",
+      "note": "Higgsfield 승인: S001, S006, S015, S020, S024, S061, S063, S073, S088, S096, S104"
     }
   ],
-  "approved_at": "2026-10-08T12:44:23.222Z"
+  "approved_at": "2026-10-08T12:44:58.299Z"
 }

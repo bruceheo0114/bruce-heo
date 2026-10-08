@@ -11,12 +11,12 @@ EXPECTED LENGTH: 40s
 HOOK: 주어가 기술인 브랜드, 주어가 나인 브랜드
 SCRIPT: 메디큐브는 기술과 효능을 앞에 세웁니다. 이 기술이 당신의 피부를 바꾼다. THOME은 경험에 무게를 둡니다. 이 시간이 당신을 돌본다. 같은 홈 뷰티 디바이스지만 문장의 주어가 다르면 브랜드가 다르게 읽힙니다.
 ON SCREEN TEXT: 주어 = 기술 / 주어 = 나
-SOURCE TIMECODE: 03:30-05:44
+SOURCE TIMECODE: 03:28-05:42
 EXPECTED LENGTH: 40s
 
 ## SHORT 03
 HOOK: 새 단어가 새 브랜드를 만들지는 않습니다.
 SCRIPT: 경쟁사 분석표를 보면 전문성, 프리미엄, 소비자 중심. 이미 다 누군가 쓰고 있죠. 그래서 아직 안 쓴 단어를 찾게 됩니다. 하지만 같은 흰 셔츠도 입는 사람이 분명하면 다르게 기억됩니다. 왜 그 말을 쓰는지, 어떻게 구현하는지가 분명하면 이야기는 달라집니다.
 ON SCREEN TEXT: 새 단어보다 분명한 이유
-SOURCE TIMECODE: 08:10-10:21
+SOURCE TIMECODE: 08:08-10:19
 EXPECTED LENGTH: 40s
