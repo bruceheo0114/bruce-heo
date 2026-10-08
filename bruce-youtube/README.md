@@ -5,7 +5,7 @@
 
 ```text
 Actions(매일 07:17) brunch_cache 갱신
-수 05:13 클라우드 루틴(Sonnet) ─ sync --cache ─ next --weekly(queue.json 맨 위 글) ─ 00_score~06_shorts ─ finalize
+수 05:13 클라우드 루틴(Sonnet) ─ sync --cache ─ next --weekly(이번 주 월요일 새 글, 없으면 queue.json 예비 글) ─ 00_score~06_shorts ─ finalize
    ─▶ WAITING_APPROVAL → main 커밋 → Claude 앱 푸시 알림
 Bruce 녹음(아이폰, 챕터별 m4a) → Claude 대화창에 첨부
 narration → report → 승인 한마디 → Higgsfield 생성 → render(자동 편집: 화면·자막·음량·썸네일·업로드 정보) → mp4 전달
@@ -30,7 +30,7 @@ Bruce가 YouTube 앱에서 업로드
 
 ```text
 node src/cli/youtube.js sync --cache             브런치 캐시 → 원문 보관, 새 글은 큐 뒤에
-node src/cli/youtube.js next --weekly            이번 주 제작할 Episode (큐 맨 위)
+node src/cli/youtube.js next --weekly            이번 주 제작할 Episode (월요일 새 글 → 큐 todo → reserve)
 node src/cli/youtube.js episode 222              큐와 상관없이 Episode 만들기
 node src/cli/youtube.js status [EP001]
 node src/cli/youtube.js validate EP001 / finalize EP001

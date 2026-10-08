@@ -6,6 +6,7 @@ import { tmpdir } from "node:os";
 import path from "node:path";
 import { promisify } from "node:util";
 import { youtubePaths } from "../src/youtube/config.js";
+import { pickNext } from "../src/youtube/queue.js";
 import { createEpisode, findEpisode, markUpdateAvailable, resolveUpdate } from "../src/youtube/episode.js";
 import { parseBlocks, parseTimeRange } from "../src/youtube/parse.js";
 import { addSpend, cycleKey, loadLedger, monthSpent } from "../src/youtube/ledger.js";
@@ -373,4 +374,31 @@ test("CLI: 첫 sync는 원문만 보관하고, 새 글은 큐에 쌓이며 주 1
   assert.equal(out.stdout.trim(), "EP003_brunch-225");
   const queue = JSON.parse(await readFile(path.join(root, "yt", "queue.json"), "utf8"));
   assert.deepEqual(queue.items.map((item) => item.status), ["episode", "episode", "episode"]);
+});
+
+test("이번 주 새 글이 있으면 먼저, 없으면 큐 todo → 예비 글 순으로 고른다", () => {
+  const index = {
+    articles: {
+      211: { publishedAt: "2026-07-28T03:00:00.000Z" },
+      202: { publishedAt: "2026-06-23T03:00:00.000Z" },
+      223: { publishedAt: "2026-10-12T03:00:00.000Z" },
+    },
+  };
+  const queue = {
+    items: [
+      { no: 211, status: "todo" },
+      { no: 202, status: "reserve" },
+      { no: 223, status: "todo" },
+    ],
+  };
+  // 수요일 루틴: 월요일(10/12)에 올라온 글이 큐 뒤에 있어도 먼저 만든다
+  assert.equal(pickNext(queue, index, new Date("2026-10-13T20:13:00Z")).no, 223);
+  // 그 주에 새 글이 없으면 큐의 todo
+  assert.equal(pickNext(queue, index, new Date("2026-10-20T20:13:00Z")).no, 211);
+  // todo가 다 떨어지면 예비 글
+  queue.items[0].status = "episode";
+  queue.items[2].status = "episode";
+  assert.equal(pickNext(queue, index, new Date("2026-10-20T20:13:00Z")).no, 202);
+  queue.items[1].status = "episode";
+  assert.equal(pickNext(queue, index, new Date("2026-10-20T20:13:00Z")), null);
 });
