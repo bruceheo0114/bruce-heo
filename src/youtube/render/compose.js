@@ -55,6 +55,7 @@ async function exists(file) {
 
 const SFX_VOLUME = 0.7; // 효과음 크기(내레이션 대비)
 const CHAPTER_GAP = 2.6; // 챕터 사이 무음(초). 이 자리에 챕터 간지와 효과음이 들어간다
+const VOICE_LEVELER = "dynaudnorm=f=500:g=31:p=0.9:m=20:r=0.1:b=1"; // 챕터 안 문장 크기 고르기(약 15초 창)
 // 채널 BGM(bruce-youtube/channel/bgm/bgm.mp3). 영상 내내 반복해서 깔고, 내레이션이 나오면 자동으로 줄였다가
 // 말이 멈추는 곳(챕터 간지·마지막 여운)에서 다시 올라온다(사이드체인 덕킹).
 const BGM_LUFS = -27; // 말이 없을 때 BGM 크기(내레이션 -14 LUFS 대비 약 13dB 아래)
@@ -561,7 +562,9 @@ export async function renderEpisode(episode, audioFiles, { root, outDir, preview
   //    ElevenLabs Voice Isolator로 이미 정리한 파일이면 cleanup=false로 건너뛴다.
   const audioOut = path.join(work, "narration.m4a");
   const inputs = audio.flatMap((item) => ["-i", item.file]);
-  const pads = audio.map((item, index) => `[${index}:a]aformat=sample_rates=48000:channel_layouts=stereo,apad=pad_dur=${item.gap}[p${index}]`).join(";");
+  // 음성 합성은 긴 챕터 뒤로 갈수록 소리가 작아질 때가 있어(EP003 CH04 앞뒤 약 15dB 차이) 챕터마다 문장 크기를 천천히 고르게 맞춘다.
+  //    15초 남짓한 창으로 맞춰 낱말 사이 숨소리·잡음은 키우지 않는다.
+  const pads = audio.map((item, index) => `[${index}:a]aformat=sample_rates=48000:channel_layouts=stereo,${VOICE_LEVELER},apad=pad_dur=${item.gap}[p${index}]`).join(";");
   const join = `${pads};${audio.map((_, index) => `[p${index}]`).join("")}`;
   // 음량은 두 번에 나눠 맞춘다(먼저 재고, 같은 비율로 키운다). 한 번에 하면 말이 없는 구간의 잡음까지 말소리만큼 커진다.
   const chain = `${join}concat=n=${audio.length}:v=0:a=1,${cleanup ? "highpass=f=80,afftdn=nf=-25:tn=1," : ""}`;
