@@ -1,15 +1,15 @@
 # bruce-youtube — 브루스 인사이트 유튜브
 
 브런치 글(2026년 이후) → 10~15분 YouTube 영상 에세이 제작 패키지. 인스타그램 @bruce.insight와 같은 브랜드로 운영한다.
-얼굴 없는 영상, 내레이션은 Bruce 본인 복제 목소리(ElevenLabs). 매주 루틴이 대본부터 업로드까지 혼자 끝낸다(2026-10-08부터).
+얼굴 없는 영상, 내레이션은 Bruce 본인 복제 목소리(ElevenLabs). 월요일 브런치 글을 화요일 밤 루틴이 완성 영상까지 만들고, Bruce는 수요일에 받아 직접 올린다(2026-10-08부터).
 
 ```text
 Actions(매일 07:17) brunch_cache 갱신
-수 05:13 클라우드 루틴 ─ sync --cache ─ next --weekly(이번 주 월요일 새 글, 없으면 queue.json 예비 글) ─ 00_score~06_shorts ─ finalize
+화 21:13 클라우드 루틴 ─ sync --cache ─ next --weekly(이번 주 월요일 새 글, 없으면 queue.json 예비 글) ─ 00_score~06_shorts ─ finalize
    ─ readback(소리 내어 읽고 다듬기) ─ 패키지 main 커밋(→ Actions가 실제 자료 수집)
    ─ 복제 목소리 내레이션 + 받아쓰기 ─ readback(다르게 읽은 곳 다시 생성) ─ Higgsfield(예산 안)
    ─ render(자동 편집: 화면·싱크 자막·간지·효과음·음량·썸네일·업로드 정보) ─ 1편 편집 방향 확인
-   ─ upload(YouTube 공개) ─ Claude 앱 푸시 알림
+   ─ mp4·썸네일·upload.md 전달 + 푸시 알림 → Bruce가 YouTube 앱에서 업로드
 ```
 
 ## 파일
@@ -21,7 +21,7 @@ Actions(매일 07:17) brunch_cache 갱신
 | `episodes/EP###_brunch-<글번호>/` | `00_score.md` `01_brief.md` ~ `06_shorts.md`, `status.json` |
 | `ledger.json` | YouTube Higgsfield 크레딧 장부 (월 150, 2일 리셋) |
 | `prompts/youtube_producer.md` | 제작 지시서(출력 형식) |
-| `routine_prompt.md` | 수요일 클라우드 루틴 지시서 |
+| `routine_prompt.md` | 화요일 밤 클라우드 루틴 지시서 |
 | `channel/` | 채널 개설 키트(프로필·배너·설명) |
 
 음성·완성 영상(`output/`)은 git에 올리지 않는다.
@@ -31,8 +31,9 @@ Actions(매일 07:17) brunch_cache 갱신
 ```text
 node src/cli/youtube.js sync --cache             브런치 캐시 → 원문 보관, 새 글은 큐 뒤에
 node src/cli/youtube.js next --weekly            이번 주 제작할 Episode (월요일 새 글 → 큐 todo → reserve)
+node src/cli/youtube.js prebuild draft.md --slug lge   발행 전 원고로 미리 만들기 (발행되면 sync가 연결)
 node src/cli/youtube.js readback EP002           소리 내어 읽기 검사
-node src/cli/youtube.js upload EP002             YouTube 공개 업로드 (YOUTUBE_CLIENT_ID·YOUTUBE_CLIENT_SECRET·YOUTUBE_REFRESH_TOKEN)
+node src/cli/youtube.js upload EP002             YouTube 업로드(예비, 요청 시만) (YOUTUBE_CLIENT_ID·YOUTUBE_CLIENT_SECRET·YOUTUBE_REFRESH_TOKEN)
 node src/cli/youtube.js episode 222              큐와 상관없이 Episode 만들기
 node src/cli/youtube.js status [EP001]
 node src/cli/youtube.js validate EP001 / finalize EP001

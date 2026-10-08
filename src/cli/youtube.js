@@ -3,9 +3,10 @@ import path from "node:path";
 import { RULES, STATUS, youtubePaths } from "../youtube/config.js";
 import { addSpend, loadLedger, monthSpent } from "../youtube/ledger.js";
 import { enqueueNew, loadQueue, pickNext, saveQueue } from "../youtube/queue.js";
-import { createEpisode, findEpisode, listEpisodes, markUpdateAvailable, resolveUpdate } from "../youtube/episode.js";
+import { createEpisode, createPrebuiltEpisode, findEpisode, linkPrebuilt, listEpisodes, markUpdateAvailable, resolveUpdate } from "../youtube/episode.js";
 import {
   archiveArticles,
+  articleToMarkdown,
   loadCacheArticles,
   loadLocalArticles,
   loadSourceIndex,
@@ -34,6 +35,8 @@ const USAGE = `사용법: node src/cli/youtube.js <명령> [인자]
   next [--weekly]                 제작할 Episode 1편 (PACKAGE_PENDING이 없으면 이번 주 새 글 → 큐 todo → 예비 글 순으로 새로 만든다)
                                  --weekly: 최근 6일 안에 기획안을 만들었으면 비워 둔다
   episode <글번호>                큐와 상관없이 글 하나로 Episode를 만든다
+  prebuild <원고.md> --slug 이름   발행 전 원고(# 제목 + 본문)로 미리 Episode를 만든다. 같은 제목 글이 발행되면 sync가 연결하고,
+                                 그 주 next --weekly는 새로 만들지 않는다
   pending                         PACKAGE_PENDING Episode 목록
   status [EP]                     Episode 상태 목록 또는 한 편의 상세
   validate <EP>                   제작 패키지 형식·원칙 검사
@@ -115,7 +118,19 @@ async function sync() {
   const queued = bootstrap
     ? []
     : enqueueNew(queue, added.filter((entry) => new Date(entry.publishedAt) >= episodesFrom));
-  if (queued.length) await saveQueue(queue, paths);
+  // 미리 만든 Episode와 제목이 같은 새 글은 그 Episode에 붙이고 큐에서는 이미 만든 것으로 둔다
+  const linked = await linkPrebuilt(added, now, paths);
+  for (const { entry, episode } of linked) {
+    entry.episode = episode.status.episode;
+    let item = queue.items.find((candidate) => String(candidate.no) === String(entry.id));
+    if (!item) {
+      item = { no: Number(entry.id), title: entry.title };
+      queue.items.push(item);
+    }
+    Object.assign(item, { status: "episode", episode: episode.status.episode, prebuilt: true });
+    console.log(`미리 만든 ${episode.name} ← ${entry.id} ${entry.title}`);
+  }
+  if (queued.length || linked.length) await saveQueue(queue, paths);
   const updated = [];
   for (const entry of changed) {
     const episode = await markUpdateAvailable(entry, now, paths);
@@ -174,7 +189,9 @@ const commands = {
     const episodes = await listEpisodes(paths);
     if (args.includes("--weekly")) {
       const weekAgo = now.valueOf() - 6 * 24 * 60 * 60 * 1000;
+      // 미리 만든 Episode(발행 전 원고)는 그 글이 올라온 주의 몫이라 여기서 세지 않는다
       const made = episodes.some((episode) =>
+        !episode.status.article?.prebuilt && !episode.status.article?.draft_id &&
         (episode.status.history ?? []).some(
           (entry) =>
             entry.from === STATUS.PACKAGE_PENDING &&
@@ -183,6 +200,15 @@ const commands = {
         ),
       );
       if (made) return;
+      // 이번 주 새 글을 이미 미리 만들어 두었으면 이번 주는 만들지 않는다
+      const queue = await loadQueue(paths);
+      const index = await loadSourceIndex(paths);
+      const fresh = now.valueOf() - 7 * 24 * 60 * 60 * 1000;
+      const ready = queue.items.find((item) => item.prebuilt && new Date(index.articles[String(item.no)]?.publishedAt ?? 0).valueOf() > fresh);
+      if (ready) {
+        console.error(`이번 주 글은 미리 만들어 둠: ${ready.episode} ${ready.title}`);
+        return;
+      }
     }
     const pending = episodes.find((episode) => episode.status.status === STATUS.PACKAGE_PENDING);
     if (pending) {
@@ -311,6 +337,26 @@ const commands = {
       console.log(`${id} ${text.length}자`);
     }
     console.log(`합계 ${texts.reduce((sum, item) => sum + item.text.length, 0)}자 → ${outDir}`);
+  },
+  async prebuild() {
+    const { createHash } = await import("node:crypto");
+    const { writeFile } = await import("node:fs/promises");
+    const [file] = positional();
+    const slug = option("--slug")?.[0];
+    if (!file || !slug || !/^[a-z0-9-]+$/.test(slug)) throw new Error("prebuild <원고.md> --slug 영문-소문자 를 적어 주세요.");
+    const text = (await readFile(file, "utf8")).trim();
+    const title = text.match(/^#\s+(.+)$/m)?.[1]?.trim();
+    if (!title) throw new Error("원고 첫 줄에 '# 제목'이 필요합니다.");
+    const body = text.replace(/^#\s+.+$/m, "").trim();
+    const bodyHash = createHash("sha256").update(body).digest("hex");
+    const sourceFile = `pre-${slug}.md`;
+    await mkdir(paths.sources, { recursive: true });
+    await writeFile(
+      path.join(paths.sources, sourceFile),
+      articleToMarkdown({ id: `pre-${slug}`, canonicalUrl: "https://brunch.co.kr/@heoboram", title, subtitle: "", publishedAt: "", bodyHash, body }),
+    );
+    const { episode, created } = await createPrebuiltEpisode({ slug, title, file: sourceFile, bodyHash }, now, paths);
+    console.log(created ? episode.name : `이미 있는 Episode ${episode.name}`);
   },
   async readback() {
     const { chapterNarrationTexts } = await import("../youtube/render/timeline.js");

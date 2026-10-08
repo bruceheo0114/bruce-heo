@@ -188,3 +188,51 @@ export async function readEpisodeFile(episode, name) {
     throw error;
   }
 }
+
+const titleKey = (title) => String(title ?? "").replace(/[^가-힣A-Za-z0-9]/g, "").toLowerCase();
+
+/**
+ * 발행 전 글로 미리 만든 Episode (사용자가 "글이 있어"라며 본문을 준 경우).
+ * article.prebuilt = true. 브런치에 같은 제목의 글이 올라오면 linkPrebuilt가 그 글에 붙인다.
+ */
+export async function createPrebuiltEpisode({ slug, title, file, bodyHash }, now, paths = youtubePaths()) {
+  return createEpisode(
+    { id: `pre-${slug}`, url: "https://brunch.co.kr/@heoboram", title, publishedAt: now.toISOString(), file, bodyHash },
+    now,
+    paths,
+  ).then(async (result) => {
+    if (result.created) {
+      result.episode.status.article.prebuilt = true;
+      result.episode.status.history[0].note = "발행 전 원고로 미리 제작";
+      await saveStatus(result.episode);
+    }
+    return result;
+  });
+}
+
+/** 새로 발행된 글 중 미리 만든 Episode와 제목이 같은 글을 찾아 연결한다. 연결된 [{ entry, episode }] */
+export async function linkPrebuilt(entries, now, paths = youtubePaths()) {
+  const prebuilt = (await listEpisodes(paths)).filter((episode) => episode.status.article?.prebuilt);
+  const linked = [];
+  for (const entry of entries) {
+    const episode = prebuilt.find((item) => titleKey(item.status.article.title) === titleKey(entry.title));
+    if (!episode) continue;
+    const { article } = episode.status;
+    article.draft_id = article.id;
+    Object.assign(article, {
+      id: entry.id,
+      url: entry.url,
+      title: entry.title,
+      published_at: entry.publishedAt,
+      source_file: path.posix.join("source", "brunch", entry.file),
+      body_hash: entry.bodyHash,
+      prebuilt: false,
+      linked_at: now.toISOString(),
+    });
+    episode.status.updated_at = now.toISOString();
+    await saveStatus(episode);
+    prebuilt.splice(prebuilt.indexOf(episode), 1);
+    linked.push({ entry, episode });
+  }
+  return linked;
+}

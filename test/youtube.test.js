@@ -428,3 +428,42 @@ test("upload.md에서 제목·설명·태그·합성 콘텐츠 여부를 읽는�
   assert.deepEqual(kit.tags, ["마케팅", "브랜딩"]);
   assert.equal(kit.altered, true);
 });
+
+test("CLI: 발행 전 원고로 미리 만든 Episode는 같은 제목 글이 올라오면 연결되고, 그 주는 새로 만들지 않는다", async () => {
+  const root = await mkdtemp(path.join(tmpdir(), "bruce-youtube-prebuild-"));
+  const content = path.join(root, "content");
+  const env = { ...process.env, YOUTUBE_ROOT: path.join(root, "yt"), AUTOMATION_NOW: "2026-10-08T01:00:00Z" };
+  const cli = path.resolve("src/cli/youtube.js");
+  const { mkdir } = await import("node:fs/promises");
+  const save = async (item) => {
+    await mkdir(path.join(content, item.id), { recursive: true });
+    await writeFile(path.join(content, item.id, "source.json"), JSON.stringify(item));
+  };
+  await save(article);
+  await run("node", [cli, "sync", "--local"], { env, cwd: root });
+
+  const draft = path.join(root, "draft.md");
+  await writeFile(draft, `# LG전자는 왜 발음하기도 어려운 닉네임을 만들었을까?\n\n${article.body}`);
+  let out = await run("node", [cli, "prebuild", draft, "--slug", "lge"], { env, cwd: root });
+  assert.equal(out.stdout.trim(), "EP001_brunch-pre-lge");
+  const paths = youtubePaths(path.join(root, "yt"));
+  const made = await findEpisode("EP001", paths);
+  await writeFile(path.join(made.dir, "00_score.md"), score("SHORTS_ONLY"));
+  await writeFile(path.join(made.dir, "06_shorts.md"), shorts);
+  assert.ok((await finalizeEpisode(made, new Date("2026-10-08T02:00:00Z"), paths)).ok);
+
+  // 브런치에 같은 제목(따옴표·띄어쓰기 차이는 무시)으로 발행
+  const published = { ...article, id: "223", title: "LG전자는 왜 발음하기도 어려운 닉네임을 만들었을까", canonicalUrl: "https://brunch.co.kr/@heoboram/223", publishedAt: "2026-10-12T03:00:00.000Z", bodyHash: "h223" };
+  await save(published);
+  const tuesday = { ...env, AUTOMATION_NOW: "2026-10-13T12:13:00Z" };
+  out = await run("node", [cli, "sync", "--local"], { env: tuesday, cwd: root });
+  assert.match(out.stdout, /미리 만든 EP001_brunch-pre-lge ← 223/);
+  const linked = await findEpisode("EP001", paths);
+  assert.equal(linked.status.article.id, "223");
+  assert.equal(linked.status.article.url, "https://brunch.co.kr/@heoboram/223");
+  assert.equal(linked.status.article.prebuilt, false);
+
+  out = await run("node", [cli, "next", "--weekly"], { env: tuesday, cwd: root });
+  assert.equal(out.stdout.trim(), "");
+  assert.match(out.stderr, /미리 만들어 둠: EP001/);
+});
