@@ -11,7 +11,7 @@ import { findSection, parseBlocks } from "../parse.js";
 import { analyzeStoryboard } from "../validate.js";
 import { FRAME, isTransition, logoHtml, overlayHtml, renderFrames, sceneFrameHtml, screenLines } from "./frames.js";
 import { alignedCues, alignScenes, insertChapterCards } from "./align.js";
-import { buildTimeline, chapterNarrationTexts, formatClock, parseScriptChapters, subtitleCues } from "./timeline.js";
+import { buildTimeline, chapterNarrationTexts, displayText, formatClock, parseScriptChapters, readingPairs, subtitleCues } from "./timeline.js";
 
 const run = promisify(execFile);
 const FPS = 30;
@@ -560,7 +560,9 @@ export async function renderEpisode(episode, audioFiles, { root, outDir, preview
 
   // 4) 자막을 입혀 최종본
   const chapterTexts = chapterNarrationTexts(script).map((item) => item.text);
-  const cues = aligned && chapterTexts.length === audio.length ? alignedCues(timeline, chapterTexts, groupWords) : subtitleCues(timeline);
+  const pairs = readingPairs(script);
+  const cues = (aligned && chapterTexts.length === audio.length ? alignedCues(timeline, chapterTexts, groupWords) : subtitleCues(timeline))
+    .map((cue) => ({ ...cue, text: displayText(cue.text, pairs) }));
   const assFile = path.join(work, "subtitles.ass");
   await writeFile(assFile, buildAss(cues));
   await writeFile(path.join(outDir, "subtitles.srt"), buildSrt(cues));

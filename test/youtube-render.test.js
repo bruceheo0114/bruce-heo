@@ -206,3 +206,9 @@ test("사진 확대는 소수점 좌표(perspective)로 해서 떨리지 않는�
   assert.doesNotMatch(normal, /zoompan/);
   assert.match(pushIn(105, true), /H\*0\.42/); // 클로즈업은 가운데보다 조금 위
 });
+
+test("자막은 읽는 법 대신 원래 표기로 보여 준다", async () => {
+  const { readingPairs, displayText } = await import("../src/youtube/render/timeline.js");
+  const pairs = readingPairs("LG(엘지)전자와 LGE(엘지이)닷컴, TV(티비), 1대1(일대일) 상담");
+  assert.equal(displayText("엘지전자는 엘지이닷컴에서 티비와 일대일 상담을", pairs), "LG전자는 LGE닷컴에서 TV와 1대1 상담을");
+});
