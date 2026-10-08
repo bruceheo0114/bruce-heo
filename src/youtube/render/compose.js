@@ -334,6 +334,12 @@ export function buildSrt(cues) {
   return cues.map((cue, index) => `${index + 1}\n${srtTime(cue.start)} --> ${srtTime(cue.end)}\n${cue.text}\n`).join("\n");
 }
 
+// 제목이 정확히 같은 ## 섹션만(findSection은 부분 일치라 "Tags"가 "Hashtags"에도 걸린다)
+function exactSection(markdown, heading) {
+  const match = String(markdown ?? "").match(new RegExp(`^#{1,6}\\s+${heading}\\s*$([\\s\\S]*?)(?=^#{1,6}\\s|(?![\\s\\S]))`, "m"));
+  return match ? match[1] : null;
+}
+
 function list(text) {
   return String(text ?? "")
     .split(/\r?\n/)
@@ -365,6 +371,13 @@ function alteredNote({ aiImages, syntheticVoice }) {
 export function buildUploadKit(episode, brief, timeline, sources = [], { aiImages, syntheticVoice = false } = {}) {
   const titles = list(findSection(brief, "Title Candidates"));
   const thesis = list(findSection(brief, "One Sentence Thesis"))[0] ?? "";
+  // 01_brief.md의 ## Hashtags / ## Tags / ## Pinned Comment (없으면 채널 기본값)
+  const channelTags = ["#브루스인사이트", "#마케팅", "#브랜딩"];
+  const hashtags = [...new Set([...list(exactSection(brief, "Hashtags")).flatMap((line) => line.split(/\s+/)).filter((tag) => tag.startsWith("#")), ...channelTags])].slice(0, 10);
+  const defaultTags = ["마케팅", "브랜딩", "광고", "브랜드 사례", "마케터", "캠페인", "콘텐츠 마케팅", "브루스 인사이트"];
+  const tags = [...new Set([...list(exactSection(brief, "Tags")).flatMap((line) => line.split(/\s*,\s*/)).filter(Boolean), ...defaultTags])];
+  while (tags.join(", ").length > 480) tags.pop(); // YouTube 태그는 합쳐서 500자까지
+  const pinned = (exactSection(brief, "Pinned Comment") ?? "").trim();
   const chapters = [...timeline.chapters];
   if (!chapters.length || chapters[0].start > 0.5) chapters.unshift({ title: "오프닝", start: 0 });
   chapters[0].start = 0;
@@ -378,7 +391,8 @@ export function buildUploadKit(episode, brief, timeline, sources = [], { aiImage
     "",
     ...(sources.length ? ["자료 출처", ...sources.map((item) => `- ${item.source}${item.url ? ` ${item.url}` : ""}`), ""] : []),
     "인스타그램 @bruce.insight · 브런치 @heoboram · bruceheo.com",
-    "#마케팅 #브랜딩 #브루스인사이트",
+    "",
+    hashtags.join(" "), // 앞의 3개가 제목 위에 보인다
   ].join("\n");
   return [
     `# ${episode.status.episode} 업로드 정보`,
@@ -397,10 +411,15 @@ export function buildUploadKit(episode, brief, timeline, sources = [], { aiImage
     description,
     "```",
     "",
-    "## 태그",
+    "## 해시태그 (설명 맨 끝에 이미 들어 있음, 앞 3개가 제목 위에 보임)",
     "",
-    "마케팅, 브랜딩, 광고, 브랜드 사례, 마케터, 캠페인, 콘텐츠 마케팅, 브루스 인사이트",
+    hashtags.join(" "),
     "",
+    "## 태그 (YouTube Studio → 자세히 보기 → 태그에 붙여넣기)",
+    "",
+    tags.join(", "),
+    "",
+    ...(pinned ? ["## 고정 댓글", "", "```", pinned, "```", ""] : []),
     "## 설정",
     "",
     "- 썸네일: thumbnail_1.png ~ thumbnail_3.png 중 하나 (thumbnail.png = 1안)",

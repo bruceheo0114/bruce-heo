@@ -112,9 +112,15 @@ Bruce는 중간 확인을 하지 않는다(사용자 결정 2026-10-08). 대본 
 
 ## 10. 영상 보내기 (업로드는 Bruce가 직접)
 
-`output/<EP>/<EP>.mp4`·`thumbnail.png`·`upload.md`를 SendUserFile(status `proactive`)로 보낸다.
-upload.md의 제목·설명·태그를 메시지에 그대로 붙여, 폰에서 복사해 YouTube 앱에 붙여 넣을 수 있게 한다.
-mp4가 커서 보내기에 실패하면 한 번만 다시 시도하고, 그래도 안 되면 그 사실을 마지막 메시지에 적는다.
+SendUserFile은 30MB까지라 1080p 원본(보통 60MB 안팎)은 GitHub 다운로드 브랜치로 준다(저장소는 공개).
+
+1. 원본에 업로드 정보를 넣는다: upload.md의 제목·설명(해시태그 포함)·태그를 mp4 메타데이터(title·description·comment·keywords)로,
+   thumbnail_1.png를 표지(attached_pic)로 넣은 `<EP>_1080p.mp4`를 만든다(`-c copy`, 다시 인코딩하지 않는다).
+2. 고아 브랜치 `media/<ep 소문자>`(예: `media/ep003`)를 별도 worktree에서 만들고 `<EP>/`에
+   `<EP>_1080p.mp4`, `thumbnail_1~3.png`, `업로드정보.md`(= upload.md), `subtitles.srt`, 맨 위 `README.md`(파일별 raw 링크 표)를 넣어 푸시한다.
+   main에는 올리지 않는다. 링크: `https://github.com/bruceheo0114/bruce-heo/raw/media/<ep>/<EP>/<EP>_1080p.mp4`
+3. 폰에서 바로 보게 720p 사본(2-pass, 30MB 미만)과 썸네일 3안·upload.md를 SendUserFile(status `proactive`)로 보낸다.
+4. 마지막 메시지에 1080p 다운로드 링크와 README 링크(`https://github.com/bruceheo0114/bruce-heo/tree/media/<ep>`)를 적는다.
 
 ## 11. 커밋
 
