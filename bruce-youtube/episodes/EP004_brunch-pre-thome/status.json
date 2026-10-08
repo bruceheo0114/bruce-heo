@@ -10,8 +10,8 @@
     "body_hash": "cafe1f03d53295429e6c2550f240b18019dbf5093999a4dee741c6f669dccebd",
     "prebuilt": true
   },
-  "status": "WAITING_APPROVAL",
-  "higgsfield_generation": false,
+  "status": "APPROVED",
+  "higgsfield_generation": true,
   "recommendation": "MAKE_VIDEO",
   "video_potential": {
     "NARRATIVE": 8,
@@ -23,7 +23,19 @@
     "TOTAL": 44,
     "MAX": 60
   },
-  "approved_scenes": [],
+  "approved_scenes": [
+    "S001",
+    "S006",
+    "S015",
+    "S020",
+    "S024",
+    "S062",
+    "S064",
+    "S074",
+    "S089",
+    "S097",
+    "S105"
+  ],
   "generated": {},
   "plan": {
     "runtime_seconds": 621,
@@ -89,7 +101,7 @@
   },
   "update": null,
   "created_at": "2026-10-08T12:40:00.638Z",
-  "updated_at": "2026-10-08T12:44:14.980Z",
+  "updated_at": "2026-10-08T12:44:23.222Z",
   "history": [
     {
       "at": "2026-10-08T12:40:00.638Z",
@@ -102,6 +114,13 @@
       "from": "PACKAGE_PENDING",
       "to": "WAITING_APPROVAL",
       "note": "영상화 평가 44/60 · MAKE_VIDEO"
+    },
+    {
+      "at": "2026-10-08T12:44:23.222Z",
+      "from": "WAITING_APPROVAL",
+      "to": "APPROVED",
+      "note": "Higgsfield 승인: S001, S006, S015, S020, S024, S062, S064, S074, S089, S097, S105"
     }
-  ]
+  ],
+  "approved_at": "2026-10-08T12:44:23.222Z"
 }
