@@ -10,7 +10,7 @@
     "body_hash": "6ed259199d4dc890733ba881b128824589828432b6d5a99065076af2d25a20c8",
     "prebuilt": true
   },
-  "status": "WAITING_APPROVAL",
+  "status": "ASSETS_READY",
   "higgsfield_generation": false,
   "recommendation": "MAKE_VIDEO",
   "video_potential": {
@@ -23,8 +23,100 @@
     "TOTAL": 46,
     "MAX": 60
   },
-  "approved_scenes": [],
-  "generated": {},
+  "approved_scenes": [
+    "S001",
+    "S010",
+    "S015",
+    "S025",
+    "S033",
+    "S063",
+    "S068",
+    "S070",
+    "S085",
+    "S093"
+  ],
+  "generated": {
+    "S001": {
+      "job": "2de2c3d5-77c6-4405-bc6b-99c133501298",
+      "files": [
+        "bruce-youtube/assets/references/EP002/G01.png"
+      ],
+      "credits": 0.25,
+      "at": "2026-10-08T01:30:27.702Z"
+    },
+    "S033": {
+      "job": "2de2c3d5-77c6-4405-bc6b-99c133501298",
+      "files": [
+        "bruce-youtube/assets/references/EP002/G01.png"
+      ],
+      "credits": 0,
+      "at": "2026-10-08T01:30:27.785Z"
+    },
+    "S015": {
+      "job": "8a41a824-dd5a-4f77-9dbb-e4cf38b63e71",
+      "files": [
+        "bruce-youtube/assets/references/EP002/G02.png"
+      ],
+      "credits": 0.25,
+      "at": "2026-10-08T01:30:27.869Z"
+    },
+    "S025": {
+      "job": "40eeaaf3-ae94-4598-94bb-396a116be4fc",
+      "files": [
+        "bruce-youtube/assets/references/EP002/G03.png"
+      ],
+      "credits": 0.25,
+      "at": "2026-10-08T01:30:27.952Z"
+    },
+    "S068": {
+      "job": "541acb36-7a0b-42c4-b8c4-ec2be6a8d1c4",
+      "files": [
+        "bruce-youtube/assets/references/EP002/G04.png"
+      ],
+      "credits": 0.25,
+      "at": "2026-10-08T01:30:28.040Z"
+    },
+    "S063": {
+      "job": "a1e05879-9622-4098-9d7b-6d01e5945438",
+      "files": [
+        "bruce-youtube/assets/references/EP002/G05.png"
+      ],
+      "credits": 0.25,
+      "at": "2026-10-08T01:30:28.151Z"
+    },
+    "S010": {
+      "job": "9e85b5e8-f3e5-4036-9cd3-8d29e968c2bb",
+      "files": [
+        "bruce-youtube/assets/references/EP002/G06.png"
+      ],
+      "credits": 0.25,
+      "at": "2026-10-08T01:30:28.236Z"
+    },
+    "S085": {
+      "job": "9e85b5e8-f3e5-4036-9cd3-8d29e968c2bb",
+      "files": [
+        "bruce-youtube/assets/references/EP002/G06.png"
+      ],
+      "credits": 0,
+      "at": "2026-10-08T01:30:28.322Z"
+    },
+    "S070": {
+      "job": "46d4462e-11a5-4d6a-a3b4-00dea564eee6",
+      "files": [
+        "bruce-youtube/assets/references/EP002/G07.png"
+      ],
+      "credits": 0.25,
+      "at": "2026-10-08T01:30:28.427Z"
+    },
+    "S093": {
+      "job": "17869840-b576-4b70-85bb-08d97d9b501e",
+      "files": [
+        "bruce-youtube/assets/references/EP002/G08.png"
+      ],
+      "credits": 0.25,
+      "at": "2026-10-08T01:30:28.514Z"
+    }
+  },
   "plan": {
     "runtime_seconds": 633,
     "runtime": "10:33",
@@ -82,7 +174,7 @@
   },
   "update": null,
   "created_at": "2026-10-08T01:19:31.938Z",
-  "updated_at": "2026-10-08T01:26:11.249Z",
+  "updated_at": "2026-10-08T01:30:28.514Z",
   "history": [
     {
       "at": "2026-10-08T01:19:31.938Z",
@@ -95,6 +187,19 @@
       "from": "PACKAGE_PENDING",
       "to": "WAITING_APPROVAL",
       "note": "영상화 평가 46/60 · MAKE_VIDEO"
+    },
+    {
+      "at": "2026-10-08T01:27:46.341Z",
+      "from": "WAITING_APPROVAL",
+      "to": "APPROVED",
+      "note": "Higgsfield 승인: S001, S010, S015, S025, S033, S063, S068, S070, S085, S093"
+    },
+    {
+      "at": "2026-10-08T01:30:28.514Z",
+      "from": "APPROVED",
+      "to": "ASSETS_READY",
+      "note": "승인된 AI Scene 생성 완료"
     }
-  ]
+  ],
+  "approved_at": "2026-10-08T01:27:46.341Z"
 }

@@ -140,6 +140,88 @@
         "S014",
         "S080"
       ]
+    },
+    {
+      "id": "G01",
+      "kind": "image",
+      "ai": true,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261008_012807_2de2c3d5-77c6-4405-bc6b-99c133501298.png",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "scenes": [
+        "S001",
+        "S033"
+      ]
+    },
+    {
+      "id": "G02",
+      "kind": "image",
+      "ai": true,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261008_012807_8a41a824-dd5a-4f77-9dbb-e4cf38b63e71.png",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "scenes": [
+        "S015"
+      ]
+    },
+    {
+      "id": "G03",
+      "kind": "image",
+      "ai": true,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261008_012912_40eeaaf3-ae94-4598-94bb-396a116be4fc.png",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "scenes": [
+        "S025"
+      ]
+    },
+    {
+      "id": "G04",
+      "kind": "image",
+      "ai": true,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261008_012807_541acb36-7a0b-42c4-b8c4-ec2be6a8d1c4.png",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "scenes": [
+        "S068"
+      ]
+    },
+    {
+      "id": "G05",
+      "kind": "image",
+      "ai": true,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261008_012808_a1e05879-9622-4098-9d7b-6d01e5945438.png",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "scenes": [
+        "S063"
+      ]
+    },
+    {
+      "id": "G06",
+      "kind": "image",
+      "ai": true,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261008_012911_9e85b5e8-f3e5-4036-9cd3-8d29e968c2bb.png",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "scenes": [
+        "S010",
+        "S085"
+      ]
+    },
+    {
+      "id": "G07",
+      "kind": "image",
+      "ai": true,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261008_012920_46d4462e-11a5-4d6a-a3b4-00dea564eee6.png",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "scenes": [
+        "S070"
+      ]
+    },
+    {
+      "id": "G08",
+      "kind": "image",
+      "ai": true,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261008_012920_17869840-b576-4b70-85bb-08d97d9b501e.png",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "scenes": [
+        "S093"
+      ]
     }
   ]
 }
