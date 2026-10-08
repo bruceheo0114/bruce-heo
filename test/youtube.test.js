@@ -7,6 +7,8 @@ import path from "node:path";
 import { promisify } from "node:util";
 import { youtubePaths } from "../src/youtube/config.js";
 import { pickNext } from "../src/youtube/queue.js";
+import { diffReadback, lintNarration } from "../src/youtube/readback.js";
+import { parseUploadKit } from "../src/youtube/upload.js";
 import { createEpisode, findEpisode, markUpdateAvailable, resolveUpdate } from "../src/youtube/episode.js";
 import { parseBlocks, parseTimeRange } from "../src/youtube/parse.js";
 import { addSpend, cycleKey, loadLedger, monthSpent } from "../src/youtube/ledger.js";
@@ -401,4 +403,28 @@ test("이번 주 새 글이 있으면 먼저, 없으면 큐 todo → 예비 글 
   assert.equal(pickNext(queue, index, new Date("2026-10-20T20:13:00Z")).no, 202);
   queue.items[1].status = "episode";
   assert.equal(pickNext(queue, index, new Date("2026-10-20T20:13:00Z")), null);
+});
+
+test("소리 내어 읽기: 긴 문장·읽는 법 없는 말, 받아쓰기와 다르게 들린 곳", () => {
+  const issues = lintNarration("광고비는 1,000만 달러였어요. 2026년에 SNS에 올렸죠. 짧아요.");
+  assert.deepEqual(issues.map((issue) => issue.text.split(" — ")[0]), ["1,000", "SNS"]);
+  assert.equal(lintNarration("가".repeat(80)).length, 1);
+  const words = ["하인즈는", "케첩이", "아니라", "기억을", "팝니다"].flatMap((text, index) => [
+    { text, start: index, end: index + 0.5, type: "word" },
+    { text: " ", start: index + 0.5, end: index + 1, type: "spacing" },
+  ]);
+  assert.deepEqual(diffReadback("하인즈는 케첩이 아니라 기억을 판다.", words), [{ script: "판다", heard: "팝니다" }]);
+  assert.deepEqual(diffReadback("하인즈는 케첩이 아니라 기억을 팝니다.", words), []);
+});
+
+test("upload.md에서 제목·설명·태그·합성 콘텐츠 여부를 읽는다", () => {
+  const kit = parseUploadKit([
+    "# EP002 업로드 정보", "", "## 제목 (1순위)", "", "르게다꼼은 왜 낯설까", "", "## 다른 제목 후보", "", "- 후보",
+    "", "## 설명 (그대로 붙여넣기)", "", "```", "한 줄 요약", "", "00:00 오프닝", "```", "",
+    "## 태그", "", "마케팅, 브랜딩", "", "## 설정", "", "- 변경된 콘텐츠 표시: '예' (내레이션이 본인 복제 목소리)", "",
+  ].join("\n"));
+  assert.equal(kit.title, "르게다꼼은 왜 낯설까");
+  assert.equal(kit.description, "한 줄 요약\n\n00:00 오프닝");
+  assert.deepEqual(kit.tags, ["마케팅", "브랜딩"]);
+  assert.equal(kit.altered, true);
 });

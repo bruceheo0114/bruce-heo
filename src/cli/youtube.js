@@ -1,4 +1,4 @@
-import { appendFile, mkdir } from "node:fs/promises";
+import { appendFile, mkdir, readFile } from "node:fs/promises";
 import path from "node:path";
 import { RULES, STATUS, youtubePaths } from "../youtube/config.js";
 import { addSpend, loadLedger, monthSpent } from "../youtube/ledger.js";
@@ -47,6 +47,9 @@ const USAGE = `사용법: node src/cli/youtube.js <명령> [인자]
   narration <EP> <파일...> [--duration mm:ss ...]
                                  직접 녹음한 내레이션 등록 (ffprobe가 없으면 --duration으로 길이 입력)
   narration-text <EP> [--out 폴더] 대본을 챕터별 읽기용 텍스트(CH01.txt …)로 저장 (ElevenLabs 복제 목소리 입력)
+  readback <EP> [--dir 폴더]       소리 내어 읽기 검사: 긴 문장·읽는 법 없는 숫자/영어, CHxx.words.json이 있으면 대본과 다르게 들린 곳
+  upload <EP> [--privacy public|unlisted|private] [--publish-at ISO]
+                                 output/<EP>/의 mp4·썸네일·upload.md로 YouTube 업로드 (YOUTUBE_* 환경 변수 필요)
   references [EP] [--changed]     references.json의 실제 자료를 받아 assets/references/<EP>/에 저장 (GitHub Actions에서 실행)
   render <EP> <녹음 파일...> [--preview] [--no-cleanup] [--voice-clone] [--out 폴더]
                                  녹음 + 화면 + 자막 → 완성 영상 mp4, 썸네일, 업로드 정보 (ffmpeg·playwright 필요)
@@ -308,6 +311,59 @@ const commands = {
       console.log(`${id} ${text.length}자`);
     }
     console.log(`합계 ${texts.reduce((sum, item) => sum + item.text.length, 0)}자 → ${outDir}`);
+  },
+  async readback() {
+    const { chapterNarrationTexts } = await import("../youtube/render/timeline.js");
+    const { readEpisodeFile } = await import("../youtube/episode.js");
+    const { lintNarration, diffReadback } = await import("../youtube/readback.js");
+    const episode = await findEpisode(positional()[0], paths);
+    const dir = option("--dir")?.[0] ?? path.join(paths.root, "output", episode.status.episode, "narration");
+    let count = 0;
+    for (const { id, text } of chapterNarrationTexts(await readEpisodeFile(episode, "02_script.md"))) {
+      for (const issue of lintNarration(text)) {
+        console.log(`${id} [${issue.kind}] ${issue.text}`);
+        count += 1;
+      }
+      let words = null;
+      for (const name of [`${episode.status.episode}_${id}.words.json`, `${id}.words.json`]) {
+        try {
+          const raw = JSON.parse(await readFile(path.join(dir, name), "utf8"));
+          words = Array.isArray(raw) ? raw : raw.words;
+          break;
+        } catch {
+          // 아직 음성을 만들기 전이면 읽기 전 검사만 한다
+        }
+      }
+      if (!words) continue;
+      for (const diff of diffReadback(text, words)) {
+        console.log(`${id} [다르게 들림] 대본 "${diff.script}" → 들린 말 "${diff.heard}"`);
+        count += 1;
+      }
+    }
+    console.log(count ? `확인할 곳 ${count}개` : "걸리는 곳 없음");
+  },
+  async upload() {
+    const { parseUploadKit, uploadVideo } = await import("../youtube/upload.js");
+    const { saveStatus } = await import("../youtube/episode.js");
+    const episode = await findEpisode(positional()[0], paths);
+    if (episode.status.youtube?.videoId) {
+      console.log(`이미 올림: https://youtu.be/${episode.status.youtube.videoId}`);
+      return;
+    }
+    const outDir = option("--out")?.[0] ?? path.join(paths.root, "output", episode.status.episode);
+    const kit = parseUploadKit(await readFile(path.join(outDir, "upload.md"), "utf8"));
+    const result = await uploadVideo({
+      file: path.join(outDir, `${episode.status.episode}.mp4`),
+      thumbnail: path.join(outDir, "thumbnail.png"),
+      kit,
+      privacy: option("--privacy")?.[0] ?? "public",
+      publishAt: option("--publish-at")?.[0] ?? null,
+      log: (line) => console.log(line),
+    });
+    episode.status.youtube = { ...result, title: kit.title, uploaded_at: now.toISOString() };
+    await saveStatus(episode);
+    console.log(`${episode.name} → ${result.url} (${result.privacy})`);
+    await log("INFO", `${episode.name} uploaded ${result.videoId}`);
   },
   async references() {
     const { fetchReferences, referencesPending } = await import("../youtube/references.js");
