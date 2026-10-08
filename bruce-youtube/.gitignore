@@ -10,3 +10,4 @@ assets/generated/**/*.mp4
 # 완성 영상·작업 파일
 output/
 !channel/sfx/*.mp3
+!channel/bgm/*.mp3

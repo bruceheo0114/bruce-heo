@@ -55,6 +55,12 @@ async function exists(file) {
 
 const SFX_VOLUME = 0.7; // 효과음 크기(내레이션 대비)
 const CHAPTER_GAP = 2.6; // 챕터 사이 무음(초). 이 자리에 챕터 간지와 효과음이 들어간다
+// 채널 BGM(bruce-youtube/channel/bgm/bgm.mp3). 영상 내내 반복해서 깔고, 내레이션이 나오면 자동으로 줄였다가
+// 말이 멈추는 곳(챕터 간지·마지막 여운)에서 다시 올라온다(사이드체인 덕킹).
+const BGM_LUFS = -27; // 말이 없을 때 BGM 크기(내레이션 -14 LUFS 대비 약 13dB 아래)
+const BGM_DUCK_RATIO = 2.5; // 말할 때 추가로 줄이는 정도(약 10dB)
+const BGM_XFADE = 4; // 곡을 이어 붙일 때 겹치는 길이(초)
+const OUTRO_TAIL = 4; // BGM이 있으면 마지막 말 뒤에 마지막 화면을 이만큼 더 두고 음악으로 마무리한다
 
 async function readWords(audioFile) {
   const file = audioFile.replace(/\.[^./]+$/, ".words.json");
@@ -220,7 +226,8 @@ export function planShots(timeline, { byKey, pool, sceneImages }) {
       continue;
     }
     splitShots(at, scene.end, fills.length).forEach((shot, index) => {
-      const mode = isType ? "type" : !startWithCard && index === 0 ? "caption" : scene.sourceType === "GRAPHIC" ? "none" : "none";
+      // 설명 줄은 장면 첫 컷에만 두면 그림이 바뀔 때 나타났다 사라져 산만하다. 장면 내내 같은 자리에 둔다.
+      const mode = isType ? "type" : !startWithCard ? "caption" : "none";
       push(scene, shot.start, shot.end, fills[index], mode);
     });
   }
@@ -267,7 +274,7 @@ export function planMappedShots(timeline, sceneImages) {
     }
     const startedWithCard = at > scene.start;
     splitShots(at, scene.end, count).forEach((shot, index) => {
-      const mode = scene.sourceType === "TYPE" ? "type" : !startedWithCard && index === 0 ? "caption" : "none";
+      const mode = scene.sourceType === "TYPE" ? "type" : !startedWithCard ? "caption" : "none";
       push(scene, shot.start, shot.end, order[index].media, mode);
       if (order[index].close) shots.at(-1).close = true;
     });
@@ -417,9 +424,12 @@ export async function renderEpisode(episode, audioFiles, { root, outDir, preview
   const storyboard = analyzeStoryboard(storyboardText);
   const chapters = parseScriptChapters(script);
   // 챕터 사이에 숨 쉴 틈(CHAPTER_GAP초)을 둔다. 챕터 전환 카드가 이 자리에 나온다.
+  const bgm = path.join(root, "channel", "bgm", "bgm.mp3"); // root = bruce-youtube
+  const hasBgm = await exists(bgm);
   const audio = [];
   for (const [index, file] of audioFiles.entries()) {
-    const gap = audioFiles.length > 1 && index < audioFiles.length - 1 ? CHAPTER_GAP : 0;
+    const last = index === audioFiles.length - 1;
+    const gap = !last ? (audioFiles.length > 1 ? CHAPTER_GAP : 0) : hasBgm ? OUTRO_TAIL : 0;
     audio.push({ file, seconds: (await probeSeconds(file)) + gap, gap, words: await readWords(file) });
   }
   const timeline = buildTimeline(storyboard.scenes, chapters, audio);
@@ -558,6 +568,39 @@ export async function renderEpisode(episode, audioFiles, { root, outDir, preview
     }
   }
 
+  // 3-1) 채널 BGM: 반복해서 영상 길이에 맞추고, 내레이션을 사이드체인으로 받아 말할 때만 줄인다.
+  //      처음 1.5초는 서서히 올라오고, 마지막 OUTRO_TAIL초 여운에서 올라왔다가 사라진다.
+  let finalAudio = audioOut;
+  if (hasBgm) {
+    const total = timeline.total.toFixed(3);
+    // 마지막 여운은 1.5초 동안 음악이 올라온 채로 머물다가 남은 시간에 사라진다
+    const fadeLength = Math.max(1, OUTRO_TAIL - 1.5);
+    const fadeOut = Math.max(0, timeline.total - fadeLength).toFixed(3);
+    finalAudio = path.join(work, "mix.m4a");
+    // 곡(약 2분)을 영상 길이만큼 이어 붙인다. 이음매는 4초씩 겹쳐(크로스페이드) 끊기는 소리가 나지 않게.
+    const looped = path.join(work, "bgm_long.m4a");
+    const bgmSeconds = await probeSeconds(bgm);
+    const copies = Math.max(1, Math.ceil(timeline.total / Math.max(1, bgmSeconds - BGM_XFADE)) + 1);
+    const loopInputs = Array.from({ length: copies }, () => ["-i", bgm]).flat();
+    let loopChain = copies === 1 ? "[0:a]anull[l]" : "";
+    for (let index = 1; index < copies; index += 1) {
+      loopChain += `${index > 1 ? ";" : ""}[${index === 1 ? "0:a" : `x${index - 1}`}][${index}:a]acrossfade=d=${BGM_XFADE}:c1=tri:c2=tri[${index === copies - 1 ? "l" : `x${index}`}]`;
+    }
+    await ffmpeg([...loopInputs, "-filter_complex", loopChain, "-map", "[l]", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", looped]);
+    // 곡 음량은 한 번 재서 고정 배율로 맞춘다(loudnorm을 걸면 끝 3초가 잘려 여운이 사라진다)
+    const bgmLoudness = await measureLoudness(["-i", bgm, "-af", "loudnorm=print_format=json"]);
+    const bgmGain = (BGM_LUFS - Number(bgmLoudness?.input_i ?? -16)).toFixed(1);
+    const graph = [
+      `[1:a]aformat=sample_rates=48000:channel_layouts=stereo,atrim=0:${total},asetpts=N/SR/TB,volume=${bgmGain}dB,` +
+        `afade=t=in:st=0:d=1.5,afade=t=out:st=${fadeOut}:d=${fadeLength}[m]`,
+      // 덕킹 기준은 효과음을 뺀 내레이션만(간지 효과음 때문에 음악이 줄지 않게)
+      "[2:a]aformat=sample_rates=48000:channel_layouts=stereo[sc]",
+      `[m][sc]sidechaincompress=threshold=0.03:ratio=${BGM_DUCK_RATIO}:attack=60:release=700:makeup=1[md]`,
+      "[0:a][md]amix=inputs=2:normalize=0:duration=first,alimiter=limit=0.84:level=false[a]",
+    ].join(";");
+    await ffmpeg(["-i", audioOut, "-i", looped, "-i", voiceOut, "-filter_complex", graph, "-map", "[a]", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", finalAudio]);
+  }
+
   // 4) 자막을 입혀 최종본
   const chapterTexts = chapterNarrationTexts(script).map((item) => item.text);
   const pairs = readingPairs(script);
@@ -570,7 +613,7 @@ export async function renderEpisode(episode, audioFiles, { root, outDir, preview
   const finalFile = path.join(outDir, `${episode.status.episode}${preview ? "_preview" : ""}.mp4`);
   log("최종 인코딩 중");
   await ffmpeg([
-    "-i", video, "-i", audioOut, "-loop", "1", "-i", path.join(work, "logo.png"),
+    "-i", video, "-i", finalAudio, "-loop", "1", "-i", path.join(work, "logo.png"),
     "-filter_complex", `[2:v]scale=${size}[logo];[0:v][logo]overlay=0:0:shortest=1,ass=${assFile.replace(/:/g, "\\:")}:fontsdir=${fontsDir}[v]`,
     "-map", "[v]", "-map", "1:a",
     "-c:v", "libx264", "-preset", preview ? "ultrafast" : "veryfast", "-crf", preview ? "30" : "21", "-pix_fmt", "yuv420p",
