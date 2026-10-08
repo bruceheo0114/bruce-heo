@@ -410,5 +410,22 @@
       "G08"
     ],
     "S094": []
-  }
+  },
+  "thumbnail": [
+    {
+      "image": "A002",
+      "copy": "르게다꼼?/이게 뭐야",
+      "layout": "full"
+    },
+    {
+      "image": "A005",
+      "copy": "낯섦은 설계다",
+      "layout": "full"
+    },
+    {
+      "image": "A006",
+      "copy": "다르게 읽으면/새 이야기",
+      "layout": "bar"
+    }
+  ]
 }
