@@ -58,8 +58,8 @@ export const RULES = Object.freeze({
   shortsMax: 5,
   titleCandidates: 5,
   thumbnailCopies: 5,
-  // 낭독 분당 약 330자(공백 제외) × 10분
-  scriptMinChars: 3300,
+  // 복제 목소리(ElevenLabs)는 분당 약 370자(공백 제외)로 읽는다 × 10분 (EP002 실측 2026-10-08)
+  scriptMinChars: 3700,
   verbatimShareMax: 0.2,
   realShareMin: 0.3,
   // Higgsfield Starter 월 270 크레딧 = 인스타그램 상한 120(insight-reels/ledger.json) + YouTube 150.
