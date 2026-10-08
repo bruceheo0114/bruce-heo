@@ -429,7 +429,8 @@ const commands = {
     if (!audioFiles.length) throw new Error("녹음 파일 경로를 하나 이상 적어 주세요 (챕터 순서).");
     const episode = await findEpisode(reference, paths);
     const { renderEpisode } = await import("../youtube/render/compose.js");
-    const outDir = option("--out")?.[0] ?? path.join(paths.root, "output", episode.status.episode);
+    // ffmpeg concat 목록은 목록 파일 기준 상대 경로로 읽히므로 절대 경로로 넘긴다
+    const outDir = path.resolve(option("--out")?.[0] ?? path.join(paths.root, "output", episode.status.episode));
     const result = await renderEpisode(episode, audioFiles, {
       root: paths.root,
       outDir,
