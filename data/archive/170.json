@@ -13,7 +13,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/kHwsx25pRjOBtbUgRA5DmpQ8FVI.jpg",
           "width": 1080,
-          "height": 1350
+          "height": 1350,
+          "local": "images/kHwsx25pRjOBtbUgRA5DmpQ8FVI.jpg"
         }
       ],
       "caption": ""
@@ -34,7 +35,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fpng/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/fVg9sgZiupRlYAUBX7X1bVmxLsI.png",
           "width": 927,
-          "height": 475
+          "height": 475,
+          "local": "images/fVg9sgZiupRlYAUBX7X1bVmxLsI.png"
         }
       ],
       "caption": ""
@@ -60,7 +62,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/Op3jB0Ci9eS3fa_SVXn-jmSyzjg.jpg",
           "width": 3000,
-          "height": 1687
+          "height": 1687,
+          "local": "images/Op3jB0Ci9eS3fa_SVXn-jmSyzjg.jpg"
         }
       ],
       "caption": ""
@@ -85,5 +88,6 @@
       "tag": "p",
       "html": "사진= 넷플릭스, 추성훈 유튜브"
     }
-  ]
+  ],
+  "coverLocal": "images/SsnZeCsO4nSYZDz1JefoQ6rnVwc.jpg"
 }

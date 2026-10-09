@@ -23,7 +23,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.kakaocdn.net/brunch/service/user/2fCF/image/2d0HjgENPI7r6ZxPdCcwzlYJD_s.jpg",
           "width": 1280,
-          "height": 720
+          "height": 720,
+          "local": "images/2d0HjgENPI7r6ZxPdCcwzlYJD_s.jpg"
         }
       ],
       "caption": ""
@@ -74,7 +75,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fpng/?fname=http://t1.kakaocdn.net/brunch/service/user/2fCF/image/tf4kuVIiPxinvQzSKcJETu3ge94.png",
           "width": 1672,
-          "height": 941
+          "height": 941,
+          "local": "images/tf4kuVIiPxinvQzSKcJETu3ge94.png"
         }
       ],
       "caption": ""
@@ -114,5 +116,6 @@
       "tag": "p",
       "html": "사람들이 만든 사람을 궁금해하는 이유도 결국 여기에 있지 않을까. 결과물이 마음에 들었기 때문에 그 결과를 만든 사람의 생각까지 궁금해지는 것이다. 우리 브랜드에는 이야기가 없는 게 아니다. 어쩌면 우리에게 너무 익숙해서 아직 꺼내지 않았을 뿐이다."
     }
-  ]
+  ],
+  "coverLocal": "images/SklNEXJ1nLr4Gf-tljRMtTd-ACI.jpg"
 }

@@ -18,7 +18,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fpng/?fname=http://t1.kakaocdn.net/brunch/service/user/2fCF/image/2svH2mJWtTm9-og_S9JlZfQ7-0I.png",
           "width": 1448,
-          "height": 1086
+          "height": 1086,
+          "local": "images/2svH2mJWtTm9-og_S9JlZfQ7-0I.png"
         }
       ],
       "caption": ""
@@ -34,7 +35,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fpng/?fname=http://t1.kakaocdn.net/brunch/service/user/2fCF/image/xPJ8rW-kyN8n4G4n2bslPCvj3Dg.png",
           "width": 1448,
-          "height": 1086
+          "height": 1086,
+          "local": "images/xPJ8rW-kyN8n4G4n2bslPCvj3Dg.png"
         }
       ],
       "caption": ""
@@ -55,7 +57,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fpng/?fname=http://t1.kakaocdn.net/brunch/service/user/2fCF/image/OemgyDybcGFIuyxTNSrSbIP41ZI.png",
           "width": 1448,
-          "height": 1086
+          "height": 1086,
+          "local": "images/OemgyDybcGFIuyxTNSrSbIP41ZI.png"
         }
       ],
       "caption": ""
@@ -85,5 +88,6 @@
       "tag": "p",
       "html": "하인즈는 케첩을 팔지 않는다. 떠올리는 브랜드를 판다. 우리 브랜드는 소비자에게 어떤 방식으로 떠오르고 있는가."
     }
-  ]
+  ],
+  "coverLocal": "images/IRVgBPTcqP8pfRc1tw4BrjoBThA.png"
 }

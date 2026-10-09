@@ -13,7 +13,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/CxleRjT4URGiwDFT4k9TX4vLNFc.jpg",
           "width": 600,
-          "height": 745
+          "height": 745,
+          "local": "images/CxleRjT4URGiwDFT4k9TX4vLNFc.jpg"
         }
       ],
       "caption": "출처: 메가박스"
@@ -44,7 +45,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fpng/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/c_9zodWRHSzcmL0I6FRUuqof5iQ.png",
           "width": 1920,
-          "height": 1080
+          "height": 1080,
+          "local": "images/c_9zodWRHSzcmL0I6FRUuqof5iQ.png"
         }
       ],
       "caption": "출처: KBO"
@@ -77,7 +79,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fpng/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/DU2SB8ud5IVSHjOMaQTJUq-bpBA.png",
           "width": 1920,
-          "height": 975
+          "height": 975,
+          "local": "images/DU2SB8ud5IVSHjOMaQTJUq-bpBA.png"
         }
       ],
       "caption": "출처: 미디어 아트 레이블 버스데이"
@@ -93,7 +96,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/lyyJzc5rlAyYcoANCDZP6kPsoqA.jpg",
           "width": 6000,
-          "height": 4000
+          "height": 4000,
+          "local": "images/lyyJzc5rlAyYcoANCDZP6kPsoqA.jpg"
         }
       ],
       "caption": ""
@@ -113,5 +117,6 @@
       "tag": "p",
       "html": "메가박스의 &#039;낮잠 이벤트&#039;처럼, 극장은 앞으로 어떤 새로운 아이디어로 다시 소비자를 끌어당길지 궁금하고 기대된다."
     }
-  ]
+  ],
+  "coverLocal": "images/EDF8p5qF1SwD_-y207JfjiLnKEs.jpg"
 }

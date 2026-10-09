@@ -40,7 +40,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/NrZqMjAmMKbjLRQom8GshrCOCH0.jpg",
           "width": 800,
-          "height": 450
+          "height": 450,
+          "local": "images/NrZqMjAmMKbjLRQom8GshrCOCH0.jpg"
         }
       ],
       "caption": ""
@@ -66,7 +67,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/kcGxI6F3IaCmMod5wpZ_s8Hr65A.jpg",
           "width": 1224,
-          "height": 1123
+          "height": 1123,
+          "local": "images/kcGxI6F3IaCmMod5wpZ_s8Hr65A.jpg"
         }
       ],
       "caption": ""
@@ -106,5 +108,6 @@
       "tag": "p",
       "html": "미래 시대의 주류가 될 텍스트. 미래의 힙스터가 되고 싶다면 지금부터 당신도 오랜만에 서점으로 가서책 한 권을 사보는 건 어떨까?"
     }
-  ]
+  ],
+  "coverLocal": "images/Xjd6PhPwcAlawNJRUn43uS7sXKc.jpg"
 }

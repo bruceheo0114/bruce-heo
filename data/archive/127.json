@@ -82,7 +82,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fpng/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/jy3rr-jRiem6wn5mMom6EON1kms.png",
           "width": 2043,
-          "height": 1678
+          "height": 1678,
+          "local": "images/jy3rr-jRiem6wn5mMom6EON1kms.png"
         }
       ],
       "caption": "유튜브 '프로야구' 쇼츠 검색 결과, 수십만 뷰는 기본으로 찍는 인기 콘텐츠가 됐다."
@@ -115,5 +116,6 @@
       "tag": "p",
       "html": "콘텐츠 시장은 지속적으로 변화하고 있다. 이 변화에 뒤처지지 않고 흐름 속에서 경쟁력을 유지하기 위해서는 사람들의 콘텐츠 소비 패턴을 끊임없이 관찰하고 분석할 필요가 있다."
     }
-  ]
+  ],
+  "coverLocal": "images/pP-j11Odqp9YpLiPxWUU-giKKEo.jpg"
 }

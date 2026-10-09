@@ -23,7 +23,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/uoE1fa38uKWOtUgveiQxT90Z8pY.jpg",
           "width": 640,
-          "height": 427
+          "height": 427,
+          "local": "images/uoE1fa38uKWOtUgveiQxT90Z8pY.jpg"
         }
       ],
       "caption": "라이엇 게임즈와 국가유산청과 함께 환수한 7번째 문화 유산 '경복궁 선원전 편액'"
@@ -96,5 +97,6 @@
       "tag": "p",
       "html": "우리 기업의 사회 공헌 활동은 활동을 통해 대중들에게 어떤 메시지가 있는가? 그 메시지를 통해 이루고 싶은 목적은 무엇인가? 사회 공헌 활동을 기획할 때 반드시 고민해야할 질문들이다."
     }
-  ]
+  ],
+  "coverLocal": "images/wNPRCw---Ooi4cTD5-azdRB4upA.png"
 }

@@ -13,7 +13,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/_r5Yi8VsFkSXB8IhvHlZuv_8Hbw.jpg",
           "width": 600,
-          "height": 800
+          "height": 800,
+          "local": "images/_r5Yi8VsFkSXB8IhvHlZuv_8Hbw.jpg"
         }
       ],
       "caption": ""
@@ -79,7 +80,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/rQ1zr-co2-4GJowdphPvCnjE3UQ.jpg",
           "width": 600,
-          "height": 800
+          "height": 800,
+          "local": "images/rQ1zr-co2-4GJowdphPvCnjE3UQ.jpg"
         }
       ],
       "caption": ""
@@ -99,5 +101,6 @@
       "tag": "p",
       "html": "당신에게도 당신만의 예술을 할 수 있는 무기가 있다. 그 예술성을 도마뱀 뇌가 누르고 있을 뿐이다. 회사나 시장에서 대체 불가능한 핵개인이 되고 싶다면, 여러 시도를 통해 당신의 예술을 보여줘야 한다. 처음에는 나대는 것 같고 불편해 보여도 그 노력들이 당신을 린치핀으로 만들어 줄 것이다."
     }
-  ]
+  ],
+  "coverLocal": "images/_r5Yi8VsFkSXB8IhvHlZuv_8Hbw.jpg"
 }

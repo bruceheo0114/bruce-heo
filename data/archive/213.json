@@ -38,7 +38,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fpng/?fname=http://t1.kakaocdn.net/brunch/service/user/2fCF/image/jUbxBlv5uxY-arMPYokStUoB9Uo.png",
           "width": 1672,
-          "height": 941
+          "height": 941,
+          "local": "images/jUbxBlv5uxY-arMPYokStUoB9Uo.png"
         }
       ],
       "caption": ""
@@ -69,7 +70,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fpng/?fname=http://t1.kakaocdn.net/brunch/service/user/2fCF/image/fp1eU2taoIl8JzxD7Wiy9zGP6P0.png",
           "width": 1672,
-          "height": 941
+          "height": 941,
+          "local": "images/fp1eU2taoIl8JzxD7Wiy9zGP6P0.png"
         }
       ],
       "caption": ""
@@ -89,5 +91,6 @@
       "tag": "p",
       "html": "브랜드는 이제 제품이 아니라 경험 뒤의 감정을 팔아야 한다. 그것이 바로  브랜드가 진짜 남기는 자산이다. 우리 제품은 소비자에게 어떤 경험을 상기시키고 있는가. 우리 브랜드를 떠올릴 때, 함께 떠오르는 감정이 있는가."
     }
-  ]
+  ],
+  "coverLocal": "images/mNSgb1hBy7LnRExZ1MtlQiAQRz0.png"
 }

@@ -28,7 +28,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/1VRwH9VQg_s5yfNiBGfM51XcFM4.jpg",
           "width": 5760,
-          "height": 3840
+          "height": 3840,
+          "local": "images/1VRwH9VQg_s5yfNiBGfM51XcFM4.jpg"
         }
       ],
       "caption": ""
@@ -53,5 +54,6 @@
       "tag": "p",
       "html": "우리는 언젠가 어느 조직에서든 리더가 된다. 당신은 미움받을 준비가 되어 있는가?  <br>"
     }
-  ]
+  ],
+  "coverLocal": "images/b9LyWEwcXhRG_CBkBNux6AT660Y.jpg"
 }

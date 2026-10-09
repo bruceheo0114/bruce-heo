@@ -23,7 +23,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/Hr86CbtZ5LDtKiDkCY_y3bkSB2I.jpg",
           "width": 1199,
-          "height": 681
+          "height": 681,
+          "local": "images/Hr86CbtZ5LDtKiDkCY_y3bkSB2I.jpg"
         }
       ],
       "caption": ""
@@ -63,5 +64,6 @@
       "tag": "p",
       "html": "사진= 넷플릭스"
     }
-  ]
+  ],
+  "coverLocal": "images/l-5BUhpa4VdBwz70vx347NGUUPM.jpg"
 }

@@ -28,7 +28,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fpng/?fname=http://t1.kakaocdn.net/brunch/service/user/2fCF/image/Zr4E8GaDUGW8SqqK1DymkIOOLqg.png",
           "width": 1672,
-          "height": 941
+          "height": 941,
+          "local": "images/Zr4E8GaDUGW8SqqK1DymkIOOLqg.png"
         }
       ],
       "caption": ""
@@ -64,7 +65,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fpng/?fname=http://t1.kakaocdn.net/brunch/service/user/2fCF/image/l18F7k2hiBpjmgCGrxpc8lyeMIs.png",
           "width": 1672,
-          "height": 941
+          "height": 941,
+          "local": "images/l18F7k2hiBpjmgCGrxpc8lyeMIs.png"
         }
       ],
       "caption": ""
@@ -99,5 +101,6 @@
       "tag": "p",
       "html": "콘텐츠가 가구가 됐다는 건 소비자의 집중을 빼앗기 어려워졌다는 뜻이 아니다. 브랜드가 존재해야 할 자리가 달라졌다는 뜻이다. 앞으로 브랜드는 더 크게 말하는 법보다, 더 오래 곁에 있는 법을 고민해야 한다. 어쩌면 유튜브 시대의 좋은 브랜드 콘텐츠란, 소비자를 붙잡는 콘텐츠가 아니라 소비자의 방 안에 조용히 놓이는 콘텐츠일지도 모른다."
     }
-  ]
+  ],
+  "coverLocal": "images/B2QUAvMlUZ9j5Tfn5NQIpZI0_fQ.png"
 }

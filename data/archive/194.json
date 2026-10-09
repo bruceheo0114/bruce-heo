@@ -23,7 +23,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fpng/?fname=http://t1.kakaocdn.net/brunch/service/user/2fCF/image/ySi4ce7yTUgp0W2WRsqHPMitr0c.png",
           "width": 1473,
-          "height": 934
+          "height": 934,
+          "local": "images/ySi4ce7yTUgp0W2WRsqHPMitr0c.png"
         }
       ],
       "caption": ""
@@ -39,7 +40,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fpng/?fname=http://t1.kakaocdn.net/brunch/service/user/2fCF/image/eMLqUEok4ECoYvgkJFp4wJLtBnI.png",
           "width": 2816,
-          "height": 1536
+          "height": 1536,
+          "local": "images/eMLqUEok4ECoYvgkJFp4wJLtBnI.png"
         }
       ],
       "caption": ""
@@ -89,5 +91,6 @@
       "tag": "p",
       "html": "<strong>퇴사가 사람을 만드는 것은 아니다. 퇴사 후에도 팔릴 수 있는 사람을 만드는 건, 회사에서 버틴 시간 속에 쌓인 경험이다.</strong>"
     }
-  ]
+  ],
+  "coverLocal": "images/mBOv4XZqO1GLMlVpv5bm6n7mWMg.png"
 }

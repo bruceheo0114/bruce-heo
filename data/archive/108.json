@@ -28,7 +28,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/Mf3T-z6vAYaMu7-B3-Htvj6AOLE.jpg",
           "width": 1280,
-          "height": 741
+          "height": 741,
+          "local": "images/Mf3T-z6vAYaMu7-B3-Htvj6AOLE.jpg"
         }
       ],
       "caption": "사진= 중앙일보"
@@ -59,7 +60,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/yfsDwi1ZoQprszWeGriNc5Ng1AY.jpg",
           "width": 1280,
-          "height": 720
+          "height": 720,
+          "local": "images/yfsDwi1ZoQprszWeGriNc5Ng1AY.jpg"
         }
       ],
       "caption": "사진= YTN"
@@ -75,7 +77,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/awB2m33QoHm2smd7kvesZjUu8Wc.jpg",
           "width": 1009,
-          "height": 772
+          "height": 772,
+          "local": "images/awB2m33QoHm2smd7kvesZjUu8Wc.jpg"
         }
       ],
       "caption": "채널 인기 영상의 대부분은 모두 푸바오의 영상이다 (유튜브 채널 말하는 동물원 뿌빠 TV)"
@@ -101,7 +104,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/-nrPKdX2TbW8-9Ud8VdwoUAfY3I.jpg",
           "width": 1280,
-          "height": 720
+          "height": 720,
+          "local": "images/-nrPKdX2TbW8-9Ud8VdwoUAfY3I.jpg"
         }
       ],
       "caption": "우는 장면이 강조된 성해은의 출연 영상 콘텐츠 클립 (출처-유튜브 채널 '샵잉')"
@@ -117,7 +121,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/qdEr_F08MSZ7cqzDZO3GqAbiDqo.jpg",
           "width": 1000,
-          "height": 639
+          "height": 639,
+          "local": "images/qdEr_F08MSZ7cqzDZO3GqAbiDqo.jpg"
         }
       ],
       "caption": "브랜드 세계관의 원조 빙그레 인스타그램 채널"
@@ -137,5 +142,6 @@
       "tag": "p",
       "html": "나의 매력을 극대화시킬 수 있는 서사는 무엇인가? 우리 브랜드가 사람들의 사랑을 받게 만드는 서사는 무언인가? 퍼스널브랜딩을 고민하지 않더라도 경쟁력 있는 개인과 브랜드가 되기 위해선 한 번쯤은 고민해봐야 한다."
     }
-  ]
+  ],
+  "coverLocal": "images/j7-ga6KVfHS3QXwP3u3fb0d20Dg.jpg"
 }

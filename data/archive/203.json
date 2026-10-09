@@ -13,7 +13,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fpng/?fname=http://t1.kakaocdn.net/brunch/service/user/2fCF/image/aV7z8SKG3noy_HNa7EGg8L7eOCE.png",
           "width": 1860,
-          "height": 863
+          "height": 863,
+          "local": "images/aV7z8SKG3noy_HNa7EGg8L7eOCE.png"
         }
       ],
       "caption": ""
@@ -34,7 +35,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fpng/?fname=http://t1.kakaocdn.net/brunch/service/user/2fCF/image/JBEdIks_QE-ohtVz1xTu80WPM2c.png",
           "width": 425,
-          "height": 531
+          "height": 531,
+          "local": "images/JBEdIks_QE-ohtVz1xTu80WPM2c.png"
         }
       ],
       "caption": ""
@@ -60,7 +62,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fpng/?fname=http://t1.kakaocdn.net/brunch/service/user/2fCF/image/iGdwHKf-apbBRl4GhvAA0wRv0oQ.png",
           "width": 1672,
-          "height": 941
+          "height": 941,
+          "local": "images/iGdwHKf-apbBRl4GhvAA0wRv0oQ.png"
         }
       ],
       "caption": ""
@@ -81,7 +84,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fpng/?fname=http://t1.kakaocdn.net/brunch/service/user/2fCF/image/BAZcebPwkmOQwYva6KOdLcKvCa0.png",
           "width": 1672,
-          "height": 941
+          "height": 941,
+          "local": "images/BAZcebPwkmOQwYva6KOdLcKvCa0.png"
         }
       ],
       "caption": ""
@@ -101,5 +105,6 @@
       "tag": "p",
       "html": "사진=Easea"
     }
-  ]
+  ],
+  "coverLocal": "images/XTfU4mlG8JXjAJwrLdBPm5fkCmc.png"
 }

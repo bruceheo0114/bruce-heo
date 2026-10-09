@@ -18,7 +18,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fpng/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/279aYjAXgkhGHkXMrypatolqs9M.png",
           "width": 2196,
-          "height": 1798
+          "height": 1798,
+          "local": "images/279aYjAXgkhGHkXMrypatolqs9M.png"
         }
       ],
       "caption": ""
@@ -89,5 +90,6 @@
       "tag": "p",
       "html": "‘차주영 붐은 온다’ 채널의 인기 비결은 단순히 한 배우의 팬덤의 성공 사례를 넘어 유튜브를 기획하거나 마케팅을 하는 사람들에게 중요한 시사점을 준다. 앞으로 좋은 콘텐츠를 만들기 위해서는 단지 ‘멋지고 화려한 영상’을 만드는 것보다, ‘타깃의 니즈’를 얼마나 정확히 파악하고, 이를 솔직하고 무해하게 풀어내느냐가 더 중요하다. 유튜브의 성공을 위해서는 결국, 타깃과의 공감이 가장 우선시되어야 한다."
     }
-  ]
+  ],
+  "coverLocal": "images/_CtnXkQQXsfPjC7Y0pDilKy3cpA.jpg"
 }

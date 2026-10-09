@@ -18,7 +18,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/bDGLKb1l4vJStGJU3Pz8f4SvmcA.jpg",
           "width": 400,
-          "height": 571
+          "height": 571,
+          "local": "images/bDGLKb1l4vJStGJU3Pz8f4SvmcA.jpg"
         }
       ],
       "caption": ""
@@ -68,7 +69,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fpng/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/amafgnTQvndfJaos00epQlT4sX8.png",
           "width": 400,
-          "height": 398
+          "height": 398,
+          "local": "images/amafgnTQvndfJaos00epQlT4sX8.png"
         }
       ],
       "caption": ""
@@ -89,7 +91,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/AEMSTAKZf903oKEM-64T_hmWP6E.jpg",
           "width": 1200,
-          "height": 675
+          "height": 675,
+          "local": "images/AEMSTAKZf903oKEM-64T_hmWP6E.jpg"
         }
       ],
       "caption": "본인의 성격을 티니핑과 매칭해 진행하는 심리테스트"
@@ -104,5 +107,6 @@
       "tag": "p",
       "html": "&#039;사랑의 하츄핑&#039;의 흥행을 보면서 바이럴을 위해서는 놀잇감이 되는 것이 가장 중요한 것 같다는 생각이 들었다. 브랜드 입장에서는 이미지 유지와 평판관리 차원에서 쉽게 선택하기 어려운 일이지만, 최근의 화제가 되고 있는 &#039;현대오토에버&#039;의 인스타그램 계정이나나 혹은 현대자동차의 서브계정인 &#039;르르르&#039;의 인스타그램 계정처럼 기꺼이 소비자들의 놀잇감이 되어주면 소비자들에게 우호적인 이미지를 심을 수 있다. 브랜드의 성격에 따라 취사 선택이 필요하겠지만 개인적으로는 소비자들에게 브랜드가 놀잇감이 되어주는 것은 소비자들의 관심과 브랜드 신뢰도를 구축하기 위해 한 번쯤은 시도해볼만한 방법인 것 같다."
     }
-  ]
+  ],
+  "coverLocal": "images/9cA2ACMSjBL-_tyr31ukxi8UHh0.jpg"
 }

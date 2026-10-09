@@ -23,7 +23,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fpng/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/RaRt5c8cVrpKkwB7qYZSZ7sZF1o.png",
           "width": 1876,
-          "height": 921
+          "height": 921,
+          "local": "images/RaRt5c8cVrpKkwB7qYZSZ7sZF1o.png"
         }
       ],
       "caption": ""
@@ -54,7 +55,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/Q_NU2ACCnyQO6BPHh9x5I6gzsV8.jpg",
           "width": 500,
-          "height": 680
+          "height": 680,
+          "local": "images/Q_NU2ACCnyQO6BPHh9x5I6gzsV8.jpg"
         }
       ],
       "caption": ""
@@ -90,7 +92,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fpng/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/GLTiLdzN4p_hOKA_WcYt4xijzV4.png",
           "width": 3070,
-          "height": 613
+          "height": 613,
+          "local": "images/GLTiLdzN4p_hOKA_WcYt4xijzV4.png"
         }
       ],
       "caption": ""
@@ -131,7 +134,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/mFKGVXD5q3SVKEfoDDKCmzmI2_U.jpg",
           "width": 600,
-          "height": 538
+          "height": 538,
+          "local": "images/mFKGVXD5q3SVKEfoDDKCmzmI2_U.jpg"
         }
       ],
       "caption": ""
@@ -172,7 +176,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/l01t6Xn3yn0Tthnsz28ZpGIU4SU.jpg",
           "width": 1280,
-          "height": 720
+          "height": 720,
+          "local": "images/l01t6Xn3yn0Tthnsz28ZpGIU4SU.jpg"
         }
       ],
       "caption": ""
@@ -188,7 +193,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/mnZO-tAiDHKV3Il9InV6E9BYm3w.jpg",
           "width": 600,
-          "height": 855
+          "height": 855,
+          "local": "images/mnZO-tAiDHKV3Il9InV6E9BYm3w.jpg"
         }
       ],
       "caption": ""
@@ -211,5 +217,6 @@
       "tag": "p",
       "html": "2025년은 어느 때 보다 살아남기 위해 도전과 변화가 필요한 한 해가 될 것으로 보인다. 다양한 도전은 반드시 많은 실패를 수반한다. 불안정한 사회 속 실패를 두려워하기 보다 빠르게 실패하고 새롭게 도전하는 회복 탄력성을 업무에서도 가지는 것이 필요하다. 2025년, 당신의 성공적인 콘텐츠 마케팅을 응원한다."
     }
-  ]
+  ],
+  "coverLocal": "images/0RXmQMIEx4tVinB10TTw4BoKEKI.jpg"
 }

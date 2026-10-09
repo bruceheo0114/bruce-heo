@@ -38,7 +38,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/l-h4FBpA8WtS2jDCJqLrzu4Vaig.jpg",
           "width": 4000,
-          "height": 2667
+          "height": 2667,
+          "local": "images/l-h4FBpA8WtS2jDCJqLrzu4Vaig.jpg"
         }
       ],
       "caption": ""
@@ -73,5 +74,6 @@
       "tag": "p",
       "html": "이 글을 읽는 분이 저연차 직장인이시라면 꼰대 같지만 조금 더 시간을 들여 고민해 보시길 권하고, 고연차 직장인 분에게는 후배들에게 뻘짓과 삽질을 할 수 있는 문화를 만드는 멋진 선배가 되시길 권해본다."
     }
-  ]
+  ],
+  "coverLocal": "images/WKoZI85W2pVfcFnE_AaZ5QPNy1A.jpg"
 }

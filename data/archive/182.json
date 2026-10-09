@@ -18,7 +18,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/mPZVhfem2E_hLASD8tKO77bQXpw.jpg",
           "width": 1080,
-          "height": 1350
+          "height": 1350,
+          "local": "images/mPZVhfem2E_hLASD8tKO77bQXpw.jpg"
         }
       ],
       "caption": ""
@@ -49,7 +50,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/w_e0UNC8lrXqOKXwSUTD18L4wwo.jpg",
           "width": 1960,
-          "height": 1034
+          "height": 1034,
+          "local": "images/w_e0UNC8lrXqOKXwSUTD18L4wwo.jpg"
         }
       ],
       "caption": ""
@@ -99,5 +101,6 @@
       "tag": "p",
       "html": "모두가 크리에이터인 시대, 브랜드 이름을 달고 나가는 콘텐츠는 광고로 느껴질 확률이 높다. 그렇기 때문에 타깃들의 감정부터 해석까지 고려하는 콘텐츠 기획이 필요하다. 우리 콘텐츠를 사람들이 꼭 봐야 할 이유는 무엇인가? 그리고, 그 콘텐츠를 사람들은 어떻게 해석할까?"
     }
-  ]
+  ],
+  "coverLocal": "images/LYoohL-HScdvKdSrrk25d5CBVYg.jpg"
 }

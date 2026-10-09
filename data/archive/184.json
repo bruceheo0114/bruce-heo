@@ -18,7 +18,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/8ZQjJJXq23HPFjKzfyePo2lcnh4.jpg",
           "width": 2844,
-          "height": 3792
+          "height": 3792,
+          "local": "images/8ZQjJJXq23HPFjKzfyePo2lcnh4.jpg"
         }
       ],
       "caption": ""
@@ -68,5 +69,6 @@
       "tag": "p",
       "html": "불안감과 불확실성은 브랜드에게 기회가 될 수 있다. 불확실성을 느끼는 대중들의 감정을 터치해 우리 브랜드를 어떤 방식으로 노출시킬지 전략을 세워볼 필요가 있다. 불확실성은 소비자들의 지갑을 닫는 위기가 아니라 우리 브랜드의 메시지를 받아드릴 준비가 된 타깃들이 더 많아졌다는 기회다.  우리 브랜드는 베타라이프 속 사람들에게 어떤 메시지를 전할 수 있을까?"
     }
-  ]
+  ],
+  "coverLocal": "images/8ZQjJJXq23HPFjKzfyePo2lcnh4.jpg"
 }

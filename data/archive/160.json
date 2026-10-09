@@ -23,7 +23,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/fRzu-N0P4u7rmpJDu6dvyMcuDS4.jpg",
           "width": 1920,
-          "height": 1302
+          "height": 1302,
+          "local": "images/fRzu-N0P4u7rmpJDu6dvyMcuDS4.jpg"
         }
       ],
       "caption": ""
@@ -156,5 +157,6 @@
       "tag": "p",
       "html": "새 모델과 함께한 우리은행의 신규 캠페인은 디지털 브랜드 &#039;Won&#039;을 다시 한 번 알리며 1020대를 장기적으로 확보하려는 접근으로 볼 수 있다."
     }
-  ]
+  ],
+  "coverLocal": "images/5K-ets3wMIAI9Catw9grppB_h8Y.jpg"
 }

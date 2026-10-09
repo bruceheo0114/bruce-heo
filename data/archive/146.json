@@ -13,7 +13,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/8HrwRAKrT8linGOiFEzAhA2cq7w.jpg",
           "width": 5185,
-          "height": 3457
+          "height": 3457,
+          "local": "images/8HrwRAKrT8linGOiFEzAhA2cq7w.jpg"
         }
       ],
       "caption": ""
@@ -34,7 +35,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fpng/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/Yrn5QVzBdOBAcq_261cPcHrYpPs.png",
           "width": 2119,
-          "height": 1783
+          "height": 1783,
+          "local": "images/Yrn5QVzBdOBAcq_261cPcHrYpPs.png"
         }
       ],
       "caption": ""
@@ -60,7 +62,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/pC18I1v-BbN_Wj-kzTPx5gAbhoM.jpg",
           "width": 5472,
-          "height": 3450
+          "height": 3450,
+          "local": "images/pC18I1v-BbN_Wj-kzTPx5gAbhoM.jpg"
         }
       ],
       "caption": ""
@@ -80,5 +83,6 @@
       "tag": "p",
       "html": "우리의 마음을 움직이는 가장 강력한 말은 멋진 슬로건이 아니라, 우리 주변 사람들과의 자연스러운 대화 속에서 나온 말이다. 제품 판매를 고민하는 마케터라면 소비자 언어 획득에 더욱 집중해보는 것은 어떨까? 소비자의 언어는 결국 그들의 마음을 움직이는 가장 강력한 도구가 될 것이다."
     }
-  ]
+  ],
+  "coverLocal": "images/wgZuurKLYDWwiEplhSDfExx8cLw.jpg"
 }

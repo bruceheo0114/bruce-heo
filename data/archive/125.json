@@ -30,7 +30,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/e5pbUIugj4i_O_wyUo2IpRKzT_Y.jpg",
           "width": 1678,
-          "height": 1107
+          "height": 1107,
+          "local": "images/e5pbUIugj4i_O_wyUo2IpRKzT_Y.jpg"
         }
       ],
       "caption": "출처- 질병관리청, 국내 청소년의 음주율 조사"
@@ -66,7 +67,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/-_66HkBaHm2RZPW_ZLi8UIHK5V4.jpg",
           "width": 600,
-          "height": 400
+          "height": 400,
+          "local": "images/-_66HkBaHm2RZPW_ZLi8UIHK5V4.jpg"
         }
       ],
       "caption": ""
@@ -92,7 +94,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/IKubdNoT-j73Sn8UGaLT4XqGKMU.jpg",
           "width": 2592,
-          "height": 2827
+          "height": 2827,
+          "local": "images/IKubdNoT-j73Sn8UGaLT4XqGKMU.jpg"
         }
       ],
       "caption": ""
@@ -123,7 +126,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/-fzGtTDOPlUeA_YANKA-f_jjNA8.jpg",
           "width": 800,
-          "height": 570
+          "height": 570,
+          "local": "images/-fzGtTDOPlUeA_YANKA-f_jjNA8.jpg"
         }
       ],
       "caption": ""
@@ -148,5 +152,6 @@
       "tag": "p",
       "html": "결국 Z세대 내에서 술방의 인기는 술 자체가 아닌, 집중을 요구하지 않으면서도 진정성과 재미를 충족시키는 콘텐츠 포맷 덕분이다. 시대가 변하고 기술이 발전하더라도, 진정성을 원하는 사람들의 본성은 변하지 않는다. Z세대를 겨냥한 홍보 활동을 고민하고 있다면, 진정성을 표현할 수 있는 마케팅 전략을 기획한다면 좋은 성과를 거둘 수 있을 것이다."
     }
-  ]
+  ],
+  "coverLocal": "images/klHtt9d_63VsB7NkuPquaPVjNsM.jpg"
 }

@@ -33,7 +33,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fpng/?fname=http://t1.kakaocdn.net/brunch/service/user/2fCF/image/PLwlVDaZWNh0Dky3CA36E-H6U_k.png",
           "width": 1672,
-          "height": 941
+          "height": 941,
+          "local": "images/PLwlVDaZWNh0Dky3CA36E-H6U_k.png"
         }
       ],
       "caption": ""
@@ -59,7 +60,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fpng/?fname=http://t1.kakaocdn.net/brunch/service/user/2fCF/image/Jmlc9iC5U8sqMSnwbsGofvB5J4Y.png",
           "width": 1448,
-          "height": 1086
+          "height": 1086,
+          "local": "images/Jmlc9iC5U8sqMSnwbsGofvB5J4Y.png"
         }
       ],
       "caption": ""
@@ -79,5 +81,6 @@
       "tag": "p",
       "html": "AI는 빠르다. 하지만 빠른 것이 옳은 것은 아니다. 눈앞에 펼쳐진 AI 시대, 당신은 어떤 마케터로 남고 싶은가."
     }
-  ]
+  ],
+  "coverLocal": "images/0UbWi2PZzD3gNleqw27oby6Uil0.jpg"
 }

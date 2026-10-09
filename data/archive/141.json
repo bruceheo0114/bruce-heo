@@ -13,7 +13,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/6vWiWuHXoetTTxOvNXoSose9tqQ.jpg",
           "width": 400,
-          "height": 533
+          "height": 533,
+          "local": "images/6vWiWuHXoetTTxOvNXoSose9tqQ.jpg"
         }
       ],
       "caption": ""
@@ -63,5 +64,6 @@
       "tag": "p",
       "html": "카피라이터는 낭만적이지 않다. 하지만 답이 없음을 인정하며, 수많은 카피를 지우고, 발로 뛰며 한 문장과 한 글자를 위해 수십 시간을 쏟는 그들은 낭만적이다. 어쩌면 홍보·마케팅 직군에 일하는 사람들의 낭만은 답을 모르는 일에 매일 뛰어들어 답을 찾아가는 그 과정 자체에 있는지도 모른다."
     }
-  ]
+  ],
+  "coverLocal": "images/6vWiWuHXoetTTxOvNXoSose9tqQ.jpg"
 }

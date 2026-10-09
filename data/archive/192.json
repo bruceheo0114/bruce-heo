@@ -28,7 +28,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.kakaocdn.net/brunch/service/user/2fCF/image/gH6OsYGNcwRn2ivJwG-VrRNB-DM.jpg",
           "width": 1200,
-          "height": 800
+          "height": 800,
+          "local": "images/gH6OsYGNcwRn2ivJwG-VrRNB-DM.jpg"
         }
       ],
       "caption": ""
@@ -44,7 +45,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.kakaocdn.net/brunch/service/user/2fCF/image/lfCNPgxFkNbl8AyQzkxpEdijZ-c.jpg",
           "width": 1280,
-          "height": 720
+          "height": 720,
+          "local": "images/lfCNPgxFkNbl8AyQzkxpEdijZ-c.jpg"
         }
       ],
       "caption": ""
@@ -60,7 +62,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.kakaocdn.net/brunch/service/user/2fCF/image/0KaoPB_PY_VxktfpFmDmQUR6UkI.jpg",
           "width": 1280,
-          "height": 720
+          "height": 720,
+          "local": "images/0KaoPB_PY_VxktfpFmDmQUR6UkI.jpg"
         }
       ],
       "caption": ""
@@ -115,5 +118,6 @@
       "tag": "p",
       "html": "사진=넷플릭스"
     }
-  ]
+  ],
+  "coverLocal": "images/31Jf9q9r2B_76P20M8zkCj0RPxc.jpg"
 }

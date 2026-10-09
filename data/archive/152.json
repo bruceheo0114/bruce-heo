@@ -23,7 +23,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fpng/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/1ZpFyE6arl6Ly1fcIg0rEFs0SWA.png",
           "width": 3263,
-          "height": 774
+          "height": 774,
+          "local": "images/1ZpFyE6arl6Ly1fcIg0rEFs0SWA.png"
         }
       ],
       "caption": ""
@@ -84,7 +85,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fpng/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/atauYRLaMNe1ROMlU90c1VAcyLs.png",
           "width": 2289,
-          "height": 859
+          "height": 859,
+          "local": "images/atauYRLaMNe1ROMlU90c1VAcyLs.png"
         }
       ],
       "caption": ""
@@ -100,7 +102,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fpng/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/ijWZFRAKT8dn2nYOv37YjfNSmgw.png",
           "width": 1461,
-          "height": 1594
+          "height": 1594,
+          "local": "images/ijWZFRAKT8dn2nYOv37YjfNSmgw.png"
         }
       ],
       "caption": ""
@@ -116,7 +119,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fpng/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/wc1-mfR8Sd2LkTEdPhezRypuJ2s.png",
           "width": 1435,
-          "height": 1639
+          "height": 1639,
+          "local": "images/wc1-mfR8Sd2LkTEdPhezRypuJ2s.png"
         }
       ],
       "caption": ""
@@ -132,7 +136,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fpng/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/i6lUL_yBbe50W9BDTwmEDt6lSvc.png",
           "width": 1405,
-          "height": 1192
+          "height": 1192,
+          "local": "images/i6lUL_yBbe50W9BDTwmEDt6lSvc.png"
         }
       ],
       "caption": ""
@@ -153,7 +158,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fpng/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/RNpSH_puevN1vPa4EQfcxk3GGJA.png",
           "width": 2173,
-          "height": 922
+          "height": 922,
+          "local": "images/RNpSH_puevN1vPa4EQfcxk3GGJA.png"
         }
       ],
       "caption": ""
@@ -169,7 +175,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fpng/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/uCu29-BnyyP_9Lvg9k6VpxX3G-c.png",
           "width": 1408,
-          "height": 1159
+          "height": 1159,
+          "local": "images/uCu29-BnyyP_9Lvg9k6VpxX3G-c.png"
         }
       ],
       "caption": ""
@@ -185,7 +192,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fpng/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/o3MFd2icrf__Gjh7-dPBKu3Pbvs.png",
           "width": 1428,
-          "height": 1135
+          "height": 1135,
+          "local": "images/o3MFd2icrf__Gjh7-dPBKu3Pbvs.png"
         }
       ],
       "caption": ""
@@ -201,7 +209,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fpng/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/tNa6Aa_ASELz1B-gTZK7MF_ErY4.png",
           "width": 1434,
-          "height": 1159
+          "height": 1159,
+          "local": "images/tNa6Aa_ASELz1B-gTZK7MF_ErY4.png"
         }
       ],
       "caption": ""
@@ -236,5 +245,6 @@
       "tag": "p",
       "html": "콘텐츠 마케팅을 생각하면 오리지널 콘텐츠나 브랜딩을 쌓는 서사 중심의 콘텐츠가 떠오르지만, 특정 산업군에선 브랜드 서사보다 판매 촉진을 위한 프로모션 지원이 더 효율적일 때가 있다. 콘텐츠 마케팅에 정답은 없다는 걸 기억하고, 각 산업군의 특성을 이해하며 공감할 때 좋은 솔루션을 제시할 수 있는 마케터가 될 수 있을 것이다."
     }
-  ]
+  ],
+  "coverLocal": "images/RLc6_1FE-t8IOiMi-nPmZ9z8IBM.png"
 }

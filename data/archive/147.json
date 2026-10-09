@@ -13,7 +13,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/MiLSyaU3dmAC1uLJHepFEzzSRcQ.jpg",
           "width": 700,
-          "height": 933
+          "height": 933,
+          "local": "images/MiLSyaU3dmAC1uLJHepFEzzSRcQ.jpg"
         }
       ],
       "caption": ""
@@ -73,5 +74,6 @@
       "tag": "p",
       "html": "만약 감각 있는 사람을 부러워한다면, 진정성과 공감을 바탕으로 모험가적 마음으로 세상을 탐구해보는 것은 어떨까. 작은 순간들이 쌓여 나만의 철학과 이야기가 될 것이다."
     }
-  ]
+  ],
+  "coverLocal": "images/MiLSyaU3dmAC1uLJHepFEzzSRcQ.jpg"
 }

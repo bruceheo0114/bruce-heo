@@ -28,7 +28,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.kakaocdn.net/brunch/service/user/2fCF/image/aqoluZT6DNjfRC1FHLEttVX1A8E.jpg",
           "width": 1279,
-          "height": 717
+          "height": 717,
+          "local": "images/aqoluZT6DNjfRC1FHLEttVX1A8E.jpg"
         }
       ],
       "caption": ""
@@ -54,7 +55,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.kakaocdn.net/brunch/service/user/2fCF/image/h1EUNjU_2JGautgqiFj5MtEIrDQ.jpg",
           "width": 600,
-          "height": 349
+          "height": 349,
+          "local": "images/h1EUNjU_2JGautgqiFj5MtEIrDQ.jpg"
         }
       ],
       "caption": ""
@@ -95,7 +97,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.kakaocdn.net/brunch/service/user/2fCF/image/N4EW3oXzwp-1m0sAhOWsKU2agVk.jpg",
           "width": 600,
-          "height": 407
+          "height": 407,
+          "local": "images/N4EW3oXzwp-1m0sAhOWsKU2agVk.jpg"
         }
       ],
       "caption": ""
@@ -135,5 +138,6 @@
       "tag": "p",
       "html": "사진= G마켓, 배달의민족, 토스"
     }
-  ]
+  ],
+  "coverLocal": "images/o_KVLmgLFlF1eszmk6FX6KYgGSQ.jpg"
 }

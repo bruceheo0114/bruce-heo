@@ -18,7 +18,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fpng/?fname=http://t1.kakaocdn.net/brunch/service/user/2fCF/image/yaFGz7oLOS0UaVeAAH1lY4vdwx4.png",
           "width": 968,
-          "height": 679
+          "height": 679,
+          "local": "images/yaFGz7oLOS0UaVeAAH1lY4vdwx4.png"
         }
       ],
       "caption": "경찰과 도둑 키워드의 네이버 검색량 변화"
@@ -34,7 +35,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.kakaocdn.net/brunch/service/user/2fCF/image/QTWdTsq1w_3yzPcB0D6zMh7-Big.jpg",
           "width": 600,
-          "height": 400
+          "height": 400,
+          "local": "images/QTWdTsq1w_3yzPcB0D6zMh7-Big.jpg"
         }
       ],
       "caption": ""
@@ -94,7 +96,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.kakaocdn.net/brunch/service/user/2fCF/image/xK2yZL844GrkJKcVZpF2xO_KFas.jpg",
           "width": 930,
-          "height": 523
+          "height": 523,
+          "local": "images/xK2yZL844GrkJKcVZpF2xO_KFas.jpg"
         }
       ],
       "caption": "출처-숏데리앙 인스타그램"
@@ -114,5 +117,6 @@
       "tag": "p",
       "html": "브랜드가 이 기회를 잘 활용하기 위해선 느슨한 관계를 만드는 매개체가 되어야 한다. 제품과 연관된 관심사 기반 커뮤니티를 우리 제품으로 선점해, 우리 제품과 관련된 콘텐츠가 자연스럽게 노출되는 방식을 고민할 필요가 있다. 예를 들어 참여 규칙이나 미션을 너무 ‘광고’처럼 만들기보다, 사람들이 가볍게 참여하고 인증하고 싶어지는 구조(모임 템플릿, 간단한 참여 미션, 자연스러운 인증 포인트 등)로 설계하는 것이 중요하다."
     }
-  ]
+  ],
+  "coverLocal": "images/Duur6carBX_cJOhTQD6ZHIeMzV4.jpg"
 }

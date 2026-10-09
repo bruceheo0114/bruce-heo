@@ -18,7 +18,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/7xPrJUe9TuJn2zX7AOnqS2SP3x8.jpg",
           "width": 400,
-          "height": 592
+          "height": 592,
+          "local": "images/7xPrJUe9TuJn2zX7AOnqS2SP3x8.jpg"
         }
       ],
       "caption": ""
@@ -100,5 +101,6 @@
       "tag": "p",
       "html": "경제는 좋지 않고 사회는 불안해도 우리는 살아간다. 이런 환경 속에서 나의 브랜드, 고객의 브랜드, 그리고 콘텐츠를 알리고 싶다면 불안 속에서 살아가는 사람들의 마음을 이해해야 한다. 마케팅과 홍보를 담당하는 사람이라면 저성장 국면의 다양한 사회적·경제적 맥락을 이해하고, 고객의 마음을 읽으며 공감하는 콘텐츠를 만들어야 한다."
     }
-  ]
+  ],
+  "coverLocal": "images/7xPrJUe9TuJn2zX7AOnqS2SP3x8.jpg"
 }

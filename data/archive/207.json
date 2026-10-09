@@ -18,7 +18,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fpng/?fname=http://t1.kakaocdn.net/brunch/service/user/2fCF/image/lOmk1tM-3tJYspM9dsCWfDw5rjI.png",
           "width": 2565,
-          "height": 1572
+          "height": 1572,
+          "local": "images/lOmk1tM-3tJYspM9dsCWfDw5rjI.png"
         }
       ],
       "caption": ""
@@ -34,7 +35,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fpng/?fname=http://t1.kakaocdn.net/brunch/service/user/2fCF/image/FHzsPx7I2WPvnE1avGpML1MwdkE.png",
           "width": 712,
-          "height": 892
+          "height": 892,
+          "local": "images/FHzsPx7I2WPvnE1avGpML1MwdkE.png"
         }
       ],
       "caption": ""
@@ -55,7 +57,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fpng/?fname=http://t1.kakaocdn.net/brunch/service/user/2fCF/image/zofEOZudmMRLdIb43LyEQiqTlVw.png",
           "width": 2481,
-          "height": 1747
+          "height": 1747,
+          "local": "images/zofEOZudmMRLdIb43LyEQiqTlVw.png"
         }
       ],
       "caption": ""
@@ -95,5 +98,6 @@
       "tag": "p",
       "html": "사진= 데일리패션뉴스, 무신사, 지그재그 인스타그램"
     }
-  ]
+  ],
+  "coverLocal": "images/OQ1FGR47lbLZHy1WmJMVKEJgQOY.png"
 }

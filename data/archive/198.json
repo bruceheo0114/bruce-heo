@@ -18,7 +18,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fpng/?fname=http://t1.kakaocdn.net/brunch/service/user/2fCF/image/ArY_xNi64hPPzOBEEfhP7RkyCYM.png",
           "width": 2816,
-          "height": 1536
+          "height": 1536,
+          "local": "images/ArY_xNi64hPPzOBEEfhP7RkyCYM.png"
         }
       ],
       "caption": ""
@@ -44,7 +45,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fpng/?fname=http://t1.kakaocdn.net/brunch/service/user/2fCF/image/JPRfJ2xmkNMkXlIM46pQxrNqOi0.png",
           "width": 2816,
-          "height": 1536
+          "height": 1536,
+          "local": "images/JPRfJ2xmkNMkXlIM46pQxrNqOi0.png"
         }
       ],
       "caption": ""
@@ -75,7 +77,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fpng/?fname=http://t1.kakaocdn.net/brunch/service/user/2fCF/image/RZoPcfdnb7N4X5YTJ-Ec8tQ4CW0.png",
           "width": 2816,
-          "height": 1536
+          "height": 1536,
+          "local": "images/RZoPcfdnb7N4X5YTJ-Ec8tQ4CW0.png"
         }
       ],
       "caption": ""
@@ -85,5 +88,6 @@
       "tag": "p",
       "html": "AI는 방향을 잡는 데 도움이 된다. 하지만 뾰족한 부분은 여전히 사람이 넣어야 한다. 가본 만큼만 내 땅이다. AI가 모든 걸 시뮬레이션해주는 시대일수록, 직접 걸어간 경험만이 진짜 내 것이 된다."
     }
-  ]
+  ],
+  "coverLocal": "images/Qk3NjxcK3XBZDF_aBDxszcnmRgw.png"
 }

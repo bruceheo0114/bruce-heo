@@ -23,7 +23,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/ewDKpIR-mDL6lKkiasBvSEOHBnQ.jpg",
           "width": 2304,
-          "height": 1296
+          "height": 1296,
+          "local": "images/ewDKpIR-mDL6lKkiasBvSEOHBnQ.jpg"
         }
       ],
       "caption": ""
@@ -49,7 +50,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/VAsbxonMqIf0nbIimbmVakumLLU.jpg",
           "width": 5918,
-          "height": 3945
+          "height": 3945,
+          "local": "images/VAsbxonMqIf0nbIimbmVakumLLU.jpg"
         }
       ],
       "caption": ""
@@ -95,7 +97,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/vVlrEFcg_TeISxSlJ5sX8ZeHU7M.jpg",
           "width": 600,
-          "height": 301
+          "height": 301,
+          "local": "images/vVlrEFcg_TeISxSlJ5sX8ZeHU7M.jpg"
         }
       ],
       "caption": "핑크베놈 MV에서 맨체스터 유나이티드 유니폼을 입은 블랙핑크 제니"
@@ -120,5 +123,6 @@
       "tag": "p",
       "html": "개인적으로는 스포츠 마케팅 업계에 종사했던 경험이 있다 보니 K리그 팝업스토어 같은 국내 프로스포츠의 마케팅 활동이 반갑게 느껴진다. 개인적으로 스포츠의 매력에 비해 국내 시장의 성장이 더딘 것이 아쉽게 느껴지는데, 이런 계기들을 통해 우리 사회에서도 스포츠가 취향의 영역이 아닌 문화의 영역으로 자리 잡길 바라본다.  <br>"
     }
-  ]
+  ],
+  "coverLocal": "images/z-Tnrk011HKB1A5F4Q8VQc2fpfg.png"
 }

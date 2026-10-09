@@ -28,7 +28,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/gaDleWTkodx96-f3P4CvXjNkOwc.jpg",
           "width": 550,
-          "height": 367
+          "height": 367,
+          "local": "images/gaDleWTkodx96-f3P4CvXjNkOwc.jpg"
         }
       ],
       "caption": ""
@@ -49,7 +50,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/vKhz4XtU6fktVEguucIMjWC8Dxc.jpg",
           "width": 550,
-          "height": 275
+          "height": 275,
+          "local": "images/vKhz4XtU6fktVEguucIMjWC8Dxc.jpg"
         }
       ],
       "caption": ""
@@ -84,5 +86,6 @@
       "tag": "p",
       "html": "그래야 콘텐츠는 관람을 넘어 소비자의 이야기가 되고, 그 안에서 브랜드의 서사는 확장될 수 있다."
     }
-  ]
+  ],
+  "coverLocal": "images/4jMRnGrGesvpyso-EPfD-1jsb2A.jpg"
 }

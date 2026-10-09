@@ -18,7 +18,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fpng/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/UreDghrKeRW6rnJz_1NF2_KdkN8.png",
           "width": 1200,
-          "height": 945
+          "height": 945,
+          "local": "images/UreDghrKeRW6rnJz_1NF2_KdkN8.png"
         }
       ],
       "caption": ""
@@ -49,7 +50,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/f0x3vEfAc3YZxEr1Cls23fgwp2M.jpg",
           "width": 1500,
-          "height": 962
+          "height": 962,
+          "local": "images/f0x3vEfAc3YZxEr1Cls23fgwp2M.jpg"
         }
       ],
       "caption": ""
@@ -65,7 +67,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fpng/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/mRSgRgpZUzYnEQDQVzKwsYcEuu4.png",
           "width": 3162,
-          "height": 1666
+          "height": 1666,
+          "local": "images/mRSgRgpZUzYnEQDQVzKwsYcEuu4.png"
         }
       ],
       "caption": ""
@@ -86,7 +89,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/vrOPhyYPbDtzB0g3JysVY7rKsmY.jpg",
           "width": 750,
-          "height": 954
+          "height": 954,
+          "local": "images/vrOPhyYPbDtzB0g3JysVY7rKsmY.jpg"
         }
       ],
       "caption": ""
@@ -102,7 +106,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fpng/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/mI8n3-tN1bB_S5mWrtPdEZBtaNg.png",
           "width": 1276,
-          "height": 1305
+          "height": 1305,
+          "local": "images/mI8n3-tN1bB_S5mWrtPdEZBtaNg.png"
         }
       ],
       "caption": ""
@@ -127,5 +132,6 @@
       "tag": "p",
       "html": "쿠팡플레이는 OTT 후발주자라는 약점을 회비하지 않고, 소비자 중심의 접근으로 새로운 돌파구를 만들었다. 우리의 업무도 마자찬가지다. 이미 답이 나와있다고 생각하는 익숙한 문제들도 소비자 관점에서 고민하고 접근한다면, 새로운 돌파구를 찾을 수 있을지 모른다."
     }
-  ]
+  ],
+  "coverLocal": "images/-1rJJQ3CYnUPcj7aTchswb3hNuY.jpg"
 }

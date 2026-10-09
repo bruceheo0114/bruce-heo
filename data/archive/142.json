@@ -50,7 +50,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/qA1ojUi2zH6R7cJmIbpcalLZcWg.jpg",
           "width": 600,
-          "height": 399
+          "height": 399,
+          "local": "images/qA1ojUi2zH6R7cJmIbpcalLZcWg.jpg"
         }
       ],
       "caption": ""
@@ -76,7 +77,8 @@
         {
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/svUL-3v1XgrlANaYPfi4fS9AkFM.jpg",
           "width": 600,
-          "height": 400
+          "height": 400,
+          "local": "images/svUL-3v1XgrlANaYPfi4fS9AkFM.jpg"
         }
       ],
       "caption": ""
@@ -106,5 +108,6 @@
       "tag": "p",
       "html": "<strong>당신은 ‘낭만 직장인’인가?</strong>"
     }
-  ]
+  ],
+  "coverLocal": "images/hJCa4lZ-mIuArSQ-T1-7MZ4FJf4.jpg"
 }
