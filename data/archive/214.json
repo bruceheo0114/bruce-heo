@@ -19,7 +19,7 @@
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.kakaocdn.net/brunch/service/user/2fCF/image/lv7v0lWYuytXQa5vKl7PjcW-NvU.jpg",
           "width": 860,
           "height": 716,
-          "local": "images/lv7v0lWYuytXQa5vKl7PjcW-NvU.jpg"
+          "local": "images/lv7v0lWYuytXQa5vKl7PjcW-NvU.webp"
         }
       ],
       "caption": ""
@@ -46,7 +46,7 @@
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fpng/?fname=http://t1.kakaocdn.net/brunch/service/user/2fCF/image/7GQvhHwN-iup7kU1X58klL5A1KE.png",
           "width": 1448,
           "height": 1086,
-          "local": "images/7GQvhHwN-iup7kU1X58klL5A1KE.png"
+          "local": "images/7GQvhHwN-iup7kU1X58klL5A1KE.webp"
         }
       ],
       "caption": ""
@@ -78,7 +78,7 @@
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fpng/?fname=http://t1.kakaocdn.net/brunch/service/user/2fCF/image/aycHk1P2r8wsGp-5SoATcPPCcb0.png",
           "width": 1448,
           "height": 1086,
-          "local": "images/aycHk1P2r8wsGp-5SoATcPPCcb0.png"
+          "local": "images/aycHk1P2r8wsGp-5SoATcPPCcb0.webp"
         }
       ],
       "caption": ""
@@ -110,7 +110,7 @@
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fpng/?fname=http://t1.kakaocdn.net/brunch/service/user/2fCF/image/4prrCm27ad63OybWe9_kkz2KNrE.png",
           "width": 1448,
           "height": 1086,
-          "local": "images/4prrCm27ad63OybWe9_kkz2KNrE.png"
+          "local": "images/4prrCm27ad63OybWe9_kkz2KNrE.webp"
         }
       ],
       "caption": ""
@@ -156,5 +156,5 @@
       "html": "AI 시대, 우리에게 필요한 마지막 무기는 결국 도끼 같은 생각인지도 모른다."
     }
   ],
-  "coverLocal": "images/NLZFSpnUREdhZDH7k1qivYeyLqk.png"
+  "coverLocal": "images/NLZFSpnUREdhZDH7k1qivYeyLqk.webp"
 }

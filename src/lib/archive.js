@@ -140,13 +140,12 @@ function imagePath(articleId, src, local, absolute = false) {
   return `${absolute ? SITE : ""}/writing/${articleId}/${local}`;
 }
 
-// 브런치 썸네일 주소(…?fname=…/image/abc.jpg)에서 원본 파일 이름을 뽑아 저장 파일 이름으로 쓴다.
+// 브런치 썸네일 주소(…?fname=…/image/abc.jpg)에서 원본 파일 이름을 뽑는다. 용량을 줄이려고 모두 WebP 로 저장한다.
 export function localImageName(url) {
   const value = String(url);
   const original = value.includes("fname=") ? decodeURIComponent(value.split("fname=").pop()) : value.split("?")[0];
-  const base = original.split("/").pop().replace(/[^A-Za-z0-9._-]/g, "_");
-  if (/\.(jpe?g|png|gif|webp)$/i.test(base)) return base;
-  return `${base || "image"}.${value.match(/\.f(png|gif|webp)\//)?.[1] ?? "jpg"}`;
+  const base = original.split("/").pop().replace(/\.(jpe?g|png|gif|webp)$/i, "").replace(/[^A-Za-z0-9_-]/g, "_");
+  return `${base || "image"}.webp`;
 }
 
 // 내려받을 이미지 목록: 본문 이미지와 커버. local 을 채우면 JSON 에 그대로 남는다.

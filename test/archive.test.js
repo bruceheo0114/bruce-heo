@@ -55,16 +55,16 @@ test("sitemap 에 백업한 글 주소를 모두 넣는다", () => {
 
 test("내려받은 이미지가 있으면 저장소 주소로 보여 준다", async () => {
   const { localImageName, imageSlots } = await import("../src/lib/archive.js");
-  assert.equal(localImageName("https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/a.jpg"), "a.jpg");
-  assert.equal(localImageName("https://img1.kakaocdn.net/thumb/R1280x0.fpng/?fname=http%3A%2F%2Ft1.kakaocdn.net%2Fimage%2Fb"), "b.png");
+  assert.equal(localImageName("https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/a.jpg"), "a.webp");
+  assert.equal(localImageName("https://img1.kakaocdn.net/thumb/R1280x0.fpng/?fname=http%3A%2F%2Ft1.kakaocdn.net%2Fimage%2Fb"), "b.webp");
 
   const article = parseArchiveArticle(html, "108");
   for (const slot of imageSlots(article)) slot.set(`images/${localImageName(slot.url)}`);
-  assert.equal(article.blocks[2].images[0].local, "images/a.jpg");
-  assert.equal(article.coverLocal, "images/cover.jpg");
+  assert.equal(article.blocks[2].images[0].local, "images/a.webp");
+  assert.equal(article.coverLocal, "images/cover.webp");
   const page = renderArticlePage(article);
-  assert.match(page, /<img src="\/writing\/108\/images\/a\.jpg"/);
-  assert.match(page, /<img src="\/writing\/108\/images\/cover\.jpg"/);
-  assert.match(page, /og:image" content="https:\/\/bruceheo\.com\/writing\/108\/images\/cover\.jpg"/);
+  assert.match(page, /<img src="\/writing\/108\/images\/a\.webp"/);
+  assert.match(page, /<img src="\/writing\/108\/images\/cover\.webp"/);
+  assert.match(page, /og:image" content="https:\/\/bruceheo\.com\/writing\/108\/images\/cover\.webp"/);
   assert.doesNotMatch(page, /kakaocdn/);
 });
