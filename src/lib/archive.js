@@ -134,14 +134,41 @@ export function formatKoreanDate(value) {
   return `${year}. ${month}. ${day}.`;
 }
 
-function blockHtml(block) {
+// 저장소에 내려받은 이미지가 있으면 그 주소를, 없으면 브런치 이미지 주소를 쓴다.
+function imagePath(articleId, src, local, absolute = false) {
+  if (!local) return src;
+  return `${absolute ? SITE : ""}/writing/${articleId}/${local}`;
+}
+
+// 브런치 썸네일 주소(…?fname=…/image/abc.jpg)에서 원본 파일 이름을 뽑아 저장 파일 이름으로 쓴다.
+export function localImageName(url) {
+  const value = String(url);
+  const original = value.includes("fname=") ? decodeURIComponent(value.split("fname=").pop()) : value.split("?")[0];
+  const base = original.split("/").pop().replace(/[^A-Za-z0-9._-]/g, "_");
+  if (/\.(jpe?g|png|gif|webp)$/i.test(base)) return base;
+  return `${base || "image"}.${value.match(/\.f(png|gif|webp)\//)?.[1] ?? "jpg"}`;
+}
+
+// 내려받을 이미지 목록: 본문 이미지와 커버. local 을 채우면 JSON 에 그대로 남는다.
+export function imageSlots(article) {
+  const slots = article.blocks
+    .filter((block) => block.type === "image")
+    .flatMap((block) => block.images)
+    .map((image) => ({ url: image.src, get: () => image.local, set: (local) => { image.local = local; } }));
+  if (article.coverImage) {
+    slots.push({ url: article.coverImage, get: () => article.coverLocal, set: (local) => { article.coverLocal = local; } });
+  }
+  return slots;
+}
+
+function blockHtml(block, articleId) {
   if (block.type === "text") return `<${block.tag}>${block.html}</${block.tag}>`;
   if (block.type === "hr") return "<hr>";
   if (block.type === "image") {
     const images = block.images
       .map((image) => {
         const size = image.width && image.height ? ` width="${image.width}" height="${image.height}"` : "";
-        return `<img src="${escapeHtml(image.src)}" alt="${escapeHtml(block.caption)}"${size} loading="lazy" decoding="async" referrerpolicy="no-referrer">`;
+        return `<img src="${escapeHtml(imagePath(articleId, image.src, image.local))}" alt="${escapeHtml(block.caption)}"${size} loading="lazy" decoding="async" referrerpolicy="no-referrer">`;
       })
       .join("");
     const caption = block.caption ? `<figcaption>${escapeHtml(block.caption)}</figcaption>` : "";
@@ -255,10 +282,11 @@ function articleUrl(id) {
 
 export function renderArticlePage(article, { newer = null, older = null } = {}) {
   const description = article.subtitle || article.excerpt.slice(0, 120);
+  const ogImage = article.coverImage ? imagePath(article.id, article.coverImage, article.coverLocal, true) : null;
   const coverKey = article.coverImage && imageKey(article.coverImage);
   const coverInBody = article.blocks.some((block) => block.type === "image" && block.images.some((image) => imageKey(image.src) === coverKey));
   const cover = coverKey && !coverInBody
-    ? `<div class="cover"><img src="${escapeHtml(article.coverImage)}" alt="" referrerpolicy="no-referrer"></div>`
+    ? `<div class="cover"><img src="${escapeHtml(imagePath(article.id, article.coverImage, article.coverLocal))}" alt="" referrerpolicy="no-referrer"></div>`
     : "";
   const pager = [
     older ? `<a class="prev" href="/writing/${older.id}/"><small>← 이전 글</small><span>${escapeHtml(older.title)}</span></a>` : "",
@@ -272,7 +300,7 @@ ${article.subtitle ? `<p class="subtitle">${escapeHtml(article.subtitle)}</p>` :
 <p class="meta">브루스 · <time datetime="${escapeHtml(article.publishedAt)}">${formatKoreanDate(article.publishedAt)}</time></p>
 ${cover}
 <div class="article">
-${article.blocks.map(blockHtml).join("\n")}
+${article.blocks.map((block) => blockHtml(block, article.id)).join("\n")}
 </div>
 </article>
 <p class="source">이 글은 브런치에도 발행했습니다. 댓글과 구독은 <a href="${escapeHtml(article.canonicalUrl)}" target="_blank" rel="noopener">브런치 원문</a>에서 할 수 있습니다.</p>
@@ -282,7 +310,7 @@ ${pager ? `<nav class="pager">${pager}</nav>` : ""}
     title: `${article.title} · 브루스 허`,
     description,
     url: articleUrl(article.id),
-    image: article.coverImage ?? `${SITE}/en/og.png`,
+    image: ogImage ?? `${SITE}/en/og.png`,
     canonical: articleUrl(article.id),
     jsonLd: {
       "@context": "https://schema.org",
@@ -290,7 +318,7 @@ ${pager ? `<nav class="pager">${pager}</nav>` : ""}
       headline: article.title,
       description,
       datePublished: article.publishedAt,
-      image: article.coverImage ?? undefined,
+      image: ogImage ?? undefined,
       url: articleUrl(article.id),
       mainEntityOfPage: articleUrl(article.id),
       inLanguage: "ko",
