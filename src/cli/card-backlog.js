@@ -7,12 +7,12 @@ import { readJson, writeJson } from "../lib/files.js";
 import { channelState, loadState, saveState } from "../lib/state.js";
 
 // 릴스처럼 카드뉴스도 아직 계정에서 다루지 않은 브런치 글을 차례로 만든다.
-// 새 글 원고가 밀려 있지 않고, 수·금에 예약된 브런치 카드뉴스가 MAX_AHEAD 편 미만일 때만
+// 새 글 원고가 밀려 있지 않고, 수·금·토·일에 예약된 브런치 카드뉴스가 MAX_AHEAD 편 미만일 때만
 // insight-reels/carousel_queue.json 의 todo 를 위에서부터 하나 꺼내 원문(source.json)을 준비한다.
 // 이 글은 카드뉴스만 만든다(cardOnly — 뉴스레터·리멤버 원고와 메일 없음).
 const QUEUE = "insight-reels/carousel_queue.json";
 const POSTS_DIR = "insight-reels/posts";
-const MAX_AHEAD = 4;
+const MAX_AHEAD = 8;
 
 async function exists(file) {
   try {

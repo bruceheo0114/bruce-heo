@@ -4,11 +4,11 @@ import { readJson, writeJson } from "../lib/files.js";
 import { loadState, saveState } from "../lib/state.js";
 
 // 병합된 브런치 카드뉴스를 @bruce.insight 인스타그램 게시 대기열(insight-reels/posts/<날짜>.json)에 넣는다.
-// 요일: 월=업계 트렌드 10건, 화·목=브런치 릴스, 수·금=브런치 카드뉴스(여기서 배정).
+// 요일: 월=업계 트렌드 10건, 화·목=브런치 릴스, 수·금·토·일=브런치 카드뉴스(여기서 배정).
 // 같은 주(월~일)에 같은 브런치 글이 릴스로 잡혀 있으면 그 주는 건너뛴다. 다른 주라면 겹쳐도 된다.
 // 실제 게시는 insight-reels-publish 워크플로(Publish clock 이 매일 07:00 에 시작)가 한다.
 const POSTS_DIR = "insight-reels/posts";
-const WEEKDAYS = new Set([3, 5]); // 수·금
+const WEEKDAYS = new Set([3, 5, 6, 0]); // 수·금·토·일
 const SITE = "https://bruceheo.com";
 const RAW = "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main";
 

@@ -47,9 +47,9 @@
 |---|---|
 | 월 | 이번 주 마케팅 이슈 10건 카드뉴스(토요일 카드 루틴) |
 | 화·목 | 브런치 글 릴스(일요일 릴스 루틴) |
-| 수·금 | 브런치 글 카드뉴스(이 저장소의 브런치 자동화) |
+| 수·금·토·일 | 브런치 글 카드뉴스(이 저장소의 브런치 자동화) |
 
-- 병합된 브런치 카드뉴스는 `src/cli/schedule-instagram.js`가 수·금 빈 날짜에 오래된 글부터 배정합니다(`insight-reels/posts/<날짜>.json`, type carousel). 같은 주에 같은 글이 릴스로 잡혀 있으면 다음 주로 넘깁니다.
+- 병합된 브런치 카드뉴스는 `src/cli/schedule-instagram.js`가 수·금·토·일 빈 날짜에 오래된 글부터 배정합니다(`insight-reels/posts/<날짜>.json`, type carousel). 같은 주에 같은 글이 릴스로 잡혀 있으면 다음 주로 넘깁니다.
 - 새 글이 없을 때는 릴스처럼 아직 다루지 않은 글을 `insight-reels/carousel_queue.json` 위에서부터 하나씩 꺼내 카드뉴스로 만듭니다(`src/cli/card-backlog.js`, 미리 쌓아 두는 건 최대 4편). 이런 글과 지난 글(214~222)은 `cardOnly`라 뉴스레터·리멤버 원고 없이 카드뉴스만 만듭니다.
 - 이미지는 GitHub Pages(`https://bruceheo.com/content/<id>/cards/NN.jpg`)에서 가져오고, 안 되면 raw.githubusercontent 사본을 씁니다.
 
@@ -79,7 +79,7 @@
 - 브런치 구조가 바뀌거나 원고 품질 검사·LinkedIn 토큰 오류가 나면 열린 장애 Issue에 실행 링크가 누적됩니다.
 - LinkedIn 본문 게시 후 첫 댓글만 실패하면 게시물 ID를 저장하고 첫 댓글만 재시도합니다.
 - 실제 LinkedIn 게시 없이 다음 항목을 검사하려면 **Publish due LinkedIn content**를 수동 실행하면서 `dry_run`을 켭니다.
-- GitHub 예약(cron)은 몇 시간씩 밀리거나 빠질 수 있어서 **Publish clock** 워크플로가 계속 이어서 돌며 07:00(월~목 인사이트)·07:17(브런치 캐시)·08:00(브런치 일일)·12:30(스레드)에 각 워크플로를 직접 시작합니다. 멈췄으면 Actions에서 **Publish clock**을 한 번 수동 실행하면 됩니다. 2시간마다 예약 실행이 자동으로 되살리기도 합니다.
+- GitHub 예약(cron)은 몇 시간씩 밀리거나 빠질 수 있어서 **Publish clock** 워크플로가 계속 이어서 돌며 07:00(매일 인사이트)·07:17(브런치 캐시)·08:00(브런치 일일)·12:30(스레드)에 각 워크플로를 직접 시작합니다. 멈췄으면 Actions에서 **Publish clock**을 한 번 수동 실행하면 됩니다. 2시간마다 예약 실행이 자동으로 되살리기도 합니다.
 - GitHub 예약 실행은 UTC 기준입니다. `0 23 * * *`는 매일 08:00 KST, `30 21 * * *`는 다음 날 06:30 KST입니다.
 
 
