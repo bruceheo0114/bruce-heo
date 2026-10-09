@@ -215,7 +215,7 @@ footer{border-top:1px solid var(--border);padding:28px 20px;text-align:center;fo
 @media (max-width:560px){main{padding:40px 16px 72px}.top__in{padding:12px 16px}.article{font-size:16.5px}.post{grid-template-columns:1fr;gap:4px}.pager{grid-template-columns:1fr}.pager .next{grid-column:1}}
 `;
 
-function layout({ title, description, url, image, canonical, body }) {
+function layout({ title, description, url, image, canonical, jsonLd = null, body }) {
   return `<!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -231,14 +231,14 @@ function layout({ title, description, url, image, canonical, body }) {
 <meta property="og:url" content="${escapeHtml(url)}">
 <meta property="og:image" content="${escapeHtml(image)}">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="referrer" content="no-referrer-when-downgrade">
+${jsonLd ? `<script type="application/ld+json">${JSON.stringify(jsonLd).replaceAll("<", "\\u003c")}</script>` : ""}
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <style>${STYLE}</style>
 </head>
 <body>
 <header class="top"><div class="top__in"><a class="top__brand" href="/">브루스 허</a><nav class="top__nav"><a href="/writing/">글 목록</a><a href="${CONFIG.profileUrl}" target="_blank" rel="noopener">브런치</a></nav></div></header>
 ${body}
-<footer>© 브루스 허 · 이 글은 브런치 <a href="${CONFIG.profileUrl}" target="_blank" rel="noopener">@${CONFIG.profileId}</a>에 발행한 원문을 백업한 것입니다.</footer>
+<footer>© 브루스 허 · 브런치 <a href="${CONFIG.profileUrl}" target="_blank" rel="noopener">@${CONFIG.profileId}</a></footer>
 </body>
 </html>
 `;
@@ -275,7 +275,7 @@ ${cover}
 ${article.blocks.map(blockHtml).join("\n")}
 </div>
 </article>
-<p class="source">이 글은 <a href="${escapeHtml(article.canonicalUrl)}" target="_blank" rel="noopener">브런치 원문</a>을 백업한 페이지입니다. 댓글과 구독은 브런치에서 할 수 있습니다.</p>
+<p class="source">이 글은 브런치에도 발행했습니다. 댓글과 구독은 <a href="${escapeHtml(article.canonicalUrl)}" target="_blank" rel="noopener">브런치 원문</a>에서 할 수 있습니다.</p>
 ${pager ? `<nav class="pager">${pager}</nav>` : ""}
 </main>`;
   return layout({
@@ -283,7 +283,20 @@ ${pager ? `<nav class="pager">${pager}</nav>` : ""}
     description,
     url: articleUrl(article.id),
     image: article.coverImage ?? `${SITE}/en/og.png`,
-    canonical: article.canonicalUrl,
+    canonical: articleUrl(article.id),
+    jsonLd: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      headline: article.title,
+      description,
+      datePublished: article.publishedAt,
+      image: article.coverImage ?? undefined,
+      url: articleUrl(article.id),
+      mainEntityOfPage: articleUrl(article.id),
+      inLanguage: "ko",
+      author: { "@type": "Person", name: "허보람", alternateName: "Bruce Heo", url: `${SITE}/` },
+      sameAs: article.canonicalUrl,
+    },
     body,
   });
 }
@@ -329,4 +342,24 @@ ${sections}
     canonical: `${SITE}/writing/`,
     body,
   });
+}
+
+function seoulDate(value) {
+  const { year, month, day } = toSeoulDateParts(value);
+  return `${year}-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+}
+
+// 검색엔진이 /writing/ 글을 찾도록 사이트 전체 sitemap 을 만든다.
+export function renderSitemap(articles) {
+  const urls = [
+    { loc: `${SITE}/` },
+    { loc: `${SITE}/en/` },
+    { loc: `${SITE}/writing/`, lastmod: sortArticles(articles)[0]?.publishedAt },
+    ...sortArticles(articles).map((article) => ({ loc: articleUrl(article.id), lastmod: article.publishedAt })),
+  ];
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${urls.map(({ loc, lastmod }) => `  <url><loc>${escapeHtml(loc)}</loc>${lastmod ? `<lastmod>${seoulDate(lastmod)}</lastmod>` : ""}</url>`).join("\n")}
+</urlset>
+`;
 }

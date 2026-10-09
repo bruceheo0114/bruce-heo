@@ -7,7 +7,7 @@ import { readdir, readFile, rm } from "node:fs/promises";
 import path from "node:path";
 import { CONFIG, PATHS } from "../config.js";
 import { canonicalUrl, fetchText } from "../lib/brunch.js";
-import { parseArchiveArticle, renderArchiveIndex, renderArticlePage, sortArticles } from "../lib/archive.js";
+import { parseArchiveArticle, renderArchiveIndex, renderArticlePage, renderSitemap, sortArticles } from "../lib/archive.js";
 import { readJson, writeFileAtomic, writeJson } from "../lib/files.js";
 
 const RECENT_REFETCH_DAYS = 7;
@@ -57,6 +57,7 @@ async function render() {
     await writeFileAtomic(path.join(PATHS.archivePages, article.id, "index.html"), page);
   }
   await writeFileAtomic(path.join(PATHS.archivePages, "index.html"), renderArchiveIndex(articles));
+  await writeFileAtomic("sitemap.xml", renderSitemap(articles));
   console.log(`페이지 ${articles.length}편 생성: ${PATHS.archivePages}/`);
 }
 

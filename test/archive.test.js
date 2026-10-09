@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
-import { parseArchiveArticle, renderArchiveIndex, renderArticlePage } from "../src/lib/archive.js";
+import { parseArchiveArticle, renderArchiveIndex, renderArticlePage, renderSitemap } from "../src/lib/archive.js";
 
 const html = await readFile(new URL("./fixtures/archive-article.html", import.meta.url), "utf8");
 
@@ -28,7 +28,9 @@ test("백업 페이지와 목록을 안전한 HTML로 만든다", () => {
   const article = parseArchiveArticle(html, "108");
   const page = renderArticlePage(article, { newer: { id: "109", title: "다음 <글>" } });
   assert.match(page, /<h1>브랜드는 왜 &lt;반복&gt;할까<\/h1>/);
-  assert.match(page, /<link rel="canonical" href="https:\/\/brunch\.co\.kr\/@heoboram\/108">/);
+  assert.match(page, /<link rel="canonical" href="https:\/\/bruceheo\.com\/writing\/108\/">/);
+  assert.match(page, /"@type":"BlogPosting"/);
+  assert.match(page, /"headline":"브랜드는 왜 \\u003c반복>할까"/);
   assert.match(page, /<figcaption>사진= 중앙일보<\/figcaption>/);
   assert.match(page, /youtube-nocookie\.com\/embed\/IytRLTKXwds/);
   assert.match(page, /href="\/writing\/109\/"><small>다음 글 →<\/small><span>다음 &lt;글&gt;<\/span>/);
@@ -42,4 +44,11 @@ test("백업 페이지와 목록을 안전한 HTML로 만든다", () => {
 
 test("본문을 찾지 못하면 구조 변경 오류를 낸다", () => {
   assert.throws(() => parseArchiveArticle("<html><head></head><body></body></html>", "1"), { code: "BRUNCH_STRUCTURE_CHANGED" });
+});
+
+test("sitemap 에 백업한 글 주소를 모두 넣는다", () => {
+  const article = parseArchiveArticle(html, "108");
+  const sitemap = renderSitemap([article]);
+  assert.match(sitemap, /<loc>https:\/\/bruceheo\.com\/writing\/108\/<\/loc><lastmod>2024-04-05<\/lastmod>/);
+  assert.match(sitemap, /<loc>https:\/\/bruceheo\.com\/<\/loc>/);
 });
