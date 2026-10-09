@@ -34,7 +34,7 @@
           "src": "https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/E0_b-HypCZGFSga-vam3XpoyGXo.jpg",
           "width": 458,
           "height": 650,
-          "local": "images/E0_b-HypCZGFSga-vam3XpoyGXo.jpg"
+          "local": "images/E0_b-HypCZGFSga-vam3XpoyGXo.webp"
         }
       ],
       "caption": ""
@@ -80,5 +80,5 @@
       "html": "AI 혁명으로 대표되는 격량의 시대 속 사회가 우리에게 묻는 질문이다. 당신은 어떻게 답변하겠는가?"
     }
   ],
-  "coverLocal": "images/E0_b-HypCZGFSga-vam3XpoyGXo.jpg"
+  "coverLocal": "images/E0_b-HypCZGFSga-vam3XpoyGXo.webp"
 }

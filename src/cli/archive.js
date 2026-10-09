@@ -6,6 +6,7 @@
 //   node src/cli/archive.js --import 108 path/to/108.html   저장해 둔 브런치 HTML 로 백업한다 (브런치 접속이 막힌 환경용)
 import { access, readdir, readFile, rm } from "node:fs/promises";
 import path from "node:path";
+import sharp from "sharp";
 import { CONFIG, PATHS } from "../config.js";
 import { canonicalUrl, fetchText } from "../lib/brunch.js";
 import { imageSlots, localImageName, parseArchiveArticle, renderArchiveIndex, renderArticlePage, renderSitemap, sortArticles } from "../lib/archive.js";
@@ -47,7 +48,19 @@ async function backup(id, html) {
 
 const exists = (file) => access(file).then(() => true, () => false);
 
-async function downloadImage(url, file, attempts = 3) {
+// 본문 폭(720px)의 레티나 화면에 충분한 크기와 화질로 줄여 저장소 용량을 최소화한다.
+const IMAGE_MAX_WIDTH = 1080;
+const IMAGE_QUALITY = 70;
+
+function compressImage(bytes) {
+  return sharp(bytes, { animated: true })
+    .rotate()
+    .resize({ width: IMAGE_MAX_WIDTH, withoutEnlargement: true })
+    .webp({ quality: IMAGE_QUALITY, effort: 6 })
+    .toBuffer();
+}
+
+async function downloadImage(url, attempts = 3) {
   let lastError;
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
     try {
@@ -56,8 +69,7 @@ async function downloadImage(url, file, attempts = 3) {
       if (!/^image\//.test(response.headers.get("content-type") ?? "")) throw new Error(`이미지가 아님 (${response.headers.get("content-type")})`);
       const bytes = Buffer.from(await response.arrayBuffer());
       if (!bytes.length) throw new Error("빈 파일");
-      await writeFileAtomic(file, bytes, null);
-      return;
+      return bytes;
     } catch (error) {
       lastError = error;
       if (attempt < attempts) await new Promise((resolve) => setTimeout(resolve, attempt * 750));
@@ -66,26 +78,31 @@ async function downloadImage(url, file, attempts = 3) {
   throw lastError;
 }
 
-// 브런치에서 이미지가 사라져도 남도록 writing/{id}/images/ 에 내려받고 JSON 에 local 경로를 적는다.
+// 브런치에서 이미지가 사라져도 남도록 writing/{id}/images/ 에 WebP 로 저장하고 JSON 에 local 경로를 적는다.
+// 예전에 원본 형식(jpg·png)으로 받아 둔 파일이 있으면 다시 받지 않고 그 파일을 변환한 뒤 지운다.
 async function saveImages(articles) {
   let saved = 0;
   const failures = [];
   for (const article of articles) {
     let changed = false;
-    const downloads = new Map(); // 같은 이미지가 한 글에 두 번 나와도 한 번만 받는다
+    const conversions = new Map(); // 같은 이미지가 한 글에 두 번 나와도 한 번만 만든다
+    const oldFiles = new Set();
     await mapLimit(imageSlots(article), 4, async (slot) => {
       const local = `images/${localImageName(slot.url)}`;
       const file = path.join(PATHS.archivePages, article.id, local);
       if (slot.get() === local && (await exists(file))) return;
+      const oldFile = slot.get() && slot.get() !== local ? path.join(PATHS.archivePages, article.id, slot.get()) : null;
       try {
-        if (!downloads.has(file)) {
-          downloads.set(file, exists(file).then(async (found) => {
-            if (found) return;
-            await downloadImage(slot.url, file);
+        if (!conversions.has(file)) {
+          conversions.set(file, (async () => {
+            if (await exists(file)) return;
+            const source = oldFile && (await exists(oldFile)) ? await readFile(oldFile) : await downloadImage(slot.url);
+            await writeFileAtomic(file, await compressImage(source), null);
             saved += 1;
-          }));
+          })());
         }
-        await downloads.get(file);
+        await conversions.get(file);
+        if (oldFile) oldFiles.add(oldFile);
         slot.set(local);
         changed = true;
       } catch (error) {
@@ -93,6 +110,7 @@ async function saveImages(articles) {
       }
     });
     if (changed) await writeJson(dataPath(article.id), article);
+    for (const oldFile of oldFiles) await rm(oldFile, { force: true });
   }
   console.log(`이미지 ${saved}장 새로 저장`);
   // 브런치에서 지운 이미지는 매일 실패하므로 경고만 남기고 브런치 주소를 그대로 쓴다.
