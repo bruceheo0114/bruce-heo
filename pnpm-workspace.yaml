@@ -1,0 +1,4 @@
+# sharp 는 미리 빌드된 바이너리(@img/sharp-*)를 쓰므로 설치 스크립트를 실행하지 않는다.
+# 최신 pnpm 은 승인되지 않은 설치 스크립트가 있으면 install 을 실패시킨다.
+allowBuilds:
+  sharp: false
