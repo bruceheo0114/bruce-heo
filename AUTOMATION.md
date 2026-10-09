@@ -86,3 +86,13 @@
 ## YouTube 영상 에세이 (bruce-youtube)
 
 브런치 글(2026년 이후)을 10~15분 영상 에세이 「브루스 인사이트」 영상으로 만드는 자동 파이프라인입니다. 매주 화 21:13 클라우드 루틴이 그 주 월요일에 올라온 새 브런치 글로, 새 글이 없으면 `bruce-youtube/queue.json`의 예비 글로 대본(소리 내어 읽고 다듬기)·복제 목소리 내레이션·AI 장면(월 150 크레딧 안)·편집까지 한 번에 끝내고, 완성 영상을 Claude 앱으로 보냅니다. YouTube 업로드는 직접 합니다. 자세한 내용은 `bruce-youtube/README.md`를 봅니다.
+
+## 브런치 원문 백업 (bruceheo.com/writing/)
+
+브런치 108번 글부터 최신 글까지 원문(문단·굵게·이미지와 캡션·YouTube 영상)을 `bruceheo.com/writing/{글번호}/`에서 그대로 읽을 수 있게 백업합니다. 목록은 `bruceheo.com/writing/`입니다.
+
+- **Brunch archive** 워크플로가 매일 08:41(KST)에 새 글과 최근 7일 안에 올라온 글을 받아 `data/archive/{글번호}.json`에 저장하고 `writing/` 페이지를 다시 만듭니다. 수동 실행도 됩니다.
+- 이미지는 브런치(kakaocdn) 주소를 그대로 씁니다.
+- 검색 결과에 bruceheo.com 글이 나오도록 각 페이지의 canonical은 자기 주소(`bruceheo.com/writing/{글번호}/`)이고, 글 정보(BlogPosting)를 담습니다. 백업할 때마다 `sitemap.xml`도 다시 만들고, `robots.txt`가 이를 알려 줍니다.
+- 특정 글을 다시 받으려면 `node src/cli/archive.js --refresh 108`, 페이지만 다시 만들려면 `node src/cli/archive.js --render`를 실행합니다(브런치 접속은 Actions에서만 됩니다).
+- 시작 글 번호는 `src/config.js`의 `archiveFromId`입니다.

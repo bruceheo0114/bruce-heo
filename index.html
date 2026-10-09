@@ -1013,6 +1013,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   padding: 12px 0;
 }
 .posts-more:hover { color: var(--accent-strong); }
+.posts-links { display: flex; flex-wrap: wrap; column-gap: 24px; }
 .posts-more::after { content: "→"; transition: transform 180ms ease; }
 .posts-more:hover::after { transform: translateX(4px); }
 
@@ -1983,7 +1984,10 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
       <!-- BRUNCH_POSTS_END -->
     </div>
 
-    <a href="https://brunch.co.kr/@heoboram" target="_blank" rel="noopener" class="posts-more">브런치에서 전체 글 보기</a>
+    <div class="posts-links">
+      <a href="/writing/" class="posts-more">이 사이트에서 글 읽기</a>
+      <a href="https://brunch.co.kr/@heoboram" target="_blank" rel="noopener" class="posts-more">브런치에서 전체 글 보기</a>
+    </div>
   </div>
 </section>
 

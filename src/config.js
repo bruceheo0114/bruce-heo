@@ -3,6 +3,8 @@ export const CONFIG = Object.freeze({
   profileUrl: "https://brunch.co.kr/@heoboram",
   feedUrl: "https://brunch.co.kr/rss/@@2fCF",
   homepageLimit: 12,
+  // bruceheo.com/writing/ 에 원문을 백업하는 첫 글 번호
+  archiveFromId: 108,
   cardMin: 7,
   cardMax: 10,
   cardWidth: 1080,
@@ -22,6 +24,8 @@ export const PATHS = Object.freeze({
   posts: "data/brunch-posts.json",
   homepage: "index.html",
   content: "content",
+  archiveData: "data/archive",
+  archivePages: "writing",
   result: ".automation-result.json",
   prBody: ".automation-pr-body.md",
 });

@@ -1,0 +1,51 @@
+name: Brunch archive
+
+# 브런치 글(108번부터 최신 글까지) 원문을 bruceheo.com/writing/ 에 백업한다.
+# 클라우드 루틴 환경은 brunch.co.kr 접속이 막혀 있어서 인터넷이 열린 Actions 에서 받는다.
+on:
+  schedule:
+    - cron: "41 23 * * *"  # 08:41 KST, 브런치 일일 자동화(08:00) 뒤
+  push:
+    branches: [main]
+    paths:
+      - "src/lib/archive.js"
+      - "src/cli/archive.js"
+      - ".github/workflows/brunch-archive.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: brunch-archive
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: |
+          corepack enable
+          pnpm install --frozen-lockfile
+
+      - name: Back up Brunch posts
+        run: node src/cli/archive.js
+
+      - name: Commit
+        if: always()
+        run: |
+          git add data/archive writing sitemap.xml
+          git diff --cached --quiet && exit 0
+          git config user.name "bruce-content-bot"
+          git config user.email "bruce-content-bot@users.noreply.github.com"
+          git commit -m "chore: back up Brunch posts to /writing"
+          git pull --rebase -q && git push
