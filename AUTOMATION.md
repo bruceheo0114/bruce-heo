@@ -96,3 +96,4 @@
 - 검색 결과에 bruceheo.com 글이 나오도록 각 페이지의 canonical은 자기 주소(`bruceheo.com/writing/{글번호}/`)이고, 글 정보(BlogPosting)를 담습니다. 백업할 때마다 `sitemap.xml`도 다시 만들고, `robots.txt`가 이를 알려 줍니다.
 - 특정 글을 다시 받으려면 `node src/cli/archive.js --refresh 108`, 페이지만 다시 만들려면 `node src/cli/archive.js --render`를 실행합니다(브런치 접속은 Actions에서만 됩니다).
 - 시작 글 번호는 `src/config.js`의 `archiveFromId`입니다.
+- 홈페이지(한·영) Writing 목록의 글은 백업이 끝난 글이면 브런치 대신 `/writing/{글번호}/`로 연결됩니다. 08:00 일일 자동화가 막 추가한 새 글은 08:41 백업 뒤에 사이트 링크로 바뀝니다. 「전체 글 보기」도 `/writing/`으로 연결됩니다.

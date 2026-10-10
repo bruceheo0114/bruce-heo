@@ -24,3 +24,18 @@ test("Writing 자동 구간만 교체한다", () => {
   assert.doesNotMatch(replaced, /오래된 글/);
   assert.equal((replaced.match(/class="post"/g) ?? []).length, 12);
 });
+
+test("백업된 글은 브런치 대신 이 사이트 링크로 연결한다", async () => {
+  const { linkArchivedPosts } = await import("../src/lib/homepage.js");
+  const archived = new Set(["212", "211"]);
+  const html = renderPostLinks(posts.slice(0, 3), archived);
+  assert.match(html, /<a class="post" href="\/writing\/212\/">/);
+  assert.match(html, /<a class="post" href="\/writing\/211\/">/);
+  assert.match(html, /<a class="post" href="https:\/\/brunch\.co\.kr\/@heoboram\/210" target="_blank" rel="noopener">/);
+
+  const page = `앞<a class="post" href="https://brunch.co.kr/@heoboram/9" target="_blank" rel="noopener"><!-- BRUNCH_POSTS_START -->${renderPostLinks(posts.slice(0, 3))}<!-- BRUNCH_POSTS_END -->뒤`;
+  const linked = linkArchivedPosts(page, archived);
+  assert.equal((linked.match(/href="\/writing\//g) ?? []).length, 2);
+  assert.match(linked, /@heoboram\/210" target="_blank"/);
+  assert.ok(linked.startsWith('앞<a class="post" href="https://brunch.co.kr/@heoboram/9"'), "자동 구간 밖은 그대로 둔다");
+});
