@@ -214,7 +214,8 @@ const replacements = [
   ['AI 시대,어떤 마케터가 되고 싶으세요?', 'What Kind of Marketer Do You Want to Be in the AI Era?'],
   ['뷰티 브랜드가 걸그룹의 가면을 쓴 이유', 'Why a Beauty Brand Wore a Girl Group’s Mask'],
   ['스크럽대디는 왜 청소용품 광고에 임신 테스트기를 썼나', 'Why Did Scrub Daddy Put a Pregnancy Test in a Cleaning Ad?'],
-  ['브런치에서 전체 글 보기', 'View All Essays on Brunch'],
+  ['브런치에서 구독하기', 'Subscribe on Brunch'],
+  ['전체 글 보기', 'View All Essays'],
 
   ['밖에서 남긴<br>기록과 강연', 'Interviews, features,<br>and talks'],
   ['브루스 허를 조금 더 입체적으로 보여주는 외부 기록입니다. 영상, 기사, 인터뷰, 강연 — 형식은 달라도 결국 같은 질문을 다룹니다.', 'A fuller view of my work through documentaries, articles, interviews, and talks. The formats change, but the questions stay connected.'],

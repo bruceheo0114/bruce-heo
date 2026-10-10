@@ -43,7 +43,7 @@ jobs:
       - name: Commit
         if: always()
         run: |
-          git add data/archive writing sitemap.xml
+          git add data/archive writing sitemap.xml index.html en/index.html
           git diff --cached --quiet && exit 0
           git config user.name "bruce-content-bot"
           git config user.email "bruce-content-bot@users.noreply.github.com"
