@@ -1,0 +1,35 @@
+name: Insight reels metrics
+
+# @bruce.insight 계정·게시물 성과를 insight-reels/metrics/YYYY-MM-DD.json 으로 저장한다(수동 실행).
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: insight-reels-metrics
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch insights
+        env:
+          IG_USER_ID: ${{ secrets.IG_USER_ID || '17841459178252032' }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_GRAPH_HOST: ${{ vars.IG_GRAPH_HOST }}
+        run: python3 insight-reels/scripts/fetch_ig_insights.py
+
+      - name: Record result
+        run: |
+          git add insight-reels/metrics
+          git diff --cached --quiet && exit 0
+          git config user.name "bruce-content-bot"
+          git config user.email "bruce-content-bot@users.noreply.github.com"
+          git commit -m "chore: record Instagram metrics"
+          git pull --rebase -q && git push
