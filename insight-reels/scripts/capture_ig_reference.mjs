@@ -16,25 +16,31 @@ for (const url of process.argv.slice(2)) {
   await page.goto(`https://www.instagram.com/p/${code}/embed/captioned/`, { waitUntil: "networkidle", timeout: 60000 }).catch(() => {});
   await page.waitForTimeout(2500);
   await page.screenshot({ path: path.join(out, "page.png"), fullPage: true });
-  const seen = new Set();
+  // 캐러셀을 한 장씩 넘기며 미디어 영역을 캡처한다(이미지가 배경으로 깔려 원본 주소를 못 얻는 경우가 많다)
   const images = [];
-  for (let slide = 1; slide <= 20; slide += 1) {
-    // 지금 보이는 큰 이미지들의 원본 주소를 모은다(캐러셀은 앞뒤 장을 미리 불러 둔다)
-    const srcs = await page.$$eval("img", (imgs) =>
-      imgs.filter((img) => img.naturalWidth >= 600).map((img) => img.currentSrc || img.src));
-    for (const src of srcs) {
-      if (seen.has(src)) continue;
-      seen.add(src);
-      const res = await page.request.get(src).catch(() => null);
-      if (!res?.ok()) continue;
-      const file = `${String(images.length + 1).padStart(2, "0")}.jpg`;
-      await writeFile(path.join(out, file), await res.body());
-      images.push(file);
-    }
-    const next = page.locator('button[aria-label="Next"], button[aria-label="다음"], .coreSpriteRightChevron').first();
-    if (!(await next.isVisible().catch(() => false))) break;
-    await next.click().catch(() => {});
-    await page.waitForTimeout(900);
+  const media = async () => page.evaluate(() => {
+    const el = [...document.querySelectorAll("img, video, div")].map((node) => ({ node, r: node.getBoundingClientRect() }))
+      .filter(({ r }) => r.width >= 500 && r.height >= 300 && r.top >= 0).sort((a, b) => a.r.top - b.r.top || b.r.height - a.r.height)[0];
+    return el ? { x: el.r.left, y: el.r.top, width: el.r.width, height: el.r.height } : null;
+  });
+  const box = await media();
+  for (let slide = 1; slide <= 20 && box; slide += 1) {
+    const file = `${String(slide).padStart(2, "0")}.png`;
+    await page.screenshot({ path: path.join(out, file), clip: box });
+    images.push(file);
+    // 미디어 오른쪽 가운데에 있는 '다음' 버튼을 찾는다
+    const clicked = await page.evaluate((b) => {
+      const next = [...document.querySelectorAll("button, [role=button]")].find((node) => {
+        const r = node.getBoundingClientRect();
+        const label = (node.getAttribute("aria-label") || "") + node.className;
+        return r.width > 0 && (/next|다음|Right/i.test(label) || (r.left > b.x + b.width * 0.75 && r.top > b.y + b.height * 0.25 && r.bottom < b.y + b.height * 0.75));
+      });
+      if (!next) return false;
+      next.click();
+      return true;
+    }, box);
+    if (!clicked) break;
+    await page.waitForTimeout(1200);
   }
   const caption = await page.$eval(".Caption", (el) => el.innerText).catch(async () => page.innerText("body").catch(() => ""));
   const account = await page.$eval(".UsernameText, .Username", (el) => el.innerText).catch(() => "");
