@@ -1,8 +1,8 @@
 {
   "version": 1,
   "initialized": true,
-  "lastCheckedAt": "2026-10-11T04:48:43.682Z",
-  "lastCheckedCanonicalUrl": "https://brunch.co.kr/@heoboram/222",
+  "lastCheckedAt": "2026-10-11T23:00:21.922Z",
+  "lastCheckedCanonicalUrl": "https://brunch.co.kr/@heoboram/224",
   "reviewSuccessCount": 0,
   "mode": "review",
   "articles": {
@@ -911,6 +911,38 @@
       },
       "approvedAt": "2026-10-07T00:58:53.336Z",
       "scheduledAt": "2026-10-08T21:30:00.000Z",
+      "completedAt": null
+    },
+    "224": {
+      "id": "224",
+      "canonicalUrl": "https://brunch.co.kr/@heoboram/224",
+      "title": "LG전자는 왜 발음하기도 어려운 닉네임을 만들었을까?",
+      "publishedAt": "2026-10-11T12:00:10.000Z",
+      "bodyHash": "77c4295e3523007d6bd2f739a7c15c93511ff20e7d4937d896077a0df0f75466",
+      "batchId": "38182595780",
+      "homepage": {
+        "status": "published",
+        "updatedAt": "2026-10-11T23:00:21.922Z"
+      },
+      "package": {
+        "status": "awaiting_review",
+        "manifestPath": "content/224/manifest.json",
+        "generatedAt": null
+      },
+      "linkedin": {
+        "status": "manual_pending",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "instagram": {
+        "status": "manual_pending",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "approvedAt": null,
+      "scheduledAt": null,
       "completedAt": null
     }
   }
