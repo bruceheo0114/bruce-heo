@@ -56,6 +56,7 @@ const USAGE = `사용법: node src/cli/youtube.js <명령> [인자]
   references [EP] [--changed]     references.json의 실제 자료를 받아 assets/references/<EP>/에 저장 (GitHub Actions에서 실행)
   render <EP> <녹음 파일...> [--preview] [--no-cleanup] [--voice-clone] [--out 폴더]
                                  녹음 + 화면 + 자막 → 완성 영상 mp4, 썸네일, 업로드 정보 (ffmpeg·playwright 필요)
+  shorts <EP> [--out 폴더]       완성 롱폼에서 06_shorts.md 기획마다 맞는 구간을 찾아 세로 쇼츠 mp4 + shorts.md (크레딧 0)
   thumbnails <EP> [--out 폴더]   썸네일 3안 (references.json의 thumbnail 계획 또는 자동 선택)
   resolve-update <EP> keep|regenerate
   guard <EP>                      대상 Episode 밖의 episodes/ 변경이 있으면 exit 1`;
@@ -447,6 +448,14 @@ const commands = {
     });
     console.log(`완성: ${result.file} · ${formatDuration(result.seconds)} · Scene ${result.scenes} · 자막 ${result.cues}줄`);
     await log("INFO", `${episode.name} render ${result.file}`);
+  },
+  async shorts() {
+    const episode = await findEpisode(positional()[0], paths);
+    const { renderShorts } = await import("../youtube/render/shorts.js");
+    const outDir = path.resolve(option("--out")?.[0] ?? path.join(paths.root, "output", episode.status.episode));
+    const results = await renderShorts(episode, { outDir, log: (line) => console.log(line) });
+    for (const short of results) console.log(`${short.file} · ${(short.end - short.start).toFixed(0)}초 · ${short.title}`);
+    await log("INFO", `${episode.name} shorts ${results.length}`);
   },
   async thumbnails() {
     const episode = await findEpisode(positional()[0], paths);

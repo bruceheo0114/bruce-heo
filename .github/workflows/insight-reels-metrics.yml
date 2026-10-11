@@ -1,7 +1,10 @@
 name: Insight reels metrics
 
-# @bruce.insight 계정·게시물 성과를 insight-reels/metrics/YYYY-MM-DD.json 으로 저장한다(수동 실행).
+# @bruce.insight 인스타그램 계정·게시물 성과와 유튜브 공개 지표(구독자·조회수)를 insight-reels/metrics/YYYY-MM-DD.json 으로 저장한다.
+# 매주 일요일 20:37 KST(일요일 21:00 릴스 루틴 전) + 수동 실행. 4주치가 쌓이면 편성·훅 규칙을 다시 판단한다(2026-10-11 결정).
 on:
+  schedule:
+    - cron: "37 11 * * 0"   # 일 20:37 KST
   workflow_dispatch:
 
 concurrency:

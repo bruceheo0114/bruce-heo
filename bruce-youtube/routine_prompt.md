@@ -91,6 +91,13 @@ Bruce는 중간 확인을 하지 않는다(사용자 결정 2026-10-08). 대본 
 `node src/cli/youtube.js render <EP> output/<EP>/narration/<EP>_CH01.mp3 … --no-cleanup --voice-clone`
 → `output/<EP>/`에 `<EP>.mp4`, `thumbnail.png`, `upload.md`, `subtitles.srt`
 
+## 8-1. 쇼츠 (사용자 결정 2026-10-11 — 새 채널의 유입 통로)
+
+`node src/cli/youtube.js shorts <EP>` → `output/<EP>/shorts/<EP>_SHORT01.mp4 …`(1080x1920, 25~58초)와 `shorts.md`(제목·설명·롱폼 구간).
+완성 롱폼과 `subtitles.srt`에서 `06_shorts.md` 기획마다 가장 잘 맞는 구간을 찾아 자른다. 새 내레이션·생성 이미지를 쓰지 않는다(크레딧 0).
+- 쇼츠마다 0초·중간 프레임을 뽑아 본다: 0초에 HOOK 문장이 크게 보이고, 자막이 그 순간 말소리와 맞고, 문장 중간에서 시작·끝나지 않아야 한다.
+- `shorts.md`의 '기획 일치'가 0.2 미만이면 기획과 다른 구간이 잘린 것이다. 06_shorts.md의 SCRIPT를 실제 대본 문장에 가깝게 고쳐 한 번만 다시 만든다.
+
 ## 9. 1편 편집 방향 확인 (관문 3)
 
 `ffmpeg -ss <초> -i output/<EP>/<EP>.mp4 -frames:v 1 <파일>.jpg`로 오프닝 3초, 각 챕터 간지, REAL 장면 2곳, AI 장면 1곳, 마지막 10초 프레임을 뽑아 직접 본다.
@@ -119,9 +126,9 @@ SendUserFile은 30MB까지라 1080p 원본(보통 60MB 안팎)은 GitHub 다운�
 1. 원본에 업로드 정보를 넣는다: upload.md의 제목·설명(해시태그 포함)·태그를 mp4 메타데이터(title·description·comment·keywords)로,
    thumbnail_1.png를 표지(attached_pic)로 넣은 `<EP>_1080p.mp4`를 만든다(`-c copy`, 다시 인코딩하지 않는다).
 2. 고아 브랜치 `media/<ep 소문자>`(예: `media/ep003`)를 별도 worktree에서 만들고 `<EP>/`에
-   `<EP>_1080p.mp4`, `thumbnail_1~3.png`, `업로드정보.md`(= upload.md), `subtitles.srt`, 맨 위 `README.md`(파일별 raw 링크 표)를 넣어 푸시한다.
+   `<EP>_1080p.mp4`, `thumbnail_1~3.png`, `업로드정보.md`(= upload.md), `subtitles.srt`, `shorts/`(쇼츠 mp4·shorts.md), 맨 위 `README.md`(파일별 raw 링크 표)를 넣어 푸시한다.
    main에는 올리지 않는다. 링크: `https://github.com/bruceheo0114/bruce-heo/raw/media/<ep>/<EP>/<EP>_1080p.mp4`
-3. 폰에서 바로 보게 720p 사본(2-pass, 30MB 미만)과 썸네일 3안·upload.md를 SendUserFile(status `proactive`)로 보낸다.
+3. 폰에서 바로 보게 720p 사본(2-pass, 30MB 미만)과 썸네일 3안·upload.md, 쇼츠 mp4 전부와 shorts.md를 SendUserFile(status `proactive`)로 보낸다.
 4. 마지막 메시지에 1080p 다운로드 링크와 README 링크를 **마크다운 링크**(`[바로 내려받기](https://raw.githubusercontent.com/bruceheo0114/bruce-heo/media/<ep>/<EP>/<EP>_1080p.mp4)`)로 적는다.
    주소를 괄호·글자에 붙여 쓰면 앱에서 주소가 잘못 잡힌다.
 5. Bruce가 "올렸어/지워"라고 하면: 이 환경은 원격 브랜치 삭제가 막혀 있으니, 빈 고아 커밋(README 한 줄)을 `media/<ep>`에 강제 푸시해 파일을 지우고,
@@ -147,6 +154,7 @@ PushNotification 도구가 있으면 같은 내용으로 보낸다. 폰에서 �
 <길이> · 챕터 <N>개 · 제목: <1순위 제목>
 업로드 설정: 변경된 콘텐츠(합성 음성) '예' · 썸네일 thumbnail.png
 대본 다듬기: <readback으로 고친 곳 n개> · 다시 생성한 챕터 <m>개
+쇼츠 <k>편 — 롱폼 올린 다음 날부터 하루 한 편씩(shorts.md)
 크레딧: ElevenLabs 약 <글자 수> · Higgsfield <c> (이번 달 <x>/150)
 ```
 

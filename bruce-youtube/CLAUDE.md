@@ -62,6 +62,7 @@ Hook → Phenomenon → Case → Question → Analysis → Contrast → Insight 
       → `output/<EP>/`에 `<EP>.mp4`, `thumbnail.png`, `upload.md`, `subtitles.srt`
    (챕터 사이에는 render가 2.6초 간지와 `channel/sfx/chapter.mp3` 효과음을 자동으로 넣는다. 스토리보드에 따로 챕터 전환 장면을 만들 필요 없다.
     채널 BGM `channel/bgm/bgm.mp3`도 render가 영상 내내 깔고 내레이션에 맞춰 자동으로 줄였다 올린다. 마지막 말 뒤 4초 여운.)
+   5-1. `node src/cli/youtube.js shorts <EP>` → `output/<EP>/shorts/`에 세로 쇼츠(06_shorts.md 기획마다, 크레딧 0)와 shorts.md. 새 채널의 유입 통로라 매 편 만든다(2026-10-11).
    6. 완성 영상의 프레임을 뽑아 1편 편집 방향 체크리스트(`routine_prompt.md` 9단계)로 확인한다.
    7. mp4·썸네일·upload.md를 사용자에게 보낸다. Bruce가 YouTube 앱에서 올린다(변경된 콘텐츠 '예').
       (`upload` 명령은 YouTube API 인증이 있을 때만 쓰는 예비 기능이다. 사용자가 요청할 때만 쓴다.)
@@ -114,6 +115,7 @@ node src/cli/youtube.js finalize <EP>     검사 통과 → WAITING_APPROVAL 등
 node src/cli/youtube.js report <EP>       Higgsfield 생성 계획
 node src/cli/youtube.js approve <EP> [Scene...]
 node src/cli/youtube.js readback <EP>     소리 내어 읽기 검사(긴 문장·읽는 법·복제 목소리가 다르게 읽은 곳)
+node src/cli/youtube.js shorts <EP>       완성 롱폼에서 세로 쇼츠 자르기
 node src/cli/youtube.js upload <EP>       YouTube 업로드(예비 — 사용자가 요청할 때만)
 ```
 

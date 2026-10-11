@@ -1,6 +1,6 @@
 # 브루스 인사이트 릴스 자동화
 
-브런치 @heoboram 글 → 30초 릴스(본인 클론 목소리) → 인스타그램 @bruce.insight 화·목 07:00 게시, 캡션에 @heo.boram 멘션.
+브런치 @heoboram 글 → 30초 릴스(본인 클론 목소리) → 인스타그램 @bruce.insight 화·목·토 07:00 게시, 캡션에 @heo.boram 멘션.
 카드뉴스(캐러셀)는 월 07:00 「이번 주 마케팅 이슈」, 수 07:00 브런치 카드뉴스 — 규칙은 `CAROUSEL.md`, 수요일 큐는 `carousel_queue.json`.
 
 ## 흐름

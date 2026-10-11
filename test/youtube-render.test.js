@@ -232,3 +232,19 @@ test("balanceLines wraps long card lines instead of shrinking them", async () =>
   assert.deepEqual(balanceLines(["① 출발한 문제의식은", "제품 어디에 남아 있나"]), ["① 출발한 문제의식은", "제품 어디에 남아 있나"]);
   assert.deepEqual(balanceLines(["같은 콘텐츠를 옮기나 같은 역할을 옮기나"]), ["같은 콘텐츠를 옮기나", "같은 역할을 옮기나"]);
 });
+
+test("쇼츠: 기획 문장과 가장 많이 겹치는 25~58초 자막 구간을 겹치지 않게 고른다", async () => {
+  const { parseShorts, parseSrt, pickWindow } = await import("../src/youtube/render/shorts.js");
+  const pad = (n) => String(n).padStart(2, "0");
+  const lines = ["오프닝 이야기입니다.", "후발주자는 새 이야기를 해야 할까요?", "같은 욕망을 다르게 해석합니다.", "주어가 기술인 브랜드가 있습니다.", "주어가 나인 브랜드도 있습니다.", "마무리 질문입니다."];
+  const srt = lines.map((text, index) => `${index + 1}\n00:00:${pad(index * 10)},000 --> 00:00:${pad(index * 10 + 10)},000\n${text}\n`).join("\n");
+  const cues = parseSrt(srt);
+  assert.equal(cues.length, 6);
+  assert.deepEqual([cues[1].start, cues[1].end], [10, 20]);
+  const first = pickWindow(cues, "후발주자는 새 이야기를 해야 할까요? 같은 욕망", [], { min: 15, max: 25 });
+  assert.deepEqual([first.start, first.end], [10, 30]);
+  const second = pickWindow(cues, "주어가 기술인 브랜드, 주어가 나인 브랜드", [first], { min: 15, max: 25 });
+  assert.deepEqual([second.start, second.end], [30, 50]);
+  const plans = parseShorts("# Shorts\n\n## SHORT 01\nHOOK: 질문\nSCRIPT: 대본\nON SCREEN TEXT: 문구\nSOURCE TIMECODE: 00:00-01:00\nEXPECTED LENGTH: 40s\n");
+  assert.deepEqual(plans, [{ title: "SHORT 01", hook: "질문", script: "대본", onScreen: "문구" }]);
+});
