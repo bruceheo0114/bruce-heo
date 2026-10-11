@@ -1,0 +1,44 @@
+name: Rerender carousel cover
+
+# 이미 만든 브런치 카드뉴스 표지를 새 스타일로 다시 그린다. options: 원문 이미지별 시안을 content/<id>/cover-options/ 에 올림, apply: 고른 이미지로 확정.
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "options 또는 apply"
+        required: true
+        default: options
+      targets:
+        description: "options: 글 번호들(예: 214 215) / apply: 번호=이미지(예: 214=0 215=none)"
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install dependencies
+        run: |
+          corepack enable
+          pnpm install --frozen-lockfile
+          pnpm exec playwright install --with-deps chromium
+      - name: Render
+        env:
+          MODE: ${{ inputs.mode }}
+          TARGETS: ${{ inputs.targets }}
+        run: node src/cli/rerender-cover.js "$MODE" $TARGETS
+      - name: Commit
+        run: |
+          git add content
+          git diff --cached --quiet && exit 0
+          git config user.name "bruce-content-bot"
+          git config user.email "bruce-content-bot@users.noreply.github.com"
+          git commit -m "chore: rerender carousel cover (${{ inputs.mode }})"
+          git pull --rebase -q && git push

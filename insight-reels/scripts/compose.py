@@ -292,5 +292,41 @@ sh(f'ffmpeg -y -v error -loop 1 -framerate {FPS} -i bg.png -i panel.mp4 -i "{spe
    f'-filter_complex "{",".join(f)}[v];[2:a]apad,atrim=0:{total}[a]" -map "[v]" -map "[a]" '
    f'-c:v libx264 -profile:v high -preset medium -crf 20 -pix_fmt yuv420p -r {FPS} '
    f'-c:a aac -b:a 192k -ar 48000 -movflags +faststart -t {total} out.mp4')
-sh(f"ffmpeg -y -v error -ss {spec.get('cover_at', 0.8)} -i out.mp4 -frames:v 1 -q:v 2 cover.jpg")
+# 표지(cover.jpg) — 유튜브 썸네일·카드뉴스 표지와 같은 스타일(사용자 결정 2026-10-11, 10/20 편부터):
+# 첫 장면 사진 전면 + 왼쪽·아래 그늘 + 아주 큰 흰 제목. 프로필 격자(4:5)에서 잘리지 않게 글자는 가운데 4:5 안에 둔다.
+def thumb_cover(spec):
+    src = next((v.get("src") or v.get("left") for v in spec["visuals"] if v.get("src") or v.get("left")), None)
+    if not src or spec.get("cover_mode") == "frame":
+        sh(f"ffmpeg -y -v error -ss {spec.get('cover_at', 0.8)} -i out.mp4 -frames:v 1 -q:v 2 cover.jpg")
+        return
+    im = cover(src, W, H, spec["visuals"][0].get("focus_y", 0.5))
+    shade = Image.new("L", (W, H))
+    sd = ImageDraw.Draw(shade)
+    for x in range(W):
+        sd.line([(x, 0), (x, H)], fill=int(205 * max(0.0, 1 - x / (W * 0.95)) ** 0.9))
+    low = Image.new("L", (W, H))
+    ld = ImageDraw.Draw(low)
+    for y in range(H):
+        ld.line([(0, y), (W, y)], fill=int(170 * max(0.0, (y / H - 0.4) / 0.6) ** 1.2))
+    black = Image.new("RGB", (W, H), (0, 0, 0))
+    im = Image.composite(black, im, shade)
+    im = Image.composite(black, im, low)
+    d = ImageDraw.Draw(im)
+    top, bottom = (H - W * 5 // 4) // 2, (H + W * 5 // 4) // 2   # 가운데 4:5 영역
+    f = font(FB, 30)
+    label = "브루스 인사이트"
+    tw = d.textlength(label, font=f)
+    d.rounded_rectangle([72, top + 72, 72 + tw + 44, top + 72 + 54], radius=27, outline=(101, 185, 138), width=4)
+    d.text((94, top + 80), label, font=f, fill=(255, 255, 255))
+    lines = spec["title"].split("\n")[:3]
+    size = 112 if max(len(x) for x in lines) <= 8 else 92
+    tf = font(FX, size)
+    y = bottom - 110 - int(size * 1.08) * len(lines)
+    for ln in lines:
+        d.text((72, y), ln, font=tf, fill=(255, 255, 255))
+        y += int(size * 1.08)
+    im.save("cover.jpg", quality=92)
+
+
+thumb_cover(spec)
 print(sh("ffprobe -v error -show_entries format=duration:stream=codec_name,width,height -of compact out.mp4"))
