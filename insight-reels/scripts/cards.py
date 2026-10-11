@@ -3,7 +3,7 @@
 # 사용: python3 cards.py posts/DATE.cards.json [출력폴더]  → card_01.jpg … (1080x1350, 4:5) + qa.jpg
 #
 # spec: {"slides": [ ... ]}   src 는 이미지 URL(힉스필드 결과) 또는 spec 기준 상대 경로
-#   cover  : src, title, sub, pill(기본 "브루스 인사이트"), tone(dark|light)  — 전면 사진, 왼쪽 글
+#   cover  : src, title, sub, pill(기본 "브루스 인사이트")  — 유튜브 썸네일 스타일(전면 사진·아래 큰 흰 글씨, 제목 2~3줄·줄당 7~9자)
 #   photo  : src, title, body, photo_h(사진 높이 비율, 기본 0.5), focus_y   — 위 사진 / 아래 아이보리 패널
 #   text   : title, body                                                    — 사진 없는 아이보리 장, 큰 제목
 #   compare: title, left{head, items[]}, right{head, items[]}, note          — 좌우 대비(예전 → 이제)
@@ -130,16 +130,33 @@ def shade(im, side="left", color=(0, 0, 0), strength=0.88, reach=0.72):
 
 
 def s_cover(s):
-    dark = s.get("tone", "dark") == "dark"
-    im = fit(s["src"], W, H, s.get("focus_y", 0.5))
-    im = shade(im, color=(10, 10, 10) if dark else IVORY, strength=0.9 if dark else 0.95)
+    """유튜브 썸네일과 같은 표지(사용자 결정 2026-10-11): 전면 사진 + 왼쪽·아래 그늘 + 아래쪽에 아주 큰 흰 글씨, 배지 왼쪽 위, BR 오른쪽 위."""
+    im = fit(s["src"], W, H, s.get("focus_y", 0.5)) if s.get("src") else Image.new("RGB", (W, H), CHAR)
+    im = shade(im, color=(0, 0, 0), strength=0.82, reach=0.95)
+    g = Image.new("L", (1, H))
+    for y in range(H):
+        g.putpixel((0, y), int(150 * max(0.0, (y / H - 0.45) / 0.55) ** 1.2))
+    im = Image.composite(Image.new("RGB", (W, H), (0, 0, 0)), im, g.resize((W, H)))
     d = ImageDraw.Draw(im)
-    fg = WHITE if dark else INK
-    pill(d, M, 330, s.get("pill", "브루스 인사이트"), solid=dark)
-    y = title(d, M, 420, s["title"], 82, fg, accent=GREEN if dark else DEEP)
-    d.line([M, y + 26, M + 56, y + 26], fill=GREEN, width=4)
-    body(d, M, y + 66, s.get("sub", ""), 34, (225, 225, 225) if dark else BODY, lh=1.55)
-    logo(d, M, H - 84 - 60, dark)
+    pill(d, M, 84, s.get("pill", "브루스 인사이트"), solid=False)
+    logo(d, W - M - 60, 78, True)
+    lines = s["title"].split("\n")
+    size = 118 if max(len(x) for x in lines) <= 7 else 100
+    sub = s.get("sub", "")
+    sub_h = (sub.count("\n") + 1) * int(34 * 1.55) if sub else 0
+    top = H - 110 - sub_h - (36 if sub else 0) - int(size * 1.08) * len(lines)
+    f = font("ExtraBold", size)
+    y = top
+    for i, ln in enumerate(lines):
+        dot = i == len(lines) - 1 and ln.endswith(".")
+        ln = ln[:-1] if dot else ln
+        d.text((M, y), ln, font=f, fill=WHITE)
+        if dot:
+            cx, r = M + d.textlength(ln, font=f), size * 0.1
+            d.ellipse([cx + size * 0.06, y + size * 0.9 - r, cx + size * 0.06 + 2 * r, y + size * 0.9 + r], fill=GREEN)
+        y += int(size * 1.08)
+    if sub:
+        body(d, M, y + 36, sub, 34, (225, 225, 225), lh=1.55)
     return im
 
 

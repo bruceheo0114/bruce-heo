@@ -3,7 +3,7 @@
 수·금·일 브런치 카드뉴스와 화·목·토 릴스는 다른 자동화가 만든다. 이 루틴은 만들지 않는다.
 
 1. `TZ=Asia/Seoul date +%F` 로 오늘을 구하고, 다가오는 월요일 날짜를 구한다. `insight-reels/posts/<날짜>.json` 이 이미 있으면 "이번 주는 이미 준비됨" 한 줄 남기고 끝낸다.
-2. CAROUSEL.md 월요일 규칙(특히 「고르는 기준」 1~6 — 사람들이 반응한 것·숫자·소비 트렌드·그 주의 순간·의외성·국내 위주)대로 오늘 기준 지난 7일(일~토) 이슈 10건을 찾고, 원문을 1건씩 열어 날짜·숫자를 확인한다. {EXCLUDE} 직전 월요일 posts 파일에 나온 브랜드는 다시 쓰지 않는다.
+2. CAROUSEL.md 월요일 규칙(특히 「고르는 기준」 1~6 — 사람들이 반응한 것·숫자·소비 트렌드·그 주의 순간·의외성·국내 위주)대로 오늘 기준 지난 7일(일~토) 이슈 10건을 찾고(최근 7일 `insight-reels/references/` 참고 게시물이 있으면 그 이슈들을 후보로 먼저 본다 — 같은 이슈를 골라도 된다), 원문을 1건씩 열어 날짜·숫자를 확인한다. {EXCLUDE} 직전 월요일 posts 파일에 나온 브랜드는 다시 쓰지 않는다.
 3. cover 이미지 1장을 `generate_image_batch` 로 요청 → `jobs_wait` 로 받아 cover·close 의 `src` 에 넣는다. `show_generation_by_ids` 는 쓰지 않는다.
 4. `posts/<날짜>.cards.json`(cover → issues 5장 → text → close), `posts/<날짜>.json`(type `carousel`, status `render`, series `weekly_issues`) 을 쓴다. `insight-reels/ledger.json` 의 이번 사이클(매월 2일 시작, 키 `YYYY-MM`)에 실제 힉스필드 지출을 더한다(`transactions` 로 확인).
 5. `git pull --rebase` 후 커밋·푸시. 메시지 `chore: weekly issues for <날짜>`.
