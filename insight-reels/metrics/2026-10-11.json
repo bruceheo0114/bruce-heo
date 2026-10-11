@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-11T09:06:06.800990Z",
+  "fetched_at": "2026-10-11T09:14:28.343340Z",
   "account": {
     "username": "bruce.insight",
     "followers_count": 72,
@@ -299,5 +299,18 @@
         "profile_visits": 10
       }
     }
-  ]
+  ],
+  "youtube": {
+    "channel_id": "UCCRzzl43nHs5bwfJzqupylw",
+    "videos": [
+      {
+        "id": "n_dz1Q3K3_g",
+        "title": "로고를 가렸는데 광고가 됐다? 하인즈의 기막힌 전략",
+        "published": "2026-10-07T11:55:20+00:00",
+        "views": 149,
+        "likes": 3
+      }
+    ],
+    "subscribers_text": "3명"
+  }
 }
