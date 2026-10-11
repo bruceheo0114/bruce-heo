@@ -54,6 +54,12 @@ RECOMMENDATION은 `MAKE_VIDEO` / `SHORTS_ONLY` / `HOLD` / `SKIP` 중 하나. 아
 `## Title Candidates` (목록 5개) · `## Thumbnail Copy` (목록 5개) · `## Opening Hook` (첫 30초 내레이션) ·
 `## Main Question` · `## Core Argument` · `## Chapter Structure` (타임코드 포함) · `## Key Examples` · `## Ending Question / Statement`
 
+제목·썸네일·오프닝은 `insight-reels/HOOKS.md` 5절(성과 진단에서 배운 것)을 따른다(이 파일만 예외로 읽는다):
+- `## Title Candidates` 1순위는 **브랜드명(또는 원문 속 구체적 대상) + 역설적 질문**. 관점을 선언하는 추상 문장(예: 「하인즈는 케첩이 아니라 기억을 판다」)은 1순위로 두지 않는다.
+- `## Thumbnail Copy`는 한눈에 읽히는 짧은 한 줄. 화면 구성은 글자와 배경의 대비가 분명하게.
+- `## Opening Hook`은 가장 흥미로운 결론(반전)을 첫 문장~10초 안에 던지고, 배경 설명은 그 뒤로 미룬다.
+- 대본은 길이보다 밀도: 앞 챕터와 같은 말을 되풀이하는 단락은 덜어낸다(10분 하한을 채우려고 늘리지 않는다 — 모자라면 00_score에서 SHORTS_ONLY를 검토).
+
 업로드용으로 `## Hashtags`(이번 편 해시태그 5~7개, 한 줄, 첫 3개가 제목 위에 보이니 가장 중요한 것부터), `## Tags`(쉼표로 구분한 검색 태그 12~20개, 합쳐서 450자 이내), `## Pinned Comment`(시청자에게 묻는 질문 1~2문장 + 브런치 원문 안내)도 쓴다.
 
 ## 02_script.md
