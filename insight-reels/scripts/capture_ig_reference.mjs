@@ -8,7 +8,24 @@ const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..",
 const browser = await chromium.launch();
 const page = await browser.newPage({ viewport: { width: 540, height: 1000 }, deviceScaleFactor: 2, locale: "ko-KR" });
 
+// 계정 주소(https://www.instagram.com/<계정>/)를 주면 그 계정 embed 에서 최근 게시물 LATEST 개를 찾아 받는다.
+const LATEST = Number(process.env.LATEST ?? 1);
+const targets = [];
 for (const url of process.argv.slice(2)) {
+  if (/instagram\.com\/(?:p|reel)\//.test(url)) {
+    targets.push(url);
+    continue;
+  }
+  const user = url.match(/instagram\.com\/([A-Za-z0-9_.]+)/)?.[1];
+  if (!user) continue;
+  await page.goto(`https://www.instagram.com/${user}/embed/`, { waitUntil: "networkidle", timeout: 60000 }).catch(() => {});
+  await page.waitForTimeout(2500);
+  const codes = [...new Set((await page.content()).match(/\/(?:p|reel)\/[A-Za-z0-9_-]{8,}/g) ?? [])];
+  console.log(user, "최근 게시물", codes.slice(0, 5).join(" ") || "(못 찾음)");
+  for (const code of codes.slice(0, LATEST)) targets.push(`https://www.instagram.com${code}/`);
+}
+
+for (const url of targets) {
   const code = url.match(/instagram\.com\/(?:p|reel)\/([A-Za-z0-9_-]+)/)?.[1];
   if (!code) continue;
   const out = path.join(ROOT, code);
