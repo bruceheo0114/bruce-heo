@@ -1,0 +1,31 @@
+name: Insight reels reference
+
+# 참고하고 싶은 인스타그램 공개 게시물 링크(공백으로 여러 개)의 이미지·캡션을 insight-reels/references/ 에 받아 둔다.
+on:
+  workflow_dispatch:
+    inputs:
+      urls:
+        description: "인스타그램 게시물 링크(공백으로 구분)"
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch references
+        env:
+          URLS: ${{ inputs.urls }}
+        run: python3 insight-reels/scripts/fetch_ig_reference.py $URLS
+      - name: Commit
+        run: |
+          git add insight-reels/references
+          git diff --cached --quiet && exit 0
+          git config user.name "bruce-content-bot"
+          git config user.email "bruce-content-bot@users.noreply.github.com"
+          git commit -m "chore: save Instagram reference posts"
+          git pull --rebase -q && git push
