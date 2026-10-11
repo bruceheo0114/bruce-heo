@@ -10,10 +10,7 @@
 #   checks : title, items[{head, text}], note                               — 초록 체크 목록
 #   close  : src, title, body                                               — 어두운 전면 사진, 마지막 질문
 #   issue  : no, tag, title, body, point, source                            — 「이번 주 마케팅 이슈」 한 건(사진 없음)
-#   issues : items[{no, tag, title, body, point, source}] 2건                — 한 장에 이슈 두 건(예전 월요일 형식)
-#   cover_list: kicker, title, items[헤드라인…], pill                      — 어두운 표지에 이번 주 헤드라인 전부(2026-10-19~ 월요일)
-#   brief  : no, tag, title, facts[], point, source                        — 이슈 한 건 = 한 장, 사실 불릿 3~5줄(2026-10-19~ 월요일)
-#   close 에 src 가 없으면 어두운 단색 배경으로 그린다(이미지 생성 0).
+#   issues : items[{no, tag, title, body, point, source}] 2건                — 한 장에 이슈 두 건(월요일 10건 = 5장)
 # 제목: 줄바꿈은 \n, 끝 점(.)은 초록 점으로 그린다. 「**단어**」는 진초록 강조.
 # body: 빈 줄(\n\n)로 문단을 나눈다.
 import hashlib, json, os, re, sys, urllib.request
@@ -220,11 +217,8 @@ def s_checks(s):
 
 
 def s_close(s):
-    if s.get("src"):
-        im = fit(s["src"], W, H, s.get("focus_y", 0.5))
-        im = shade(im, color=(8, 9, 9), strength=0.92, reach=0.8)
-    else:
-        im = Image.new("RGB", (W, H), CHAR)
+    im = fit(s["src"], W, H, s.get("focus_y", 0.5))
+    im = shade(im, color=(8, 9, 9), strength=0.92, reach=0.8)
     d = ImageDraw.Draw(im)
     y = title(d, M, 260, s["title"], 78, WHITE, accent=GREEN)
     body(d, M, y + 50, s.get("body", ""), 33, (222, 222, 222), lh=1.6)
@@ -281,53 +275,7 @@ def s_issues(s):
     return im
 
 
-def s_cover_list(s):
-    """어두운 표지: 주차 → 큰 제목 → 번호 붙인 헤드라인 전부. 표지만 봐도 이번 주가 보이게(저장 유도)."""
-    im = Image.new("RGB", (W, H), CHAR)
-    d = ImageDraw.Draw(im)
-    pill(d, M, 120, s.get("pill", "이번 주 마케팅 이슈"), solid=True)
-    d.text((M, 206), s.get("kicker", ""), font=font("Medium", 34), fill=(190, 190, 190))
-    y = title(d, M, 260, s["title"], 78, WHITE, accent=GREEN, lh=1.25) + 50
-    items = s.get("items", [])
-    step = min(74, (H - 190 - y) // max(1, len(items)))
-    f = font("Medium", 36)
-    for i, text in enumerate(items, 1):
-        d.rounded_rectangle([M, y + 4, M + 44, y + 48], 6, fill=WHITE)
-        n = str(i)
-        d.text((M + 22 - d.textlength(n, font=font("Bold", 28)) / 2, y + 8), n, font=font("Bold", 28), fill=CHAR)
-        d.text((M + 68, y + 2), text, font=f, fill=WHITE)
-        y += step
-    logo(d, M, H - 84 - 60, True)
-    return im
-
-
-def s_brief(s):
-    """이슈 한 건: 번호·분야 → 2줄 헤드라인 → 사실 불릿 → 브루스의 한 줄 → 출처."""
-    im = Image.new("RGB", (W, H), IVORY)
-    d = ImageDraw.Draw(im)
-    d.text((M, 120), f"{int(s['no']):02d}", font=font("ExtraBold", 84), fill=GREEN)
-    d.text((M + 132, 152), s.get("tag", ""), font=font("Medium", 30), fill=MUTED)
-    y = title(d, M, 270, s["title"], 68, INK, lh=1.28) + 40
-    d.line([M, y, M + 56, y], fill=GREEN, width=4)
-    y += 50
-    f = font("Medium", 38)
-    for fact in s.get("facts", []):
-        d.ellipse([M, y + 19, M + 12, y + 31], fill=GREEN)
-        d.text((M + 34, y), fact, font=f, fill=BODY)
-        y += 74
-    if s.get("point"):
-        top = max(y + 30, H - 190 - 150)
-        d.rounded_rectangle([M, top, W - M, top + 150], 24, fill=WHITE, outline=GREEN, width=3)
-        d.text((M + 36, top + 28), "브루스의 한 줄", font=font("Bold", 28), fill=DEEP)
-        d.text((M + 36, top + 78), s["point"], font=font("Medium", 34), fill=INK)
-    if s.get("source"):
-        sf = font("Regular", 24)
-        d.text((W - M - d.textlength(s["source"], font=sf), H - 60 - 44), s["source"], font=sf, fill=MUTED)
-    logo(d, M, H - 60 - 60, False)
-    return im
-
-
-KIND = dict(cover_list=s_cover_list, brief=s_brief, cover=s_cover, photo=s_photo, text=s_text, compare=s_compare, checks=s_checks, close=s_close, issue=s_issue,
+KIND = dict(cover=s_cover, photo=s_photo, text=s_text, compare=s_compare, checks=s_checks, close=s_close, issue=s_issue,
             issues=s_issues)
 
 def render(spec_path, out_dir="."):
