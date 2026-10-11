@@ -1,4 +1,6 @@
-# 오늘 날짜(KST)의 threads/posts/YYYY-MM-DD.json 을 @heo.boram 스레드에 올린다(본문 + 원문 링크 첫 댓글).
+# 오늘 날짜(KST)의 threads/posts/YYYY-MM-DD.json 을 @heo.boram 스레드에 올린다.
+# 본문 → replies(댓글 타래, 각각 바로 앞 글에 이어 단다) → reply_text(원문 링크) 순서.
+# 중간에 실패해도 올린 부분은 파일에 기록돼, 다시 실행하면 이어서 올린다(중복 게시 방지).
 # GitHub Actions(threads-publish.yml)에서 실행. 표준 라이브러리만 사용.
 # 필요: secrets THREADS_ACCESS_TOKEN (@heo.boram 장기 토큰, 60일)
 import datetime, json, os, pathlib, sys, time, urllib.error, urllib.parse, urllib.request
@@ -44,17 +46,33 @@ post = json.loads(f.read_text(encoding="utf-8"))
 if post.get("status") != "scheduled":
     print(f"{today}: status={post.get('status')} — 게시하지 않음")
     sys.exit(0)
-if len(post["text"]) > 500:
-    sys.exit(f"본문이 {len(post['text'])}자입니다(500자 제한)")
+chain = [post["text"], *post.get("replies", [])]
+if post.get("reply_text"):  # 원문 링크는 본문이 아니라 타래 마지막 댓글로
+    chain.append(post["reply_text"])
+for i, t in enumerate(chain):
+    if len(t) > 500:
+        sys.exit(f"{'본문' if i == 0 else f'댓글 {i}'}이 {len(t)}자입니다(500자 제한)")
 
-extra = {"topic_tag": post["topic_tag"]} if post.get("topic_tag") else {}
-post_id = publish(post["text"], **extra)
-link = call("GET", post_id, fields="permalink").get("permalink", "")
-print("본문 게시:", link)
-if post.get("reply_text"):  # 원문 링크는 본문이 아니라 첫 댓글로
-    post["reply_id"] = publish(post["reply_text"], reply_to_id=post_id)
-    print("댓글 게시:", post["reply_id"])
-post.update(status="posted", media_id=post_id, permalink=link,
-            posted_at=datetime.datetime.utcnow().isoformat() + "Z")
-f.write_text(json.dumps(post, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-print(f"게시 완료: {link}")
+
+def save():
+    f.write_text(json.dumps(post, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
+if not post.get("media_id"):
+    extra = {"topic_tag": post["topic_tag"]} if post.get("topic_tag") else {}
+    post["media_id"] = publish(post["text"], **extra)
+    post["permalink"] = call("GET", post["media_id"], fields="permalink").get("permalink", "")
+    save()
+    print("본문 게시:", post["permalink"])
+else:
+    print("본문은 이미 게시됨 — 남은 댓글부터 이어서:", post.get("permalink", ""))
+
+ids = post.setdefault("reply_ids", [])
+for t in chain[1 + len(ids):]:
+    ids.append(publish(t, reply_to_id=ids[-1] if ids else post["media_id"]))
+    save()
+    print(f"댓글 {len(ids)}/{len(chain) - 1} 게시:", ids[-1])
+
+post.update(status="posted", posted_at=datetime.datetime.utcnow().isoformat() + "Z")
+save()
+print(f"게시 완료: {post['permalink']}")

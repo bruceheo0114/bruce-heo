@@ -53,6 +53,7 @@ jobs:
         run: python3 threads/scripts/publish_threads.py
 
       - name: Record result
+        if: always()  # 타래 중간에 실패해도 올린 부분을 기록해 다음 실행이 이어서 올리게 한다
         run: |
           git diff --quiet -- threads/posts && exit 0
           git config user.name "bruce-content-bot"
