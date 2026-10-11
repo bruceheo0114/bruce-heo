@@ -1,0 +1,303 @@
+{
+  "fetched_at": "2026-10-11T09:06:06.800990Z",
+  "account": {
+    "username": "bruce.insight",
+    "followers_count": 72,
+    "follows_count": 173,
+    "media_count": 15,
+    "id": "28558968203769049"
+  },
+  "account_last_7d": {
+    "reach": 326,
+    "views": 1194,
+    "profile_views": 30,
+    "accounts_engaged": 9,
+    "total_interactions": 44
+  },
+  "media_error": null,
+  "posts": [
+    {
+      "timestamp": "2026-10-10T22:00:54+0000",
+      "type": "FEED",
+      "permalink": "https://www.instagram.com/p/DeVG5VYGw3h/",
+      "first_line": "🎬 사람들은 왜 콘텐츠를 만든 사람까지 궁금해할까요?",
+      "like_count": 4,
+      "comments_count": 0,
+      "insights": {
+        "reach": 48,
+        "views": 84,
+        "likes": 4,
+        "comments": 0,
+        "saved": 0,
+        "shares": 1,
+        "total_interactions": 5,
+        "follows": 0,
+        "profile_visits": 0
+      }
+    },
+    {
+      "timestamp": "2026-10-08T22:01:02+0000",
+      "type": "FEED",
+      "permalink": "https://www.instagram.com/p/DeP9Ue5Hxam/",
+      "first_line": "🎬 사람들은 돈을 내고 불편을 삽니다.",
+      "like_count": 3,
+      "comments_count": 0,
+      "insights": {
+        "reach": 82,
+        "views": 163,
+        "likes": 3,
+        "comments": 0,
+        "saved": 0,
+        "shares": 1,
+        "total_interactions": 4,
+        "follows": 0,
+        "profile_visits": 4
+      }
+    },
+    {
+      "timestamp": "2026-10-07T22:01:15+0000",
+      "type": "REELS",
+      "permalink": "https://www.instagram.com/reel/DeNYfklEejQ/",
+      "first_line": "\"메시지 이야기는 너무 교과서 같지 않아요?\" 그 교과서가 이제 AI에게 추천받는 조건이 됐습니다 👇",
+      "like_count": 4,
+      "comments_count": 0,
+      "insights": {
+        "reach": 124,
+        "views": 121,
+        "likes": 4,
+        "comments": 0,
+        "saved": 0,
+        "shares": 1,
+        "total_interactions": 5,
+        "ig_reels_avg_watch_time": 3565
+      }
+    },
+    {
+      "timestamp": "2026-10-06T22:01:05+0000",
+      "type": "FEED",
+      "permalink": "https://www.instagram.com/p/DeKzuzlIFb1/",
+      "first_line": "🤖 이제 사람들은 검색창 대신 AI에게 묻습니다.",
+      "like_count": 6,
+      "comments_count": 0,
+      "insights": {
+        "reach": 86,
+        "views": 164,
+        "likes": 6,
+        "comments": 0,
+        "saved": 1,
+        "shares": 1,
+        "total_interactions": 8,
+        "follows": 1,
+        "profile_visits": 7
+      }
+    },
+    {
+      "timestamp": "2026-10-05T22:26:46+0000",
+      "type": "REELS",
+      "permalink": "https://www.instagram.com/reel/DeIRx02joLZ/",
+      "first_line": "수세미 브랜드가 임신 테스트기 영상을 올렸습니다. 조회수 200만. 실수가 아니라 설계였어요 👇",
+      "like_count": 3,
+      "comments_count": 0,
+      "insights": {
+        "reach": 229,
+        "views": 308,
+        "likes": 3,
+        "comments": 0,
+        "saved": 0,
+        "shares": 1,
+        "total_interactions": 4,
+        "ig_reels_avg_watch_time": 5990
+      }
+    },
+    {
+      "timestamp": "2026-10-05T03:00:26+0000",
+      "type": "FEED",
+      "permalink": "https://www.instagram.com/p/DeGMaCOjfel/",
+      "first_line": "📰 이번 주 주목할 마케팅 이슈 3가지, 넘겨서 보세요 👉",
+      "like_count": 5,
+      "comments_count": 0,
+      "insights": {
+        "reach": 107,
+        "views": 214,
+        "likes": 5,
+        "comments": 0,
+        "saved": 0,
+        "shares": 1,
+        "total_interactions": 6,
+        "follows": 0,
+        "profile_visits": 2
+      }
+    },
+    {
+      "timestamp": "2026-10-03T19:17:44+0000",
+      "type": "FEED",
+      "permalink": "https://www.instagram.com/p/DeCyqoQE5RH/",
+      "first_line": "기획서와 회의에서 덜 막히도록.",
+      "like_count": 1,
+      "comments_count": 0,
+      "insights": {
+        "reach": 18,
+        "views": 81,
+        "likes": 1,
+        "comments": 0,
+        "saved": 0,
+        "shares": 0,
+        "total_interactions": 1,
+        "follows": 0,
+        "profile_visits": 4
+      }
+    },
+    {
+      "timestamp": "2026-10-03T19:16:38+0000",
+      "type": "FEED",
+      "permalink": "https://www.instagram.com/p/DeCyirLk-dJ/",
+      "first_line": "기획서 첫 장, 이 5개부터 점검하세요.",
+      "like_count": 0,
+      "comments_count": 0,
+      "insights": {
+        "reach": 12,
+        "views": 44,
+        "likes": 0,
+        "comments": 0,
+        "saved": 0,
+        "shares": 0,
+        "total_interactions": 0,
+        "follows": 0,
+        "profile_visits": 0
+      }
+    },
+    {
+      "timestamp": "2026-10-03T19:15:16+0000",
+      "type": "FEED",
+      "permalink": "https://www.instagram.com/p/DeCyYqik0ZP/",
+      "first_line": "아이디어는 있는데, 제안서 첫 장에서 멈추나요?",
+      "like_count": 0,
+      "comments_count": 0,
+      "insights": {
+        "reach": 15,
+        "views": 49,
+        "likes": 0,
+        "comments": 0,
+        "saved": 0,
+        "shares": 0,
+        "total_interactions": 0,
+        "follows": 0,
+        "profile_visits": 2
+      }
+    },
+    {
+      "timestamp": "2026-07-13T23:02:15+0000",
+      "type": "FEED",
+      "permalink": "https://www.instagram.com/p/DawDLScE45P/",
+      "first_line": "하인즈는 케첩이 아니라 기억을 팝니다.",
+      "like_count": 3,
+      "comments_count": 2,
+      "insights": {
+        "reach": 191,
+        "views": 585,
+        "likes": 3,
+        "comments": 2,
+        "saved": 0,
+        "shares": 2,
+        "total_interactions": 7,
+        "follows": 0,
+        "profile_visits": 2
+      }
+    },
+    {
+      "timestamp": "2026-07-01T22:12:29+0000",
+      "type": "FEED",
+      "permalink": "https://www.instagram.com/p/DaRD8ZlE22Z/",
+      "first_line": "🟢 리센느의 유튜브가 500만 뷰를 만든 이유",
+      "like_count": 8,
+      "comments_count": 3,
+      "insights": {
+        "reach": 259,
+        "views": 856,
+        "likes": 8,
+        "comments": 3,
+        "saved": 2,
+        "shares": 1,
+        "total_interactions": 14,
+        "follows": 1,
+        "profile_visits": 5
+      }
+    },
+    {
+      "timestamp": "2026-06-28T22:58:42+0000",
+      "type": "FEED",
+      "permalink": "https://www.instagram.com/p/DaJa2KME0S6/",
+      "first_line": "🎭 뷰티 브랜드가 걸그룹의 가면을 썼습니다.",
+      "like_count": 6,
+      "comments_count": 2,
+      "insights": {
+        "reach": 207,
+        "views": 693,
+        "likes": 6,
+        "comments": 2,
+        "saved": 1,
+        "shares": 1,
+        "total_interactions": 10,
+        "follows": 0,
+        "profile_visits": 1
+      }
+    },
+    {
+      "timestamp": "2026-06-25T22:41:02+0000",
+      "type": "FEED",
+      "permalink": "https://www.instagram.com/p/DaBqcIbk_L6/",
+      "first_line": "🧽 청소용품 광고에 임신 테스트기가 등장했습니다.",
+      "like_count": 9,
+      "comments_count": 2,
+      "insights": {
+        "reach": 244,
+        "views": 760,
+        "likes": 9,
+        "comments": 2,
+        "saved": 0,
+        "shares": 1,
+        "total_interactions": 12,
+        "follows": 1,
+        "profile_visits": 6
+      }
+    },
+    {
+      "timestamp": "2026-06-24T09:04:45+0000",
+      "type": "FEED",
+      "permalink": "https://www.instagram.com/p/DZ9oOqYk2yk/",
+      "first_line": "🛋️ 유튜브 콘텐츠는 이제 ‘가구’가 되고 있습니다.",
+      "like_count": 6,
+      "comments_count": 2,
+      "insights": {
+        "reach": 172,
+        "views": 587,
+        "likes": 6,
+        "comments": 2,
+        "saved": 0,
+        "shares": 1,
+        "total_interactions": 9,
+        "follows": 4,
+        "profile_visits": 4
+      }
+    },
+    {
+      "timestamp": "2026-06-23T09:42:25+0000",
+      "type": "FEED",
+      "permalink": "https://www.instagram.com/p/DZ7HvpIk6Bv/",
+      "first_line": "AI가 못 보는 것,",
+      "like_count": 7,
+      "comments_count": 0,
+      "insights": {
+        "reach": 186,
+        "views": 637,
+        "likes": 7,
+        "comments": 0,
+        "saved": 0,
+        "shares": 1,
+        "total_interactions": 8,
+        "follows": 2,
+        "profile_visits": 10
+      }
+    }
+  ]
+}
