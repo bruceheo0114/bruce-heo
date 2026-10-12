@@ -2,6 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://bruceheo.com/</loc></url>
   <url><loc>https://bruceheo.com/en/</loc></url>
+  <url><loc>https://bruceheo.com/career/</loc></url>
+  <url><loc>https://bruceheo.com/work/</loc></url>
+  <url><loc>https://bruceheo.com/talks/</loc></url>
   <url><loc>https://bruceheo.com/writing/</loc><lastmod>2026-10-11</lastmod></url>
   <url><loc>https://bruceheo.com/writing/224/</loc><lastmod>2026-10-11</lastmod></url>
   <url><loc>https://bruceheo.com/writing/222/</loc><lastmod>2026-10-05</lastmod></url>
