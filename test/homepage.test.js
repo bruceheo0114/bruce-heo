@@ -39,3 +39,9 @@ test("백업된 글은 브런치 대신 이 사이트 링크로 연결한다", a
   assert.match(linked, /@heoboram\/210" target="_blank"/);
   assert.ok(linked.startsWith('앞<a class="post" href="https://brunch.co.kr/@heoboram/9"'), "자동 구간 밖은 그대로 둔다");
 });
+
+test("홈페이지에 Google Search Console 소유 확인 태그가 있다", async () => {
+  const { readFile } = await import("node:fs/promises");
+  const html = await readFile("index.html", "utf8");
+  assert.match(html, /<meta name="google-site-verification" content="MR6HGJ-M7TaBzlQvoG9KKeew9je-0En2ztX5fFw82b4" \/>/);
+});
