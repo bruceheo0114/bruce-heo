@@ -1,3 +1,4 @@
+import { writeFile } from "node:fs/promises";
 import { PATHS } from "../config.js";
 import { readJson, writeJson } from "../lib/files.js";
 import { selectDueArticle } from "../lib/queue.js";
@@ -101,6 +102,15 @@ if (article.linkedin.status !== "published") {
     errors.push(`LinkedIn: ${error.message}`);
     await persist();
   }
+}
+
+// 첫 댓글은 사용자가 직접 단다. 워크플로가 이 파일로 GitHub Issue 를 만들어 문안을 알린다.
+if (article.linkedin.status === "published" && article.linkedin.manualComment && !article.completedAt) {
+  const postUrl = `https://www.linkedin.com/feed/update/${article.linkedin.postId}/`;
+  await writeFile(
+    ".linkedin-comment.md",
+    `${article.title}\n\n게시물: ${postUrl}\n\n아래 문안을 첫 댓글로 달아 주세요.\n\n\`\`\`\n${article.linkedin.manualComment}\n\`\`\`\n${article.linkedin.imageError ? `\n커버 이미지를 붙이지 못했습니다: ${article.linkedin.imageError}\n` : ""}`,
+  );
 }
 
 if (article.linkedin.status === "published") {

@@ -1,4 +1,4 @@
-import { existsSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { ApiError, jsonRequest, requireEnvironment } from "../lib/http.js";
 
 // LINKEDIN_PERSON_URN 이 없으면 토큰의 OpenID userinfo(sub)로 채운다. 그래서 Secret 은 토큰 하나면 된다.
@@ -82,48 +82,69 @@ export function linkedInCommentPayload(postUrn, text) {
   };
 }
 
+// 브런치 커버 이미지: 홈페이지 백업(data/archive/<id>.json)의 coverImage, 없으면 원문 첫 이미지.
+export function coverImageUrl(article) {
+  if (!article) return null;
+  const archive = `data/archive/${article.id}.json`;
+  if (existsSync(archive)) {
+    const cover = JSON.parse(readFileSync(archive, "utf8")).coverImage;
+    if (cover) return cover;
+  }
+  return article.sourceImages?.[0] ?? null;
+}
+
+// Images API: 업로드 주소를 받아 이미지를 올리고 image URN 을 돌려준다(w_member_social 권한으로 된다).
+async function uploadImage(requestHeaders, imageUrl) {
+  const source = await fetch(imageUrl);
+  if (!source.ok) throw new Error(`커버 이미지 다운로드 실패 (${source.status}): ${imageUrl}`);
+  const bytes = Buffer.from(await source.arrayBuffer());
+  const { body } = await jsonRequest("LinkedIn", "https://api.linkedin.com/rest/images?action=initializeUpload", {
+    method: "POST",
+    headers: requestHeaders,
+    body: JSON.stringify({ initializeUploadRequest: { owner: process.env.LINKEDIN_PERSON_URN } }),
+  });
+  const { uploadUrl, image } = body?.value ?? {};
+  if (!uploadUrl || !image) throw new Error("LinkedIn 이미지 업로드 주소를 받지 못했습니다.");
+  const upload = await fetch(uploadUrl, {
+    method: "PUT",
+    headers: { authorization: requestHeaders.authorization },
+    body: bytes,
+  });
+  if (!upload.ok) throw new ApiError("LinkedIn", upload.status, await upload.text());
+  return image;
+}
+
+// 첫 댓글은 앱에 댓글 권한(w_member_social_feed)이 없어 자동으로 달지 않는다.
+// 게시 후 사용자가 직접 달 수 있게 댓글 문안을 돌려준다(publish-due 가 GitHub Issue 로 알린다).
 export async function publishLinkedIn(manifest, existing = {}, checkpoint = null) {
   await ensurePersonUrn();
   const requestHeaders = headers();
   let postId = existing.postId ?? null;
-  let commentId = existing.commentId ?? null;
+  let imageError = null;
 
   if (!postId) {
-    const { response } = await jsonRequest(
-      "LinkedIn",
-      "https://api.linkedin.com/rest/posts",
-      {
-        method: "POST",
-        headers: requestHeaders,
-        body: JSON.stringify(linkedInPostPayload(linkedInBodyWithLink(manifest.linkedin.body, fullTextUrl(manifest.article)))),
-      },
-    );
+    const payload = linkedInPostPayload(linkedInBodyWithLink(manifest.linkedin.body, fullTextUrl(manifest.article)));
+    const cover = coverImageUrl(manifest.article);
+    if (cover) {
+      try {
+        const image = await uploadImage(requestHeaders, cover);
+        payload.content = { media: { id: image, altText: manifest.article?.title ?? "" } };
+      } catch (error) {
+        // 이미지 때문에 게시 자체를 놓치지 않는다. 사유는 상태에 남긴다.
+        imageError = error.message.slice(0, 300);
+      }
+    }
+    const { response } = await jsonRequest("LinkedIn", "https://api.linkedin.com/rest/posts", {
+      method: "POST",
+      headers: requestHeaders,
+      body: JSON.stringify(payload),
+    });
     postId = response.headers.get("x-restli-id");
     if (!postId) throw new Error("LinkedIn 게시물 응답에 x-restli-id가 없습니다.");
-    await checkpoint?.({ status: "post_published", postId, commentId: null });
   }
 
-  if (!commentId) {
-    const endpoint = `https://api.linkedin.com/rest/socialActions/${encodeURIComponent(postId)}/comments`;
-    try {
-      const { response, body } = await jsonRequest("LinkedIn", endpoint, {
-        method: "POST",
-        headers: requestHeaders,
-        body: JSON.stringify(
-          linkedInCommentPayload(postId, manifest.linkedin.firstComment),
-        ),
-      });
-      commentId = response.headers.get("x-restli-id") ?? body?.id ?? body?.commentUrn;
-    } catch (error) {
-      // 첫 댓글은 별도 권한(w_member_social_feed)이 있어야 한다. 권한이 없으면 본문 게시만으로 끝낸다.
-      if (error instanceof ApiError && [401, 403].includes(error.status)) {
-        return { status: "published", postId, commentId: null, commentSkipped: error.message.slice(0, 300) };
-      }
-      throw error;
-    }
-    if (!commentId) throw new Error("LinkedIn 첫 댓글 ID를 확인하지 못했습니다.");
-    await checkpoint?.({ status: "published", postId, commentId });
-  }
-
-  return { status: "published", postId, commentId };
+  const result = { status: "published", postId, commentId: null, manualComment: manifest.linkedin.firstComment };
+  if (imageError) result.imageError = imageError;
+  await checkpoint?.(result);
+  return result;
 }

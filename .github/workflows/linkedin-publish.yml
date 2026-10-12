@@ -1,7 +1,7 @@
 name: LinkedIn publish
 
 # 브런치 새 글 콘텐츠(content/<id>/manifest.json)의 LinkedIn 본문을 개인 계정에 올리고,
-# 원문 링크를 첫 댓글로 단다. 병합된 글은 승인 뒤 첫 화요일 07:30 KST 에, 여러 편이면 한 주에 한 편씩 게시된다.
+# 브런치 커버 이미지를 붙이고 전문 링크(홈페이지)를 본문 끝에 넣는다. 첫 댓글은 문안을 GitHub Issue 로 보내 사용자가 직접 단다. 병합된 글은 승인 뒤 첫 화요일 07:30 KST 에, 여러 편이면 한 주에 한 편씩 게시된다.
 # Publish clock 이 매일 07:30 KST 에 이 워크플로를 시작한다(예약 시각이 지난 글이 없으면 그냥 끝난다).
 # Secret LINKEDIN_ACCESS_TOKEN 이 없으면 아무것도 하지 않고 끝난다.
 on:
@@ -70,6 +70,12 @@ jobs:
           git config user.email "bruce-content-bot@users.noreply.github.com"
           git commit -m "chore: record LinkedIn publish"
           git pull --rebase -q origin main && git push origin HEAD:main
+
+      - name: Send first-comment text as GitHub issue
+        if: always() && steps.token.outputs.ready == 'true'
+        run: |
+          [ -f .linkedin-comment.md ] || exit 0
+          gh issue create --title "[LinkedIn] 첫 댓글 문안 — $(head -1 .linkedin-comment.md)" --body-file .linkedin-comment.md
 
       - name: Report failure as GitHub issue
         if: failure()
