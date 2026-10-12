@@ -40,8 +40,9 @@ test("백업된 글은 브런치 대신 이 사이트 링크로 연결한다", a
   assert.ok(linked.startsWith('앞<a class="post" href="https://brunch.co.kr/@heoboram/9"'), "자동 구간 밖은 그대로 둔다");
 });
 
-test("홈페이지에 Google Search Console 소유 확인 태그가 있다", async () => {
+test("홈페이지에 Google·네이버 소유 확인 태그가 있다", async () => {
   const { readFile } = await import("node:fs/promises");
   const html = await readFile("index.html", "utf8");
   assert.match(html, /<meta name="google-site-verification" content="MR6HGJ-M7TaBzlQvoG9KKeew9je-0En2ztX5fFw82b4" \/>/);
+  assert.match(html, /<meta name="naver-site-verification" content="e7e76f3942f4c25eb95171df6964bfc3e7905dc2" \/>/);
 });
