@@ -6,6 +6,7 @@ import {
   linkedInBodyWithLink,
   linkedInPostPayload,
   toLittleText,
+  fullTextUrl,
 } from "../src/publish/linkedin.js";
 
 test("LinkedIn은 텍스트 본문과 별도 첫 댓글 payload를 만든다", () => {
@@ -66,7 +67,12 @@ test("원문 링크를 해시태그 앞에 넣고, 이미 있으면 그대로 �
   const url = "https://brunch.co.kr/@heoboram/224";
   assert.equal(
     linkedInBodyWithLink("본문\n\n#a #b", url),
-    `본문\n\n자세한 글은 아래 브런치 링크에서도 만나보실 수 있습니다.\n${url}\n\n#a #b`,
+    `본문\n\n전문은 아래 링크에서 읽으실 수 있습니다.\n${url}\n\n#a #b`,
   );
   assert.equal(linkedInBodyWithLink(`본문 ${url}`, url), `본문 ${url}`);
+});
+
+test("전문 링크는 홈페이지에 백업된 글이면 bruceheo.com, 아니면 브런치", () => {
+  assert.equal(fullTextUrl({ id: "224", canonicalUrl: "https://brunch.co.kr/@heoboram/224" }), "https://bruceheo.com/writing/224/");
+  assert.equal(fullTextUrl({ id: "999999", canonicalUrl: "https://brunch.co.kr/@heoboram/999999" }), "https://brunch.co.kr/@heoboram/999999");
 });

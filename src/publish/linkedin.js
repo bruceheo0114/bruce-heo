@@ -1,3 +1,4 @@
+import { existsSync } from "node:fs";
 import { ApiError, jsonRequest, requireEnvironment } from "../lib/http.js";
 
 // LINKEDIN_PERSON_URN 이 없으면 토큰의 OpenID userinfo(sub)로 채운다. 그래서 Secret 은 토큰 하나면 된다.
@@ -41,12 +42,20 @@ export function toLittleText(text) {
     .join("");
 }
 
-// 첫 댓글 권한(w_member_social_feed)이 없어 댓글로 링크를 달 수 없다. 기존 글처럼 본문 끝(해시태그 앞)에 원문 링크를 넣는다.
+// 첫 댓글 권한(w_member_social_feed)이 없어 댓글로 링크를 달 수 없다. 본문 끝(해시태그 앞)에 전문 링크를 넣는다.
+// 전문 링크는 홈페이지(bruceheo.com/writing/<id>/)가 우선이고, 아직 백업 전인 글만 브런치로 보낸다(사용자 결정 2026-10-13).
+export function fullTextUrl(article) {
+  if (!article) return null;
+  return existsSync(`data/archive/${article.id}.json`)
+    ? `https://bruceheo.com/writing/${article.id}/`
+    : article.canonicalUrl;
+}
+
 export function linkedInBodyWithLink(body, url) {
   if (!url || body.includes(url)) return body;
   const lines = body.trimEnd().split("\n");
   const tags = /^(#\S+\s*)+$/.test(lines.at(-1) ?? "") ? lines.pop() : null;
-  const linked = `${lines.join("\n").trimEnd()}\n\n자세한 글은 아래 브런치 링크에서도 만나보실 수 있습니다.\n${url}`;
+  const linked = `${lines.join("\n").trimEnd()}\n\n전문은 아래 링크에서 읽으실 수 있습니다.\n${url}`;
   return tags ? `${linked}\n\n${tags}` : linked;
 }
 
@@ -86,7 +95,7 @@ export async function publishLinkedIn(manifest, existing = {}, checkpoint = null
       {
         method: "POST",
         headers: requestHeaders,
-        body: JSON.stringify(linkedInPostPayload(linkedInBodyWithLink(manifest.linkedin.body, manifest.article?.canonicalUrl))),
+        body: JSON.stringify(linkedInPostPayload(linkedInBodyWithLink(manifest.linkedin.body, fullTextUrl(manifest.article)))),
       },
     );
     postId = response.headers.get("x-restli-id");
