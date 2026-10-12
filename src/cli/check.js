@@ -52,8 +52,9 @@ const start = homepage.indexOf("<!-- BRUNCH_POSTS_START -->");
 const end = homepage.indexOf("<!-- BRUNCH_POSTS_END -->");
 if (start < 0 || end <= start) fail("홈페이지 자동 생성 마커가 없습니다.");
 const writingBlock = homepage.slice(start, end);
+// 백업된 글은 사이트 안 /writing/<id>/ 로, 아직 백업 전인 글은 브런치 원문으로 연결된다(homepage.js).
 for (const post of posts) {
-  if (!writingBlock.includes(post.canonicalUrl)) {
+  if (!writingBlock.includes(post.canonicalUrl) && !writingBlock.includes(`href="/writing/${post.id}/"`)) {
     fail(`홈페이지 HTML에 글이 없습니다: ${post.canonicalUrl}`);
   }
 }
