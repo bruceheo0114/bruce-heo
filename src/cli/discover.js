@@ -76,7 +76,12 @@ for (const tracked of missingPackageArticles) {
 }
 
 // 원고(draft.json)가 준비된 글 중 가장 오래된 배치만 이번에 패키징한다.
-draftedArticles.sort((a, b) => new Date(a.publishedAt) - new Date(b.publishedAt));
+// 새 글(LinkedIn 화요일 슬롯이 걸린 글)이 카드뉴스 전용 backlog(cardOnly)보다 먼저다.
+draftedArticles.sort(
+  (a, b) =>
+    Number(Boolean(a.cardOnly)) - Number(Boolean(b.cardOnly)) ||
+    new Date(a.publishedAt) - new Date(b.publishedAt),
+);
 const activeBatchId = draftedArticles[0]?.batchId ?? null;
 const packageArticleIds = draftedArticles
   .filter((article) => article.batchId === activeBatchId)
