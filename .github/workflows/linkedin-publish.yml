@@ -1,8 +1,8 @@
 name: LinkedIn publish
 
 # 브런치 새 글 콘텐츠(content/<id>/manifest.json)의 LinkedIn 본문을 개인 계정에 올리고,
-# 원문 링크를 첫 댓글로 단다. 병합된 글은 다음 날 06:30 KST 부터 하루 한 편씩 게시된다.
-# Publish clock 이 매일 06:30 KST 에 이 워크플로를 시작한다.
+# 원문 링크를 첫 댓글로 단다. 병합된 글은 승인 뒤 첫 화요일 07:30 KST 에, 여러 편이면 한 주에 한 편씩 게시된다.
+# Publish clock 이 매일 07:30 KST 에 이 워크플로를 시작한다(예약 시각이 지난 글이 없으면 그냥 끝난다).
 # Secret LINKEDIN_ACCESS_TOKEN 이 없으면 아무것도 하지 않고 끝난다.
 on:
   workflow_dispatch:
@@ -75,7 +75,7 @@ jobs:
         if: failure()
         run: |
           title="[자동화] LinkedIn 게시 실패"
-          body=$(printf '실행: https://github.com/%s/actions/runs/%s\n\nLINKEDIN_ACCESS_TOKEN 만료(60일) 또는 권한을 확인해 주세요. 새 토큰을 같은 이름으로 저장하면 다음 06:30 에 다시 시도합니다.' "$GITHUB_REPOSITORY" "$GITHUB_RUN_ID")
+          body=$(printf '실행: https://github.com/%s/actions/runs/%s\n\nLINKEDIN_ACCESS_TOKEN 만료(60일) 또는 권한을 확인해 주세요. 새 토큰을 같은 이름으로 저장하면 다음 날 07:30 에 다시 시도합니다.' "$GITHUB_REPOSITORY" "$GITHUB_RUN_ID")
           issue=$(gh issue list --state open --search "$title in:title" --json number --jq '.[0].number // empty')
           if [ -n "$issue" ]; then
             gh issue comment "$issue" --body "$body"

@@ -17,9 +17,10 @@ CATCH_UP = dt.timedelta(minutes=20)  # 시계가 이어지는 사이에 놓친 �
 
 # (KST 시, 분, 요일(월=0) 또는 None=매일, 워크플로 파일, 날짜를 post_date 로 넘길지)
 SLOTS = [
-    # LinkedIn·리멤버는 자동화하지 않는다(사용자가 요청하면 원글로 직접 진행).
+    # 리멤버는 자동화하지 않는다. LinkedIn 뉴스레터는 목요일 Claude 루틴이 원고를 메일로 보낸다(발행은 직접).
     (7, 0, None, "insight-reels-publish.yml", True),  # 월 업계 트렌드, 화·목 브런치 릴스, 수·금·토·일 브런치 카드뉴스
     (7, 17, None, "brunch-cache.yml", False),
+    (7, 30, None, "linkedin-publish.yml", False),  # LinkedIn 피드 글. 예약은 화요일 07:30 뿐이라 다른 날은 할 일 없이 끝난다(실패 재시도용으로 매일 돈다).
     (8, 0, None, "brunch-weekly.yml", False),
     (12, 30, None, "threads-publish.yml", True),
 ]

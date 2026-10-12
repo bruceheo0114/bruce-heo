@@ -27,14 +27,14 @@ export function approvePackages(state, candidates, approvedAt) {
         new Date(state.articles[b.id].publishedAt).valueOf(),
     );
   const approved = [];
-  let additionalDays = 0;
+  let additionalWeeks = 0;
   for (const candidate of approvable) {
     const article = state.articles[candidate.id];
 
-    let scheduledAt = nextKstApprovalSlot(approvalDate, additionalDays);
+    let scheduledAt = nextKstApprovalSlot(approvalDate, additionalWeeks);
     while (occupiedSlots.has(scheduledAt)) {
-      additionalDays += 1;
-      scheduledAt = nextKstApprovalSlot(approvalDate, additionalDays);
+      additionalWeeks += 1;
+      scheduledAt = nextKstApprovalSlot(approvalDate, additionalWeeks);
     }
 
     article.package.status = "generated";
@@ -48,7 +48,7 @@ export function approvePackages(state, candidates, approvedAt) {
 
     occupiedSlots.add(scheduledAt);
     approved.push({ id: article.id, approvedAt: approvedAtIso, scheduledAt });
-    additionalDays += 1;
+    additionalWeeks += 1;
   }
 
   return approved;

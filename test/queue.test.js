@@ -16,16 +16,21 @@ function queued(id, scheduledAt, linkedin = "pending") {
   };
 }
 
-test("승인 다음 날부터 하루 간격 06:30 KST 슬롯을 받는다", () => {
+test("승인 뒤 첫 화요일 07:30 KST 슬롯을 받고, 다음 글은 한 주씩 밀린다", () => {
   const friday = new Date("2026-08-21T09:00:00.000Z");
-  assert.equal(nextKstApprovalSlot(friday, 0), "2026-08-21T21:30:00.000Z");
-  assert.equal(nextKstApprovalSlot(friday, 1), "2026-08-22T21:30:00.000Z");
+  assert.equal(nextKstApprovalSlot(friday, 0), "2026-08-24T22:30:00.000Z");
+  assert.equal(nextKstApprovalSlot(friday, 1), "2026-08-31T22:30:00.000Z");
+  // 월요일 브런치 → 화요일 아침 피드
+  assert.equal(nextKstApprovalSlot(new Date("2026-10-12T05:00:00.000Z")), "2026-10-12T22:30:00.000Z");
+  // 화요일 07:30 이전 승인은 당일, 이후 승인은 다음 주 화요일
+  assert.equal(nextKstApprovalSlot(new Date("2026-10-12T21:00:00.000Z")), "2026-10-12T22:30:00.000Z");
+  assert.equal(nextKstApprovalSlot(new Date("2026-10-12T22:30:00.000Z")), "2026-10-19T22:30:00.000Z");
 });
 
 test("승인된 여러 글은 오래된 순으로 예약되고 기존 슬롯을 피한다", () => {
   const state = {
     articles: {
-      occupied: queued("old", "2026-08-21T21:30:00.000Z"),
+      occupied: queued("old", "2026-08-24T22:30:00.000Z"),
       first: {
         ...queued("old", null),
         id: "first",
@@ -55,8 +60,8 @@ test("승인된 여러 글은 오래된 순으로 예약되고 기존 슬롯을 
     approved.map((item) => item.id),
     ["first", "second"],
   );
-  assert.equal(state.articles.first.scheduledAt, "2026-08-22T21:30:00.000Z");
-  assert.equal(state.articles.second.scheduledAt, "2026-08-23T21:30:00.000Z");
+  assert.equal(state.articles.first.scheduledAt, "2026-08-31T22:30:00.000Z");
+  assert.equal(state.articles.second.scheduledAt, "2026-09-07T22:30:00.000Z");
   assert.equal(state.articles.first.package.status, "generated");
   assert.equal(state.articles.first.instagram.status, "manual_source_ready");
 });
