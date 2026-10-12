@@ -66,6 +66,22 @@ test("승인된 여러 글은 오래된 순으로 예약되고 기존 슬롯을 
   assert.equal(state.articles.first.instagram.status, "manual_source_ready");
 });
 
+test("LinkedIn 게시를 건너뛰는 글(카드 전용 등)은 화요일 슬롯을 차지하지 않는다", () => {
+  const state = {
+    articles: {
+      cardOnly: queued("old", "2026-08-24T22:30:00.000Z", "skipped_card_only"),
+      fresh: {
+        ...queued("newer", null),
+        id: "fresh",
+        package: { status: "awaiting_review" },
+        instagram: { status: "manual_pending" },
+      },
+    },
+  };
+  approvePackages(state, [{ id: "fresh" }], new Date("2026-08-21T10:00:00.000Z"));
+  assert.equal(state.articles.fresh.scheduledAt, "2026-08-24T22:30:00.000Z");
+});
+
 test("게시 실행은 오래된 미완료 글 한 편만 고른다", () => {
   const articles = {
     newer: queued("newer", "2026-08-22T09:30:00.000Z"),

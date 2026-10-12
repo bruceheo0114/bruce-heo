@@ -14,6 +14,7 @@ export function approvePackages(state, candidates, approvedAt) {
           !candidateIds.has(article.id) &&
           article.package.status === "generated" &&
           article.linkedin.status !== "published" &&
+          !String(article.linkedin.status).startsWith("skipped") &&
           article.scheduledAt,
       )
       .map((article) => article.scheduledAt),
