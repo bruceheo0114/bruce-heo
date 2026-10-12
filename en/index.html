@@ -55,8 +55,8 @@
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body {
   font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', sans-serif;
-  color: #191F28;
-  background: #FFFFFF;
+  color: #111111;
+  background: #F2F1ED;
   font-size: 17px;
   line-height: 1.6;
   font-feature-settings: "ss01", "ss03";
@@ -68,18 +68,19 @@ img { max-width: 100%; display: block; }
 button { font-family: inherit; cursor: pointer; border: none; background: none; }
 
 :root {
-  --bg: #FFFFFF;
-  --bg-soft: #F9FAFB;
-  --bg-card: #FFFFFF;
-  --border: #F2F4F6;
-  --border-strong: #E5E8EB;
-  --text: #191F28;
-  --text-2: #4E5968;
-  --text-3: #8B95A1;
-  --text-4: #B0B8C1;
-  --accent: #3182F6;
-  --accent-strong: #1B64DA;
-  --accent-soft: #E8F3FF;
+  --bg: #F2F1ED;
+  --bg-soft: #E9E7E1;
+  --bg-card: #FBFAF7;
+  --border: #E3E1DA;
+  --border-strong: #D6D3CB;
+  --text: #111111;
+  --text-2: #3A3A37;
+  --text-3: #73736E;
+  --text-4: #A5A39C;
+  --accent: #23744C;
+  --mint: #65B98A;
+  --accent-strong: #1A5A3A;
+  --accent-soft: #E1F0E6;
   --radius-sm: 12px;
   --radius: 20px;
   --radius-lg: 28px;
@@ -154,7 +155,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   z-index: 100;
   display: flex;
   align-items: center;
-  background: rgba(255, 255, 255, 0.72);
+  background: rgba(242, 241, 237, 0.86);
   backdrop-filter: saturate(180%) blur(20px);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   border-bottom: 1px solid transparent;
@@ -347,7 +348,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   width: 100%;
   background:
     radial-gradient(circle at 30% 25%, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0) 45%),
-    linear-gradient(135deg, #3182F6 0%, #7C3AED 60%, #191F28 100%);
+    linear-gradient(135deg, #65B98A 0%, #23744C 55%, #111111 100%);
   position: relative;
   display: flex;
   align-items: center;
@@ -888,7 +889,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
    ============================================================ */
 .award {
   margin-top: 32px;
-  background: linear-gradient(135deg, #191F28 0%, #2C3548 100%);
+  background: linear-gradient(135deg, #111111 0%, #2A2A27 100%);
   color: white;
   border-radius: var(--radius-lg);
   padding: clamp(28px, 4vw, 56px);
@@ -1186,7 +1187,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .knowledge-intro__kicker {
   display: inline-block;
   margin-bottom: 16px;
-  color: #90C2FF;
+  color: #8FD3AC;
   font-size: 13px;
   font-weight: 700;
   letter-spacing: .03em;
@@ -1240,7 +1241,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   padding: 20px 22px;
   border-radius: 16px;
   background: var(--accent-soft);
-  color: #1B64DA;
+  color: var(--accent-strong);
   font-size: 14px;
   line-height: 1.7;
 }
@@ -1370,6 +1371,28 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .reveal { opacity: 1; transform: none; }
   html { scroll-behavior: auto; }
 }
+
+/* ============================================================
+   BRUCE INSIGHT IDENTITY (BR. 마크 · 아이보리 · 민트)
+   ============================================================ */
+.nav__brand { display: inline-flex; align-items: center; gap: 10px; }
+.brand-mark {
+  width: 34px; height: 34px; border-radius: 50%;
+  background: #111; color: #fff !important;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 900; letter-spacing: -0.08em;
+}
+.hero__title em { box-shadow: inset 0 -0.28em 0 rgba(101, 185, 138, 0.35); }
+.section-eyebrow {
+  display: inline-block;
+  border: 2px solid var(--mint);
+  border-radius: 999px;
+  padding: 5px 13px 6px;
+  color: var(--accent);
+  font-weight: 800;
+}
+.award .section-eyebrow, .knowledge-intro .section-eyebrow { border-color: var(--mint); }
+
 </style>
 </head>
 <body>
@@ -1379,7 +1402,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
      ============================================================ -->
 <nav class="nav" id="nav">
   <div class="nav__inner">
-    <a href="#hero" class="nav__brand">Bruce<span>.</span></a>
+    <a href="#hero" class="nav__brand"><span class="brand-mark">BR.</span>Bruce Heo</a>
     <div class="nav__links">
       <a href="#about" class="nav__link">About</a>
       <a href="#journey" class="nav__link">Journey</a>
