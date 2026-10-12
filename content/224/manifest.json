@@ -118,14 +118,15 @@
   "schedule": {
     "approvedAt": "2026-10-12T22:52:26.513Z",
     "scheduledAt": "2026-10-12T22:30:00.000Z",
-    "publishedAt": null
+    "publishedAt": "2026-10-12T22:53:42.271Z"
   },
   "publishing": {
     "linkedin": {
-      "status": "pending",
-      "postId": null,
+      "status": "published",
+      "postId": "urn:li:share:7515545261990129664",
       "commentId": null,
-      "error": null
+      "error": null,
+      "commentSkipped": "LinkedIn API 오류 (403): {\"status\":403,\"serviceErrorCode\":100,\"code\":\"ACCESS_DENIED\",\"message\":\"Not enough permissions to access: partnerApiSocialActions.CREATE.20260501\"}"
     },
     "instagram": {
       "status": "manual_source_ready",

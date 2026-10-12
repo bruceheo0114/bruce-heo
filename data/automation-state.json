@@ -3,7 +3,7 @@
   "initialized": true,
   "lastCheckedAt": "2026-10-12T22:51:29.628Z",
   "lastCheckedCanonicalUrl": "https://brunch.co.kr/@heoboram/224",
-  "reviewSuccessCount": 0,
+  "reviewSuccessCount": 1,
   "mode": "review",
   "articles": {
     "193": {
@@ -933,10 +933,13 @@
         "approvedAt": "2026-10-12T22:52:26.513Z"
       },
       "linkedin": {
-        "status": "manual_pending",
-        "id": null,
-        "lastAttemptAt": null,
-        "error": null
+        "status": "published",
+        "id": "urn:li:share:7515545261990129664",
+        "lastAttemptAt": "2026-10-12T22:53:42.271Z",
+        "error": null,
+        "postId": "urn:li:share:7515545261990129664",
+        "commentId": null,
+        "commentSkipped": "LinkedIn API 오류 (403): {\"status\":403,\"serviceErrorCode\":100,\"code\":\"ACCESS_DENIED\",\"message\":\"Not enough permissions to access: partnerApiSocialActions.CREATE.20260501\"}"
       },
       "instagram": {
         "status": "scheduled",
@@ -947,7 +950,8 @@
       },
       "approvedAt": "2026-10-12T22:52:26.513Z",
       "scheduledAt": "2026-10-12T22:30:00.000Z",
-      "completedAt": null
+      "completedAt": "2026-10-12T22:53:42.271Z",
+      "approvalCounted": true
     }
   }
 }
