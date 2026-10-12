@@ -120,7 +120,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .section-title {
   font-size: clamp(26px, 4vw, 44px);
-  font-weight: 800;
+  font-weight: 900;
   letter-spacing: -0.03em;
   line-height: 1.2;
   color: var(--text);
@@ -265,7 +265,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .hero__title {
   font-size: clamp(30px, 5.4vw, 60px);
-  font-weight: 800;
+  font-weight: 900;
   letter-spacing: -0.04em;
   line-height: 1.15;
   color: var(--text);
@@ -1380,9 +1380,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   width: 34px; height: 34px; border-radius: 50%;
   background: #111; color: #fff !important;
   display: inline-flex; align-items: center; justify-content: center;
-  font-size: 13px; font-weight: 900; letter-spacing: -0.08em;
+  font-size: 13px; font-weight: 900; letter-spacing: -0.09em;
 }
-.hero__title em { box-shadow: inset 0 -0.28em 0 rgba(101, 185, 138, 0.35); }
+.brand-mark i { font-style: normal; color: var(--mint); }
 .section-eyebrow {
   display: inline-block;
   border: 2px solid var(--mint);
@@ -1394,6 +1394,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .award .section-eyebrow, .knowledge-intro .section-eyebrow { border-color: var(--mint); }
 
 </style>
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 </head>
 <body>
 
@@ -1402,7 +1404,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
      ============================================================ -->
 <nav class="nav" id="nav">
   <div class="nav__inner">
-    <a href="#hero" class="nav__brand"><span class="brand-mark">BR.</span>Bruce Heo</a>
+    <a href="#hero" class="nav__brand"><span class="brand-mark">BR<i>.</i></span>Bruce Heo</a>
     <div class="nav__links">
       <a href="#about" class="nav__link">About</a>
       <a href="#journey" class="nav__link">Journey</a>

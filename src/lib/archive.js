@@ -195,12 +195,13 @@ a{color:inherit;text-decoration:none}
 .top{position:sticky;top:0;z-index:5;background:rgba(242,241,237,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
 .top__in{max-width:var(--column);margin:0 auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;font-size:14px}
 .top__brand{display:inline-flex;align-items:center;gap:9px;font-weight:800;letter-spacing:-.01em}
-.brand-mark{width:30px;height:30px;border-radius:50%;background:#111;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:11.5px;font-weight:900;letter-spacing:-.08em}
+.brand-mark{width:30px;height:30px;border-radius:50%;background:#111;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:11.5px;font-weight:900;letter-spacing:-.09em}
+.brand-mark i{font-style:normal;color:var(--mint)}
 .top__nav{display:flex;gap:18px;color:var(--text-2);font-weight:600}
 .top__nav a:hover{color:var(--accent)}
 main{max-width:var(--column);margin:0 auto;padding:56px 20px 96px}
 .eyebrow{display:inline-block;font-size:13px;font-weight:800;color:var(--accent);margin-bottom:16px;border:2px solid var(--mint);border-radius:999px;padding:4px 12px 5px}
-h1{font-size:clamp(28px,5vw,40px);line-height:1.3;letter-spacing:-.03em;font-weight:800}
+h1{font-size:clamp(28px,5vw,40px);line-height:1.3;letter-spacing:-.035em;font-weight:900}
 .subtitle{margin-top:14px;font-size:clamp(17px,2.4vw,20px);color:var(--text-2);line-height:1.5}
 .meta{margin-top:20px;font-size:14px;color:var(--text-3)}
 .cover{margin:36px 0 8px;border-radius:20px;overflow:hidden;background:var(--bg-soft)}
@@ -259,11 +260,13 @@ function layout({ title, description, url, image, canonical, jsonLd = null, body
 <meta property="og:image" content="${escapeHtml(image)}">
 <meta name="twitter:card" content="summary_large_image">
 ${jsonLd ? `<script type="application/ld+json">${JSON.stringify(jsonLd).replaceAll("<", "\\u003c")}</script>` : ""}
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <style>${STYLE}</style>
 </head>
 <body>
-<header class="top"><div class="top__in"><a class="top__brand" href="/"><span class="brand-mark">BR.</span>브루스 허</a><nav class="top__nav"><a href="/writing/">글 목록</a><a href="${CONFIG.profileUrl}" target="_blank" rel="noopener">브런치</a></nav></div></header>
+<header class="top"><div class="top__in"><a class="top__brand" href="/"><span class="brand-mark">BR<i>.</i></span>브루스 허</a><nav class="top__nav"><a href="/writing/">글 목록</a><a href="${CONFIG.profileUrl}" target="_blank" rel="noopener">브런치</a></nav></div></header>
 ${body}
 <footer>© 브루스 허 · 브런치 <a href="${CONFIG.profileUrl}" target="_blank" rel="noopener">@${CONFIG.profileId}</a></footer>
 </body>
