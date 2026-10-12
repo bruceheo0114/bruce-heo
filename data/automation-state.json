@@ -935,10 +935,13 @@
         "approvedAt": "2026-10-12T22:52:26.513Z"
       },
       "linkedin": {
-        "status": "pending",
-        "id": null,
-        "lastAttemptAt": null,
-        "error": null
+        "status": "published",
+        "id": "urn:li:share:7515555523711234048",
+        "lastAttemptAt": "2026-10-12T23:34:28.942Z",
+        "error": null,
+        "postId": "urn:li:share:7515555523711234048",
+        "commentId": null,
+        "commentSkipped": "LinkedIn API 오류 (403): {\"status\":403,\"serviceErrorCode\":100,\"code\":\"ACCESS_DENIED\",\"message\":\"Not enough permissions to access: partnerApiSocialActions.CREATE.20260501\"}"
       },
       "instagram": {
         "status": "scheduled",
@@ -949,7 +952,7 @@
       },
       "approvedAt": "2026-10-12T22:52:26.513Z",
       "scheduledAt": "2026-10-12T22:30:00.000Z",
-      "completedAt": null,
+      "completedAt": "2026-10-12T23:34:28.942Z",
       "approvalCounted": true
     }
   }
