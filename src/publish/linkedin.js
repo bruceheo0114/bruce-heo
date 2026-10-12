@@ -26,10 +26,34 @@ function headers() {
   };
 }
 
+// Posts API 의 commentary 는 "little text" 형식이라 ( ) [ ] < > @ | 등 예약 문자를 이스케이프하지 않으면
+// 그 자리에서 본문이 잘린다(2026-10-13 224번이 "LGE닷컴(LGE.com)" 에서 잘림). 해시태그는 템플릿으로 바꾼다.
+const LITTLE_TEXT_RESERVED = /[\\|{}@\[\]()<>#*_~]/g;
+
+export function toLittleText(text) {
+  return String(text)
+    .split(/(#[\p{L}\p{N}_]+)/u)
+    .map((part, index) =>
+      index % 2 === 1
+        ? `{hashtag|\\#|${part.slice(1).replace(LITTLE_TEXT_RESERVED, (c) => `\\${c}`)}}`
+        : part.replace(LITTLE_TEXT_RESERVED, (c) => `\\${c}`),
+    )
+    .join("");
+}
+
+// 첫 댓글 권한(w_member_social_feed)이 없어 댓글로 링크를 달 수 없다. 기존 글처럼 본문 끝(해시태그 앞)에 원문 링크를 넣는다.
+export function linkedInBodyWithLink(body, url) {
+  if (!url || body.includes(url)) return body;
+  const lines = body.trimEnd().split("\n");
+  const tags = /^(#\S+\s*)+$/.test(lines.at(-1) ?? "") ? lines.pop() : null;
+  const linked = `${lines.join("\n").trimEnd()}\n\n자세한 글은 아래 브런치 링크에서도 만나보실 수 있습니다.\n${url}`;
+  return tags ? `${linked}\n\n${tags}` : linked;
+}
+
 export function linkedInPostPayload(text) {
   return {
     author: process.env.LINKEDIN_PERSON_URN,
-    commentary: text,
+    commentary: toLittleText(text),
     visibility: "PUBLIC",
     distribution: {
       feedDistribution: "MAIN_FEED",
@@ -62,7 +86,7 @@ export async function publishLinkedIn(manifest, existing = {}, checkpoint = null
       {
         method: "POST",
         headers: requestHeaders,
-        body: JSON.stringify(linkedInPostPayload(manifest.linkedin.body)),
+        body: JSON.stringify(linkedInPostPayload(linkedInBodyWithLink(manifest.linkedin.body, manifest.article?.canonicalUrl))),
       },
     );
     postId = response.headers.get("x-restli-id");

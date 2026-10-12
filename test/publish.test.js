@@ -3,7 +3,9 @@ import test from "node:test";
 import {
   publishLinkedIn,
   linkedInCommentPayload,
+  linkedInBodyWithLink,
   linkedInPostPayload,
+  toLittleText,
 } from "../src/publish/linkedin.js";
 
 test("LinkedIn은 텍스트 본문과 별도 첫 댓글 payload를 만든다", () => {
@@ -53,4 +55,18 @@ test("첫 댓글 권한이 없으면 본문 게시만으로 완료 처리한다"
     for (const key of Object.keys(process.env)) if (!(key in saved)) delete process.env[key];
     Object.assign(process.env, saved);
   }
+});
+
+test("LinkedIn commentary 예약 문자를 이스케이프하고 해시태그는 템플릿으로 바꾼다", () => {
+  assert.equal(toLittleText("LGE닷컴(LGE.com) [x] @me"), "LGE닷컴\\(LGE.com\\) \\[x\\] \\@me");
+  assert.equal(toLittleText("끝 #브랜딩 #LG전자"), "끝 {hashtag|\\#|브랜딩} {hashtag|\\#|LG전자}");
+});
+
+test("원문 링크를 해시태그 앞에 넣고, 이미 있으면 그대로 둔다", () => {
+  const url = "https://brunch.co.kr/@heoboram/224";
+  assert.equal(
+    linkedInBodyWithLink("본문\n\n#a #b", url),
+    `본문\n\n자세한 글은 아래 브런치 링크에서도 만나보실 수 있습니다.\n${url}\n\n#a #b`,
+  );
+  assert.equal(linkedInBodyWithLink(`본문 ${url}`, url), `본문 ${url}`);
 });
