@@ -388,6 +388,9 @@ export function renderSitemap(articles) {
     { loc: `${SITE}/career/` },
     { loc: `${SITE}/work/` },
     { loc: `${SITE}/talks/` },
+    { loc: `${SITE}/en/career/` },
+    { loc: `${SITE}/en/work/` },
+    { loc: `${SITE}/en/talks/` },
     { loc: `${SITE}/writing/`, lastmod: sortArticles(articles)[0]?.publishedAt },
     ...sortArticles(articles).map((article) => ({ loc: articleUrl(article.id), lastmod: article.publishedAt })),
   ];
