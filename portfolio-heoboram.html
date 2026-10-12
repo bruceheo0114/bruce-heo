@@ -8,6 +8,8 @@
 <meta content="11년차 Brand Communication &amp; IMC Lead 허보람의 포트폴리오. 오설록·바이탈뷰티·메타그린 360° IMC 캠페인 6건과 Herbalife·Duracell·LG화학·Macrogen 통합 PR·ESG·사내 커뮤니케이션 사례." name="description"/>
 <link href="https://cdn.jsdelivr.net" rel="preconnect"/>
 <link as="style" crossorigin="" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <style>
 /* ============================================================
    RESET & TOKENS (same as index.html)
@@ -16,8 +18,8 @@
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body {
   font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-  color: #191F28;
-  background: #FFFFFF;
+  color: #111111;
+  background: #F2F1ED;
   font-size: 15px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -34,18 +36,20 @@ a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
 
 :root {
-  --bg: #FFFFFF;
-  --bg-soft: #F9FAFB;
-  --bg-tint: #F4F6F8;
-  --border: #F2F4F6;
-  --border-strong: #E5E8EB;
-  --text: #191F28;
-  --text-2: #4E5968;
-  --text-3: #8B95A1;
-  --text-4: #B0B8C1;
-  --accent: #3182F6;
-  --accent-strong: #1B64DA;
-  --accent-soft: #E8F3FF;
+  --bg: #F2F1ED;
+  --bg-card: #FBFAF7;
+  --mint: #65B98A;
+  --bg-soft: #E9E7E1;
+  --bg-tint: #ECEAE4;
+  --border: #E3E1DA;
+  --border-strong: #D6D3CB;
+  --text: #111111;
+  --text-2: #3A3A37;
+  --text-3: #73736E;
+  --text-4: #A5A39C;
+  --accent: #23744C;
+  --accent-strong: #1A5A3A;
+  --accent-soft: #E1F0E6;
   --radius: 16px;
   --radius-lg: 24px;
   --shadow-sm: 0 1px 2px rgba(20, 30, 45, 0.04);
@@ -71,7 +75,7 @@ img { max-width: 100%; display: block; }
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(255,255,255,0.85);
+  background: rgba(242,241,237,0.88);
   backdrop-filter: saturate(180%) blur(20px);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   border-bottom: 1px solid var(--border);
@@ -389,7 +393,7 @@ img { max-width: 100%; display: block; }
   gap: 16px;
 }
 .pillar {
-  background: #FFFFFF;
+  background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 28px 24px;
@@ -452,7 +456,7 @@ img { max-width: 100%; display: block; }
   gap: 10px;
 }
 .cap {
-  background: #FFFFFF;
+  background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 20px 18px;
@@ -727,7 +731,7 @@ img { max-width: 100%; display: block; }
    ============================================================ */
 .closing {
   padding: 80px 0 100px;
-  background: linear-gradient(135deg, #191F28 0%, #2C3548 100%);
+  background: linear-gradient(135deg, #111111 0%, #2A2A27 100%);
   color: white;
   text-align: left;
 }
@@ -801,6 +805,20 @@ img { max-width: 100%; display: block; }
   .hero__sub { margin-bottom: 20px; }
   .career-strip { margin-top: 26px; padding-top: 20px; }
 }
+
+/* ============================================================
+   BRUCE INSIGHT IDENTITY (BR. 마크 · 아이보리 · 민트)
+   ============================================================ */
+.brand-mark {
+  width: 30px; height: 30px; border-radius: 50%;
+  background: #111; color: #fff !important;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 11.5px; font-weight: 900; letter-spacing: -0.09em;
+}
+.brand-mark i { font-style: normal; color: var(--mint); }
+.nav__brand-tag { border: 1.5px solid var(--mint); background: transparent; }
+.hero__title, .section-title, .case-full__title, .closing__lead { font-weight: 900; }
+@media print { body { background: #F2F1ED; -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
 </style>
 </head>
 <body>
@@ -810,7 +828,7 @@ img { max-width: 100%; display: block; }
 <nav class="nav">
 <div class="nav__inner">
 <a class="nav__brand" href="https://bruceheo.com/">
-      Bruce.
+      <span class="brand-mark">BR<i>.</i></span>Bruce Heo
       <span class="nav__brand-tag">PORTFOLIO 2026</span>
 </a>
 <div class="nav__links">
