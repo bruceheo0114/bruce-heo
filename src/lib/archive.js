@@ -234,16 +234,19 @@ h1{font-size:clamp(28px,5vw,40px);line-height:1.3;letter-spacing:-.035em;font-we
 .list-head p{margin-top:14px;color:var(--text-2);font-size:16px}
 .year{margin-top:48px;font-size:14px;font-weight:800;color:var(--text-3);letter-spacing:.04em}
 .posts{margin-top:12px;border-top:1px solid var(--border-strong)}
-.post{display:grid;grid-template-columns:96px 1fr;gap:16px;padding:20px 4px;border-bottom:1px solid var(--border)}
+.post{display:grid;grid-template-columns:96px 1fr 132px;gap:18px;align-items:center;padding:18px 4px;border-bottom:1px solid var(--border)}
+.post__thumb{width:132px;aspect-ratio:16/10;border-radius:10px;overflow:hidden;background:var(--bg-soft)}
+.post__thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .25s}
+.post:hover .post__thumb img{transform:scale(1.04)}
 .post:hover .post__title{color:var(--accent)}
 .post__date{font-size:14px;color:var(--text-3);padding-top:2px;font-variant-numeric:tabular-nums}
 .post__title{font-size:17px;font-weight:700;line-height:1.45;letter-spacing:-.01em;transition:color .15s}
 .post__sub{margin-top:4px;font-size:14px;color:var(--text-3);line-height:1.5}
 footer{border-top:1px solid var(--border);padding:28px 20px;text-align:center;font-size:13px;color:var(--text-3)}
-@media (max-width:560px){main{padding:40px 16px 72px}.top__in{padding:12px 16px}.article{font-size:16.5px}.post{grid-template-columns:1fr;gap:4px}.pager{grid-template-columns:1fr}.pager .next{grid-column:1}}
+@media (max-width:560px){main{padding:40px 16px 72px}.top__in{padding:12px 16px}.article{font-size:16.5px}.post{grid-template-columns:1fr 96px;gap:4px 14px}.post__date{grid-column:1}.post__body{grid-column:1}.post__thumb{grid-column:2;grid-row:1/span 2;width:96px}.pager{grid-template-columns:1fr}.pager .next{grid-column:1}}
 `;
 
-function layout({ title, description, url, image, canonical, jsonLd = null, body }) {
+function layout({ title, description, url, image, imageSize = null, canonical, jsonLd = null, body }) {
   return `<!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -258,7 +261,8 @@ function layout({ title, description, url, image, canonical, jsonLd = null, body
 <meta property="og:description" content="${escapeHtml(description)}">
 <meta property="og:url" content="${escapeHtml(url)}">
 <meta property="og:image" content="${escapeHtml(image)}">
-<meta name="twitter:card" content="summary_large_image">
+${imageSize ? `<meta property="og:image:width" content="${imageSize[0]}">\n<meta property="og:image:height" content="${imageSize[1]}">\n` : ""}<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="${escapeHtml(image)}">
 ${jsonLd ? `<script type="application/ld+json">${JSON.stringify(jsonLd).replaceAll("<", "\\u003c")}</script>` : ""}
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
@@ -285,7 +289,9 @@ function articleUrl(id) {
 
 export function renderArticlePage(article, { newer = null, older = null } = {}) {
   const description = article.subtitle || article.excerpt.slice(0, 120);
-  const ogImage = article.coverImage ? imagePath(article.id, article.coverImage, article.coverLocal, true) : null;
+  const ogImage = article.shareImage
+    ? `${SITE}/writing/${article.id}/${article.shareImage}`
+    : article.coverImage ? imagePath(article.id, article.coverImage, article.coverLocal, true) : null;
   const coverKey = article.coverImage && imageKey(article.coverImage);
   const coverInBody = article.blocks.some((block) => block.type === "image" && block.images.some((image) => imageKey(image.src) === coverKey));
   const cover = coverKey && !coverInBody
@@ -314,6 +320,7 @@ ${pager ? `<nav class="pager">${pager}</nav>` : ""}
     description,
     url: articleUrl(article.id),
     image: ogImage ?? `${SITE}/en/og.png`,
+    imageSize: article.shareImage ? [1200, 630] : null,
     canonical: articleUrl(article.id),
     jsonLd: {
       "@context": "https://schema.org",
@@ -352,7 +359,10 @@ export function renderArchiveIndex(articles) {
 ${items
   .map((article) => {
     const { month, day } = toSeoulDateParts(article.publishedAt);
-    return `<a class="post" href="/writing/${article.id}/"><div class="post__date">${String(month).padStart(2, "0")}.${String(day).padStart(2, "0")}</div><div><div class="post__title">${escapeHtml(article.title)}</div>${article.subtitle ? `<div class="post__sub">${escapeHtml(article.subtitle)}</div>` : ""}</div></a>`;
+    const thumb = article.coverImage
+      ? `<div class="post__thumb"><img src="${escapeHtml(imagePath(article.id, article.coverImage, article.coverLocal))}" alt="" loading="lazy" decoding="async"></div>`
+      : "";
+    return `<a class="post" href="/writing/${article.id}/"><div class="post__date">${String(month).padStart(2, "0")}.${String(day).padStart(2, "0")}</div><div class="post__body"><div class="post__title">${escapeHtml(article.title)}</div>${article.subtitle ? `<div class="post__sub">${escapeHtml(article.subtitle)}</div>` : ""}</div>${thumb}</a>`;
   })
   .join("\n")}
 </div>`)
