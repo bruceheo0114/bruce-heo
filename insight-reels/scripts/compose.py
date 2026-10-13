@@ -260,12 +260,18 @@ def segment(i, v, L):
         c = spec["card"]
         t1, t2 = txt(f"c{i}a", c["line1"]), txt(f"c{i}b", c["line2"])
         # 엔드카드도 홈페이지 토큰: 카드 배경(#FBFAF7) + 검은 BR. 원(민트 점) + 원문 안내
-        vf = (f"drawbox=x=(iw-150)/2:y=170:w=150:h=150:color=0x111111:t=fill,"
-              f"drawtext=expansion=none:fontfile={FX}:text='BR':fontsize=64:fontcolor=white:x=(w-tw)/2-8:y=210,"
-              f"drawtext=expansion=none:fontfile={FX}:text='.':fontsize=64:fontcolor=0x65B98A:x=(w)/2+34:y=210,"
-              f"drawtext=expansion=none:fontfile={FB}:textfile={t1}:fontsize=50:fontcolor=0x111111:x=(w-tw)/2:y=420,"
-              f"drawtext=expansion=none:fontfile={FB}:textfile={t2}:fontsize=36:fontcolor=0x73736E:x=(w-tw)/2:y=500")
-        sh(f'ffmpeg -y -v error -f lavfi -i color=c=0xFBFAF7:s={W}x{PH}:r={FPS} -t {L} -vf "{vf}" -c:v libx264 -preset veryfast -crf 18 -pix_fmt yuv420p {out}')
+        im = Image.new("RGB", (W, PH), PANEL)
+        d = ImageDraw.Draw(im)
+        r, mf = 80, font(FX, 66)
+        cx, cy = W // 2, 250
+        d.ellipse([cx - r, cy - r, cx + r, cy + r], fill=INK)
+        bw = d.textlength("BR", font=mf)
+        d.text((cx - bw / 2 - 8, cy - 42), "BR", font=mf, fill=WHITE)
+        d.ellipse([cx + bw / 2 - 4, cy + 12, cx + bw / 2 + 13, cy + 29], fill=MINT)
+        center_text(d, 400, c["line1"], font(FB, 50), INK)
+        center_text(d, 480, c["line2"], font(FB, 36), GRAY)
+        im.save(f"card{i}.png")
+        sh(f'ffmpeg -y -v error -loop 1 -i card{i}.png -t {L} -r {FPS} -c:v libx264 -preset veryfast -crf 18 -pix_fmt yuv420p {out}')
     return out
 
 
