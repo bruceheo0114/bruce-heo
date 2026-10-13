@@ -68,3 +68,15 @@ test("내려받은 이미지가 있으면 저장소 주소로 보여 준다", as
   assert.match(page, /og:image" content="https:\/\/bruceheo\.com\/writing\/108\/images\/cover\.webp"/);
   assert.doesNotMatch(page, /kakaocdn/);
 });
+
+test("공유 이미지는 JPG 로 쓰고 글 목록에 썸네일을 보여 준다", async () => {
+  const article = parseArchiveArticle(html, "108");
+  article.coverLocal = "images/cover.webp";
+  article.shareImage = "og.jpg";
+  const page = renderArticlePage(article);
+  assert.match(page, /<meta property="og:image" content="https:\/\/bruceheo\.com\/writing\/108\/og\.jpg">/);
+  assert.match(page, /<meta property="og:image:width" content="1200">/);
+  assert.match(page, /<meta name="twitter:image" content="https:\/\/bruceheo\.com\/writing\/108\/og\.jpg">/);
+  const index = renderArchiveIndex([article]);
+  assert.match(index, /<div class="post__thumb"><img src="\/writing\/108\/images\/cover\.webp"/);
+});

@@ -79,6 +79,23 @@ async function downloadImage(url, attempts = 3) {
   throw lastError;
 }
 
+// 카카오톡·링크드인 등 링크 미리보기는 WebP 를 못 보여 주므로, 커버로 1200×630 JPG 공유 이미지를 따로 만든다.
+const SHARE_IMAGE = "og.jpg";
+
+async function saveShareImage(article) {
+  if (!article.coverLocal) return false;
+  const cover = path.join(PATHS.archivePages, article.id, article.coverLocal);
+  const file = path.join(PATHS.archivePages, article.id, SHARE_IMAGE);
+  if (!(await exists(file))) {
+    if (!(await exists(cover))) return false;
+    const jpg = await sharp(await readFile(cover)).resize(1200, 630, { fit: "cover", position: "attention" }).jpeg({ quality: 78, mozjpeg: true }).toBuffer();
+    await writeFileAtomic(file, jpg, null);
+  }
+  if (article.shareImage === SHARE_IMAGE) return false;
+  article.shareImage = SHARE_IMAGE;
+  return true;
+}
+
 // 브런치에서 이미지가 사라져도 남도록 writing/{id}/images/ 에 WebP 로 저장하고 JSON 에 local 경로를 적는다.
 // 예전에 원본 형식(jpg·png)으로 받아 둔 파일이 있으면 다시 받지 않고 그 파일을 변환한 뒤 지운다.
 async function saveImages(articles) {
@@ -110,6 +127,7 @@ async function saveImages(articles) {
         failures.push(`${article.id}: ${slot.url} (${error.message})`);
       }
     });
+    if (await saveShareImage(article)) changed = true;
     if (changed) await writeJson(dataPath(article.id), article);
     for (const oldFile of oldFiles) await rm(oldFile, { force: true });
   }
