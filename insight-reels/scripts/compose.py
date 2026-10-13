@@ -259,10 +259,13 @@ def segment(i, v, L):
     else:
         c = spec["card"]
         t1, t2 = txt(f"c{i}a", c["line1"]), txt(f"c{i}b", c["line2"])
-        vf = (f"drawtext=expansion=none:fontfile={FX}:text='Bruce.':fontsize=120:fontcolor=0x3182F6:x=(w-tw)/2:y=230,"
-              f"drawtext=expansion=none:fontfile={FB}:textfile={t1}:fontsize=50:fontcolor=0x191F28:x=(w-tw)/2:y=420,"
-              f"drawtext=expansion=none:fontfile={FB}:textfile={t2}:fontsize=36:fontcolor=0x8B95A1:x=(w-tw)/2:y=500")
-        sh(f'ffmpeg -y -v error -f lavfi -i color=c=0xF9FAFB:s={W}x{PH}:r={FPS} -t {L} -vf "{vf}" -c:v libx264 -preset veryfast -crf 18 -pix_fmt yuv420p {out}')
+        # 엔드카드도 홈페이지 토큰: 카드 배경(#FBFAF7) + 검은 BR. 원(민트 점) + 원문 안내
+        vf = (f"drawbox=x=(iw-150)/2:y=170:w=150:h=150:color=0x111111:t=fill,"
+              f"drawtext=expansion=none:fontfile={FX}:text='BR':fontsize=64:fontcolor=white:x=(w-tw)/2-8:y=210,"
+              f"drawtext=expansion=none:fontfile={FX}:text='.':fontsize=64:fontcolor=0x65B98A:x=(w)/2+34:y=210,"
+              f"drawtext=expansion=none:fontfile={FB}:textfile={t1}:fontsize=50:fontcolor=0x111111:x=(w-tw)/2:y=420,"
+              f"drawtext=expansion=none:fontfile={FB}:textfile={t2}:fontsize=36:fontcolor=0x73736E:x=(w-tw)/2:y=500")
+        sh(f'ffmpeg -y -v error -f lavfi -i color=c=0xFBFAF7:s={W}x{PH}:r={FPS} -t {L} -vf "{vf}" -c:v libx264 -preset veryfast -crf 18 -pix_fmt yuv420p {out}')
     return out
 
 
