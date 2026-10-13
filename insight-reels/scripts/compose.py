@@ -16,8 +16,11 @@ W, H, FPS = 1080, 1920, 30
 PY, PH = 500, 810
 SY, SH = 1310, 110
 BY = SY + SH
-BLUE, INK, GRAY, PANEL = (49, 130, 246), (25, 31, 40), (139, 149, 161), (249, 250, 251)
-WHITE, SOFT, TEXT2, LINE = (255, 255, 255), (232, 243, 255), (78, 89, 104), (229, 232, 235)
+# 색은 홈페이지(bruceheo.com, assets/site.css :root)와 같은 토큰을 쓴다(사용자 결정 2026-10-13).
+# BLUE 이름은 예전 코드 호환용 — 값은 홈페이지 --accent(진초록).
+BLUE, INK, GRAY, PANEL = (35, 116, 76), (17, 17, 17), (115, 115, 110), (251, 250, 247)
+WHITE, SOFT, TEXT2, LINE = (255, 255, 255), (233, 231, 225), (58, 58, 55), (227, 225, 218)
+BG, MINT = (242, 241, 237), (101, 185, 138)
 XF = 0.4  # 전환 길이(초)
 FD = "/home/user/fonts"
 FB, FX = f"{FD}/Pretendard-Bold.otf", f"{FD}/Pretendard-ExtraBold.otf"
@@ -72,7 +75,7 @@ def center_text(d, y, s, f, fill):
 
 # ---------- 배경(제목·자막띠·브랜드 밴드) — bruceheo.com 색 토큰 ----------
 def background(spec):
-    bg = Image.new("RGB", (W, H), WHITE)
+    bg = Image.new("RGB", (W, H), BG)
     d = ImageDraw.Draw(bg)
     # 상단: 흰 바탕 + 시리즈 라벨 + 제목(가운데 정렬)
     center_text(d, 52, spec.get("series", "브루스 인사이트  |  맥락을 설계하는 일"), font(FB, 32), GRAY)
@@ -83,8 +86,17 @@ def background(spec):
     d.rectangle([0, SY, W, SY + SH], fill=INK)
     # 하단: 연파랑 밴드 + 워드마크
     d.rectangle([0, BY, W, H], fill=SOFT)
-    center_text(d, BY + 70, "Bruce.", font(FX, 150), BLUE)
-    center_text(d, BY + 250, "맥락을 설계하는 마케터의 인사이트", font(FB, 34), TEXT2)
+    # 홈페이지 내비게이션과 같은 브랜드: 검은 원 BR. 마크(민트 점) + Bruce Heo
+    r, mf, nf = 62, font(FX, 52), font(FX, 64)
+    name = "Bruce Heo"
+    total = 2 * r + 28 + d.textlength(name, font=nf)
+    x0, cy = (W - total) / 2, BY + 150
+    d.ellipse([x0, cy - r, x0 + 2 * r, cy + r], fill=INK)
+    bw = d.textlength("BR", font=mf)
+    d.text((x0 + r - bw / 2 - 7, cy - 34), "BR", font=mf, fill=WHITE)
+    d.ellipse([x0 + r + bw / 2 - 4, cy + 8, x0 + r + bw / 2 + 10, cy + 22], fill=MINT)
+    d.text((x0 + 2 * r + 28, cy - 42), name, font=nf, fill=INK)
+    center_text(d, BY + 260, "맥락을 설계하는 마케터의 인사이트", font(FB, 34), TEXT2)
     bg.save("bg.png")
 
 

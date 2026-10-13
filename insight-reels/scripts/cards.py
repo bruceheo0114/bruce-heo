@@ -17,9 +17,10 @@ import hashlib, json, os, re, sys, urllib.request
 from PIL import Image, ImageDraw, ImageFont
 
 W, H = 1080, 1350
-IVORY, INK, BODY, MUTED = (243, 239, 232), (24, 24, 24), (68, 68, 68), (130, 130, 130)
-GREEN, DEEP = (22, 192, 109), (24, 74, 52)
-WHITE, CHAR = (255, 255, 255), (20, 22, 21)
+# 홈페이지(bruceheo.com, assets/site.css :root) 토큰과 같은 값(사용자 결정 2026-10-13)
+IVORY, INK, BODY, MUTED = (242, 241, 237), (17, 17, 17), (58, 58, 55), (115, 115, 110)
+GREEN, DEEP = (101, 185, 138), (35, 116, 76)  # --mint, --accent
+WHITE, CHAR = (255, 255, 255), (17, 17, 17)
 M = 84  # 좌우 여백
 CACHE = os.environ.get("CARDS_CACHE") or os.path.expanduser("~/.cache/bruce-cards")
 FD = f"{CACHE}/fonts"
