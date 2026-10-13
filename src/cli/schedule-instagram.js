@@ -6,6 +6,8 @@ import { loadState, saveState } from "../lib/state.js";
 // 병합된 브런치 카드뉴스를 @bruce.insight 인스타그램 게시 대기열(insight-reels/posts/<날짜>.json)에 넣는다.
 // 요일: 월=업계 트렌드 10건, 화·목·토=브런치 릴스, 수·금·일=브런치 카드뉴스(여기서 배정). (2026-10-11 릴스 주 3편으로 변경)
 // 같은 주(월~일)에 같은 브런치 글이 릴스로 잡혀 있으면 그 주는 건너뛴다. 다른 주라면 겹쳐도 된다.
+// 새 글(일요일 밤~월요일 발행)은 발행 다음 수요일에 낸다(같은 주 화요일 릴스와 겹쳐도 된다 — 그 주는 이 글의 주). 수요일에 지난 글 카드뉴스가 잡혀 있으면 그 카드뉴스를 다음 빈 날로 민다.
+// (YouTube 영상이 그 주 수요일 전후에 올라가므로 같은 글을 같은 주에 맞춘다. 2026-10-13)
 // 실제 게시는 insight-reels-publish 워크플로(Publish clock 이 매일 07:00 에 시작)가 한다.
 const POSTS_DIR = "insight-reels/posts";
 const WEEKDAYS = new Set([3, 5, 0]); // 수·금·일
@@ -59,6 +61,35 @@ async function nextFreeDate(from, taken, articleId, reels) {
   throw new Error("인스타그램 게시 날짜를 찾지 못했습니다.");
 }
 
+// 발행 주 수요일이 아직 오지 않았으면 그 날짜를 비워서 돌려준다. 이미 지났거나 릴스·게시 완료 글이 있으면 null.
+async function freshWednesday(article, from, taken, reels, state) {
+  if (!article.publishedAt) return null;
+  // 브런치 글은 일요일 밤에 올라가기도 하므로 '발행 다음 수요일'로 잡는다(일→3일 뒤, 월→2일 뒤).
+  const wed = new Date(`${kstDate(new Date(article.publishedAt))}T00:00:00Z`);
+  wed.setUTCDate(wed.getUTCDate() + ((3 - wed.getUTCDay() + 7) % 7 || 7));
+  const date = wed.toISOString().slice(0, 10);
+  if (date <= kstDate(from) || taken.has(date)) return null;
+  const file = path.join(POSTS_DIR, `${date}.json`);
+  if (!(await exists(file))) return date;
+  const occupant = await readJson(file);
+  if (occupant.type !== "carousel" || occupant.status !== "scheduled") return null;
+  taken.add(date);
+  const moved = await nextFreeDate(from, taken, occupant.brunch_no, reels);
+  taken.delete(date);
+  await writeJson(path.join(POSTS_DIR, `${moved}.json`), { ...occupant, date: moved });
+  const other = state.articles[String(occupant.brunch_no)];
+  if (other?.instagram?.scheduledDate === date) other.instagram.scheduledDate = moved;
+  const queuePath = "insight-reels/carousel_queue.json";
+  const queue = await readJson(queuePath);
+  const item = queue.items.find((entry) => String(entry.no) === String(occupant.brunch_no));
+  if (item?.slot === date) {
+    item.slot = moved;
+    await writeJson(queuePath, queue);
+  }
+  console.error(`카드뉴스 ${occupant.brunch_no}: ${date} → ${moved} (새 글 ${article.id}에 수요일 자리)`);
+  return date;
+}
+
 const now = new Date(process.env.AUTOMATION_NOW ?? Date.now());
 const state = await loadState();
 const ready = Object.values(state.articles)
@@ -80,7 +111,9 @@ for (const article of ready) {
   for (const file of files) {
     if (!(await exists(path.join(dir, file)))) throw new Error(`${dir}/${file} 카드가 없습니다.`);
   }
-  const date = await nextFreeDate(now, taken, article.id, reels);
+  const date =
+    (await freshWednesday(article, now, taken, reels, state)) ??
+    (await nextFreeDate(now, taken, article.id, reels));
   taken.add(date);
   await writeJson(path.join(POSTS_DIR, `${date}.json`), {
     date,

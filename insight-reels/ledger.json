@@ -4,8 +4,8 @@
   "higgsfield_monthly_cap": 120,
   "cycles": {
     "2026-10": {
-      "higgsfield_spent": 16.75,
-      "elevenlabs_spent": 1208,
+      "higgsfield_spent": 21.75,
+      "elevenlabs_spent": 1930,
       "entries": [
         {
           "date": "2026-10-02",
@@ -30,6 +30,18 @@
           "what": "릴스 199(10/8 게시분) — 이미지 4장(1.0) + 내레이션 1회(249). 재합성 1회(라벨 글리프 수정, 크레딧 0)",
           "higgsfield": 1.0,
           "elevenlabs": 249
+        },
+        {
+          "date": "2026-10-08",
+          "what": "미리 만든 릴스 224·듀오링고·톰(10/17·20·27 게시분) — 이미지 12장(3.0) + 내레이션 3회(241+243+238). 재합성은 크레딧 0",
+          "higgsfield": 3.0,
+          "elevenlabs": 722
+        },
+        {
+          "date": "2026-10-08",
+          "what": "카드뉴스용 4:5 이미지 8장(듀오링고·톰 대비, 아직 미사용)",
+          "higgsfield": 2.0,
+          "elevenlabs": 0
         },
         {
           "date": "2026-10-10",
