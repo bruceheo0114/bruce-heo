@@ -703,7 +703,7 @@
         "id": null,
         "lastAttemptAt": null,
         "error": null,
-        "scheduledDate": "2026-10-14"
+        "scheduledDate": "2026-10-25"
       },
       "approvedAt": "2026-10-07T00:56:05.711Z",
       "scheduledAt": "2026-10-07T21:30:00.000Z",
@@ -950,7 +950,7 @@
         "id": null,
         "lastAttemptAt": null,
         "error": null,
-        "scheduledDate": "2026-10-25"
+        "scheduledDate": "2026-10-14"
       },
       "approvedAt": "2026-10-12T22:52:26.513Z",
       "scheduledAt": "2026-10-12T22:30:00.000Z",
