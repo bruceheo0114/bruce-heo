@@ -397,7 +397,18 @@
       "firstSeenAt": "2026-10-07T02:00:00.000Z",
       "updatedAt": "2026-10-07T02:00:00.000Z",
       "episode": null
+    },
+    "224": {
+      "id": "224",
+      "url": "https://brunch.co.kr/@heoboram/224",
+      "title": "LG전자는 왜 발음하기도 어려운 닉네임을 만들었을까?",
+      "publishedAt": "2026-10-12T03:00:00.000Z",
+      "bodyHash": "d6ca8c8688b25dc2816cd8d67df5a0322bccd6095cbf41642bb5d4da3a210e5a",
+      "file": "224.md",
+      "firstSeenAt": "2026-10-13T12:15:30.361Z",
+      "updatedAt": "2026-10-13T12:15:30.361Z",
+      "episode": "EP002"
     }
   },
-  "lastSyncedAt": "2026-10-07T01:54:05.936Z"
+  "lastSyncedAt": "2026-10-13T12:15:30.361Z"
 }

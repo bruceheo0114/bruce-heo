@@ -101,6 +101,14 @@
       "status": "reserve",
       "runtime": "10~11분",
       "why": "놀란 '오디세이' 아이맥스 필름. 영화 화면은 예고편 인용만 가능해 REAL 확보가 제한된다."
+    },
+    {
+      "no": 224,
+      "title": "LG전자는 왜 발음하기도 어려운 닉네임을 만들었을까?",
+      "status": "episode",
+      "note": "새 글 — 제작 때 영상화 평가",
+      "episode": "EP002",
+      "prebuilt": true
     }
   ]
 }

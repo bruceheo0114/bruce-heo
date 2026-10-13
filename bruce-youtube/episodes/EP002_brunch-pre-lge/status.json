@@ -2,13 +2,15 @@
   "episode": "EP002",
   "folder": "EP002_brunch-pre-lge",
   "article": {
-    "id": "pre-lge",
-    "url": "https://brunch.co.kr/@heoboram",
+    "id": "224",
+    "url": "https://brunch.co.kr/@heoboram/224",
     "title": "LG전자는 왜 발음하기도 어려운 닉네임을 만들었을까?",
-    "published_at": "2026-10-08T01:19:31.938Z",
-    "source_file": "source/brunch/pre-lge.md",
-    "body_hash": "6ed259199d4dc890733ba881b128824589828432b6d5a99065076af2d25a20c8",
-    "prebuilt": true
+    "published_at": "2026-10-12T03:00:00.000Z",
+    "source_file": "source/brunch/224.md",
+    "body_hash": "d6ca8c8688b25dc2816cd8d67df5a0322bccd6095cbf41642bb5d4da3a210e5a",
+    "prebuilt": false,
+    "draft_id": "pre-lge",
+    "linked_at": "2026-10-13T12:15:30.361Z"
   },
   "status": "ASSETS_READY",
   "higgsfield_generation": false,
@@ -174,7 +176,7 @@
   },
   "update": null,
   "created_at": "2026-10-08T01:19:31.938Z",
-  "updated_at": "2026-10-08T01:31:45.640Z",
+  "updated_at": "2026-10-13T12:15:30.361Z",
   "history": [
     {
       "at": "2026-10-08T01:19:31.938Z",
