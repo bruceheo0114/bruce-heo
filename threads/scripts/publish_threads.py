@@ -3,7 +3,7 @@
 # 중간에 실패해도 올린 부분은 파일에 기록돼, 다시 실행하면 이어서 올린다(중복 게시 방지).
 # GitHub Actions(threads-publish.yml)에서 실행. 표준 라이브러리만 사용.
 # 필요: secrets THREADS_ACCESS_TOKEN (@heo.boram 장기 토큰, 60일)
-import datetime, json, os, pathlib, sys, time, urllib.error, urllib.parse, urllib.request
+import datetime, json, os, pathlib, re, sys, time, urllib.error, urllib.parse, urllib.request
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 API = "https://graph.threads.net/v1.0"
@@ -46,7 +46,21 @@ post = json.loads(f.read_text(encoding="utf-8"))
 if post.get("status") != "scheduled":
     print(f"{today}: status={post.get('status')} — 게시하지 않음")
     sys.exit(0)
-chain = [post["text"], *post.get("replies", [])]
+
+
+def homepage_links(t):
+    # 브런치 글 링크는 홈페이지 아카이브로 바꾼다(사용자 결정 2026-10-13). 아카이브에 없는 글은 글 목록으로.
+    def sub(m):
+        no = m.group(1)
+        return f"https://bruceheo.com/writing/{no}/" if (ROOT.parent / "writing" / no / "index.html").exists() else "https://bruceheo.com/writing/"
+    return re.sub(r"https?://brunch\.co\.kr/@heoboram/(\d+)/?", sub, t)
+
+
+post["text"] = homepage_links(post["text"])
+post["replies"] = [homepage_links(r) for r in post.get("replies", [])]
+if post.get("reply_text"):
+    post["reply_text"] = homepage_links(post["reply_text"])
+chain = [post["text"], *post["replies"]]
 if post.get("reply_text"):  # 원문 링크는 본문이 아니라 타래 마지막 댓글로
     chain.append(post["reply_text"])
 for i, t in enumerate(chain):
