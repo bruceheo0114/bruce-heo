@@ -29,7 +29,7 @@
    - 끝 = 시청자 질문 한 줄 + 자연스러운 저장·팔로우 한 줄(HOOKS 6절: 그 편의 상황·대상을 짚어 매번 새로, 저장·공유·팔로우 중 하나만). 둘 다 넣어도 250자 안.
    - 시의성 표현·광고주 실명 금지. 숫자는 한글로 읽히게.
 3. 내레이션: 일레븐랩스 `creative_generate_speech` — voice_id `ZuzhDyVIYUQSaEkxo38e`, model `eleven_multilingual_v2`, **generations_count 1**. 끝나면 `creative_show_flow_results` 로 mp3 URL을 얻는다(2시간 뒤 만료되니 바로 쓴다). 재시도 금지.
-4. 이미지 4장: 힉스필드 `generate_image_batch` — model `gpt_image_2_5`, aspect_ratio `9:16`. 프롬프트 끝에 항상 "No text, no logos, no brand names, negative space top and bottom" 를 붙인다. 실존 브랜드 로고·패키지 재현 금지(일반화된 사물로).
+4. 이미지 4장: 힉스필드 `generate_image_batch` — model `gpt_image_2_5`, aspect_ratio `9:16`. **실사 사진 느낌으로(사용자 결정 2026-10-13)**: 장면을 "실제 장소·사물·사람의 손/뒷모습"으로 구체적으로 쓰고, 프롬프트 끝에 항상 "Photorealistic documentary photograph, shot on 35mm, natural light, real textures, subtle film grain, candid, no CGI or 3D render look. No text, no logos, no brand names, negative space top and bottom" 를 붙인다. 일러스트·3D·상징물(닻·리본 같은 은유 오브제)은 쓰지 않는다. 정치인·국기·관공서 건물 같은 정치적 이미지가 나오면 그 장만 다시 만든다(재생성 1장 한도 안에서). 실존 브랜드 로고·패키지 재현 금지(일반화된 사물로).
 5. 생성 영상은 만들지 않는다. 움직임은 전부 합성 단계 연출로 만든다(크레딧 0).
 6. 합성: 힉스필드 `sandbox_exec` 에서
    - `compose.py` 는 **올리지 않는다.** 저장소가 공개라 샌드박스에서 바로 받는다: `curl -sfL -o compose.py https://raw.githubusercontent.com/bruceheo0114/bruce-heo/$(git rev-parse HEAD)/insight-reels/scripts/compose.py` — `$(git rev-parse HEAD)` 는 **로컬에서** 먼저 구해 명령에 값으로 넣는다. spec 형식은 compose.py 맨 위 주석, 샘플은 `posts/2026-10-06.spec.json`.

@@ -82,6 +82,7 @@
 
 - `generate_image_batch`, model `gpt_image_2_5`, aspect_ratio `4:5`. 결과 `result_url` 을 `src` 에 그대로 넣는다.
 - 프롬프트 끝: cover·close 는 "No text, no logos, no brand names, negative space on the left", photo 는 "Main subject in the upper half of the frame. No text, no logos, no brand names, negative space at the bottom".
+- **실사 사진 느낌(2026-10-13)**: 프롬프트 끝에 "Photorealistic documentary photograph, shot on 35mm, natural light, real textures, subtle film grain, no CGI or 3D render look"를 붙이고, 은유 오브제·일러스트·3D 를 쓰지 않는다.
 - cover·close 는 어두운 실내/야간 톤, 피사체는 오른쪽 위 2/3(왼쪽 아래는 큰 제목 자리). 그 주 대표 이슈를 떠올리게 하는 사물 하나를 크게(실제 로고·패키지 재현 금지). photo 는 밝은 자연광 에디토리얼. 사람 얼굴은 정면 클로즈업 피하기.
 - 재생성은 편당 최대 1장. 429(rate limit)로 접수 실패한 건 작업이 안 생긴 것이니 그 항목만 다시 보낸다.
 

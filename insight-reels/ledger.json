@@ -4,7 +4,7 @@
   "higgsfield_monthly_cap": 120,
   "cycles": {
     "2026-10": {
-      "higgsfield_spent": 21.75,
+      "higgsfield_spent": 24.0,
       "elevenlabs_spent": 1930,
       "entries": [
         {
@@ -54,6 +54,12 @@
           "what": "릴스 197·219·221(10/13·15·17 게시분) — 이미지 12장(3.0, 429 거절분은 미청구) + 내레이션 3회(240+238+247)",
           "higgsfield": 3.0,
           "elevenlabs": 725
+        },
+        {
+          "date": "2026-10-13",
+          "what": "이번 주 릴스 10/15·10/17 실사풍 이미지로 다시 합성 — 이미지 9장(1장 재생성, 내레이션은 기존 영상에서 재사용)",
+          "higgsfield": 2.25,
+          "elevenlabs": 0
         }
       ]
     }
