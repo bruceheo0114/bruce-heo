@@ -1,11 +1,44 @@
 {
   "version": 1,
   "initialized": true,
-  "lastCheckedAt": "2026-10-13T04:49:23.273Z",
+  "lastCheckedAt": "2026-10-13T23:00:22.380Z",
   "lastCheckedCanonicalUrl": "https://brunch.co.kr/@heoboram/224",
   "reviewSuccessCount": 1,
   "mode": "review",
   "articles": {
+    "161": {
+      "id": "161",
+      "canonicalUrl": "https://brunch.co.kr/@heoboram/161",
+      "title": "기획자가 삶의 해상도를 높여야하는 이유",
+      "publishedAt": "2025-03-06T13:17:52.000Z",
+      "bodyHash": "b96d670f07afbb716c614ba5e5ee2b1c3e8c8643efe0d131331492c181284db0",
+      "batchId": "backlog-161",
+      "cardOnly": true,
+      "homepage": {
+        "status": "not_listed",
+        "updatedAt": null
+      },
+      "package": {
+        "status": "awaiting_review",
+        "manifestPath": "content/161/manifest.json",
+        "generatedAt": null
+      },
+      "linkedin": {
+        "status": "skipped_backlog",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "instagram": {
+        "status": "manual_pending",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "approvedAt": null,
+      "scheduledAt": null,
+      "completedAt": null
+    },
     "193": {
       "id": "193",
       "canonicalUrl": "https://brunch.co.kr/@heoboram/193",
