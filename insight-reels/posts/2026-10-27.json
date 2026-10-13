@@ -4,16 +4,16 @@
   "title": "후발주자는 어떻게 브랜딩해야 할까?",
   "brunch_url": "https://brunch.co.kr/@heoboram",
   "note": "그 주 월요일 브런치 글로 미리 만든 릴스. 글이 올라오면 brunch_no·brunch_url을 채운다.",
-  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/10be47d3-3a68-4c31-a432-284b8ed28dab.mp4",
-  "cover_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/4cd61022-34e4-45fb-af7b-f0331e6d8949.jpg",
-  "video_backup_url": "https://bruceheo.com/insight-reels/media/2026-10-27.mp4",
-  "cover_backup_url": "https://bruceheo.com/insight-reels/media/2026-10-27.jpg",
-  "qa_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/908d2eff-ff46-4e8d-b067-bc52be8988b0.jpg",
+  "video_url": "https://bruceheo.com/insight-reels/media/2026-10-27.mp4",
+  "cover_url": "https://bruceheo.com/insight-reels/media/2026-10-27.jpg",
+  "video_backup_url": "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/insight-reels/media/2026-10-27.mp4",
+  "cover_backup_url": "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/insight-reels/media/2026-10-27.jpg",
   "script": "후발주자는 꼭 새로운 이야기를 해야 할까요? 집에서 하는 전문 피부 관리. 톰이 꺼낸 문제는 메디큐브가 이미 풀던 문제였습니다. 그런데 말하는 방식이 달랐어요. 메디큐브 문장의 주어는 기술입니다. 이 기술이 피부를 바꾼다. 톰 문장의 주어는 나예요. 이 시간이 나를 돌본다. 같은 욕망을 다른 관점으로 읽은 거죠. 새 단어를 찾기 전에, 같은 문제를 어떤 관점으로 풀지부터 정해 보세요. 이런 브랜드 이야기, 화목마다 올려요.",
   "caption": "후발주자는 꼭 새로운 이야기를 해야 할까요? 집에서 하는 전문 피부 관리. 톰(THOME)이 꺼낸 문제는 이미 다른 브랜드가 풀고 있던 문제였습니다 👇\n\nTHOME은 비용과 시간 때문에 전문 관리를 받기 어려운 사람들에서 출발해, 에스테틱의 관리 과정을 집으로 옮겨 온 브랜드예요. 흥미로운 이야기였지만 어딘가 익숙했죠. 메디큐브도 기능성 화장품에서 출발해 집에서 쓰는 뷰티 디바이스를 내놨으니까요.\n\n그렇다면 무엇이 다를까요? 세 가지로 보면 이렇습니다.\n\n1️⃣ 같은 욕망, 다른 주어\n메디큐브는 기술과 효능을 말합니다. \"이 기술이 피부를 바꾼다.\" THOME은 관리하는 경험을 말해요. \"이 시간이 나를 돌본다.\"\n\n2️⃣ 스토리는 출발점일 뿐이다\n창업 스토리만으로 차별화가 되진 않아요. 그 문제의식이 제품 구성과 디자인, 캠페인까지 일관되게 이어질 때 브랜드를 이해할 이유가 생깁니다.\n\n3️⃣ 새 단어보다 관점이 먼저다\n경쟁사 분석을 하다 보면 아직 아무도 안 쓴 표현을 찾게 돼요. 하지만 새 단어를 만든다고 새 브랜드가 되진 않습니다. 같은 가치라도 왜 중요한지, 어떻게 구현하는지가 분명하면 이야기는 달라져요.\n\n물론 브랜드가 다르게 말하는 것과 소비자가 다르게 기억하는 것은 별개의 문제라, 더 지켜볼 일입니다.\n\n\"소비자의 맥락을 읽는 것이 시장을 이해하는 일이라면, 브랜드의 맥락을 만드는 것은 그 시장에서 우리가 어떤 존재가 될지 결정하는 일이다.\"\n\n💬 우리 브랜드 문장의 주어는 무엇인가요? 기술, 제품, 아니면 고객? 댓글로 남겨 주세요.\n📌 경쟁사와 메시지가 겹친다고 느껴질 때 다시 볼 수 있게 저장해 두세요.\n\n원문은 브런치 「브루스」에 후발주자 브랜딩 고민까지 정리해 뒀어요 (프로필 링크)\n풀버전 영상은 유튜브 「브루스 인사이트」에서\n\n#마케팅 #브랜딩 #후발주자 #브랜드차별화 #마케터",
   "credits": {
     "higgsfield": 1,
     "elevenlabs": 238
   },
-  "status": "scheduled"
+  "status": "scheduled",
+  "remade": "2026-10-13 홈페이지 디자인으로 다시 입힘(이미지·음성 그대로)"
 }

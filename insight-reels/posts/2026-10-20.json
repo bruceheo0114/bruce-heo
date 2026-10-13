@@ -4,16 +4,16 @@
   "title": "영어 공부 앱이 왜 생일카페를 열까?",
   "brunch_url": "https://brunch.co.kr/@heoboram",
   "note": "그 주 월요일 브런치 글로 미리 만든 릴스. 글이 올라오면 brunch_no·brunch_url을 채운다.",
-  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/eb9da440-25e2-4bda-8475-98bd00374fd2.mp4",
-  "cover_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/86d9325a-9a47-4733-8de2-75b0aaa41362.jpg",
-  "video_backup_url": "https://bruceheo.com/insight-reels/media/2026-10-20.mp4",
-  "cover_backup_url": "https://bruceheo.com/insight-reels/media/2026-10-20.jpg",
-  "qa_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/9569a92b-601a-4e11-94a7-1c72dad65892.jpg",
+  "video_url": "https://bruceheo.com/insight-reels/media/2026-10-20.mp4",
+  "cover_url": "https://bruceheo.com/insight-reels/media/2026-10-20.jpg",
+  "video_backup_url": "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/insight-reels/media/2026-10-20.mp4",
+  "cover_backup_url": "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/insight-reels/media/2026-10-20.jpg",
   "script": "영어 공부 앱이 생일카페를 열었습니다. 주인공은 초록색 부엉이였어요. 듀오링고는 미국에선 틱톡 밈으로, 한국에선 생일카페와 케이팝으로 놉니다. 농담은 전부 달라요. 그런데 같은 브랜드처럼 느껴지죠. 같은 농담 대신 같은 역할을 옮겼거든요. 생일카페 커피도 연속 학습 삼십 일을 넘긴 사람에게만 줬습니다. 결국 다시 공부하게 만드는 부엉이예요. 우리가 채널마다 옮기는 건 콘텐츠일까요, 역할일까요? 이런 브랜드 이야기, 화목마다 올려요.",
   "caption": "영어 공부 앱이 생일카페를 열었습니다. 주인공은 초록색 부엉이 Duo였어요. 미국에선 틱톡 밈, 한국에선 생일카페와 K-pop. 농담은 다른데 왜 같은 브랜드처럼 느껴질까요 👇\n\n듀오링고가 처음 풀고 싶었던 문제는 '누구나 좋은 언어 교육을 받게 하는 것'이었어요. 그런데 무료라고 사람들이 공부를 계속하진 않았죠. 결국 중요한 건 시작보다 지속이었고, Duo는 사람을 다시 공부하게 만드는 역할을 맡았습니다.\n\n여기서 볼 건 세 가지입니다.\n\n1️⃣ 웃긴 콘텐츠보다 먼저 '관계의 기준'이 있었다\n공식 가이드는 Duo가 끈질기고 장난스러울 수는 있어도 위협적이어선 안 된다고 정해 둡니다. 어떤 밈을 쓸지보다 Duo가 어떤 존재인지가 먼저예요.\n\n2️⃣ 같은 농담 대신 같은 역할을 옮겼다\n미국의 밈을 번역하지 않았어요. 한국에선 생일카페, 대학 축제, K-pop 같은 익숙한 문화 안에서 같은 성격을 다시 표현했죠. 생일카페 커피도 연속 학습 30일을 넘긴 사람에게만 줬습니다.\n\n3️⃣ 기준이 분명하니 표현이 자유로워졌다\n일관성은 같은 색과 말투를 반복하는 데서만 생기지 않아요. 무엇은 바꿔도 되고 무엇은 끝까지 남길지 분명할 때, 다른 문화에서도 같은 브랜드로 기억됩니다.\n\n\"듀오링고는 같은 농담을 가져오는 대신 같은 역할을 남겼다.\"\n\n💬 우리 브랜드가 채널마다 옮기고 있는 건 콘텐츠일까요, 역할일까요? 댓글로 생각을 남겨 주세요.\n📌 채널별 콘텐츠를 기획할 때 다시 볼 수 있게 저장해 두세요.\n\n원문은 브런치 「브루스」에 듀오링고 한국 마케팅 이야기까지 정리해 뒀어요 (프로필 링크)\n풀버전 영상은 유튜브 「브루스 인사이트」에서\n\n#마케팅 #브랜딩 #듀오링고 #브랜드캐릭터 #마케터",
   "credits": {
     "higgsfield": 1,
     "elevenlabs": 243
   },
-  "status": "scheduled"
+  "status": "scheduled",
+  "remade": "2026-10-13 홈페이지 디자인으로 다시 입힘(이미지·음성 그대로)"
 }
