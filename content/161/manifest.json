@@ -1,0 +1,139 @@
+{
+  "version": 1,
+  "article": {
+    "id": "161",
+    "canonicalUrl": "https://brunch.co.kr/@heoboram/161",
+    "title": "기획자가 삶의 해상도를 높여야하는 이유",
+    "subtitle": "질문, 콘텐츠, 기록 – 삶의 해상도를 높이는 3가지 방법",
+    "publishedAt": "2025-03-06T13:17:52.000Z",
+    "excerpt": "질문, 콘텐츠, 기록 – 삶의 해상도를 높이는 3가지 방법 | \"그동안 어떻게 지내셨나요?\" 오랜만에 만난 지인에게 듣기 쉬운 인사말이다. 그런데 나는 이런 질문에 제대로 답하지 못하는 경우가 많다. 매일 지하철을 타고 출퇴근을 반복하고, 업무 외에는 특별한 일이 없는 삶을 살고 있기 때문이다. 그래서 막상 대답하려 하면 머릿속이 하얘진다. 하지만 같은 질문을 받아도 자연스럽게 답하는 사람들이 있다. 그들은 일상",
+    "bodyHash": "b96d670f07afbb716c614ba5e5ee2b1c3e8c8643efe0d131331492c181284db0",
+    "sourceImages": [
+      "https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/OU0u8i6W6S12fEZmyKZObg94ttw.jpg"
+    ]
+  },
+  "cards": [
+    {
+      "sequence": 1,
+      "kind": "cover",
+      "title": "기획자가 삶의 해상도를 높여야 하는 이유",
+      "body": "질문, 콘텐츠, 기록\n삶의 해상도를 높이는 3가지 방법",
+      "imageUrl": null,
+      "sourceImageIndex": null,
+      "altText": "기획자가 삶의 해상도를 높여야 하는 이유와 3가지 방법을 다루는 카드뉴스 표지",
+      "file": "cards/01.jpg"
+    },
+    {
+      "sequence": 2,
+      "kind": "hook",
+      "title": "\"그동안 어떻게 지내셨나요?\"",
+      "body": "오랜만에 만난 지인에게 듣기 쉬운 인사말이에요.\n그런데 막상 답하려면 머릿속이 하얘질 때가 있어요.\n출퇴근을 반복하고 업무 외에는 특별한 일이 없는 삶이라서요.",
+      "imageUrl": null,
+      "sourceImageIndex": null,
+      "altText": "오랜만에 만난 지인의 안부 질문에 답하지 못하는 장면",
+      "file": "cards/02.jpg"
+    },
+    {
+      "sequence": 3,
+      "kind": "question",
+      "title": "같은 질문에도 자연스럽게 답하는 사람들은?",
+      "body": "그들은 스쳐가는 순간들을 기억해 두었다가 이야기해요.\n직장에 가고 점심을 먹고 퇴근하는 평범한 하루도\n그들의 입을 통하면 특별한 경험이 돼요.",
+      "imageUrl": null,
+      "sourceImageIndex": null,
+      "altText": "평범한 하루를 특별한 경험으로 이야기하는 사람들",
+      "file": "cards/03.jpg"
+    },
+    {
+      "sequence": 4,
+      "kind": "interpretation",
+      "title": "차이는 '일상의 해상도'에서 나온다",
+      "body": "저는 삶을 저해상도 디스플레이로 보고,\n그들은 높은 해상도로 세밀하게 관찰해요.\n사람을 관찰하고 공감으로 설득해야 하는 기획자에겐 높은 해상도가 필요해요.",
+      "imageUrl": null,
+      "sourceImageIndex": null,
+      "altText": "저해상도와 고해상도로 삶을 바라보는 차이와 기획자에게 필요한 해상도",
+      "file": "cards/04.jpg"
+    },
+    {
+      "sequence": 5,
+      "kind": "application",
+      "title": "첫 번째, 질문하기",
+      "body": "가족, 친구, 직장 동료의 삶을 궁금해해요.\n오지랖으로 보일까 걱정돼도,\n질문은 애정과 관심이 없으면 할 수 없는 행동이에요.",
+      "imageUrl": null,
+      "sourceImageIndex": null,
+      "altText": "주변 사람들의 삶에 관심을 갖고 질문하는 첫 번째 방법",
+      "file": "cards/05.jpg"
+    },
+    {
+      "sequence": 6,
+      "kind": "application",
+      "title": "두 번째, 다양한 콘텐츠 접하기",
+      "body": "사람들이 무엇에 관심을 두는지 알면 공감력이 높아져요.\n알고리즘 속 확증편향에서 벗어나 관점을 넓힐 수 있어요.\n인문학 자료는 세상을 더 깊이 보게 도와줘요.",
+      "imageUrl": null,
+      "sourceImageIndex": null,
+      "altText": "다양한 콘텐츠로 공감력과 관점을 넓히는 두 번째 방법",
+      "file": "cards/06.jpg"
+    },
+    {
+      "sequence": 7,
+      "kind": "application",
+      "title": "세 번째, 기록하기",
+      "body": "반복되는 일상은 쉽게 휘발돼요.\n출퇴근길의 생각, 콘텐츠를 보고 느낀 감정,\n대화에서 얻은 통찰을 꾸준히 적어보세요.",
+      "imageUrl": null,
+      "sourceImageIndex": null,
+      "altText": "일상의 생각과 감정, 통찰을 기록하는 세 번째 방법",
+      "file": "cards/07.jpg"
+    },
+    {
+      "sequence": 8,
+      "kind": "conclusion",
+      "title": "오늘 해볼 한 가지: 하나만 적어보세요",
+      "body": "오늘 스친 생각이나 대화 한 줄을 적어보세요.\n나중에 다시 보지 않더라도\n기록하는 순간 그 자체로 삶이 달라져요.",
+      "imageUrl": null,
+      "sourceImageIndex": null,
+      "altText": "오늘의 생각이나 대화를 한 줄 기록해보는 제안",
+      "file": "cards/08.jpg"
+    },
+    {
+      "sequence": 9,
+      "kind": "cta",
+      "title": "나중에 다시 보려면 저장해두세요",
+      "body": "이런 브랜드 이야기를 더 보고 싶다면\nbruceheo.com 에서 만나보세요.",
+      "imageUrl": null,
+      "sourceImageIndex": null,
+      "altText": "저장을 권하고 bruceheo.com 을 안내하는 마무리 카드",
+      "file": "cards/09.jpg"
+    }
+  ],
+  "linkedin": {
+    "body": "\"그동안 어떻게 지내셨나요?\"\n\n오랜만에 만난 지인에게 듣기 쉬운 인사말인데, 저는 이 질문에 제대로 답하지 못하는 경우가 많았습니다. 매일 지하철로 출퇴근하고 업무 외에는 특별한 일이 없는 삶이라 머릿속이 하얘지곤 했습니다.\n\n같은 질문에도 자연스럽게 답하는 사람들이 있습니다. 그들은 스쳐가는 순간을 기억해 두었다가 이야기하고, 평범한 하루도 특별한 경험으로 만듭니다. 그 차이는 '일상의 해상도'에서 나옵니다. 저는 삶을 저해상도로 보고, 그들은 높은 해상도로 세밀하게 관찰합니다.\n\n사람을 관찰하고 공감으로 설득해야 하는 기획자에게는 높은 해상도의 삶이 필요하다고 생각합니다. 에이전시 마케터로서 제가 찾은 방법은 3가지입니다.\n\n첫째, 질문하기. 질문은 애정과 관심이 없으면 할 수 없는 행동입니다. 둘째, 다양한 콘텐츠 접하기. 사람들의 관심사를 알면 공감력이 높아지고, 알고리즘 속 확증편향에서 벗어나 관점을 넓힐 수 있습니다. 셋째, 기록하기. 반복되는 일상은 쉽게 휘발되기 때문에 출퇴근길의 생각과 대화에서 얻은 통찰을 의식적으로 적어야 합니다.\n\n바쁘고 피곤한 '피로 사회'에서는 자연스럽게 낮은 해상도의 삶을 살게 됩니다. 그래서 의식적으로 해상도를 높여야 합니다.\n\n여러분은 오늘 하루 중 어떤 순간을 기록해 두고 싶으신가요?\n\n#기획자 #마케팅 #기록 #질문 #콘텐츠 #인사이트 #에이전시마케터 #브루스매거진",
+    "firstComment": "기획자가 삶의 해상도를 높여야 하는 이유, 전체 글은 여기서 읽을 수 있어요: https://brunch.co.kr/@heoboram/161"
+  },
+  "instagram": {
+    "caption": "🔍 기획자에게 필요한 건 '삶의 해상도'예요.\n\n\"그동안 어떻게 지내셨나요?\" 이 질문에 머릿속이 하얘진 적 있나요? 같은 질문에도 자연스럽게 답하는 사람들은 스쳐가는 순간을 기억해 두었다가 이야기해요. 평범한 하루도 그들의 입을 통하면 특별한 경험이 되죠.\n\n📌 차이는 일상을 얼마나 세밀하게 관찰하느냐, 즉 해상도에서 나와요.\n\n사람을 관찰하고 공감으로 설득해야 하는 기획자라면 해상도를 높일 3가지 방법이 있어요. 가까운 사람에게 질문하기, 다양한 콘텐츠로 관점 넓히기, 그리고 휘발되는 일상을 기록하기. 나중에 다시 보지 않더라도 기록하는 순간 삶은 달라져요.\n\n오늘 하루 중 기록해 두고 싶은 순간은 무엇인가요?\n\n🔍 더 많은 브랜드 이야기는 bruceheo.com 에서 만나보세요.\n\n나중에 다시 보고 싶다면 저장 꾹 👆\n\n#브루스매거진 #기획자 #기록 #인사이트 #마케팅",
+    "account": "bruce.insight",
+    "collaboratorOrTag": "heo.boram"
+  },
+  "schedule": {
+    "approvedAt": null,
+    "scheduledAt": null,
+    "publishedAt": null
+  },
+  "publishing": {
+    "linkedin": {
+      "status": "pending",
+      "postId": null,
+      "commentId": null,
+      "error": null
+    },
+    "instagram": {
+      "status": "manual_source_ready",
+      "mediaId": null,
+      "error": null
+    }
+  },
+  "generatedAt": "2026-10-14T04:50:42.288Z",
+  "generator": {
+    "model": "claude-routine",
+    "renderer": "bruce-insight-html-css-v1"
+  }
+}
