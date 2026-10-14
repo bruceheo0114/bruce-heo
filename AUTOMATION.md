@@ -107,3 +107,9 @@
 - 색과 스타일은 공용 `assets/site.css`에 있고, 브루스 인사이트(인스타·유튜브)와 같은 아이보리 `#F2F1ED`·검정 `#111`·민트 `#65B98A`·초록 `#23744C`와 BR. 마크를 씁니다.
 - 영문 홈페이지도 같은 구조입니다: `/en/` 메인과 `/en/career/`·`/en/work/`·`/en/talks/`. 한·영 페이지의 KR/EN 버튼은 같은 내용의 페이지로 연결됩니다.
 - 포트폴리오(`portfolio-heoboram.html`)도 같은 색·BR 마크·제목 굵기로 맞췄습니다.
+
+## 방문 통계 (Google 애널리틱스 4)
+
+- 측정 ID `G-17SXL7Q2XV`(`src/config.js`의 `gaMeasurementId`)를 모든 공개 페이지 `<head>`에 넣었습니다. 백업 글 페이지는 매일 생성될 때 자동으로 들어갑니다.
+- 페이지 하단에 Google 애널리틱스 사용 안내를 표시합니다.
+- 통계는 https://analytics.google.com 또는 Google Analytics 앱에서 봅니다(보고서 → 참여도 → 페이지 및 화면).

@@ -264,6 +264,14 @@ function layout({ title, description, url, image, imageSize = null, canonical, j
 ${imageSize ? `<meta property="og:image:width" content="${imageSize[0]}">\n<meta property="og:image:height" content="${imageSize[1]}">\n` : ""}<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="${escapeHtml(image)}">
 ${jsonLd ? `<script type="application/ld+json">${JSON.stringify(jsonLd).replaceAll("<", "\\u003c")}</script>` : ""}
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=${CONFIG.gaMeasurementId}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '${CONFIG.gaMeasurementId}');
+</script>
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
@@ -272,7 +280,7 @@ ${jsonLd ? `<script type="application/ld+json">${JSON.stringify(jsonLd).replaceA
 <body>
 <header class="top"><div class="top__in"><a class="top__brand" href="/"><span class="brand-mark">BR<i>.</i></span>브루스 허</a><nav class="top__nav"><a href="/writing/">글 목록</a><a href="${CONFIG.profileUrl}" target="_blank" rel="noopener">브런치</a></nav></div></header>
 ${body}
-<footer>© 브루스 허 · 브런치 <a href="${CONFIG.profileUrl}" target="_blank" rel="noopener">@${CONFIG.profileId}</a></footer>
+<footer>© 브루스 허 · 브런치 <a href="${CONFIG.profileUrl}" target="_blank" rel="noopener">@${CONFIG.profileId}</a> · 방문 통계를 위해 Google 애널리틱스를 사용합니다.</footer>
 </body>
 </html>
 `;
