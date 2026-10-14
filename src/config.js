@@ -3,6 +3,8 @@ export const CONFIG = Object.freeze({
   profileUrl: "https://brunch.co.kr/@heoboram",
   feedUrl: "https://brunch.co.kr/rss/@@2fCF",
   homepageLimit: 12,
+  // Google 애널리틱스 4 측정 ID (bruceheo.com 전체 페이지 공통)
+  gaMeasurementId: "G-17SXL7Q2XV",
   // bruceheo.com/writing/ 에 원문을 백업하는 첫 글 번호
   archiveFromId: 108,
   cardMin: 7,
