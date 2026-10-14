@@ -39,7 +39,7 @@ test("백업 페이지와 목록을 안전한 HTML로 만든다", () => {
   const index = renderArchiveIndex([article, { ...article, id: "222", publishedAt: "2026-10-05T12:00:05.000Z", subtitle: "" }]);
   assert.ok(index.indexOf("/writing/222/") < index.indexOf("/writing/108/"));
   assert.match(index, /<h2 class="year">2026<\/h2>[\s\S]*<h2 class="year">2024<\/h2>/);
-  assert.match(index, /글 2편/);
+  assert.match(index, /지금 2편을 원문 그대로/);
 });
 
 test("본문을 찾지 못하면 구조 변경 오류를 낸다", () => {
@@ -79,4 +79,50 @@ test("공유 이미지는 JPG 로 쓰고 글 목록에 썸네일을 보여 준�
   assert.match(page, /<meta name="twitter:image" content="https:\/\/bruceheo\.com\/writing\/108\/og\.jpg">/);
   const index = renderArchiveIndex([article]);
   assert.match(index, /<div class="post__thumb"><img src="\/writing\/108\/images\/cover\.webp"/);
+});
+
+test("글 상세에 저자·맥락 읽기·함께 읽을 글을, 목록에 주제 필터를 붙인다", async () => {
+  const { relatedArticles } = await import("../src/lib/archive.js");
+  const base = parseArchiveArticle(html, "108");
+  const make = (id, day) => ({ ...base, id, title: `글 ${id}`, publishedAt: `2026-01-${String(day).padStart(2, "0")}T00:00:00.000Z` });
+  const all = [make("1", 1), make("2", 2), make("3", 3), make("4", 20), make("5", 5)];
+  const meta = {
+    categories: [{ key: "brand", label: "브랜드·캠페인" }, { key: "work", label: "AI·일하는 법" }],
+    picks: ["4", "999"],
+    posts: { 1: { category: "brand", insight: "맥락 <요약>" }, 2: { category: "work" }, 3: { category: "brand" }, 4: { category: "brand" } },
+  };
+
+  const related = relatedArticles(all[0], all, meta).map((a) => a.id);
+  assert.deepEqual(related, ["3", "4", "2"], "같은 주제 먼저, 모자라면 가까운 글로 채운다");
+  assert.ok(!related.includes("1"));
+
+  const page = renderArticlePage(all[0], { all, meta });
+  assert.match(page, /<a href="\/#about">허보람\(브루스\)<\/a>/);
+  assert.match(page, /이 글을 맥락으로 읽으면<\/h2><p>맥락 &lt;요약&gt;<\/p>/);
+  assert.match(page, /함께 읽으면 좋은 글/);
+  assert.match(page, /href="\/writing\/3\/"/);
+  assert.match(page, /<a href="\/context\/">맥락과 마케팅<\/a>/);
+  assert.match(page, /"alternateName":\["브루스","브루스 허","마케터 브루스","Bruce Heo"\]/);
+  assert.match(page, /<title>글 1 \| 마케터 허보람\(브루스\)<\/title>/);
+  assert.doesNotMatch(renderArticlePage(all[1], { all, meta }), /이 글을 맥락으로 읽으면/, "요약이 없는 글은 칸을 만들지 않는다");
+
+  const index = renderArchiveIndex(all, meta);
+  assert.match(index, /<button type="button" data-filter="" aria-pressed="true">전체<\/button>/);
+  assert.match(index, /data-filter="work" aria-pressed="false">AI·일하는 법</);
+  assert.match(index, /href="\/writing\/5\/" data-category=""/, "분류 없는 글도 목록에 남는다");
+  assert.equal((index.match(/class="post" href=/g) ?? []).length, 5);
+  assert.match(index, /먼저 읽을 글[\s\S]*href="\/writing\/4\/"/);
+  assert.doesNotMatch(index, /writing\/999/, "없는 글은 추천하지 않는다");
+});
+
+test("글 분류 데이터가 실제 백업 글과 일치한다", async () => {
+  const { readdir } = await import("node:fs/promises");
+  const meta = JSON.parse(await readFile(new URL("../data/writing-meta.json", import.meta.url), "utf8"));
+  const ids = (await readdir(new URL("../data/archive/", import.meta.url))).map((f) => f.replace(".json", ""));
+  const keys = new Set(meta.categories.map((c) => c.key));
+  for (const [id, post] of Object.entries(meta.posts)) {
+    assert.ok(ids.includes(id), `없는 글 ${id}`);
+    assert.ok(keys.has(post.category), `알 수 없는 분류 ${id}`);
+  }
+  for (const id of [...meta.picks, ...meta.contextCases]) assert.ok(ids.includes(id), `없는 추천 글 ${id}`);
 });

@@ -50,9 +50,30 @@ test("홈페이지에 Google·네이버 소유 확인 태그가 있다", async (
 test("모든 공개 페이지에 Google 애널리틱스 태그가 한 번씩 들어 있다", async () => {
   const { readFile, readdir } = await import("node:fs/promises");
   const archived = (await readdir("writing", { withFileTypes: true })).filter((e) => e.isDirectory()).map((e) => `writing/${e.name}/index.html`);
-  const pages = ["index.html", "career/index.html", "work/index.html", "talks/index.html", "en/index.html", "en/career/index.html", "en/work/index.html", "en/talks/index.html", "sessions.html", "campaign-workbook.html", "portfolio-heoboram.html", "writing/index.html", ...archived];
+  const pages = ["index.html", "career/index.html", "work/index.html", "talks/index.html", "en/index.html", "en/career/index.html", "en/work/index.html", "en/talks/index.html", "sessions.html", "campaign-workbook.html", "portfolio-heoboram.html", "writing/index.html", "context/index.html", ...archived];
   for (const page of pages) {
     const html = await readFile(page, "utf8");
     assert.equal((html.match(/googletagmanager\.com\/gtag\/js\?id=G-17SXL7Q2XV/g) ?? []).length, 1, page);
   }
+});
+
+test("홈은 저자명과 칼럼 진입을 먼저 보여 주고, 글 → 맥락 → 소개 순서로 이어진다", async () => {
+  const { readFile } = await import("node:fs/promises");
+  const html = await readFile("index.html", "utf8");
+  assert.match(html, /<title>마케터 허보람\(브루스 허\) \| 브랜드 맥락·IMC 전략<\/title>/);
+  assert.match(html, /마케터 허보람\(브루스\) · Brand Communication &amp; IMC/);
+  assert.match(html, /<em>맥락<\/em>으로 기억합니다/);
+  assert.match(html, /<a href="\/writing\/" class="btn btn--primary">최신 칼럼 읽기 →<\/a>/);
+  assert.match(html, /<a href="\/context\/" class="btn btn--ghost">/);
+  const order = ["id=\"hero\"", "id=\"writing\"", "id=\"context\"", "id=\"about\"", "id=\"explore\"", "id=\"content\"", "id=\"contact\""].map((id) => html.indexOf(id));
+  assert.ok(order.every((pos, i) => pos > 0 && (i === 0 || pos > order[i - 1])), `섹션 순서 ${order}`);
+  assert.match(html, /"alternateName": \["브루스", "브루스 허", "마케터 브루스", "Bruce Heo"\]/);
+  assert.match(html, /<!-- WRITING_PICKS_START -->\s*<a class="post" href="\/writing\/\d+\/">/);
+  assert.match(html, /href="\/campaign-workbook\.html"/, "히어로에서 뺀 워크북 링크는 홈 안에 남는다");
+  assert.doesNotMatch(html, /href="#"/);
+  const context = await readFile("context/index.html", "utf8");
+  assert.match(context, /<h1>마케팅에서 맥락은<br>왜 중요한가<\/h1>/);
+  assert.match(context, /<link rel="canonical" href="https:\/\/bruceheo\.com\/context\/">/);
+  assert.match(context, /맥락만으로 모든 것을 설명할 수는 없다/);
+  assert.match(await readFile("sitemap.xml", "utf8"), /<loc>https:\/\/bruceheo\.com\/context\/<\/loc>/);
 });

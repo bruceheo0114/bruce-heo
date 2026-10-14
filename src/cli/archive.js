@@ -9,9 +9,9 @@ import path from "node:path";
 import sharp from "sharp";
 import { CONFIG, PATHS } from "../config.js";
 import { canonicalUrl, fetchText } from "../lib/brunch.js";
-import { imageSlots, localImageName, parseArchiveArticle, renderArchiveIndex, renderArticlePage, renderSitemap, sortArticles } from "../lib/archive.js";
+import { imageSlots, localImageName, parseArchiveArticle, renderArchiveIndex, renderArticlePage, renderContextPage, renderSitemap, sortArticles } from "../lib/archive.js";
 import { mapLimit, readJson, writeFileAtomic, writeJson } from "../lib/files.js";
-import { linkArchivedPosts } from "../lib/homepage.js";
+import { linkArchivedPosts, replaceWritingPicks } from "../lib/homepage.js";
 
 const RECENT_REFETCH_DAYS = 7;
 const LIST_URL = `https://api.brunch.co.kr/v1/article/@${CONFIG.profileId}?listSize=20&status=home`;
@@ -144,16 +144,19 @@ async function render() {
       await rm(path.join(PATHS.archivePages, entry.name), { recursive: true });
     }
   }
+  const meta = await readJson(PATHS.writingMeta, {});
   for (const [index, article] of articles.entries()) {
-    const page = renderArticlePage(article, { newer: articles[index - 1] ?? null, older: articles[index + 1] ?? null });
+    const page = renderArticlePage(article, { newer: articles[index - 1] ?? null, older: articles[index + 1] ?? null, all: articles, meta });
     await writeFileAtomic(path.join(PATHS.archivePages, article.id, "index.html"), page);
   }
-  await writeFileAtomic(path.join(PATHS.archivePages, "index.html"), renderArchiveIndex(articles));
+  await writeFileAtomic(path.join(PATHS.archivePages, "index.html"), renderArchiveIndex(articles, meta));
+  await writeFileAtomic(path.join("context", "index.html"), renderContextPage(articles, meta));
   await writeFileAtomic("sitemap.xml", renderSitemap(articles));
   // 홈페이지(한·영) Writing 목록의 글 링크를 브런치 대신 이 사이트의 백업 페이지로 연결한다.
   for (const homepage of [PATHS.homepage, "en/index.html"]) {
     const html = await readFile(homepage, "utf8");
-    const linked = linkArchivedPosts(html, keep);
+    const picks = (meta.picks ?? []).map((id) => articles.find((article) => article.id === id)).filter(Boolean);
+    const linked = replaceWritingPicks(linkArchivedPosts(html, keep), picks);
     if (linked !== html) await writeFileAtomic(homepage, linked);
   }
   console.log(`페이지 ${articles.length}편 생성: ${PATHS.archivePages}/`);
