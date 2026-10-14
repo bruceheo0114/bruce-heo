@@ -1346,7 +1346,6 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .award .section-eyebrow, .knowledge-intro .section-eyebrow { border-color: var(--mint); }
 
 /* 메인에는 최신 글 6편만 보여 주고 나머지는 /writing/ 에서 */
-#writing .post:nth-child(n+7) { display: none; }
 
 /* 더 보기 카드 */
 .explore { display: grid; grid-template-columns: 1fr; gap: 16px; }
@@ -1371,3 +1370,34 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .subpage-back { display: inline-flex; gap: 6px; font-size: 14px; font-weight: 700; color: var(--accent); margin: 40px 0 -24px; }
 .subpage-next { padding: 0 0 clamp(72px, 10vw, 120px); }
 .subpage-next .explore-card { max-width: 100%; }
+
+/* ============================================================
+   2026-10 콘텐츠 허브 개편 (글 → 맥락 → 소개 순서)
+   ============================================================ */
+.hero__profile { margin: -12px 0 24px; font-size: 14px; font-weight: 600; color: var(--text-3); }
+.reading-grid { display: grid; grid-template-columns: 1fr; gap: 32px; }
+@media (min-width: 900px) { .reading-grid { grid-template-columns: 1fr 1fr; gap: 40px; } }
+.reading-col__title { font-size: 14px; font-weight: 800; color: var(--accent); margin-bottom: 10px; }
+.reading-col .posts { margin-bottom: 0; }
+#writing .posts .post:nth-child(n+4) { display: none; }
+.posts-links { margin-top: 24px; }
+.context-band {
+  display: grid; grid-template-columns: 1fr; gap: 24px; align-items: end;
+  padding: clamp(24px, 4vw, 40px); border-radius: var(--radius);
+  background: var(--bg-card); border: 1.5px solid var(--mint);
+}
+@media (min-width: 900px) { .context-band { grid-template-columns: 1fr auto; } }
+.context-band__kicker { font-size: 13px; font-weight: 800; color: var(--accent); margin-bottom: 14px; }
+.series-list { list-style: none; counter-reset: s; display: grid; gap: 10px; }
+.series-list li { counter-increment: s; display: flex; gap: 12px; font-size: 16px; font-weight: 600; line-height: 1.5; }
+.series-list li::before { content: counter(s); flex: none; width: 24px; height: 24px; border-radius: 50%; background: #111; color: #fff; font-size: 12px; font-weight: 800; display: inline-flex; align-items: center; justify-content: center; margin-top: 1px; }
+.series-list a:hover { color: var(--accent); }
+.context-band__cta { white-space: nowrap; }
+.explore-extra { margin-top: 20px; font-size: 14px; font-weight: 700; }
+.explore-extra a { color: var(--accent); }
+@media (max-width: 720px) {
+  .nav__link--keep { display: inline !important; }
+}
+.media--nolink { cursor: default; }
+.media--nolink:hover { transform: none; box-shadow: none; }
+.footer__social { flex-wrap: wrap; row-gap: 8px; }

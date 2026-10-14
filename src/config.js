@@ -27,6 +27,7 @@ export const PATHS = Object.freeze({
   homepage: "index.html",
   content: "content",
   archiveData: "data/archive",
+  writingMeta: "data/writing-meta.json",
   archivePages: "writing",
   result: ".automation-result.json",
   prBody: ".automation-pr-body.md",

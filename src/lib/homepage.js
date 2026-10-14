@@ -60,6 +60,18 @@ export function linkArchivedPosts(html, archivedIds) {
   return html.slice(0, from) + list + html.slice(to);
 }
 
+const PICKS_START = "<!-- WRITING_PICKS_START -->";
+const PICKS_END = "<!-- WRITING_PICKS_END -->";
+
+// 홈의 '먼저 읽을 글'은 data/writing-meta.json 의 picks 로 채운다. 표시가 없는 페이지는 그대로 둔다.
+export function replaceWritingPicks(html, posts) {
+  const startIndex = html.indexOf(PICKS_START);
+  const endIndex = html.indexOf(PICKS_END);
+  if (startIndex < 0 || endIndex <= startIndex) return html;
+  const archived = new Set(posts.map((post) => String(post.id)));
+  return `${html.slice(0, startIndex + PICKS_START.length)}\n${renderPostLinks(posts, archived)}\n      ${html.slice(endIndex)}`;
+}
+
 export function replaceWritingList(html, posts, archivedIds = new Set()) {
   const [from, to] = writingListRange(html);
   const before = html.slice(0, from);

@@ -1,0 +1,383 @@
+{
+  "_comment": "글 분류·추천·'이 글을 맥락으로 읽으면' 문장을 한 곳에서 관리한다. 새 글은 category가 없으면 '전체'에만 보인다.",
+  "categories": [
+    {
+      "key": "brand",
+      "label": "브랜드·캠페인"
+    },
+    {
+      "key": "culture",
+      "label": "소비자·문화"
+    },
+    {
+      "key": "judgment",
+      "label": "마케터의 판단"
+    },
+    {
+      "key": "work",
+      "label": "AI·일하는 법"
+    }
+  ],
+  "picks": [
+    "110",
+    "215",
+    "186"
+  ],
+  "contextCases": [
+    "110",
+    "153",
+    "218",
+    "224",
+    "186"
+  ],
+  "posts": {
+    "108": {
+      "category": "culture"
+    },
+    "109": {
+      "category": "work"
+    },
+    "110": {
+      "category": "culture",
+      "insight": "같은 커버 무대라도 일본 대중이 그리워하는 1980년대라는 시대의 맥락을 읽었기에 환호가 나왔다. 메시지의 선의보다, 그 메시지가 놓일 사회의 맥락을 먼저 이해해야 마음이 움직인다."
+    },
+    "111": {
+      "category": "brand"
+    },
+    "112": {
+      "category": "brand"
+    },
+    "113": {
+      "category": "brand"
+    },
+    "114": {
+      "category": "judgment"
+    },
+    "115": {
+      "category": "culture"
+    },
+    "116": {
+      "category": "brand"
+    },
+    "117": {
+      "category": "work"
+    },
+    "118": {
+      "category": "culture"
+    },
+    "119": {
+      "category": "culture"
+    },
+    "120": {
+      "category": "brand"
+    },
+    "121": {
+      "category": "culture"
+    },
+    "122": {
+      "category": "culture"
+    },
+    "124": {
+      "category": "work"
+    },
+    "125": {
+      "category": "culture"
+    },
+    "126": {
+      "category": "work"
+    },
+    "127": {
+      "category": "culture"
+    },
+    "128": {
+      "category": "work"
+    },
+    "130": {
+      "category": "judgment"
+    },
+    "131": {
+      "category": "culture"
+    },
+    "132": {
+      "category": "work"
+    },
+    "133": {
+      "category": "work"
+    },
+    "134": {
+      "category": "brand"
+    },
+    "135": {
+      "category": "brand"
+    },
+    "136": {
+      "category": "work"
+    },
+    "137": {
+      "category": "brand"
+    },
+    "138": {
+      "category": "brand"
+    },
+    "139": {
+      "category": "culture"
+    },
+    "140": {
+      "category": "brand"
+    },
+    "141": {
+      "category": "work"
+    },
+    "142": {
+      "category": "work"
+    },
+    "143": {
+      "category": "culture"
+    },
+    "144": {
+      "category": "brand"
+    },
+    "145": {
+      "category": "culture"
+    },
+    "146": {
+      "category": "judgment"
+    },
+    "147": {
+      "category": "work"
+    },
+    "148": {
+      "category": "culture"
+    },
+    "149": {
+      "category": "culture"
+    },
+    "150": {
+      "category": "work"
+    },
+    "151": {
+      "category": "work"
+    },
+    "152": {
+      "category": "brand"
+    },
+    "153": {
+      "category": "brand",
+      "insight": "광고처럼 보이지 않았던 이유는 제품이 브이로그라는 일상의 맥락 안에 놓였기 때문이다. 소구점을 나열하기보다 제품이 자연스럽게 등장할 장면을 기획 단계에서 설계해야 한다."
+    },
+    "154": {
+      "category": "work"
+    },
+    "155": {
+      "category": "brand"
+    },
+    "156": {
+      "category": "work"
+    },
+    "157": {
+      "category": "brand"
+    },
+    "158": {
+      "category": "work"
+    },
+    "159": {
+      "category": "work"
+    },
+    "160": {
+      "category": "brand"
+    },
+    "161": {
+      "category": "work"
+    },
+    "162": {
+      "category": "work"
+    },
+    "163": {
+      "category": "brand"
+    },
+    "164": {
+      "category": "culture"
+    },
+    "165": {
+      "category": "work"
+    },
+    "166": {
+      "category": "brand"
+    },
+    "167": {
+      "category": "culture"
+    },
+    "168": {
+      "category": "work"
+    },
+    "169": {
+      "category": "brand"
+    },
+    "170": {
+      "category": "culture"
+    },
+    "171": {
+      "category": "brand"
+    },
+    "172": {
+      "category": "work"
+    },
+    "173": {
+      "category": "brand"
+    },
+    "174": {
+      "category": "work"
+    },
+    "175": {
+      "category": "brand"
+    },
+    "176": {
+      "category": "work"
+    },
+    "177": {
+      "category": "brand"
+    },
+    "178": {
+      "category": "work"
+    },
+    "179": {
+      "category": "brand"
+    },
+    "180": {
+      "category": "work"
+    },
+    "181": {
+      "category": "culture"
+    },
+    "182": {
+      "category": "culture"
+    },
+    "183": {
+      "category": "work"
+    },
+    "184": {
+      "category": "culture"
+    },
+    "185": {
+      "category": "culture"
+    },
+    "186": {
+      "category": "work",
+      "insight": "생성형 AI의 답변에 선택되려면 핵심 소구점보다 소비자가 제품을 떠올리는 구체적인 상황과 감정, 즉 맥락 중심의 콘텐츠가 쌓여 있어야 한다."
+    },
+    "187": {
+      "category": "work"
+    },
+    "188": {
+      "category": "culture"
+    },
+    "189": {
+      "category": "brand"
+    },
+    "190": {
+      "category": "culture"
+    },
+    "191": {
+      "category": "culture"
+    },
+    "192": {
+      "category": "brand"
+    },
+    "193": {
+      "category": "culture"
+    },
+    "194": {
+      "category": "work"
+    },
+    "195": {
+      "category": "brand"
+    },
+    "196": {
+      "category": "work"
+    },
+    "197": {
+      "category": "brand"
+    },
+    "198": {
+      "category": "work"
+    },
+    "199": {
+      "category": "brand"
+    },
+    "200": {
+      "category": "brand"
+    },
+    "201": {
+      "category": "culture"
+    },
+    "202": {
+      "category": "brand"
+    },
+    "203": {
+      "category": "brand"
+    },
+    "204": {
+      "category": "work"
+    },
+    "205": {
+      "category": "culture"
+    },
+    "206": {
+      "category": "culture"
+    },
+    "207": {
+      "category": "brand"
+    },
+    "208": {
+      "category": "brand"
+    },
+    "209": {
+      "category": "brand"
+    },
+    "210": {
+      "category": "work"
+    },
+    "211": {
+      "category": "brand"
+    },
+    "212": {
+      "category": "brand"
+    },
+    "213": {
+      "category": "culture"
+    },
+    "214": {
+      "category": "work"
+    },
+    "215": {
+      "category": "judgment",
+      "insight": "새로움은 브랜드 밖에서 빌려오되 선택의 기준은 브랜드 안에 둬야 한다. 지켜야 할 것, 번역할 것, 실험할 것을 먼저 나누면 새로움은 취향이 아니라 전략의 문제가 된다."
+    },
+    "216": {
+      "category": "judgment",
+      "insight": "밈은 목적이 아니라 번역 장치다. 브랜드가 그동안 쌓아온 말투와 관계가 그 밈을 받아들일 맥락이 되어 있어야, 조회수 뒤에 브랜드가 남는다."
+    },
+    "217": {
+      "category": "judgment",
+      "insight": "후기의 힘은 양이 아니라 구매자가 자기 질문의 답을 찾을 수 있는 정보량에서 나온다. 누가, 언제, 어떤 문제 때문에 쓰는지라는 사용 맥락을 다양하게 쌓아야 전환으로 이어진다."
+    },
+    "218": {
+      "category": "judgment",
+      "insight": "유명세는 사람을 데려오지만 적합성은 메시지를 믿게 만든다. 인플루언서를 고르는 일은 그 사람의 평소 삶 안에서 제품이 자연스럽게 등장할 맥락을 고르는 일이다."
+    },
+    "219": {
+      "category": "judgment",
+      "insight": "마케터가 지겨워진 시점에 소비자는 이제 막 알아보기 시작한다. 핵심 약속은 반복하고 그 약속이 나타나는 장면을 넓힐 때 브랜드 자산이 쌓인다."
+    },
+    "221": {
+      "category": "culture"
+    },
+    "222": {
+      "category": "work"
+    },
+    "224": {
+      "category": "brand",
+      "insight": "르게다꼼은 브랜드를 버린 것이 아니라 LGE닷컴이라는 기존 자산을 다르게 읽었다. 브랜드의 맥락과 소비자가 원하는 맥락이 만나는 지점에서 새로운 이야깃거리가 생긴다."
+    }
+  }
+}
