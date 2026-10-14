@@ -25,6 +25,13 @@ SLOTS = [
     (12, 30, None, "threads-publish.yml", True),
 ]
 
+# 한 번만 도는 예약. 브런치 예약 발행 직후 홈페이지 갱신(일일 자동화)과 원문 백업을 앞당긴다.
+# (KST 시각, 워크플로 파일, 날짜를 post_date 로 넘길지). 지난 항목은 지워도 된다.
+ONE_OFF = [
+    (dt.datetime(2026, 10, 16, 6, 5, tzinfo=KST), "brunch-weekly.yml", False),  # 브런치 226 06:00 예약 발행
+    (dt.datetime(2026, 10, 16, 6, 20, tzinfo=KST), "brunch-archive.yml", False),
+]
+
 
 def occurrences(start, end):
     day = start.date()
@@ -34,6 +41,9 @@ def occurrences(start, end):
             if start < at <= end and (weekdays is None or at.weekday() in weekdays):
                 yield at, workflow, with_date
         day += dt.timedelta(days=1)
+    for at, workflow, with_date in ONE_OFF:
+        if start < at <= end:
+            yield at, workflow, with_date
 
 
 def dispatch(workflow, fields=()):
