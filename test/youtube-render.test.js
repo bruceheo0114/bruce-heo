@@ -154,7 +154,7 @@ test("대본을 챕터별 읽기용 텍스트로 바꾼다", async () => {
   const texts = chapterNarrationTexts("# 제목\n## CH01 시작 (00:00-01:00)\n그때 Thomas Heinz(토마스 하인즈)가 / **1등**이었죠. [확인 필요]\n## CH02 끝 (01:00-02:00)\n점유율 60% [쉼] 이상, 2.5배(두 배 반).\n");
   assert.deepEqual(texts, [
     { id: "CH01", text: "그때 토마스 하인즈가 1등이었죠." },
-    { id: "CH02", text: "점유율 60퍼센트 ... 이상, 두 배 반." },
+    { id: "CH02", text: "점유율 60퍼센트\n\n이상, 두 배 반." },
   ]);
 });
 

@@ -33,12 +33,14 @@ export function chapterNarrationTexts(script) {
     const text = parts[index + 1]
       .replace(/^#.*$/gm, "")
       .replace(/\*\*/g, "")
-      .replace(/\[쉼\]/g, "...")
+      // 긴 쉼은 문단 나눔으로. eleven_v3는 "..." 뒤에서 목소리가 갑자기 높고 크게 다시 시작해 어색하다(EP005 1:14·1:45)
+      .replace(/\[쉼\]/g, "\n\n")
       .replace(/\[[^\]]*\]/g, "")
       .replace(/(?:[A-Za-z][A-Za-z0-9 '’.&-]*|\d[^\s(]*)\(([^)]*[가-힣][^)]*)\)/g, "$1")
       .replace(/\s\/\s|\//g, " ")
       .replace(/(\d+)%/g, "$1퍼센트")
       .replace(/[ \t]+/g, " ")
+      .replace(/ *\n */g, "\n")
       .replace(/\n\s*\n+/g, "\n\n")
       .trim();
     texts.push({ id: `CH${parts[index].replace(/\D/g, "").padStart(2, "0")}`, text });
