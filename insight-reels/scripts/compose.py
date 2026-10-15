@@ -6,7 +6,7 @@
 #   image : src, focus_y, zoom(in|out), punch[{at, x, y}], spot{at, x, y, r}, labels[{at, text, x, y, dx, dy}]
 #   phone : src, likes{to, at}            — 휴대폰 목업 안에 이미지, 하트 숫자 카운트업
 #   split : left, right, ltext, rtext, at — 좌우 비교, at 이후 왼쪽 ✕ / 오른쪽 ✓
-#   clip  : src, focus_y                  — 생성 영상(Grok Lite 5초, 16:9·9:16 모두 패널을 꽉 채워 자른다)
+#   clip  : src, focus_y, labels          — 생성 영상(Grok Lite 5초, 16:9·9:16 모두 패널을 꽉 채워 자른다). 라벨 좌표는 패널 기준
 #   card  : 엔드카드
 # 좌표 x, y 는 패널 기준 0~1. 시간 at 은 장면 시작 기준 초.
 # 소리(2026-10-15, 유튜브 EP005 5차 방식): 내레이션은 -14 LUFS로 맞춘다. spec 에 bgm(채널 BGM 파일/주소)이 있으면
@@ -166,6 +166,11 @@ def frame_image(base, t, v):
             ImageDraw.Draw(mask).ellipse([sx - r, sy - r, sx + r, sy + r], fill=0)
             img = Image.composite(Image.new("RGB", (W, PH), (0, 0, 0)), img, mask.filter(ImageFilter.GaussianBlur(18)))
             ImageDraw.Draw(img).ellipse([sx - r, sy - r, sx + r, sy + r], outline=(255, 255, 255), width=int(5 * k) or 1)
+    draw_labels(img, t, v, to_frame)
+    return img
+
+
+def draw_labels(img, t, v, to_frame):
     d = ImageDraw.Draw(img)
     for lb in v.get("labels", []):
         k = ease(t, lb["at"], 0.3)
@@ -177,7 +182,6 @@ def frame_image(base, t, v):
         d.ellipse([ax - 10, ay - 10, ax + 10, ay + 10], fill=BLUE, outline=(255, 255, 255), width=4)
         hl = lb.get("hl")
         pill(d, px, py, lb["text"], k, fill=BLUE if hl else (255, 255, 255), color=(255, 255, 255) if hl else BLUE)
-    return img
 
 
 def frame_phone(base, t, v):
@@ -255,9 +259,25 @@ def segment(i, v, L):
         render_frames(out, n, lambda t: frame_split(bases, t, v))
     elif kind == "clip":
         fy = v.get("focus_y", 0.5)
-        vf = (f"scale={W}:{PH}:force_original_aspect_ratio=increase,crop={W}:{PH}:(iw-{W})/2:'(ih-{PH})*{fy}',setsar=1,"
+        dur = float(subprocess.run(f'ffprobe -v error -show_entries format=duration -of csv=p=0 "{v["src"]}"',
+                                   shell=True, capture_output=True, text=True).stdout or 0)
+        slow = f"setpts=PTS*{L / dur:.4f}," if dur and L > dur else ""   # 장면이 클립보다 길면 멈추지 않게 천천히 늘인다
+        vf = (f"{slow}scale={W}:{PH}:force_original_aspect_ratio=increase,crop={W}:{PH}:(iw-{W})/2:'(ih-{PH})*{fy}',setsar=1,"
               f"fps={FPS},tpad=stop_mode=clone:stop_duration={L}")
-        sh(f'ffmpeg -y -v error -i "{v["src"]}" -t {L} -an -vf "{vf}" -r {FPS} -c:v libx264 -preset veryfast -crf 18 -pix_fmt yuv420p {out}')
+        if not v.get("labels"):
+            sh(f'ffmpeg -y -v error -i "{v["src"]}" -t {L} -an -vf "{vf}" -r {FPS} -c:v libx264 -preset veryfast -crf 18 -pix_fmt yuv420p {out}')
+        else:
+            # 클립에도 라벨(좌표는 패널 기준 0~1): 프레임을 받아 라벨을 그린 뒤 다시 인코딩
+            raw = subprocess.run(f'ffmpeg -v error -i "{v["src"]}" -t {L} -an -vf "{vf}" -r {FPS} -f rawvideo -pix_fmt rgb24 -',
+                                 shell=True, capture_output=True).stdout
+            size = W * PH * 3
+            frames = [raw[k:k + size] for k in range(0, len(raw) - size + 1, size)][:n]
+
+            def draw_clip(t):
+                img = Image.frombytes("RGB", (W, PH), frames[min(int(round(t * FPS)), len(frames) - 1)])
+                draw_labels(img, t, v, lambda x, y: (x * W, y * PH))
+                return img
+            render_frames(out, n, draw_clip)
     else:
         c = spec["card"]
         t1, t2 = txt(f"c{i}a", c["line1"]), txt(f"c{i}b", c["line2"])
