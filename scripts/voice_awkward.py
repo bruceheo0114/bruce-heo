@@ -6,7 +6,7 @@ raw=subprocess.run(["ffmpeg","-v","error","-i",mp3,"-ac","1","-ar","16000","-f",
 x=np.frombuffer(raw,np.int16).astype(float)/32768
 def seg(a,b):
     ps=[];ls=[]
-    for k in range(int(a*16000),int(b*16000)-640,160):
+    for k in range(int(a*16000),min(int(b*16000),len(x))-640,160):
         w=x[k:k+640]*np.hanning(640); e=np.sqrt((w**2).mean())
         if e<0.01: continue
         ls.append(20*np.log10(e))
