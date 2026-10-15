@@ -1009,10 +1009,14 @@
         "generatedAt": null
       },
       "linkedin": {
-        "status": "manual_pending",
-        "id": null,
-        "lastAttemptAt": null,
-        "error": null
+        "status": "published",
+        "id": "urn:li:share:7516613333840642048",
+        "lastAttemptAt": "2026-10-15T21:37:48.464Z",
+        "error": null,
+        "postId": "urn:li:share:7516613333840642048",
+        "commentId": null,
+        "manualComment": null,
+        "manualNow": true
       },
       "instagram": {
         "status": "manual_pending",
