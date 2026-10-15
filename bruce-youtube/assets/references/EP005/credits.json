@@ -1,6 +1,6 @@
 {
-  "references_hash": "42593e7bfb1e186f",
-  "fetched_at": "2026-10-15T02:00:08.485Z",
+  "references_hash": "65870f76d38078aa",
+  "fetched_at": "2026-10-15T02:12:54.501Z",
   "items": [
     {
       "file": "A001-screen.jpg",
@@ -41,6 +41,39 @@
       "kind": "image",
       "source": "현대자동차 브랜드 저널",
       "url": "https://www.hyundai.com/kr/ko/brand/brandstory/campaigns/night-fishing-film"
+    },
+    {
+      "file": "A002-screen.jpg",
+      "id": "A002",
+      "scenes": [
+        "S002",
+        "S026"
+      ],
+      "kind": "screen",
+      "source": "현대자동차 브랜드 저널",
+      "url": "https://www.hyundai.com/worldwide/ko/brand-journal/lifestyle/night-fishing-film"
+    },
+    {
+      "file": "A002-img1.jpg",
+      "id": "A002",
+      "scenes": [
+        "S002",
+        "S026"
+      ],
+      "kind": "image",
+      "source": "현대자동차 브랜드 저널",
+      "url": "https://www.hyundai.com/worldwide/ko/brand-journal/lifestyle/night-fishing-film"
+    },
+    {
+      "file": "A002-img2.jpg",
+      "id": "A002",
+      "scenes": [
+        "S002",
+        "S026"
+      ],
+      "kind": "image",
+      "source": "현대자동차 브랜드 저널",
+      "url": "https://www.hyundai.com/worldwide/ko/brand-journal/lifestyle/night-fishing-film"
     },
     {
       "file": "A006-screen.jpg",
@@ -286,26 +319,5 @@
       "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261015_015601_d6e74be5-ca5f-4b6f-855b-d69d94cd7cb3.png"
     }
   ],
-  "failures": [
-    {
-      "id": "A002",
-      "url": "https://www.hyundai.com/content/dam/hyundai/kr/ko/images/brand/brandstory/campaigns/lifestyle/night-fishing-film-kv-m.jpg",
-      "error": "그림이 너무 작습니다"
-    },
-    {
-      "id": "A003",
-      "url": "https://www.hyundai.com/content/dam/hyundai/ww/en/images/brand-journal/lifestyle/240910-ioniq-movie-film/hyundai-night-fishing-film-01-poster-m.jpg",
-      "error": "그림이 너무 작습니다"
-    },
-    {
-      "id": "A004",
-      "url": "https://www.hyundai.com/content/dam/hyundai/kr/ko/images/brand/brandstory/campaigns/lifestyle/night-fishing-film-02-m.jpg",
-      "error": "그림이 너무 작습니다"
-    },
-    {
-      "id": "A005",
-      "url": "https://www.hyundai.com/content/dam/hyundai/kr/ko/images/brand/brandstory/campaigns/lifestyle/night-fishing-film-05-m.jpg",
-      "error": "그림이 너무 작습니다"
-    }
-  ]
+  "failures": []
 }
