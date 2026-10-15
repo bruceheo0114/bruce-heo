@@ -1,0 +1,46 @@
+name: LinkedIn post now
+
+# 브런치 글 하나를 예약을 기다리지 않고 바로 LinkedIn 개인 계정에 올린다.
+# 본문 content/<id>/linkedin.txt + 브런치 커버 이미지, 원문 링크는 넣지 않는다(사용자가 댓글로 직접 단다).
+# 게시 상태를 기록해 화요일 자동 게시가 같은 글을 다시 올리지 않는다.
+on:
+  workflow_dispatch:
+    inputs:
+      article_id:
+        description: "브런치 글 번호"
+        required: true
+
+concurrency:
+  group: bruce-content-automation
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Publish
+        env:
+          LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
+          LINKEDIN_PERSON_URN: ${{ secrets.LINKEDIN_PERSON_URN }}
+          LINKEDIN_API_VERSION: ${{ vars.LINKEDIN_API_VERSION || '202605' }}
+        run: node src/cli/linkedin-now.js "${{ inputs.article_id }}" | tee -a "$GITHUB_STEP_SUMMARY"
+
+      - name: Record result
+        if: always()
+        run: |
+          git add -- data/automation-state.json
+          git diff --cached --quiet && exit 0
+          git config user.name "bruce-content-bot"
+          git config user.email "bruce-content-bot@users.noreply.github.com"
+          git commit -m "chore: record LinkedIn post (${{ inputs.article_id }})"
+          git pull --rebase -q origin main && git push origin HEAD:main

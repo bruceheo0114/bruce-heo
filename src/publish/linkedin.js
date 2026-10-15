@@ -123,7 +123,11 @@ export async function publishLinkedIn(manifest, existing = {}, checkpoint = null
   let imageError = null;
 
   if (!postId) {
-    const payload = linkedInPostPayload(linkedInBodyWithLink(manifest.linkedin.body, fullTextUrl(manifest.article)));
+    // withLink: false 는 본문에 링크를 넣지 않는다(사용자가 원문 링크를 댓글로 직접 다는 즉시 게시).
+    const text = manifest.linkedin.withLink === false
+      ? manifest.linkedin.body
+      : linkedInBodyWithLink(manifest.linkedin.body, fullTextUrl(manifest.article));
+    const payload = linkedInPostPayload(text);
     const cover = coverImageUrl(manifest.article);
     if (cover) {
       try {
