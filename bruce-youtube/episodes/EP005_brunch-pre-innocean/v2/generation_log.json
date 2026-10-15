@@ -142,5 +142,71 @@
       "38668412548 success",
       "38668501675 fetch ok / commit failed(rebase) → workflow_dispatch 재실행 success"
     ]
+  },
+  "revision_2": {
+    "date": "2026-10-15",
+    "reason": "Bruce 피드백: 숫자 표기 통일, Hook B 기반 일반인 지식 콘텐츠 오프닝, 더 자연스러운 음성, 밝은 BGM",
+    "elevenlabs": [
+      {
+        "purpose": "voice sample C",
+        "model": "eleven_v4",
+        "generation_id": "z1LSxHwi4chKQhQzAYNK",
+        "credits": 164
+      },
+      {
+        "purpose": "CH01 v2",
+        "model": "eleven_v3",
+        "generation_id": "XkxmLMkrDjlHKPyWheJI",
+        "credits": 384,
+        "seconds": 47.52
+      },
+      {
+        "purpose": "CH02 v2",
+        "model": "eleven_v3",
+        "generation_id": "0rcBxxP7LUT0SFpaaWja",
+        "credits": 732,
+        "seconds": 91.52
+      },
+      {
+        "purpose": "CH03 v2",
+        "model": "eleven_v3",
+        "generation_id": "CAIYLxsbKCZv9VJ1taOD",
+        "credits": 839,
+        "seconds": 112.72
+      },
+      {
+        "purpose": "CH04 v2",
+        "model": "eleven_v3",
+        "generation_id": "fFip108GHOxtSzXONL6c",
+        "credits": 637,
+        "seconds": 85.12
+      },
+      {
+        "purpose": "transcripts CH01~04 v2",
+        "model": "eleven_scribe_v1",
+        "credits": 660
+      },
+      {
+        "purpose": "BGM bright",
+        "model": "eleven_music_v2_5",
+        "generation_id": "YjzIfCMng3QoFrZUqd7x",
+        "credits": 900,
+        "seconds": 120,
+        "prompt": "Bright, optimistic, warm instrumental underscore for a knowledge YouTube video, about 110 BPM, light acoustic guitar plucks, soft marimba, gentle claps and a subtle upbeat kick, major key, airy and curious, uncluttered mid-range so a voice sits on top, no vocals, 2 minutes, loopable ending."
+      },
+      {
+        "purpose": "BGM vocal check (scribe → 빈 결과 = 보컬 없음)",
+        "model": "eleven_scribe_v1",
+        "generation_id": "Kay3QJpUsUaRpe05EYer",
+        "credits": 660
+      }
+    ],
+    "credits_total": 4976,
+    "estimates_only": {
+      "elevenlabs seedance-v2.5 5s video": 14005,
+      "higgsfield grok_video_v15 5s 720p": 22.5,
+      "higgsfield seedance_2_5 5s 720p no audio": 35
+    },
+    "higgsfield": "추가 생성 없음"
   }
 }

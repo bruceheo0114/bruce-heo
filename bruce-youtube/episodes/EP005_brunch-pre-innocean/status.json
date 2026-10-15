@@ -115,7 +115,7 @@
   },
   "update": null,
   "created_at": "2026-10-15T01:46:18.202Z",
-  "updated_at": "2026-10-15T01:57:39.033Z",
+  "updated_at": "2026-10-15T03:38:12.871Z",
   "history": [
     {
       "at": "2026-10-15T01:46:18.202Z",
@@ -165,9 +165,29 @@
         "file": "bruce-youtube/output/EP005/narration/EP005_CH04.mp3",
         "seconds": 79.490612,
         "added_at": "2026-10-15T01:57:39.033Z"
+      },
+      {
+        "file": "bruce-youtube/output/EP005/narration_v2/EP005_CH01.mp3",
+        "seconds": 47.56898,
+        "added_at": "2026-10-15T03:38:12.871Z"
+      },
+      {
+        "file": "bruce-youtube/output/EP005/narration_v2/EP005_CH02.mp3",
+        "seconds": 91.559184,
+        "added_at": "2026-10-15T03:38:12.871Z"
+      },
+      {
+        "file": "bruce-youtube/output/EP005/narration_v2/EP005_CH03.mp3",
+        "seconds": 112.770612,
+        "added_at": "2026-10-15T03:38:12.871Z"
+      },
+      {
+        "file": "bruce-youtube/output/EP005/narration_v2/EP005_CH04.mp3",
+        "seconds": 85.159184,
+        "added_at": "2026-10-15T03:38:12.871Z"
       }
     ],
-    "total_seconds": 311.771428,
-    "updated_at": "2026-10-15T01:57:39.033Z"
+    "total_seconds": 648.829388,
+    "updated_at": "2026-10-15T03:38:12.871Z"
   }
 }

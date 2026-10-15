@@ -113,14 +113,18 @@ export function alignScenes(timeline, groupWords) {
  * 자막을 실제로 읽은 대본(챕터별 텍스트)과 받아쓰기 시간으로 만든다.
  * chapterTexts[g] = 그 챕터에서 읽은 글, groupWords[g] = 받아쓰기 단어
  */
-export function alignedCues(timeline, chapterTexts, groupWords, maxChars = 28) {
+export function alignedCues(timeline, chapterTexts, groupWords, maxChars = 28, keepTogether = []) {
   const cues = [];
   timeline.groups.forEach((group, groupIndex) => {
     const words = groupWords[groupIndex];
     const text = String(chapterTexts[groupIndex] ?? "").replace(/\.\.\./g, " ").replace(/\s+/g, " ").trim();
     if (!words?.length || !text) return;
     const spoken = spokenChars(words);
-    const chunks = splitChunks(text, maxChars);
+    // '이천이십오 년'처럼 화면에서 숫자로 바뀌는 읽는 법은 줄바꿈으로 쪼개지 않는다(쪼개지면 숫자로 못 바꾼다)
+    const glue = "\u2060";
+    let glued = text;
+    for (const reading of keepTogether) if (reading.includes(" ")) glued = glued.split(reading).join(reading.replace(/ /g, glue));
+    const chunks = splitChunks(glued, maxChars).map((chunk) => chunk.split(glue).join(" "));
     const starts = [];
     let cursor = 0;
     for (const chunk of chunks) {

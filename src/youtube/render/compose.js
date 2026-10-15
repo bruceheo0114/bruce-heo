@@ -435,7 +435,7 @@ export function buildUploadKit(episode, brief, timeline, sources = [], { aiImage
 /**
  * 영상 만들기. audioFiles: 녹음 파일 경로(챕터 순서). outDir에 <EP>.mp4, subtitles.srt, thumbnail.png, upload.md를 만든다.
  */
-export async function renderEpisode(episode, audioFiles, { root, outDir, preview = false, cleanup = true, syntheticVoice = false, log = () => {} }) {
+export async function renderEpisode(episode, audioFiles, { root, outDir, preview = false, cleanup = true, syntheticVoice = false, bgm: bgmOverride = null, log = () => {} }) {
   const storyboardText = await readEpisodeFile(episode, "03_storyboard.md");
   const script = await readEpisodeFile(episode, "02_script.md");
   const brief = (await readEpisodeFile(episode, "01_brief.md")) ?? "";
@@ -445,7 +445,8 @@ export async function renderEpisode(episode, audioFiles, { root, outDir, preview
   const storyboard = analyzeStoryboard(storyboardText);
   const chapters = parseScriptChapters(script);
   // 챕터 사이에 숨 쉴 틈(CHAPTER_GAP초)을 둔다. 챕터 전환 카드가 이 자리에 나온다.
-  const bgm = path.join(root, "channel", "bgm", "bgm.mp3"); // root = bruce-youtube
+  // 편마다 다른 분위기가 필요하면 --bgm으로 바꾼다. 없으면 채널 공통 BGM
+  const bgm = bgmOverride ? path.resolve(bgmOverride) : path.join(root, "channel", "bgm", "bgm.mp3"); // root = bruce-youtube
   const hasBgm = await exists(bgm);
   const audio = [];
   for (const [index, file] of audioFiles.entries()) {
@@ -627,7 +628,7 @@ export async function renderEpisode(episode, audioFiles, { root, outDir, preview
   // 4) 자막을 입혀 최종본
   const chapterTexts = chapterNarrationTexts(script).map((item) => item.text);
   const pairs = readingPairs(script);
-  const cues = (aligned && chapterTexts.length === audio.length ? alignedCues(timeline, chapterTexts, groupWords) : subtitleCues(timeline))
+  const cues = (aligned && chapterTexts.length === audio.length ? alignedCues(timeline, chapterTexts, groupWords, 28, pairs.map(([reading]) => reading)) : subtitleCues(timeline))
     .map((cue) => ({ ...cue, text: displayText(cue.text, pairs) }));
   const assFile = path.join(work, "subtitles.ass");
   await writeFile(assFile, buildAss(cues));
