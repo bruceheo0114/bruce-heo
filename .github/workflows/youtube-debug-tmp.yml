@@ -1,0 +1,36 @@
+name: YouTube debug (temporary)
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Probe feeds
+        run: |
+          CH=UCCRzzl43nHs5bwfJzqupylw
+          UL=UULF${CH:2}
+          for url in "https://www.youtube.com/feeds/videos.xml?channel_id=$CH" "https://www.youtube.com/feeds/videos.xml?playlist_id=$UL" "https://www.youtube.com/feeds/videos.xml?playlist_id=UU${CH:2}"; do
+            echo "== curl $url"
+            curl -s -o /tmp/out.xml -w "status=%{http_code}\n" -A "Mozilla/5.0" -H "Accept-Language: ko-KR,ko;q=0.9" "$url"
+            grep -o "<yt:videoId>[^<]*</yt:videoId>\|<published>[^<]*</published>" /tmp/out.xml | head -6 || true
+            head -c 200 /tmp/out.xml | tr '\n' ' '; echo
+          done
+          echo "== python"
+          python3 - <<'PY'
+          import urllib.request
+          ch="UCCRzzl43nHs5bwfJzqupylw"
+          for u in [f"https://www.youtube.com/feeds/videos.xml?channel_id={ch}", f"https://www.youtube.com/feeds/videos.xml?playlist_id=UULF{ch[2:]}"]:
+              try:
+                  r=urllib.request.urlopen(urllib.request.Request(u,headers={"User-Agent":"Mozilla/5.0","Accept-Language":"ko-KR,ko;q=0.9"}),timeout=30)
+                  print("py",r.status,u[-40:], r.read().decode()[:120].replace("\n"," "))
+              except Exception as e: print("py error",u[-40:],e)
+          PY
+          echo "== node"
+          node -e '
+          const ch="UCCRzzl43nHs5bwfJzqupylw";
+          (async()=>{for (const u of [`https://www.youtube.com/feeds/videos.xml?channel_id=${ch}`,`https://www.youtube.com/feeds/videos.xml?playlist_id=UULF${ch.slice(2)}`]){
+            const r=await fetch(u,{headers:{"user-agent":"Mozilla/5.0","accept-language":"ko-KR,ko;q=0.9"}});
+            console.log("node",r.status,u.slice(-40),(await r.text()).slice(0,120).replace(/\n/g," "));}})()'
