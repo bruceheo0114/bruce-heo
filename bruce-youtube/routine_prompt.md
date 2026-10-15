@@ -53,11 +53,13 @@ Bruce는 중간 확인을 하지 않는다(사용자 결정 2026-10-08). 대본 
 ## 4. 내레이션 (Bruce 본인 복제 목소리)
 
 - 대본에 클라이언트를 짐작할 수 있는 업종·지역·수치가 있으면 생성 전에 일반적인 표현으로 바꾼다.
-- 챕터마다 `creative_generate_speech` 한 번: voice_id `ZuzhDyVIYUQSaEkxo38e`(Bruce Heo | 브루스), model `eleven_v3`, `generations_count: 1`. (표준 스타일: `bruce-youtube/CLAUDE.md`의 '표준 스타일')
-  모든 챕터를 같은 flow에 만든다(먼저 `creative_create_flow`). 1자 ≈ 1크레딧, 한 편 약 4,500크레딧 — 사용자가 매주 쓰는 것을 승인했다.
-- `creative_get_flow_run_status`로 끝날 때까지 기다린 뒤 `content_url`을 curl로 받아 `output/<EP>/narration/<EP>_CH01.mp3 …`로 저장한다(2시간 뒤 만료).
-- **싱크용 받아쓰기(필수):** 음성 노드마다 `creative_transcribe_audio`(`eleven_scribe_v1`, `connect_from`에 그 음성 노드) →
-  `words_download_url`을 받아 `output/<EP>/narration/<EP>_CH01.words.json`처럼 음성 옆에 저장한다.
+- 챕터마다 `creative_generate_speech` 한 번: voice_id `ZuzhDyVIYUQSaEkxo38e`(Bruce Heo | 브루스), model `eleven_v4`, `generations_count: 2`. (표준 스타일: `bruce-youtube/CLAUDE.md`의 '표준 스타일')
+  모든 챕터를 같은 flow에 만든다(먼저 `creative_create_flow`). 1자 ≈ 0.41크레딧, 한 편 약 2,200크레딧(2테이크) — 사용자가 매주 쓰는 것을 승인했다.
+- `creative_get_flow_run_status`로 끝날 때까지 기다린 뒤 테이크마다 `content_url`을 curl로 받아 `output/<EP>/narration/takes/CH01_a.mp3`·`CH01_b.mp3 …`로 저장한다(2시간 뒤 만료).
+- **싱크용 받아쓰기(필수, 0크레딧):** 테이크마다 `creative_add_flow_asset_node`(generation_id)로 노드를 고정하고 `creative_transcribe_audio`(`eleven_scribe_v1`, `connect_from`에 그 노드) →
+  `words_download_url`을 받아 `takes/CH01_a.words.json`처럼 음성 옆에 저장한다. (음악·업로드 파일 받아쓰기는 유료다 — 생성한 음성만 0.)
+- 테이크 고르기: `python3 scripts/voice_pick.py --out output/<EP>/narration --name <EP>_ output/<EP>/narration/takes/CH0*_?.mp3`
+  → 챕터마다 음높이가 덜 튀는 테이크를 골라 -23 LUFS로 맞춰 `<EP>_CH01.mp3`·`.words.json`으로 저장. '챕터 음높이 차 1.5반음 초과' 경고가 나오면 높은 챕터만 2테이크 더 만들어 다시 고른다(그래도 같으면 내용 탓이니 그대로).
 
 ## 5. 들어 보고 고치기 (관문 2)
 
@@ -66,8 +68,8 @@ Bruce는 중간 확인을 하지 않는다(사용자 결정 2026-10-08). 대본 
 2. 숫자 표기·띄어쓰기 차이처럼 귀로는 같은 말이면 넘어간다. 실제로 잘못 읽었거나 뭉개진 곳이면 그 문장의 표기를 고쳐(읽는 법 괄호, 쉼표, 문장 분리)
    **그 챕터만** 한 번 다시 생성·받아쓰기한다. 챕터당 재생성은 1회까지.
 3. 챕터마다 `python3 scripts/voice_awkward.py <CH.mp3> <CH.words.json>`로 어색한 곳(쉼 뒤 갑자기 높아진 첫 말, 늘어진 낱말)을 찾는다.
-   주의: 받아쓰기(scribe)는 생성 문장을 그대로 맞춰 붙이는 방식이라 오독을 잡지 못한다. 걸린 곳은 **그 문단만** `[calmly]` 태그를 앞에 붙여 2테이크 생성 →
-   앞뒤 음높이에 가까운 테이크를 골라 문단 사이 쉼에서 이어 붙인다(EP005 3차 방식: 끝 무음만 다듬고, 음량을 앞뒤에 맞춘다). 고유명사가 이어지는 문장은 짧은 문장으로 나눈다.
+   주의: 받아쓰기(scribe)는 생성 문장을 그대로 맞춰 붙이는 방식이라 오독을 잡지 못한다. v4는 문장 첫 말이 조금 높게 시작하는 게 보통이라 이 검사는 참고만 한다.
+   눈에 띄게 어색하면 이어 붙이지 말고 **그 챕터만** 2테이크 더 생성해 다시 고른다(EP005 5차 방식). 고유명사가 이어지는 문장은 짧은 문장으로 나눈다.
 4. `node src/cli/youtube.js narration <EP> <CH01.mp3 …>`로 길이를 기록한다.
 
 ## 6. AI 장면 (Higgsfield)

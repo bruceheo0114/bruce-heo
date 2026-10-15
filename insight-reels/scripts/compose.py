@@ -6,9 +6,11 @@
 #   image : src, focus_y, zoom(in|out), punch[{at, x, y}], spot{at, x, y, r}, labels[{at, text, x, y, dx, dy}]
 #   phone : src, likes{to, at}            — 휴대폰 목업 안에 이미지, 하트 숫자 카운트업
 #   split : left, right, ltext, rtext, at — 좌우 비교, at 이후 왼쪽 ✕ / 오른쪽 ✓
-#   clip  : src, focus_y                  — 생성 영상
+#   clip  : src, focus_y                  — 생성 영상(Grok Lite 5초, 16:9·9:16 모두 패널을 꽉 채워 자른다)
 #   card  : 엔드카드
 # 좌표 x, y 는 패널 기준 0~1. 시간 at 은 장면 시작 기준 초.
+# 소리(2026-10-15, 유튜브 EP005 5차 방식): 내레이션은 -14 LUFS로 맞춘다. spec 에 bgm(채널 BGM 파일/주소)이 있으면
+#   bgm_start 초부터 영상 길이만큼 깔고(-27 LUFS 기준 bgm_gain dB, 기본 -12), 말할 때 사이드체인으로 줄인다. 처음 0.8초·끝 1.5초 페이드.
 import json, math, os, re, subprocess, sys
 from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageFont
 
@@ -253,7 +255,7 @@ def segment(i, v, L):
         render_frames(out, n, lambda t: frame_split(bases, t, v))
     elif kind == "clip":
         fy = v.get("focus_y", 0.5)
-        vf = (f"scale={W}:-2,crop={W}:{PH}:0:'max(0,min(ih-{PH},ih*{fy}-{PH}/2))',setsar=1,"
+        vf = (f"scale={W}:{PH}:force_original_aspect_ratio=increase,crop={W}:{PH}:(iw-{W})/2:'(ih-{PH})*{fy}',setsar=1,"
               f"fps={FPS},tpad=stop_mode=clone:stop_duration={L}")
         sh(f'ffmpeg -y -v error -i "{v["src"]}" -t {L} -an -vf "{vf}" -r {FPS} -c:v libx264 -preset veryfast -crf 18 -pix_fmt yuv420p {out}')
     else:
@@ -309,8 +311,19 @@ for k, c in enumerate(spec["captions"]):
         q = txt(f"pop{k}", c["pop"])
         f.append(f"drawtext=expansion=none:fontfile={FX}:textfile={q}:fontsize=92:fontcolor=white:"
                  f"borderw=9:bordercolor=black:x=(w-tw)/2:y={PY + PH // 2}-th/2:{en}")
-sh(f'ffmpeg -y -v error -loop 1 -framerate {FPS} -i bg.png -i panel.mp4 -i "{spec["audio"]}" '
-   f'-filter_complex "{",".join(f)}[v];[2:a]apad,atrim=0:{total}[a]" -map "[v]" -map "[a]" '
+voice = (f"[2:a]aformat=sample_rates=48000:channel_layouts=stereo,loudnorm=I=-14:TP=-1.5:LRA=11,"
+         f"apad,atrim=0:{total},asetpts=N/SR/TB")
+if spec.get("bgm"):
+    bgm_in = f' -ss {spec.get("bgm_start", 0)} -i "{spec["bgm"]}"'
+    audio = (f"{voice},asplit=2[va][vk];"
+             f"[3:a]aformat=sample_rates=48000:channel_layouts=stereo,atrim=0:{total},asetpts=N/SR/TB,"
+             f"volume={spec.get('bgm_gain', -12)}dB,afade=t=in:d=0.8,afade=t=out:st={max(0, total - 1.5)}:d=1.5[bg];"
+             f"[bg][vk]sidechaincompress=threshold=0.02:ratio=6:attack=20:release=400[bd];"
+             f"[va][bd]amix=inputs=2:duration=first:normalize=0[a]")
+else:
+    bgm_in, audio = "", f"{voice}[a]"
+sh(f'ffmpeg -y -v error -loop 1 -framerate {FPS} -i bg.png -i panel.mp4 -i "{spec["audio"]}"{bgm_in} '
+   f'-filter_complex "{",".join(f)}[v];{audio}" -map "[v]" -map "[a]" '
    f'-c:v libx264 -profile:v high -preset medium -crf 20 -pix_fmt yuv420p -r {FPS} '
    f'-c:a aac -b:a 192k -ar 48000 -movflags +faststart -t {total} out.mp4')
 # 표지(cover.jpg) — 유튜브 썸네일·카드뉴스 표지와 같은 스타일(사용자 결정 2026-10-11, 10/20 편부터):

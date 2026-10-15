@@ -7,13 +7,13 @@
 목표는 정보 전달이 아니라 시청자가 "이 사람은 현상을 이런 식으로 보는구나"라고 느끼게 하는 것이다.
 진행자 얼굴은 나오지 않는다.
 
-## 표준 스타일 (Bruce 확정 2026-10-15, EP005 2차 기준 — 모든 영상)
+## 표준 스타일 (Bruce 확정 2026-10-15, EP005 5차 기준 — 모든 영상)
 
 - **형식 V2, 5~6분:** Hook → Promise → Situation → Evidence → Interpretation → Application → Closing, 챕터 4개. 새 Episode는 `status.format = "v2"`(검사 5~6.5분).
 - **오프닝:** 일반 시청자도 끌리는 지식 콘텐츠 훅. 0초에 실제 장면 + 반응형 질문("이게 ○○ 광고였다고?"), 10초 안에 숫자 반전, 누구나 겪는 경험(예: 광고 건너뛰기 버튼)으로 공감 → 핵심 질문 → 끝까지 보면 얻는 것(질문 3개 등). 마케터 전용 용어로 시작하지 않는다.
 - **숫자 표기:** 화면·자막의 수량은 모두 아라비아 숫자(1,000원·46,000명·13분·7대·8개국·3개). 대본은 `1,000원(천 원)`처럼 표기(읽는 법)으로 써서 발화만 한글로 읽힌다. 서수(첫째)·관용 표현(한 편)은 그대로.
-- **음성:** Bruce 복제 목소리 `ZuzhDyVIYUQSaEkxo38e`, 모델 **`eleven_v3`**(억양·쉼이 더 자연스러움). 챕터 4개 × 한 번.
-- **BGM:** 밝고 긍정적인 연주곡 `channel/bgm/bgm.mp3`(110 BPM, 어쿠스틱 기타·마림바, ElevenLabs Music). 이전 잔잔한 곡은 `bgm_calm.mp3`.
+- **음성:** Bruce 복제 목소리 `ZuzhDyVIYUQSaEkxo38e`, 모델 **`eleven_v4`**(문장 사이 쉼이 자연스럽고 v3보다 싸다 — 글자당 약 0.41크레딧). 챕터마다 **2테이크**(`generations_count: 2`) → `scripts/voice_pick.py`로 음높이가 덜 튀는 테이크를 골라 챕터 음량을 -23 LUFS로 맞춘다. 이어 붙이기는 하지 않는다(어색하면 그 챕터만 2테이크 더).
+- **BGM:** 깔끔한 연주곡 `channel/bgm/bgm.mp3`(6분 10초 한 곡, 약 105 BPM, 나일론 기타·피아노·베이스, 드럼 없음, 말소리 대역을 비움). 이전 곡은 `bgm_bright.mp3`·`bgm_calm.mp3`.
 - **AI 화면:** 정지 이미지(GPT Image 2.5, 장당 0.25) + **영상 클립 1~2개**(그 정지 이미지를 첫 프레임으로 `grok_video_v15_lite` 5초, 클립당 5 크레딧). 사람은 뒷모습·손·실루엣만. 결과 주소를 references.json에 `"kind": "video"`로 넣으면 Actions가 mp4로 받는다.
 - **편집:** 3~7초마다 화면 변화, 기사 캡처는 광고 배너가 보이면 쓰지 않는다, 출처·'AI 생성' 표기. 자막은 긴 문장을 고른 길이로 나눠 말과 맞춘다(render가 자동).
 
@@ -55,7 +55,7 @@ Hook → Phenomenon → Case → Question → Analysis → Contrast → Insight 
    1. 내레이션은 ElevenLabs의 Bruce 본인 복제 목소리로 만든다(직접 녹음하지 않는다).
       - `node src/cli/youtube.js narration-text <EP> --out <폴더>` → 챕터별 `CH01.txt` …
       - ElevenLabs `creative_generate_speech`: voice `Bruce Heo | 브루스`(voice_id `ZuzhDyVIYUQSaEkxo38e`),
-        model `eleven_v3`, `generations_count: 1`, 챕터마다 한 번. 1자 ≈ 1크레딧, 한 편 약 2,500크레딧(+받아쓰기 약 660).
+        model `eleven_v4`, `generations_count: 2`, 챕터마다 한 번. 1자 ≈ 0.41크레딧, 한 편 약 2,200크레딧(2테이크, 음성 받아쓰기는 0).
         먼저 `estimate_only`로 비용을 보여 주고, 사용자가 이 방식을 이미 승인했으면 바로 생성한다.
       - 결과의 `content_url`(storage.googleapis.com)을 curl로 받아 `EP001_CH01.mp3` …로 저장한다. 링크는 2시간 뒤 만료된다.
       - 대본에 클라이언트를 짐작할 수 있는 업종·지역·수치가 있으면 생성 전에 일반적인 표현으로 바꾼다.

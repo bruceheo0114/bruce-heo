@@ -16,7 +16,8 @@
 
 ## 2. 예산 확인 (힉스필드)
 - 힉스필드 `balance` 로 잔액을 본다. `ledger.json` 의 이번 사이클(매월 2일 시작, 키는 `YYYY-MM`) 누적 지출을 본다.
-- 편당 이미지 4장(1크레딧)이 표준. 이번 사이클 누적이 30을 넘으면 이미지 재생성 없이 진행한다.
+- 편당 이미지 4장(1크레딧) + 영상 클립 1개(5크레딧) = **6크레딧**이 표준(2026-10-15, 유튜브 EP005 5차 방식). 릴스·카드뉴스 몫은 사이클당 120.
+  이번 사이클 누적이 90을 넘으면 클립 없이(이미지만) 진행하고, 110을 넘으면 이미지 재생성도 하지 않는다.
 
 ## 3. 편마다 제작 (큐에서 해당 날짜 slot 이 붙은 항목, 없으면 status=todo 를 위에서부터. 토요일은 slot 이 붙은 항목이 없으면 todo 중 slot 이 가장 먼 항목을 당겨 쓰고 slot 을 그 토요일로 바꾼다. 화·토=브랜드 사례, 목=마케터의 판단. 2026년 글만. 항목의 note 를 반드시 지킨다)
 - **같은 주 겹침 금지**: 릴스 날짜가 속한 주(월~일)의 `insight-reels/posts/*.json` 중 `type: "carousel"` 인 파일(수·금·일 브런치 카드뉴스)에 같은 `brunch_no` 가 있으면 그 글은 이번 주에 쓰지 않고 다음 후보로 넘어간다(큐 status 는 그대로 둔다). 주가 다르면 카드뉴스로 나간 글을 릴스로 만들어도 된다. 단, 화요일의 '그 주 월요일 새 글'은 예외다 — 같은 주 수요일 카드뉴스와 함께 나간다.
@@ -28,14 +29,19 @@
    - 공감 → 문제 제기 → 전환 → 결과 순서, 중간에 다음이 궁금해지는 문장 하나.
    - 끝 = 시청자 질문 한 줄 + 자연스러운 저장·팔로우 한 줄(HOOKS 6절: 그 편의 상황·대상을 짚어 매번 새로, 저장·공유·팔로우 중 하나만). 둘 다 넣어도 250자 안.
    - 시의성 표현·광고주 실명 금지. 숫자는 한글로 읽히게.
-3. 내레이션: 일레븐랩스 `creative_generate_speech` — voice_id `ZuzhDyVIYUQSaEkxo38e`, model `eleven_multilingual_v2`, **generations_count 1**. 끝나면 `creative_show_flow_results` 로 mp3 URL을 얻는다(2시간 뒤 만료되니 바로 쓴다). 재시도 금지.
+3. 내레이션: 일레븐랩스 `creative_generate_speech` — voice_id `ZuzhDyVIYUQSaEkxo38e`, model **`eleven_v4`**, **generations_count 2**(2026-10-15 — v4는 글자당 약 0.41크레딧이라 2테이크가 예전 1테이크보다 싸다, 편당 약 210). 끝나면 `creative_get_flow_run_status` 로 두 테이크의 mp3 URL을 얻는다(2시간 뒤 만료되니 바로 쓴다). 재시도 금지.
+   - 두 테이크를 로컬에 `R_a.mp3`·`R_b.mp3` 로 받아 `python3 scripts/voice_pick.py --out /tmp/vp R_a.mp3 R_b.mp3` → 음높이가 덜 튀는 쪽(→ 표시)의 URL 을 합성에 쓴다. 받을 수 없으면 첫 테이크를 쓴다.
+   - 대본 숫자는 한글로(읽는 법), 자막은 아라비아 숫자 — 유튜브와 같은 표기. 긴 쉼이 필요하면 "..." 대신 줄을 바꾼다("..." 뒤에서 목소리가 높게 다시 시작한다).
 4. 이미지 4장: 힉스필드 `generate_image_batch` — model `gpt_image_2_5`, aspect_ratio `9:16`. **실사 사진 느낌으로(사용자 결정 2026-10-13)**: 장면을 "실제 장소·사물·사람의 손/뒷모습"으로 구체적으로 쓰고, 프롬프트 끝에 항상 "Photorealistic documentary photograph, shot on 35mm, natural light, real textures, subtle film grain, candid, no CGI or 3D render look. No text, no logos, no brand names, negative space top and bottom" 를 붙인다. 일러스트·3D·상징물(닻·리본 같은 은유 오브제)은 쓰지 않는다. 정치인·국기·관공서 건물 같은 정치적 이미지가 나오면 그 장만 다시 만든다(재생성 1장 한도 안에서). 실존 브랜드 로고·패키지 재현 금지(일반화된 사물로).
-5. 생성 영상은 만들지 않는다. 움직임은 전부 합성 단계 연출로 만든다(크레딧 0).
+5. **영상 클립 1개**(2026-10-15, 유튜브 표준 스타일과 같게): 4장 중 움직임이 어울리고 **사람 얼굴이 없는**(사물·공간·손·뒷모습) 이미지의 job id 를 `start_image` 로 힉스필드 `generate_video` — model `grok_video_v15_lite`, 5초, 720p. 5크레딧. 카메라는 느린 dolly/push-in, 사람은 천천히 걷거나 손만 움직이게 쓴다.
+   - spec 에서 첫 장면(펀치가 필요한 표지 장면)·phone·split 이 아닌 **가운데 장면 하나**를 `kind: "clip"` 으로 바꾼다(그 장면 길이 5초 이하). 나머지 움직임은 합성 연출(크레딧 0).
+   - QA 시트에서 손·몸·물체가 일그러졌으면 그 장면은 원래 정지 이미지(`image`)로 되돌린다(재생성 금지). 이번 사이클 누적이 90을 넘었으면 클립을 만들지 않는다.
 6. 합성: 힉스필드 `sandbox_exec` 에서
    - `compose.py` 는 **올리지 않는다.** 저장소가 공개라 샌드박스에서 바로 받는다: `curl -sfL -o compose.py https://raw.githubusercontent.com/bruceheo0114/bruce-heo/$(git rev-parse HEAD)/insight-reels/scripts/compose.py` — `$(git rev-parse HEAD)` 는 **로컬에서** 먼저 구해 명령에 값으로 넣는다. spec 형식은 compose.py 맨 위 주석, 샘플은 `posts/2026-10-06.spec.json`.
    - `spec.json` 도 **올리지 않는다.** 샌드박스 명령 안에서 `cat > spec.json <<'EOF' … EOF` 로 만든다.
    - `media_upload` 는 결과물만, **한 번에** 받는다: `files: [reel.mp4, cover.jpg, qa.jpg]`(편이 2개면 6개를 한 번에).
    - 샌드박스 한 명령 안에서: 재료 다운로드 → faster-whisper(`small`, language ko, word_timestamps)로 단어 시작 시각 → `python3 compose.py spec.json` → 결과 PUT 업로드. 오래 걸리면 `background: true` 후 폴링.
+   - **BGM(2026-10-15):** spec 에 `"bgm": "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/<HEAD>/bruce-youtube/channel/bgm/bgm.mp3"`, `"bgm_start"`(화 0 · 목 120 · 토 240 — 같은 주에 같은 구간이 겹치지 않게)를 넣는다. 유튜브와 같은 채널 곡이고, compose.py 가 말할 때 자동으로 줄인다. 내레이션은 -14 LUFS로 맞춰진다.
    - spec 연출 원칙(샘플: 저장소 `insight-reels/posts/2026-10-06.spec.json` 의 202편):
      - 장면 5~6개, 장면마다 다른 연출을 쓴다. 같은 연출을 연달아 쓰지 않는다.
      - **첫 장면은 0~1초 안에 `punch` 가 터지게**(첫 문장의 핵심 단어 시각에 맞춘다). 스크롤을 멈추는 장면이 첫 장면이다.
@@ -65,10 +71,10 @@
 ## 4. 저장과 알림
 - `git pull --rebase` 후 커밋·푸시한다. 메시지: `chore: insight reels for <날짜들>`.
 - Gmail 로 `heoboram0114@gmail.com` 에 보낸다. 제목: `[브루스 인사이트] 이번 주 릴스 미리보기 (<날짜들>)`.
-  본문: 편마다 게시일 · 원문 제목·링크 · 영상 링크 · 표지 링크 · 대본 · 캡션. 맨 아래: 이번 사이클 크레딧 사용(힉스필드 x/270, 상한 30 · 일레븐랩스 이번 주 x).
+  본문: 편마다 게시일 · 원문 제목·링크 · 영상 링크 · 표지 링크 · 대본 · 캡션. 맨 아래: 이번 사이클 크레딧 사용(힉스필드 x/270, 릴스·카드뉴스 상한 120 · 일레븐랩스 이번 주 x).
   마지막 줄: "게시하지 않을 편이 있으면 이 메일에 `보류 MM/DD` 라고 회신해 주세요. 회신이 없으면 예정대로 07:00에 올라갑니다."
 
 ## 하지 말 것
-- 생성 영상(클립), generations_count 2 이상, 편당 이미지 6장 초과.
+- 클립 2개 이상, 사람 얼굴이 나오는 클립, 내레이션 generations_count 3 이상, 편당 이미지 6장 초과.
 - 인스타그램에 직접 게시(게시는 GitHub Actions 가 한다).
 - 큐에 없는 글을 임의로 제작.

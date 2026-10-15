@@ -3,7 +3,7 @@
 ## 만든 것
 | 파일 | 위치 |
 |---|---|
-| 본편 1080p (5:49, 2차) | `bruce-youtube/output/EP005/EP005.mp4` → media 브랜치 `media/ep005` |
+| 본편 1080p (5:39, 최종 5차) | `bruce-youtube/output/EP005/v5/EP005.mp4` → media 브랜치 `media/ep005` |
 | 첫 30초 비교본 | `output/EP005/preview_hook_A.mp4`(숫자 반전) · `preview_hook_B.mp4`(원문 인용 첫 문장) |
 | 자막 | `output/EP005/subtitles.srt` (= subtitles_ko.srt) |
 | 썸네일 3안 | `output/EP005/thumbnail_1~3.png` (추천 1안) |
