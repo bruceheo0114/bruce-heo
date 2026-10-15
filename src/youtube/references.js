@@ -27,12 +27,20 @@ export function validateReferences(data) {
     if (!item.id || !/^[A-Za-z0-9_-]+$/.test(item.id)) errors.push(`${label}: id는 영문·숫자로 (예: A001).`);
     if (ids.has(item.id)) errors.push(`${label}: id 중복`);
     ids.add(item.id);
-    if (!["page", "article", "image"].includes(item.kind)) errors.push(`${label}: kind는 page / article / image`);
+    if (!["page", "article", "image", "video"].includes(item.kind)) errors.push(`${label}: kind는 page / article / image / video`);
     if (!/^https?:\/\//.test(item.url ?? "")) errors.push(`${label}: url이 없습니다.`);
     if (!item.source) errors.push(`${label}: source(출처 표기)가 없습니다.`);
     if (!Array.isArray(item.scenes)) errors.push(`${label}: scenes 배열이 필요합니다 (없으면 []).`);
   }
   return errors;
+}
+
+// Higgsfield 영상 클립(클라우드에서는 결과 주소에 직접 접속할 수 없다)을 1920x1080 무음 H.264로 맞춘다.
+async function normalizeVideo(input, output) {
+  await run("ffmpeg", ["-v", "error", "-y", "-i", input, "-an", "-vf", "scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,fps=30",
+    "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p", "-movflags", "+faststart", output]);
+  const { stdout } = await run("ffprobe", ["-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", output]);
+  return Number(stdout) > 0.5;
 }
 
 // 받은 그림을 가로 최대 1920 JPEG로 맞춘다. 너무 작은 아이콘·로고 조각은 버린다.
@@ -132,6 +140,13 @@ export async function fetchReferences(episode, root, { log = () => {} } = {}) {
           await rm(raw, { force: true });
           if (!ok) throw new Error("그림이 너무 작습니다");
           credits.push({ file: `${item.id}.jpg`, id: item.id, scenes: item.scenes, kind: item.ai ? "ai" : "image", source: item.source, url: item.page ?? item.url });
+        } else if (item.kind === "video") {
+          const raw = path.join(dir, `.raw-${item.id}`);
+          await download(context, item.url, raw);
+          const ok = await normalizeVideo(raw, path.join(dir, `${item.id}.mp4`));
+          await rm(raw, { force: true });
+          if (!ok) throw new Error("영상이 너무 짧거나 읽을 수 없습니다");
+          credits.push({ file: `${item.id}.mp4`, id: item.id, scenes: item.scenes, kind: "video", source: item.source, url: item.page ?? item.url });
         } else {
           await capturePage(context, item, dir, credits, item.max_images ?? 3);
         }

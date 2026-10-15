@@ -171,6 +171,8 @@ async function setup() {
   index.initializedAt = NOW.toISOString();
   await saveSourceIndex(index, paths);
   const { episode } = await createEpisode(index.articles["222"], NOW, paths);
+  // 아래 픽스처는 10~15분(V1) 패키지라 V1 기준으로 검사한다. 새 Episode의 기본은 V2.
+  episode.status.format = "v1";
   return { root, paths, episode, index };
 }
 
@@ -476,4 +478,24 @@ test("V2 format episodes use the 5~6.5 minute runtime rules", async () => {
   assert.ok(analyzeStoryboard(board("05:30")).errors.some((e) => e.includes("범위")));
   assert.ok(analyzeStoryboard(board("10:30"), v2).errors.some((e) => e.includes("범위")));
   assert.equal(rulesFor({}).runtimeMinSeconds, 600);
+});
+
+test("새 Episode는 V2(5~6분) 형식으로 만들어진다", async () => {
+  const root = await mkdtemp(path.join(tmpdir(), "bruce-youtube-"));
+  const paths = youtubePaths(root);
+  const index = await loadSourceIndex(paths);
+  await archiveArticles(index, [article], NOW, paths);
+  await saveSourceIndex(index, paths);
+  const { episode } = await createEpisode(index.articles["222"], NOW, paths);
+  assert.equal(episode.status.format, "v2");
+});
+
+test("긴 자막 줄은 고르게 나뉘어 한 낱말만 남지 않는다", async () => {
+  const { splitChunks } = await import("../src/youtube/render/timeline.js");
+  const chunks = splitChunks("보통 광고가 나오면 우리는 건너뛰기 버튼부터 찾잖아요.", 28);
+  assert.deepEqual(chunks, ["보통 광고가 나오면 우리는", "건너뛰기 버튼부터 찾잖아요."]);
+  for (const text of ["캠페인이 매번 비슷하게 느껴진다면, 메시지를 바꾸기 전에 그 메시지를 경험하는 방식부터 한번 비틀어 보세요."]) {
+    const parts = splitChunks(text, 28);
+    assert.ok(parts.every((part) => part.length <= 28 && part.split(" ").length > 1), parts.join(" | "));
+  }
 });

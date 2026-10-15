@@ -131,7 +131,7 @@ test("scene_images가 있으면 장면마다 지정한 그림만 쓴다", async 
 test("references.json 형식 검사", async () => {
   const { validateReferences } = await import("../src/youtube/references.js");
   assert.deepEqual(validateReferences({ items: [{ id: "A001", kind: "page", url: "https://www.heinz.com", source: "하인즈 공식 홈페이지", scenes: ["S003"] }] }), []);
-  const errors = validateReferences({ items: [{ id: "A001", kind: "video", url: "youtube", scenes: [] }] });
+  const errors = validateReferences({ items: [{ id: "A001", kind: "clip", url: "youtube", scenes: [] }] });
   assert.ok(errors.some((error) => error.includes("kind")));
   assert.ok(errors.some((error) => error.includes("source")));
 });

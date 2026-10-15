@@ -210,14 +210,22 @@ export function splitChunks(text, maxChars) {
       chunks.push(sentence);
       continue;
     }
+    // 긴 문장은 고른 길이로 나눈다. 앞에서부터 채우면 마지막 줄에 '찾잖아요.' 같은 한 낱말만 남아
+    // 받아쓰기에서 위치를 못 찾고(짧은 줄), 앞 줄이 일찍 떠서 말과 자막이 어긋난다.
+    const words = sentence.split(" ");
+    const parts = Math.ceil(sentence.length / maxChars);
+    const target = sentence.length / parts;
     let line = "";
-    for (const word of sentence.split(" ")) {
-      if ((line + " " + word).trim().length > maxChars && line) {
-        chunks.push(line.trim());
+    for (const [index, word] of words.entries()) {
+      const next = (line + " " + word).trim();
+      const remaining = parts - chunks.length;
+      const overTarget = line && next.length > target && Math.abs(next.length - target) > Math.abs(line.length - target);
+      if (line && (next.length > maxChars || (overTarget && remaining > 1 && index < words.length))) {
+        chunks.push(line);
         line = word;
-      } else line = `${line} ${word}`;
+      } else line = next;
     }
-    if (line.trim()) chunks.push(line.trim());
+    if (line) chunks.push(line);
   }
   return chunks;
 }

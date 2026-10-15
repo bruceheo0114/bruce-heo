@@ -53,7 +53,7 @@ Bruce는 중간 확인을 하지 않는다(사용자 결정 2026-10-08). 대본 
 ## 4. 내레이션 (Bruce 본인 복제 목소리)
 
 - 대본에 클라이언트를 짐작할 수 있는 업종·지역·수치가 있으면 생성 전에 일반적인 표현으로 바꾼다.
-- 챕터마다 `creative_generate_speech` 한 번: voice_id `ZuzhDyVIYUQSaEkxo38e`(Bruce Heo | 브루스), model `eleven_multilingual_v2`, `generations_count: 1`.
+- 챕터마다 `creative_generate_speech` 한 번: voice_id `ZuzhDyVIYUQSaEkxo38e`(Bruce Heo | 브루스), model `eleven_v3`, `generations_count: 1`. (표준 스타일: `bruce-youtube/CLAUDE.md`의 '표준 스타일')
   모든 챕터를 같은 flow에 만든다(먼저 `creative_create_flow`). 1자 ≈ 1크레딧, 한 편 약 4,500크레딧 — 사용자가 매주 쓰는 것을 승인했다.
 - `creative_get_flow_run_status`로 끝날 때까지 기다린 뒤 `content_url`을 curl로 받아 `output/<EP>/narration/<EP>_CH01.mp3 …`로 저장한다(2시간 뒤 만료).
 - **싱크용 받아쓰기(필수):** 음성 노드마다 `creative_transcribe_audio`(`eleven_scribe_v1`, `connect_from`에 그 음성 노드) →
@@ -76,7 +76,9 @@ Bruce는 중간 확인을 하지 않는다(사용자 결정 2026-10-08). 대본 
 3. Scene마다 직전에 `can-generate <EP> <Scene>` → "생성 가능"일 때만 생성 → `record-generation <EP> <Scene> --credits <차감> --job <id> --file bruce-youtube/assets/references/<EP>/G01.png`.
    클라우드에서는 Higgsfield 결과 주소(cloudfront)에 직접 접속할 수 없다. 결과 이미지 주소를 references.json에
    `{"id": "G01", "kind": "image", "ai": true, "url": "<result_url>", "source": "AI 생성 이미지 (Higgsfield)", "scenes": [...]}`로 넣고
-   main에 올리면 Actions가 받아 준다(EP001·EP002 방식). 영상 클립은 이 방법으로 받을 수 없으므로 **AI 영상은 만들지 않고 정지 이미지만** 만든다.
+   main에 올리면 Actions가 받아 준다(EP001·EP002 방식).
+   그다음 **영상 클립 1~2개**: 움직임이 어울리는 AI 정지 이미지(사람 얼굴 없는 것)의 job id를 `start_image`로 `grok_video_v15_lite`(5초, 720p, 16:9) → 클립당 5 크레딧.
+   결과 주소를 `{"id": "V01", "kind": "video", "ai": true, "url": "<result_url>", "source": "AI 생성 영상 (Higgsfield)", "scenes": ["S007"]}`로 넣고, `scene_images`의 그 장면에 `V01`을 적는다. 첫·중간·끝 프레임을 뽑아 손·몸 왜곡이 있으면 빼고 정지 이미지로 둔다.
 4. 마음에 들지 않아도 다시 생성하지 않는다(실패한 작업만 1회 재시도). Episode당 30, 월 150 크레딧을 넘기지 않는다.
 
 ## 7. 실제 자료
@@ -112,7 +114,8 @@ Bruce는 중간 확인을 하지 않는다(사용자 결정 2026-10-08). 대본 
 - [ ] REAL 자료 화면마다 출처가 보이고, 내용이 그 순간 내레이션과 맞는다.
 - [ ] 사람 얼굴이 나오는 AI 영상이 없다. AI 화면 비중 40% 이하.
 - [ ] 음량: `ffmpeg -i <EP>.mp4 -af volumedetect -f null - 2>&1 | grep max_volume`이 0 dB 미만, 무음 구간에 잡음이 커지지 않는다.
-- [ ] 길이 10~15분, 첫 30초 안에 이 영상을 볼 이유가 나온다.
+- [ ] 길이 5~6분(V2), 첫 30초 안에 이 영상을 볼 이유가 나온다.
+- [ ] 자막·화면의 수량이 모두 아라비아 숫자다(`grep -nE "천 원|사만|이천" subtitles.srt`가 비어 있다).
 - [ ] (HOOKS 5절) 첫 10초 안에 가장 흥미로운 결론이 나오고, 1순위 제목은 브랜드명 + 역설적 질문, 썸네일은 짧은 문구 + 강한 대비다.
 - [ ] (HOOKS 5절) 오프닝·각 챕터 첫 1분을 들어 보고 내레이션의 호흡·속도·강조가 단조롭지 않다.
 

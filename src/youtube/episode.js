@@ -84,6 +84,8 @@ export async function createEpisode(indexEntry, now, paths = youtubePaths()) {
       body_hash: indexEntry.bodyHash,
     },
     status: STATUS.PACKAGE_PENDING,
+    // 표준 형식(2026-10-15): 5~6분 V2. 검사 기준은 config.js FORMAT_RULES.v2
+    format: "v2",
     higgsfield_generation: false,
     recommendation: null,
     video_potential: null,

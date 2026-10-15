@@ -1,8 +1,8 @@
 # EP005 Higgsfield 계획 (V2)
 
 ```text
-ESTIMATED GENERATIONS: 5
-ESTIMATED CREDITS: 1.25
+ESTIMATED GENERATIONS: 7
+ESTIMATED CREDITS: 11.25
 ```
 
 계산: 기준 이미지 4장(GPT Image 2.5, 0.25×4=1) + 재시도 여유 1장 = 1.25 크레딧. 영상 클립 없음 — AI Scene 5개 모두 정지 이미지 + 편집 push-in.
@@ -73,6 +73,10 @@ LIGHTING: screen glow
 STYLE: observational documentary realism, still + slow push-in in edit
 ASPECT RATIO: 16:9
 REUSE POSSIBILITY: 없음
+
+## 영상 클립 (2026-10-15 추가, Bruce 요청)
+- V01: G01(빈 영화관)을 첫 프레임으로 grok_video_v15_lite 5초 — 스크린 쪽으로 천천히 dolly → S007. 5 크레딧. job 4150aa7d-094b-42cb-a89a-e638e62d64c1
+- V02: G03(팝업스토어, 뒷모습)을 첫 프레임으로 5초 — 천천히 걸어 들어감 → S029. 5 크레딧. job d9d60b0d-5808-40d3-812f-94d98de18d07
 
 ## Cost Saving
 - 영상 생성 없음. AI Scene 5개를 기준 이미지 4장의 정지 컷 + 편집 push-in으로.
