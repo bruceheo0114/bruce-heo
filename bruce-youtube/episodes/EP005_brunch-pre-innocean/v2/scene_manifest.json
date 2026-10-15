@@ -1,0 +1,868 @@
+{
+ "episode": "EP005",
+ "format": "v2",
+ "final_file": "bruce-youtube/output/EP005/EP005.mp4",
+ "final_duration_sec": 323.4,
+ "chapters_final": [
+  {
+   "id": "CH01",
+   "start": "00:00",
+   "title": "천 원짜리 광고",
+   "role": "Hook+Promise"
+  },
+  {
+   "id": "CH02",
+   "start": "00:40",
+   "title": "밤낚시가 증명한 것",
+   "role": "Situation+Evidence"
+  },
+  {
+   "id": "CH03",
+   "start": "02:19",
+   "title": "영화는 앉아서 보는 팝업스토어",
+   "role": "Interpretation"
+  },
+  {
+   "id": "CH04",
+   "start": "04:00",
+   "title": "우리 브랜드라면",
+   "role": "Application+Closing"
+  }
+ ],
+ "timing_note": "scene draft_time은 분당 370자 추정. 최종 타이밍은 render가 ElevenLabs 받아쓰기(words.json)로 50개 장면 시작을 실제 말소리에 맞춤(render 로그). 챕터 사이 2.6초 간지 3개, 끝 4초 여운.",
+ "scenes": [
+  {
+   "scene_id": "S001",
+   "draft_time": "00:00-00:04",
+   "type": "real",
+   "narration": "천 원을 내고 광고를 보러 극장에 간 사람들이 있습니다.",
+   "on_screen_text": "천 원짜리 광고",
+   "visual": "밤낚시 공식 키비주얼(현대자동차 브랜드 저널) 전체 화면. 0초부터 실제 자료.",
+   "asset": "A002",
+   "images": [
+    "A002-img1"
+   ],
+   "image_sources": [
+    "현대자동차 브랜드 저널"
+   ],
+   "ai_generated": false,
+   "ai_label": null,
+   "status": "rendered",
+   "qa": "frame-checked"
+  },
+  {
+   "scene_id": "S002",
+   "draft_time": "00:04-00:09",
+   "type": "real",
+   "narration": "2024년 여름, 전국 CGV에서 상영된 13분짜리 단편영화 밤낚시.",
+   "on_screen_text": "〈밤낚시〉 2024 · 13분\n전국 CGV 상영 · 관람료 1,000원",
+   "visual": "밤낚시 공식 포스터. 작품 정보 한 줄.",
+   "asset": "A002",
+   "images": [
+    "A001-img3"
+   ],
+   "image_sources": [
+    "현대자동차 브랜드 저널"
+   ],
+   "ai_generated": false,
+   "ai_label": null,
+   "status": "rendered",
+   "qa": "frame-checked"
+  },
+  {
+   "scene_id": "S003",
+   "draft_time": "00:09-00:12",
+   "type": "code_graphic",
+   "narration": "유료 관객이 4만 6천 명이었어요.",
+   "on_screen_text": "유료 관객 46,000명",
+   "visual": "큰 숫자 카운트업, 출처 한국경제(2026-07-28).",
+   "asset": "A008",
+   "images": [
+    "A008-screen"
+   ],
+   "image_sources": [
+    "한국경제 (2026-07-28)"
+   ],
+   "ai_generated": false,
+   "ai_label": null,
+   "status": "rendered",
+   "qa": "not_individually_checked"
+  },
+  {
+   "scene_id": "S004",
+   "draft_time": "00:12-00:16",
+   "type": "real",
+   "narration": "그런데 이 영화, 사실은 현대자동차 아이오닉의 광고였습니다.",
+   "on_screen_text": "사실은 현대자동차 아이오닉의 브랜드 필름",
+   "visual": "밤낚시 스틸(현대자동차). '광고였다'에서 포인트 컬러 밑줄.",
+   "asset": "A001",
+   "images": [
+    "A001-img2"
+   ],
+   "image_sources": [
+    "현대자동차 브랜드 저널"
+   ],
+   "ai_generated": false,
+   "ai_label": null,
+   "status": "rendered",
+   "qa": "frame-checked"
+  },
+  {
+   "scene_id": "S005",
+   "draft_time": "00:16-00:23",
+   "type": "real",
+   "narration": "그리고 지난 10월, 이 영화를 만든 광고회사 이노션이 아예 영화 사업을 시작하겠다고 발표했죠.",
+   "on_screen_text": "이노션, 영화 사업 발표 (2026.10)",
+   "visual": "부산국제영화제 ACFM 시네마바이브랜드 발표 기사 화면.",
+   "asset": "A007",
+   "images": [
+    "A006-img3"
+   ],
+   "image_sources": [
+    "이노션 뉴스룸"
+   ],
+   "ai_generated": false,
+   "ai_label": null,
+   "status": "rendered",
+   "qa": "frame-checked"
+  },
+  {
+   "scene_id": "S006",
+   "draft_time": "00:23-00:25",
+   "type": "code_graphic",
+   "narration": "광고회사는 왜 광고 대신 영화를 만들까요?",
+   "on_screen_text": "광고회사는 왜\n광고 대신 영화를 만들까?",
+   "visual": "질문 타이포. 15초 안의 핵심 질문.",
+   "asset": "-",
+   "images": [],
+   "image_sources": [],
+   "ai_generated": false,
+   "ai_label": null,
+   "status": "rendered",
+   "qa": "not_individually_checked"
+  },
+  {
+   "scene_id": "S007",
+   "draft_time": "00:25-00:31",
+   "type": "ai",
+   "narration": "오늘은 이 사례를 '앉아서 보는 팝업스토어'라는 관점으로 읽어 보려고 합니다.",
+   "on_screen_text": "관점: 앉아서 보는 팝업스토어",
+   "visual": "어두운 영화관 빈 좌석과 스크린 빛(사람 얼굴 없음). 정지 이미지 push-in. 'AI 생성 이미지' 표시.",
+   "asset": "REF01",
+   "images": [
+    "G01"
+   ],
+   "image_sources": [
+    "AI 생성 이미지 (Higgsfield)"
+   ],
+   "ai_generated": true,
+   "ai_label": "화면 오른쪽 아래 '출처 · AI 생성 이미지 (Higgsfield)'",
+   "status": "rendered",
+   "qa": "frame-checked"
+  },
+  {
+   "scene_id": "S008",
+   "draft_time": "00:31-00:37",
+   "type": "code_graphic",
+   "narration": "끝까지 보시면 우리 브랜드가 영화를 만들어도 될지 가늠할 질문 세 개를 가져가실 수 있어요.",
+   "on_screen_text": "오늘 가져갈 것 → 영화를 만들기 전 물어볼 질문 3개",
+   "visual": "시청 보상 약속 카드.",
+   "asset": "-",
+   "images": [],
+   "image_sources": [],
+   "ai_generated": false,
+   "ai_label": null,
+   "status": "rendered",
+   "qa": "not_individually_checked"
+  },
+  {
+   "scene_id": "S009",
+   "draft_time": "00:37-00:43",
+   "type": "real",
+   "narration": "밤낚시는 현대자동차와 이노션이 배우 손석구, 문병곤 감독과 함께 만든 영화입니다.",
+   "on_screen_text": "현대자동차 × 이노션 × 손석구 · 문병곤 감독",
+   "visual": "현대자동차 브랜드 저널 밤낚시 페이지 캡처(전체, 확대 없음).",
+   "asset": "A001",
+   "images": [
+    "A001-img2"
+   ],
+   "image_sources": [
+    "현대자동차 브랜드 저널"
+   ],
+   "ai_generated": false,
+   "ai_label": null,
+   "status": "rendered",
+   "qa": "frame-checked"
+  },
+  {
+   "scene_id": "S010",
+   "draft_time": "00:43-00:51",
+   "type": "real",
+   "narration": "눈에 띄는 건 촬영 방식이에요. 차에 카메라 일곱 대를 달고, 아이오닉 5의 차량 카메라 시점으로만 이야기를 찍었거든요.",
+   "on_screen_text": "차량 카메라 7대로만 촬영",
+   "visual": "밤낚시 스틸 — 차량 카메라 시점 화면.",
+   "asset": "A001",
+   "images": [
+    "A001-img3"
+   ],
+   "image_sources": [
+    "현대자동차 브랜드 저널"
+   ],
+   "ai_generated": false,
+   "ai_label": null,
+   "status": "rendered",
+   "qa": "not_individually_checked"
+  },
+  {
+   "scene_id": "S011",
+   "draft_time": "00:51-00:56",
+   "type": "code_graphic",
+   "narration": "그런데 영화 속 차는 성능을 설명하지도, 멋지게 비춰지지도 않습니다.",
+   "on_screen_text": "성능 설명 없음\n제품 컷 없음",
+   "visual": "두 줄 부정 타이포.",
+   "asset": "-",
+   "images": [],
+   "image_sources": [],
+   "ai_generated": false,
+   "ai_label": null,
+   "status": "rendered",
+   "qa": "not_individually_checked"
+  },
+  {
+   "scene_id": "S012",
+   "draft_time": "00:56-01:01",
+   "type": "code_graphic",
+   "narration": "자동차의 기술이 광고 문구가 아니라 영화를 찍는 눈이 된 겁니다.",
+   "on_screen_text": "자동차 기술 → 광고 문구 ✕\n자동차 기술 → 영화의 시점 ○",
+   "visual": "비교 도식. 해석 표시.",
+   "asset": "-",
+   "images": [],
+   "image_sources": [],
+   "ai_generated": false,
+   "ai_label": null,
+   "status": "rendered",
+   "qa": "not_individually_checked"
+  },
+  {
+   "scene_id": "S013",
+   "draft_time": "01:01-01:07",
+   "type": "code_graphic",
+   "narration": "성과도 따라왔습니다. 관람료 천 원, 상영시간 13분. 그 조건에서 유료 관객 4만 6천 명.",
+   "on_screen_text": "관람료 1,000원\n상영 13분\n유료 관객 4만 6천 명",
+   "visual": "성과 숫자 세 개가 순서대로 등장. 출처 한국경제.",
+   "asset": "A008",
+   "images": [
+    "A008-screen"
+   ],
+   "image_sources": [
+    "한국경제 (2026-07-28)"
+   ],
+   "ai_generated": false,
+   "ai_label": null,
+   "status": "rendered",
+   "qa": "frame-checked"
+  },
+  {
+   "scene_id": "S014",
+   "draft_time": "01:07-01:18",
+   "type": "real",
+   "narration": "그해 대한민국광고대상 3관왕에 이어, 2025년에는 칸 라이언즈 엔터테인먼트 부문 그랑프리까지 받았고요. 현대자동차로서는 처음 받은 칸 그랑프리였습니다.",
+   "on_screen_text": "2024 대한민국광고대상 3관왕\n2025 칸 라이언즈 엔터테인먼트 그랑프리",
+   "visual": "이노션 보도자료(칸 라이언즈 그랑프리) 화면.",
+   "asset": "A006",
+   "images": [
+    "A006-img1",
+    "A006-screen"
+   ],
+   "image_sources": [
+    "이노션 뉴스룸"
+   ],
+   "ai_generated": false,
+   "ai_label": null,
+   "status": "rendered",
+   "qa": "frame-checked"
+  },
+  {
+   "scene_id": "S015",
+   "draft_time": "01:18-01:23",
+   "type": "code_graphic",
+   "narration": "물론 천 원짜리 관람을 일반 영화의 흥행과 같은 선에 놓을 수는 없어요.",
+   "on_screen_text": "천 원 관람 ≠ 일반 영화 흥행",
+   "visual": "해석의 한계 카드(회색 톤).",
+   "asset": "-",
+   "images": [],
+   "image_sources": [],
+   "ai_generated": false,
+   "ai_label": null,
+   "status": "rendered",
+   "qa": "not_individually_checked"
+  },
+  {
+   "scene_id": "S016",
+   "draft_time": "01:23-01:29",
+   "type": "ai",
+   "narration": "그래도 사람들이 광고를 보려고 스스로 돈과 시간을 냈다는 건 꽤 드문 장면입니다.",
+   "on_screen_text": "광고를 보려고 낸 돈과 시간",
+   "visual": "영화관 매표 동선의 손에 든 종이 티켓(글자 읽히지 않음), 정지 이미지. 'AI 생성 이미지' 표시.",
+   "asset": "REF02",
+   "images": [
+    "G02"
+   ],
+   "image_sources": [
+    "AI 생성 이미지 (Higgsfield)"
+   ],
+   "ai_generated": true,
+   "ai_label": "화면 오른쪽 아래 '출처 · AI 생성 이미지 (Higgsfield)'",
+   "status": "rendered",
+   "qa": "not_individually_checked"
+  },
+  {
+   "scene_id": "S017",
+   "draft_time": "01:29-01:39",
+   "type": "real",
+   "narration": "이노션은 이 경험을 한 번의 캠페인으로 끝내지 않았습니다. 지난 10월, 부산국제영화제의 필름마켓에서 시네마바이브랜드라는 플랫폼을 공개했죠.",
+   "on_screen_text": "시네마바이브랜드 공개\n부산국제영화제 ACFM (2026.10.12)",
+   "visual": "한경비즈니스 기사: 시네마바이브랜드 ACFM 공개 사진.",
+   "asset": "A007",
+   "images": [
+    "A009-img2",
+    "A006-img3"
+   ],
+   "image_sources": [
+    "연합뉴스 (2026-10-12)",
+    "이노션 뉴스룸"
+   ],
+   "ai_generated": false,
+   "ai_label": null,
+   "status": "rendered",
+   "qa": "frame-checked"
+  },
+  {
+   "scene_id": "S018",
+   "draft_time": "01:39-01:45",
+   "type": "code_graphic",
+   "narration": "브랜드의 철학을 영화로 만들고, 그 영화를 콘텐츠 사업으로 키우겠다는 구상입니다.",
+   "on_screen_text": "브랜드 철학 → 영화 → 콘텐츠 IP · 사업",
+   "visual": "흐름 도식.",
+   "asset": "-",
+   "images": [],
+   "image_sources": [],
+   "ai_generated": false,
+   "ai_label": null,
+   "status": "rendered",
+   "qa": "not_individually_checked"
+  },
+  {
+   "scene_id": "S019",
+   "draft_time": "01:45-01:48",
+   "type": "real",
+   "narration": "첫 파트너는 한화그룹이에요. 주제는 우주 태양광.",
+   "on_screen_text": "첫 파트너 한화그룹 · 주제 '우주 태양광'",
+   "visual": "연합뉴스 기사 화면: 첫 파트너 한화그룹.",
+   "asset": "A009",
+   "images": [
+    "A010-img1"
+   ],
+   "image_sources": [
+    "머니투데이 (2026-10-13)"
+   ],
+   "ai_generated": false,
+   "ai_label": null,
+   "status": "rendered",
+   "qa": "frame-checked"
+  },
+  {
+   "scene_id": "S020",
+   "draft_time": "01:48-02:00",
+   "type": "code_graphic",
+   "narration": "한화는 에너지, 방산, 금융처럼 소비자와 직접 만날 일이 적은 사업이 많은 그룹이죠. 일상에서 설명하기 어려운 기술을 이야기로 보여 줄 방법을 영화에서 찾은 셈입니다.",
+   "on_screen_text": "에너지 · 방산 · 금융 → 소비자 접점이 적다\n설명하기 어려운 기술 → 이야기로 보여 준다",
+   "visual": "해석 도식(한경비즈니스 보도 근거). '해석' 표시.",
+   "asset": "A007",
+   "images": [],
+   "image_sources": [],
+   "ai_generated": false,
+   "ai_label": null,
+   "status": "rendered",
+   "qa": "not_individually_checked"
+  },
+  {
+   "scene_id": "S021",
+   "draft_time": "02:00-02:07",
+   "type": "code_graphic",
+   "narration": "여덟 나라에서 감독 예순 명이 지원했고, 그중 세 편이 골라져 2027년에 공개될 예정입니다.",
+   "on_screen_text": "8개국 감독 60명 지원 → 3편 선정 → 2027년 공개",
+   "visual": "숫자 흐름 도식. 출처 머니투데이·한경비즈니스.",
+   "asset": "A010",
+   "images": [
+    "A010-screen"
+   ],
+   "image_sources": [
+    "머니투데이 (2026-10-13)"
+   ],
+   "ai_generated": false,
+   "ai_label": null,
+   "status": "rendered",
+   "qa": "not_individually_checked"
+  },
+  {
+   "scene_id": "S022",
+   "draft_time": "02:07-02:12",
+   "type": "code_graphic",
+   "narration": "여기서 짚고 갈 게 있습니다. 브랜드가 콘텐츠로 말을 거는 건 새로운 전략이 아니에요.",
+   "on_screen_text": "브랜드가 콘텐츠로\n말을 거는 건 새롭지 않다",
+   "visual": "관점 전환 카드.",
+   "asset": "-",
+   "images": [],
+   "image_sources": [],
+   "ai_generated": false,
+   "ai_label": null,
+   "status": "rendered",
+   "qa": "not_individually_checked"
+  },
+  {
+   "scene_id": "S023",
+   "draft_time": "02:12-02:21",
+   "type": "code_graphic",
+   "narration": "토스의 머니그라피가 만드는 비주류경제학, 강남언니의 기준이탈모임처럼 브랜드가 직접 기획한 콘텐츠는 이미 많습니다.",
+   "on_screen_text": "토스 머니그라피 〈B주류경제학〉\n강남언니 〈기준이탈모임〉",
+   "visual": "사례 목록(이름만, 로고 없음).",
+   "asset": "-",
+   "images": [],
+   "image_sources": [],
+   "ai_generated": false,
+   "ai_label": null,
+   "status": "rendered",
+   "qa": "not_individually_checked"
+  },
+  {
+   "scene_id": "S024",
+   "draft_time": "02:21-02:26",
+   "type": "code_graphic",
+   "narration": "공통점은 사람들이 광고를 당하는 게 아니라, 콘텐츠를 골라서 본다는 것.",
+   "on_screen_text": "광고를 당한다 → 콘텐츠를 고른다",
+   "visual": "전환 도식.",
+   "asset": "-",
+   "images": [],
+   "image_sources": [],
+   "ai_generated": false,
+   "ai_label": null,
+   "status": "rendered",
+   "qa": "not_individually_checked"
+  },
+  {
+   "scene_id": "S025",
+   "draft_time": "02:26-02:29",
+   "type": "ai",
+   "narration": "이노션은 그 무대를 극장으로 옮겼습니다.",
+   "on_screen_text": "무대: 유튜브 → 극장",
+   "visual": "REF01 영화관 이미지 재사용, 다른 구도(스크린 쪽으로 천천히).",
+   "asset": "REF01",
+   "images": [
+    "G01"
+   ],
+   "image_sources": [
+    "AI 생성 이미지 (Higgsfield)"
+   ],
+   "ai_generated": true,
+   "ai_label": "화면 오른쪽 아래 '출처 · AI 생성 이미지 (Higgsfield)'",
+   "status": "rendered",
+   "qa": "not_individually_checked"
+  },
+  {
+   "scene_id": "S026",
+   "draft_time": "02:29-02:37",
+   "type": "real",
+   "narration": "영화라는 형식에는 그 자체로 기대가 붙거든요. 감독과 배우가 있고, 관객은 광고가 아니라 작품을 보러 간다고 생각하죠.",
+   "on_screen_text": "감독 · 배우 · 이야기 = 작품을 보러 간다",
+   "visual": "밤낚시 포스터 재사용 — 감독·배우가 있는 '작품'으로서의 기대.",
+   "asset": "A002",
+   "images": [
+    "A002-img1"
+   ],
+   "image_sources": [
+    "현대자동차 브랜드 저널"
+   ],
+   "ai_generated": false,
+   "ai_label": null,
+   "status": "rendered",
+   "qa": "not_individually_checked"
+  },
+  {
+   "scene_id": "S027",
+   "draft_time": "02:37-02:45",
+   "type": "code_graphic",
+   "narration": "물론 그만큼 기준도 높아집니다. 영화라는 이름을 붙였는데 이야기가 재미없으면, 사람들은 더 빨리 등을 돌려요.",
+   "on_screen_text": "영화라는 이름\n= 더 높아진 기준",
+   "visual": "반대 방향 경고 카드(회색).",
+   "asset": "-",
+   "images": [],
+   "image_sources": [],
+   "ai_generated": false,
+   "ai_label": null,
+   "status": "rendered",
+   "qa": "not_individually_checked"
+  },
+  {
+   "scene_id": "S028",
+   "draft_time": "02:45-02:50",
+   "type": "code_graphic",
+   "narration": "저는 이 시도를 이렇게 봅니다. 영화는 브랜드가 만드는 또 하나의 팝업스토어다.",
+   "on_screen_text": "영화는 브랜드가 만드는\n또 하나의 팝업스토어",
+   "visual": "이 영상의 핵심 해석 문장. 포인트 컬러로 '팝업스토어'.",
+   "asset": "-",
+   "images": [],
+   "image_sources": [],
+   "ai_generated": false,
+   "ai_label": null,
+   "status": "rendered",
+   "qa": "not_individually_checked"
+  },
+  {
+   "scene_id": "S029",
+   "draft_time": "02:50-02:58",
+   "type": "ai",
+   "narration": "팝업스토어에 가는 사람들은 시간을 내서 찾아가고, 브랜드가 꾸민 공간을 걸으면서 어떤 인상을 들고 나옵니다.",
+   "on_screen_text": "팝업: 찾아가서, 걷고, 인상을 들고 나온다",
+   "visual": "브랜드 로고 없는 미니멀 팝업스토어 내부를 걷는 뒷모습, 정지 이미지. 'AI 생성 이미지' 표시.",
+   "asset": "REF03",
+   "images": [
+    "G03"
+   ],
+   "image_sources": [
+    "AI 생성 이미지 (Higgsfield)"
+   ],
+   "ai_generated": true,
+   "ai_label": "화면 오른쪽 아래 '출처 · AI 생성 이미지 (Higgsfield)'",
+   "status": "rendered",
+   "qa": "frame-checked"
+  },
+  {
+   "scene_id": "S030",
+   "draft_time": "02:58-03:05",
+   "type": "ai",
+   "narration": "영화관도 비슷해요. 어두운 곳에 앉아 큰 화면과 소리에 빠져들고, 끝나면 장면 몇 개를 품고 나오죠.",
+   "on_screen_text": "영화: 앉아서, 빠져들고, 장면을 품고 나온다",
+   "visual": "어두운 객석 뒤쪽에서 본 관객 실루엣과 스크린 빛(얼굴 없음), 정지 이미지. 'AI 생성 이미지' 표시.",
+   "asset": "REF04",
+   "images": [
+    "G04"
+   ],
+   "image_sources": [
+    "AI 생성 이미지 (Higgsfield)"
+   ],
+   "ai_generated": true,
+   "ai_label": "화면 오른쪽 아래 '출처 · AI 생성 이미지 (Higgsfield)'",
+   "status": "rendered",
+   "qa": "not_individually_checked"
+  },
+  {
+   "scene_id": "S031",
+   "draft_time": "03:05-03:10",
+   "type": "code_graphic",
+   "narration": "팝업이 공간과 체험을 쓴다면, 영화는 배우와 이야기, 영상과 사운드를 씁니다.",
+   "on_screen_text": "팝업 → 공간 · 전시 · 체험\n영화 → 배우 · 이야기 · 영상 · 사운드",
+   "visual": "비교 분할(같은 크기 두 칸). 해석 표시.",
+   "asset": "-",
+   "images": [],
+   "image_sources": [],
+   "ai_generated": false,
+   "ai_label": null,
+   "status": "rendered",
+   "qa": "not_individually_checked"
+  },
+  {
+   "scene_id": "S032",
+   "draft_time": "03:10-03:16",
+   "type": "code_graphic",
+   "narration": "도구가 다를 뿐, 사람들이 스스로 와서 설계된 경험 안에서 인상을 만든다는 점은 같아요.",
+   "on_screen_text": "스스로 찾아온다 → 설계된 경험 → 인상이 남는다",
+   "visual": "공통 구조 도식.",
+   "asset": "-",
+   "images": [],
+   "image_sources": [],
+   "ai_generated": false,
+   "ai_label": null,
+   "status": "rendered",
+   "qa": "not_individually_checked"
+  },
+  {
+   "scene_id": "S033",
+   "draft_time": "03:16-03:24",
+   "type": "code_graphic",
+   "narration": "다만 피해 갈 수 없는 질문이 하나 있습니다. 영화를 재미있게 본 사람이 그걸 만든 브랜드까지 기억할까요?",
+   "on_screen_text": "재미있게 본 사람이\n브랜드까지 기억할까?",
+   "visual": "반문 카드.",
+   "asset": "-",
+   "images": [],
+   "image_sources": [],
+   "ai_generated": false,
+   "ai_label": null,
+   "status": "rendered",
+   "qa": "not_individually_checked"
+  },
+  {
+   "scene_id": "S034",
+   "draft_time": "03:24-03:29",
+   "type": "code_graphic",
+   "narration": "작품을 기억하는 것과 그 작품을 어느 브랜드의 것으로 기억하는 건 다른 일입니다.",
+   "on_screen_text": "작품의 기억 ≠ 브랜드의 기억",
+   "visual": "부등호 도식.",
+   "asset": "-",
+   "images": [],
+   "image_sources": [],
+   "ai_generated": false,
+   "ai_label": null,
+   "status": "rendered",
+   "qa": "not_individually_checked"
+  },
+  {
+   "scene_id": "S035",
+   "draft_time": "03:29-03:37",
+   "type": "real",
+   "narration": "밤낚시에서는 그 낯선 시점이 아이오닉의 카메라에서 나왔다는 걸 아는 순간, 영화의 기억이 브랜드의 기억으로 넘어갑니다.",
+   "on_screen_text": "낯선 시점 = 아이오닉의 카메라",
+   "visual": "밤낚시 스틸(차량 카메라 시점) 재사용, 다른 컷.",
+   "asset": "A001",
+   "images": [
+    "A001-img3"
+   ],
+   "image_sources": [
+    "현대자동차 브랜드 저널"
+   ],
+   "ai_generated": false,
+   "ai_label": null,
+   "status": "rendered",
+   "qa": "frame-checked"
+  },
+  {
+   "scene_id": "S036",
+   "draft_time": "03:37-03:44",
+   "type": "code_graphic",
+   "narration": "그 연결은 상영관 밖에서 마무리돼요. 감독 인터뷰, 제작 비하인드 같은 후속 이야기로요.",
+   "on_screen_text": "감독 인터뷰 → 제작 비하인드 → 후속 이야기",
+   "visual": "상영관 밖 접점 흐름.",
+   "asset": "-",
+   "images": [],
+   "image_sources": [],
+   "ai_generated": false,
+   "ai_label": null,
+   "status": "rendered",
+   "qa": "not_individually_checked"
+  },
+  {
+   "scene_id": "S037",
+   "draft_time": "03:44-03:49",
+   "type": "code_graphic",
+   "narration": "반대로 모든 접점을 광고로 채우면, 관객이 기대한 영화 경험은 바로 깨집니다.",
+   "on_screen_text": "모든 접점이 광고면\n영화 경험은 깨진다",
+   "visual": "경고 카드(회색).",
+   "asset": "-",
+   "images": [],
+   "image_sources": [],
+   "ai_generated": false,
+   "ai_label": null,
+   "status": "rendered",
+   "qa": "not_individually_checked"
+  },
+  {
+   "scene_id": "S038",
+   "draft_time": "03:49-03:54",
+   "type": "code_graphic",
+   "narration": "그럼 모든 브랜드가 영화를 만들어야 할까요? 저는 아니라고 봅니다.",
+   "on_screen_text": "모든 브랜드가\n영화를 만들어야 할까?",
+   "visual": "적용 파트 전환 질문.",
+   "asset": "-",
+   "images": [],
+   "image_sources": [],
+   "ai_generated": false,
+   "ai_label": null,
+   "status": "rendered",
+   "qa": "not_individually_checked"
+  },
+  {
+   "scene_id": "S039",
+   "draft_time": "03:54-04:01",
+   "type": "code_graphic",
+   "narration": "유튜브 콘텐츠보다 시간도 돈도 사람도 훨씬 많이 들고, 작품 수가 적은 만큼 빗나갔을 때의 부담도 큽니다.",
+   "on_screen_text": "시간 · 비용 ↑\n빗나갔을 때 부담 ↑",
+   "visual": "비용·위험 목록.",
+   "asset": "-",
+   "images": [],
+   "image_sources": [],
+   "ai_generated": false,
+   "ai_label": null,
+   "status": "rendered",
+   "qa": "not_individually_checked"
+  },
+  {
+   "scene_id": "S040",
+   "draft_time": "04:01-04:06",
+   "type": "code_graphic",
+   "narration": "감독의 창작 자유와 브랜드의 메시지 사이에서 균형을 잡기도 어렵고요.",
+   "on_screen_text": "감독의 창작 자유 ↔ 브랜드의 메시지",
+   "visual": "긴장 관계 도식.",
+   "asset": "-",
+   "images": [],
+   "image_sources": [],
+   "ai_generated": false,
+   "ai_label": null,
+   "status": "rendered",
+   "qa": "not_individually_checked"
+  },
+  {
+   "scene_id": "S041",
+   "draft_time": "04:06-04:11",
+   "type": "code_graphic",
+   "narration": "작품성에 치우치면 브랜드가 사라지고, 메시지에 치우치면 영화가 사라지죠.",
+   "on_screen_text": "작품성에 치우침 → 브랜드가 사라짐\n메시지에 치우침 → 영화가 사라짐",
+   "visual": "양쪽 저울 비교.",
+   "asset": "-",
+   "images": [],
+   "image_sources": [],
+   "ai_generated": false,
+   "ai_label": null,
+   "status": "rendered",
+   "qa": "not_individually_checked"
+  },
+  {
+   "scene_id": "S042",
+   "draft_time": "04:11-04:15",
+   "type": "code_graphic",
+   "narration": "그래서 영화를 고르기 전에 이 세 가지부터 물어보면 좋겠습니다.",
+   "on_screen_text": "영화를 고르기 전\n질문 세 가지",
+   "visual": "약속한 보상 시작 카드.",
+   "asset": "-",
+   "images": [],
+   "image_sources": [],
+   "ai_generated": false,
+   "ai_label": null,
+   "status": "rendered",
+   "qa": "not_individually_checked"
+  },
+  {
+   "scene_id": "S043",
+   "draft_time": "04:15-04:19",
+   "type": "code_graphic",
+   "narration": "첫째, 우리 이야기는 영화가 됐을 때 더 매력적인가.",
+   "on_screen_text": "1. 영화가 됐을 때\n더 매력적인가",
+   "visual": "질문 1.",
+   "asset": "-",
+   "images": [],
+   "image_sources": [],
+   "ai_generated": false,
+   "ai_label": null,
+   "status": "rendered",
+   "qa": "not_individually_checked"
+  },
+  {
+   "scene_id": "S044",
+   "draft_time": "04:19-04:23",
+   "type": "code_graphic",
+   "narration": "둘째, 사람들이 그걸 보려고 자기 시간을 낼 이유가 있는가.",
+   "on_screen_text": "2. 자기 시간을 낼\n이유가 있는가",
+   "visual": "질문 2.",
+   "asset": "-",
+   "images": [],
+   "image_sources": [],
+   "ai_generated": false,
+   "ai_label": null,
+   "status": "rendered",
+   "qa": "not_individually_checked"
+  },
+  {
+   "scene_id": "S045",
+   "draft_time": "04:23-04:28",
+   "type": "code_graphic",
+   "narration": "셋째, 다 보고 난 뒤에도 그 경험이 우리 브랜드의 기억으로 남는가.",
+   "on_screen_text": "3. 다 본 뒤에도\n브랜드로 기억되는가",
+   "visual": "질문 3.",
+   "asset": "-",
+   "images": [],
+   "image_sources": [],
+   "ai_generated": false,
+   "ai_label": null,
+   "status": "rendered",
+   "qa": "not_individually_checked"
+  },
+  {
+   "scene_id": "S046",
+   "draft_time": "04:28-04:34",
+   "type": "code_graphic",
+   "narration": "답이 흐릿하다면 굳이 영화일 필요는 없습니다. 팝업이나 짧은 영상 한 편이 더 잘 맞을 수도 있어요.",
+   "on_screen_text": "답이 흐릿하다면 → 팝업 · 짧은 영상 한 편",
+   "visual": "선택지 도식.",
+   "asset": "-",
+   "images": [],
+   "image_sources": [],
+   "ai_generated": false,
+   "ai_label": null,
+   "status": "rendered",
+   "qa": "not_individually_checked"
+  },
+  {
+   "scene_id": "S047",
+   "draft_time": "04:34-04:38",
+   "type": "code_graphic",
+   "narration": "이노션의 콘텐츠 사업 구상도 아직은 검증이 남은 가설이고요.",
+   "on_screen_text": "콘텐츠 사업 구상은\n아직 검증 중인 가설",
+   "visual": "해석의 한계 카드(회색).",
+   "asset": "-",
+   "images": [],
+   "image_sources": [],
+   "ai_generated": false,
+   "ai_label": null,
+   "status": "rendered",
+   "qa": "not_individually_checked"
+  },
+  {
+   "scene_id": "S048",
+   "draft_time": "04:38-04:49",
+   "type": "code_graphic",
+   "narration": "그래도 제가 이 사례를 흥미롭게 보는 건 바뀐 게 목적이 아니라 방법이기 때문입니다. 팝업스토어가 공간으로 하던 일을 이노션은 극장에서 하고 있는 거죠.",
+   "on_screen_text": "목적 → 스스로 찾아오는 경험\n방법 → 공간에서 극장으로",
+   "visual": "목적/방법 분리 도식.",
+   "asset": "-",
+   "images": [],
+   "image_sources": [],
+   "ai_generated": false,
+   "ai_label": null,
+   "status": "rendered",
+   "qa": "not_individually_checked"
+  },
+  {
+   "scene_id": "S049",
+   "draft_time": "04:49-04:58",
+   "type": "code_graphic",
+   "narration": "결국 어떤 방식이든 브랜드가 남겨야 할 건 비슷합니다. 기억에 남을 장면 하나. 그리고 그 장면이 우리 브랜드를 떠올리게 할 이유 하나.",
+   "on_screen_text": "기억에 남을 장면 하나\n브랜드를 떠올릴 이유 하나",
+   "visual": "결론 문장. 포인트 컬러로 '하나'.",
+   "asset": "-",
+   "images": [],
+   "image_sources": [],
+   "ai_generated": false,
+   "ai_label": null,
+   "status": "rendered",
+   "qa": "not_individually_checked"
+  },
+  {
+   "scene_id": "S050",
+   "draft_time": "04:58-05:06",
+   "type": "real",
+   "narration": "캠페인이 매번 비슷하게 느껴진다면, 메시지를 바꾸기 전에 그 메시지를 경험하는 방식부터 한번 비틀어 보세요.",
+   "on_screen_text": "메시지보다, 경험하는 방식을",
+   "visual": "밤낚시 키비주얼로 마무리(오프닝과 수미상관).",
+   "asset": "A002",
+   "images": [
+    "A002-img1"
+   ],
+   "image_sources": [
+    "현대자동차 브랜드 저널"
+   ],
+   "ai_generated": false,
+   "ai_label": null,
+   "status": "rendered",
+   "qa": "frame-checked"
+  }
+ ]
+}

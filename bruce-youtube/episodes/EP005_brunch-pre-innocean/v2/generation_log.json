@@ -1,0 +1,146 @@
+{
+  "episode": "EP005",
+  "created": "2026-10-15",
+  "elevenlabs": {
+    "flow_id": "MKMAOlavZtlaqYw6r4JA",
+    "voice_id": "ZuzhDyVIYUQSaEkxo38e",
+    "voice_name": "Bruce Heo | 브루스 (cloned, 본인 음성)",
+    "runs": [
+      {
+        "purpose": "voice A/B sample A",
+        "model": "eleven_multilingual_v2",
+        "generation_id": "diknPU59WKl6wgIZf8Lb",
+        "credits": 164,
+        "seconds": 19.55,
+        "status": "completed"
+      },
+      {
+        "purpose": "voice A/B sample B",
+        "model": "eleven_v3",
+        "generation_id": "5WgWUNHWtSHdDX4jG1Ww",
+        "credits": 164,
+        "seconds": 22.56,
+        "status": "completed"
+      },
+      {
+        "purpose": "CH01",
+        "model": "eleven_multilingual_v2",
+        "generation_id": "Wd2KNqsckFKys7a5wrJq",
+        "credits": 302,
+        "seconds": 37.8,
+        "input_hash": "55862d056c57010f",
+        "status": "completed"
+      },
+      {
+        "purpose": "CH02",
+        "model": "eleven_multilingual_v2",
+        "generation_id": "yR8og3w4SInY07zR7M7r",
+        "credits": 733,
+        "seconds": 96.04,
+        "input_hash": "3192212e7b23feeb",
+        "status": "completed"
+      },
+      {
+        "purpose": "CH03",
+        "model": "eleven_multilingual_v2",
+        "generation_id": "3zoislQTsD6NHMkCYOmQ",
+        "credits": 839,
+        "seconds": 98.31,
+        "input_hash": "fbaae50b73e07c89",
+        "status": "completed"
+      },
+      {
+        "purpose": "CH04",
+        "model": "eleven_multilingual_v2",
+        "generation_id": "k80OCQB4Z39SflQqRijS",
+        "credits": 637,
+        "seconds": 79.46,
+        "input_hash": "64da810697f94b50",
+        "status": "completed"
+      },
+      {
+        "purpose": "Hook B CH01 (preview only)",
+        "model": "eleven_multilingual_v2",
+        "generation_id": "z1U6bfFmaAyTJFX2j93Z",
+        "credits": 322,
+        "seconds": 39.01,
+        "status": "completed"
+      },
+      {
+        "purpose": "transcripts A/B + CH01~04 (scribe_v1)",
+        "credits": 0,
+        "status": "completed"
+      },
+      {
+        "purpose": "transcript Hook B (scribe_v1)",
+        "generation_id": "nK31UCTIbegvPOOOY2OO",
+        "credits": 165,
+        "status": "completed"
+      }
+    ],
+    "credits_total": 3326,
+    "retries": 0
+  },
+  "higgsfield": {
+    "model": "gpt_image_2_5",
+    "aspect_ratio": "16:9",
+    "runs": [
+      {
+        "ref": "REF01",
+        "file": "G01",
+        "scenes": [
+          "S007",
+          "S025"
+        ],
+        "job_id": "c6c7a7dd-4a4b-4671-9e95-82ddae39b560",
+        "credits": 0.25,
+        "prompt": "An empty dark Korean movie theater auditorium seen from the back rows, rows of unbranded seats softly lit by the glow of a blank screen, no people, no readable text, no logos, locked-off camera, observational documentary realism, A24 indie film still, natural cinematic color grading, soft muted palette, low saturation, atmospheric lighting, subtle film grain, shot on 35mm film, realistic shadows, 16:9.",
+        "prompt_hash": "cebf6cc94b87538a"
+      },
+      {
+        "ref": "REF02",
+        "file": "G02",
+        "scenes": [
+          "S016"
+        ],
+        "job_id": "ae2d42a4-1bfb-4ff2-af78-86c40bea347b",
+        "credits": 0.25,
+        "prompt": "A close-up of an adult hand holding a plain paper cinema ticket stub in a dim theater lobby, printed text blurred and unreadable, no face, no logos, authentic skin texture, physically plausible hand pose, practical ambient light, observational documentary realism, A24 indie film still, natural cinematic color grading, soft muted palette, low saturation, atmospheric lighting, subtle film grain, shot on 35mm film, realistic shadows, 16:9.",
+        "prompt_hash": "f85353227da68f1f"
+      },
+      {
+        "ref": "REF03",
+        "file": "G03",
+        "scenes": [
+          "S029"
+        ],
+        "job_id": "534462c9-085d-486a-8d4a-672187b953b0",
+        "credits": 0.25,
+        "prompt": "A minimal unbranded pop-up store interior in Seoul with white display plinths and soft spotlights, one visitor seen from behind walking slowly through the space, no face, no logos, no readable signage, authentic material texture, observational documentary realism, A24 indie film still, natural cinematic color grading, soft muted palette, low saturation, atmospheric lighting, subtle film grain, shot on 35mm film, realistic shadows, 16:9.",
+        "prompt_hash": "e827db80aa342d1f"
+      },
+      {
+        "ref": "REF04",
+        "file": "G04",
+        "scenes": [
+          "S030"
+        ],
+        "job_id": "d6e74be5-ca5f-4b6f-855b-d69d94cd7cb3",
+        "credits": 0.25,
+        "prompt": "Silhouettes of a few audience members seen from behind in a dark movie theater, faces not visible, their outlines lit by the soft glow of the screen, no readable text, no logos, locked-off camera, observational documentary realism, A24 indie film still, natural cinematic color grading, soft muted palette, low saturation, atmospheric lighting, subtle film grain, shot on 35mm film, realistic shadows, 16:9.",
+        "prompt_hash": "ce7fee4589d5955e"
+      }
+    ],
+    "credits_total": 1.0,
+    "retries": 0,
+    "video_clips": 0,
+    "note": "클라우드에서 cloudfront 직접 다운로드 403 → references.json에 결과 주소를 넣어 Actions가 받음(G01~G04.jpg)"
+  },
+  "actions": {
+    "youtube-references runs": [
+      "38668085361 success",
+      "38668412548 success",
+      "38668501675 fetch ok / commit failed(rebase) → workflow_dispatch 재실행 success"
+    ]
+  }
+}
