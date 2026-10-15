@@ -29,7 +29,7 @@
    - 공감 → 문제 제기 → 전환 → 결과 순서, 중간에 다음이 궁금해지는 문장 하나.
    - 끝 = 시청자 질문 한 줄 + 자연스러운 저장·팔로우 한 줄(HOOKS 6절: 그 편의 상황·대상을 짚어 매번 새로, 저장·공유·팔로우 중 하나만). 둘 다 넣어도 250자 안.
    - 시의성 표현·광고주 실명 금지. 숫자는 한글로 읽히게.
-3. 내레이션: 일레븐랩스 `creative_generate_speech` — voice_id `ZuzhDyVIYUQSaEkxo38e`, model **`eleven_v4`**, **generations_count 2**(2026-10-15 — v4는 글자당 약 0.41크레딧이라 2테이크가 예전 1테이크보다 싸다, 편당 약 210). 끝나면 `creative_get_flow_run_status` 로 두 테이크의 mp3 URL을 얻는다(2시간 뒤 만료되니 바로 쓴다). 재시도 금지.
+3. 내레이션: 일레븐랩스 `creative_generate_speech` — voice_id `ZuzhDyVIYUQSaEkxo38e`, model **`eleven_v4`**, **generations_count 2**(2026-10-15 — 짧은 대본은 테이크당 약 240크레딧, 2테이크 약 480). 끝나면 `creative_get_flow_run_status` 로 두 테이크의 mp3 URL을 얻는다(2시간 뒤 만료되니 바로 쓴다). 재시도 금지.
    - 두 테이크를 로컬에 `R_a.mp3`·`R_b.mp3` 로 받아 `python3 scripts/voice_pick.py --out /tmp/vp R_a.mp3 R_b.mp3` → 음높이가 덜 튀는 쪽(→ 표시)의 URL 을 합성에 쓴다. 받을 수 없으면 첫 테이크를 쓴다.
    - 대본 숫자는 한글로(읽는 법), 자막은 아라비아 숫자 — 유튜브와 같은 표기. 긴 쉼이 필요하면 "..." 대신 줄을 바꾼다("..." 뒤에서 목소리가 높게 다시 시작한다).
 4. 이미지 4장: 힉스필드 `generate_image_batch` — model `gpt_image_2_5`, aspect_ratio `9:16`. **실사 사진 느낌으로(사용자 결정 2026-10-13)**: 장면을 "실제 장소·사물·사람의 손/뒷모습"으로 구체적으로 쓰고, 프롬프트 끝에 항상 "Photorealistic documentary photograph, shot on 35mm, natural light, real textures, subtle film grain, candid, no CGI or 3D render look. No text, no logos, no brand names, negative space top and bottom" 를 붙인다. 일러스트·3D·상징물(닻·리본 같은 은유 오브제)은 쓰지 않는다. 정치인·국기·관공서 건물 같은 정치적 이미지가 나오면 그 장만 다시 만든다(재생성 1장 한도 안에서). 실존 브랜드 로고·패키지 재현 금지(일반화된 사물로).
