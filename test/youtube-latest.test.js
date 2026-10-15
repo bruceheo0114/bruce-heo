@@ -57,9 +57,14 @@ test("채널 ID 로 쇼츠를 뺀 재생목록 ID 를 만든다", () => {
   assert.throws(() => longFormPlaylistId("not-a-channel"));
 });
 
-test("채널 페이지에서 채널 ID 를 찾는다", () => {
-  assert.equal(extractChannelId(`..."channelId":"${CHANNEL}","x"...`), CHANNEL);
-  assert.equal(extractChannelId(`<link rel="canonical" href="https://www.youtube.com/channel/${CHANNEL}">`), CHANNEL);
+test("채널 페이지에서 이 채널의 ID 를 찾고 다른 채널 값에는 속지 않는다", () => {
+  const OTHER = "UCzzzzzzzzzzzzzzzzzzzzzz";
+  const canonical = `<link rel="canonical" href="https://www.youtube.com/channel/${CHANNEL}">`;
+  // 추천·가이드 목록의 browseId/channelId 가 먼저 나와도 이 채널 표시를 우선한다.
+  assert.equal(extractChannelId(`"browseId":"${OTHER}","channelId":"${OTHER}" ${canonical}`), CHANNEL);
+  assert.equal(extractChannelId(`"browseId":"${OTHER}" "externalId":"${CHANNEL}"`), CHANNEL);
+  assert.equal(extractChannelId(`<meta itemprop="identifier" content="${CHANNEL}">`), CHANNEL);
+  assert.equal(extractChannelId(`"browseId":"${OTHER}","channelId":"${OTHER}"`), null);
   assert.equal(extractChannelId("<html></html>"), null);
 });
 
@@ -144,12 +149,15 @@ test("롱폼 재생목록이 없으면 채널 피드에서 쇼츠를 건너뛴�
 });
 
 test("피드를 읽지 못하면 오류로 멈춘다(홈페이지를 건드리지 않는다)", async () => {
-  await assert.rejects(fetchLatestVideo({ fetchImpl: async () => response(500), channelId: CHANNEL }), /피드/);
+  await assert.rejects(
+    fetchLatestVideo({ fetchImpl: async () => response(500), channelId: CHANNEL }),
+    new RegExp(`피드.*${CHANNEL}.*500`),
+  );
 });
 
 test("채널 ID 는 지정값 → 채널 페이지 순서로 찾는다", async () => {
   assert.equal(await resolveChannelId({ channelId: CHANNEL, fetchImpl: async () => assert.fail("호출 안 됨") }), CHANNEL);
-  const found = await resolveChannelId({ fetchImpl: async () => response(200, `"channelId":"${CHANNEL}"`) });
+  const found = await resolveChannelId({ fetchImpl: async () => response(200, `"externalId":"${CHANNEL}"`) });
   assert.equal(found, CHANNEL);
   await assert.rejects(resolveChannelId({ fetchImpl: async () => response(200, "<html/>") }), /YOUTUBE_CHANNEL_ID/);
 });

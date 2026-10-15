@@ -72,11 +72,22 @@ export function longFormPlaylistId(channelId) {
   return `UULF${channelId.slice(2)}`;
 }
 
+// 채널 페이지에는 다른 채널의 UC… 값도 많이 들어 있다(추천·가이드 목록 등).
+// 이 채널을 가리키는 표시를 우선순위대로 찾고, 범용 browseId 는 쓰지 않는다.
 export function extractChannelId(html) {
-  const match =
-    String(html).match(/"(?:channelId|externalId|browseId)":"(UC[\w-]{22})"/) ??
-    String(html).match(/channel\/(UC[\w-]{22})/);
-  return match ? match[1] : null;
+  const text = String(html);
+  const patterns = [
+    /<link rel="canonical" href="https:\/\/www\.youtube\.com\/channel\/(UC[\w-]{22})"/,
+    /<meta itemprop="(?:identifier|channelId)" content="(UC[\w-]{22})"/,
+    /"externalId":"(UC[\w-]{22})"/,
+    /"channelUrl":"https:\/\/www\.youtube\.com\/channel\/(UC[\w-]{22})"/,
+    /"canonicalBaseUrl":"\/@[\w.-]+","[^}]{0,400}?"channelId":"(UC[\w-]{22})"/,
+  ];
+  for (const pattern of patterns) {
+    const match = text.match(pattern);
+    if (match) return match[1];
+  }
+  return null;
 }
 
 // 영상 설명의 첫 문단만, 링크와 해시태그를 빼고 길이를 줄여 홈페이지 설명으로 쓴다.
@@ -136,13 +147,19 @@ export async function fetchLatestVideo({ fetchImpl = fetch, channelId }) {
     const [latest] = parseFeed(await playlist.text());
     if (latest) return latest;
   }
+  console.error(`롱폼 재생목록 피드를 쓸 수 없습니다 (채널 ${channelId}, 응답 ${playlist.status}). 채널 피드로 넘어갑니다.`);
 
   // 롱폼 재생목록을 읽지 못하면 채널 피드에서 쇼츠를 걸러 낸다.
   const feed = await fetchText(
     fetchImpl,
     `https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`,
   );
-  if (!feed.ok) throw new Error(`유튜브 피드를 읽지 못했습니다 (${feed.status})`);
+  if (!feed.ok) {
+    throw new Error(
+      `유튜브 피드를 읽지 못했습니다 (채널 ${channelId}, 재생목록 ${playlist.status}, 채널 피드 ${feed.status}). ` +
+        "채널 ID 가 맞는지 확인하고 틀리면 Variables 의 YOUTUBE_CHANNEL_ID 에 직접 넣어 주세요.",
+    );
+  }
   for (const entry of parseFeed(await feed.text()).slice(0, 8)) {
     if (!(await isShort(fetchImpl, entry.id))) return entry;
   }
