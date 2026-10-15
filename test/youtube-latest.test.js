@@ -255,11 +255,11 @@ test("채널 ID 는 지정값 → 채널 페이지 순서로 찾는다", async (
   await assert.rejects(resolveChannelId({ fetchImpl: async () => response(200, "<html/>") }), /YOUTUBE_CHANNEL_ID/);
 });
 
-test("유튜브 최신 영상 워크플로는 매시간 돌고 바뀐 파일만 커밋한다", async () => {
+test("유튜브 최신 영상 워크플로는 하루에 한 번(21:37 KST) 돌고 바뀐 파일만 커밋한다", async () => {
   const text = await readFile(".github/workflows/youtube-latest.yml", "utf8");
   const workflow = parse(text);
   assert.ok(workflow.on.workflow_dispatch !== undefined);
-  assert.equal(workflow.on.schedule[0].cron, "37 * * * *");
+  assert.equal(workflow.on.schedule[0].cron, "37 12 * * *");
   assert.equal(workflow.permissions.contents, "write");
   assert.equal(workflow.concurrency["cancel-in-progress"], false);
   assert.match(text, /node src\/cli\/youtube-latest\.js/);

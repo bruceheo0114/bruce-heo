@@ -17,14 +17,14 @@
 - LinkedIn 뉴스레터는 API로 발행할 수 없어서, **목요일 아침** Claude 루틴이 그 주 피드 글의 뉴스레터 원고(`content/{article-id}/newsletter.md`)를 만들어 메일로 보냅니다. 발행은 직접 붙여넣어 합니다(`content/routine_newsletter_prompt.md`).
 - 주간 흐름: 월 21:00 브런치 → 화 07:30 LinkedIn 피드 글(자동) → 목 아침 뉴스레터 원고 메일(발행은 직접).
 
-## 홈페이지 최신 유튜브 영상 (매시간 자동)
+## 홈페이지 최신 유튜브 영상 (매일 한 번 자동)
 
-- `.github/workflows/youtube-latest.yml` 이 매시 37분에 `node src/cli/youtube-latest.js` 를 실행합니다. 유튜브 채널(`@bruce.insight`)의 RSS 피드에서 **쇼츠를 뺀 가장 새 공개 영상**을 찾아, 홈페이지 `index.html`·`en/index.html` 의 `YOUTUBE_LATEST_START/END` 사이 영상 카드(영상·제목·설명)를 바꿉니다. 바뀐 게 있을 때만 `chore: update homepage video` 로 main 에 커밋하고 GitHub Pages 가 배포합니다.
+- `.github/workflows/youtube-latest.yml` 이 매일 21:37(KST)에 `node src/cli/youtube-latest.js` 를 한 번 실행합니다. 유튜브 채널(`@bruce.insight`)의 RSS 피드에서 **쇼츠를 뺀 가장 새 공개 영상**을 찾아, 홈페이지 `index.html`·`en/index.html` 의 `YOUTUBE_LATEST_START/END` 사이 영상 카드(영상·제목·설명)를 바꿉니다. 바뀐 게 있을 때만 `chore: update homepage video` 로 main 에 커밋하고 GitHub Pages 가 배포합니다.
 - 홈페이지에 이미 같은 영상이 들어 있으면 손으로 다듬은 제목·설명은 그대로 둡니다(첫 실행도 지금 영상이 가장 새 영상이면 아무것도 바꾸지 않습니다).
 - 한국어 카드는 영상 제목과 영상 설명의 첫 문단(링크·해시태그 제외, 150자)을 씁니다. 영문 카드는 한글이 보이면 안 되어서 영어 고정 문구("New video essay")를 쓰고, `data/youtube-latest.json` 의 `video.en` 에 `{ "title": "…", "description": "…" }` 를 미리 넣어 두면 그 문구를 씁니다.
 - 채널 ID 는 첫 실행에서 채널 주소로 찾아 `data/youtube-latest.json` 에 저장합니다. 찾지 못해 실패하면 저장소 **Settings → Secrets and variables → Actions → Variables** 에 `YOUTUBE_CHANNEL_ID`(`UC…`)를 넣으세요. API 키는 필요 없습니다.
 - 피드를 읽지 못하면 홈페이지를 건드리지 않고 실행만 실패로 표시합니다. 수동 실행은 Actions 의 **YouTube latest video → Run workflow** 입니다.
-- 비공개·일부공개·예약 영상은 피드에 나오지 않으므로 공개된 뒤 최대 1시간 안에 반영됩니다.
+- 비공개·일부공개·예약 영상은 피드에 나오지 않으므로 공개된 뒤 그날 21:37 확인 때 반영됩니다(바로 보고 싶으면 Actions 에서 수동 실행).
 
 ## 처음 한 번 설정
 

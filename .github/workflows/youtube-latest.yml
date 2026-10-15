@@ -6,7 +6,7 @@ name: YouTube latest video
 # 찾지 못하면 저장소 Settings → Secrets and variables → Actions → Variables 에 YOUTUBE_CHANNEL_ID(UC…)를 넣는다.
 on:
   schedule:
-    - cron: "37 * * * *"  # 매시 37분
+    - cron: "37 12 * * *"  # 매일 21:37 KST (하루에 한 번)
   workflow_dispatch:
 
 concurrency:
