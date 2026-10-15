@@ -128,7 +128,7 @@ HIGGSFIELD_REQUIRED: NO
 SCENE ID: S011
 TIME: 00:51-00:56
 NARRATION:
-그런데 영화 속 차는 성능을 설명하지도, 멋지게 돌아 보이지도 않습니다.
+그런데 영화 속 차는 성능을 설명하지도, 멋지게 비춰지지도 않습니다.
 VISUAL:
 두 줄 부정 타이포.
 SOURCE_TYPE: TYPE

@@ -10,7 +10,7 @@
     "body_hash": "8b2a54e8d97b46e8cdc5f53229b99c82be1fdce72de197b8b41ad010da657960",
     "prebuilt": true
   },
-  "status": "WAITING_APPROVAL",
+  "status": "ASSETS_READY",
   "higgsfield_generation": false,
   "recommendation": "MAKE_VIDEO",
   "video_potential": {
@@ -23,8 +23,55 @@
     "TOTAL": 50,
     "MAX": 60
   },
-  "approved_scenes": [],
-  "generated": {},
+  "approved_scenes": [
+    "S007",
+    "S016",
+    "S025",
+    "S029",
+    "S030"
+  ],
+  "generated": {
+    "S007": {
+      "job": "c6c7a7dd-4a4b-4671-9e95-82ddae39b560",
+      "files": [
+        "bruce-youtube/assets/references/EP005/G01.jpg"
+      ],
+      "credits": 0.25,
+      "at": "2026-10-15T01:57:09.646Z"
+    },
+    "S025": {
+      "job": "c6c7a7dd-4a4b-4671-9e95-82ddae39b560",
+      "files": [
+        "bruce-youtube/assets/references/EP005/G01.jpg"
+      ],
+      "credits": 0,
+      "at": "2026-10-15T01:57:09.745Z"
+    },
+    "S016": {
+      "job": "ae2d42a4-1bfb-4ff2-af78-86c40bea347b",
+      "files": [
+        "bruce-youtube/assets/references/EP005/G02.jpg"
+      ],
+      "credits": 0.25,
+      "at": "2026-10-15T01:57:09.840Z"
+    },
+    "S029": {
+      "job": "534462c9-085d-486a-8d4a-672187b953b0",
+      "files": [
+        "bruce-youtube/assets/references/EP005/G03.jpg"
+      ],
+      "credits": 0.25,
+      "at": "2026-10-15T01:57:09.931Z"
+    },
+    "S030": {
+      "job": "d6e74be5-ca5f-4b6f-855b-d69d94cd7cb3",
+      "files": [
+        "bruce-youtube/assets/references/EP005/G04.jpg"
+      ],
+      "credits": 0.25,
+      "at": "2026-10-15T01:57:10.032Z"
+    }
+  },
   "plan": {
     "runtime_seconds": 306,
     "runtime": "5:06",
@@ -68,7 +115,7 @@
   },
   "update": null,
   "created_at": "2026-10-15T01:46:18.202Z",
-  "updated_at": "2026-10-15T01:53:14.622Z",
+  "updated_at": "2026-10-15T01:57:10.032Z",
   "history": [
     {
       "at": "2026-10-15T01:46:18.202Z",
@@ -81,7 +128,20 @@
       "from": "PACKAGE_PENDING",
       "to": "WAITING_APPROVAL",
       "note": "영상화 평가 50/60 · MAKE_VIDEO"
+    },
+    {
+      "at": "2026-10-15T01:55:41.987Z",
+      "from": "WAITING_APPROVAL",
+      "to": "APPROVED",
+      "note": "Higgsfield 승인: S007, S016, S025, S029, S030"
+    },
+    {
+      "at": "2026-10-15T01:57:10.032Z",
+      "from": "APPROVED",
+      "to": "ASSETS_READY",
+      "note": "승인된 AI Scene 생성 완료"
     }
   ],
-  "format": "v2"
+  "format": "v2",
+  "approved_at": "2026-10-15T01:55:41.987Z"
 }
