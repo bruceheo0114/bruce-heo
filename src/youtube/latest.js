@@ -229,6 +229,9 @@ export function parseChannelVideosPage(html) {
   return videos;
 }
 
+// 영상별 설명이 없는 화면에서 유튜브가 돌려주는 사이트 공통 소개 문구는 설명으로 쓰지 않는다.
+const GENERIC_DESCRIPTION = /^(YouTube에서 마음에 드는|Enjoy the videos and music you love)/;
+
 function metaContent(html, key) {
   const match =
     html.match(new RegExp(`<meta[^>]+(?:property|name|itemprop)="${key}"[^>]+content="([^"]*)"`)) ??
@@ -243,11 +246,15 @@ async function addWatchDetails(fetchImpl, video, sleep) {
     if (!response.ok) return video;
     const html = await response.text();
     const player = extractJsonAfter(html, "ytInitialPlayerResponse");
+    const description = [
+      player?.videoDetails?.shortDescription,
+      metaContent(html, "og:description"),
+      metaContent(html, "description"),
+    ].find((text) => text && !GENERIC_DESCRIPTION.test(text));
     return {
       ...video,
       title: video.title || metaContent(html, "og:title") || player?.videoDetails?.title || "",
-      description:
-        player?.videoDetails?.shortDescription || metaContent(html, "og:description") || metaContent(html, "description"),
+      description: description ?? "",
       publishedAt:
         metaContent(html, "datePublished") ||
         metaContent(html, "uploadDate") ||

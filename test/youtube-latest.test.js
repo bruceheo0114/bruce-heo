@@ -212,6 +212,17 @@ test("예전 화면(videoRenderer)도 읽고, 재생목록·중복은 건너뛴�
   assert.deepEqual(parseChannelVideosPage(html).map((v) => [v.id, v.title]), [["AAAAAAAAAAA", "예전 화면"]]);
 });
 
+test("영상 페이지가 사이트 공통 소개 문구만 주면 설명으로 쓰지 않는다", async () => {
+  const generic = "YouTube에서 마음에 드는 동영상과 음악을 감상하고, 직접 만든 콘텐츠를 업로드하여 친구, 가족뿐 아니라 전 세계 사람들과 콘텐츠를 공유할 수 있습니다.";
+  const fetchImpl = async (url) => {
+    if (url.includes("/feeds/")) return response(404);
+    if (url.endsWith("/videos")) return response(200, channelPage("AAAAAAAAAAA"));
+    return response(200, `<meta name="description" content="${generic}"><meta property="og:description" content="${generic}">`);
+  };
+  const latest = await fetchLatestVideo({ fetchImpl, channelId: CHANNEL, sleep: noSleep });
+  assert.equal(latest.description, "");
+});
+
 test("영상 페이지를 못 읽어도 제목만으로 계속한다", async () => {
   const fetchImpl = async (url) => {
     if (url.includes("/feeds/")) return response(404);
