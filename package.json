@@ -14,7 +14,8 @@
     "daily:generate": "node src/cli/generate.js",
     "pr:summary": "node src/cli/pr-summary.js",
     "draft:validate": "node src/cli/validate-draft.js",
-    "youtube": "node src/cli/youtube.js"
+    "youtube": "node src/cli/youtube.js",
+    "youtube:latest": "node src/cli/youtube-latest.js"
   },
   "dependencies": {
     "cheerio": "1.2.0",

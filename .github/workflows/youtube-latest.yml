@@ -1,0 +1,43 @@
+name: YouTube latest video
+
+# 유튜브 채널(@bruce.insight)에 새 영상이 올라오면 홈페이지(한국어·영문)의 영상 카드를 그 영상으로 바꾼다.
+# 인터넷이 열린 Actions 가 채널 RSS 피드를 읽고, 바뀐 게 있을 때만 main 에 커밋한다. Claude를 쓰지 않는다.
+# 채널 ID 는 처음 실행에서 채널 주소로 찾아 data/youtube-latest.json 에 저장한다.
+# 찾지 못하면 저장소 Settings → Secrets and variables → Actions → Variables 에 YOUTUBE_CHANNEL_ID(UC…)를 넣는다.
+on:
+  schedule:
+    - cron: "37 * * * *"  # 매시 37분
+  workflow_dispatch:
+
+concurrency:
+  group: youtube-latest
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      YOUTUBE_CHANNEL_ID: ${{ vars.YOUTUBE_CHANNEL_ID }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Update homepage video
+        run: node src/cli/youtube-latest.js
+
+      - name: Commit
+        run: |
+          git add index.html en/index.html data/youtube-latest.json
+          git diff --cached --quiet && exit 0
+          git config user.name "bruce-content-bot"
+          git config user.email "bruce-content-bot@users.noreply.github.com"
+          git commit -m "chore: update homepage video"
+          git pull --rebase -q && git push
