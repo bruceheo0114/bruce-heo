@@ -1,6 +1,6 @@
 {
-  "references_hash": "39464479aaaae403",
-  "fetched_at": "2026-10-15T02:47:11.669Z",
+  "references_hash": "79039ef9e798e352",
+  "fetched_at": "2026-10-15T04:37:18.732Z",
   "items": [
     {
       "file": "A001-screen.jpg",
@@ -317,6 +317,26 @@
       "kind": "ai",
       "source": "AI 생성 이미지 (Higgsfield)",
       "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261015_015601_d6e74be5-ca5f-4b6f-855b-d69d94cd7cb3.png"
+    },
+    {
+      "file": "V01.mp4",
+      "id": "V01",
+      "scenes": [
+        "S007"
+      ],
+      "kind": "video",
+      "source": "AI 생성 영상 (Higgsfield)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261015_043246_4150aa7d-094b-42cb-a89a-e638e62d64c1.mp4"
+    },
+    {
+      "file": "V02.mp4",
+      "id": "V02",
+      "scenes": [
+        "S029"
+      ],
+      "kind": "video",
+      "source": "AI 생성 영상 (Higgsfield)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261015_043246_d9d60b0d-5808-40d3-812f-94d98de18d07.mp4"
     }
   ],
   "failures": []
