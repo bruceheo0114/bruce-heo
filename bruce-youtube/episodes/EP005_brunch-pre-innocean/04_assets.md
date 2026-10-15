@@ -1,7 +1,7 @@
 # EP005 Assets
 
 ASSET ID: A001
-SCENE: S009
+SCENE: S001, S004, S009, S010, S035, S050
 NEEDED MATERIAL: 밤낚시 브랜드 저널 페이지 화면(현대자동차)
 BRAND: 현대자동차
 SOURCE TYPE: REAL
@@ -10,40 +10,13 @@ EXPECTED SOURCE: https://www.hyundai.com/kr/ko/brand/brandstory/campaigns/night-
 PRIORITY: HIGH
 
 ASSET ID: A002
-SCENE: S001, S050
-NEEDED MATERIAL: 밤낚시 공식 키비주얼
-BRAND: 현대자동차
-SOURCE TYPE: REAL
-SEARCH KEYWORD: night-fishing-film-kv
-EXPECTED SOURCE: 현대자동차 공식 홈페이지 이미지
-PRIORITY: HIGH
-
-ASSET ID: A003
 SCENE: S002, S026
-NEEDED MATERIAL: 밤낚시 공식 포스터
+NEEDED MATERIAL: 밤낚시 포스터·스틸(현대자동차 월드와이드 브랜드 저널 페이지 이미지)
 BRAND: 현대자동차
 SOURCE TYPE: REAL
-SEARCH KEYWORD: hyundai night fishing poster
-EXPECTED SOURCE: 현대자동차 월드와이드 브랜드 저널 이미지
+SEARCH KEYWORD: hyundai brand journal night fishing film
+EXPECTED SOURCE: https://www.hyundai.com/worldwide/ko/brand-journal/lifestyle/night-fishing-film
 PRIORITY: HIGH
-
-ASSET ID: A004
-SCENE: S004, S035
-NEEDED MATERIAL: 밤낚시 공식 스틸 1
-BRAND: 현대자동차
-SOURCE TYPE: REAL
-SEARCH KEYWORD: night-fishing-film-02
-EXPECTED SOURCE: 현대자동차 공식 홈페이지 이미지
-PRIORITY: HIGH
-
-ASSET ID: A005
-SCENE: S010
-NEEDED MATERIAL: 밤낚시 공식 스틸 2(차량 카메라 시점)
-BRAND: 현대자동차
-SOURCE TYPE: REAL
-SEARCH KEYWORD: night-fishing-film-05
-EXPECTED SOURCE: 현대자동차 공식 홈페이지 이미지
-PRIORITY: MEDIUM
 
 ASSET ID: A006
 SCENE: S014
