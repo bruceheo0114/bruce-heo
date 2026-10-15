@@ -1,4 +1,4 @@
-# EP005 다운로드 — 이노션은 왜 광고 대신 영화를 만들까? (V2 · 5:23)
+# EP005 다운로드 — 이노션은 왜 광고 대신 영화를 만들까? (V2 · 5:49 · 2차 수정본)
 
 | 파일 | 링크 |
 |---|---|
@@ -8,8 +8,6 @@
 | 썸네일 3안 | [thumbnail_3.png](https://github.com/bruceheo0114/bruce-heo/raw/media/ep005/EP005/thumbnail_3.png) |
 | 업로드 정보 | [업로드정보.md](EP005/업로드정보.md) · [publish_copy.md](EP005/publish_copy.md) (AI 사용 안내 포함 설명란) |
 | 자막 | [subtitles.srt](https://github.com/bruceheo0114/bruce-heo/raw/media/ep005/EP005/subtitles.srt) |
-| 첫 30초 비교 A (본편) | [preview_hook_A.mp4](https://github.com/bruceheo0114/bruce-heo/raw/media/ep005/EP005/preview_hook_A.mp4) |
-| 첫 30초 비교 B | [preview_hook_B.mp4](https://github.com/bruceheo0114/bruce-heo/raw/media/ep005/EP005/preview_hook_B.mp4) |
 | 쇼츠 1~3 | [SHORT01](https://github.com/bruceheo0114/bruce-heo/raw/media/ep005/EP005/shorts/EP005_SHORT01.mp4) · [SHORT02](https://github.com/bruceheo0114/bruce-heo/raw/media/ep005/EP005/shorts/EP005_SHORT02.mp4) · [SHORT03](https://github.com/bruceheo0114/bruce-heo/raw/media/ep005/EP005/shorts/EP005_SHORT03.mp4) · [shorts.md](EP005/shorts/shorts.md) |
 
 업로드: 브런치 226 공개(10/16 06:00) 이후 · 변경된 콘텐츠 '예'.
