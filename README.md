@@ -11,3 +11,14 @@
 | 쇼츠 1~3 | [SHORT01](https://github.com/bruceheo0114/bruce-heo/raw/media/ep005/EP005/shorts/EP005_SHORT01.mp4) · [SHORT02](https://github.com/bruceheo0114/bruce-heo/raw/media/ep005/EP005/shorts/EP005_SHORT02.mp4) · [SHORT03](https://github.com/bruceheo0114/bruce-heo/raw/media/ep005/EP005/shorts/EP005_SHORT03.mp4) · [shorts.md](EP005/shorts/shorts.md) |
 
 업로드: 브런치 226 공개(10/16 06:00) 이후 · 변경된 콘텐츠 '예'.
+
+## 5차 후보 — 음성 eleven_v4 + 새 BGM (5:39) · 둘 중 하나를 고르세요
+
+| 파일 | 링크 |
+|---|---|
+| 본편 1080p | [v5/EP005_1080p.mp4](https://github.com/bruceheo0114/bruce-heo/raw/media/ep005/EP005/v5/EP005_1080p.mp4) |
+| 자막 | [v5/subtitles.srt](https://github.com/bruceheo0114/bruce-heo/raw/media/ep005/EP005/v5/subtitles.srt) |
+| 업로드 정보(챕터 시간이 위 버전과 다름: 00:53 · 02:30 · 04:17) | [v5/upload.md](EP005/v5/upload.md) |
+| 쇼츠 1~3 | [SHORT01](https://github.com/bruceheo0114/bruce-heo/raw/media/ep005/EP005/v5/shorts/EP005_SHORT01.mp4) · [SHORT02](https://github.com/bruceheo0114/bruce-heo/raw/media/ep005/EP005/v5/shorts/EP005_SHORT02.mp4) · [SHORT03](https://github.com/bruceheo0114/bruce-heo/raw/media/ep005/EP005/v5/shorts/EP005_SHORT03.mp4) |
+
+썸네일은 위와 같음. 5차를 고르면 이 폴더 파일로 올리면 됩니다.
