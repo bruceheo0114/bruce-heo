@@ -1,0 +1,16 @@
+{
+  "brunch": false,
+  "_note": "발행 전 원고로 미리 만든 Episode라 브런치 이미지는 쓰지 않는다. 밤낚시 공식 이미지·기사 화면은 비평·해설 목적의 짧은 인용, 모든 화면에 출처 표기. 영화·차량·배우는 AI로 다시 그리지 않는다.",
+  "items": [
+    { "id": "A001", "kind": "page", "url": "https://www.hyundai.com/kr/ko/brand/brandstory/campaigns/night-fishing-film", "source": "현대자동차 브랜드 저널", "scenes": ["S009"] },
+    { "id": "A002", "kind": "image", "url": "https://www.hyundai.com/content/dam/hyundai/kr/ko/images/brand/brandstory/campaigns/lifestyle/night-fishing-film-kv-m.jpg", "page": "https://www.hyundai.com/kr/ko/brand/brandstory/campaigns/night-fishing-film", "source": "〈밤낚시〉 키비주얼 (현대자동차)", "scenes": ["S001", "S050"] },
+    { "id": "A003", "kind": "image", "url": "https://www.hyundai.com/content/dam/hyundai/ww/en/images/brand-journal/lifestyle/240910-ioniq-movie-film/hyundai-night-fishing-film-01-poster-m.jpg", "page": "https://www.hyundai.com/worldwide/ko/brand-journal/lifestyle/night-fishing-film", "source": "〈밤낚시〉 포스터 (현대자동차)", "scenes": ["S002", "S026"] },
+    { "id": "A004", "kind": "image", "url": "https://www.hyundai.com/content/dam/hyundai/kr/ko/images/brand/brandstory/campaigns/lifestyle/night-fishing-film-02-m.jpg", "page": "https://www.hyundai.com/kr/ko/brand/brandstory/campaigns/night-fishing-film", "source": "〈밤낚시〉 스틸 (현대자동차)", "scenes": ["S004", "S035"] },
+    { "id": "A005", "kind": "image", "url": "https://www.hyundai.com/content/dam/hyundai/kr/ko/images/brand/brandstory/campaigns/lifestyle/night-fishing-film-05-m.jpg", "page": "https://www.hyundai.com/kr/ko/brand/brandstory/campaigns/night-fishing-film", "source": "〈밤낚시〉 스틸 (현대자동차)", "scenes": ["S010"] },
+    { "id": "A006", "kind": "article", "url": "https://www.innocean.com/ww-en/about/press/348", "source": "이노션 보도자료 (2025-06)", "scenes": ["S014"] },
+    { "id": "A007", "kind": "article", "url": "https://magazine.hankyung.com/business/article/202610137506b", "source": "한경비즈니스 (2026-10-13)", "scenes": ["S005", "S017", "S020"] },
+    { "id": "A008", "kind": "article", "url": "https://www.hankyung.com/article/2026072812241", "source": "한국경제 (2026-07-28)", "scenes": ["S003", "S013"] },
+    { "id": "A009", "kind": "article", "url": "https://www.yna.co.kr/view/AKR20261012174100003", "source": "연합뉴스 (2026-10-12)", "scenes": ["S019"] },
+    { "id": "A010", "kind": "article", "url": "https://www.mt.co.kr/industry/2026/10/13/2026101309031549991", "source": "머니투데이 (2026-10-13)", "scenes": ["S021"] }
+  ]
+}

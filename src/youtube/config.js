@@ -68,3 +68,21 @@ export const RULES = Object.freeze({
   monthlyCreditCap: 150,
   creditCycleResetDay: 2,
 });
+
+// 편 단위 형식. status.json의 format이 "v2"면 5~6분 V2 지침(TalkFile V2 Production Guide, 2026-10-15)의 숫자를 쓴다.
+// Hook→Promise→Situation→Evidence→Interpretation→Application→Closing, AI 화면 15% 목표·25% 상한.
+export const FORMAT_RULES = Object.freeze({
+  v2: Object.freeze({
+    runtimeMinSeconds: 5 * 60,
+    runtimeMaxSeconds: 6.5 * 60,
+    aiShareMax: 0.25,
+    aiSceneMax: 8,
+    aiSceneMinSeconds: 2,
+    aiSceneMaxSeconds: 6,
+    scriptMinChars: 1700,
+  }),
+});
+
+export function rulesFor(status) {
+  return Object.freeze({ ...RULES, ...(FORMAT_RULES[status?.format] ?? {}) });
+}

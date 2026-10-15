@@ -467,3 +467,13 @@ test("CLI: 발행 전 원고로 미리 만든 Episode는 같은 제목 글이 �
   assert.equal(out.stdout.trim(), "");
   assert.match(out.stderr, /미리 만들어 둠: EP001/);
 });
+
+test("V2 format episodes use the 5~6.5 minute runtime rules", async () => {
+  const { rulesFor } = await import("../src/youtube/config.js");
+  const board = (end) => `SCENE ID: S001\nTIME: 00:00-${end}\nNARRATION:\n가\nVISUAL:\n나\nSOURCE_TYPE: TYPE\nON_SCREEN_TEXT:\n다\nASSET: -\nHIGGSFIELD_REQUIRED: NO\n`;
+  const v2 = rulesFor({ format: "v2" });
+  assert.equal(analyzeStoryboard(board("05:30"), v2).errors.length, 0);
+  assert.ok(analyzeStoryboard(board("05:30")).errors.some((e) => e.includes("범위")));
+  assert.ok(analyzeStoryboard(board("10:30"), v2).errors.some((e) => e.includes("범위")));
+  assert.equal(rulesFor({}).runtimeMinSeconds, 600);
+});

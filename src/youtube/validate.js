@@ -7,6 +7,7 @@ import {
   RECOMMENDATIONS,
   RULES,
   SCORE_FILE,
+  rulesFor,
   SOURCE_TYPES,
   youtubePaths,
 } from "./config.js";
@@ -78,7 +79,7 @@ export function validateScore(markdown) {
   return { errors, score };
 }
 
-export function analyzeStoryboard(markdown) {
+export function analyzeStoryboard(markdown, RULES = rulesFor()) {
   const errors = [];
   const warnings = [];
   const scenes = parseBlocks(markdown, "SCENE ID", STORYBOARD_FIELDS).map((fields) => {
@@ -208,6 +209,7 @@ function verbatimShare(scriptText, sourceBody) {
 }
 
 export async function validatePackage(episode, paths = youtubePaths()) {
+  const RULES = rulesFor(episode.status);
   const errors = [];
   const warnings = [];
   const read = (name) => readEpisodeFile(episode, name);
@@ -270,7 +272,7 @@ export async function validatePackage(episode, paths = youtubePaths()) {
 
   const storyboardText = await read("03_storyboard.md");
   if (storyboardText) {
-    result.storyboard = analyzeStoryboard(storyboardText);
+    result.storyboard = analyzeStoryboard(storyboardText, RULES);
     errors.push(...result.storyboard.errors);
     warnings.push(...result.storyboard.warnings);
   }
