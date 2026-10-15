@@ -1,8 +1,8 @@
 {
   "version": 1,
   "initialized": true,
-  "lastCheckedAt": "2026-10-15T01:07:20.953Z",
-  "lastCheckedCanonicalUrl": "https://brunch.co.kr/@heoboram/224",
+  "lastCheckedAt": "2026-10-15T21:05:43.397Z",
+  "lastCheckedCanonicalUrl": "https://brunch.co.kr/@heoboram/226",
   "reviewSuccessCount": 1,
   "mode": "review",
   "articles": {
@@ -991,6 +991,38 @@
       "scheduledAt": "2026-10-12T22:30:00.000Z",
       "completedAt": "2026-10-12T23:34:28.942Z",
       "approvalCounted": true
+    },
+    "226": {
+      "id": "226",
+      "canonicalUrl": "https://brunch.co.kr/@heoboram/226",
+      "title": "국내 최고의 광고회사는 왜 영화 제작을 시작할까?",
+      "publishedAt": "2026-10-15T12:00:11.000Z",
+      "bodyHash": "18da45c8cb84455dcd92225a7c090075884a84e67a2b99db4ab2e8fbc962c5ec",
+      "batchId": "38807116121",
+      "homepage": {
+        "status": "published",
+        "updatedAt": "2026-10-15T21:05:43.397Z"
+      },
+      "package": {
+        "status": "awaiting_review",
+        "manifestPath": "content/226/manifest.json",
+        "generatedAt": null
+      },
+      "linkedin": {
+        "status": "manual_pending",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "instagram": {
+        "status": "manual_pending",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "approvedAt": null,
+      "scheduledAt": null,
+      "completedAt": null
     }
   }
 }
