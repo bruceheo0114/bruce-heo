@@ -68,10 +68,9 @@ export function parseFeed(xml) {
   return entries;
 }
 
-// 채널 ID(UC…)에서 '쇼츠를 뺀 업로드' 재생목록 ID(UULF…)를 만든다.
-export function longFormPlaylistId(channelId) {
+export function assertChannelId(channelId) {
   if (!CHANNEL_ID.test(channelId)) throw new Error(`채널 ID 형식이 올바르지 않습니다: ${channelId}`);
-  return `UULF${channelId.slice(2)}`;
+  return channelId;
 }
 
 // 채널 페이지에는 다른 채널의 UC… 값도 많이 들어 있다(추천·가이드 목록 등).
@@ -126,10 +125,7 @@ async function isShort(fetchImpl, id) {
 }
 
 export async function resolveChannelId({ fetchImpl = fetch, channelId, handle = CHANNEL_HANDLE } = {}) {
-  if (channelId) {
-    longFormPlaylistId(channelId); // 형식 검사
-    return channelId;
-  }
+  if (channelId) return assertChannelId(channelId);
   const response = await fetchText(fetchImpl, `https://www.youtube.com/@${handle}`);
   if (!response.ok) throw new Error(`채널 페이지를 열지 못했습니다 (${response.status})`);
   const found = extractChannelId(await response.text());
@@ -139,33 +135,126 @@ export async function resolveChannelId({ fetchImpl = fetch, channelId, handle = 
   return found;
 }
 
-// 가장 최근에 올라온 일반(쇼츠 아님) 공개 영상 하나.
-export async function fetchLatestVideo({ fetchImpl = fetch, channelId }) {
-  const playlist = await fetchText(
-    fetchImpl,
-    `https://www.youtube.com/feeds/videos.xml?playlist_id=${longFormPlaylistId(channelId)}`,
-  );
-  if (playlist.ok) {
-    const [latest] = parseFeed(await playlist.text());
-    if (latest) return latest;
-  }
-  console.error(`롱폼 재생목록 피드를 쓸 수 없습니다 (채널 ${channelId}, 응답 ${playlist.status}). 채널 피드로 넘어갑니다.`);
+const sleepMs = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-  // 롱폼 재생목록을 읽지 못하면 채널 피드에서 쇼츠를 걸러 낸다.
-  const feed = await fetchText(
+// 유튜브 피드는 가끔 500/404 를 돌려준다. 몇 번 더 시도한다.
+async function fetchWithRetry(fetchImpl, url, { retries = 3, sleep = sleepMs, delays = [2000, 5000] } = {}) {
+  let last;
+  for (let attempt = 0; attempt < retries; attempt += 1) {
+    try {
+      last = await fetchText(fetchImpl, url);
+      if (last.ok) return last;
+    } catch (error) {
+      last = { ok: false, status: `network: ${error.message}` };
+    }
+    if (attempt < retries - 1) await sleep(delays[attempt] ?? delays.at(-1));
+  }
+  return last;
+}
+
+// 문자열 안의 중괄호를 건너뛰며 marker 뒤의 JSON 객체 하나를 잘라 파싱한다.
+export function extractJsonAfter(text, marker) {
+  const at = String(text).indexOf(marker);
+  if (at < 0) return null;
+  const start = text.indexOf("{", at + marker.length);
+  if (start < 0) return null;
+  let depth = 0;
+  let inString = false;
+  for (let i = start; i < text.length; i += 1) {
+    const ch = text[i];
+    if (inString) {
+      if (ch === "\\") i += 1;
+      else if (ch === '"') inString = false;
+    } else if (ch === '"') inString = true;
+    else if (ch === "{") depth += 1;
+    else if (ch === "}") {
+      depth -= 1;
+      if (depth === 0) {
+        try {
+          return JSON.parse(text.slice(start, i + 1));
+        } catch {
+          return null;
+        }
+      }
+    }
+  }
+  return null;
+}
+
+function collect(node, key, out = []) {
+  if (Array.isArray(node)) node.forEach((item) => collect(item, key, out));
+  else if (node && typeof node === "object") {
+    for (const [name, value] of Object.entries(node)) {
+      if (name === key) out.push(value);
+      else collect(value, key, out);
+    }
+  }
+  return out;
+}
+
+// 채널의 '동영상' 탭(쇼츠는 따로 있음)에서 가장 위(최신) 영상들을 읽는다.
+export function parseChannelVideosPage(html) {
+  const data = extractJsonAfter(html, "ytInitialData");
+  if (!data) return [];
+  return collect(data, "videoRenderer")
+    .filter((renderer) => VIDEO_ID.test(renderer?.videoId ?? "") && !renderer.upcomingEventData)
+    .map((renderer) => ({
+      id: renderer.videoId,
+      title: renderer.title?.runs?.map((run) => run.text).join("") ?? renderer.title?.simpleText ?? "",
+      publishedAt: "",
+      description: "",
+      url: `https://www.youtube.com/watch?v=${renderer.videoId}`,
+    }));
+}
+
+// 영상 페이지에서 설명과 게시일을 보충한다. 실패해도 제목만으로 계속한다.
+async function addWatchDetails(fetchImpl, video, sleep) {
+  try {
+    const response = await fetchWithRetry(fetchImpl, video.url, { retries: 2, sleep });
+    if (!response.ok) return video;
+    const player = extractJsonAfter(await response.text(), "ytInitialPlayerResponse");
+    return {
+      ...video,
+      description: player?.videoDetails?.shortDescription ?? "",
+      publishedAt: player?.microformat?.playerMicroformatRenderer?.publishDate ?? "",
+    };
+  } catch {
+    return video;
+  }
+}
+
+async function latestFromFeed(fetchImpl, channelId, sleep) {
+  const feed = await fetchWithRetry(
     fetchImpl,
     `https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`,
+    { sleep },
   );
-  if (!feed.ok) {
-    throw new Error(
-      `유튜브 피드를 읽지 못했습니다 (채널 ${channelId}, 재생목록 ${playlist.status}, 채널 피드 ${feed.status}). ` +
-        "채널 ID 가 맞는지 확인하고 틀리면 Variables 의 YOUTUBE_CHANNEL_ID 에 직접 넣어 주세요.",
-    );
+  if (!feed.ok) return { error: `채널 피드 ${feed.status}` };
+  const entries = parseFeed(await feed.text()).slice(0, 8);
+  for (const entry of entries) {
+    if (!(await isShort(fetchImpl, entry.id))) return { video: entry };
   }
-  for (const entry of parseFeed(await feed.text()).slice(0, 8)) {
-    if (!(await isShort(fetchImpl, entry.id))) return entry;
-  }
-  throw new Error("채널 피드에 공개된 일반 영상이 없습니다.");
+  return { error: "채널 피드에 일반 영상이 없습니다" };
+}
+
+async function latestFromChannelPage(fetchImpl, handle, sleep) {
+  const page = await fetchWithRetry(fetchImpl, `https://www.youtube.com/@${handle}/videos`, { sleep });
+  if (!page.ok) return { error: `동영상 탭 ${page.status}` };
+  const [first] = parseChannelVideosPage(await page.text());
+  if (!first) return { error: "동영상 탭에서 영상을 찾지 못했습니다" };
+  return { video: await addWatchDetails(fetchImpl, first, sleep) };
+}
+
+// 가장 최근에 올라온 일반(쇼츠 아님) 공개 영상 하나. RSS 가 막히면 채널 동영상 탭을 읽는다.
+export async function fetchLatestVideo({ fetchImpl = fetch, channelId, handle = CHANNEL_HANDLE, sleep = sleepMs }) {
+  const fromFeed = await latestFromFeed(fetchImpl, channelId, sleep);
+  if (fromFeed.video) return fromFeed.video;
+  console.error(`RSS 로 최신 영상을 찾지 못했습니다 (채널 ${channelId}: ${fromFeed.error}). 채널 페이지로 넘어갑니다.`);
+  const fromPage = await latestFromChannelPage(fetchImpl, handle, sleep);
+  if (fromPage.video) return fromPage.video;
+  throw new Error(
+    `최신 유튜브 영상을 찾지 못했습니다 (채널 ${channelId}; RSS: ${fromFeed.error}; 채널 페이지: ${fromPage.error}).`,
+  );
 }
 
 export function renderVideoBlock(video, lang = "ko") {

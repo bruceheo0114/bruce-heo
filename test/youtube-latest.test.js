@@ -6,7 +6,9 @@ import {
   currentVideoId,
   extractChannelId,
   fetchLatestVideo,
-  longFormPlaylistId,
+  assertChannelId,
+  extractJsonAfter,
+  parseChannelVideosPage,
   parseFeed,
   renderVideoBlock,
   replaceVideoBlock,
@@ -52,9 +54,9 @@ test("영상 ID 형식이 아닌 항목은 버린다", () => {
   assert.equal(parseFeed(feed("short")).length, 0);
 });
 
-test("채널 ID 로 쇼츠를 뺀 재생목록 ID 를 만든다", () => {
-  assert.equal(longFormPlaylistId(CHANNEL), "UULFabcdefghijklmnopqrstuv");
-  assert.throws(() => longFormPlaylistId("not-a-channel"));
+test("채널 ID 형식을 검사한다", () => {
+  assert.equal(assertChannelId(CHANNEL), CHANNEL);
+  assert.throws(() => assertChannelId("not-a-channel"));
 });
 
 test("채널 페이지에서 이 채널의 ID 를 찾고 다른 채널 값에는 속지 않는다", () => {
@@ -125,33 +127,100 @@ test("홈페이지(한국어·영문)에 자동 교체 표시가 하나씩 있�
   }
 });
 
-test("롱폼 재생목록의 첫 영상을 최신 영상으로 쓴다", async () => {
-  const urls = [];
-  const fetchImpl = async (url) => {
-    urls.push(url);
-    return response(200, feed("AAAAAAAAAAA", "BBBBBBBBBBB"));
-  };
-  const latest = await fetchLatestVideo({ fetchImpl, channelId: CHANNEL });
-  assert.equal(latest.id, "AAAAAAAAAAA");
-  assert.match(urls[0], /playlist_id=UULFabcdefghijklmnopqrstuv/);
-});
+const noSleep = async () => {};
 
-test("롱폼 재생목록이 없으면 채널 피드에서 쇼츠를 건너뛴다", async () => {
-  const shorts = new Set(["AAAAAAAAAAA"]);
+const channelPage = (...ids) =>
+  `<html><script>var ytInitialData = ${JSON.stringify({
+    contents: {
+      tabs: [
+        {
+          items: ids.map((id, index) => ({
+            richItemRenderer: {
+              content: {
+                videoRenderer: { videoId: id, title: { runs: [{ text: "동영상 " }, { text: String(index) }] } },
+              },
+            },
+          })),
+        },
+      ],
+    },
+  })};</script></html>`;
+
+test("채널 피드의 첫 일반 영상을 최신 영상으로 쓴다", async () => {
+  const urls = [];
   const fetchImpl = async (url, options = {}) => {
-    if (url.includes("playlist_id=")) return response(404);
+    urls.push(url);
     if (url.includes("channel_id=")) return response(200, feed("AAAAAAAAAAA", "BBBBBBBBBBB"));
     assert.equal(options.method, "HEAD");
-    return response(shorts.has(url.split("/").pop()) ? 200 : 303);
+    return response(303);
   };
-  const latest = await fetchLatestVideo({ fetchImpl, channelId: CHANNEL });
+  const latest = await fetchLatestVideo({ fetchImpl, channelId: CHANNEL, sleep: noSleep });
+  assert.equal(latest.id, "AAAAAAAAAAA");
+  assert.match(urls[0], /channel_id=UCabcdefghijklmnopqrstuv/);
+});
+
+test("쇼츠는 건너뛴다", async () => {
+  const fetchImpl = async (url) => {
+    if (url.includes("channel_id=")) return response(200, feed("AAAAAAAAAAA", "BBBBBBBBBBB"));
+    return response(url.endsWith("/AAAAAAAAAAA") ? 200 : 303);
+  };
+  const latest = await fetchLatestVideo({ fetchImpl, channelId: CHANNEL, sleep: noSleep });
   assert.equal(latest.id, "BBBBBBBBBBB");
 });
 
-test("피드를 읽지 못하면 오류로 멈춘다(홈페이지를 건드리지 않는다)", async () => {
+test("피드가 가끔 500 이어도 다시 시도해서 받는다", async () => {
+  let calls = 0;
+  const waits = [];
+  const fetchImpl = async (url) => {
+    if (url.includes("channel_id=")) {
+      calls += 1;
+      return calls < 3 ? response(500) : response(200, feed("AAAAAAAAAAA"));
+    }
+    return response(303);
+  };
+  const latest = await fetchLatestVideo({ fetchImpl, channelId: CHANNEL, sleep: async (ms) => waits.push(ms) });
+  assert.equal(latest.id, "AAAAAAAAAAA");
+  assert.equal(calls, 3);
+  assert.deepEqual(waits, [2000, 5000]);
+});
+
+test("RSS 가 계속 막히면 채널 동영상 탭과 영상 페이지에서 읽는다", async () => {
+  const details = { videoDetails: { shortDescription: "영상 설명 첫 문단입니다. 충분히 긴 설명." }, microformat: { playerMicroformatRenderer: { publishDate: "2026-10-14T09:00:00-07:00" } } };
+  const fetchImpl = async (url) => {
+    if (url.includes("/feeds/")) return response(500);
+    if (url.endsWith("/@bruce.insight/videos")) return response(200, channelPage("AAAAAAAAAAA", "BBBBBBBBBBB"));
+    if (url.includes("watch?v=AAAAAAAAAAA")) return response(200, `<script>var ytInitialPlayerResponse = ${JSON.stringify(details)};var x=1;</script>`);
+    return response(404);
+  };
+  const latest = await fetchLatestVideo({ fetchImpl, channelId: CHANNEL, sleep: noSleep });
+  assert.equal(latest.id, "AAAAAAAAAAA");
+  assert.equal(latest.title, "동영상 0");
+  assert.match(latest.description, /^영상 설명 첫 문단/);
+  assert.equal(latest.publishedAt, "2026-10-14T09:00:00-07:00");
+});
+
+test("영상 페이지를 못 읽어도 제목만으로 계속한다", async () => {
+  const fetchImpl = async (url) => {
+    if (url.includes("/feeds/")) return response(404);
+    if (url.endsWith("/videos")) return response(200, channelPage("AAAAAAAAAAA"));
+    return response(500);
+  };
+  const latest = await fetchLatestVideo({ fetchImpl, channelId: CHANNEL, sleep: noSleep });
+  assert.equal(latest.id, "AAAAAAAAAAA");
+  assert.equal(latest.description, "");
+});
+
+test("JSON 안의 중괄호·따옴표가 있어도 잘라 읽는다", () => {
+  const data = { a: 'x}"{y', b: [1, { c: "\\" }] };
+  assert.deepEqual(extractJsonAfter(`junk ytInitialData = ${JSON.stringify(data)}; tail {`, "ytInitialData"), data);
+  assert.equal(extractJsonAfter("nothing", "ytInitialData"), null);
+  assert.deepEqual(parseChannelVideosPage("<html></html>"), []);
+});
+
+test("피드도 채널 페이지도 막히면 원인을 담아 오류로 멈춘다(홈페이지를 건드리지 않는다)", async () => {
   await assert.rejects(
-    fetchLatestVideo({ fetchImpl: async () => response(500), channelId: CHANNEL }),
-    new RegExp(`피드.*${CHANNEL}.*500`),
+    fetchLatestVideo({ fetchImpl: async () => response(500), channelId: CHANNEL, sleep: noSleep }),
+    new RegExp(`${CHANNEL}.*RSS.*500.*채널 페이지`),
   );
 });
 
