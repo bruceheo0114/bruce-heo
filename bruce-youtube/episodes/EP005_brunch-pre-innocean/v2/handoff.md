@@ -18,7 +18,7 @@ mp4·mp3·생성물은 git에 올리지 않는다(.gitignore). 문서·reference
 pnpm install --frozen-lockfile
 export CHROMIUM_EXECUTABLE=/opt/pw-browsers/chromium   # 클라우드 컨테이너의 Playwright 버전 차이 회피
 node src/cli/youtube.js validate EP005
-node src/cli/youtube.js render EP005 bruce-youtube/output/EP005/narration_v2/EP005_CH0{1,2,3,4}.mp3 --no-cleanup --voice-clone --bgm bruce-youtube/output/EP005/bgm/bgm_bright.mp3
+node src/cli/youtube.js render EP005 bruce-youtube/output/EP005/narration_v2/EP005_CH0{1,2,3,4}.mp3 --no-cleanup --voice-clone
 node src/cli/youtube.js shorts EP005
 ```
 음성은 ElevenLabs flow `MKMAOlavZtlaqYw6r4JA`에 남아 있다(`v2/generation_log.json`). 새 클라우드 세션에서는 mp3를 다시 받아야 한다.
@@ -39,3 +39,9 @@ Hook B 미리보기는 임시 사본(YOUTUBE_ROOT)에서 CH01만 Hook B 대본·
 - 숫자 표기 통일, Hook B 기반 일반인 지식 콘텐츠 오프닝, 음성 eleven_v3, 밝은 BGM(`output/EP005/bgm/bgm_bright.mp3`, git 제외)
 - 코드: `render --bgm <파일>`(편별 BGM, 없으면 채널 기본), 자막 줄바꿈이 '이천이십오 년' 같은 읽는 법을 쪼개지 않게 수정(`render/align.js`). 테스트 106/106 통과
 - 1차 음성(multilingual_v2)은 `output/EP005/narration/`에 그대로 보존
+
+## 3차 수정
+- 표준 스타일 확정(5~6분 V2·eleven_v3·밝은 BGM·숫자 표기·영상 클립 1~2개) → `bruce-youtube/CLAUDE.md` '표준 스타일', `routine_prompt.md`, `prompts/youtube_producer.md`. 새 Episode는 자동으로 `format: v2`.
+- 채널 BGM 교체: `channel/bgm/bgm.mp3`(밝은 곡), 이전 곡 `bgm_calm.mp3`.
+- `references.json`의 `kind: "video"` → Actions가 Higgsfield 클립을 `assets/references/<EP>/V01.mp4`로 받는다.
+- 자막 줄나눔 수정으로 말과 자막이 어긋나던 15군데 해결.

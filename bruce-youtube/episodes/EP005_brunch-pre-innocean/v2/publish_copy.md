@@ -26,7 +26,7 @@
 - 한경비즈니스 (2026-10-13) https://magazine.hankyung.com/business/article/202610137506b
 - 스마트투데이 (대한민국광고대상) https://www.smarttoday.co.kr/ko-kr/articles/65918
 
-AI 사용 안내: 배경음악은 AI 생성 음악(ElevenLabs Music)입니다. 내레이션은 진행자 본인의 목소리를 복제한 합성 음성(ElevenLabs)입니다. 영화관·티켓·팝업스토어 분위기 컷 4장(약 10%)은 AI 생성 이미지(Higgsfield)이며 실제 행사·관객을 나타내지 않습니다. 해당 장면 오른쪽 아래에 표시했습니다.
+AI 사용 안내: 배경음악은 AI 생성 음악(ElevenLabs Music)입니다. 내레이션은 진행자 본인의 목소리를 복제한 합성 음성(ElevenLabs)입니다. 영화관·티켓·팝업스토어 분위기 컷(정지 이미지 4장 중 2장은 5초 영상으로 움직임, 약 10%)은 AI 생성 이미지·영상(Higgsfield)이며 실제 행사·관객을 나타내지 않습니다. 해당 장면 오른쪽 아래에 표시했습니다.
 '영화는 팝업스토어'라는 관점은 작성자의 해석입니다.
 
 인스타그램 @bruce.insight · 브런치 @heoboram · bruceheo.com

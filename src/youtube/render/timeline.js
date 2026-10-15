@@ -216,12 +216,14 @@ export function splitChunks(text, maxChars) {
     const parts = Math.ceil(sentence.length / maxChars);
     const target = sentence.length / parts;
     let line = "";
+    let made = 0;
     for (const [index, word] of words.entries()) {
       const next = (line + " " + word).trim();
-      const remaining = parts - chunks.length;
+      const remaining = parts - made;
       const overTarget = line && next.length > target && Math.abs(next.length - target) > Math.abs(line.length - target);
       if (line && (next.length > maxChars || (overTarget && remaining > 1 && index < words.length))) {
         chunks.push(line);
+        made += 1;
         line = word;
       } else line = next;
     }

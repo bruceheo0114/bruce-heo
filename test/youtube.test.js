@@ -492,8 +492,9 @@ test("새 Episode는 V2(5~6분) 형식으로 만들어진다", async () => {
 
 test("긴 자막 줄은 고르게 나뉘어 한 낱말만 남지 않는다", async () => {
   const { splitChunks } = await import("../src/youtube/render/timeline.js");
-  const chunks = splitChunks("보통 광고가 나오면 우리는 건너뛰기 버튼부터 찾잖아요.", 28);
-  assert.deepEqual(chunks, ["보통 광고가 나오면 우리는", "건너뛰기 버튼부터 찾잖아요."]);
+  const chunks = splitChunks("그런데 이 영화, 사실은 현대자동차가 만든 광고였어요. 보통 광고가 나오면 우리는 건너뛰기 버튼부터 찾잖아요.", 28);
+  assert.deepEqual(chunks.slice(-2), ["보통 광고가 나오면 우리는", "건너뛰기 버튼부터 찾잖아요."]);
+  assert.ok(chunks.every((part) => part.split(" ").length > 1), chunks.join(" | "));
   for (const text of ["캠페인이 매번 비슷하게 느껴진다면, 메시지를 바꾸기 전에 그 메시지를 경험하는 방식부터 한번 비틀어 보세요."]) {
     const parts = splitChunks(text, 28);
     assert.ok(parts.every((part) => part.length <= 28 && part.split(" ").length > 1), parts.join(" | "));
