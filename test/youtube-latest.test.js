@@ -129,21 +129,22 @@ test("홈페이지(한국어·영문)에 자동 교체 표시가 하나씩 있�
 
 const noSleep = async () => {};
 
-const channelPage = (...ids) =>
-  `<html><script>var ytInitialData = ${JSON.stringify({
-    contents: {
-      tabs: [
-        {
-          items: ids.map((id, index) => ({
-            richItemRenderer: {
-              content: {
-                videoRenderer: { videoId: id, title: { runs: [{ text: "동영상 " }, { text: String(index) }] } },
-              },
-            },
-          })),
-        },
-      ],
+const lockup = (id, text) => ({
+  richItemRenderer: {
+    content: {
+      lockupViewModel: {
+        contentId: id,
+        contentType: "LOCKUP_CONTENT_TYPE_VIDEO",
+        metadata: { lockupMetadataViewModel: { title: { content: text } } },
+      },
     },
+  },
+});
+
+// 유튜브의 새 화면(lockupViewModel) 모양. 스크립트 앞에 marker 만 언급하는 코드가 있어도 읽어야 한다.
+const channelPage = (...ids) =>
+  `<html><script>if (window.ytInitialData) { run(); }</script><script>var ytInitialData = ${JSON.stringify({
+    contents: { tabs: [{ items: ids.map((id, index) => lockup(id, `동영상 ${index}`)) }] },
   })};</script></html>`;
 
 test("채널 피드의 첫 일반 영상을 최신 영상으로 쓴다", async () => {
@@ -185,18 +186,30 @@ test("피드가 가끔 500 이어도 다시 시도해서 받는다", async () =>
 });
 
 test("RSS 가 계속 막히면 채널 동영상 탭과 영상 페이지에서 읽는다", async () => {
-  const details = { videoDetails: { shortDescription: "영상 설명 첫 문단입니다. 충분히 긴 설명." }, microformat: { playerMicroformatRenderer: { publishDate: "2026-10-14T09:00:00-07:00" } } };
+  const watchPage = `<meta property="og:description" content="영상 설명 첫 문단입니다. 충분히 긴 설명 &amp; 요약."><meta itemprop="datePublished" content="2026-10-14T09:00:00-07:00">`;
   const fetchImpl = async (url) => {
     if (url.includes("/feeds/")) return response(500);
     if (url.endsWith("/@bruce.insight/videos")) return response(200, channelPage("AAAAAAAAAAA", "BBBBBBBBBBB"));
-    if (url.includes("watch?v=AAAAAAAAAAA")) return response(200, `<script>var ytInitialPlayerResponse = ${JSON.stringify(details)};var x=1;</script>`);
+    if (url.includes("watch?v=AAAAAAAAAAA")) return response(200, watchPage);
     return response(404);
   };
   const latest = await fetchLatestVideo({ fetchImpl, channelId: CHANNEL, sleep: noSleep });
   assert.equal(latest.id, "AAAAAAAAAAA");
   assert.equal(latest.title, "동영상 0");
-  assert.match(latest.description, /^영상 설명 첫 문단/);
+  assert.equal(latest.description, "영상 설명 첫 문단입니다. 충분히 긴 설명 & 요약.");
   assert.equal(latest.publishedAt, "2026-10-14T09:00:00-07:00");
+});
+
+test("예전 화면(videoRenderer)도 읽고, 재생목록·중복은 건너뛴다", () => {
+  const html = `<script>var ytInitialData = ${JSON.stringify({
+    a: [
+      { lockupViewModel: { contentId: "PLxxxxxxxxxxxxxxxxxx", contentType: "LOCKUP_CONTENT_TYPE_PLAYLIST" } },
+      { videoRenderer: { videoId: "AAAAAAAAAAA", title: { runs: [{ text: "예전 " }, { text: "화면" }] } } },
+      { videoRenderer: { videoId: "AAAAAAAAAAA", title: { simpleText: "중복" } } },
+      { videoRenderer: { videoId: "CCCCCCCCCCC", upcomingEventData: {}, title: { simpleText: "예정" } } },
+    ],
+  })};</script>`;
+  assert.deepEqual(parseChannelVideosPage(html).map((v) => [v.id, v.title]), [["AAAAAAAAAAA", "예전 화면"]]);
 });
 
 test("영상 페이지를 못 읽어도 제목만으로 계속한다", async () => {

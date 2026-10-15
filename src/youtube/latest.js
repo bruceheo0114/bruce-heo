@@ -152,12 +152,7 @@ async function fetchWithRetry(fetchImpl, url, { retries = 3, sleep = sleepMs, de
   return last;
 }
 
-// 문자열 안의 중괄호를 건너뛰며 marker 뒤의 JSON 객체 하나를 잘라 파싱한다.
-export function extractJsonAfter(text, marker) {
-  const at = String(text).indexOf(marker);
-  if (at < 0) return null;
-  const start = text.indexOf("{", at + marker.length);
-  if (start < 0) return null;
+function parseBalancedObject(text, start) {
   let depth = 0;
   let inString = false;
   for (let i = start; i < text.length; i += 1) {
@@ -181,6 +176,21 @@ export function extractJsonAfter(text, marker) {
   return null;
 }
 
+// marker 가 나오는 곳마다 그 뒤의 JSON 객체를 읽어 보고, 처음 제대로 파싱되는 것을 돌려준다.
+export function extractJsonAfter(text, marker) {
+  const source = String(text);
+  let from = 0;
+  for (;;) {
+    const at = source.indexOf(marker, from);
+    if (at < 0) return null;
+    from = at + marker.length;
+    const next = source.slice(from, from + 12).search(/\{/);
+    if (next < 0) continue;
+    const parsed = parseBalancedObject(source, from + next);
+    if (parsed) return parsed;
+  }
+}
+
 function collect(node, key, out = []) {
   if (Array.isArray(node)) node.forEach((item) => collect(item, key, out));
   else if (node && typeof node === "object") {
@@ -192,31 +202,57 @@ function collect(node, key, out = []) {
   return out;
 }
 
-// 채널의 '동영상' 탭(쇼츠는 따로 있음)에서 가장 위(최신) 영상들을 읽는다.
+function lockupTitle(lockup) {
+  return lockup.metadata?.lockupMetadataViewModel?.title?.content ?? "";
+}
+
+// 채널의 '동영상' 탭(쇼츠는 따로 있음)에서 위(최신)부터 영상을 읽는다.
+// 유튜브가 새 화면(lockupViewModel)과 예전 화면(videoRenderer)을 섞어 쓰므로 둘 다 읽는다.
 export function parseChannelVideosPage(html) {
   const data = extractJsonAfter(html, "ytInitialData");
   if (!data) return [];
-  return collect(data, "videoRenderer")
-    .filter((renderer) => VIDEO_ID.test(renderer?.videoId ?? "") && !renderer.upcomingEventData)
-    .map((renderer) => ({
-      id: renderer.videoId,
-      title: renderer.title?.runs?.map((run) => run.text).join("") ?? renderer.title?.simpleText ?? "",
-      publishedAt: "",
-      description: "",
-      url: `https://www.youtube.com/watch?v=${renderer.videoId}`,
-    }));
+  const videos = [];
+  const seen = new Set();
+  const add = (id, title) => {
+    if (!VIDEO_ID.test(id ?? "") || seen.has(id)) return;
+    seen.add(id);
+    videos.push({ id, title, publishedAt: "", description: "", url: `https://www.youtube.com/watch?v=${id}` });
+  };
+  for (const lockup of collect(data, "lockupViewModel")) {
+    if (lockup?.contentType && !/VIDEO/.test(lockup.contentType)) continue;
+    add(lockup?.contentId, lockupTitle(lockup));
+  }
+  for (const renderer of collect(data, "videoRenderer")) {
+    if (renderer?.upcomingEventData) continue;
+    add(renderer?.videoId, renderer?.title?.runs?.map((run) => run.text).join("") ?? renderer?.title?.simpleText ?? "");
+  }
+  return videos;
 }
 
-// 영상 페이지에서 설명과 게시일을 보충한다. 실패해도 제목만으로 계속한다.
+function metaContent(html, key) {
+  const match =
+    html.match(new RegExp(`<meta[^>]+(?:property|name|itemprop)="${key}"[^>]+content="([^"]*)"`)) ??
+    html.match(new RegExp(`<meta[^>]+content="([^"]*)"[^>]+(?:property|name|itemprop)="${key}"`));
+  return match ? decodeEntities(match[1]).trim() : "";
+}
+
+// 영상 페이지에서 제목·설명·게시일을 보충한다(메타 태그 → 플레이어 JSON 순). 실패해도 계속한다.
 async function addWatchDetails(fetchImpl, video, sleep) {
   try {
     const response = await fetchWithRetry(fetchImpl, video.url, { retries: 2, sleep });
     if (!response.ok) return video;
-    const player = extractJsonAfter(await response.text(), "ytInitialPlayerResponse");
+    const html = await response.text();
+    const player = extractJsonAfter(html, "ytInitialPlayerResponse");
     return {
       ...video,
-      description: player?.videoDetails?.shortDescription ?? "",
-      publishedAt: player?.microformat?.playerMicroformatRenderer?.publishDate ?? "",
+      title: video.title || metaContent(html, "og:title") || player?.videoDetails?.title || "",
+      description:
+        player?.videoDetails?.shortDescription || metaContent(html, "og:description") || metaContent(html, "description"),
+      publishedAt:
+        metaContent(html, "datePublished") ||
+        metaContent(html, "uploadDate") ||
+        player?.microformat?.playerMicroformatRenderer?.publishDate ||
+        "",
     };
   } catch {
     return video;
