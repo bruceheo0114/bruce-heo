@@ -10,9 +10,11 @@ const START = "<!-- YOUTUBE_LATEST_START -->";
 const END = "<!-- YOUTUBE_LATEST_END -->";
 const VIDEO_ID = /^[\w-]{11}$/;
 const CHANNEL_ID = /^UC[\w-]{22}$/;
+// 봇처럼 보이는 User-Agent 는 유튜브 피드가 404 로 막는다. 같은 피드를 이미 읽고 있는
+// insight-reels/scripts/fetch_ig_insights.py 와 같은 헤더를 쓴다.
 const FETCH_HEADERS = {
-  "user-agent": "Mozilla/5.0 (compatible; BruceInsightAutomation/1.0; +https://bruceheo.com/)",
-  "accept-language": "ko,en;q=0.8",
+  "user-agent": "Mozilla/5.0",
+  "accept-language": "ko-KR,ko;q=0.9",
 };
 
 const COPY = {
