@@ -4,8 +4,8 @@
   "higgsfield_monthly_cap": 120,
   "cycles": {
     "2026-10": {
-      "higgsfield_spent": 24.0,
-      "elevenlabs_spent": 1930,
+      "higgsfield_spent": 44.0,
+      "elevenlabs_spent": 3872,
       "entries": [
         {
           "date": "2026-10-02",
@@ -60,6 +60,12 @@
           "what": "이번 주 릴스 10/15·10/17 실사풍 이미지로 다시 합성 — 이미지 9장(1장 재생성, 내레이션은 기존 영상에서 재사용)",
           "higgsfield": 2.25,
           "elevenlabs": 0
+        },
+        {
+          "date": "2026-10-15",
+          "what": "예약 릴스 4편(10/17·20·24·27) 새 방식으로 다시 만듦 — Grok Lite 클립 4개(20.0) + eleven_v4 2테이크×4(1,942). 이미지 재사용, 합성 크레딧 0",
+          "higgsfield": 20.0,
+          "elevenlabs": 1942
         }
       ]
     }
