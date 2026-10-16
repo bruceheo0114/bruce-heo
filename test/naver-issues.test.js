@@ -102,19 +102,54 @@ test("후보 수집은 일요일 카드 루틴(19:43 KST) 전에 Secrets 로 돈
   const workflow = parse(text);
   assert.equal(workflow.on.schedule[0].cron, "7 9 * * 0");
   assert.equal(workflow.jobs.collect.env.NAVER_CLIENT_ID, "${{ secrets.NAVER_CLIENT_ID }}");
-  assert.doesNotMatch(text, /ncloud|apigw/);
+  });
+
+test("API HUB 키 모양이면 API HUB 주소·헤더로 부른다", async () => {
+  const requests = [];
+  const client = naverClient({
+    clientId: "abcde12345",
+    clientSecret: "a".repeat(40),
+    pause: async () => {},
+    request: async (service, url, options) => {
+      requests.push({ url, options });
+      return { body: { items: [], results: [] } };
+    },
+  });
+  await client.search("blog", "q");
+  await client.trend({ startDate: "2026-10-05", endDate: "2026-10-18", keywordGroups: [] });
+  assert.equal(client.provider, "API HUB");
+  assert.match(requests[0].url, /^https:\/\/naverapihub\.apigw\.ntruss\.com\/search\/v1\/blog\?query=q/);
+  assert.equal(requests[0].options.headers["X-NCP-APIGW-API-KEY-ID"], "abcde12345");
+  assert.equal(requests[1].url, "https://naverapihub.apigw.ntruss.com/search-trend/v1/search");
 });
 
-test("인증 실패는 키 값 없이 길이로 알려 준다", async () => {
-  const client = naverClient({
+test("첫 호출이 401 이면 다른 쪽으로 한 번 더 해 보고, 둘 다 안 되면 키 값 없이 길이로 알려 준다", async () => {
+  const urls = [];
+  const unauthorized = () => Object.assign(new Error("401"), { status: 401, body: '{"errorCode":"024"}' });
+  const fallback = naverClient({
+    clientId: "abcdefghij0123456789",
+    clientSecret: "short12345",
+    pause: async () => {},
+    request: async (service, url) => {
+      urls.push(url);
+      if (url.startsWith("https://openapi.naver.com")) throw unauthorized();
+      return { body: { items: [{ title: "ok" }] } };
+    },
+  });
+  assert.deepEqual(await fallback.search("news", "q"), [{ title: "ok" }]);
+  assert.equal(fallback.provider, "API HUB");
+  await fallback.search("news", "q2");
+  assert.equal(urls.length, 3); // 두 번째부터는 바로 API HUB
+
+  const broken = naverClient({
     clientId: "abcdefghij0123456789",
     clientSecret: "secret-값",
     pause: async () => {},
     request: async () => {
-      throw Object.assign(new Error("401"), { status: 401, body: '{"errorCode":"024"}' });
+      throw unauthorized();
     },
   });
-  await assert.rejects(client.search("news", "q"), (error) => {
+  await assert.rejects(broken.search("news", "q"), (error) => {
     assert.match(error.message, /NAVER_CLIENT_ID 20자 · NAVER_CLIENT_SECRET 8자, 영문·숫자 아닌 글자 있음/);
     assert.doesNotMatch(error.message, /abcdefghij|secret-값/);
     return true;

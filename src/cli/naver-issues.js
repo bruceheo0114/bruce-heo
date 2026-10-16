@@ -80,11 +80,11 @@ await writeJson(path, {
   monday,
   generated_at: now.toISOString(),
   window: { since: kstDate(since), until: kstDate(until) },
-  source: "네이버 검색 API(뉴스·블로그) + 데이터랩 검색어 트렌드",
+  source: `네이버 검색 API(뉴스·블로그) + 데이터랩 검색어 트렌드 · ${naver.provider}`,
   note: "후보일 뿐이다. 채택 전에 원문을 열어 게시일·실행일·숫자를 확인한다(CAROUSEL.md).",
   stats: { api_calls: naver.calls, articles: articles.length, candidates: candidates.length },
   ...(warnings.length ? { warnings } : {}),
   candidates,
 });
-console.log(`${path}: 기사 ${articles.length}건 → 후보 ${candidates.length}개 (API ${naver.calls}회)`);
+console.log(`${path}: 기사 ${articles.length}건 → 후보 ${candidates.length}개 (${naver.provider} API ${naver.calls}회)`);
 for (const warning of warnings) console.warn(warning);

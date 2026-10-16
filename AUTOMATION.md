@@ -29,8 +29,10 @@
 ## 월요일 이슈 후보 수집 (네이버 오픈 API, 매주 일 18:07 KST)
 
 - `.github/workflows/naver-issues.yml` 이 `node src/cli/naver-issues.js` 를 실행해 분야별 뉴스 검색(정확도순·최신순) → 같은 이야기 묶기 → 상위 후보의 최근 7일 블로그 글 수·데이터랩 검색량 변화를 붙여 `insight-reels/candidates/<월요일>.json` 으로 커밋합니다. 19:43 카드 루틴이 이 파일을 0라운드 후보로 먼저 읽습니다(`insight-reels/CAROUSEL.md`).
-- 키는 **네이버 개발자센터**(developers.naver.com) 애플리케이션의 Client ID·Secret 이며 Secrets 의 `NAVER_CLIENT_ID`·`NAVER_CLIENT_SECRET` 에 둡니다. 애플리케이션 사용 API 에 **검색**과 **데이터랩(검색어 트렌드)** 이 모두 있어야 합니다.
-- 한 번에 100회 남짓 호출합니다(검색 하루 25,000회·데이터랩 하루 1,000회 무료 한도 안). 네이버 클라우드 API HUB 의 같은 API 는 종량제라 쓰지 않습니다.
+- 키는 Secrets 의 `NAVER_CLIENT_ID`·`NAVER_CLIENT_SECRET` 에 둡니다. 두 곳 키 모두 됩니다(키 모양으로 고르고, 인증이 안 되면 다른 쪽으로 한 번 더 시도).
+  - **네이버 개발자센터**(developers.naver.com → 내 애플리케이션, 보통 ID 20자·Secret 10자): 계속 무료. 검색 하루 25,000회·데이터랩 하루 1,000회. 사용 API 에 **검색**과 **데이터랩(검색어 트렌드)** 이 있어야 합니다.
+  - **네이버 클라우드 API HUB**(보통 ID 10자·Secret 40자): 종량제이며 2026-10 기준 한시적 무료(유료 전환은 사전 공지). 유료 공지가 오면 개발자센터 키로 Secrets 만 바꾸면 됩니다.
+- 한 번에 100회 남짓 호출합니다. 어느 쪽 키로 돌았는지는 결과 파일의 `source` 와 실행 로그에 남습니다.
 - 데이터랩·블로그 호출이 실패해도 뉴스 후보는 남기고 파일의 `warnings` 에 적습니다. 수동 실행은 Actions 의 **Naver weekly issue candidates → Run workflow** 입니다.
 
 ## 처음 한 번 설정
