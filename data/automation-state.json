@@ -703,7 +703,7 @@
         "id": null,
         "lastAttemptAt": null,
         "error": null,
-        "scheduledDate": "2026-10-21"
+        "scheduledDate": "2026-11-04"
       },
       "approvedAt": "2026-10-07T04:50:05.499Z",
       "scheduledAt": "2026-10-09T21:30:00.000Z",
@@ -1004,9 +1004,10 @@
         "updatedAt": "2026-10-15T21:05:43.397Z"
       },
       "package": {
-        "status": "awaiting_review",
+        "status": "generated",
         "manifestPath": "content/226/manifest.json",
-        "generatedAt": null
+        "generatedAt": "2026-10-16T04:50:52.490Z",
+        "approvedAt": "2026-10-16T04:51:05.846Z"
       },
       "linkedin": {
         "status": "published",
@@ -1019,13 +1020,14 @@
         "manualNow": true
       },
       "instagram": {
-        "status": "manual_pending",
+        "status": "scheduled",
         "id": null,
         "lastAttemptAt": null,
-        "error": null
+        "error": null,
+        "scheduledDate": "2026-10-21"
       },
-      "approvedAt": null,
-      "scheduledAt": null,
+      "approvedAt": "2026-10-16T04:51:05.846Z",
+      "scheduledAt": "2026-10-19T22:30:00.000Z",
       "completedAt": null
     }
   }
