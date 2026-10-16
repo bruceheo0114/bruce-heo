@@ -12,9 +12,10 @@ export function naverClient({
   pause = (ms) => new Promise((resolve) => setTimeout(resolve, ms)),
 } = {}) {
   if (!clientId || !clientSecret) requireEnvironment(["NAVER_CLIENT_ID", "NAVER_CLIENT_SECRET"]);
+  // Secret 에 붙여 넣다 따라 들어간 공백·줄바꿈 때문에 인증이 실패하지 않게 다듬는다.
   const headers = {
-    "X-Naver-Client-Id": clientId,
-    "X-Naver-Client-Secret": clientSecret,
+    "X-Naver-Client-Id": clientId.trim(),
+    "X-Naver-Client-Secret": clientSecret.trim(),
   };
   let calls = 0;
 

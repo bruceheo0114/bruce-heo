@@ -81,7 +81,7 @@ test("키가 없으면 Secret 이름을 알려 주고, 호출 수를 센다", as
   assert.throws(() => naverClient({ clientId: "", clientSecret: "" }), /NAVER_CLIENT_ID/);
   const requests = [];
   const client = naverClient({
-    clientId: "id",
+    clientId: " id\n",
     clientSecret: "secret",
     pause: async () => {},
     request: async (service, url, options) => {
