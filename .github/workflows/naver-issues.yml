@@ -7,6 +7,9 @@ on:
   schedule:
     - cron: "7 9 * * 0"  # 매주 일 18:07 KST
   workflow_dispatch:
+  push:  # 임시: main 합치기 전 시험 실행용. 확인 뒤 지운다.
+    branches: [claude/naver-cloud-api-branding-tdpqo0]
+    paths: [.github/workflows/naver-issues.yml]
 
 concurrency:
   group: naver-issues
