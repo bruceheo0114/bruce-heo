@@ -142,18 +142,16 @@ export function clusterArticles(articles) {
   return clusters;
 }
 
-// 데이터랩 일별 수치 → 최근 7일 평균 ÷ 그 전 7일 평균.
+// 데이터랩 일별 수치 → 최근 7일 평균 ÷ 그 전 기간 평균(기간 길이가 달라도 하루 평균끼리 비교한다).
 export function trendRise(data, { until }) {
   const recentStart = kstDate(new Date(until).valueOf() - 6 * DAY_MS);
-  let recent = 0;
-  let before = 0;
-  for (const point of data ?? []) {
-    if (point.period >= recentStart) recent += point.ratio;
-    else before += point.ratio;
-  }
-  if (recent === 0) return 0;
-  if (before === 0) return null; // 그 전 주엔 검색이 없었다 = 새로 뜬 말.
-  return Math.round((recent / before) * 100) / 100;
+  const recent = [];
+  const before = [];
+  for (const point of data ?? []) (point.period >= recentStart ? recent : before).push(point.ratio);
+  const mean = (values) => (values.length ? values.reduce((sum, value) => sum + value, 0) / values.length : 0);
+  if (mean(recent) === 0) return 0;
+  if (mean(before) === 0) return null; // 그 전엔 검색이 없었다 = 새로 뜬 말.
+  return Math.round((mean(recent) / mean(before)) * 100) / 100;
 }
 
 // 매체 수가 많아도 보도자료 재탕일 수 있어 상한을 두고, 「숫자로 확인」(CAROUSEL.md 고르는 기준 2)에 더 무게를 준다.

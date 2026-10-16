@@ -2,11 +2,14 @@ name: Naver weekly issue candidates
 
 # 일요일 19:43 카드 루틴(「이번 주 마케팅 이슈 10건」)이 쓰기 전에 후보를 미리 모은다.
 # 네이버 검색·데이터랩 API 를 한 번에 100회 남짓 부른다(Claude 미사용). 키는 개발자센터(무료) 것이든 네이버 클라우드 API HUB(한시적 무료) 것이든 된다.
-# 결과는 insight-reels/candidates/<월요일>.json 로 main 에 커밋한다. 키는 Secrets 의 NAVER_CLIENT_ID · NAVER_CLIENT_SECRET.
+# 결과는 insight-reels/candidates/<월요일>.json 과 data/brand-mentions.json(지난 7일 브루스 언급)으로 main 에 커밋한다. 키는 Secrets 의 NAVER_CLIENT_ID · NAVER_CLIENT_SECRET.
 on:
   schedule:
     - cron: "7 9 * * 0"  # 매주 일 18:07 KST
   workflow_dispatch:
+  push:  # 임시: main 합치기 전 시험 실행용. 확인 뒤 지운다.
+    branches: [claude/naver-cloud-api-branding-tdpqo0]
+    paths: [.github/workflows/naver-issues.yml]
 
 concurrency:
   group: naver-issues
@@ -33,11 +36,17 @@ jobs:
       - name: Collect candidates
         run: node src/cli/naver-issues.js
 
+      # 이름 언급 모음은 실패해도 후보 커밋은 막지 않는다.
+      - name: Collect brand mentions
+        continue-on-error: true
+        run: node src/cli/naver-mentions.js
+
       - name: Commit
         run: |
           git add insight-reels/candidates
+          git add data/brand-mentions.json 2>/dev/null || true
           git diff --cached --quiet && exit 0
           git config user.name "bruce-content-bot"
           git config user.email "bruce-content-bot@users.noreply.github.com"
-          git commit -m "chore: naver issue candidates"
+          git commit -m "chore: naver issue candidates and mentions"
           git pull --rebase -q && git push

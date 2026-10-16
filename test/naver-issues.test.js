@@ -11,6 +11,7 @@ import {
   parseNaverDate,
   scoreCandidate,
   signalsOf,
+  kstDate,
   toCandidate,
   trendRise,
   upcomingMonday,
@@ -154,4 +155,51 @@ test("첫 호출이 401 이면 다른 쪽으로 한 번 더 해 보고, 둘 다 
     assert.doesNotMatch(error.message, /abcdefghij|secret-값/);
     return true;
   });
+});
+
+test("스레드 훅용 이름은 원문 제목·「」·영문 고유명사에서 뽑고 서술어는 뺀다", async () => {
+  const { extractTerms, trendAverage } = await import("../src/naver/hooks.js");
+  const body = "스위첸은 「위대한 집안일」로 화제였다. 스위첸 광고는 「위대한 집안일」 전에도 있었다. KCC건설 스위첸. Apple 과 Apple 비교.";
+  const terms = extractTerms("스위첸은 왜 8년째 집 이야기를 할까", body);
+  assert.equal(terms[0], "스위첸");
+  assert.ok(terms.includes("위대한 집안일"));
+  assert.ok(terms.includes("Apple"));
+  assert.ok(!terms.some((term) => ["왜", "8년째", "할까", "이야기"].includes(term)));
+  assert.equal(trendAverage([{ ratio: 10 }, { ratio: 20 }]), 15);
+  assert.equal(trendAverage([]), 0);
+});
+
+test("검색량 변화는 기간 길이가 달라도 하루 평균끼리 비교한다", () => {
+  const before = Array.from({ length: 23 }, (_, index) => ({ period: kstDate(Date.UTC(2026, 8, 19 + index)), ratio: 10 }));
+  const recent = Array.from({ length: 7 }, (_, index) => ({ period: kstDate(Date.UTC(2026, 9, 12 + index)), ratio: 20 }));
+  assert.equal(trendRise([...before, ...recent], { until }), 2);
+});
+
+test("언급 모음은 내 채널 글·기간 밖·맥락 없는 동명이인을 뺀다", async () => {
+  const { BRAND_QUERIES, pickMentions, titleQueries } = await import("../src/naver/mentions.js");
+  const since = new Date("2026-10-11T00:00:00Z");
+  const person = BRAND_QUERIES.find((rule) => rule.query === "허보람 마케터");
+  const items = [
+    { title: "<b>허보람</b> 마케터의 브런치 글 정리", description: "IMC 이야기", link: "https://blog.naver.com/a/1", postdate: "20261014", bloggername: "읽는사람" },
+    { title: "허보람 님 결혼식", description: "축하", link: "https://blog.naver.com/b/2", postdate: "20261014" },
+    { title: "허보람 마케터 글", description: "", link: "https://brunch.co.kr/@heoboram/220", postdate: "20261014" },
+    { title: "허보람 마케터 글", description: "", link: "https://blog.naver.com/c/3", postdate: "20261001" },
+  ];
+  const picked = pickMentions(items, { type: "blog", rule: person, since });
+  assert.deepEqual(picked.map((mention) => mention.url), ["https://blog.naver.com/a/1"]);
+  assert.equal(picked[0].by, "읽는사람");
+  assert.equal(picked[0].date, "2026-10-14");
+
+  const [rule] = titleQueries([{ id: "226", title: "국내 최고의 광고회사는 왜 영화 제작을 시작할까?" }]);
+  assert.equal(rule.post, "226");
+  assert.ok(rule.must.test("국내 최고의 광고회사는 영화를"));
+  assert.ok(!rule.must.test("광고회사 영화 제작"));
+});
+
+test("훅 검색량은 금요일 스레드 원고 루틴(21:00 KST) 전에 돈다", async () => {
+  const workflow = parse(await readFile(".github/workflows/naver-hooks.yml", "utf8"));
+  assert.equal(workflow.on.schedule[0].cron, "7 11 * * 5");
+  const issues = parse(await readFile(".github/workflows/naver-issues.yml", "utf8"));
+  const mentions = issues.jobs.collect.steps.find((step) => step.run === "node src/cli/naver-mentions.js");
+  assert.equal(mentions["continue-on-error"], true);
 });

@@ -16,7 +16,9 @@
     "draft:validate": "node src/cli/validate-draft.js",
     "youtube": "node src/cli/youtube.js",
     "youtube:latest": "node src/cli/youtube-latest.js",
-    "naver:issues": "node src/cli/naver-issues.js"
+    "naver:issues": "node src/cli/naver-issues.js",
+    "naver:hooks": "node src/cli/naver-hooks.js",
+    "naver:mentions": "node src/cli/naver-mentions.js"
   },
   "dependencies": {
     "cheerio": "1.2.0",
