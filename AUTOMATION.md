@@ -26,6 +26,17 @@
 - 피드를 읽지 못하면 홈페이지를 건드리지 않고 실행만 실패로 표시합니다. 수동 실행은 Actions 의 **YouTube latest video → Run workflow** 입니다.
 - 비공개·일부공개·예약 영상은 피드에 나오지 않으므로 공개된 뒤 그날 21:37 확인 때 반영됩니다(바로 보고 싶으면 Actions 에서 수동 실행).
 
+## 월요일 이슈 후보 수집 (네이버 오픈 API, 매주 일 18:07 KST)
+
+- `.github/workflows/naver-issues.yml` 이 `node src/cli/naver-issues.js` 를 실행해 분야별 뉴스 검색(정확도순·최신순) → 같은 이야기 묶기 → 상위 후보의 최근 7일 블로그 글 수·데이터랩 검색량 변화를 붙여 `insight-reels/candidates/<월요일>.json` 으로 커밋합니다. 19:43 카드 루틴이 이 파일을 0라운드 후보로 먼저 읽습니다(`insight-reels/CAROUSEL.md`).
+- 키는 Secrets 의 `NAVER_CLIENT_ID`·`NAVER_CLIENT_SECRET` 에 둡니다. 두 곳 키 모두 됩니다(키 모양으로 고르고, 인증이 안 되면 다른 쪽으로 한 번 더 시도).
+  - **네이버 개발자센터**(developers.naver.com → 내 애플리케이션, 보통 ID 20자·Secret 10자): 계속 무료. 검색 하루 25,000회·데이터랩 하루 1,000회. 사용 API 에 **검색**과 **데이터랩(검색어 트렌드)** 이 있어야 합니다.
+  - **네이버 클라우드 API HUB**(보통 ID 10자·Secret 40자): 종량제이며 2026-10 기준 한시적 무료(유료 전환은 사전 공지). 유료 공지가 오면 개발자센터 키로 Secrets 만 바꾸면 됩니다.
+- 한 번에 100회 남짓 호출합니다. 어느 쪽 키로 돌았는지는 결과 파일의 `source` 와 실행 로그에 남습니다.
+- 같은 실행에서 `node src/cli/naver-mentions.js` 가 지난 7일 블로그·카페·뉴스에서 브루스 이름·브랜드·최근 브런치 글 제목 언급(내 채널 글 제외)을 모아 `data/brand-mentions.json` 으로 남깁니다. 일요일 카드 루틴이 미리보기 메일 맨 아래 「이번 주 브루스 언급」으로 붙입니다.
+- **스레드 훅 검색량(매주 금 20:07 KST)**: `naver-hooks.yml` 이 `threads/queue.json` 의 다음 글 10편마다 원문 속 이름의 데이터랩 검색량을 비교해 `threads/trends/<날짜>.json` 으로 커밋하고, 21:00 스레드 원고 루틴이 훅에 넣을 이름을 고를 때 씁니다(`threads/THREADS.md` 「검색량 힌트」).
+- 데이터랩·블로그 호출이 실패해도 뉴스 후보는 남기고 파일의 `warnings` 에 적습니다. 수동 실행은 Actions 의 **Naver weekly issue candidates → Run workflow** 입니다.
+
 ## 처음 한 번 설정
 
 1. GitHub 저장소의 **Settings → Pages**에서 `main` 브랜치 루트를 배포 대상으로 유지합니다.
