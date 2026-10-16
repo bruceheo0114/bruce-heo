@@ -1,0 +1,43 @@
+name: Naver topic ideas
+
+# 브런치 글감 찾기(필요할 때 수동 실행): 브루스가 쓰는 영역 키워드 40개의 데이터랩 관심도·상승률,
+# 최근 7일 뉴스 수, 블로그 경쟁 글 수와 이번 주 이슈 후보 속 브랜드 사례를 data/topic-ideas.json 으로 커밋한다.
+on:
+  workflow_dispatch:
+  push:  # 임시: main 합치기 전 시험 실행용. 확인 뒤 지운다.
+    branches: [claude/naver-cloud-api-branding-tdpqo0]
+    paths: [.github/workflows/naver-topics.yml]
+
+concurrency:
+  group: naver-topics
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      NAVER_CLIENT_ID: ${{ secrets.NAVER_CLIENT_ID }}
+      NAVER_CLIENT_SECRET: ${{ secrets.NAVER_CLIENT_SECRET }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Compare topic keywords
+        run: node src/cli/naver-topics.js
+
+      - name: Commit
+        run: |
+          git add data/topic-ideas.json
+          git diff --cached --quiet && exit 0
+          git config user.name "bruce-content-bot"
+          git config user.email "bruce-content-bot@users.noreply.github.com"
+          git commit -m "chore: naver topic ideas"
+          git pull --rebase -q && git push

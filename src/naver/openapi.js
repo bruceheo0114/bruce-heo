@@ -89,12 +89,18 @@ export function naverClient({
       const body = await call((target) => `${target.search(type)}?${params}`);
       return Array.isArray(body?.items) ? body.items : [];
     },
+    // 검색 결과 전체 건수(경쟁 글이 얼마나 많은지 보는 용도).
+    async total(type, query) {
+      const params = new URLSearchParams({ query, display: "1" });
+      const body = await call((target) => `${target.search(type)}?${params}`);
+      return Number(body?.total ?? 0);
+    },
     // keywordGroups 최대 5개. 각 그룹 안 수치는 요청 안에서 상대값(최대 100)이다.
-    async trend({ startDate, endDate, keywordGroups }) {
+    async trend({ startDate, endDate, keywordGroups, timeUnit = "date" }) {
       const body = await call((target) => target.trend, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ startDate, endDate, timeUnit: "date", keywordGroups }),
+        body: JSON.stringify({ startDate, endDate, timeUnit, keywordGroups }),
       });
       return Array.isArray(body?.results) ? body.results : [];
     },
