@@ -1,0 +1,677 @@
+{
+  "generated_at": "2026-10-16T07:09:29.980Z",
+  "window": {
+    "trend": "2026-07-17~2026-10-16 (주 단위, 최근 4주 vs 그 전 9주)",
+    "news": "최근 7일"
+  },
+  "source": "네이버 데이터랩·검색 API · API HUB",
+  "note": "interest 는 기준어 \"마케팅\" 13주 평균을 100으로 둔 최근 4주 관심도, rise 는 최근 4주 ÷ 그 전 9주(null = 새로 생김).",
+  "keywords": [
+    {
+      "theme": "시즌",
+      "word": "트렌드코리아 2027",
+      "interest": 131.7,
+      "rise": 6.66,
+      "news7": 100,
+      "blogTotal": 19447,
+      "written": [
+        "# 그래도 트렌드코리아 2025를 봐야 하는 이유"
+      ]
+    },
+    {
+      "theme": "시즌",
+      "word": "빼빼로데이",
+      "interest": 94.5,
+      "rise": 5.09,
+      "news7": 75,
+      "blogTotal": 628609,
+      "written": []
+    },
+    {
+      "theme": "시즌",
+      "word": "블랙프라이데이",
+      "interest": 429.6,
+      "rise": 3.65,
+      "news7": 100,
+      "blogTotal": 430439,
+      "written": []
+    },
+    {
+      "theme": "시즌",
+      "word": "2027 트렌드",
+      "interest": 5.2,
+      "rise": 3.04,
+      "news7": 100,
+      "blogTotal": 170685,
+      "written": []
+    },
+    {
+      "theme": "소비 현상",
+      "word": "러닝크루",
+      "interest": 44.1,
+      "rise": 1.31,
+      "news7": 100,
+      "blogTotal": 177477,
+      "written": []
+    },
+    {
+      "theme": "브랜드 현상",
+      "word": "브랜드 필름",
+      "interest": 1.2,
+      "rise": 1.23,
+      "news7": 100,
+      "blogTotal": 931053,
+      "written": [
+        "# 브랜드가 기억되는 건 순간이 아니라 반복이다",
+        "# 브랜드는 이제 시간을 판다",
+        "# 10화 뷰티 브랜드가 걸그룹의 가면을 쓴 이유"
+      ]
+    },
+    {
+      "theme": "브랜드 현상",
+      "word": "밈 마케팅",
+      "interest": 0.3,
+      "rise": 1.2,
+      "news7": 22,
+      "blogTotal": 40180,
+      "written": [
+        "# 롯데리아는 어떻게 침착맨 조롱밈을 활용했나?"
+      ]
+    },
+    {
+      "theme": "소비 현상",
+      "word": "디저트 유행",
+      "interest": 2.3,
+      "rise": 1.16,
+      "news7": 82,
+      "blogTotal": 788832,
+      "written": []
+    },
+    {
+      "theme": "소비 현상",
+      "word": "경험 소비",
+      "interest": 1.3,
+      "rise": 1.07,
+      "news7": 100,
+      "blogTotal": 8687064,
+      "written": [
+        "# 내가 경험한 습관을 만드는 2가지 방법",
+        "# 17화 10년 경험을 AI에게 인수인계할 수 있나요?"
+      ]
+    },
+    {
+      "theme": "브랜드 현상",
+      "word": "브랜드 콜라보",
+      "interest": 0.3,
+      "rise": 1.01,
+      "news7": 100,
+      "blogTotal": 751348,
+      "written": [
+        "# 브랜드가 기억되는 건 순간이 아니라 반복이다",
+        "# 브랜드는 이제 시간을 판다",
+        "# 10화 뷰티 브랜드가 걸그룹의 가면을 쓴 이유"
+      ]
+    },
+    {
+      "theme": "마케터의 일",
+      "word": "광고대행사",
+      "interest": 27.8,
+      "rise": 0.92,
+      "news7": 100,
+      "blogTotal": 1282014,
+      "written": [
+        "# 도파민 중독자는 광고대행사로 오세요."
+      ]
+    },
+    {
+      "theme": "브랜드 현상",
+      "word": "한정판",
+      "interest": 16,
+      "rise": 0.9,
+      "news7": 100,
+      "blogTotal": 2104812,
+      "written": []
+    },
+    {
+      "theme": "소비 현상",
+      "word": "필사",
+      "interest": 87.6,
+      "rise": 0.9,
+      "news7": 100,
+      "blogTotal": 2696282,
+      "written": []
+    },
+    {
+      "theme": "소비 현상",
+      "word": "가성비",
+      "interest": 29.9,
+      "rise": 0.86,
+      "news7": 100,
+      "blogTotal": 42422659,
+      "written": []
+    },
+    {
+      "theme": "마케터의 일",
+      "word": "AI 광고",
+      "interest": 7.5,
+      "rise": 0.85,
+      "news7": 100,
+      "blogTotal": 1480516,
+      "written": [
+        "# 세계적 마케팅 거장이 말하는 AI에 대체되지 않는 법",
+        "# 'AI 시대의 인재'의 진짜 의미",
+        "# AI 시대에는 안전한 선택을 해선 안돼요. "
+      ]
+    },
+    {
+      "theme": "소비 현상",
+      "word": "편의점 신상",
+      "interest": 62.1,
+      "rise": 0.84,
+      "news7": 27,
+      "blogTotal": 804496,
+      "written": []
+    },
+    {
+      "theme": "마케터의 일",
+      "word": "IMC",
+      "interest": 14.6,
+      "rise": 0.8,
+      "news7": 41,
+      "blogTotal": 84300,
+      "written": [
+        "# 04화 IMC 캠페인은 인플루언서가 전부 아닌가요 "
+      ]
+    },
+    {
+      "theme": "마케터의 일",
+      "word": "브랜드 마케팅",
+      "interest": 5.7,
+      "rise": 0.79,
+      "news7": 100,
+      "blogTotal": 3538214,
+      "written": [
+        "# 브랜드가 기억되는 건 순간이 아니라 반복이다",
+        "# 브랜드는 이제 시간을 판다",
+        "# 10화 뷰티 브랜드가 걸그룹의 가면을 쓴 이유"
+      ]
+    },
+    {
+      "theme": "브랜드 현상",
+      "word": "리브랜딩",
+      "interest": 5,
+      "rise": 0.76,
+      "news7": 100,
+      "blogTotal": 110905,
+      "written": []
+    },
+    {
+      "theme": "브랜드 현상",
+      "word": "숏폼 광고",
+      "interest": 0.3,
+      "rise": 0.75,
+      "news7": 100,
+      "blogTotal": 153789,
+      "written": []
+    },
+    {
+      "theme": "브랜드 현상",
+      "word": "오픈런",
+      "interest": 24.6,
+      "rise": 0.75,
+      "news7": 100,
+      "blogTotal": 2611763,
+      "written": []
+    },
+    {
+      "theme": "마케터의 일",
+      "word": "인플루언서 마케팅",
+      "interest": 6,
+      "rise": 0.72,
+      "news7": 100,
+      "blogTotal": 641686,
+      "written": [
+        "# 04화 IMC 캠페인은 인플루언서가 전부 아닌가요 "
+      ]
+    },
+    {
+      "theme": "소비 현상",
+      "word": "무지출 챌린지",
+      "interest": 3.6,
+      "rise": 0.71,
+      "news7": 3,
+      "blogTotal": 61416,
+      "written": []
+    },
+    {
+      "theme": "브랜드 현상",
+      "word": "팝업스토어",
+      "interest": 155.2,
+      "rise": 0.7,
+      "news7": 100,
+      "blogTotal": 1693870,
+      "written": [
+        "# K리그 팝업스토어는 왜 대박이 났을까?"
+      ]
+    },
+    {
+      "theme": "마케터의 일",
+      "word": "AI 마케팅",
+      "interest": 4.9,
+      "rise": 0.68,
+      "news7": 100,
+      "blogTotal": 1254900,
+      "written": [
+        "# 세계적 마케팅 거장이 말하는 AI에 대체되지 않는 법",
+        "# 'AI 시대의 인재'의 진짜 의미",
+        "# AI 시대에는 안전한 선택을 해선 안돼요. "
+      ]
+    },
+    {
+      "theme": "마케터의 일",
+      "word": "퍼스널 브랜딩",
+      "interest": 8.8,
+      "rise": 0.66,
+      "news7": 30,
+      "blogTotal": 345344,
+      "written": []
+    },
+    {
+      "theme": "소비 현상",
+      "word": "저속노화",
+      "interest": 17,
+      "rise": 0.62,
+      "news7": 53,
+      "blogTotal": 195033,
+      "written": []
+    },
+    {
+      "theme": "마케터의 일",
+      "word": "콘텐츠 마케팅",
+      "interest": 1.5,
+      "rise": 0.57,
+      "news7": 100,
+      "blogTotal": 2359230,
+      "written": [
+        "# 돌고래 유괴단의 콘텐츠는 왜 화제가 될까?",
+        "# 5가지 키워드로 알아보는 2025년 콘텐츠 마케팅",
+        "# 02화 요즘 것들이 좋아하는 콘텐츠는 '날 것'이 있다"
+      ]
+    },
+    {
+      "theme": "소비 현상",
+      "word": "혼행",
+      "interest": 0.2,
+      "rise": 0.32,
+      "news7": 0,
+      "blogTotal": 54019,
+      "written": []
+    },
+    {
+      "theme": "브랜드 현상",
+      "word": "굿즈 마케팅",
+      "interest": 0,
+      "rise": 0,
+      "news7": 100,
+      "blogTotal": 184936,
+      "written": []
+    },
+    {
+      "theme": "브랜드 현상",
+      "word": "숏드라마 광고",
+      "interest": 0,
+      "rise": 0,
+      "news7": 11,
+      "blogTotal": 10943,
+      "written": []
+    },
+    {
+      "theme": "브랜드 현상",
+      "word": "브랜드 세계관",
+      "interest": 0,
+      "rise": 0,
+      "news7": 100,
+      "blogTotal": 140676,
+      "written": [
+        "# 브랜드가 기억되는 건 순간이 아니라 반복이다",
+        "# 브랜드는 이제 시간을 판다",
+        "# 10화 뷰티 브랜드가 걸그룹의 가면을 쓴 이유"
+      ]
+    },
+    {
+      "theme": "브랜드 현상",
+      "word": "캐릭터 마케팅",
+      "interest": 0,
+      "rise": 0,
+      "news7": 100,
+      "blogTotal": 424300,
+      "written": []
+    },
+    {
+      "theme": "브랜드 현상",
+      "word": "팬덤 마케팅",
+      "interest": 0,
+      "rise": 0,
+      "news7": 100,
+      "blogTotal": 99201,
+      "written": []
+    },
+    {
+      "theme": "소비 현상",
+      "word": "취향 소비",
+      "interest": 0,
+      "rise": 0,
+      "news7": 100,
+      "blogTotal": 2371516,
+      "written": []
+    },
+    {
+      "theme": "마케터의 일",
+      "word": "생성형 AI 광고",
+      "interest": 0,
+      "rise": 0,
+      "news7": 100,
+      "blogTotal": 192842,
+      "written": []
+    },
+    {
+      "theme": "마케터의 일",
+      "word": "마케터 이직",
+      "interest": 0,
+      "rise": 0,
+      "news7": 3,
+      "blogTotal": 31503,
+      "written": [
+        "# ‘마케터의 무기들’ 리뷰: 나의 최고의 무기는?",
+        "# 07화 강민경의 송혜교 브이로그는 왜 마케터들이 주목했을까",
+        "# 10년차 마케터가 추천하는 5가지 랜선 사수채널"
+      ]
+    },
+    {
+      "theme": "시즌",
+      "word": "수능 마케팅",
+      "interest": 0,
+      "rise": 0,
+      "news7": 19,
+      "blogTotal": 94636,
+      "written": []
+    },
+    {
+      "theme": "시즌",
+      "word": "크리스마스 마케팅",
+      "interest": 0,
+      "rise": 0,
+      "news7": 42,
+      "blogTotal": 138887,
+      "written": []
+    },
+    {
+      "theme": "시즌",
+      "word": "연말 캠페인",
+      "interest": 0,
+      "rise": 0,
+      "news7": 100,
+      "blogTotal": 105922,
+      "written": []
+    }
+  ],
+  "cases": [
+    {
+      "title": "롯데웰푸드, 빼빼로데이 시즌 한정판 10종 출시...마케팅 본격화",
+      "keyword": "롯데웰푸드",
+      "outlets": 12,
+      "signals": [
+        "조회수",
+        "돌파",
+        "화제"
+      ],
+      "searchRise": 1.69,
+      "url": "https://www.sportschosun.com/life/2026-10-15/202610150100100510006472",
+      "written": []
+    },
+    {
+      "title": "스트레이 키즈 빼빼로 광고 1000만뷰…롯데웰푸드 시즌 공략",
+      "keyword": "스트레이 키즈 효과 톡톡",
+      "outlets": 11,
+      "signals": [
+        "조회수",
+        "돌파",
+        "1000만뷰"
+      ],
+      "searchRise": 0,
+      "url": "https://www.thedailypost.kr/news/articleView.html?idxno=116213",
+      "written": []
+    },
+    {
+      "title": "SK하이닉스, 43년 역사 담은 '초심' 캠페인 공개",
+      "keyword": "초심",
+      "outlets": 9,
+      "signals": [
+        "1만개",
+        "16장",
+        "1만 개"
+      ],
+      "searchRise": 0.89,
+      "url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=495790",
+      "written": []
+    },
+    {
+      "title": "[식음료브리핑] 롯데칠성, '캪틴큐' 광고 모델에 이선민 발탁 외",
+      "keyword": "캪틴큐",
+      "outlets": 7,
+      "signals": [
+        "화제",
+        "1000만병"
+      ],
+      "searchRise": 4.78,
+      "url": "https://www.seoulfn.com/news/articleView.html?idxno=640258",
+      "written": []
+    },
+    {
+      "title": "한화, 우주태양광 소재 영화 프로젝트 참여한다",
+      "keyword": "한화",
+      "outlets": 16,
+      "signals": [
+        "화제",
+        "31회"
+      ],
+      "searchRise": 1.07,
+      "url": "https://www.handmk.com/news/articleView.html?idxno=44064",
+      "written": []
+    },
+    {
+      "title": "[현장] 지그재그, 성수 팝업서 쇼핑몰 50곳 선봬…온·오프라인 연계 강...",
+      "keyword": "지그재그",
+      "outlets": 7,
+      "signals": [
+        "급증",
+        "15만원",
+        "50개"
+      ],
+      "searchRise": 1.15,
+      "url": "https://www.news2day.co.kr/article/20261015500237",
+      "written": [
+        "# 15화 무신사와 지그재그는 왜 서로를 비꼬았을까"
+      ]
+    },
+    {
+      "title": "도미노피자, 리센느와 두 번째 브랜드 캠페인…유튜브 1.6억뷰 흥행 잇는...",
+      "keyword": "도미노피자",
+      "outlets": 5,
+      "signals": [
+        "조회수",
+        "돌파",
+        "흥행"
+      ],
+      "searchRise": 0.88,
+      "url": "https://www.megaeconomy.co.kr/news/newsview.php?ncode=1065592688394715",
+      "written": []
+    },
+    {
+      "title": "넷마블 <세븐나이츠 리버스>, 애니메이션 ‘귀멸의 칼날’ 콜라보 2차 업...",
+      "keyword": "귀멸의 칼날",
+      "outlets": 11,
+      "signals": [
+        "흥행"
+      ],
+      "searchRise": 0.76,
+      "url": "https://www.globalepic.co.kr/view.php?ud=2026101612040942648439a4874_29",
+      "written": []
+    },
+    {
+      "title": "'맛꾸' 열풍에…오리온 초코칩쿠키, 올해 매출 30% 늘어",
+      "keyword": "맛꾸",
+      "outlets": 9,
+      "signals": [
+        "조회수",
+        "돌파",
+        "열풍"
+      ],
+      "searchRise": 1,
+      "url": "https://www.nocutnews.co.kr/news/6589315?utm_source=naver&utm_medium=article&utm_campaign=20261009103445",
+      "written": []
+    },
+    {
+      "title": "롯데홈쇼핑·롯데백화점, 파리서 '이설' 팝업 스토어 운영·'롯데 투어리...",
+      "keyword": "이설",
+      "outlets": 6,
+      "signals": [
+        "33개",
+        "39개",
+        "22만명"
+      ],
+      "searchRise": 0.91,
+      "url": "http://www.wsobi.com/news/articleView.html?idxno=319492",
+      "written": []
+    },
+    {
+      "title": "이색 먹거리 열풍, 이제는 '피자설기'",
+      "keyword": "피자설기",
+      "outlets": 5,
+      "signals": [
+        "열풍",
+        "110만개",
+        "280만개"
+      ],
+      "searchRise": 1.01,
+      "url": "https://www.jbnews.com/news/articleView.html?idxno=1513477",
+      "written": []
+    },
+    {
+      "title": "100만 명 홀린 ‘부캉이’…편의점 매출 76% 뛰고 소주·AI 서비스까지 ...",
+      "keyword": "부캉이",
+      "outlets": 4,
+      "signals": [
+        "열풍",
+        "화제",
+        "100만 명"
+      ],
+      "searchRise": 0.52,
+      "url": "https://www.venturesquare.net/1118676/",
+      "written": []
+    },
+    {
+      "title": "송가인, 데뷔 14주년 맞아... 음악·예능 넘나드는 활약",
+      "keyword": "송가인",
+      "outlets": 3,
+      "signals": [
+        "조회수",
+        "돌파",
+        "화제"
+      ],
+      "searchRise": 1.34,
+      "url": "https://www.ggilbo.com/news/articleView.html?idxno=1186294",
+      "written": []
+    },
+    {
+      "title": "BIFF, '시네마바이브랜드' 세션 성료…\"홍의정 감독 포함 3편 공개\"",
+      "keyword": "시네마바이브랜드",
+      "outlets": 7,
+      "signals": [
+        "화제",
+        "31회"
+      ],
+      "searchRise": null,
+      "url": "http://www.dispatch.co.kr/2349273",
+      "written": []
+    },
+    {
+      "title": "GS25, 日 심장에 깃발 꽂았다…도쿄 오모테산도 팝업",
+      "keyword": "GS25",
+      "outlets": 5,
+      "signals": [
+        "품절",
+        "대란",
+        "열풍"
+      ],
+      "searchRise": 1.01,
+      "url": "https://www.theguru.co.kr/news/article.html?no=108359",
+      "written": []
+    },
+    {
+      "title": "롯데홈쇼핑, 佛 패션 중심에서 … K뷰티, 파리지앵을 홀리다",
+      "keyword": "롯데홈쇼핑",
+      "outlets": 4,
+      "signals": [
+        "흥행",
+        "22만명",
+        "22만 명"
+      ],
+      "searchRise": 1.05,
+      "url": "https://www.mk.co.kr/article/12175716",
+      "written": []
+    },
+    {
+      "title": "강원랜드, 홍대 팝업에 1만명 몰려…고길동 앞세운 이미지 개선 효과 기...",
+      "keyword": "강원랜드",
+      "outlets": 4,
+      "signals": [
+        "돌파",
+        "1만명",
+        "1만 명"
+      ],
+      "searchRise": 1.23,
+      "url": "https://www.sportschosun.com/life/2026-10-14/202610140100087780005704",
+      "written": []
+    },
+    {
+      "title": "KCC건설 스위첸 ‘위대한 집안일’, 유튜브 7000만뷰 돌파",
+      "keyword": "위대한 집안일",
+      "outlets": 4,
+      "signals": [
+        "조회수",
+        "돌파",
+        "역대"
+      ],
+      "searchRise": 0.6,
+      "url": "https://www.mk.co.kr/article/12169642",
+      "written": []
+    },
+    {
+      "title": "르무통, 인기 모델 ‘코지2’의 포근함을 이어갈 ‘코지3’ 출시",
+      "keyword": "르무통",
+      "outlets": 3,
+      "signals": [
+        "품절",
+        "대란",
+        "2천개"
+      ],
+      "searchRise": 1.01,
+      "url": "https://www.fashionbiz.co.kr/article/230320",
+      "written": []
+    },
+    {
+      "title": "에이블리, Z세대 중심 '디놀' 확산에 디지털카메라&액세서리 인기",
+      "keyword": "디놀",
+      "outlets": 5,
+      "signals": [
+        "급증",
+        "열풍",
+        "2배"
+      ],
+      "searchRise": 1.14,
+      "url": "https://www.slist.kr/news/articleView.html?idxno=772443",
+      "written": []
+    }
+  ]
+}
