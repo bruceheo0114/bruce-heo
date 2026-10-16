@@ -15,7 +15,8 @@
     "pr:summary": "node src/cli/pr-summary.js",
     "draft:validate": "node src/cli/validate-draft.js",
     "youtube": "node src/cli/youtube.js",
-    "youtube:latest": "node src/cli/youtube-latest.js"
+    "youtube:latest": "node src/cli/youtube-latest.js",
+    "naver:issues": "node src/cli/naver-issues.js"
   },
   "dependencies": {
     "cheerio": "1.2.0",

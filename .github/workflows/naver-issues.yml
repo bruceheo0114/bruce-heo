@@ -1,0 +1,43 @@
+name: Naver weekly issue candidates
+
+# 일요일 19:43 카드 루틴(「이번 주 마케팅 이슈 10건」)이 쓰기 전에 후보를 미리 모은다.
+# 네이버 개발자센터 무료 오픈 API(검색 하루 25,000회 · 데이터랩 하루 1,000회 중 한 번에 100회 남짓)만 쓰고 Claude는 쓰지 않는다.
+# 결과는 insight-reels/candidates/<월요일>.json 로 main 에 커밋한다. 키는 Secrets 의 NAVER_CLIENT_ID · NAVER_CLIENT_SECRET.
+on:
+  schedule:
+    - cron: "7 9 * * 0"  # 매주 일 18:07 KST
+  workflow_dispatch:
+
+concurrency:
+  group: naver-issues
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      NAVER_CLIENT_ID: ${{ secrets.NAVER_CLIENT_ID }}
+      NAVER_CLIENT_SECRET: ${{ secrets.NAVER_CLIENT_SECRET }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Collect candidates
+        run: node src/cli/naver-issues.js
+
+      - name: Commit
+        run: |
+          git add insight-reels/candidates
+          git diff --cached --quiet && exit 0
+          git config user.name "bruce-content-bot"
+          git config user.email "bruce-content-bot@users.noreply.github.com"
+          git commit -m "chore: naver issue candidates"
+          git pull --rebase -q && git push
