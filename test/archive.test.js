@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
-import { parseArchiveArticle, renderArchiveIndex, renderArticlePage, renderSitemap } from "../src/lib/archive.js";
+import { parseArchiveArticle, renderArchiveIndex, renderArticlePage, renderSitemap, suggestCategory } from "../src/lib/archive.js";
 
 const html = await readFile(new URL("./fixtures/archive-article.html", import.meta.url), "utf8");
 
@@ -125,4 +125,18 @@ test("글 분류 데이터가 실제 백업 글과 일치한다", async () => {
     assert.ok(keys.has(post.category), `알 수 없는 분류 ${id}`);
   }
   for (const id of [...meta.picks, ...meta.contextCases]) assert.ok(ids.includes(id), `없는 추천 글 ${id}`);
+});
+
+test("분류가 없는 글은 비슷한 글의 분류를 제안한다", () => {
+  const post = (id, title, body) => ({ id, title, subtitle: "", blocks: [{ type: "text", tag: "p", html: body }] });
+  const all = [
+    post("1", "브랜드 캠페인 광고", "브랜드 캠페인 광고 모델"),
+    post("2", "광고 캠페인 이야기", "캠페인 광고 브랜드 메시지"),
+    post("3", "AI 업무 자동화", "AI 업무 자동화 도구"),
+    post("4", "AI로 일하는 법", "AI 자동화 업무 방식"),
+    post("5", "새 브랜드 광고 캠페인", "브랜드 광고 캠페인 영화"),
+  ];
+  const meta = { posts: { 1: { category: "brand" }, 2: { category: "brand" }, 3: { category: "work" }, 4: { category: "work" } } };
+  assert.equal(suggestCategory(all[4], all, meta), "brand");
+  assert.equal(suggestCategory(all[4], all, { posts: {} }), null, "분류된 글이 없으면 제안하지 않는다");
 });

@@ -9,7 +9,7 @@ import path from "node:path";
 import sharp from "sharp";
 import { CONFIG, PATHS } from "../config.js";
 import { canonicalUrl, fetchText } from "../lib/brunch.js";
-import { imageSlots, localImageName, parseArchiveArticle, renderArchiveIndex, renderArticlePage, renderContextPage, renderSitemap, sortArticles } from "../lib/archive.js";
+import { imageSlots, localImageName, parseArchiveArticle, renderArchiveIndex, renderArticlePage, renderContextPage, renderSitemap, sortArticles, suggestCategory } from "../lib/archive.js";
 import { mapLimit, readJson, writeFileAtomic, writeJson } from "../lib/files.js";
 import { linkArchivedPosts, replaceWritingPicks } from "../lib/homepage.js";
 
@@ -145,6 +145,15 @@ async function render() {
     }
   }
   const meta = await readJson(PATHS.writingMeta, {});
+  // 분류가 없는 새 글은 비슷한 글의 분류를 넣고 auto 표시를 남긴다. 표시를 지우거나 분류를 고치면 사람이 확인한 것이다.
+  const unlabeled = articles.filter((article) => !meta.posts?.[article.id]?.category);
+  for (const article of unlabeled) {
+    const category = suggestCategory(article, articles, meta);
+    if (!category) continue;
+    meta.posts = { ...meta.posts, [article.id]: { category, auto: true, ...meta.posts?.[article.id] } };
+    console.log(`::notice::글 ${article.id} 「${article.title}」을 '${category}'로 자동 분류했습니다. data/writing-meta.json 에서 확인하세요.`);
+  }
+  if (unlabeled.length) await writeJson(PATHS.writingMeta, meta);
   for (const [index, article] of articles.entries()) {
     const page = renderArticlePage(article, { newer: articles[index - 1] ?? null, older: articles[index + 1] ?? null, all: articles, meta });
     await writeFileAtomic(path.join(PATHS.archivePages, article.id, "index.html"), page);
