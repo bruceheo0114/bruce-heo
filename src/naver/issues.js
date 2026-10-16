@@ -156,8 +156,12 @@ export function trendRise(data, { until }) {
   return Math.round((recent / before) * 100) / 100;
 }
 
+// 매체 수가 많아도 보도자료 재탕일 수 있어 상한을 두고, 「숫자로 확인」(CAROUSEL.md 고르는 기준 2)에 더 무게를 준다.
 export function scoreCandidate(candidate) {
-  let score = candidate.outlets.length * 2 + Math.min(candidate.signals.length, 4);
+  const numbers = candidate.signals.filter((signal) => /\d/.test(signal)).length;
+  const words = candidate.signals.length - numbers;
+  let score = Math.min(candidate.outlets.length, 10) * 1.2 + Math.min(numbers, 3) * 1.5 + Math.min(words, 3);
+  if (!candidate.signals.length) score -= 3;
   if (candidate.within7) score += 2;
   if (candidate.blog7) score += Math.min(candidate.blog7 / 20, 3);
   if (candidate.searchRise === null) score += 2;
