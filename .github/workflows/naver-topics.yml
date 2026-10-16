@@ -4,9 +4,6 @@ name: Naver topic ideas
 # 최근 7일 뉴스 수, 블로그 경쟁 글 수와 이번 주 이슈 후보 속 브랜드 사례를 data/topic-ideas.json 으로 커밋한다.
 on:
   workflow_dispatch:
-  push:  # 임시: main 합치기 전 시험 실행용. 확인 뒤 지운다.
-    branches: [claude/naver-cloud-api-branding-tdpqo0]
-    paths: [.github/workflows/naver-topics.yml]
 
 concurrency:
   group: naver-topics
