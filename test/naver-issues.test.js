@@ -104,3 +104,19 @@ test("후보 수집은 일요일 카드 루틴(19:43 KST) 전에 Secrets 로 돈
   assert.equal(workflow.jobs.collect.env.NAVER_CLIENT_ID, "${{ secrets.NAVER_CLIENT_ID }}");
   assert.doesNotMatch(text, /ncloud|apigw/);
 });
+
+test("인증 실패는 키 값 없이 길이로 알려 준다", async () => {
+  const client = naverClient({
+    clientId: "abcdefghij0123456789",
+    clientSecret: "secret-값",
+    pause: async () => {},
+    request: async () => {
+      throw Object.assign(new Error("401"), { status: 401, body: '{"errorCode":"024"}' });
+    },
+  });
+  await assert.rejects(client.search("news", "q"), (error) => {
+    assert.match(error.message, /NAVER_CLIENT_ID 20자 · NAVER_CLIENT_SECRET 8자, 영문·숫자 아닌 글자 있음/);
+    assert.doesNotMatch(error.message, /abcdefghij|secret-값/);
+    return true;
+  });
+});

@@ -22,11 +22,23 @@ export function naverClient({
   async function call(path, options = {}) {
     if (calls > 0) await pause(PAUSE_MS);
     calls += 1;
-    const { body } = await request("Naver", `${BASE}${path}`, {
-      ...options,
-      headers: { ...headers, ...options.headers },
-    });
-    return body;
+    try {
+      const { body } = await request("Naver", `${BASE}${path}`, {
+        ...options,
+        headers: { ...headers, ...options.headers },
+      });
+      return body;
+    } catch (error) {
+      // 키 값은 로그에 남기지 않고 길이·글자 모양만 알려 준다(개발자센터 키는 보통 ID 20자, Secret 10자의 영문·숫자).
+      if (error.status === 401) {
+        const shape = (value) => `${value.length}자${/^[A-Za-z0-9_-]+$/.test(value) ? "" : ", 영문·숫자 아닌 글자 있음"}`;
+        throw new Error(
+          `네이버 인증 실패(401): NAVER_CLIENT_ID ${shape(headers["X-Naver-Client-Id"])} · NAVER_CLIENT_SECRET ${shape(headers["X-Naver-Client-Secret"])}. ` +
+            `developers.naver.com → 내 애플리케이션의 Client ID·Client Secret 인지, 둘이 바뀌지 않았는지 확인하세요. 응답: ${String(error.body).slice(0, 200)}`,
+        );
+      }
+      throw error;
+    }
   }
 
   return {
