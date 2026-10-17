@@ -1,7 +1,7 @@
 {
   "version": 1,
   "initialized": true,
-  "lastCheckedAt": "2026-10-17T00:55:00.759Z",
+  "lastCheckedAt": "2026-10-17T23:00:24.721Z",
   "lastCheckedCanonicalUrl": "https://brunch.co.kr/@heoboram/226",
   "reviewSuccessCount": 1,
   "mode": "review",
@@ -39,6 +39,39 @@
       },
       "approvedAt": "2026-10-14T04:50:58.920Z",
       "scheduledAt": "2026-10-19T22:30:00.000Z",
+      "completedAt": null
+    },
+    "183": {
+      "id": "183",
+      "canonicalUrl": "https://brunch.co.kr/@heoboram/183",
+      "title": "AI의 직관 vs 마케터의 직관",
+      "publishedAt": "2025-10-13T13:22:21.000Z",
+      "bodyHash": "59b16f96a89ad75b19d81fce89428b51f75a937949e856c168c6f27f282bcf54",
+      "batchId": "backlog-183",
+      "cardOnly": true,
+      "homepage": {
+        "status": "not_listed",
+        "updatedAt": null
+      },
+      "package": {
+        "status": "awaiting_review",
+        "manifestPath": "content/183/manifest.json",
+        "generatedAt": null
+      },
+      "linkedin": {
+        "status": "skipped_backlog",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "instagram": {
+        "status": "manual_pending",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "approvedAt": null,
+      "scheduledAt": null,
       "completedAt": null
     },
     "193": {
