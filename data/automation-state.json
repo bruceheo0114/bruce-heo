@@ -54,9 +54,10 @@
         "updatedAt": null
       },
       "package": {
-        "status": "awaiting_review",
+        "status": "generated",
         "manifestPath": "content/183/manifest.json",
-        "generatedAt": null
+        "generatedAt": "2026-10-18T04:50:07.518Z",
+        "approvedAt": "2026-10-18T04:50:18.923Z"
       },
       "linkedin": {
         "status": "skipped_backlog",
@@ -65,13 +66,14 @@
         "error": null
       },
       "instagram": {
-        "status": "manual_pending",
+        "status": "scheduled",
         "id": null,
         "lastAttemptAt": null,
-        "error": null
+        "error": null,
+        "scheduledDate": "2026-11-06"
       },
-      "approvedAt": null,
-      "scheduledAt": null,
+      "approvedAt": "2026-10-18T04:50:18.923Z",
+      "scheduledAt": "2026-10-19T22:30:00.000Z",
       "completedAt": null
     },
     "193": {
