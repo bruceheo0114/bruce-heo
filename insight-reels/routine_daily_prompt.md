@@ -18,7 +18,7 @@
 
 ## 2. 오늘의 시의성 — 네이버 데이터(Actions 가 20:07 에 준비)
 - `git pull` 뒤 `insight-reels/trends/<D>.json` 을 읽는다(없거나 `generated_at` 이 하루 넘게 지났으면 이 단계 없이 3단계로). 루틴에는 네이버 키가 없다 — 이 파일이 유일한 네이버 재료다.
-- 형식: `items` 가 글마다 `{no, title, heat, hook, terms: [{term, avg, rise, news7, news: [{title, date, link, summary}]}]}`, heat 높은 순. `rise` = 최근 7일 검색량 ÷ 그 전(null = 새로 뜬 말), `news7` = 최근 7일 그 이름이 들어간 기사 수.
+- 형식: `items` 가 글마다 `{no, title, heat, hook, terms: [{term, avg, rise, news7, news: [{title, date, link, summary}]}]}`, heat 높은 순. `rise` = 최근 7일 검색량 ÷ 그 전(null = 새로 뜬 말), `news7` = 최근 7일 「이름 + 마케팅」 기사 중 제목에 그 이름이 있는 수. 숫자가 커도 엉뚱한 기사(스포츠·증권·동명이인)일 수 있으니 기사 제목으로 꼭 확인한다.
 - **시의성 훅 후보** = heat 3 이상이고 `news` 가 1건 이상인 이름. 그 이름이 원문 속 사례·브랜드와 **같은 대상**인지 기사 제목·요약으로 확인한다(동음이의·다른 회사면 버린다).
 
 ## 3. 소스 글과 각도(angle) 고르기 — 한 글에서 여러 편

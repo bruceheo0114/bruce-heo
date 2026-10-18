@@ -3,7 +3,7 @@ import { readJson, writeJson } from "../lib/files.js";
 import { extractTerms, trendAverage } from "../naver/hooks.js";
 import { kstDate, trendRise } from "../naver/issues.js";
 import { naverClient } from "../naver/openapi.js";
-import { heatOf, nextKstDate, recentNews, reelSources } from "../naver/reels.js";
+import { heatOf, newsQuery, newsWorthy, nextKstDate, recentNews, reelSources } from "../naver/reels.js";
 
 // 매일 저녁 릴스 루틴(21:13 KST)이 다음 날 릴스를 고르기 전에, 쓸 수 있는 브런치 글마다 원문 속 이름의
 // 데이터랩 검색량(30일)과 최근 7일 네이버 뉴스를 붙여 insight-reels/trends/<다음 날>.json 으로 남긴다.
@@ -42,8 +42,9 @@ for (const source of reelSources(queue, cacheIndex, { now })) {
         return { term, avg: trendAverage(data), rise: trendRise(data, { until: now }) };
       })
       .sort((a, b) => b.avg - a.avg);
-    for (const entry of scored.filter((term) => term.avg > 0).slice(0, NEWS_TERMS)) {
-      const news = recentNews(await naver.search("news", entry.term, { sort: "date", display: 50 }), entry.term, { until: now });
+    for (const entry of scored.filter((term) => term.avg > 0 && newsWorthy(term.term)).slice(0, NEWS_TERMS)) {
+      const raw = await naver.search("news", newsQuery(entry.term), { sort: "date", display: 50 });
+      const news = recentNews(raw, entry.term, { until: now });
       entry.news7 = news.count;
       entry.news = news.top;
     }
@@ -62,7 +63,7 @@ await writeJson(path, {
   for_date: nextKstDate(now),
   window: { trend: { since: startDate, until: endDate }, news_days: 7 },
   source: `네이버 데이터랩 검색어 트렌드 · 네이버 뉴스 검색 · ${naver.provider}`,
-  note: "avg 는 같은 글 안의 이름끼리만 비교한다(데이터랩 상대값). rise = 최근 7일 ÷ 그 전 23일(null = 새로 뜬 말). news7 = 최근 7일 기사 중 그 이름이 제목·요약에 들어간 수. heat 가 높은 글부터. 이름은 원문에서 뽑았다.",
+  note: "avg 는 같은 글 안의 이름끼리만 비교한다(데이터랩 상대값). rise = 최근 7일 ÷ 그 전 23일(null = 새로 뜬 말). news7 = 최근 7일 「이름 + 마케팅」 기사 중 제목에 그 이름이 들어간 수(두 글자 한글 일반 명사는 뉴스를 찾지 않는다). heat 가 높은 글부터. 이름은 원문에서 뽑았다.",
   warnings,
   items,
 });

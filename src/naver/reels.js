@@ -29,7 +29,17 @@ export function reelSources(queue, cacheIndex, { now = new Date(), newWithinDays
   return sources;
 }
 
-// 최근 7일 뉴스 중 그 이름이 제목·요약에 실제로 들어간 것만(동음이의 기사 거르기). 논란·사고 기사는 뺀다.
+// 뉴스를 찾을 만한 이름인지: 두 글자 한글 일반 명사(기억·제작·시간)는 엉뚱한 기사만 모아서 뺀다.
+export function newsWorthy(term) {
+  return !/^\p{Script=Hangul}{1,2}$/u.test(term);
+}
+
+// 마케팅 맥락으로 좁혀 찾는다(같은 이름의 스포츠·증권 기사 줄이기).
+export function newsQuery(term) {
+  return `${term} 마케팅`;
+}
+
+// 최근 7일 뉴스 중 그 이름이 기사 제목에 들어간 것만(동음이의·스치듯 언급 거르기). 논란·사고 기사는 뺀다.
 export function recentNews(rawItems, term, { until, days = 7, keep = 3 }) {
   const since = new Date(until).valueOf() - days * DAY_MS;
   const items = [];
@@ -39,7 +49,7 @@ export function recentNews(rawItems, term, { until, days = 7, keep = 3 }) {
     if (!date || date.valueOf() < since || date.valueOf() > new Date(until).valueOf()) continue;
     const title = cleanText(raw.title);
     const description = cleanText(raw.description);
-    if (!`${title} ${description}`.includes(term) || excludedBy(`${title} ${description}`).length) continue;
+    if (!title.includes(term) || excludedBy(`${title} ${description}`).length) continue;
     const link = raw.originallink || raw.link;
     if (links.has(link)) continue;
     links.add(link);
