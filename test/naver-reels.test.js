@@ -47,6 +47,7 @@ test("최근 7일 뉴스 중 제목에 그 이름이 들어간 기사만 세고 
 test("두 글자 한글 일반 명사는 뉴스를 찾지 않는다", () => {
   assert.equal(newsWorthy("기억"), false);
   assert.equal(newsWorthy("르게다꼼"), true);
+  assert.equal(newsWorthy("AI"), false);
   assert.equal(newsWorthy("MLB"), true);
 });
 

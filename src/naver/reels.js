@@ -29,9 +29,9 @@ export function reelSources(queue, cacheIndex, { now = new Date(), newWithinDays
   return sources;
 }
 
-// 뉴스를 찾을 만한 이름인지: 두 글자 한글 일반 명사(기억·제작·시간)는 엉뚱한 기사만 모아서 뺀다.
+// 뉴스를 찾을 만한 이름인지: 두 글자 한글 일반 명사(기억·제작·시간)·두 글자 영문(AI)은 엉뚱한 기사만 모아서 뺀다.
 export function newsWorthy(term) {
-  return !/^\p{Script=Hangul}{1,2}$/u.test(term);
+  return !/^(\p{Script=Hangul}{1,2}|[A-Za-z]{1,2})$/u.test(term);
 }
 
 // 마케팅 맥락으로 좁혀 찾는다(같은 이름의 스포츠·증권 기사 줄이기).
