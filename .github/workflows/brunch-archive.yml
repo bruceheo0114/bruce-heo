@@ -4,7 +4,7 @@ name: Brunch archive
 # 클라우드 루틴 환경은 brunch.co.kr 접속이 막혀 있어서 인터넷이 열린 Actions 에서 받는다.
 on:
   schedule:
-    - cron: "41 23 * * *"  # 08:41 KST, 브런치 일일 자동화(08:00) 뒤
+    - cron: "0 22 * * *"  # 07:00 KST
   push:
     branches: [main]
     paths:
