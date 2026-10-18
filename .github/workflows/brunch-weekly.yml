@@ -58,12 +58,10 @@ jobs:
           node -e "const fs=require('fs');const r=JSON.parse(fs.readFileSync('.automation-result.json'));const out=process.env.GITHUB_OUTPUT;fs.appendFileSync(out,'has_package='+(r.packageArticleIds.length?'true':'false')+'\n');fs.appendFileSync(out,'batch_id='+(r.batchId||'')+'\n');fs.appendFileSync(out,'mode='+r.mode+'\n');fs.appendFileSync(out,'article_ids='+r.packageArticleIds.join(' ')+'\n')"
 
       # main 에 병합된 콘텐츠(manifest 있음)를 승인 처리해 다음 화요일 07:30 KST LinkedIn 게시 대기열에 넣는다.
-      # main 에 병합된 콘텐츠를 승인 처리하고, 카드뉴스를 금·토·일 07:00 인스타그램 게시 대기열에 넣는다.
+      # 브런치 카드뉴스는 인스타그램에 올리지 않는다(2026-10-18 결정 — 인스타는 매일 릴스 + 월요일 트렌드).
       - name: Schedule merged content
         run: |
           node src/cli/approve-merged.js
-          node src/cli/schedule-instagram.js
-          node src/cli/card-backlog.js || echo "::warning::카드뉴스 큐 준비 실패(다음 실행에 다시 시도)"
 
       - name: Publish homepage update and writer sources immediately
         run: |
@@ -158,11 +156,9 @@ jobs:
           git fetch -q origin main
           git switch -q -C main origin/main
           node src/cli/approve-merged.js
-          node src/cli/schedule-instagram.js
-          node src/cli/card-backlog.js || echo "::warning::카드뉴스 큐 준비 실패(다음 실행에 다시 시도)"
           git add -- data/automation-state.json 'content/*/manifest.json' 'content/*/source.json' 'insight-reels/posts/*.json' insight-reels/carousel_queue.json
           git diff --cached --quiet && exit 0
-          git commit -m "chore: schedule Brunch card news for Instagram"
+          git commit -m "chore: schedule merged Brunch content"
           git pull --rebase -q origin main && git push origin HEAD:main
 
       - name: Report failure as GitHub issue

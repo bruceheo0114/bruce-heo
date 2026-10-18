@@ -15,14 +15,16 @@ REPO = os.environ.get("GITHUB_REPOSITORY", "bruceheo0114/bruce-heo")
 RUN_BUDGET = dt.timedelta(minutes=int(os.environ.get("CLOCK_BUDGET_MINUTES", "340")))
 CATCH_UP = dt.timedelta(minutes=20)  # 시계가 이어지는 사이에 놓친 시각을 다시 잡는 폭
 
-# (KST 시, 분, 요일(월=0) 또는 None=매일, 워크플로 파일, 날짜를 post_date 로 넘길지)
+# (KST 시, 분, 요일(월=0) 또는 None=매일, 워크플로 파일, 날짜를 post_date 로 넘길지[, 더 넘길 입력])
 SLOTS = [
     # 리멤버는 자동화하지 않는다. LinkedIn 뉴스레터는 목요일 Claude 루틴이 원고를 메일로 보낸다(발행은 직접).
-    (7, 0, None, "insight-reels-publish.yml", True),  # 월 업계 트렌드, 화·목 브런치 릴스, 수·금·토·일 브런치 카드뉴스
+    (7, 0, None, "insight-reels-publish.yml", True),  # 매일 릴스(월요일은 업계 트렌드 카드뉴스, 2026-10-19부터)
+    (18, 0, {0}, "insight-reels-publish.yml", True, (("post_slot", "reel"),)),  # 월요일 릴스(posts/DATE.reel.json)
     (7, 17, None, "brunch-cache.yml", False),
     (7, 30, None, "linkedin-publish.yml", False),  # LinkedIn 피드 글. 예약은 화요일 07:30 뿐이라 다른 날은 할 일 없이 끝난다(실패 재시도용으로 매일 돈다).
     (8, 0, None, "brunch-weekly.yml", False),
     (12, 30, None, "threads-publish.yml", True),
+    (20, 7, None, "naver-reels.yml", False),  # 21:13 릴스 루틴 전에 시의성 훅 재료(네이버 검색량·뉴스)
 ]
 
 # 한 번만 도는 예약. 브런치 예약 발행 직후 홈페이지 갱신(일일 자동화)과 원문 백업을 앞당긴다.
@@ -36,14 +38,14 @@ ONE_OFF = [
 def occurrences(start, end):
     day = start.date()
     while day <= end.date():
-        for hour, minute, weekdays, workflow, with_date in SLOTS:
+        for hour, minute, weekdays, workflow, with_date, *extra in SLOTS:
             at = dt.datetime(day.year, day.month, day.day, hour, minute, tzinfo=KST)
             if start < at <= end and (weekdays is None or at.weekday() in weekdays):
-                yield at, workflow, with_date
+                yield at, workflow, with_date, tuple(extra[0]) if extra else ()
         day += dt.timedelta(days=1)
     for at, workflow, with_date in ONE_OFF:
         if start < at <= end:
-            yield at, workflow, with_date
+            yield at, workflow, with_date, ()
 
 
 def dispatch(workflow, fields=()):
@@ -63,14 +65,14 @@ def main():
     started = dt.datetime.now(KST)
     deadline = started + RUN_BUDGET
     planned = sorted(occurrences(started - CATCH_UP, deadline))
-    print("이번 실행 예정:", [f"{at:%m-%d %H:%M} {wf}" for at, wf, _ in planned] or "없음", flush=True)
+    print("이번 실행 예정:", [f"{at:%m-%d %H:%M} {wf}" for at, wf, _, _ in planned] or "없음", flush=True)
 
     failed = False
-    for at, workflow, with_date in planned:
+    for at, workflow, with_date, extra in planned:
         wait = (at - dt.datetime.now(KST)).total_seconds()
         if wait > 0:
             time.sleep(wait)
-        fields = [("post_date", at.strftime("%Y-%m-%d"))] if with_date else []
+        fields = ([("post_date", at.strftime("%Y-%m-%d"))] if with_date else []) + list(extra)
         failed |= not dispatch(workflow, fields)
 
     wait = (deadline - dt.datetime.now(KST)).total_seconds()

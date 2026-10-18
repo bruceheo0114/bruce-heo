@@ -5,7 +5,7 @@
   "brunch_no": 215,
   "title": "새로운 것을 제안하되, 브랜드보다 앞서가지는 말 것",
   "brunch_url": "https://brunch.co.kr/@heoboram/215",
-  "status": "scheduled",
+  "status": "cancelled",
   "caption": "🧭 새로운 것을 제안하되, 브랜드보다 앞서가지는 마세요.\n\nRFP를 받으면 '이번에는 무엇을 새롭게 해야 하지'부터 떠올리게 돼요. 그런데 고급스러운 이미지를 쌓아온 F&B 브랜드가 1020에게 다가가겠다고 밈과 요즘 말투만 빌려오면, 기존 고객이 알던 품질의 이유까지 흐려질 수 있어요. 캠페인은 주목을 얻고 브랜드는 잃는 거죠.\n\n📌 새로운 타깃에게 다가가는 것과 새로운 브랜드가 되는 것은 달라요.\n\n그래서 아이디어를 꺼내기 전에 세 가지를 먼저 나눠요. 지켜야 할 것(핵심 가치·신뢰의 이유), 번역할 수 있는 것(타깃의 언어·장면), 실험할 수 있는 것(채널·포맷·크리에이터). 이 경계가 정해지면 새로움은 취향이 아니라 전략의 문제가 돼요.\n\n지금 쓰고 있는 제안서는 브랜드보다 앞서 있나요, 아니면 브랜드를 지금의 소비자 앞에 데려다 놓고 있나요?\n\n🔍 지킬 것·번역할 것·실험할 것을 나누는 기준은 bruceheo.com 에 정리해 뒀어요.\n\nRFP 받자마자 '이번엔 뭐 새로 하지'부터 묻는 팀에 보내 주세요.\n\n#브루스매거진 #RFP #제안서쓰기 #브랜드일관성 #타깃확장",
   "images": [
     "https://bruceheo.com/content/215/cards/01.jpg",
@@ -30,5 +30,6 @@
     "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/content/215/cards/08.jpg",
     "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/content/215/cards/09.jpg",
     "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/content/215/cards/10.jpg"
-  ]
+  ],
+  "cancel_reason": "2026-10-18 결정: 인스타는 매일 릴스 + 월요일 트렌드. 지금까지 만든 브런치 카드뉴스는 쓰지 않는다. 릴스 루틴이 이 날짜를 릴스로 덮어쓴다."
 }

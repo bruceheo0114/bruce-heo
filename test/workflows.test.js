@@ -48,13 +48,14 @@ test("게시 시계는 게시 워크플로를 직접 시작할 권한이 있다"
   assert.ok(workflow.on.workflow_dispatch !== undefined);
 });
 
-test("브런치 카드뉴스는 수·금·일 인스타그램 대기열에 들어가고 시계가 매일 07:00 게시를 시작한다", async () => {
+test("브런치 카드뉴스는 인스타 대기열에 넣지 않고, 시계가 매일 07:00 · 월요일 18:00 릴스 게시를 시작한다", async () => {
   const workflow = await readFile(".github/workflows/brunch-weekly.yml", "utf8");
-  assert.match(workflow, /node src\/cli\/schedule-instagram\.js/);
+  assert.doesNotMatch(workflow, /schedule-instagram\.js|card-backlog\.js/);
   const clock = await readFile("scripts/publish_clock.py", "utf8");
   assert.match(clock, /\(7, 0, None, "insight-reels-publish\.yml", True\)/);
-  const script = await readFile("src/cli/schedule-instagram.js", "utf8");
-  assert.match(script, /new Set\(\[3, 5, 0\]\)/);
+  assert.match(clock, /\(18, 0, \{0\}, "insight-reels-publish\.yml", True, \(\("post_slot", "reel"\),\)\)/);
+  const publish = parse(await readFile(".github/workflows/insight-reels-publish.yml", "utf8"));
+  assert.ok(publish.on.workflow_dispatch.inputs.post_slot);
 });
 
 test("승인·예약 단계는 discover 결과 파일(.automation-result.json)을 덮어쓰지 않는다", async () => {

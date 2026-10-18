@@ -1,4 +1,5 @@
 # 오늘 날짜(KST)의 posts/YYYY-MM-DD.json 을 인스타그램에 게시한다. type 이 carousel 이면 캐러셀, 아니면 릴스.
+# POST_SLOT 이 있으면 posts/YYYY-MM-DD.<POST_SLOT>.json 을 올린다(월요일 18:00 릴스 = reel).
 # GitHub Actions 에서 실행. 표준 라이브러리만 사용.
 # 필요: secrets IG_USER_ID, IG_ACCESS_TOKEN / vars IG_MENTION(선택), IG_GRAPH_HOST(선택), IG_AI_LABEL(선택)
 # 기본은 Instagram 로그인 방식(graph.instagram.com) — 페이스북 페이지 연결 없이 게시 가능.
@@ -42,7 +43,10 @@ if os.environ.get("CHECK_ONLY") == "true":  # 게시 없이 토큰·계정만 �
     sys.exit(0)
 
 today = os.environ.get("POST_DATE") or (datetime.datetime.utcnow() + datetime.timedelta(hours=9)).strftime("%Y-%m-%d")
-f = ROOT / "posts" / f"{today}.json"
+slot = (os.environ.get("POST_SLOT") or "").strip()
+if slot and not re.fullmatch(r"[a-z]+", slot):
+    sys.exit(f"POST_SLOT 은 영문 소문자만: {slot!r}")
+f = ROOT / "posts" / (f"{today}.{slot}.json" if slot else f"{today}.json")
 if not f.exists():
     print(f"{today}: 예약된 게시물 없음")
     sys.exit(0)

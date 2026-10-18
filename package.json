@@ -18,7 +18,8 @@
     "youtube:latest": "node src/cli/youtube-latest.js",
     "naver:issues": "node src/cli/naver-issues.js",
     "naver:hooks": "node src/cli/naver-hooks.js",
-    "naver:mentions": "node src/cli/naver-mentions.js"
+    "naver:mentions": "node src/cli/naver-mentions.js",
+    "naver:reels": "node src/cli/naver-reels.js"
   },
   "dependencies": {
     "cheerio": "1.2.0",

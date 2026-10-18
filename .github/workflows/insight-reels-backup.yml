@@ -28,8 +28,10 @@ jobs:
       - name: Download missing media
         run: |
           cd insight-reels
-          for f in posts/????-??-??.json; do
-            d=$(basename "$f" .json)
+          # 월요일 릴스는 posts/DATE.reel.json(그날 posts/DATE.json 은 카드뉴스라 media/DATE.mp4 와 겹치지 않는다)
+          for f in posts/????-??-??.json posts/????-??-??.reel.json; do
+            [ -e "$f" ] || continue
+            d=$(basename "$f" .json); d=${d%.reel}
             for pair in "video_url mp4" "cover_url jpg"; do
               set -- $pair
               url=$(jq -r ".$1 // empty" "$f")
