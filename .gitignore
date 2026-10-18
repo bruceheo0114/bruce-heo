@@ -6,3 +6,4 @@ playwright-report/
 .playwright-browsers/
 .smoke/
 test-results/
+__pycache__/
