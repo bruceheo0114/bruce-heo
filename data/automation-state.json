@@ -1,8 +1,8 @@
 {
   "version": 1,
   "initialized": true,
-  "lastCheckedAt": "2026-10-18T04:49:33.546Z",
-  "lastCheckedCanonicalUrl": "https://brunch.co.kr/@heoboram/226",
+  "lastCheckedAt": "2026-10-18T23:00:30.275Z",
+  "lastCheckedCanonicalUrl": "https://brunch.co.kr/@heoboram/223",
   "reviewSuccessCount": 1,
   "mode": "review",
   "articles": {
@@ -987,6 +987,38 @@
       },
       "approvedAt": "2026-10-07T00:58:53.336Z",
       "scheduledAt": "2026-10-08T21:30:00.000Z",
+      "completedAt": null
+    },
+    "223": {
+      "id": "223",
+      "canonicalUrl": "https://brunch.co.kr/@heoboram/223",
+      "title": "영어 공부 앱이 왜 생일카페를 열까?",
+      "publishedAt": "2026-10-18T12:00:02.000Z",
+      "bodyHash": "20bc7f9989d353b54ec2c0c40669eb365963c79c54bf7716e1bbac2e21e89e01",
+      "batchId": "39174617273",
+      "homepage": {
+        "status": "published",
+        "updatedAt": "2026-10-18T23:00:30.275Z"
+      },
+      "package": {
+        "status": "awaiting_review",
+        "manifestPath": "content/223/manifest.json",
+        "generatedAt": null
+      },
+      "linkedin": {
+        "status": "manual_pending",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "instagram": {
+        "status": "manual_pending",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "approvedAt": null,
+      "scheduledAt": null,
       "completedAt": null
     },
     "224": {
