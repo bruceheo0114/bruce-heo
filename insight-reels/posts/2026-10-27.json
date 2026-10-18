@@ -14,6 +14,7 @@
     "higgsfield": 5.0,
     "elevenlabs": 478
   },
-  "status": "scheduled",
-  "remade": "2026-10-15 새 방식으로 다시 만듦: eleven_v4 2테이크(고른 테이크) · 채널 BGM(bgm.mp3) · Grok Lite 클립 1개(cd8514e7) · 이미지는 기존 것 재사용"
+  "status": "cancelled",
+  "remade": "2026-10-15 새 방식으로 다시 만듦: eleven_v4 2테이크(고른 테이크) · 채널 BGM(bgm.mp3) · Grok Lite 클립 1개(cd8514e7) · 이미지는 기존 것 재사용",
+  "cancel_reason": "2026-10-18 결정: 새 버전(르게다꼼 공식·시의성 훅·브랜드 사례 우선)으로 다시 만든다. 전날 21:13 릴스 루틴이 이 날짜를 덮어쓴다."
 }

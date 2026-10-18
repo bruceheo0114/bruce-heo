@@ -58,11 +58,11 @@ test("heat 는 기사 수와 검색량 상승을 함께 본다", () => {
   assert.equal(heatOf({ news7: 90, rise: 0.5 }), 10); // 기사 수는 30에서 자른다
 });
 
-test("릴스 시의성 수집은 매일 21:13 릴스 루틴 전에 Secrets 로 돌고 시계도 시작한다", async () => {
+test("릴스 시의성 수집은 월~토 21:13 릴스 루틴 전에 Secrets 로 돌고 시계도 시작한다", async () => {
   const workflow = parse(await readFile(".github/workflows/naver-reels.yml", "utf8"));
-  assert.deepEqual(workflow.on.schedule, [{ cron: "7 11 * * *" }]);
+  assert.deepEqual(workflow.on.schedule, [{ cron: "7 11 * * 1-6" }]);
   assert.match(workflow.jobs.collect.env.NAVER_CLIENT_ID, /secrets\.NAVER_CLIENT_ID/);
   assert.match(JSON.stringify(workflow.jobs.collect.steps), /node src\/cli\/naver-reels\.js/);
   const clock = await readFile("scripts/publish_clock.py", "utf8");
-  assert.match(clock, /\(20, 7, None, "naver-reels\.yml", False\)/);
+  assert.match(clock, /\(20, 7, \{0, 1, 2, 3, 4, 5\}, "naver-reels\.yml", False\)/);
 });

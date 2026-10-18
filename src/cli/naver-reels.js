@@ -12,6 +12,10 @@ const DAY_MS = 24 * 60 * 60 * 1000;
 const NEWS_TERMS = 2; // 글마다 검색량 상위 이름 2개만 뉴스를 찾는다.
 
 const now = new Date();
+if (new Date(`${nextKstDate(now)}T00:00:00Z`).getUTCDay() === 1) {
+  console.log(`${nextKstDate(now)} 은 월요일 — 릴스를 쉬는 날이라 수집하지 않음`);
+  process.exit(0);
+}
 const queue = await readJson("insight-reels/queue.json");
 const cacheIndex = await readJson("insight-reels/brunch_cache/index.json", []);
 const naver = naverClient();
