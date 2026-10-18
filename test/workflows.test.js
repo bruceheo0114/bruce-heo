@@ -53,6 +53,9 @@ test("브런치 카드뉴스는 인스타 대기열에 넣지 않고, 시계가 
   assert.doesNotMatch(workflow, /schedule-instagram\.js|card-backlog\.js/);
   const clock = await readFile("scripts/publish_clock.py", "utf8");
   assert.match(clock, /\(7, 0, None, "insight-reels-publish\.yml", True\)/);
+  assert.match(clock, /\(12, 30, \{2, 4\}, "insight-reels-publish\.yml", True, \(\("post_slot", "noon"\),\)\)/);
+  const publish = parse(await readFile(".github/workflows/insight-reels-publish.yml", "utf8"));
+  assert.ok(publish.on.workflow_dispatch.inputs.post_slot);
 });
 
 test("승인·예약 단계는 discover 결과 파일(.automation-result.json)을 덮어쓰지 않는다", async () => {

@@ -15,7 +15,7 @@ REPO = os.environ.get("GITHUB_REPOSITORY", "bruceheo0114/bruce-heo")
 RUN_BUDGET = dt.timedelta(minutes=int(os.environ.get("CLOCK_BUDGET_MINUTES", "340")))
 CATCH_UP = dt.timedelta(minutes=20)  # 시계가 이어지는 사이에 놓친 시각을 다시 잡는 폭
 
-# (KST 시, 분, 요일(월=0) 또는 None=매일, 워크플로 파일, 날짜를 post_date 로 넘길지)
+# (KST 시, 분, 요일(월=0) 또는 None=매일, 워크플로 파일, 날짜를 post_date 로 넘길지[, 더 넘길 입력])
 SLOTS = [
     # 리멤버는 자동화하지 않는다. LinkedIn 뉴스레터는 목요일 Claude 루틴이 원고를 메일로 보낸다(발행은 직접).
     (7, 0, None, "insight-reels-publish.yml", True),  # 월 업계 트렌드 카드뉴스, 화~일 릴스(2026-10-20부터)
@@ -23,6 +23,7 @@ SLOTS = [
     (7, 30, None, "linkedin-publish.yml", False),  # LinkedIn 피드 글. 예약은 화요일 07:30 뿐이라 다른 날은 할 일 없이 끝난다(실패 재시도용으로 매일 돈다).
     (8, 0, None, "brunch-weekly.yml", False),
     (12, 30, None, "threads-publish.yml", True),
+    (12, 30, {2, 4}, "insight-reels-publish.yml", True, (("post_slot", "noon"),)),  # 수·금 카드뉴스(posts/DATE.noon.json)
     (20, 7, {0, 1, 2, 3, 4, 5}, "naver-reels.yml", False),  # 21:13 릴스 루틴 전에 시의성 훅 재료(다음 날이 월요일인 일요일은 쉼)
 ]
 
@@ -37,14 +38,14 @@ ONE_OFF = [
 def occurrences(start, end):
     day = start.date()
     while day <= end.date():
-        for hour, minute, weekdays, workflow, with_date in SLOTS:
+        for hour, minute, weekdays, workflow, with_date, *extra in SLOTS:
             at = dt.datetime(day.year, day.month, day.day, hour, minute, tzinfo=KST)
             if start < at <= end and (weekdays is None or at.weekday() in weekdays):
-                yield at, workflow, with_date
+                yield at, workflow, with_date, tuple(extra[0]) if extra else ()
         day += dt.timedelta(days=1)
     for at, workflow, with_date in ONE_OFF:
         if start < at <= end:
-            yield at, workflow, with_date
+            yield at, workflow, with_date, ()
 
 
 def dispatch(workflow, fields=()):
@@ -64,14 +65,14 @@ def main():
     started = dt.datetime.now(KST)
     deadline = started + RUN_BUDGET
     planned = sorted(occurrences(started - CATCH_UP, deadline))
-    print("이번 실행 예정:", [f"{at:%m-%d %H:%M} {wf}" for at, wf, _ in planned] or "없음", flush=True)
+    print("이번 실행 예정:", [f"{at:%m-%d %H:%M} {wf}" for at, wf, _, _ in planned] or "없음", flush=True)
 
     failed = False
-    for at, workflow, with_date in planned:
+    for at, workflow, with_date, extra in planned:
         wait = (at - dt.datetime.now(KST)).total_seconds()
         if wait > 0:
             time.sleep(wait)
-        fields = [("post_date", at.strftime("%Y-%m-%d"))] if with_date else []
+        fields = ([("post_date", at.strftime("%Y-%m-%d"))] if with_date else []) + list(extra)
         failed |= not dispatch(workflow, fields)
 
     wait = (deadline - dt.datetime.now(KST)).total_seconds()

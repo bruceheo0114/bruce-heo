@@ -2,7 +2,7 @@ name: Insight reels publish
 
 on:
   schedule:
-    # 매일 07:00 KST — 월 업계 트렌드 카드뉴스, 화~일 릴스(2026-10-20부터).
+    # 매일 07:00 KST — 월 업계 트렌드 카드뉴스, 화~일 릴스(2026-10-20부터). 수·금 12:30 카드뉴스는 Publish clock 이 post_slot=noon 으로 시작.
     # GitHub 예약은 몇 시간씩 밀릴 수 있다(2026-10-05: 06:50 예정 → 09:12 시작).
     # 그래서 04~06시에 미리 세 번 시작해 두고, 먼저 시작한 실행이 07:00 까지 기다렸다 올린다.
     # 07:00 이 지나서 시작하면 바로 올린다. 이미 posted 면 나머지 실행은 아무것도 하지 않는다.
@@ -17,6 +17,9 @@ on:
         required: false
       post_at:
         description: "이 시각(KST HH:MM)까지 기다렸다 게시. 비우면 바로"
+        required: false
+      post_slot:
+        description: "posts/DATE.<slot>.json 을 게시(수·금 12:30 카드뉴스 = noon). 비우면 posts/DATE.json"
         required: false
       check_only:
         description: "게시하지 않고 토큰·계정만 확인"
@@ -57,6 +60,7 @@ jobs:
           IG_GRAPH_HOST: ${{ vars.IG_GRAPH_HOST }}
           IG_AI_LABEL: ${{ vars.IG_AI_LABEL }}
           POST_DATE: ${{ inputs.post_date }}
+          POST_SLOT: ${{ inputs.post_slot }}
           CHECK_ONLY: ${{ inputs.check_only }}
         run: python3 insight-reels/scripts/publish_ig.py
 

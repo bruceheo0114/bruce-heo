@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-21",
+  "time": "12:30",
+  "type": "carousel",
+  "series": "search_report",
+  "title": "검색량 리포트 — 이번 주 검색량이 뛴 브랜드 5",
+  "status": "scheduled",
+  "caption": "🔎 이번 주 검색량이 4.8배 뛴 브랜드, 술이었어요. 기사 수 말고 사람들이 직접 찾아본 브랜드 5개를 모았어요 👉\n\n1️⃣ 캪틴큐 4.8배 — 롯데칠성이 새 광고 모델 이선민을 발표했어요. 오래된 이름에 새 얼굴, 검색이 먼저 반응했죠.\n2️⃣ 롯데웰푸드 1.7배 — 빼빼로데이 한정판 10종, 스트레이 키즈 광고는 공개 6일 만에 1,000만 회예요.\n3️⃣ 강원랜드 1.2배 — 고길동을 앞세운 홍대 팝업에 1만 명이 몰렸어요.\n4️⃣ 지그재그 1.2배 — 앱 속 쇼핑몰 50곳을 성수 팝업으로 꺼냈어요.\n5️⃣ '디놀' 1.1배 — Z세대가 디카를 다시 꺼내면서 디카 키링 거래액이 39배 가까이 늘었어요.\n\n📌 검색을 움직인 건 광고비보다 '찾아볼 이유'였어요. 새 얼굴, 시즌 직전 한정판, 직접 가 보는 현장.\n\n💬 다음 주엔 어떤 브랜드 검색량이 뛸 것 같아요? 하나만 찍어 주세요.\n\n검색량은 네이버 데이터랩 최근 7일 ÷ 그 전 기간(10/2~10/16) 기준이고, 사실은 각 기사(10/11~10/16)에서 가져왔어요.\n다음 기획 회의 첫 장에 '우리 브랜드를 찾아볼 이유'를 적어 보고 싶다면 저장해 두세요.\n\n#브루스매거진 #검색량리포트 #캪틴큐 #빼빼로데이 #팝업스토어",
+  "images": [
+    "https://bruceheo.com/insight-reels/media/2026-10-21-noon/cards/01.jpg",
+    "https://bruceheo.com/insight-reels/media/2026-10-21-noon/cards/02.jpg",
+    "https://bruceheo.com/insight-reels/media/2026-10-21-noon/cards/03.jpg",
+    "https://bruceheo.com/insight-reels/media/2026-10-21-noon/cards/04.jpg",
+    "https://bruceheo.com/insight-reels/media/2026-10-21-noon/cards/05.jpg",
+    "https://bruceheo.com/insight-reels/media/2026-10-21-noon/cards/06.jpg",
+    "https://bruceheo.com/insight-reels/media/2026-10-21-noon/cards/07.jpg",
+    "https://bruceheo.com/insight-reels/media/2026-10-21-noon/cards/08.jpg",
+    "https://bruceheo.com/insight-reels/media/2026-10-21-noon/cards/09.jpg",
+    "https://bruceheo.com/insight-reels/media/2026-10-21-noon/cards/10.jpg"
+  ],
+  "images_backup": [
+    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/insight-reels/media/2026-10-21-noon/cards/01.jpg",
+    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/insight-reels/media/2026-10-21-noon/cards/02.jpg",
+    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/insight-reels/media/2026-10-21-noon/cards/03.jpg",
+    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/insight-reels/media/2026-10-21-noon/cards/04.jpg",
+    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/insight-reels/media/2026-10-21-noon/cards/05.jpg",
+    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/insight-reels/media/2026-10-21-noon/cards/06.jpg",
+    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/insight-reels/media/2026-10-21-noon/cards/07.jpg",
+    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/insight-reels/media/2026-10-21-noon/cards/08.jpg",
+    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/insight-reels/media/2026-10-21-noon/cards/09.jpg",
+    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/insight-reels/media/2026-10-21-noon/cards/10.jpg"
+  ],
+  "note": "2026-10-18 프로토타입을 Bruce 가 승인해 그대로 게시(이번 주만 루틴 대신 직접 렌더링)",
+  "data": {
+    "source": "insight-reels/candidates/2026-10-19.json",
+    "window": "2026-10-02~2026-10-16"
+  }
+}
