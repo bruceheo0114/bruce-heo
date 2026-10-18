@@ -1,0 +1,139 @@
+{
+  "version": 1,
+  "article": {
+    "id": "183",
+    "canonicalUrl": "https://brunch.co.kr/@heoboram/183",
+    "title": "AI의 직관 vs 마케터의 직관",
+    "subtitle": "",
+    "publishedAt": "2025-10-13T13:22:21.000Z",
+    "excerpt": "요즘 업무에서 빠질 수 없는 도구가 바로 AI다. 챗GPT 서버가 다운되면 대한민국 업무가 마비된다는 농담이 이제는 현실처럼 들린다. 나 역시 업무에서 AI를 활용하는 비중이 점점 늘어나고 있다. 잘 다룬 AI는 인턴이나 신입사원을 대체할 수도 있다. 그만큼 학습이 잘 된 AI에 좋은 프롬프트만 넣으면, 업무 시간이 3~4시간은 단축된다. 하지만 마케터",
+    "bodyHash": "59b16f96a89ad75b19d81fce89428b51f75a937949e856c168c6f27f282bcf54",
+    "sourceImages": [
+      "https://img1.kakaocdn.net/thumb/R1280x0.fpng/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/giIicZuCGwLNocTfP9-PNXAjvSs.png"
+    ]
+  },
+  "cards": [
+    {
+      "sequence": 1,
+      "kind": "cover",
+      "title": "AI의 직관 vs 마케터의 직관",
+      "body": "AI 시대, 마케터의 무기는\n'비합리성에 대한 이해'",
+      "imageUrl": null,
+      "sourceImageIndex": null,
+      "altText": "AI의 직관과 마케터의 직관을 비교하는 카드뉴스 표지",
+      "file": "cards/01.jpg"
+    },
+    {
+      "sequence": 2,
+      "kind": "hook",
+      "title": "챗GPT 서버가 다운되면 업무가 마비된다",
+      "body": "이제는 농담이 아니라 현실처럼 들려요.\n저도 업무에서 AI를 쓰는 비중이 점점 늘고 있어요.\n잘 다룬 AI는 인턴이나 신입사원을 대체할 수도 있어요.",
+      "imageUrl": null,
+      "sourceImageIndex": null,
+      "altText": "업무에서 AI 사용 비중이 늘어나는 상황을 보여주는 장면",
+      "file": "cards/02.jpg"
+    },
+    {
+      "sequence": 3,
+      "kind": "context",
+      "title": "잘 쓰면 업무 시간이 3~4시간 줄어든다",
+      "body": "학습이 잘 된 AI에 좋은 프롬프트를 넣으면\n업무 시간이 3~4시간은 단축돼요.\n그래도 마케터에게 AI는 아직 한계가 분명해요.",
+      "imageUrl": null,
+      "sourceImageIndex": null,
+      "altText": "AI 활용으로 업무 시간이 3~4시간 단축되지만 한계가 있다는 설명",
+      "file": "cards/03.jpg"
+    },
+    {
+      "sequence": 4,
+      "kind": "question",
+      "title": "AI가 읽어내지 못하는 건 무엇일까?",
+      "body": "수치화되지 않는 기업의 내부 상황,\n담당자의 미묘한 심리,\n데이터의 행간에 흐르는 소비자의 마음이에요.",
+      "imageUrl": null,
+      "sourceImageIndex": null,
+      "altText": "AI가 완벽하게 읽기 어려운 내부 상황, 담당자 심리, 소비자의 마음",
+      "file": "cards/04.jpg"
+    },
+    {
+      "sequence": 5,
+      "kind": "example",
+      "title": "'꼭 이 브랜드여야만 해서' 산 제품이 몇 개일까?",
+      "body": "지금 쓰는 제품들을 떠올려보세요.\n대부분은 비합리적인 이유로 샀을 거예요.\n예쁜 광고, 마음에 드는 모델, 기업의 철학, 많은 리뷰 같은 이유요.",
+      "imageUrl": null,
+      "sourceImageIndex": null,
+      "altText": "비합리적인 이유로 구매를 결정하는 일상적 사례",
+      "file": "cards/05.jpg"
+    },
+    {
+      "sequence": 6,
+      "kind": "interpretation",
+      "title": "마케터의 직관이 앞설 수 있는 유일한 지점",
+      "body": "그건 바로 '비합리성'이에요.\nAI는 선택하지 않을 비합리적인 요소들이\n오히려 사람들의 선택을 이끌어내요.",
+      "imageUrl": null,
+      "sourceImageIndex": null,
+      "altText": "AI가 선택하지 않을 비합리적 요소가 사람의 선택을 이끈다는 설명",
+      "file": "cards/06.jpg"
+    },
+    {
+      "sequence": 7,
+      "kind": "evidence",
+      "title": "소비자는 더 합리적이 되려 하지만",
+      "body": "손실 회피 성향이 강해졌고,\n구매 전 다양한 데이터를 참고해요.\n그래도 사람은 여전히 '감정'으로 구매해요.",
+      "imageUrl": null,
+      "sourceImageIndex": null,
+      "altText": "소비자가 합리적 선택을 하려 해도 여전히 감정으로 구매한다는 설명",
+      "file": "cards/07.jpg"
+    },
+    {
+      "sequence": 8,
+      "kind": "conclusion",
+      "title": "오늘 해볼 한 가지: 감정의 이유를 적어보세요",
+      "body": "최근 내가 산 제품 하나를 골라,\n그 제품을 고른 비합리적인 이유를 적어보세요.\n마케터의 무기는 비합리성에 대한 이해예요.",
+      "imageUrl": null,
+      "sourceImageIndex": null,
+      "altText": "최근 구매한 제품의 비합리적인 이유를 적어보는 제안",
+      "file": "cards/08.jpg"
+    },
+    {
+      "sequence": 9,
+      "kind": "cta",
+      "title": "나중에 다시 보려면 저장해두세요",
+      "body": "이런 브랜드 이야기를 더 보고 싶다면\nbruceheo.com 에서 만나보세요.",
+      "imageUrl": null,
+      "sourceImageIndex": null,
+      "altText": "저장을 권하고 bruceheo.com 을 안내하는 마무리 카드",
+      "file": "cards/09.jpg"
+    }
+  ],
+  "linkedin": {
+    "body": "\"챗GPT 서버가 다운되면 대한민국 업무가 마비된다.\"\n\n이제는 농담이 아니라 현실처럼 들립니다. 저도 업무에서 AI를 활용하는 비중이 점점 늘고 있고, 학습이 잘 된 AI에 좋은 프롬프트를 넣으면 업무 시간이 3~4시간은 단축됩니다. 잘 다룬 AI는 인턴이나 신입사원을 대체할 수도 있습니다.\n\n하지만 마케터의 입장에서 AI는 아직 한계가 분명합니다. 수치화되지 않는 기업의 내부 상황, 담당자의 미묘한 심리, 데이터의 행간에 흐르는 소비자의 마음까지 AI가 완벽하게 읽어내기에는 부족합니다.\n\n그리고 설령 언젠가 이 모든 정보가 데이터화되더라도 인간 마케터는 여전히 필요할 것입니다. 사람은 '비합리적인' 선택을 하는 존재이기 때문입니다.\n\n지금 쓰는 제품 중 '꼭 이 브랜드여야만 해서' 산 제품이 얼마나 될까요? 대부분은 예쁜 광고, 마음에 드는 모델, 기업의 철학, 혹은 단순히 리뷰가 많아서 같은 복합적이고 감정적인 이유로 구매를 결정합니다.\n\n에이전시 마케터로서 제가 생각하는 AI의 직관보다 마케터의 직관이 우위에 있을 수 있는 유일한 지점이 바로 이 비합리성입니다. AI가 선택하지 않을 비합리적인 요소들이 오히려 사람들의 선택을 이끌어냅니다.\n\n소비자는 손실 회피 성향이 강해지고 구매 전 다양한 데이터를 참고하지만, 그래도 여전히 감정으로 구매합니다. 이 감정은 데이터로 측정하기 어렵습니다.\n\nAI 시대, 인공지능의 직관을 이기는 마케터의 무기는 인간의 비합리성에 대한 이해입니다.\n\n여러분이 최근에 산 제품은 어떤 비합리적인 이유로 고르셨나요?\n\n#마케팅 #AI #마케터 #소비자심리 #비합리성 #브랜딩 #에이전시마케터 #브루스매거진",
+    "firstComment": "AI의 직관 vs 마케터의 직관, 전체 글은 여기서 읽을 수 있어요: https://brunch.co.kr/@heoboram/183"
+  },
+  "instagram": {
+    "caption": "🧠 AI의 직관을 이기는 마케터의 무기는 '비합리성에 대한 이해'예요.\n\n잘 다룬 AI는 업무 시간을 3~4시간 줄여주고 인턴이나 신입사원을 대체할 수도 있어요. 그래도 수치화되지 않는 기업의 내부 상황, 담당자의 미묘한 심리, 데이터의 행간에 흐르는 소비자의 마음까지 읽어내기엔 아직 한계가 분명해요.\n\n📌 지금 쓰는 제품 중 '꼭 이 브랜드여야만 해서' 산 건 몇 개일까요? 대부분은 예쁜 광고, 마음에 드는 모델, 기업의 철학, 많은 리뷰 같은 비합리적인 이유로 샀을 거예요.\n\nAI가 선택하지 않을 그 비합리적인 요소들이 오히려 사람들의 선택을 이끌어내요. 소비자가 더 합리적이 되려 해도 사람은 여전히 감정으로 구매하고, 그 감정은 데이터로 측정하기 어려워요.\n\n최근 내가 산 제품은 어떤 비합리적인 이유로 골랐나요?\n\n🔍 더 많은 브랜드 이야기는 bruceheo.com 에서 만나보세요.\n\n나중에 다시 보고 싶다면 저장 꾹 👆\n\n#브루스매거진 #AI #마케터 #소비자심리 #브랜딩",
+    "account": "bruce.insight",
+    "collaboratorOrTag": "heo.boram"
+  },
+  "schedule": {
+    "approvedAt": null,
+    "scheduledAt": null,
+    "publishedAt": null
+  },
+  "publishing": {
+    "linkedin": {
+      "status": "pending",
+      "postId": null,
+      "commentId": null,
+      "error": null
+    },
+    "instagram": {
+      "status": "manual_source_ready",
+      "mediaId": null,
+      "error": null
+    }
+  },
+  "generatedAt": "2026-10-18T04:50:07.518Z",
+  "generator": {
+    "model": "claude-routine",
+    "renderer": "bruce-insight-html-css-v1"
+  }
+}
