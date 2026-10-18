@@ -51,7 +51,8 @@ if not f.exists():
     print(f"{today}: 예약된 게시물 없음")
     sys.exit(0)
 post = json.loads(f.read_text(encoding="utf-8"))
-if post.get("status") != "scheduled":
+claimed = post.get("status") == "publishing" and post.get("claimed_by") == os.environ.get("CLAIM_ID")
+if post.get("status") != "scheduled" and not claimed:
     print(f"{today}: status={post.get('status')} — 게시하지 않음")
     sys.exit(0)
 if not (UID and TOKEN):

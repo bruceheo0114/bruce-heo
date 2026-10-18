@@ -52,8 +52,20 @@ jobs:
           # 기다리는 동안 보류(hold)·게시(posted)로 바뀌었을 수 있어 최신 상태를 다시 받는다
           git pull -q --rebase || echo "::warning::최신 상태를 받지 못해 시작 시점 상태로 진행"
 
-      - name: Publish today's reel
+      # 예약 실행과 게시 시계 실행이 같은 시각에 함께 돌 수 있다(2026-10-17·19 두 번씩 올라감).
+      # 먼저 status=publishing 을 main 에 푸시한 실행만 게시한다.
+      - name: Claim today's post
+        id: claim
+        if: inputs.check_only != true
         env:
+          POST_DATE: ${{ inputs.post_date }}
+          POST_SLOT: ${{ inputs.post_slot }}
+        run: python3 insight-reels/scripts/claim_post.py claim
+
+      - name: Publish today's reel
+        if: inputs.check_only == true || steps.claim.outputs.claimed == 'true'
+        env:
+          CLAIM_ID: ${{ github.run_id }}
           IG_USER_ID: ${{ secrets.IG_USER_ID || '17841459178252032' }}
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           IG_MENTION: ${{ vars.IG_MENTION || 'heo.boram' }}
@@ -64,7 +76,17 @@ jobs:
           CHECK_ONLY: ${{ inputs.check_only }}
         run: python3 insight-reels/scripts/publish_ig.py
 
+      - name: Release claim on failure
+        if: failure() && steps.claim.outputs.claimed == 'true'
+        env:
+          POST_DATE: ${{ inputs.post_date }}
+          POST_SLOT: ${{ inputs.post_slot }}
+        run: |
+          git checkout -q -- insight-reels/posts || true
+          python3 insight-reels/scripts/claim_post.py release
+
       - name: Record result
+        if: steps.claim.outputs.claimed == 'true'
         run: |
           git diff --quiet -- insight-reels/posts && exit 0
           git config user.name "bruce-content-bot"
