@@ -4,7 +4,7 @@
   "note": "Higgsfield Starter 270 = 인스타그램 120 + YouTube 150",
   "cycles": {
     "2026-10": {
-      "spent": 19.75,
+      "spent": 27.5,
       "entries": [
         {
           "date": "2026-10-07",
@@ -242,6 +242,79 @@
           "scene": "S029",
           "credits": 5,
           "note": "V02 영상 5초 (grok_video_v15_lite, G03 첫 프레임) job d9d60b0d"
+        },
+        {
+          "date": "2026-10-19",
+          "episode": "EP006",
+          "scene": "S004",
+          "credits": 0.25
+        },
+        {
+          "date": "2026-10-19",
+          "episode": "EP006",
+          "scene": "S007",
+          "credits": 0.25
+        },
+        {
+          "date": "2026-10-19",
+          "episode": "EP006",
+          "scene": "S012",
+          "credits": 0.25
+        },
+        {
+          "date": "2026-10-19",
+          "episode": "EP006",
+          "scene": "S016",
+          "credits": 0.25
+        },
+        {
+          "date": "2026-10-19",
+          "episode": "EP006",
+          "scene": "S022",
+          "credits": 0.25
+        },
+        {
+          "date": "2026-10-19",
+          "episode": "EP006",
+          "scene": "S023",
+          "credits": 0.25
+        },
+        {
+          "date": "2026-10-19",
+          "episode": "EP006",
+          "scene": "S034",
+          "credits": 0.25
+        },
+        {
+          "date": "2026-10-19",
+          "episode": "EP006",
+          "scene": "S039",
+          "credits": 0.25
+        },
+        {
+          "date": "2026-10-19",
+          "episode": "EP006",
+          "scene": "S046",
+          "credits": 0.25
+        },
+        {
+          "date": "2026-10-19",
+          "episode": "EP006",
+          "scene": "S051",
+          "credits": 0.25
+        },
+        {
+          "date": "2026-10-19",
+          "episode": "EP006",
+          "scene": "S063",
+          "credits": 0.25
+        },
+        {
+          "date": "2026-10-19",
+          "episode": "EP006",
+          "scene": "S012",
+          "credits": 5,
+          "note": "재현 영상 클립 V01 (grok_video_v15_lite 5초)"
         }
       ]
     }

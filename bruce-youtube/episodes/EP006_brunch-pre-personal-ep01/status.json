@@ -1,0 +1,202 @@
+{
+  "episode": "EP006",
+  "folder": "EP006_brunch-pre-personal-ep01",
+  "article": {
+    "id": "pre-personal-ep01",
+    "url": "https://brunch.co.kr/@heoboram",
+    "title": "나는 여전히 살아남기 위해 일한다",
+    "published_at": "2026-10-19T01:19:38.764Z",
+    "source_file": "source/brunch/pre-personal-ep01.md",
+    "body_hash": "0d438b8e856be91a04705be9eae42106e3e927b980014788049502eabb58c450",
+    "prebuilt": true
+  },
+  "status": "ASSETS_READY",
+  "format": "personal-doc",
+  "higgsfield_generation": false,
+  "recommendation": "MAKE_VIDEO",
+  "video_potential": {
+    "NARRATIVE": 9,
+    "CASE STUDY": 7,
+    "VISUAL MATERIAL": 5,
+    "TIMELINESS": 6,
+    "ORIGINAL POV": 10,
+    "30MIN POTENTIAL": 8,
+    "TOTAL": 45,
+    "MAX": 60
+  },
+  "approved_scenes": [
+    "S004",
+    "S007",
+    "S012",
+    "S016",
+    "S022",
+    "S023",
+    "S034",
+    "S039",
+    "S046",
+    "S051",
+    "S063"
+  ],
+  "generated": {
+    "S004": {
+      "job": "c094d0f9-0429-4589-8847-6339cb869d38",
+      "files": [
+        "bruce-youtube/assets/references/EP006/G01.png"
+      ],
+      "credits": 0.25,
+      "at": "2026-10-19T01:31:19.878Z"
+    },
+    "S007": {
+      "job": "d5de695d-7893-4e18-be67-ccfe67cdf360",
+      "files": [
+        "bruce-youtube/assets/references/EP006/G02.png"
+      ],
+      "credits": 0.25,
+      "at": "2026-10-19T01:31:19.970Z"
+    },
+    "S012": {
+      "job": "089deb25-c1c4-4633-97c6-88d3b65caac5",
+      "files": [
+        "bruce-youtube/assets/references/EP006/G03.png",
+        "bruce-youtube/assets/references/EP006/V01.mp4"
+      ],
+      "credits": 5.25,
+      "at": "2026-10-19T01:31:20.061Z"
+    },
+    "S016": {
+      "job": "3549a346-195c-4487-98f4-0e503e0fe2f1",
+      "files": [
+        "bruce-youtube/assets/references/EP006/G04.png"
+      ],
+      "credits": 0.25,
+      "at": "2026-10-19T01:31:20.149Z"
+    },
+    "S022": {
+      "job": "b03a5c9b-e174-4a01-8674-ed9cbc359bbf",
+      "files": [
+        "bruce-youtube/assets/references/EP006/G05.png"
+      ],
+      "credits": 0.25,
+      "at": "2026-10-19T01:31:20.238Z"
+    },
+    "S023": {
+      "job": "4171c089-7c99-4c58-8270-4fc214c2c706",
+      "files": [
+        "bruce-youtube/assets/references/EP006/G06.png"
+      ],
+      "credits": 0.25,
+      "at": "2026-10-19T01:31:20.334Z"
+    },
+    "S034": {
+      "job": "504b9e92-7eb8-4ccb-b9d3-d667bca4fe7c",
+      "files": [
+        "bruce-youtube/assets/references/EP006/G07.png"
+      ],
+      "credits": 0.25,
+      "at": "2026-10-19T01:31:20.422Z"
+    },
+    "S039": {
+      "job": "f1e22224-a151-4ab8-aeac-833418d2433c",
+      "files": [
+        "bruce-youtube/assets/references/EP006/G08.png"
+      ],
+      "credits": 0.25,
+      "at": "2026-10-19T01:31:20.537Z"
+    },
+    "S046": {
+      "job": "9f8a1c55-8ee5-4da3-8579-fcd3b834781d",
+      "files": [
+        "bruce-youtube/assets/references/EP006/G09.png"
+      ],
+      "credits": 0.25,
+      "at": "2026-10-19T01:31:20.645Z"
+    },
+    "S051": {
+      "job": "492308ae-1774-4e48-b5f9-9372c0ead206",
+      "files": [
+        "bruce-youtube/assets/references/EP006/G10.png"
+      ],
+      "credits": 0.25,
+      "at": "2026-10-19T01:31:20.731Z"
+    },
+    "S063": {
+      "job": "65ef145d-0e52-497f-9fa7-1aa9695fe5ca",
+      "files": [
+        "bruce-youtube/assets/references/EP006/G11.png"
+      ],
+      "credits": 0.25,
+      "at": "2026-10-19T01:31:20.821Z"
+    }
+  },
+  "plan": {
+    "runtime_seconds": 690,
+    "runtime": "11:30",
+    "total_scenes": 69,
+    "scenes_by_type": {
+      "REAL": 0,
+      "TYPE": 25,
+      "GRAPHIC": 33,
+      "AI": 11
+    },
+    "seconds_by_type": {
+      "REAL": 0,
+      "TYPE": 206,
+      "GRAPHIC": 369,
+      "AI": 115
+    },
+    "ai_share": 0.167,
+    "ai_scenes": [
+      "S004",
+      "S007",
+      "S012",
+      "S016",
+      "S022",
+      "S023",
+      "S034",
+      "S039",
+      "S046",
+      "S051",
+      "S063"
+    ],
+    "estimated_generations": 12,
+    "estimated_credits": 8,
+    "reusable_assets": [],
+    "cost_saving": [
+      "기준 이미지를 먼저 만들고 image-to-video로 움직임만 추가한다.",
+      "같은 장소·분위기 Scene은 같은 reference asset을 재사용한다.",
+      "REAL 자료가 확보되면 해당 AI Scene은 생성하지 않는다.",
+      "승인된 Scene만 생성하고, 결과가 나쁘면 프롬프트를 고친 뒤 한 번만 다시 생성한다."
+    ]
+  },
+  "update": null,
+  "created_at": "2026-10-19T01:19:38.764Z",
+  "updated_at": "2026-10-19T01:31:20.821Z",
+  "history": [
+    {
+      "at": "2026-10-19T01:19:38.764Z",
+      "from": null,
+      "to": "PACKAGE_PENDING",
+      "note": "발행 전 원고로 미리 제작"
+    },
+    {
+      "at": "2026-10-19T01:25:08.638Z",
+      "from": "PACKAGE_PENDING",
+      "to": "WAITING_APPROVAL",
+      "note": "영상화 평가 45/60 · MAKE_VIDEO"
+    },
+    {
+      "at": "2026-10-19T01:25:08.750Z",
+      "from": "WAITING_APPROVAL",
+      "to": "APPROVED",
+      "note": "Higgsfield 승인: S004, S007, S012, S016, S022, S023, S034, S039, S046, S051, S063"
+    },
+    {
+      "at": "2026-10-19T01:31:20.821Z",
+      "from": "APPROVED",
+      "to": "ASSETS_READY",
+      "note": "승인된 AI Scene 생성 완료"
+    }
+  ],
+  "series": "개인 서사 다큐 시즌1 — 브루스, 맥락이 만들어진 시간",
+  "approved_at": "2026-10-19T01:25:08.750Z"
+}
