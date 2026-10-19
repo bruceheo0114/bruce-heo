@@ -610,15 +610,16 @@ export async function renderEpisode(episode, audioFiles, { root, outDir, preview
     } else {
       const { width, height } = await imageSize(shot.media.file);
       // 16:9에 가까운 그림만 화면을 꽉 채운다. 세로로 길거나 배너처럼 아주 가로로 긴 그림은 잘리지 않게 전체를 보이고 뒤는 흐리게.
+      // 이때는 자막 자리를 비우려고 조금 작게·위로 두고, 두 번째 컷의 1.25배 확대도 하지 않는다(책 표지 아래가 잘렸다).
       const wide = width / height >= 1.3 && width / height <= 2.1;
       const { width: W, height: H } = FRAME;
       const base = wide
         ? `[0:v]scale=${W}:${H}:force_original_aspect_ratio=increase:flags=lanczos,crop=${W}:${H}[b]`
         : `[0:v]split[a][f];[a]scale=${W}:${H}:force_original_aspect_ratio=increase,crop=${W}:${H},boxblur=34:2,eq=brightness=-0.18[bg];` +
-          `[f]scale=${Math.round(W * 0.955)}:${Math.round(H * 0.887)}:force_original_aspect_ratio=decrease:flags=lanczos[fg];[bg][fg]overlay=(W-w)/2:(H-h)/2[b]`;
+          `[f]scale=${Math.round(W * 0.955)}:${Math.round(H * 0.74)}:force_original_aspect_ratio=decrease:flags=lanczos[fg];[bg][fg]overlay=(W-w)/2:(H-h)/2-${Math.round(H * 0.06)}[b]`;
       // 바탕 그림은 한 번만 만들고(loop) 프레임마다 소수점 좌표로 확대한다
       await ffmpeg(["-i", shot.media.file, "-loop", "1", "-framerate", String(FPS), "-i", frame, "-filter_complex",
-        `${base};[b]format=yuv444p,loop=loop=${frames - 1}:size=1:start=0,setpts=N/${FPS}/TB,${pushIn(frames, shot.close)}[v];[v][1:v]overlay=0:0:shortest=1,scale=${size}`,
+        `${base};[b]format=yuv444p,loop=loop=${frames - 1}:size=1:start=0,setpts=N/${FPS}/TB,${pushIn(frames, shot.close && wide)}[v];[v][1:v]overlay=0:0:shortest=1,scale=${size}`,
         "-frames:v", String(frames), ...encode, clip]);
     }
     return clip;
