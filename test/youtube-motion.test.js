@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { karaokeText, sfxEvents, SFX_LEVELS } from "../src/youtube/render/compose.js";
-import { revealSeconds, revealTimes, sceneFrameHtml } from "../src/youtube/render/frames.js";
+import { revealSeconds, revealTimes, sceneFrameHtml, withDot } from "../src/youtube/render/frames.js";
 import { compareRows, motionCard, parseCount, timelineSteps, TREND_CREDIT, trendSeries } from "../src/youtube/render/motion.js";
 import { analyzeStoryboard } from "../src/youtube/validate.js";
 import { weeklySeries } from "../src/naver/youtube.js";
@@ -116,4 +116,11 @@ test("카드 항목은 그 말을 할 때 하나씩 나타나고, 받아쓰기�
   assert.match(card.html, /class="box rv" style="--i:0;--d:1\.40s">논리 설명/); // 가로 흐름은 칸 사이 최대 1.2초
   assert.ok(card.seconds > 2.6);
   assert.match(sceneFrameHtml(scene(null, "구조 만들기 → 논리 설명")).html, /style="--i:2">논리 설명/);
+});
+
+test("문구 끝 초록 점은 한 번만 — 마침표가 있으면 바꾸고, 물음표·느낌표 뒤엔 안 붙인다", () => {
+  assert.equal(withDot("아이디어보다 판단을."), '아이디어보다 판단을<span class="dot">.</span>');
+  assert.equal(withDot("하나로 이어진다"), '하나로 이어진다<span class="dot">.</span>');
+  assert.equal(withDot("왜 회사 일 밖에서도?"), "왜 회사 일 밖에서도?");
+  assert.doesNotMatch(sceneFrameHtml(scene(null, "정답보다 맥락을.\n아이디어보다 판단을.", "TYPE")).html, /\.<span class="dot">/);
 });

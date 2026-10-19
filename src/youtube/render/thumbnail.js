@@ -6,7 +6,7 @@ import path from "node:path";
 import { readJson } from "../../lib/files.js";
 import { readEpisodeFile } from "../episode.js";
 import { findSection } from "../parse.js";
-import { renderFrames } from "./frames.js";
+import { renderFrames, withDot } from "./frames.js";
 
 const SIZE = { width: 1280, height: 720 };
 // 채널 썸네일은 전면 이미지 + 왼쪽 어둡게 + 큰 흰 글씨(full)로 통일한다 (사용자 결정 2026-10-08). split·bar는 references.json에서 직접 고를 때만.
@@ -58,7 +58,7 @@ body{background:#F2F1ED}.img{position:absolute;right:0;top:0;width:47%;height:10
 .pill{align-self:flex-start;color:#23744c}
 h1{margin-top:auto;font-size:${size}px;font-weight:900;letter-spacing:-.055em;line-height:1.08;color:#111}
 .mark{left:60px;bottom:58px;position:absolute}.copy h1{margin-bottom:120px}
-</style><body><div class="img"></div><div class="copy"><span class="pill">${escapeHtml(pill)}</span><h1>${lines.map(escapeHtml).join("<br>")}<span class="dot">.</span></h1></div>${mark}</body>`;
+</style><body><div class="img"></div><div class="copy"><span class="pill">${escapeHtml(pill)}</span><h1>${lines.map((line, index) => (index === lines.length - 1 ? withDot(line) : escapeHtml(line))).join("<br>")}</h1></div>${mark}</body>`;
   }
   if (layout === "full") {
     const size = longest > 10 ? 84 : 104;
@@ -68,7 +68,7 @@ body{background:${background}}.shade{position:absolute;inset:0;background:linear
 .pill{align-self:flex-start;color:#fff;background:rgba(17,17,17,.4)}
 h1{margin-top:auto;font-size:${size}px;font-weight:900;letter-spacing:-.055em;line-height:1.06;color:#fff;text-shadow:0 6px 30px rgba(0,0,0,.4)}
 .mark{right:56px;top:52px}
-</style><body><div class="shade"></div><div class="copy"><span class="pill">${escapeHtml(pill)}</span><h1>${lines.map(escapeHtml).join("<br>")}<span class="dot">.</span></h1></div>${mark}</body>`;
+</style><body><div class="shade"></div><div class="copy"><span class="pill">${escapeHtml(pill)}</span><h1>${lines.map((line, index) => (index === lines.length - 1 ? withDot(line) : escapeHtml(line))).join("<br>")}</h1></div>${mark}</body>`;
   }
   const size = longest > 10 ? 70 : 84;
   return `${head}
@@ -76,7 +76,7 @@ body{background:${background}}.bar{position:absolute;left:0;bottom:64px;max-widt
 h1{font-size:${size}px;font-weight:900;letter-spacing:-.055em;line-height:1.08}
 .pill{position:absolute;left:64px;top:56px;color:#fff;background:rgba(17,17,17,.55)}
 .mark{right:56px;top:52px}
-</style><body><span class="pill">${escapeHtml(pill)}</span><div class="bar"><h1>${lines.map(escapeHtml).join("<br>")}<span class="dot">.</span></h1></div>${mark}</body>`;
+</style><body><span class="pill">${escapeHtml(pill)}</span><div class="bar"><h1>${lines.map((line, index) => (index === lines.length - 1 ? withDot(line) : escapeHtml(line))).join("<br>")}</h1></div>${mark}</body>`;
 }
 
 async function imageDataUrl(file) {

@@ -65,6 +65,13 @@ export function revealTimes(texts, speech) {
   return times.map((time) => Number(Math.min(time, Math.max(0.3, speech.seconds - 0.7)).toFixed(2)));
 }
 
+// 문구 끝 초록 점. 이미 마침표로 끝나면 그 마침표를 초록 점으로 바꾸고(점 두 번 방지), ?·!·…로 끝나면 붙이지 않는다.
+export function withDot(text) {
+  const value = String(text ?? "").trimEnd();
+  if (/[?!？！…]$/.test(value)) return escapeHtml(value);
+  return `${escapeHtml(value.replace(/[.。]+$/, ""))}<span class="dot">.</span>`;
+}
+
 // 항목 index의 등장 스타일. times가 있으면 그 시각(--d), 없으면 순서(--i)
 const revealStyle = (times, index, order = index) => (times ? `--i:0;--d:${times[index].toFixed(2)}s` : `--i:${order}`);
 
@@ -166,7 +173,7 @@ function typeCard(scene, chapter, speech) {
   return page(
     `.copy{position:absolute;left:150px;right:150px;top:140px;bottom:200px;display:flex;align-items:center}
      h1{font-size:${size}px;line-height:1.18;font-weight:900;letter-spacing:-.05em}`,
-    `${chrome({ chapter })}<div class="copy"><h1>${text.map((line, index) => `<span class="rv" style="${revealStyle(times, index)}">${escapeHtml(line)}${index === text.length - 1 ? '<span class="dot">.</span>' : ""}</span>`).join("<br>")}</h1></div>`,
+    `${chrome({ chapter })}<div class="copy"><h1>${text.map((line, index) => `<span class="rv" style="${revealStyle(times, index)}">${index === text.length - 1 ? withDot(line) : escapeHtml(line)}</span>`).join("<br>")}</h1></div>`,
   );
 }
 
@@ -180,7 +187,7 @@ function chapterCard(chapter) {
      .label{font-size:30px;font-weight:800;color:${COLORS.mint};letter-spacing:.18em;margin-bottom:30px}
      .rule{width:96px;height:6px;background:${COLORS.mint};border-radius:3px;margin-bottom:36px}
      h1{font-size:${chapter.title.length > 14 ? 80 : 100}px;line-height:1.16;font-weight:900;letter-spacing:-.05em}`,
-    `<div class="big">${number}</div><div class="copy"><div class="label">CHAPTER ${number}</div><div class="rule"></div><h1>${escapeHtml(chapter.title)}<span class="dot">.</span></h1></div>`,
+    `<div class="big">${number}</div><div class="copy"><div class="label">CHAPTER ${number}</div><div class="rule"></div><h1>${withDot(chapter.title)}</h1></div>`,
     { dark: true },
   );
 }
@@ -265,7 +272,7 @@ function caseCard(scene, asset, chapter) {
      h1{margin-top:22px;font-size:${title.length > 24 ? 70 : 88}px;font-weight:900;letter-spacing:-.05em;line-height:1.14}
      p{margin-top:36px;font-size:46px;font-weight:600;line-height:1.4;color:#d9d8d2;letter-spacing:-.03em}`,
     `${chrome({ chapter, credit: source, onPhoto: true })}
-     <div class="wrap"><div class="kicker rv">사례 · ${escapeHtml(brand)}</div><h1 class="rv" style="--i:1">${escapeHtml(title)}<span class="dot">.</span></h1>
+     <div class="wrap"><div class="kicker rv">사례 · ${escapeHtml(brand)}</div><h1 class="rv" style="--i:1">${withDot(title)}</h1>
        ${lines.length ? `<p class="rv" style="--i:2">${lines.map(escapeHtml).join("<br>")}</p>` : ""}</div>`,
     { dark: true },
   );
@@ -285,7 +292,7 @@ export function overlayHtml({ chapter, credit, mode = "none", lines = [] }) {
     css = `.scrim{position:absolute;inset:0;background:rgba(10,10,10,.52)}
       .copy{position:absolute;left:150px;right:150px;top:140px;bottom:200px;display:flex;align-items:center}
       h1{font-size:${size}px;line-height:1.18;font-weight:900;letter-spacing:-.05em;color:#fff;text-shadow:0 4px 30px rgba(0,0,0,.35)}`;
-    body = `<div class="scrim"></div><div class="copy"><h1>${lines.map(escapeHtml).join("<br>")}<span class="dot">.</span></h1></div>`;
+    body = `<div class="scrim"></div><div class="copy"><h1>${lines.map((line, index) => (index === lines.length - 1 ? withDot(line) : escapeHtml(line))).join("<br>")}</h1></div>`;
   } else if (mode === "caption" && lines.length) {
     css = `.cap{position:absolute;left:56px;bottom:210px;max-width:1100px;padding:16px 24px 18px;border-left:6px solid ${COLORS.mint};
       background:rgba(17,17,17,.62);color:#fff;font-size:40px;font-weight:800;letter-spacing:-.04em;line-height:1.25}`;
