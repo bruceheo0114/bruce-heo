@@ -178,17 +178,20 @@
     {
       "image": "G01",
       "copy": "월급 0원,/그 이후",
-      "layout": "full"
+      "layout": "full",
+      "pill": "브루스 이야기"
     },
     {
       "image": "G05",
       "copy": "버스 4시간,/촬영 10분",
-      "layout": "full"
+      "layout": "full",
+      "pill": "브루스 이야기"
     },
     {
       "image": "G11",
       "copy": "회사 간판을/떼면",
-      "layout": "full"
+      "layout": "full",
+      "pill": "브루스 이야기"
     }
   ]
 }
