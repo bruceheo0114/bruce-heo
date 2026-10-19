@@ -1,7 +1,7 @@
 // 움직이는 도식 장면(스토리보드 MOTION: trend|count|quote|timeline|compare).
 // 카드 HTML에 CSS 애니메이션을 넣고, renderFrames가 window.__seek(t)로 시간을 멈춰 가며 프레임을 찍는다.
 // 각 카드는 { html, seconds(움직임이 끝나는 시각), sfx: [{ name, at }] } 를 돌려준다. 효과음 이름 = bruce-youtube/channel/sfx/<name>.mp3
-import { chrome, cleanLines, COLORS, escapeHtml, page } from "./frames.js";
+import { chrome, cleanLines, COLORS, escapeHtml, page, revealTimes } from "./frames.js";
 
 const EASE = "cubic-bezier(.2,.8,.2,1)";
 export const TREND_CREDIT = "네이버 데이터랩 검색어 트렌드";
@@ -69,18 +69,19 @@ export function timelineSteps(lines) {
   });
 }
 
-function timelineCard(scene, chapter) {
+function timelineCard(scene, chapter, speech) {
   const lines = cleanLines(scene.fields.ON_SCREEN_TEXT);
   const title = lines.length > 2 && !timelineSteps([lines[0]])[0].label.match(/\d/) ? lines.shift() : "";
   const steps = timelineSteps(lines);
   if (steps.length < 2) return null;
   const gap = 0.45;
-  const at = (index) => 0.5 + index * gap;
+  const paced = revealTimes(steps.map((step) => `${step.label} ${step.text}`), speech);
+  const at = (index) => paced?.[index] ?? 0.5 + index * gap;
   const width = 1520;
   const html = page(
     `.ttl{position:absolute;left:200px;top:170px;font-size:56px;font-weight:900;letter-spacing:-.045em}
      .line{position:absolute;left:200px;width:${width}px;top:520px;height:6px;border-radius:3px;background:${COLORS.ink};transform-origin:left;
-       animation:grow ${(steps.length * gap).toFixed(2)}s linear .3s both}
+       animation:grow ${(paced ? Math.max(0.6, at(steps.length - 1) - 0.1) : steps.length * gap).toFixed(2)}s linear .3s both}
      @keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
      .step{position:absolute;top:0;width:${Math.floor(width / steps.length)}px;transform:translateX(-50%);text-align:center}
      .dot{position:absolute;top:505px;left:50%;width:36px;height:36px;margin-left:-18px;border-radius:50%;background:${COLORS.mint};box-shadow:0 0 0 8px ${COLORS.ivory}}
@@ -106,10 +107,12 @@ export function compareRows(lines) {
   return rows.length ? { head: rows[0], rows: rows.slice(1, 5) } : null;
 }
 
-function compareCard(scene, chapter) {
+function compareCard(scene, chapter, speech) {
   const table = compareRows(cleanLines(scene.fields.ON_SCREEN_TEXT));
   if (!table) return null;
   const big = !table.rows.length;
+  const paced = revealTimes(table.rows.map((row) => row.join(" ")), speech);
+  const rowStyle = (index, side) => (paced ? `--i:0;--d:${Math.max(0.9, paced[index] + side * 0.15).toFixed(2)}s` : `--i:${index};--d:${(0.9 + side * 0.15).toFixed(2)}s`);
   const html = page(
     `.cmp{position:absolute;left:180px;right:180px;top:150px;bottom:210px;display:flex;gap:56px;align-items:stretch}
      .col{flex:1;border-radius:32px;padding:56px 60px;display:flex;flex-direction:column;justify-content:center;gap:34px}
@@ -124,11 +127,11 @@ function compareCard(scene, chapter) {
        display:flex;align-items:center;justify-content:center;font-size:40px;font-weight:900;z-index:2}`,
     `${chrome({ chapter })}<div class="cmp">${table.head
       .map((head, side) => `<div class="col ${side ? "b" : "a"}"><div class="head">${escapeHtml(head)}</div>${table.rows
-        .map((row, index) => `<div class="item rv" style="--i:${index};--d:${(0.9 + side * 0.15).toFixed(2)}s">${escapeHtml(row[side])}</div>`)
+        .map((row, index) => `<div class="item rv" style="${rowStyle(index, side)}">${escapeHtml(row[side])}</div>`)
         .join("")}</div>`)
       .join("")}<div class="vs pop" style="--d:.8s">VS</div></div>`,
   );
-  return { html, seconds: 1.0 + table.rows.length * 0.12 + 0.6, sfx: [{ name: "whoosh", at: 0.05 }, { name: "whoosh", at: 0.4 }] };
+  return { html, seconds: paced ? Math.max(1.6, paced.at(-1) + 0.9) : 1.0 + table.rows.length * 0.12 + 0.6, sfx: [{ name: "whoosh", at: 0.05 }, { name: "whoosh", at: 0.4 }] };
 }
 
 // 주간 평균 검색량 → 0~100으로 다시 맞춘 꺾은선. 여러 이름이면 같은 눈금.
@@ -184,16 +187,16 @@ function trendCard(scene, chapter, trend) {
   return { html, seconds: 0.3 + draw + 0.6, sfx: [{ name: "chart", at: 0.25 }], credit: TREND_CREDIT };
 }
 
-export function motionCard(scene, { chapter, trend } = {}) {
+export function motionCard(scene, { chapter, trend, speech } = {}) {
   switch (scene.motion?.type) {
     case "count":
       return countCard(scene, chapter);
     case "quote":
       return quoteCard(scene, chapter);
     case "timeline":
-      return timelineCard(scene, chapter);
+      return timelineCard(scene, chapter, speech);
     case "compare":
-      return compareCard(scene, chapter);
+      return compareCard(scene, chapter, speech);
     case "trend":
       return trendCard(scene, chapter, trend);
     default:

@@ -3,6 +3,7 @@
 import { readFile } from "node:fs/promises";
 import { createRequire } from "node:module";
 import path from "node:path";
+import { normalize } from "./align.js";
 import { motionCard, SEEK_SCRIPT } from "./motion.js";
 
 export const FRAME = { width: 1920, height: 1080 };
@@ -18,6 +19,53 @@ export function cleanLines(value) {
     .map((line) => line.replace(/^\s*[-*•]\s*/, "").replace(/\*\*/g, "").replace(/\s*\[[^\]]*\]/g, "").trim())
     .filter((line) => line && !/^(없음|none|-)$/i.test(line) && !/^(출처|source)\s*[:：]/i.test(line) && !/^\[.*\]$/.test(line));
 }
+
+/**
+ * 카드 항목(흐름 칸·목록 줄·연표 점)이 나타날 시각(초, 컷 시작 기준).
+ * speech = { chars, times, seconds }: 이 컷 동안 말한 글자와 그 시각(받아쓰기). 없으면 null → 예전처럼 0.12초 간격으로 한꺼번에.
+ * 항목 글의 낱말 앞 2~3글자가 처음 말해지는 순간에 맞추고, 못 찾은 항목은 앞뒤 항목 사이(끝이면 말이 끝나기 전까지)에 고르게 둔다.
+ * Bruce 2026-10-19: 항목이 한꺼번에 튀어나와 내레이션보다 빠르거나 밀리는 느낌.
+ */
+export function revealTimes(texts, speech) {
+  if (!speech?.chars || texts.length < 2) return null;
+  const last = Math.max(0.6, Math.min(speech.seconds - 0.8, (speech.times.at(-1) ?? speech.seconds) - 0.2));
+  let cursor = 0;
+  const found = texts.map((text) => {
+    for (const word of String(text).split(/\s+/)) {
+      const clean = normalize(word);
+      if (clean.length < 2) continue;
+      for (const length of [3, 2]) {
+        if (clean.length < length) continue;
+        const index = speech.chars.indexOf(clean.slice(0, length), cursor);
+        if (index !== -1) {
+          cursor = index + 1;
+          return Math.max(0.2, speech.times[index] - 0.2);
+        }
+      }
+    }
+    return null;
+  });
+  // 순서가 거꾸로 잡힌 시각은 버리고(못 찾은 것으로). 첫 항목은 화면이 비지 않게 늘 바로(0.3초 안에)
+  let previous = -Infinity;
+  const times = found.map((time) => (time !== null && time > previous ? (previous = time) : null));
+  times[0] = Math.min(times[0] ?? 0.3, 0.3);
+  for (let index = 1; index < times.length; index += 1) {
+    if (times[index] !== null) continue;
+    let next = index;
+    while (next < times.length && times[next] === null) next += 1;
+    const left = times[index - 1];
+    const right = next < times.length ? times[next] : Math.max(last, left);
+    const parts = next < times.length ? next - index + 1 : next - index;
+    for (let k = index; k < next; k += 1) times[k] = left + ((right - left) * (k - index + 1)) / parts;
+    index = next - 1;
+  }
+  // 너무 붙지 않게(0.35초), 그리고 컷 안에서 다 보이게
+  for (let index = 1; index < times.length; index += 1) times[index] = Math.max(times[index], times[index - 1] + 0.35);
+  return times.map((time) => Number(Math.min(time, Math.max(0.3, speech.seconds - 0.7)).toFixed(2)));
+}
+
+// 항목 index의 등장 스타일. times가 있으면 그 시각(--d), 없으면 순서(--i)
+const revealStyle = (times, index, order = index) => (times ? `--i:0;--d:${times[index].toFixed(2)}s` : `--i:${order}`);
 
 export function shortBrand(value) {
   const brand = String(value ?? "").replace(/\(.*?\)/g, "").split(/[·,/]/)[0].trim();
@@ -107,16 +155,17 @@ export function balanceLines(lines, max = 18) {
   });
 }
 
-function typeCard(scene, chapter) {
+function typeCard(scene, chapter, speech) {
   const lines = balanceLines(screenLines(scene));
   const text = lines.length ? lines : [String(scene.fields.NARRATION ?? "").split(/(?<=[.?!])\s/)[0]];
   // ①②③처럼 번호를 붙인 질문 카드는 한 묶음이라 같은 크기로 맞춘다.
   const numbered = /^[\u2460-\u2473]/.test(text[0] ?? "");
   const size = Math.min(fitSize(text, [[12, 124], [18, 100], [26, 80], [999, 64]]), numbered ? 100 : 124);
+  const times = revealTimes(text, speech);
   return page(
     `.copy{position:absolute;left:150px;right:150px;top:140px;bottom:200px;display:flex;align-items:center}
      h1{font-size:${size}px;line-height:1.18;font-weight:900;letter-spacing:-.05em}`,
-    `${chrome({ chapter })}<div class="copy"><h1>${text.map((line, index) => `<span class="rv" style="--i:${index}">${escapeHtml(line)}${index === text.length - 1 ? '<span class="dot">.</span>' : ""}</span>`).join("<br>")}</h1></div>`,
+    `${chrome({ chapter })}<div class="copy"><h1>${text.map((line, index) => `<span class="rv" style="${revealStyle(times, index)}">${escapeHtml(line)}${index === text.length - 1 ? '<span class="dot">.</span>' : ""}</span>`).join("<br>")}</h1></div>`,
   );
 }
 
@@ -135,9 +184,10 @@ function chapterCard(chapter) {
   );
 }
 
-function rowsCard(rows, chapter) {
+function rowsCard(rows, chapter, speech) {
+  const times = revealTimes(rows.map((parts) => parts.join(" ")), speech);
   const body = rows
-    .map((parts, row) => `<div class="r rv" style="--i:${row}">${parts.map((part, index) => `<div class="c${index === parts.length - 1 ? " last" : ""}">${escapeHtml(part)}</div>`).join('<div class="sep">→</div>')}</div>`)
+    .map((parts, row) => `<div class="r rv" style="${revealStyle(times, row)}">${parts.map((part, index) => `<div class="c${index === parts.length - 1 ? " last" : ""}">${escapeHtml(part)}</div>`).join('<div class="sep">→</div>')}</div>`)
     .join("");
   return page(
     `.rows{position:absolute;left:220px;right:220px;top:140px;bottom:200px;display:flex;flex-direction:column;justify-content:center;gap:36px}
@@ -150,11 +200,11 @@ function rowsCard(rows, chapter) {
   );
 }
 
-function graphicCard(scene, chapter) {
+function graphicCard(scene, chapter, speech) {
   const source = cleanLines(scene.fields.ON_SCREEN_TEXT).join("\n") || cleanLines(scene.fields.VISUAL).join("\n");
   const lines = source.split("\n").filter(Boolean);
   if (lines.length >= 2 && lines.length <= 4 && lines.every((line) => /→|->|↓/.test(line))) {
-    return rowsCard(lines.map((line) => line.split(/→|->|↓/).map((part) => part.trim()).filter(Boolean)), chapter);
+    return rowsCard(lines.map((line) => line.split(/→|->|↓/).map((part) => part.trim()).filter(Boolean)), chapter, speech);
   }
   const flat = source.replace(/\n/g, " ");
   for (const separator of ["→", "↓", "×", "+", " vs ", "VS"]) {
@@ -162,8 +212,11 @@ function graphicCard(scene, chapter) {
     if (!flat.includes(separator) || steps.length < 2 || steps.length > 6) continue;
     const width = Math.floor((1480 - (steps.length - 1) * 90) / steps.length);
     const sep = separator.trim() === "↓" ? "→" : separator.trim();
+    const times = revealTimes(steps, speech);
+    // 화살표는 다음 칸과 함께(조금 먼저) 나타난다
+    const sepStyle = (index) => (times ? `--i:0;--d:${Math.max(0, times[index] - 0.15).toFixed(2)}s` : `--i:${index * 2 - 1}`);
     const boxes = steps
-      .map((step, index) => `${index ? `<div class="sep rv" style="--i:${index * 2 - 1}">${escapeHtml(sep)}</div>` : ""}<div class="box rv${index === steps.length - 1 ? " last" : ""}" style="--i:${index * 2}">${escapeHtml(step)}</div>`)
+      .map((step, index) => `${index ? `<div class="sep rv" style="${sepStyle(index)}">${escapeHtml(sep)}</div>` : ""}<div class="box rv${index === steps.length - 1 ? " last" : ""}" style="${revealStyle(times, index, index * 2)}">${escapeHtml(step)}</div>`)
       .join("");
     return page(
       `.flow{position:absolute;left:200px;right:200px;top:140px;bottom:200px;display:flex;align-items:center;justify-content:center}
@@ -175,14 +228,15 @@ function graphicCard(scene, chapter) {
     );
   }
   // 한 줄짜리는 목록이 아니라 큰 문구로
-  if (lines.length === 1) return typeCard({ ...scene, fields: { ...scene.fields, ON_SCREEN_TEXT: lines[0].replace(/^\d{1,2}[.)]?\s+/, "") } }, chapter);
+  if (lines.length === 1) return typeCard({ ...scene, fields: { ...scene.fields, ON_SCREEN_TEXT: lines[0].replace(/^\d{1,2}[.)]?\s+/, "") } }, chapter, speech);
   const shown = lines.slice(0, 5);
+  const times = revealTimes(shown, speech);
   const big = shown.length <= 2;
   return page(
     `.list{position:absolute;left:180px;right:180px;top:140px;bottom:200px;display:flex;flex-direction:column;justify-content:center;gap:${big ? 44 : 30}px}
      .row{display:flex;gap:28px;align-items:baseline;font-size:${big ? 84 : 52}px;font-weight:${big ? 900 : 800};letter-spacing:-.045em;line-height:1.2}
      .list .no{color:${COLORS.mint};font-size:${big ? 56 : 40}px;font-weight:900;min-width:70px}`,
-    `${chrome({ chapter })}<div class="list">${shown.map((line, index) => `<div class="row rv" style="--i:${index}"><span class="no">${String(index + 1).padStart(2, "0")}</span><span>${escapeHtml(line)}</span></div>`).join("")}</div>`,
+    `${chrome({ chapter })}<div class="list">${shown.map((line, index) => `<div class="row rv" style="${revealStyle(times, index)}"><span class="no">${String(index + 1).padStart(2, "0")}</span><span>${escapeHtml(line)}</span></div>`).join("")}</div>`,
   );
 }
 
@@ -251,16 +305,17 @@ export function revealSeconds(html) {
  * 카드 한 장. { html, seconds(움직임 길이, 0이면 정지), sfx: [{ name, at }], credit }
  * MOTION 장면은 motion.js 카드(그릴 수 없으면 보통 카드로).
  */
-export function sceneFrameHtml(scene, { chapter, asset, trend } = {}) {
+export function sceneFrameHtml(scene, { chapter, asset, trend, speech } = {}) {
   if (isTransition(scene) && chapter) return { html: chapterCard(chapter), seconds: 0, sfx: [] };
-  const moving = scene.motion ? motionCard(scene, { chapter, trend }) : null;
+  const moving = scene.motion ? motionCard(scene, { chapter, trend, speech }) : null;
   if (moving) return { sfx: [], ...moving };
   let html;
-  if (scene.sourceType === "GRAPHIC") html = graphicCard(scene, chapter);
+  if (scene.sourceType === "GRAPHIC") html = graphicCard(scene, chapter, speech);
   else if (scene.sourceType === "REAL") html = caseCard(scene, asset, chapter);
-  else html = typeCard(scene, chapter); // TYPE, 또는 그림이 없는 AI 장면
+  else html = typeCard(scene, chapter, speech); // TYPE, 또는 그림이 없는 AI 장면
   // 도식(흐름·목록)은 하나씩 나타날 때 작은 '톡' 소리
-  const sfx = scene.sourceType === "GRAPHIC" && /class="(box|r|row) rv/.test(html) ? [{ name: "pop", at: 0.05 }] : [];
+  const first = Number(/class="(?:box|r|row)[^"]*rv[^"]*" style="--i:0;--d:([\d.]+)s/.exec(html)?.[1] ?? 0);
+  const sfx = scene.sourceType === "GRAPHIC" && /class="(box|r|row) rv/.test(html) ? [{ name: "pop", at: first + 0.05 }] : [];
   return { html, seconds: revealSeconds(html), sfx };
 }
 

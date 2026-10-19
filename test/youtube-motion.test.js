@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { karaokeText, sfxEvents, SFX_LEVELS } from "../src/youtube/render/compose.js";
-import { revealSeconds, sceneFrameHtml } from "../src/youtube/render/frames.js";
+import { revealSeconds, revealTimes, sceneFrameHtml } from "../src/youtube/render/frames.js";
 import { compareRows, motionCard, parseCount, timelineSteps, TREND_CREDIT, trendSeries } from "../src/youtube/render/motion.js";
 import { analyzeStoryboard } from "../src/youtube/validate.js";
 import { weeklySeries } from "../src/naver/youtube.js";
@@ -100,4 +100,20 @@ test("릴스 합성기도 같은 도식 종류·효과음 파일을 쓴다", asy
     await access(`bruce-youtube/channel/sfx/${name}.mp3`);
   }
   await access("bruce-youtube/channel/sfx/chapter.mp3");
+});
+
+test("카드 항목은 그 말을 할 때 하나씩 나타나고, 받아쓰기가 없으면 예전처럼 한꺼번에", () => {
+  // "구조를 만들고(0.0~) 논리로 설명하고(2.0~) 틀리면 고칩니다(4.0~)" 를 글자마다 0.25초로
+  const said = [["구조를만들고", 0], ["논리로설명하고", 2], ["틀리면고칩니다", 4]];
+  const speech = { chars: "", times: [], seconds: 6 };
+  for (const [text, start] of said) [...text].forEach((char, i) => { speech.chars += char; speech.times.push(start + i * 0.25); });
+  const times = revealTimes(["구조 만들기", "논리 설명", "틀리면 고치기"], speech);
+  assert.deepEqual(times, [0.2, 1.8, 3.8]);
+  // 못 찾은 가운데 항목은 앞뒤 사이, 첫 항목은 화면이 비지 않게 바로
+  assert.deepEqual(revealTimes(["구조", "없는 말", "틀리면"], speech), [0.2, 2, 3.8]);
+  assert.equal(revealTimes(["구조", "틀리면"], null), null);
+  const card = sceneFrameHtml(scene(null, "구조 만들기 → 논리 설명 → 틀리면 고치기"), { speech });
+  assert.match(card.html, /class="box rv" style="--i:0;--d:1\.80s">논리 설명/);
+  assert.ok(card.seconds > 3.8);
+  assert.match(sceneFrameHtml(scene(null, "구조 만들기 → 논리 설명")).html, /style="--i:2">논리 설명/);
 });

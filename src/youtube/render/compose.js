@@ -11,7 +11,7 @@ import { findSection, parseBlocks } from "../parse.js";
 import { analyzeStoryboard } from "../validate.js";
 import { FRAME, isTransition, logoHtml, motionFramePattern, overlayHtml, renderFrames, sceneFrameHtml, screenLines } from "./frames.js";
 import { TREND_CREDIT } from "./motion.js";
-import { alignedCues, alignScenes, insertChapterCards } from "./align.js";
+import { alignedCues, alignScenes, insertChapterCards, spokenChars } from "./align.js";
 import { buildTimeline, chapterNarrationTexts, displayText, formatClock, parseScriptChapters, readingPairs, subtitleCues } from "./timeline.js";
 
 const run = promisify(execFile);
@@ -553,6 +553,23 @@ export async function renderEpisode(episode, audioFiles, { root, outDir, preview
 
   // 1) 컷마다 카드 또는 투명 레이어(챕터·출처·문구) 그리기, 그리고 고정 로고
   const jobs = [{ file: "logo.png", html: logoHtml(), transparent: true }];
+  // 카드 항목을 말하는 순간에 하나씩 띄우려고, 컷마다 그 동안 말한 글자와 시각(컷 시작 기준)을 넘긴다
+  const spoken = aligned ? groupWords.map((words) => spokenChars(words)) : [];
+  const speechFor = (shot) => {
+    const group = timeline.groups[shot.scene.group];
+    const said = spoken[shot.scene.group];
+    if (!group || !said) return null;
+    const from = shot.start - group.start;
+    const to = shot.end - group.start;
+    let chars = "";
+    const times = [];
+    said.times.forEach((time, index) => {
+      if (time < from - 0.3 || time >= to) return;
+      chars += said.chars[index];
+      times.push(Math.max(0, time - from));
+    });
+    return { chars, times, seconds: shot.end - shot.start };
+  };
   shots.forEach((shot, index) => {
     const scene = shot.scene;
     const assetId = String(scene.asset).match(/A\d+/i)?.[0];
@@ -563,7 +580,7 @@ export async function renderEpisode(episode, audioFiles, { root, outDir, preview
     } else {
       // 챕터 전환 장면은 앞 챕터 끝에 있어도 다음 챕터 제목을 보여 준다
       const chapter = isTransition(scene) ? chapterLabelAt(timeline, scene.end) : shot.chapter;
-      const card = sceneFrameHtml(scene, { chapter, asset: assets.get(assetId), trend });
+      const card = sceneFrameHtml(scene, { chapter, asset: assets.get(assetId), trend, speech: speechFor(shot) });
       // 장면이 이어지는 둘째 카드 컷(같은 장면 앞 컷이 카드)은 움직이지 않는다
       const first = shots[index - 1]?.scene !== scene || shots[index - 1]?.media;
       shot.motion = first && !scene.chapterCard ? card.seconds : 0;
