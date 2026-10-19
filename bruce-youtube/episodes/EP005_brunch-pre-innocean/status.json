@@ -2,13 +2,15 @@
   "episode": "EP005",
   "folder": "EP005_brunch-pre-innocean",
   "article": {
-    "id": "pre-innocean",
+    "id": "226",
     "url": "https://brunch.co.kr/@heoboram/226",
     "title": "국내 최고의 광고회사는 왜 영화 제작을 시작할까?",
-    "published_at": "2026-10-15T01:46:18.202Z",
-    "source_file": "source/brunch/pre-innocean.md",
-    "body_hash": "8b2a54e8d97b46e8cdc5f53229b99c82be1fdce72de197b8b41ad010da657960",
-    "prebuilt": true
+    "published_at": "2026-10-16T03:00:00.000Z",
+    "source_file": "source/brunch/226.md",
+    "body_hash": "f6d87f635c17a0e0850d804bfb3c8a3fae37458abf9e02a62b21bc69823a8d5d",
+    "prebuilt": false,
+    "draft_id": "pre-innocean",
+    "linked_at": "2026-10-19T12:22:47.403Z"
   },
   "status": "ASSETS_READY",
   "higgsfield_generation": false,
@@ -115,7 +117,7 @@
   },
   "update": null,
   "created_at": "2026-10-15T01:46:18.202Z",
-  "updated_at": "2026-10-15T07:12:10.175Z",
+  "updated_at": "2026-10-19T12:22:47.403Z",
   "history": [
     {
       "at": "2026-10-15T01:46:18.202Z",

@@ -330,7 +330,7 @@
       "file": "215.md",
       "firstSeenAt": "2026-10-07T02:00:00.000Z",
       "updatedAt": "2026-10-07T02:00:00.000Z",
-      "episode": null
+      "episode": "EP007"
     },
     "216": {
       "id": "216",
@@ -398,6 +398,17 @@
       "updatedAt": "2026-10-07T02:00:00.000Z",
       "episode": null
     },
+    "223": {
+      "id": "223",
+      "url": "https://brunch.co.kr/@heoboram/223",
+      "title": "영어 공부 앱이 왜 생일카페를 열까?",
+      "publishedAt": "2026-10-19T03:00:00.000Z",
+      "bodyHash": "98d89c38255c2b6951aec0f9d69a0d7fd7edec028a4e1ed61c9015e0d9631829",
+      "file": "223.md",
+      "firstSeenAt": "2026-10-19T12:22:47.403Z",
+      "updatedAt": "2026-10-19T12:22:47.403Z",
+      "episode": "EP003"
+    },
     "224": {
       "id": "224",
       "url": "https://brunch.co.kr/@heoboram/224",
@@ -408,7 +419,18 @@
       "firstSeenAt": "2026-10-13T12:15:30.361Z",
       "updatedAt": "2026-10-13T12:15:30.361Z",
       "episode": "EP002"
+    },
+    "226": {
+      "id": "226",
+      "url": "https://brunch.co.kr/@heoboram/226",
+      "title": "국내 최고의 광고회사는 왜 영화 제작을 시작할까?",
+      "publishedAt": "2026-10-16T03:00:00.000Z",
+      "bodyHash": "f6d87f635c17a0e0850d804bfb3c8a3fae37458abf9e02a62b21bc69823a8d5d",
+      "file": "226.md",
+      "firstSeenAt": "2026-10-19T12:22:47.403Z",
+      "updatedAt": "2026-10-19T12:22:47.403Z",
+      "episode": "EP005"
     }
   },
-  "lastSyncedAt": "2026-10-13T12:15:30.361Z"
+  "lastSyncedAt": "2026-10-19T12:22:47.403Z"
 }

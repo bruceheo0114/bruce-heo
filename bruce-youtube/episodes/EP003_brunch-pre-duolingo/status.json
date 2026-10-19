@@ -2,13 +2,15 @@
   "episode": "EP003",
   "folder": "EP003_brunch-pre-duolingo",
   "article": {
-    "id": "pre-duolingo",
+    "id": "223",
     "url": "https://brunch.co.kr/@heoboram/223",
     "title": "영어 공부 앱이 왜 생일카페를 열까?",
-    "published_at": "2026-10-08T08:26:24.984Z",
-    "source_file": "source/brunch/pre-duolingo.md",
-    "body_hash": "7581b38eea92d86cfcc3df12c65c59ef852c0a1f703f8775da8875610fb12fe0",
-    "prebuilt": true
+    "published_at": "2026-10-19T03:00:00.000Z",
+    "source_file": "source/brunch/223.md",
+    "body_hash": "98d89c38255c2b6951aec0f9d69a0d7fd7edec028a4e1ed61c9015e0d9631829",
+    "prebuilt": false,
+    "draft_id": "pre-duolingo",
+    "linked_at": "2026-10-19T12:22:47.403Z"
   },
   "status": "ASSETS_READY",
   "higgsfield_generation": false,
@@ -172,7 +174,7 @@
   },
   "update": null,
   "created_at": "2026-10-08T08:26:24.984Z",
-  "updated_at": "2026-10-08T08:36:49.779Z",
+  "updated_at": "2026-10-19T12:22:47.403Z",
   "history": [
     {
       "at": "2026-10-08T08:26:24.984Z",
