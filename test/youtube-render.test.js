@@ -191,7 +191,8 @@ test("받아쓰기 시간으로 장면 시작과 자막을 실제 말소리에 �
   assert.ok(Math.abs(timeline.scenes[2].start - 7.88) < 0.01);
   assert.ok(timeline.scenes[3].start > 9 && timeline.scenes[3].end === 10);
   const cues = alignedCues(timeline, ["로고는 검은 테이프로 가려집니다. 하인즈는 케첩병을 내놓았어요. 끝까지 보시죠."], [words]);
-  assert.deepEqual(cues.map((cue) => [cue.text, Number(cue.start.toFixed(1))]), [["로고는 검은 테이프로 가려집니다.", 0], ["하인즈는 케첩병을 내놓았어요.", 4], ["끝까지 보시죠.", 8]]);
+  // 자막은 말보다 SUB_LEAD(0.3초) 먼저 뜬다
+  assert.deepEqual(cues.map((cue) => [cue.text, Number(cue.start.toFixed(1))]), [["로고는 검은 테이프로 가려집니다.", 0], ["하인즈는 케첩병을 내놓았어요.", 3.7], ["끝까지 보시죠.", 7.7]]);
   assert.ok(locate(normalize("1,400만 회 노출이었습니다"), normalize("천사백만 회 노출이었습니다"), 0) <= 1); // 표기가 달라도 근처를 찾는다
 });
 

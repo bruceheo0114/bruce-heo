@@ -136,6 +136,9 @@ function wordMarks(chunk, spoken, chunkStart) {
   return marks;
 }
 
+// 자막을 말보다 먼저 띄우는 시간(초). Bruce 2026-10-19 "내레이션보다 자막이 늦다"
+export const SUB_LEAD = 0.3;
+
 export function alignedCues(timeline, chapterTexts, groupWords, maxChars = 28, keepTogether = []) {
   const cues = [];
   timeline.groups.forEach((group, groupIndex) => {
@@ -170,9 +173,11 @@ export function alignedCues(timeline, chapterTexts, groupWords, maxChars = 28, k
       for (let fill = index; fill < next; fill += 1) starts[fill] = (fill ? starts[fill - 1] : before) + step * (fill ? 1 : 0);
       index = next - 1;
     }
+    // 받아쓰기 시각은 실제 발성보다 0.2~0.3초 늦게 찍힌다(EP006 측정 중앙값 0.24초). 자막은 말보다 살짝 먼저 떠야 늦어 보이지 않는다.
+    const lead = (time) => Math.max(0, time - SUB_LEAD);
     chunks.forEach((chunk, index) => {
-      const start = group.start + starts[index];
-      const end = group.start + (index + 1 < chunks.length ? starts[index + 1] : spoken.lastEnd + 0.3);
+      const start = group.start + lead(starts[index]);
+      const end = group.start + (index + 1 < chunks.length ? lead(starts[index + 1]) : spoken.lastEnd + 0.3);
       if (end - start > 0.2) cues.push({ start, end: Math.min(end, start + 7), text: chunk, marks: wordMarks(chunk, spoken, starts[index]) });
     });
   });
