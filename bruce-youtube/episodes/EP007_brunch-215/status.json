@@ -1,0 +1,81 @@
+{
+  "episode": "EP007",
+  "folder": "EP007_brunch-215",
+  "article": {
+    "id": "215",
+    "url": "https://brunch.co.kr/@heoboram/215",
+    "title": "새로운 것을 제안하되, 브랜드보다 앞서가지는 말 것",
+    "published_at": "2026-08-31T03:00:00.000Z",
+    "source_file": "source/brunch/215.md",
+    "body_hash": "7567fdb422253c21b796de9319d75806a39bfaa73e60900377dc7512efc016b6"
+  },
+  "status": "WAITING_APPROVAL",
+  "format": "v2",
+  "higgsfield_generation": false,
+  "recommendation": "MAKE_VIDEO",
+  "video_potential": {
+    "NARRATIVE": 8,
+    "CASE STUDY": 7,
+    "VISUAL MATERIAL": 7,
+    "TIMELINESS": 7,
+    "ORIGINAL POV": 9,
+    "30MIN POTENTIAL": 8,
+    "TOTAL": 46,
+    "MAX": 60
+  },
+  "approved_scenes": [],
+  "generated": {},
+  "plan": {
+    "runtime_seconds": 340,
+    "runtime": "5:40",
+    "total_scenes": 59,
+    "scenes_by_type": {
+      "REAL": 7,
+      "TYPE": 26,
+      "GRAPHIC": 18,
+      "AI": 8
+    },
+    "seconds_by_type": {
+      "REAL": 38,
+      "TYPE": 156,
+      "GRAPHIC": 110,
+      "AI": 36
+    },
+    "ai_share": 0.106,
+    "ai_scenes": [
+      "S001",
+      "S007",
+      "S014",
+      "S024",
+      "S034",
+      "S037",
+      "S039",
+      "S056"
+    ],
+    "estimated_generations": 7,
+    "estimated_credits": 7,
+    "reusable_assets": [],
+    "cost_saving": [
+      "기준 이미지 6장을 8개 장면에 재사용한다.",
+      "영상 클립은 사람 얼굴 없는 G05(손·메모)에서 1개만.",
+      "실제 자료(기사·뉴스룸·홈페이지) 5건으로 REAL 화면을 채운다."
+    ]
+  },
+  "update": null,
+  "created_at": "2026-10-19T12:22:51.156Z",
+  "updated_at": "2026-10-19T12:26:28.011Z",
+  "history": [
+    {
+      "at": "2026-10-19T12:22:51.156Z",
+      "from": null,
+      "to": "PACKAGE_PENDING",
+      "note": "새 브런치 글"
+    },
+    {
+      "at": "2026-10-19T12:26:28.011Z",
+      "from": "PACKAGE_PENDING",
+      "to": "WAITING_APPROVAL",
+      "note": "영상화 평가 46/60 · MAKE_VIDEO"
+    }
+  ]
+}

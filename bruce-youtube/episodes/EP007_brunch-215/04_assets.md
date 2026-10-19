@@ -1,0 +1,44 @@
+ASSET ID: A001
+SCENE: S006, S022
+NEEDED MATERIAL: 트로피카나 새 포장 철회 기사 화면
+BRAND: Tropicana
+SOURCE TYPE: REAL
+SEARCH KEYWORD: Tropicana Discovers Some Buyers Are Passionate About Packaging
+EXPECTED SOURCE: The New York Times (2009-02-23)
+PRIORITY: HIGH
+
+ASSET ID: A002
+SCENE: S004, S021
+NEEDED MATERIAL: 트로피카나 옛 포장·새 포장 비교 이미지
+BRAND: Tropicana
+SOURCE TYPE: REAL
+SEARCH KEYWORD: Tropicana packaging redesign failure
+EXPECTED SOURCE: The Branding Journal 기사
+PRIORITY: HIGH
+
+ASSET ID: A003
+SCENE: S005, S023
+NEEDED MATERIAL: 판매 20% 감소·철회 날짜 정리 기사
+BRAND: Tropicana
+SOURCE TYPE: REAL
+SEARCH KEYWORD: Tropicana 2009 packaging redesign failed rebrand
+EXPECTED SOURCE: Everything PR 기사
+PRIORITY: MEDIUM
+
+ASSET ID: A004
+SCENE: S031, S032
+NEEDED MATERIAL: LG전자 르게다꼼 캠페인 온에어 뉴스룸 기사
+BRAND: LG전자
+SOURCE TYPE: REAL
+SEARCH KEYWORD: LGE닷컴 르게다꼼 캠페인 온에어
+EXPECTED SOURCE: LG전자 뉴스룸 (2026-09-21)
+PRIORITY: HIGH
+
+ASSET ID: A005
+SCENE: S033
+NEEDED MATERIAL: LGE.com 홈스타일 페이지 화면
+BRAND: LG전자
+SOURCE TYPE: REAL
+SEARCH KEYWORD: LG전자 홈스타일 공식 온라인 스토어
+EXPECTED SOURCE: LG전자 홈스타일 공식 홈페이지
+PRIORITY: MEDIUM

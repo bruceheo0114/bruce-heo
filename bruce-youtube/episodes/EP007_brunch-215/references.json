@@ -1,0 +1,10 @@
+{
+  "brunch": true,
+  "items": [
+    { "id": "A001", "kind": "article", "url": "https://www.nytimes.com/2009/02/23/business/media/23adcol.html", "source": "The New York Times (2009-02-23)", "scenes": ["S006", "S022"] },
+    { "id": "A002", "kind": "page", "url": "https://www.thebrandingjournal.com/2015/05/what-to-learn-from-tropicanas-packaging-redesign-failure/", "source": "The Branding Journal", "scenes": ["S004", "S021"] },
+    { "id": "A003", "kind": "article", "url": "https://everything-pr.com/tropicana-packaging-redesign-failure", "source": "Everything PR", "scenes": ["S005", "S023"] },
+    { "id": "A004", "kind": "page", "url": "https://www.lge.co.kr/story/newsroom/236186", "source": "LG전자 뉴스룸 (2026-09-21)", "scenes": ["S031", "S032"], "scroll": true },
+    { "id": "A005", "kind": "page", "url": "https://homestyle.lge.co.kr/home", "source": "LG전자 홈스타일 공식 홈페이지", "scenes": ["S033"], "scroll": true }
+  ]
+}
