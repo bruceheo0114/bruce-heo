@@ -1007,10 +1007,14 @@
         "approvedAt": "2026-10-19T04:50:38.342Z"
       },
       "linkedin": {
-        "status": "manual_pending",
-        "id": null,
-        "lastAttemptAt": null,
-        "error": null
+        "status": "published",
+        "id": "urn:li:share:7518072278476079104",
+        "lastAttemptAt": "2026-10-19T22:15:07.500Z",
+        "error": null,
+        "postId": "urn:li:share:7518072278476079104",
+        "commentId": null,
+        "manualComment": null,
+        "manualNow": true
       },
       "instagram": {
         "status": "manual_source_ready",
