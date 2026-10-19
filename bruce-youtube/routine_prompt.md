@@ -22,7 +22,7 @@ Bruce는 중간 확인을 하지 않는다(사용자 결정 2026-10-08). 대본 
 1. `TZ=Asia/Seoul date +%F`로 오늘을 구하고, 다음 업로드일 D(오늘 다음의 첫 월·수·금)를 정한다.
 2. **월요일 밤 회차만:** 최근 7일 안에 올라온 2026년 브런치 글 중 아직 Episode가 아닌 글(미리 만든 `brunch-pre-*` 제목과도 다른 글)이 있으면 그 글로 D 슬롯을 만든다.
    원래 D 슬롯 글은 `queue.json`에서 `yt_slot`을 지우고 reserve 맨 앞으로 옮긴다.
-3. 그렇지 않으면 `queue.json`에서 `yt_slot`이 D인 todo 항목. 없으면 todo 맨 위, 그다음 reserve 맨 위(그 항목에 `yt_slot: D`를 적는다).
+3. 그렇지 않으면 `queue.json`에서 `yt_slot`이 D인 todo 항목. 없을 때: todo 중 가장 이른 `yt_slot`이 D보다 뒤면(계획 시작 전) "다음 업로드 <그 날짜>" 한 줄로 끝낸다. 그 밖이면 yt_slot 없는 todo 맨 위, 그다음 reserve 맨 위(그 항목에 `yt_slot: D`를 적는다).
 4. `node src/cli/youtube.js episode <글번호>` → 출력이 Episode 폴더 이름(EPISODE, 예: `EP006_brunch-211`)이고 앞의 `EP006`이 EP다.
    항목에 `extra_sources`가 있으면 그 글들도 `python3 insight-reels/scripts/brunch_text.py <no>`로 읽어 대본의 보조 사례로 쓴다.
    항목의 `series`로 제목 앞머리·오프닝 톤을 맞춘다(마케터의 질문은 광고주·상사의 실제 질문 한 문장으로 연다).
