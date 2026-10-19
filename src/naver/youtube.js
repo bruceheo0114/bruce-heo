@@ -26,6 +26,16 @@ export function parseBrunchMarkdown(text) {
   return { title, body };
 }
 
+// 데이터랩 일별 값 → 주 단위 평균(영상 속 검색량 그래프용, 90일 ≈ 13점). 마지막 주가 7일이 안 되면 있는 날만 평균.
+export function weeklySeries(data = []) {
+  const weeks = [];
+  for (let index = 0; index < data.length; index += 7) {
+    const chunk = data.slice(index, index + 7);
+    weeks.push({ period: chunk[0].period, ratio: Math.round((chunk.reduce((sum, point) => sum + Number(point.ratio || 0), 0) / chunk.length) * 100) / 100 });
+  }
+  return weeks;
+}
+
 export function titleVariants(term) {
   return TITLE_SUFFIXES.map((suffix) => (suffix ? `${term} ${suffix}` : term));
 }

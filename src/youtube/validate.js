@@ -32,6 +32,8 @@ const SCORE_ITEMS = {
   "30MIN POTENTIAL": ["30MIN POTENTIAL", "20~30MIN POTENTIAL", "RUNTIME POTENTIAL"],
 };
 const STORYBOARD_FIELDS = ["TIME", "NARRATION", "VISUAL", "SOURCE_TYPE", "ON_SCREEN_TEXT", "ASSET", "HIGGSFIELD_REQUIRED"];
+// 선택 항목. MOTION: 움직이는 도식 장면(render/motion.js). 값 뒤에 덧붙인 말은 그 장면의 인자(예: "trend 버거킹")
+export const MOTION_TYPES = ["trend", "count", "quote", "timeline", "compare"];
 const HIGGSFIELD_FIELDS = ["PURPOSE", "DURATION", "REFERENCE ASSET", "PROMPT", "CAMERA", "LIGHTING", "STYLE", "ASPECT RATIO", "REUSE POSSIBILITY"];
 const ASSET_FIELDS = ["SCENE", "NEEDED MATERIAL", "BRAND", "SOURCE TYPE", "SEARCH KEYWORD", "EXPECTED SOURCE", "PRIORITY"];
 const SHORTS_FIELDS = ["HOOK", "SCRIPT", "ON SCREEN TEXT", "SOURCE TIMECODE", "EXPECTED LENGTH"];
@@ -82,10 +84,12 @@ export function validateScore(markdown) {
 export function analyzeStoryboard(markdown, RULES = rulesFor()) {
   const errors = [];
   const warnings = [];
-  const scenes = parseBlocks(markdown, "SCENE ID", STORYBOARD_FIELDS).map((fields) => {
+  const scenes = parseBlocks(markdown, "SCENE ID", [...STORYBOARD_FIELDS, "MOTION"]).map((fields) => {
     const id = fields["SCENE ID"]?.split(/\s/)[0] ?? "";
     const time = parseTimeRange(fields.TIME);
+    const [motionType, ...motionArgs] = String(fields.MOTION ?? "").trim().split(/\s+/);
     return {
+      motion: motionType && !/^(없음|none|-)$/i.test(motionType) ? { type: motionType.toLowerCase(), arg: motionArgs.join(" ") } : null,
       id,
       time,
       duration: time ? time.end - time.start : 0,
@@ -117,6 +121,9 @@ export function analyzeStoryboard(markdown, RULES = rulesFor()) {
       warnings.push(`${label}: 앞 Scene과 ${scene.time.start - previousEnd}초 비어 있습니다.`);
     }
     previousEnd = Math.max(previousEnd, scene.time.end);
+    if (scene.motion && !MOTION_TYPES.includes(scene.motion.type)) {
+      warnings.push(`${label}: MOTION은 ${MOTION_TYPES.join(" / ")} 중 하나여야 합니다(그 외는 보통 카드로 그립니다).`);
+    }
     if (!SOURCE_TYPES.includes(scene.sourceType)) {
       errors.push(`${label}: SOURCE_TYPE은 ${SOURCE_TYPES.join(" / ")} 중 하나여야 합니다.`);
     }

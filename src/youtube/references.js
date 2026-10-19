@@ -78,7 +78,8 @@ async function capturePage(context, item, dir, credits, maxImages) {
     await page.screenshot({ path: path.join(dir, shot), type: "jpeg", quality: 85 });
     credits.push({ file: shot, id: item.id, scenes: item.scenes, kind: "screen", source: item.source, url: item.url });
 
-    if (item.kind === "article") {
+    // 기사, 그리고 "scroll": true 를 붙인 페이지(브랜드 사이트·캠페인 페이지)는 위에서 아래로 훑는 긴 화면도 남긴다.
+    if (item.kind === "article" || item.scroll === true) {
       const tall = `${item.id}-scroll.jpg`;
       await page.screenshot({ path: path.join(dir, tall), type: "jpeg", quality: 80, fullPage: true, clip: { x: 0, y: 0, width: 1920, height: 3240 } }).catch(() => {});
       credits.push({ file: tall, id: item.id, scenes: item.scenes, kind: "scroll", source: item.source, url: item.url });

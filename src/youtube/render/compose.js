@@ -9,7 +9,8 @@ import { cpus } from "node:os";
 import { readEpisodeFile } from "../episode.js";
 import { findSection, parseBlocks } from "../parse.js";
 import { analyzeStoryboard } from "../validate.js";
-import { FRAME, isTransition, logoHtml, overlayHtml, renderFrames, sceneFrameHtml, screenLines } from "./frames.js";
+import { FRAME, isTransition, logoHtml, motionFramePattern, overlayHtml, renderFrames, sceneFrameHtml, screenLines } from "./frames.js";
+import { TREND_CREDIT } from "./motion.js";
 import { alignedCues, alignScenes, insertChapterCards } from "./align.js";
 import { buildTimeline, chapterNarrationTexts, displayText, formatClock, parseScriptChapters, readingPairs, subtitleCues } from "./timeline.js";
 
@@ -53,7 +54,24 @@ async function exists(file) {
   }
 }
 
-const SFX_VOLUME = 0.7; // 효과음 크기(내레이션 대비)
+const SFX_VOLUME = 0.7; // 챕터 간지 효과음 크기(내레이션 대비)
+// 장면 효과음(bruce-youtube/channel/sfx/<이름>.mp3, 모두 최대 -3dBFS로 맞춰 둠). 내레이션을 덮지 않게 간지보다 작게.
+export const SFX_LEVELS = { chapter: SFX_VOLUME, whoosh: 0.3, pop: 0.22, tick: 0.25, ding: 0.3, chart: 0.25, riser: 0.25, page: 0.35, scroll: 0.3, impact: 0.3 };
+
+/**
+ * 효과음 자리 모으기: 챕터 간지(chapter) + 카드가 알려 준 소리(shot.sfx, 컷 시작 기준) + 웹페이지 스크롤 컷(scroll).
+ * 같은 소리가 0.3초 안에 겹치면 하나만 남긴다.
+ */
+export function sfxEvents(cardStarts, shots) {
+  const events = cardStarts.map((time) => ({ name: "chapter", time }));
+  for (const shot of shots) {
+    if (shot.scene?.chapterCard) continue;
+    for (const item of shot.sfx ?? []) if (item.at < shot.end - shot.start) events.push({ name: item.name, time: shot.start + item.at });
+    if (shot.media?.kind === "scroll") events.push({ name: "scroll", time: shot.start + 0.1 });
+  }
+  events.sort((a, b) => a.time - b.time);
+  return events.filter((event, index) => !events.slice(0, index).some((other) => other.name === event.name && event.time - other.time < 0.3));
+}
 const CHAPTER_GAP = 2.6; // 챕터 사이 무음(초). 이 자리에 챕터 간지와 효과음이 들어간다
 // 챕터 안 문장 크기 고르기(약 15초 창) + 문장 끝이 작아지는 합성 음성 버릇을 가볍게 눌러 맞춤(EP004 문장 앞뒤 차이 9dB → 4dB)
 const VOICE_LEVELER = "dynaudnorm=f=500:g=31:p=0.9:m=20:r=0.1:b=1,acompressor=threshold=-28dB:ratio=4:attack=5:release=120";
@@ -117,7 +135,10 @@ async function loadMedia(episode, referenceDir, root) {
   for (const name of names) {
     if (!MEDIA.test(name) || known.has(name) || isExcluded(name)) continue;
     const key = path.parse(name).name.toUpperCase().replace(/[-_].*$/, "");
-    if (/^(S|A)\d+$/.test(key)) add(key, { file: path.join(referenceDir, name), kind: /\.(mp4|mov|m4v)$/i.test(name) ? "video" : "image", credit: "제공 자료" });
+    // 직접 둔 파일(사용자 제공 자료, ElevenLabs Kling 클립 S007-kling.mp4 등). scene_images에서 파일 이름으로도 고를 수 있다.
+    const media = { file: path.join(referenceDir, name), kind: /\.(mp4|mov|m4v)$/i.test(name) ? "video" : "image", credit: /-kling\./i.test(name) ? "AI 생성 영상 (Kling)" : "제공 자료" };
+    if (/^(S|A)\d+$/.test(key)) add(key, media);
+    if (!byName.has(path.parse(name).name.toUpperCase())) byName.set(path.parse(name).name.toUpperCase(), media);
   }
   for (const [scene, info] of Object.entries(episode.status.generated ?? {})) {
     for (const file of info.files ?? []) {
@@ -213,8 +234,8 @@ export function planShots(timeline, { byKey, pool, sceneImages }) {
 
     // 도식: 최대 6초 보여주고, 길면 그림 위에 같은 장면 설명으로 이어 간다.
     // 문구 카드(그림 없는 TYPE·REAL·AI): 최대 4초.
-    const cardLimit = scene.sourceType === "GRAPHIC" ? GRAPHIC_SECONDS : CARD_SECONDS;
-    const startWithCard = scene.sourceType === "GRAPHIC" || !own.length;
+    const cardLimit = scene.sourceType === "GRAPHIC" || scene.motion ? GRAPHIC_SECONDS : CARD_SECONDS;
+    const startWithCard = scene.sourceType === "GRAPHIC" || Boolean(scene.motion) || !own.length;
     let at = scene.start;
     if (startWithCard) {
       const cardEnd = span <= cardLimit + 1.5 ? scene.end : scene.start + cardLimit;
@@ -258,7 +279,7 @@ export function planMappedShots(timeline, sceneImages) {
     const images = sceneImages.get(scene.id.toUpperCase()) ?? [];
     const span = scene.end - scene.start;
     let at = scene.start;
-    if (!images.length || scene.sourceType === "GRAPHIC") {
+    if (!images.length || scene.sourceType === "GRAPHIC" || scene.motion) {
       const cardEnd = !images.length || span <= GRAPHIC_SECONDS + 1.5 ? scene.end : scene.start + GRAPHIC_SECONDS;
       push(scene, scene.start, cardEnd, null, null);
       at = cardEnd;
@@ -314,7 +335,40 @@ function srtTime(seconds) {
   return `${String(h).padStart(2, "0")}:${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")},${String(ms % 1000).padStart(3, "0")}`;
 }
 
-export function buildAss(cues) {
+// 낱말마다 말하는 동안 회색 → 흰색으로 바뀌는 자막(ASS \k).
+// marks(받아쓰기로 찾은 낱말 시작, alignedCues)가 있으면 그 시각에, 없으면 글자 수 비율로 나눈다.
+export function karaokeText(text, seconds, marks = []) {
+  const words = String(text).split(/\s+/).filter(Boolean);
+  const length = Math.max(words.join(" ").length, 1);
+  const span = Math.max(0, seconds * 0.92); // 끝 무렵엔 모두 밝게
+  const usable = marks.filter((mark) => mark.time <= span).sort((a, b) => a.frac - b.frac);
+  // 글자 위치 비율 → 시각 (낱말 시작 표시 사이는 직선으로)
+  const timeAt = (frac) => {
+    const points = [{ frac: 0, time: usable[0]?.frac === 0 ? usable[0].time : 0 }, ...usable, { frac: 1, time: span }];
+    for (let index = 1; index < points.length; index += 1) {
+      const [a, b] = [points[index - 1], points[index]];
+      if (frac <= b.frac) return b.frac === a.frac ? b.time : a.time + ((b.time - a.time) * (frac - a.frac)) / (b.frac - a.frac);
+    }
+    return span;
+  };
+  let offset = 0;
+  const starts = words.map((word) => {
+    const start = timeAt(offset / length);
+    offset += word.length + 1;
+    return start;
+  });
+  let used = 0;
+  return words
+    .map((word, index) => {
+      const end = index + 1 < words.length ? Math.max(starts[index + 1], starts[index]) : span;
+      const cs = Math.max(0, Math.round(end * 100) - used);
+      used += cs;
+      return `{\\k${cs}}${word}`;
+    })
+    .join(" ");
+}
+
+export function buildAss(cues, { karaoke = false } = {}) {
   const header = `[Script Info]
 ScriptType: v4.00+
 PlayResX: ${FRAME.width}
@@ -323,12 +377,15 @@ WrapStyle: 0
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: Default,Pretendard SemiBold,50,&H00FFFFFF,&H00FFFFFF,&H64111111,&H64111111,0,0,0,0,100,100,0,0,3,14,0,2,260,260,92,1
+Style: Default,Pretendard SemiBold,50,&H00FFFFFF,${karaoke ? "&H00A9ADAD" : "&H00FFFFFF"},&H64111111,&H64111111,0,0,0,0,100,100,0,0,3,14,0,2,260,260,92,1
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 `;
-  const lines = cues.map((cue) => `Dialogue: 0,${assTime(cue.start)},${assTime(cue.end)},Default,,0,0,0,,${cue.text.replace(/[{}]/g, "")}`);
+  const lines = cues.map((cue) => {
+    const text = cue.text.replace(/[{}]/g, "");
+    return `Dialogue: 0,${assTime(cue.start)},${assTime(cue.end)},Default,,0,0,0,,${karaoke ? karaokeText(text, cue.end - cue.start, cue.marks) : text}`;
+  });
   return `${header}${lines.join("\n")}\n`;
 }
 
@@ -435,7 +492,28 @@ export function buildUploadKit(episode, brief, timeline, sources = [], { aiImage
 /**
  * 영상 만들기. audioFiles: 녹음 파일 경로(챕터 순서). outDir에 <EP>.mp4, subtitles.srt, thumbnail.png, upload.md를 만든다.
  */
-export async function renderEpisode(episode, audioFiles, { root, outDir, preview = false, cleanup = true, syntheticVoice = false, bgm: bgmOverride = null, log = () => {} }) {
+/**
+ * 이 편의 네이버 검색량(bruce-youtube/trends/<yt_slot>.json, naver-youtube.yml이 만든다). 원문 파일 이름(글 번호)이 같은 것 중 가장 새것.
+ * MOTION: trend 장면이 그린다.
+ */
+export async function loadTrend(episode, root) {
+  const no = path.parse(String(episode.status.article?.source_file ?? "")).name;
+  const dir = path.join(root, "trends");
+  let names = [];
+  try {
+    names = (await readdir(dir)).filter((name) => name.endsWith(".json"));
+  } catch {
+    return null;
+  }
+  let found = null;
+  for (const name of names) {
+    const data = await readJson(path.join(dir, name), null);
+    if (data && String(data.no) === no && data.series && (!found || String(data.generated_at) > String(found.generated_at))) found = data;
+  }
+  return found;
+}
+
+export async function renderEpisode(episode, audioFiles, { root, outDir, preview = false, cleanup = true, syntheticVoice = false, bgm: bgmOverride = null, karaoke = true, log = () => {} }) {
   const storyboardText = await readEpisodeFile(episode, "03_storyboard.md");
   const script = await readEpisodeFile(episode, "02_script.md");
   const brief = (await readEpisodeFile(episode, "01_brief.md")) ?? "";
@@ -467,6 +545,8 @@ export async function renderEpisode(episode, audioFiles, { root, outDir, preview
   const referenceDir = path.join(root, "assets", "references", episode.status.episode);
   const media = await loadMedia(episode, referenceDir, root);
   const shots = planShots(timeline, media);
+  const trend = storyboard.scenes.some((scene) => scene.motion?.type === "trend") ? await loadTrend(episode, root) : null;
+  if (storyboard.scenes.some((scene) => scene.motion?.type === "trend") && !trend) log("! MOTION: trend 장면이 있지만 이 글의 검색량(trends/*.json series)이 없어 보통 카드로 그립니다.");
   log(`화면 ${shots.length}컷 (실제 자료 ${shots.filter((shot) => shot.media && shot.media.kind !== "ai").length}컷, AI 이미지 ${shots.filter((shot) => shot.media?.kind === "ai").length}컷, 카드 ${shots.filter((shot) => !shot.media).length}컷)`);
 
   // 1) 컷마다 카드 또는 투명 레이어(챕터·출처·문구) 그리기, 그리고 고정 로고
@@ -481,7 +561,13 @@ export async function renderEpisode(episode, audioFiles, { root, outDir, preview
     } else {
       // 챕터 전환 장면은 앞 챕터 끝에 있어도 다음 챕터 제목을 보여 준다
       const chapter = isTransition(scene) ? chapterLabelAt(timeline, scene.end) : shot.chapter;
-      jobs.push({ file: shot.frame, html: sceneFrameHtml(scene, { chapter, asset: assets.get(assetId) }).html });
+      const card = sceneFrameHtml(scene, { chapter, asset: assets.get(assetId), trend });
+      // 장면이 이어지는 둘째 카드 컷(같은 장면 앞 컷이 카드)은 움직이지 않는다
+      const first = shots[index - 1]?.scene !== scene || shots[index - 1]?.media;
+      shot.motion = first && !scene.chapterCard ? card.seconds : 0;
+      shot.sfx = first ? card.sfx : [];
+      shot.cardCredit = card.credit ?? null;
+      jobs.push({ file: shot.frame, html: card.html, motion: shot.motion });
     }
   });
   await renderFrames(jobs, work);
@@ -500,8 +586,12 @@ export async function renderEpisode(episode, audioFiles, { root, outDir, preview
     const clip = path.join(work, `clip_${String(index).padStart(4, "0")}.mp4`);
     const frame = path.join(work, shot.frame);
     const still = ["-loop", "1", "-framerate", String(FPS), "-t", seconds];
-    if (!shot.media) {
-      // 카드는 움직이지 않는다(글자가 흔들리지 않게). 챕터 간지는 어둠에서 떠올랐다 사라진다.
+    if (!shot.media && shot.motion > 0) {
+      // 움직이는 카드: 글자·도식이 차례로 나타난 뒤(찍어 둔 프레임) 마지막 모습으로 멈춰 있다.
+      await ffmpeg(["-framerate", String(FPS), "-i", path.join(work, motionFramePattern(shot.frame)), "-vf",
+        `tpad=stop_mode=clone:stop_duration=${seconds},scale=${size},setsar=1`, "-t", seconds, ...encode, clip]);
+    } else if (!shot.media) {
+      // 카드는 흔들리지 않게 고정. 챕터 간지는 어둠에서 떠올랐다 사라진다.
       const fade = shot.scene.chapterCard ? `,fade=t=in:st=0:d=0.35,fade=t=out:st=${Math.max(0, length - 0.35).toFixed(3)}:d=0.35` : "";
       await ffmpeg([...still, "-i", frame, "-vf", `scale=${size}${fade}`, ...encode, clip]);
     } else if (shot.media.kind === "video") {
@@ -575,19 +665,32 @@ export async function renderEpisode(episode, audioFiles, { root, outDir, preview
   const linear = measured
     ? `:measured_I=${measured.input_i}:measured_TP=${measured.input_tp}:measured_LRA=${measured.input_lra}:measured_thresh=${measured.input_thresh}:offset=${measured.target_offset}:linear=true`
     : "";
-  const voiceOut = cardStarts.length ? path.join(work, "voice.m4a") : audioOut;
+  const voiceOut = path.join(work, "voice.m4a");
   await ffmpeg([...inputs, "-filter_complex", `${chain}loudnorm=${target}${linear}[a]`, "-map", "[a]", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", voiceOut]);
-  // 챕터 간지마다 짧은 효과음(bruce-youtube/channel/sfx/chapter.mp3)을 작게 깐다.
-  const sfx = path.join(root, "channel", "sfx", "chapter.mp3"); // root = bruce-youtube
-  if (cardStarts.length) {
-    if (await exists(sfx)) {
-      const delays = cardStarts.map((start, index) => `[1:a]adelay=${Math.round(start * 1000)}:all=1,volume=${SFX_VOLUME}[s${index}]`);
-      const split = `[1:a]asplit=${cardStarts.length}${cardStarts.map((_, index) => `[c${index}]`).join("")}`;
-      const placed = delays.map((line, index) => line.replace("[1:a]", `[c${index}]`));
-      const mix = `[0:a]${cardStarts.map((_, index) => `[s${index}]`).join("")}amix=inputs=${cardStarts.length + 1}:normalize=0:duration=first,alimiter=limit=0.84:level=false[a]`;
-      await ffmpeg(["-i", voiceOut, "-i", sfx, "-filter_complex", [split, ...placed, mix].join(";"), "-map", "[a]", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", audioOut]);
+  // 효과음: 챕터 간지(chapter.mp3) + 움직이는 카드·스크롤 컷 소리(bruce-youtube/channel/sfx/<이름>.mp3)를 작게 깐다.
+  const sfxDir = path.join(root, "channel", "sfx"); // root = bruce-youtube
+  const wanted = sfxEvents(cardStarts, shots);
+  const files = [...new Set(wanted.map((event) => event.name))];
+  const present = new Set();
+  for (const name of files) if (await exists(path.join(sfxDir, `${name}.mp3`))) present.add(name);
+  const missing = files.filter((name) => !present.has(name));
+  if (missing.length) log(`! 효과음 파일이 없어 건너뜀: ${missing.map((name) => `${name}.mp3`).join(", ")}`);
+  const events = wanted.filter((event) => present.has(event.name));
+  {
+    if (events.length) {
+      const used = [...new Set(events.map((event) => event.name))];
+      const graph = used.map((name, fileIndex) => {
+        const mine = events.filter((event) => event.name === name);
+        return `[${fileIndex + 1}:a]aformat=sample_rates=48000:channel_layouts=stereo,asplit=${mine.length}${mine.map((_, i) => `[${name}${i}]`).join("")}`;
+      });
+      const placed = used.flatMap((name) => events.filter((event) => event.name === name).map((event, i) =>
+        `[${name}${i}]adelay=${Math.round(event.time * 1000)}:all=1,volume=${SFX_LEVELS[name] ?? 0.3}[o_${name}${i}]`));
+      const labels = placed.map((line) => line.slice(line.lastIndexOf("[")));
+      const mix = `[0:a]${labels.join("")}amix=inputs=${labels.length + 1}:normalize=0:duration=first,alimiter=limit=0.84:level=false[a]`;
+      const sfxInputs = used.flatMap((name) => ["-i", path.join(sfxDir, `${name}.mp3`)]);
+      await ffmpeg(["-i", voiceOut, ...sfxInputs, "-filter_complex", [...graph, ...placed, mix].join(";"), "-map", "[a]", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", audioOut]);
+      log(`효과음 ${events.length}개 (${used.map((name) => `${name} ${events.filter((event) => event.name === name).length}`).join(", ")})`);
     } else {
-      log(`! 효과음 파일이 없어 간지에 소리를 넣지 않았습니다: ${sfx}`);
       await ffmpeg(["-i", voiceOut, "-c", "copy", audioOut]);
     }
   }
@@ -631,7 +734,7 @@ export async function renderEpisode(episode, audioFiles, { root, outDir, preview
   const cues = (aligned && chapterTexts.length === audio.length ? alignedCues(timeline, chapterTexts, groupWords, 28, pairs.map(([reading]) => reading)) : subtitleCues(timeline))
     .map((cue) => ({ ...cue, text: displayText(cue.text, pairs) }));
   const assFile = path.join(work, "subtitles.ass");
-  await writeFile(assFile, buildAss(cues));
+  await writeFile(assFile, buildAss(cues, { karaoke }));
   await writeFile(path.join(outDir, "subtitles.srt"), buildSrt(cues));
   const fontsDir = path.dirname(createRequire(import.meta.url).resolve("pretendard/dist/public/static/Pretendard-SemiBold.otf"));
   const finalFile = path.join(outDir, `${episode.status.episode}${preview ? "_preview" : ""}.mp4`);
@@ -648,6 +751,7 @@ export async function renderEpisode(episode, audioFiles, { root, outDir, preview
   const { renderThumbnails } = await import("./thumbnail.js");
   await renderThumbnails(episode, root, outDir);
   const sources = uploadSources(shots);
+  if (shots.some((shot) => shot.cardCredit === TREND_CREDIT)) sources.unshift({ source: TREND_CREDIT, url: "https://datalab.naver.com", ai: false });
   const aiImages = shots.some((shot) => shot.media?.kind === "ai") || Object.keys(episode.status.generated ?? {}).length > 0;
   await writeFile(path.join(outDir, "upload.md"), buildUploadKit(episode, brief, timeline, sources, { aiImages, syntheticVoice }));
   return { file: finalFile, seconds: timeline.total, scenes: timeline.scenes.length, shots: shots.length, cues: cues.length };

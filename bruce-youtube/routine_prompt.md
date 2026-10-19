@@ -93,6 +93,11 @@ Bruce는 중간 확인을 하지 않는다(사용자 결정 2026-10-08). 대본 
    그다음 **영상 클립 1개**(주 3편 예산, 2026-10-19): 움직임이 어울리는 AI 정지 이미지(사람 얼굴 없는 것)의 job id를 `start_image`로 `grok_video_v15_lite`(5초, 720p, 16:9) → 클립당 5 크레딧.
    결과 주소를 `{"id": "V01", "kind": "video", "ai": true, "url": "<result_url>", "source": "AI 생성 영상 (Higgsfield)", "scenes": ["S007"]}`로 넣고, `scene_images`의 그 장면에 `V01`을 적는다. 첫·중간·끝 프레임을 뽑아 손·몸 왜곡이 있으면 빼고 정지 이미지로 둔다.
 4. 마음에 들지 않아도 다시 생성하지 않는다(실패한 작업만 1회 재시도). Episode당 30, 월 150 크레딧을 넘기지 않는다.
+5. **ElevenLabs Kling 클립 1개 더(선택, 2026-10-19):** 이번 달 ElevenLabs 사용이 70,000 아래일 때만. 다른 AI 정지 이미지(사람 얼굴 없는 것) 주소를
+   `creative_attach_reference_file`로 올리고 `creative_generate_video`(`kling-2.5-turbo`, 5초, 16:9, 그 이미지를 첫 프레임) → 약 2,120 크레딧.
+   완료되면 결과 `content_url`(storage.googleapis.com, 2시간 유효)을 바로 받아
+   `ffmpeg -i <받은 파일> -an -vf "scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,fps=30" -c:v libx264 -pix_fmt yuv420p bruce-youtube/assets/references/<EP>/<Scene>-kling.mp4`
+   로 두고 `scene_images`의 그 장면에 `<Scene>-kling`을 적는다(출처 'AI 생성 영상 (Kling)'이 자동으로 붙는다). Higgsfield 클립과 다른 장면에 쓴다. 왜곡 검사는 3과 같다.
 
 ## 7. 실제 자료
 

@@ -113,6 +113,29 @@ export function alignScenes(timeline, groupWords) {
  * 자막을 실제로 읽은 대본(챕터별 텍스트)과 받아쓰기 시간으로 만든다.
  * chapterTexts[g] = 그 챕터에서 읽은 글, groupWords[g] = 받아쓰기 단어
  */
+/**
+ * 줄 안 낱말이 실제로 시작한 시각(줄 시작 기준 초). 줄 글자 위치 비율(frac)과 함께 돌려준다.
+ * 화면 자막은 읽는 법을 숫자로 바꾸므로(이천이십사 → 2024) 낱말 대신 비율로 맞춘다(낱말별 강조 자막에 쓴다).
+ */
+function wordMarks(chunk, spoken, chunkStart) {
+  const marks = [];
+  let offset = 0;
+  let cursor = Math.max(0, spoken.times.findIndex((time) => time >= chunkStart - 0.01));
+  for (const word of chunk.split(" ")) {
+    const key = normalize(word);
+    if (key) {
+      // 짧은 낱말이 많아 locate(5글자 이상)를 쓰지 않고 바로 가까운 곳만 찾는다. 숫자처럼 다르게 읽힌 낱말은 건너뛰고 비율로 메운다.
+      const at = spoken.chars.indexOf(key, cursor);
+      if (at !== -1 && at - cursor <= 12) {
+        marks.push({ frac: offset / Math.max(chunk.length, 1), time: Math.max(0, spoken.times[at] - chunkStart) });
+        cursor = at + 1;
+      }
+    }
+    offset += word.length + 1;
+  }
+  return marks;
+}
+
 export function alignedCues(timeline, chapterTexts, groupWords, maxChars = 28, keepTogether = []) {
   const cues = [];
   timeline.groups.forEach((group, groupIndex) => {
@@ -150,7 +173,7 @@ export function alignedCues(timeline, chapterTexts, groupWords, maxChars = 28, k
     chunks.forEach((chunk, index) => {
       const start = group.start + starts[index];
       const end = group.start + (index + 1 < chunks.length ? starts[index + 1] : spoken.lastEnd + 0.3);
-      if (end - start > 0.2) cues.push({ start, end: Math.min(end, start + 7), text: chunk });
+      if (end - start > 0.2) cues.push({ start, end: Math.min(end, start + 7), text: chunk, marks: wordMarks(chunk, spoken, starts[index]) });
     });
   });
   return cues;

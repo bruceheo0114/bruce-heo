@@ -3,15 +3,16 @@
 import { readFile } from "node:fs/promises";
 import { createRequire } from "node:module";
 import path from "node:path";
+import { motionCard, SEEK_SCRIPT } from "./motion.js";
 
 export const FRAME = { width: 1920, height: 1080 };
-const COLORS = { ivory: "#F2F1ED", mint: "#65B98A", green: "#23744c", ink: "#111111" };
+export const COLORS = { ivory: "#F2F1ED", mint: "#65B98A", green: "#23744c", ink: "#111111" };
 
-const escapeHtml = (value) =>
+export const escapeHtml = (value) =>
   String(value ?? "").replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[char]);
 
 // 화면 문구. "출처: …" 줄은 실제 그림의 출처 표시(오른쪽 아래)와 어긋날 수 있어 뺀다.
-function cleanLines(value) {
+export function cleanLines(value) {
   return String(value ?? "")
     .split(/\r?\n/)
     .map((line) => line.replace(/^\s*[-*•]\s*/, "").replace(/\*\*/g, "").replace(/\s*\[[^\]]*\]/g, "").trim())
@@ -39,7 +40,7 @@ async function fontFace() {
 }
 
 // 모든 화면이 함께 쓰는 고정 요소(챕터·출처)
-function chrome({ chapter, credit, onPhoto }) {
+export function chrome({ chapter, credit, onPhoto }) {
   const chapterHtml = chapter
     ? `<div class="chapter ${onPhoto ? "on-photo" : ""}"><span class="ch-no">${escapeHtml(chapter.no)}</span><span class="title">${escapeHtml(chapter.title)}</span></div>`
     : "";
@@ -61,9 +62,15 @@ body{width:${FRAME.width}px;height:${FRAME.height}px;overflow:hidden;font-family
   color:#77776f;font-size:21px;font-weight:600;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 /* 사진 위 출처는 폭이 고정된 반투명 띠: 흰 화면(웹페이지 캡처)에서도 읽히고, 출처 길이가 달라도 띠 크기는 그대로 */
 .credit.on-photo{width:640px;padding:7px 16px;border-radius:8px;background:rgba(17,17,17,.5);color:#f2f1ed}
-.dot{color:${COLORS.mint}}`;
+.dot{color:${COLORS.mint}}
+/* 등장 움직임. --i = 순서(0.12초 간격), --d = 추가 지연. 정지 화면은 __seek(999)로 끝 상태를 찍는다 */
+@keyframes rise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes popin{0%{opacity:0;transform:scale(.4)}70%{opacity:1;transform:scale(1.08)}100%{opacity:1;transform:scale(1)}}
+.rv{animation:rise .55s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i,0)*.12s + var(--d,0s))}
+span.rv{display:inline-block}
+.pop{animation:popin .45s cubic-bezier(.2,.8,.2,1) both;animation-delay:var(--d,0s)}`;
 
-function page(css, body, { dark = false, transparent = false } = {}) {
+export function page(css, body, { dark = false, transparent = false } = {}) {
   const background = transparent ? "transparent" : dark ? COLORS.ink : COLORS.ivory;
   const color = dark || transparent ? COLORS.ivory : COLORS.ink;
   return `<!doctype html><meta charset="utf-8"><style>__FONT__
@@ -109,7 +116,7 @@ function typeCard(scene, chapter) {
   return page(
     `.copy{position:absolute;left:150px;right:150px;top:140px;bottom:200px;display:flex;align-items:center}
      h1{font-size:${size}px;line-height:1.18;font-weight:900;letter-spacing:-.05em}`,
-    `${chrome({ chapter })}<div class="copy"><h1>${text.map(escapeHtml).join("<br>")}<span class="dot">.</span></h1></div>`,
+    `${chrome({ chapter })}<div class="copy"><h1>${text.map((line, index) => `<span class="rv" style="--i:${index}">${escapeHtml(line)}${index === text.length - 1 ? '<span class="dot">.</span>' : ""}</span>`).join("<br>")}</h1></div>`,
   );
 }
 
@@ -130,7 +137,7 @@ function chapterCard(chapter) {
 
 function rowsCard(rows, chapter) {
   const body = rows
-    .map((parts) => `<div class="r">${parts.map((part, index) => `<div class="c${index === parts.length - 1 ? " last" : ""}">${escapeHtml(part)}</div>`).join('<div class="sep">→</div>')}</div>`)
+    .map((parts, row) => `<div class="r rv" style="--i:${row}">${parts.map((part, index) => `<div class="c${index === parts.length - 1 ? " last" : ""}">${escapeHtml(part)}</div>`).join('<div class="sep">→</div>')}</div>`)
     .join("");
   return page(
     `.rows{position:absolute;left:220px;right:220px;top:140px;bottom:200px;display:flex;flex-direction:column;justify-content:center;gap:36px}
@@ -156,8 +163,8 @@ function graphicCard(scene, chapter) {
     const width = Math.floor((1480 - (steps.length - 1) * 90) / steps.length);
     const sep = separator.trim() === "↓" ? "→" : separator.trim();
     const boxes = steps
-      .map((step, index) => `<div class="box${index === steps.length - 1 ? " last" : ""}">${escapeHtml(step)}</div>`)
-      .join(`<div class="sep">${escapeHtml(sep)}</div>`);
+      .map((step, index) => `${index ? `<div class="sep rv" style="--i:${index * 2 - 1}">${escapeHtml(sep)}</div>` : ""}<div class="box rv${index === steps.length - 1 ? " last" : ""}" style="--i:${index * 2}">${escapeHtml(step)}</div>`)
+      .join("");
     return page(
       `.flow{position:absolute;left:200px;right:200px;top:140px;bottom:200px;display:flex;align-items:center;justify-content:center}
        .box{width:${width}px;min-height:220px;padding:36px 28px;border:4px solid ${COLORS.ink};border-radius:28px;display:flex;align-items:center;justify-content:center;
@@ -175,7 +182,7 @@ function graphicCard(scene, chapter) {
     `.list{position:absolute;left:180px;right:180px;top:140px;bottom:200px;display:flex;flex-direction:column;justify-content:center;gap:${big ? 44 : 30}px}
      .row{display:flex;gap:28px;align-items:baseline;font-size:${big ? 84 : 52}px;font-weight:${big ? 900 : 800};letter-spacing:-.045em;line-height:1.2}
      .list .no{color:${COLORS.mint};font-size:${big ? 56 : 40}px;font-weight:900;min-width:70px}`,
-    `${chrome({ chapter })}<div class="list">${shown.map((line, index) => `<div class="row"><span class="no">${String(index + 1).padStart(2, "0")}</span><span>${escapeHtml(line)}</span></div>`).join("")}</div>`,
+    `${chrome({ chapter })}<div class="list">${shown.map((line, index) => `<div class="row rv" style="--i:${index}"><span class="no">${String(index + 1).padStart(2, "0")}</span><span>${escapeHtml(line)}</span></div>`).join("")}</div>`,
   );
 }
 
@@ -191,8 +198,8 @@ function caseCard(scene, asset, chapter) {
      h1{margin-top:22px;font-size:${title.length > 24 ? 70 : 88}px;font-weight:900;letter-spacing:-.05em;line-height:1.14}
      p{margin-top:36px;font-size:46px;font-weight:600;line-height:1.4;color:#d9d8d2;letter-spacing:-.03em}`,
     `${chrome({ chapter, credit: source, onPhoto: true })}
-     <div class="wrap"><div class="kicker">사례 · ${escapeHtml(brand)}</div><h1>${escapeHtml(title)}<span class="dot">.</span></h1>
-       ${lines.length ? `<p>${lines.map(escapeHtml).join("<br>")}</p>` : ""}</div>`,
+     <div class="wrap"><div class="kicker rv">사례 · ${escapeHtml(brand)}</div><h1 class="rv" style="--i:1">${escapeHtml(title)}<span class="dot">.</span></h1>
+       ${lines.length ? `<p class="rv" style="--i:2">${lines.map(escapeHtml).join("<br>")}</p>` : ""}</div>`,
     { dark: true },
   );
 }
@@ -229,13 +236,43 @@ export function logoHtml() {
 .mark span{color:${COLORS.mint}}</style><body><div class="mark">BR<span>.</span></div></body>`;
 }
 
-export function sceneFrameHtml(scene, { chapter, asset }) {
-  if (isTransition(scene) && chapter) return { html: chapterCard(chapter) };
-  if (scene.sourceType === "GRAPHIC") return { html: graphicCard(scene, chapter) };
-  if (scene.sourceType === "REAL") return { html: caseCard(scene, asset, chapter) };
-  return { html: typeCard(scene, chapter) }; // TYPE, 또는 그림이 없는 AI 장면
+// 카드 HTML 속 등장 움직임(.rv/.pop의 --i·--d)이 모두 끝나는 시각(초)
+export function revealSeconds(html) {
+  let end = 0;
+  for (const match of html.matchAll(/class="[^"]*\b(rv|pop)\b[^"]*"(?:\s+style="([^"]*)")?/g)) {
+    const i = Number(/--i:\s*([\d.]+)/.exec(match[2] ?? "")?.[1] ?? 0);
+    const d = Number(/--d:\s*([\d.]+)s/.exec(match[2] ?? "")?.[1] ?? 0);
+    end = Math.max(end, (match[1] === "rv" ? i * 0.12 + 0.55 : 0.45) + d);
+  }
+  return end ? end + 0.1 : 0;
 }
 
+/**
+ * 카드 한 장. { html, seconds(움직임 길이, 0이면 정지), sfx: [{ name, at }], credit }
+ * MOTION 장면은 motion.js 카드(그릴 수 없으면 보통 카드로).
+ */
+export function sceneFrameHtml(scene, { chapter, asset, trend } = {}) {
+  if (isTransition(scene) && chapter) return { html: chapterCard(chapter), seconds: 0, sfx: [] };
+  const moving = scene.motion ? motionCard(scene, { chapter, trend }) : null;
+  if (moving) return { sfx: [], ...moving };
+  let html;
+  if (scene.sourceType === "GRAPHIC") html = graphicCard(scene, chapter);
+  else if (scene.sourceType === "REAL") html = caseCard(scene, asset, chapter);
+  else html = typeCard(scene, chapter); // TYPE, 또는 그림이 없는 AI 장면
+  // 도식(흐름·목록)은 하나씩 나타날 때 작은 '톡' 소리
+  const sfx = scene.sourceType === "GRAPHIC" && /class="(box|r|row) rv/.test(html) ? [{ name: "pop", at: 0.05 }] : [];
+  return { html, seconds: revealSeconds(html), sfx };
+}
+
+// 움직이는 카드의 프레임 파일 이름: frame_0003.png → frame_0003_m0001.jpg …
+export function motionFramePattern(file) {
+  return file.replace(/\.png$/, "_m%04d.jpg");
+}
+
+/**
+ * jobs: [{ file, html, transparent?, viewport?, motion?: 초, fps? }]
+ * motion이 있으면 0초부터 그 시각까지 fps(기본 30)로 찍어 motionFramePattern(file)로 남기고, file에는 마지막 모습을 찍는다.
+ */
 export async function renderFrames(jobs, outDir) {
   const { chromium } = await import("playwright");
   const face = await fontFace();
@@ -246,6 +283,17 @@ export async function renderFrames(jobs, outDir) {
       await page.setViewportSize(job.viewport ?? FRAME);
       await page.setContent(job.html.replace("__FONT__", face), { waitUntil: "load" });
       await page.evaluate(() => document.fonts.ready);
+      await page.addScriptTag({ content: SEEK_SCRIPT });
+      if (job.motion > 0) {
+        const fps = job.fps ?? 30;
+        const count = Math.ceil(job.motion * fps);
+        const pattern = motionFramePattern(job.file);
+        for (let index = 0; index < count; index += 1) {
+          await page.evaluate((t) => window.__seek(t), index / fps);
+          await page.screenshot({ path: path.join(outDir, pattern.replace("%04d", String(index + 1).padStart(4, "0"))), type: "jpeg", quality: 92 });
+        }
+      }
+      await page.evaluate(() => window.__seek(999));
       await page.screenshot({ path: path.join(outDir, job.file), omitBackground: Boolean(job.transparent) });
     }
   } finally {

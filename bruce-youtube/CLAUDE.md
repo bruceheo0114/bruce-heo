@@ -136,3 +136,12 @@ node src/cli/youtube.js upload <EP>       YouTube 업로드(예비 — 사용자
 ```
 
 새 Episode 제작 패키지를 만들 때의 상세 형식은 `prompts/youtube_producer.md`를 따른다.
+
+## 영상 연출 도구 (2026-10-19)
+
+- **움직이는 도식:** 스토리보드 선택 항목 `MOTION: count|trend|timeline|compare|quote` (형식은 youtube_producer.md). 숫자 올라가기·네이버 검색량 꺾은선·연표·비교·인용 카드를 Playwright로 프레임마다 찍어 만든다(`src/youtube/render/motion.js`). 보통 카드·도식도 줄마다 차례로 나타난다.
+- **검색량 그래프:** `naver-youtube.yml`이 `trends/<yt_slot>.json`에 검색량 상위 이름 3개의 주 단위 `series`를 남긴다. render가 원문 파일 이름(글 번호)으로 찾아 `MOTION: trend` 장면에 쓰고, 영상 설명 자료 출처에 '네이버 데이터랩 검색어 트렌드'를 넣는다.
+- **효과음:** `channel/sfx/` (README 참고). 간지·움직이는 카드·도식·스크롤 컷에 자동.
+- **낱말 강조 자막:** 받아쓰기(words.json) 시각에 맞춰 말한 낱말부터 흰색으로 바뀐다(아직 말하지 않은 낱말은 회색). 기본 켜짐.
+- **브랜드 사이트 스크롤:** references.json `page` 항목에 `"scroll": true`.
+- **Kling 클립:** ElevenLabs 크레딧이 남는 달에 편당 1개(약 2,120, routine_prompt 6-5). `assets/references/<EP>/<Scene>-kling.mp4`.
