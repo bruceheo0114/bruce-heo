@@ -1,0 +1,216 @@
+{
+  "references_hash": "5b24899800300862",
+  "fetched_at": "2026-10-19T12:28:44.731Z",
+  "items": [
+    {
+      "file": "A001-screen.jpg",
+      "id": "A001",
+      "scenes": [
+        "S006",
+        "S022"
+      ],
+      "kind": "screen",
+      "source": "The New York Times (2009-02-23)",
+      "url": "https://www.nytimes.com/2009/02/23/business/media/23adcol.html"
+    },
+    {
+      "file": "A001-scroll.jpg",
+      "id": "A001",
+      "scenes": [
+        "S006",
+        "S022"
+      ],
+      "kind": "scroll",
+      "source": "The New York Times (2009-02-23)",
+      "url": "https://www.nytimes.com/2009/02/23/business/media/23adcol.html"
+    },
+    {
+      "file": "A002-screen.jpg",
+      "id": "A002",
+      "scenes": [
+        "S004",
+        "S021"
+      ],
+      "kind": "screen",
+      "source": "The Branding Journal",
+      "url": "https://www.thebrandingjournal.com/2015/05/what-to-learn-from-tropicanas-packaging-redesign-failure/"
+    },
+    {
+      "file": "A002-img1.jpg",
+      "id": "A002",
+      "scenes": [
+        "S004",
+        "S021"
+      ],
+      "kind": "image",
+      "source": "The Branding Journal",
+      "url": "https://www.thebrandingjournal.com/2015/05/what-to-learn-from-tropicanas-packaging-redesign-failure/"
+    },
+    {
+      "file": "A003-screen.jpg",
+      "id": "A003",
+      "scenes": [
+        "S005",
+        "S023"
+      ],
+      "kind": "screen",
+      "source": "Everything PR",
+      "url": "https://everything-pr.com/tropicana-packaging-redesign-failure"
+    },
+    {
+      "file": "A003-scroll.jpg",
+      "id": "A003",
+      "scenes": [
+        "S005",
+        "S023"
+      ],
+      "kind": "scroll",
+      "source": "Everything PR",
+      "url": "https://everything-pr.com/tropicana-packaging-redesign-failure"
+    },
+    {
+      "file": "A003-img1.jpg",
+      "id": "A003",
+      "scenes": [
+        "S005",
+        "S023"
+      ],
+      "kind": "image",
+      "source": "Everything PR",
+      "url": "https://everything-pr.com/tropicana-packaging-redesign-failure"
+    },
+    {
+      "file": "A003-img2.jpg",
+      "id": "A003",
+      "scenes": [
+        "S005",
+        "S023"
+      ],
+      "kind": "image",
+      "source": "Everything PR",
+      "url": "https://everything-pr.com/tropicana-packaging-redesign-failure"
+    },
+    {
+      "file": "A003-img3.jpg",
+      "id": "A003",
+      "scenes": [
+        "S005",
+        "S023"
+      ],
+      "kind": "image",
+      "source": "Everything PR",
+      "url": "https://everything-pr.com/tropicana-packaging-redesign-failure"
+    },
+    {
+      "file": "A004-screen.jpg",
+      "id": "A004",
+      "scenes": [
+        "S031",
+        "S032"
+      ],
+      "kind": "screen",
+      "source": "LG전자 뉴스룸 (2026-09-21)",
+      "url": "https://www.lge.co.kr/story/newsroom/236186"
+    },
+    {
+      "file": "A004-scroll.jpg",
+      "id": "A004",
+      "scenes": [
+        "S031",
+        "S032"
+      ],
+      "kind": "scroll",
+      "source": "LG전자 뉴스룸 (2026-09-21)",
+      "url": "https://www.lge.co.kr/story/newsroom/236186"
+    },
+    {
+      "file": "A004-img1.jpg",
+      "id": "A004",
+      "scenes": [
+        "S031",
+        "S032"
+      ],
+      "kind": "image",
+      "source": "LG전자 뉴스룸 (2026-09-21)",
+      "url": "https://www.lge.co.kr/story/newsroom/236186"
+    },
+    {
+      "file": "A004-img2.jpg",
+      "id": "A004",
+      "scenes": [
+        "S031",
+        "S032"
+      ],
+      "kind": "image",
+      "source": "LG전자 뉴스룸 (2026-09-21)",
+      "url": "https://www.lge.co.kr/story/newsroom/236186"
+    },
+    {
+      "file": "A005-screen.jpg",
+      "id": "A005",
+      "scenes": [
+        "S033"
+      ],
+      "kind": "screen",
+      "source": "LG전자 홈스타일 공식 홈페이지",
+      "url": "https://homestyle.lge.co.kr/home"
+    },
+    {
+      "file": "A005-scroll.jpg",
+      "id": "A005",
+      "scenes": [
+        "S033"
+      ],
+      "kind": "scroll",
+      "source": "LG전자 홈스타일 공식 홈페이지",
+      "url": "https://homestyle.lge.co.kr/home"
+    },
+    {
+      "file": "A005-img1.jpg",
+      "id": "A005",
+      "scenes": [
+        "S033"
+      ],
+      "kind": "image",
+      "source": "LG전자 홈스타일 공식 홈페이지",
+      "url": "https://homestyle.lge.co.kr/home"
+    },
+    {
+      "file": "A005-img2.jpg",
+      "id": "A005",
+      "scenes": [
+        "S033"
+      ],
+      "kind": "image",
+      "source": "LG전자 홈스타일 공식 홈페이지",
+      "url": "https://homestyle.lge.co.kr/home"
+    },
+    {
+      "file": "A005-img3.jpg",
+      "id": "A005",
+      "scenes": [
+        "S033"
+      ],
+      "kind": "image",
+      "source": "LG전자 홈스타일 공식 홈페이지",
+      "url": "https://homestyle.lge.co.kr/home"
+    },
+    {
+      "file": "brunch-01.jpg",
+      "id": "brunch",
+      "scenes": [],
+      "kind": "image",
+      "source": "브런치 @heoboram 원문",
+      "url": "https://brunch.co.kr/@heoboram/215"
+    },
+    {
+      "file": "brunch-02.jpg",
+      "id": "brunch",
+      "scenes": [],
+      "kind": "image",
+      "source": "브런치 @heoboram 원문",
+      "url": "https://brunch.co.kr/@heoboram/215"
+    }
+  ],
+  "failures": []
+}
