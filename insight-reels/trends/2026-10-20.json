@@ -1,0 +1,1921 @@
+{
+  "generated_at": "2026-10-19T00:33:30.875Z",
+  "for_date": "2026-10-20",
+  "window": {
+    "trend": {
+      "since": "2026-09-20",
+      "until": "2026-10-19"
+    },
+    "news_days": 7
+  },
+  "source": "네이버 데이터랩 검색어 트렌드 · 네이버 뉴스 검색 · API HUB",
+  "note": "avg 는 같은 글 안의 이름끼리만 비교한다(데이터랩 상대값). rise = 최근 7일 ÷ 그 전 23일(null = 새로 뜬 말). news7 = 최근 7일 「이름 + 마케팅」 기사 중 제목에 그 이름이 들어간 수(두 글자 한글 일반 명사는 뉴스를 찾지 않는다). heat 가 높은 글부터. 이름은 원문에서 뽑았다. hooks = 유튜브와 같은 검색 훅(title_keyword 검색량 1위 이름 · title_phrase 함께 찾는 말 · rising 최근 오른 이름 · fresh_hook 7일 안 가장 새 기사), variants = title_keyword 와 함께 찾는 말의 상대값.",
+  "warnings": [],
+  "items": [
+    {
+      "no": 213,
+      "title": "사람들은 왜 불편을 살까? ",
+      "used": 0,
+      "heat": 8.1,
+      "hook": "안원잘부",
+      "hooks": {
+        "title_keyword": "오디세이",
+        "title_phrase": "오디세이",
+        "rising": [
+          "안원잘부"
+        ],
+        "fresh_hook": {
+          "term": "오디세이",
+          "title": "K푸드 오디세이 [기고]",
+          "date": "2026-10-19",
+          "link": "https://www.hankookilbo.com/news/article/A2026101514410000037?did=NA",
+          "summary": "마케팅 역량을 갖춘 대기업과 중견기업, 그리고 유망제품을 보유한 중소기업이 협력함으로써 K푸드의 지속가능한 성장 모멘텀을 만들어 나가는 것이다. 지금까지 그래왔듯이, 이 오디세이의 주인공은 앞으로도 도전적인..."
+        }
+      },
+      "variants": [
+        {
+          "phrase": "오디세이",
+          "avg": 40.3
+        },
+        {
+          "phrase": "오디세이 광고",
+          "avg": 0
+        },
+        {
+          "phrase": "오디세이 마케팅",
+          "avg": 0
+        },
+        {
+          "phrase": "오디세이 브랜딩",
+          "avg": 0
+        },
+        {
+          "phrase": "오디세이 캠페인",
+          "avg": 0
+        }
+      ],
+      "terms": [
+        {
+          "term": "안원잘부",
+          "avg": 0.4,
+          "rise": 2.62,
+          "news7": 0,
+          "news": [],
+          "heat": 8.1
+        },
+        {
+          "term": "불편",
+          "avg": 0,
+          "rise": 1.09,
+          "heat": 0.5
+        },
+        {
+          "term": "오디세이",
+          "avg": 40.3,
+          "rise": 0.43,
+          "news7": 1,
+          "news": [
+            {
+              "title": "K푸드 오디세이 [기고]",
+              "date": "2026-10-19",
+              "link": "https://www.hankookilbo.com/news/article/A2026101514410000037?did=NA",
+              "summary": "마케팅 역량을 갖춘 대기업과 중견기업, 그리고 유망제품을 보유한 중소기업이 협력함으로써 K푸드의 지속가능한 성장 모멘텀을 만들어 나가는 것이다. 지금까지 그래왔듯이, 이 오디세이의 주인공은 앞으로도 도전적인..."
+            }
+          ],
+          "heat": 0.3
+        }
+      ]
+    },
+    {
+      "no": 208,
+      "title": "하인즈는 케첩이 아니라 기억을 판다",
+      "used": 0,
+      "heat": 3.7,
+      "hook": "월드컵",
+      "hooks": {
+        "title_keyword": "월드컵",
+        "title_phrase": "월드컵",
+        "rising": [
+          "기억"
+        ],
+        "fresh_hook": {
+          "term": "월드컵",
+          "title": "프로스포츠협회 매거진 '프로스뷰', 2026 월드컵 산업 조명",
+          "date": "2026-10-16",
+          "link": "http://www.hansbiz.co.kr/news/articleView.html?idxno=873647",
+          "summary": "대회 규모, 비즈니스 성과, 디지털 확산, 팬 경험 지표를 정리한 '숫자로 보는 FIFA 월드컵 2026'도 함께 수록했다. 코카콜라, 비자, 레노버 등 글로벌 기업의 스폰서십과 공식 후원사가 아닌 브랜드의 앰부시 마케팅..."
+        }
+      },
+      "variants": [
+        {
+          "phrase": "월드컵",
+          "avg": 44.9
+        },
+        {
+          "phrase": "월드컵 광고",
+          "avg": 0
+        },
+        {
+          "phrase": "월드컵 마케팅",
+          "avg": 0
+        },
+        {
+          "phrase": "월드컵 브랜딩",
+          "avg": 0
+        },
+        {
+          "phrase": "월드컵 캠페인",
+          "avg": 0
+        }
+      ],
+      "terms": [
+        {
+          "term": "월드컵",
+          "avg": 44.9,
+          "rise": 0.52,
+          "news7": 11,
+          "news": [
+            {
+              "title": "프로스포츠협회 매거진 '프로스뷰', 2026 월드컵 산업 조명",
+              "date": "2026-10-16",
+              "link": "http://www.hansbiz.co.kr/news/articleView.html?idxno=873647",
+              "summary": "대회 규모, 비즈니스 성과, 디지털 확산, 팬 경험 지표를 정리한 '숫자로 보는 FIFA 월드컵 2026'도 함께 수록했다. 코카콜라, 비자, 레노버 등 글로벌 기업의 스폰서십과 공식 후원사가 아닌 브랜드의 앰부시 마케팅..."
+            },
+            {
+              "title": "금호타이어, 전주월드컵경기장서 체험형 이벤트…축구팬과 소통",
+              "date": "2026-10-16",
+              "link": "http://www.efnews.co.kr/news/articleView.html?idxno=133210",
+              "summary": "금호타이어가 전주월드컵경기장서 스포츠 마케팅 일환으로 현장 이벤트를 실시한다. (이미지=금호타이어) 금호타이어가 프로축구 전북현대모터스 팬과 관람객을 대상으로 체험형 이벤트를 열고 스포츠 마케팅을 통한..."
+            },
+            {
+              "title": "금호타이어, 오는 18일 전주월드컵경기장서 체험·경품 행사 마련",
+              "date": "2026-10-16",
+              "link": "https://www.consumuch.com/news/articleView.html?idxno=79294",
+              "summary": "금호타이어가 오는 18일 전주월드컵경기장에서 경기장을 찾은 축구 팬들을 위한 다채로운 참여형 이벤트를... 윤민석 G.마케팅담당 상무는 경기 관람과 다채로운 미션 체험이 어우러져 팬들이 금호타이어를 더욱 가깝게..."
+            }
+          ],
+          "heat": 3.7
+        },
+        {
+          "term": "기억",
+          "avg": 16,
+          "rise": 1.51,
+          "heat": 2.6
+        },
+        {
+          "term": "케첩",
+          "avg": 1.4,
+          "rise": 1.18,
+          "heat": 0.9
+        },
+        {
+          "term": "하인즈",
+          "avg": 1.4,
+          "rise": 1.1,
+          "news7": 0,
+          "news": [],
+          "heat": 0.5
+        },
+        {
+          "term": "토마스 하인즈",
+          "avg": 0,
+          "rise": 0,
+          "heat": 0
+        }
+      ]
+    },
+    {
+      "no": 197,
+      "title": "브랜드는 이제 시간을 판다",
+      "used": 1,
+      "heat": 3.3,
+      "hook": "MLB",
+      "hooks": {
+        "title_keyword": "MLB",
+        "title_phrase": "MLB",
+        "rising": [
+          "MLB"
+        ],
+        "fresh_hook": {
+          "term": "MLB",
+          "title": "MLB ‘흥행’ 초비상, “오타니도 양키스도 없다”…스몰마켓 월드시리...",
+          "date": "2026-10-17",
+          "link": "https://mhnse.com/news/articleView.html?idxno=1598136",
+          "summary": "실제로 버랙은 밀워키와 클리블랜드 또는 탬파베이의 월드시리즈가 MLB가 상업적으로 가장 선호할 대진은... 하지만 다저스의 탈락으로 메이저리그는 그런 스타 마케팅의 효과를 월드시리즈에서 활용할 수 없게..."
+        }
+      },
+      "variants": [
+        {
+          "phrase": "MLB",
+          "avg": 49.7
+        },
+        {
+          "phrase": "MLB 광고",
+          "avg": 0
+        },
+        {
+          "phrase": "MLB 마케팅",
+          "avg": 0
+        },
+        {
+          "phrase": "MLB 브랜딩",
+          "avg": 0
+        },
+        {
+          "phrase": "MLB 캠페인",
+          "avg": 0
+        }
+      ],
+      "terms": [
+        {
+          "term": "MLB",
+          "avg": 49.7,
+          "rise": 1.32,
+          "news7": 5,
+          "news": [
+            {
+              "title": "MLB ‘흥행’ 초비상, “오타니도 양키스도 없다”…스몰마켓 월드시리...",
+              "date": "2026-10-17",
+              "link": "https://mhnse.com/news/articleView.html?idxno=1598136",
+              "summary": "실제로 버랙은 밀워키와 클리블랜드 또는 탬파베이의 월드시리즈가 MLB가 상업적으로 가장 선호할 대진은... 하지만 다저스의 탈락으로 메이저리그는 그런 스타 마케팅의 효과를 월드시리즈에서 활용할 수 없게..."
+            },
+            {
+              "title": "“포르노 같은 광고 좀 안 틀면 안될까요” MLB 선수의 일침…반나체 여...",
+              "date": "2026-10-16",
+              "link": "https://www.seoul.co.kr/news/international/USA-amrica/2026/10/16/20261016500144?wlog_tag3=naver",
+              "summary": "미국프로야구 메이저리그(MLB) 선수가 할리우드 유명 여배우가 출연하는 광고에 대해 강한 일침을 날렸다.... 같은 마케팅이 과거의 일이라고 생각했다”고 밝혔다. 이어 “평생 자신의 기량을 완성하는 데 헌신한 모든..."
+            },
+            {
+              "title": "MLB×리센느, '미야옹 비니'로 완성한 러블리힙 겨울룩",
+              "date": "2026-10-13",
+              "link": "https://www.ggilbo.com/news/articleView.html?idxno=1186634",
+              "summary": "MLB 마케팅 본부장 김태영 이사는 \"리센느만의 신선하고 감각적인 이미지가 MLB가 미야옹 비니를 통해 보여주고자 하는 젊고 트렌디한 브랜드 무드와 잘 부합한다\"며, \"트렌드를 반영하여 새롭게 제작해본..."
+            }
+          ],
+          "heat": 3.3
+        },
+        {
+          "term": "OTT",
+          "avg": 1.5,
+          "rise": 0.95,
+          "news7": 3,
+          "news": [
+            {
+              "title": "7% 적립에 OTT 결합하니… '쓱7클럽' 티빙형 가입자 3배로",
+              "date": "2026-10-15",
+              "link": "https://www.hankookilbo.com/news/article/A2026101509400002613?did=NA",
+              "summary": "2만 원 이상 구매 시 쓸 수 있는 무료배송 쿠폰도 지급한다. 방승재 SSG닷컴 마케팅담당은 \"합리적 구독료로 장보기와 콘텐츠 혜택을 함께 누릴 수 있다는 점이 쓱7클럽 티빙형의 강점\"이라고 말했다."
+            },
+            {
+              "title": "SSG닷컴 '쓱7클럽' 티빙형 가입자 3배↑…쇼핑·OTT 결합 효과",
+              "date": "2026-10-15",
+              "link": "http://www.inews24.com/view/2015241",
+              "summary": "SSG닷컴이 장보기 적립 혜택과 온라인동영상서비스(OTT)를 결합한 멤버십으로 가입자 확대에 나서고 있다.... 방승재 SSG닷컴 마케팅담당은 \"합리적인 구독료로 장보기와 콘텐츠 혜택을 함께 누릴 수 있다는 점이..."
+            },
+            {
+              "title": "장보기·OTT 결합 통했다…SSG닷컴 쓱7클럽 가입자 3배 증가",
+              "date": "2026-10-15",
+              "link": "http://www.4th.kr/news/articleView.html?idxno=2119768",
+              "summary": "2026.10.15./사진=SSG닷컴 장보기 혜택과 온라인동영상서비스(OTT)를 결합한 SSG닷컴의 유료 멤버십이 출시... 방승재 SSG닷컴 마케팅담당은 \"합리적인 구독료로 장보기와 콘텐츠 혜택을 함께 누릴 수 있다는 점이 쓱7클럽..."
+            }
+          ],
+          "heat": 1
+        },
+        {
+          "term": "시간",
+          "avg": 28.5,
+          "rise": 1.13,
+          "heat": 0.6
+        },
+        {
+          "term": "제철코어",
+          "avg": 0,
+          "rise": 0.98,
+          "heat": 0
+        }
+      ]
+    },
+    {
+      "no": 224,
+      "title": "LG전자는 왜 발음하기도 어려운 닉네임을 만들었을까?",
+      "used": 1,
+      "heat": 3,
+      "hook": "LG전자",
+      "hooks": {
+        "title_keyword": "LG전자",
+        "title_phrase": "LG전자",
+        "rising": [],
+        "fresh_hook": {
+          "term": "LG전자",
+          "title": "LG전자, 뉴욕 타임스스퀘어에 가전 기술 발전·AI홈 비전 영상 공개",
+          "date": "2026-10-19",
+          "link": "https://thetracker.co.kr/View.aspx?No=4268600",
+          "summary": "류주현 LG전자 HS마케팅커뮤니케이션담당은 \"고객의 더 나은 삶을 위해 혁신해 온 LG전자의 헤리티지와 미래 비전을 글로벌 고객과 공유하고, 차별화된 브랜드 가치를 지속적으로 전달해 나갈 것\"이라고 말했다."
+        }
+      },
+      "variants": [
+        {
+          "phrase": "LG전자",
+          "avg": 42.5
+        },
+        {
+          "phrase": "LG전자 광고",
+          "avg": 0
+        },
+        {
+          "phrase": "LG전자 마케팅",
+          "avg": 0
+        },
+        {
+          "phrase": "LG전자 브랜딩",
+          "avg": 0
+        },
+        {
+          "phrase": "LG전자 캠페인",
+          "avg": 0
+        }
+      ],
+      "terms": [
+        {
+          "term": "LG전자",
+          "avg": 42.5,
+          "rise": 0.99,
+          "news7": 9,
+          "news": [
+            {
+              "title": "LG전자, 뉴욕 타임스스퀘어에 가전 기술 발전·AI홈 비전 영상 공개",
+              "date": "2026-10-19",
+              "link": "https://thetracker.co.kr/View.aspx?No=4268600",
+              "summary": "류주현 LG전자 HS마케팅커뮤니케이션담당은 \"고객의 더 나은 삶을 위해 혁신해 온 LG전자의 헤리티지와 미래 비전을 글로벌 고객과 공유하고, 차별화된 브랜드 가치를 지속적으로 전달해 나갈 것\"이라고 말했다."
+            },
+            {
+              "title": "美 주방협회와 손 잡은 LG전자, ‘시그니처’로 고급 빌트인 공략",
+              "date": "2026-10-19",
+              "link": "https://www.dt.co.kr/article/12089719?ref=naver",
+              "summary": "LG전자가 초프리미엄 가전 브랜드 ‘LG 시그니처’를 앞세워 미국 고급 빌트인 시장 공략에 속도를 낸다. 그동안 개별 소비자 대상으로 진행했던 마케팅을 넘어 주택 건설업체와 인테리어 디자이너 등 주거공간..."
+            },
+            {
+              "title": "삼성전자·LG전자, 고객 접점 확대...브랜드 마케팅 '잰걸음'",
+              "date": "2026-10-15",
+              "link": "https://www.techm.kr/news/articleView.html?idxno=156111",
+              "summary": "삼성전자는 14일부터 25일까지 서울 중구 DDP에서 열리는 '서울 디자인 위크 2026'에 참가했다/사진=삼성전자 제공 삼성전자와 LG전자가 완제품 브랜드 마케팅을 강화했다. 다양한 행사와 접목해 다채로운 고객 경험을..."
+            }
+          ],
+          "heat": 3
+        },
+        {
+          "term": "르게",
+          "avg": 0,
+          "rise": 1.2,
+          "heat": 1
+        },
+        {
+          "term": "르게다꼼",
+          "avg": 0.2,
+          "rise": 0.73,
+          "news7": 0,
+          "news": [],
+          "heat": 0
+        },
+        {
+          "term": "LGE",
+          "avg": 0.2,
+          "rise": 0.94,
+          "heat": 0
+        },
+        {
+          "term": "발음하기",
+          "avg": 0,
+          "rise": 0,
+          "heat": 0
+        }
+      ]
+    },
+    {
+      "no": 196,
+      "title": "10년 경험을 AI에게 인수인계할 수 있나요?",
+      "used": 0,
+      "heat": 2.9,
+      "hook": "GPT",
+      "hooks": {
+        "title_keyword": "GPT",
+        "title_phrase": "GPT 광고",
+        "rising": [],
+        "fresh_hook": {
+          "term": "GPT",
+          "title": "주식회사 비전, GPT-4o 기반 'AI 플레이스 마케팅' 전격 출시… \"베일 벗...",
+          "date": "2026-10-19",
+          "link": "https://www.gosiweek.com/article/1065598298986449",
+          "summary": "▲이미지 제공: 주식회사 비전 온라인 마케팅 시장, 특히 포털 사이트의 '플레이스(지도)' 영역은 소상공인과... 이러한 마케팅 시장의 고질적인 정보 불균형과 불투명성을 타파하기 위해, 마케팅 테크 기업 주식회사..."
+        }
+      },
+      "variants": [
+        {
+          "phrase": "GPT",
+          "avg": 61.5
+        },
+        {
+          "phrase": "GPT 광고",
+          "avg": 0.1
+        },
+        {
+          "phrase": "GPT 마케팅",
+          "avg": 0
+        },
+        {
+          "phrase": "GPT 브랜딩",
+          "avg": 0
+        },
+        {
+          "phrase": "GPT 캠페인",
+          "avg": 0
+        }
+      ],
+      "terms": [
+        {
+          "term": "GPT",
+          "avg": 61.5,
+          "rise": 1.25,
+          "news7": 5,
+          "news": [
+            {
+              "title": "주식회사 비전, GPT-4o 기반 'AI 플레이스 마케팅' 전격 출시… \"베일 벗...",
+              "date": "2026-10-19",
+              "link": "https://www.gosiweek.com/article/1065598298986449",
+              "summary": "▲이미지 제공: 주식회사 비전 온라인 마케팅 시장, 특히 포털 사이트의 '플레이스(지도)' 영역은 소상공인과... 이러한 마케팅 시장의 고질적인 정보 불균형과 불투명성을 타파하기 위해, 마케팅 테크 기업 주식회사..."
+            },
+            {
+              "title": "로봇 산업, ‘챗GPT 순간’ 앞서 기초 기술부터 재구축",
+              "date": "2026-10-17",
+              "link": "https://www.tokenpost.kr/news/ai/423497",
+              "summary": "엔비디아에서 로보틱스 플랫폼 제품 마케팅을 7년간 이끈 아물리아 비슈와나트는 현재를 ‘레고 시대’... 이 진단은 범용 파운데이션 모델이 로봇 산업의 ‘챗GPT 순간’을 곧 열 것이라는 기대와 차이가 있다...."
+            },
+            {
+              "title": "제미나이와 챗GPT 광고의 공통점: 출산과 결혼",
+              "date": "2026-10-16",
+              "link": "https://ditoday.com/%ec%a0%9c%eb%af%b8%eb%82%98%ec%9d%b4%ec%99%80-%ec%b1%97gpt-%ea%b4%91%ea%b3%a0%ec%9d%98-%ea%b3%b5%ed%86%b5%ec%a0%90-%ec%b6%9c%ec%82%b0%ea%b3%bc-%ea%b2%b0%ed%98%bc/",
+              "summary": "광고의 주목도를 실제 브랜드 선택으로 연결하고 싶은 마케팅 실무자에게 힌트가 되길 바랍니다. 아기가... 이달 TVCF에 등록된 구글과 챗GPT 광고는 이 두 사건을 다룹니다. 구글의 ‘아기의 탄생’에서는 가족과 친구가..."
+            }
+          ],
+          "heat": 2.9
+        },
+        {
+          "term": "AI",
+          "avg": 25.6,
+          "rise": 1.06,
+          "heat": 0.3
+        },
+        {
+          "term": "경험",
+          "avg": 0.4,
+          "rise": 1.03,
+          "heat": 0.2
+        },
+        {
+          "term": "인수인계할",
+          "avg": 0,
+          "rise": 0,
+          "heat": 0
+        }
+      ]
+    },
+    {
+      "no": 223,
+      "title": "영어 공부 앱이 왜 생일카페를 열까?",
+      "fresh": true,
+      "heat": 2.7,
+      "hook": "Duo",
+      "hooks": {
+        "title_keyword": "생일카페",
+        "title_phrase": "생일카페",
+        "rising": [
+          "Duo"
+        ],
+        "fresh_hook": null
+      },
+      "variants": [
+        {
+          "phrase": "생일카페",
+          "avg": 53.5
+        },
+        {
+          "phrase": "생일카페 광고",
+          "avg": 0
+        },
+        {
+          "phrase": "생일카페 마케팅",
+          "avg": 0
+        },
+        {
+          "phrase": "생일카페 브랜딩",
+          "avg": 0
+        },
+        {
+          "phrase": "생일카페 캠페인",
+          "avg": 0
+        }
+      ],
+      "terms": [
+        {
+          "term": "Duo",
+          "avg": 3.8,
+          "rise": 1.53,
+          "news7": 0,
+          "news": [],
+          "heat": 2.7
+        },
+        {
+          "term": "영어",
+          "avg": 78.7,
+          "rise": 1.15,
+          "heat": 0.7
+        },
+        {
+          "term": "생일카페",
+          "avg": 5.6,
+          "rise": 1.15,
+          "news7": 0,
+          "news": [],
+          "heat": 0.7
+        },
+        {
+          "term": "공부",
+          "avg": 19.1,
+          "rise": 1.12,
+          "heat": 0.6
+        },
+        {
+          "term": "앱이",
+          "avg": 0,
+          "rise": 0,
+          "heat": 0
+        }
+      ]
+    },
+    {
+      "no": 195,
+      "title": "파격을 만드는 건 아이디어가 아니라 설득이다",
+      "used": 0,
+      "heat": 2.5,
+      "hook": "아이디어",
+      "hooks": {
+        "title_keyword": "아이디어",
+        "title_phrase": "아이디어",
+        "rising": [
+          "파격"
+        ],
+        "fresh_hook": {
+          "term": "아이디어",
+          "title": "영천시, 젊은 직원 아이디어로 관광 경쟁력 강화",
+          "date": "2026-10-18",
+          "link": "https://www.hidomin.com/news/articleView.html?idxno=725272",
+          "summary": "영천시가 젊은 직원들의 참신한 아이디어를 관광정책에 접목해 지역 관광의 경쟁력을 높이는 방안을... 젊은 세대의 관심을 끌 수 있는 신규 콘텐츠 발굴과 축제 개최 시기 조정, 온라인 홍보·마케팅 강화 방안 등도 주요..."
+        }
+      },
+      "variants": [
+        {
+          "phrase": "아이디어",
+          "avg": 68.4
+        },
+        {
+          "phrase": "아이디어 광고",
+          "avg": 0
+        },
+        {
+          "phrase": "아이디어 마케팅",
+          "avg": 0
+        },
+        {
+          "phrase": "아이디어 브랜딩",
+          "avg": 0
+        },
+        {
+          "phrase": "아이디어 캠페인",
+          "avg": 0
+        }
+      ],
+      "terms": [
+        {
+          "term": "아이디어",
+          "avg": 68.4,
+          "rise": 1.16,
+          "news7": 5,
+          "news": [
+            {
+              "title": "영천시, 젊은 직원 아이디어로 관광 경쟁력 강화",
+              "date": "2026-10-18",
+              "link": "https://www.hidomin.com/news/articleView.html?idxno=725272",
+              "summary": "영천시가 젊은 직원들의 참신한 아이디어를 관광정책에 접목해 지역 관광의 경쟁력을 높이는 방안을... 젊은 세대의 관심을 끌 수 있는 신규 콘텐츠 발굴과 축제 개최 시기 조정, 온라인 홍보·마케팅 강화 방안 등도 주요..."
+            },
+            {
+              "title": "\"5강 못가서 죄송합니다\" 선수들 아이디어로 2만3천명의 관중을 모았다...",
+              "date": "2026-10-18",
+              "link": "https://www.sportschosun.com/baseball/2026-10-18/202610180100109970007145",
+              "summary": "투타를 바꿔서 치르는 이벤트 경기의 시작이 선수들의 아이디어였던만큼, 누구 하나 빼는 사람 없이 선수들이 주도적으로 이벤트를 꾸려간다. 다만 판이 커지면서 마케팅팀, 홍보팀 등 구단 각 파트에서도 많은 부분들을..."
+            },
+            {
+              "title": "내가 만든 조합이 진짜 메뉴로... 식품업계, 소비자 아이디어에 꽂혔다",
+              "date": "2026-10-18",
+              "link": "http://www.newskr.kr/news/articleView.html?idxno=107231",
+              "summary": "식품업계 소비자 참여 마케팅 활발. [(왼쪽 상단부터 시계방향) 정식품, 지앤푸드 굽네, 배스킨라빈스, 농심]... 소비자의 아이디어를 상품 개발에 적극적으로 활용하고 있다. 18일 식품업계에 따르면 농심은 소비자들이..."
+            }
+          ],
+          "heat": 2.5
+        },
+        {
+          "term": "파격",
+          "avg": 7,
+          "rise": 1.43,
+          "heat": 2.1
+        },
+        {
+          "term": "만드",
+          "avg": 5,
+          "rise": 1.09,
+          "heat": 0.5
+        },
+        {
+          "term": "원영이의 꿈",
+          "avg": 0,
+          "rise": 0,
+          "heat": 0
+        },
+        {
+          "term": "이게 실제로 됐다고?",
+          "avg": 0,
+          "rise": 0,
+          "heat": 0
+        }
+      ]
+    },
+    {
+      "no": 218,
+      "title": "IMC 캠페인은 인플루언서가 전부 아닌가요 ",
+      "used": 0,
+      "heat": 2.2,
+      "hook": "인플루언서",
+      "hooks": {
+        "title_keyword": "인플루언서",
+        "title_phrase": "인플루언서 마케팅",
+        "rising": [],
+        "fresh_hook": {
+          "term": "인플루언서",
+          "title": "바이오메라, IFF와 함께 육아 인플루언서 서포터즈 대상 ‘HOWARU® 유산균...",
+          "date": "2026-10-19",
+          "link": "https://www.seoul.co.kr/news/economy/2026/10/19/20261019500014?wlog_tag3=naver",
+          "summary": "육아 인플루언서 서포터즈를 대상으로 ‘HOWARU®(하우아유) 유산균 세미나’를 개최했다고 밝혔다. 이번... 특히 IFF는 바이오메라를 핵심 파트너로 선정하고 학술 교류부터 공동 마케팅까지 협업 범위를 확대 중이다...."
+        }
+      },
+      "variants": [
+        {
+          "phrase": "인플루언서",
+          "avg": 61.6
+        },
+        {
+          "phrase": "인플루언서 광고",
+          "avg": 0.5
+        },
+        {
+          "phrase": "인플루언서 마케팅",
+          "avg": 1.9
+        },
+        {
+          "phrase": "인플루언서 브랜딩",
+          "avg": 0
+        },
+        {
+          "phrase": "인플루언서 캠페인",
+          "avg": 0
+        }
+      ],
+      "terms": [
+        {
+          "term": "인플루언서",
+          "avg": 61.6,
+          "rise": 1.17,
+          "news7": 4,
+          "news": [
+            {
+              "title": "바이오메라, IFF와 함께 육아 인플루언서 서포터즈 대상 ‘HOWARU® 유산균...",
+              "date": "2026-10-19",
+              "link": "https://www.seoul.co.kr/news/economy/2026/10/19/20261019500014?wlog_tag3=naver",
+              "summary": "육아 인플루언서 서포터즈를 대상으로 ‘HOWARU®(하우아유) 유산균 세미나’를 개최했다고 밝혔다. 이번... 특히 IFF는 바이오메라를 핵심 파트너로 선정하고 학술 교류부터 공동 마케팅까지 협업 범위를 확대 중이다...."
+            },
+            {
+              "title": "평창군, 인플루언서 초청 팸투어… 농촌관광 홍보 강화",
+              "date": "2026-10-16",
+              "link": "https://www.kwnews.co.kr/article/20261016500394",
+              "summary": "평창군과 (사)평창그린투어사업단(단장:김태겸)은 지난 14일부터 15일까지 여행·관광 분야 인플루언서와... 사업단은 제작된 콘텐츠와 이용자 반응을 분석해 회원사별 홍보 전략과 마케팅 개선 방향을 제시할 계획이다...."
+            },
+            {
+              "title": "평창 농촌관광 팸투어···인플루언서 20여 명 초청",
+              "date": "2026-10-16",
+              "link": "https://www.cnbnews.com/news/articleView.html?idxno=1019741",
+              "summary": "양 기관은 지난 14일부터 15일까지 여행·관광 분야 인플루언서와 콘텐츠 제작자 20여 명을 초청해 농촌관광... 사업단은 참가자들이 제작한 온라인 콘텐츠와 이용자 반응을 분석해 회원사별 홍보 전략과 마케팅 개선 방향을..."
+            }
+          ],
+          "heat": 2.2
+        },
+        {
+          "term": "IMC",
+          "avg": 3.9,
+          "rise": 0.97,
+          "news7": 0,
+          "news": [],
+          "heat": 0
+        },
+        {
+          "term": "전부",
+          "avg": 3.5,
+          "rise": 0.96,
+          "heat": 0
+        }
+      ]
+    },
+    {
+      "no": 211,
+      "title": "버거킹은 왜 기사식당 전단지를 만들었을까",
+      "used": 0,
+      "heat": 1.8,
+      "hook": "신속",
+      "hooks": {
+        "title_keyword": "버거킹",
+        "title_phrase": "버거킹 광고",
+        "rising": [
+          "신속"
+        ],
+        "fresh_hook": {
+          "term": "버거킹",
+          "title": "[황정수의 글로벌 현장] 퇴물이라던 美 버거킹·랄프로렌 '화려한 부활...",
+          "date": "2026-10-19",
+          "link": "https://magazine.hankyung.com/business/article/202610126021b",
+          "summary": "패스트푸드 업체 버거킹부터 의류 업체 랄프로렌과 빅토리아시크릿, 스마트폰의 상징이었던 블랙베리가... 힐러리 슈퍼 최고경영자(CEO)는 “상품 혁신과 브랜드 정체성, 마케팅 등이 함께 작동하면서 신규 고객이..."
+        }
+      },
+      "variants": [
+        {
+          "phrase": "버거킹",
+          "avg": 67.9
+        },
+        {
+          "phrase": "버거킹 광고",
+          "avg": 0.2
+        },
+        {
+          "phrase": "버거킹 마케팅",
+          "avg": 0
+        },
+        {
+          "phrase": "버거킹 브랜딩",
+          "avg": 0
+        },
+        {
+          "phrase": "버거킹 캠페인",
+          "avg": 0
+        }
+      ],
+      "terms": [
+        {
+          "term": "신속",
+          "avg": 0.1,
+          "rise": 1.36,
+          "heat": 1.8
+        },
+        {
+          "term": "전단지",
+          "avg": 0.5,
+          "rise": 1.27,
+          "heat": 1.4
+        },
+        {
+          "term": "버거킹",
+          "avg": 67.9,
+          "rise": 0.82,
+          "news7": 3,
+          "news": [
+            {
+              "title": "[황정수의 글로벌 현장] 퇴물이라던 美 버거킹·랄프로렌 '화려한 부활...",
+              "date": "2026-10-19",
+              "link": "https://magazine.hankyung.com/business/article/202610126021b",
+              "summary": "패스트푸드 업체 버거킹부터 의류 업체 랄프로렌과 빅토리아시크릿, 스마트폰의 상징이었던 블랙베리가... 힐러리 슈퍼 최고경영자(CEO)는 “상품 혁신과 브랜드 정체성, 마케팅 등이 함께 작동하면서 신규 고객이..."
+            },
+            {
+              "title": "[현장POP] 버거킹 이어 노브랜드도 '조식'…성수랩점서 조식 시장 첫 도...",
+              "date": "2026-10-15",
+              "link": "http://www.dailypop.kr/news/articleView.html?idxno=103392",
+              "summary": "메뉴 재출시와 함께 선보인 마케팅도 눈길을 끌었다. 버거킹은 '아침 식사 됩니다'라는 문구를 활용한 레트로 콘셉트의 광고 게시물을 SNS에 공개했다. 해당 게시물이 화제를 모은 가운데 모닝 메뉴 판매량은 재출시 이후..."
+            },
+            {
+              "title": "[똑똑한외식] 설빙, KFC, 버거킹, 육수당, BBQ, 컴포즈커피, 테라로사, 본...",
+              "date": "2026-10-13",
+              "link": "https://www.ekn.kr/web/view.php?key=20261013027165406",
+              "summary": "백민정 KFC코리아 최고마케팅책임자(CMO)는 “재출시를 요청한 고객들의 의견을 반영해 중량을 늘리고 새로운 소스를 더했다\"며 “한정 판매 기간에 색다른 조합을 즐겨보길 바란다\"고 말했다. ◇ 버거킹 '블랙..."
+            }
+          ],
+          "heat": 1
+        },
+        {
+          "term": "기사식당",
+          "avg": 1.5,
+          "rise": 0.91,
+          "news7": 0,
+          "news": [],
+          "heat": 0
+        },
+        {
+          "term": "와퍼",
+          "avg": 0.3,
+          "rise": 0.94,
+          "heat": 0
+        }
+      ]
+    },
+    {
+      "no": 215,
+      "title": "새로운 것을 제안하되, 브랜드보다 앞서가지는 말 것",
+      "used": 0,
+      "heat": 1.3,
+      "hook": "RFP",
+      "hooks": {
+        "title_keyword": "RFP",
+        "title_phrase": "RFP",
+        "rising": [],
+        "fresh_hook": null
+      },
+      "variants": [
+        {
+          "phrase": "RFP",
+          "avg": 51.2
+        },
+        {
+          "phrase": "RFP 광고",
+          "avg": 0
+        },
+        {
+          "phrase": "RFP 마케팅",
+          "avg": 0
+        },
+        {
+          "phrase": "RFP 브랜딩",
+          "avg": 0
+        },
+        {
+          "phrase": "RFP 캠페인",
+          "avg": 0
+        }
+      ],
+      "terms": [
+        {
+          "term": "RFP",
+          "avg": 51.2,
+          "rise": 1.25,
+          "news7": 0,
+          "news": [],
+          "heat": 1.3
+        },
+        {
+          "term": "새로운",
+          "avg": 20.4,
+          "rise": 0.95,
+          "news7": 0,
+          "news": [],
+          "heat": 0
+        },
+        {
+          "term": "것을",
+          "avg": 0,
+          "rise": 0,
+          "heat": 0
+        },
+        {
+          "term": "제안하되",
+          "avg": 0,
+          "rise": 0,
+          "heat": 0
+        },
+        {
+          "term": "앞서가지",
+          "avg": 0,
+          "rise": 0,
+          "heat": 0
+        }
+      ]
+    },
+    {
+      "no": 210,
+      "title": "AI가 뭉뚝한 게 아니라, 내가 뭉뚝해지고 있었다",
+      "used": 0,
+      "heat": 1.3,
+      "hook": "RFP",
+      "hooks": {
+        "title_keyword": "RFP",
+        "title_phrase": "RFP",
+        "rising": [],
+        "fresh_hook": null
+      },
+      "variants": [
+        {
+          "phrase": "RFP",
+          "avg": 51.2
+        },
+        {
+          "phrase": "RFP 광고",
+          "avg": 0
+        },
+        {
+          "phrase": "RFP 마케팅",
+          "avg": 0
+        },
+        {
+          "phrase": "RFP 브랜딩",
+          "avg": 0
+        },
+        {
+          "phrase": "RFP 캠페인",
+          "avg": 0
+        }
+      ],
+      "terms": [
+        {
+          "term": "RFP",
+          "avg": 2.1,
+          "rise": 1.25,
+          "news7": 0,
+          "news": [],
+          "heat": 1.3
+        },
+        {
+          "term": "AI",
+          "avg": 77.8,
+          "rise": 1.06,
+          "heat": 0.3
+        },
+        {
+          "term": "뭉뚝한",
+          "avg": 0,
+          "rise": 0,
+          "heat": 0
+        },
+        {
+          "term": "대행사의 꽃은 제안",
+          "avg": 0,
+          "rise": 0,
+          "heat": 0
+        }
+      ]
+    },
+    {
+      "no": 214,
+      "title": "AI 시대, 도끼를 든 사람이 되자",
+      "used": 0,
+      "heat": 1,
+      "hook": "봉화사과",
+      "hooks": {
+        "title_keyword": "봉화사과",
+        "title_phrase": "봉화사과",
+        "rising": [],
+        "fresh_hook": null
+      },
+      "variants": [
+        {
+          "phrase": "봉화사과",
+          "avg": 65.4
+        },
+        {
+          "phrase": "봉화사과 광고",
+          "avg": 0
+        },
+        {
+          "phrase": "봉화사과 마케팅",
+          "avg": 0
+        },
+        {
+          "phrase": "봉화사과 브랜딩",
+          "avg": 0
+        },
+        {
+          "phrase": "봉화사과 캠페인",
+          "avg": 0
+        }
+      ],
+      "terms": [
+        {
+          "term": "봉화사과",
+          "avg": 1.1,
+          "rise": 1.21,
+          "news7": 0,
+          "news": [],
+          "heat": 1
+        },
+        {
+          "term": "되자",
+          "avg": 0.1,
+          "rise": 1.13,
+          "heat": 0.6
+        },
+        {
+          "term": "AI",
+          "avg": 77.8,
+          "rise": 1.06,
+          "heat": 0.3
+        },
+        {
+          "term": "도끼",
+          "avg": 17.5,
+          "rise": 0.39,
+          "heat": 0
+        },
+        {
+          "term": "언젠가는 해야지",
+          "avg": 0,
+          "rise": 0,
+          "heat": 0
+        }
+      ]
+    },
+    {
+      "no": 187,
+      "title": "“AI가 만든 겁니다”라는 스티커의 가격",
+      "used": 0,
+      "heat": 0.9,
+      "hook": "비용",
+      "hooks": {
+        "title_keyword": "스티커",
+        "title_phrase": "스티커 광고",
+        "rising": [],
+        "fresh_hook": null
+      },
+      "variants": [
+        {
+          "phrase": "스티커",
+          "avg": 75.4
+        },
+        {
+          "phrase": "스티커 광고",
+          "avg": 0.7
+        },
+        {
+          "phrase": "스티커 마케팅",
+          "avg": 0
+        },
+        {
+          "phrase": "스티커 브랜딩",
+          "avg": 0
+        },
+        {
+          "phrase": "스티커 캠페인",
+          "avg": 0
+        }
+      ],
+      "terms": [
+        {
+          "term": "비용",
+          "avg": 0.9,
+          "rise": 1.19,
+          "heat": 0.9
+        },
+        {
+          "term": "책임",
+          "avg": 1.6,
+          "rise": 1.17,
+          "heat": 0.8
+        },
+        {
+          "term": "스티커",
+          "avg": 9.6,
+          "rise": 1.08,
+          "news7": 0,
+          "news": [],
+          "heat": 0.4
+        },
+        {
+          "term": "AI",
+          "avg": 77.8,
+          "rise": 1.06,
+          "heat": 0.3
+        },
+        {
+          "term": "휴먼 터치",
+          "avg": 0.2,
+          "rise": 1.01,
+          "news7": 0,
+          "news": [],
+          "heat": 0.1
+        }
+      ]
+    },
+    {
+      "no": 202,
+      "title": "스크럽대디는 왜 청소용품 광고에 임신 테스트기를 썼나",
+      "used": 1,
+      "heat": 0.8,
+      "hook": "청소용품",
+      "hooks": {
+        "title_keyword": "스크럽대디",
+        "title_phrase": "스크럽대디",
+        "rising": [],
+        "fresh_hook": null
+      },
+      "variants": [
+        {
+          "phrase": "스크럽대디",
+          "avg": 62.7
+        },
+        {
+          "phrase": "스크럽대디 광고",
+          "avg": 0
+        },
+        {
+          "phrase": "스크럽대디 마케팅",
+          "avg": 0
+        },
+        {
+          "phrase": "스크럽대디 브랜딩",
+          "avg": 0
+        },
+        {
+          "phrase": "스크럽대디 캠페인",
+          "avg": 0
+        }
+      ],
+      "terms": [
+        {
+          "term": "청소용품",
+          "avg": 13.3,
+          "rise": 1.17,
+          "news7": 0,
+          "news": [],
+          "heat": 0.8
+        },
+        {
+          "term": "테스트기",
+          "avg": 1.3,
+          "rise": 1.11,
+          "heat": 0.6
+        },
+        {
+          "term": "임신",
+          "avg": 49.8,
+          "rise": 1.08,
+          "heat": 0.4
+        },
+        {
+          "term": "스크럽대디",
+          "avg": 62.7,
+          "rise": 0.95,
+          "news7": 0,
+          "news": [],
+          "heat": 0
+        },
+        {
+          "term": "썼나",
+          "avg": 0,
+          "rise": 0,
+          "heat": 0
+        }
+      ]
+    },
+    {
+      "no": 198,
+      "title": "가본 만큼만 내 땅이다:AI가 줄 수 없는 것",
+      "used": 0,
+      "heat": 0.8,
+      "hook": "브레인스토밍",
+      "hooks": {
+        "title_keyword": "브레인스토밍",
+        "title_phrase": "브레인스토밍",
+        "rising": [],
+        "fresh_hook": null
+      },
+      "variants": [
+        {
+          "phrase": "브레인스토밍",
+          "avg": 57.6
+        },
+        {
+          "phrase": "브레인스토밍 광고",
+          "avg": 0
+        },
+        {
+          "phrase": "브레인스토밍 마케팅",
+          "avg": 0
+        },
+        {
+          "phrase": "브레인스토밍 브랜딩",
+          "avg": 0
+        },
+        {
+          "phrase": "브레인스토밍 캠페인",
+          "avg": 0
+        }
+      ],
+      "terms": [
+        {
+          "term": "브레인스토밍",
+          "avg": 57.6,
+          "rise": 1.16,
+          "news7": 0,
+          "news": [],
+          "heat": 0.8
+        },
+        {
+          "term": "만큼",
+          "avg": 21.6,
+          "rise": 0.8,
+          "heat": 0
+        },
+        {
+          "term": "가본",
+          "avg": 4.6,
+          "rise": 0.96,
+          "heat": 0
+        },
+        {
+          "term": "땅이다AI",
+          "avg": 0,
+          "rise": 0,
+          "heat": 0
+        }
+      ]
+    },
+    {
+      "no": 188,
+      "title": "필코노미 시대, 감정은 ‘팔지 말고 설계'해야한다.",
+      "used": 0,
+      "heat": 0.6,
+      "hook": "감정",
+      "hooks": {
+        "title_keyword": "필코노미",
+        "title_phrase": "필코노미",
+        "rising": [],
+        "fresh_hook": null
+      },
+      "variants": [
+        {
+          "phrase": "필코노미",
+          "avg": 49.9
+        },
+        {
+          "phrase": "필코노미 광고",
+          "avg": 0
+        },
+        {
+          "phrase": "필코노미 마케팅",
+          "avg": 0
+        },
+        {
+          "phrase": "필코노미 브랜딩",
+          "avg": 0
+        },
+        {
+          "phrase": "필코노미 캠페인",
+          "avg": 0
+        }
+      ],
+      "terms": [
+        {
+          "term": "감정",
+          "avg": 58.1,
+          "rise": 1.13,
+          "heat": 0.6
+        },
+        {
+          "term": "안심",
+          "avg": 71.3,
+          "rise": 1.04,
+          "heat": 0.2
+        },
+        {
+          "term": "팔지",
+          "avg": 18.9,
+          "rise": 1.01,
+          "heat": 0.1
+        },
+        {
+          "term": "필코노미",
+          "avg": 8.5,
+          "rise": 1.02,
+          "news7": 0,
+          "news": [],
+          "heat": 0.1
+        },
+        {
+          "term": "설계해야한다.",
+          "avg": 0,
+          "rise": 0,
+          "heat": 0
+        }
+      ]
+    },
+    {
+      "no": 193,
+      "title": "브랜드가 기억되는 건 순간이 아니라 반복이다",
+      "used": 0,
+      "heat": 0.5,
+      "hook": "아비투스",
+      "hooks": {
+        "title_keyword": "아비투스",
+        "title_phrase": "아비투스",
+        "rising": [],
+        "fresh_hook": null
+      },
+      "variants": [
+        {
+          "phrase": "아비투스",
+          "avg": 74.2
+        },
+        {
+          "phrase": "아비투스 광고",
+          "avg": 0
+        },
+        {
+          "phrase": "아비투스 마케팅",
+          "avg": 0
+        },
+        {
+          "phrase": "아비투스 브랜딩",
+          "avg": 0
+        },
+        {
+          "phrase": "아비투스 캠페인",
+          "avg": 0
+        }
+      ],
+      "terms": [
+        {
+          "term": "아비투스",
+          "avg": 74.2,
+          "rise": 1.09,
+          "news7": 0,
+          "news": [],
+          "heat": 0.5
+        },
+        {
+          "term": "순간",
+          "avg": 13,
+          "rise": 1.02,
+          "heat": 0.1
+        },
+        {
+          "term": "설명",
+          "avg": 10.3,
+          "rise": 0.95,
+          "heat": 0
+        },
+        {
+          "term": "기억되",
+          "avg": 0,
+          "rise": 0,
+          "heat": 0
+        },
+        {
+          "term": "요즘 뭐 봐요?",
+          "avg": 0,
+          "rise": 0,
+          "heat": 0
+        }
+      ]
+    },
+    {
+      "no": 186,
+      "title": "AI에게 선택을 받으려면 맥락을 지배해야해요.",
+      "used": 0,
+      "heat": 0.3,
+      "hook": "AI",
+      "hooks": {
+        "title_keyword": "AI",
+        "title_phrase": "AI",
+        "rising": [],
+        "fresh_hook": null
+      },
+      "variants": [],
+      "terms": [
+        {
+          "term": "AI",
+          "avg": 77.8,
+          "rise": 1.06,
+          "heat": 0.3
+        },
+        {
+          "term": "선택",
+          "avg": 1.1,
+          "rise": 1.01,
+          "heat": 0.1
+        },
+        {
+          "term": "맥락",
+          "avg": 2.1,
+          "rise": 0.93,
+          "heat": 0
+        },
+        {
+          "term": "받으려면",
+          "avg": 0,
+          "rise": 0,
+          "heat": 0
+        },
+        {
+          "term": "지배해야해요.",
+          "avg": 0,
+          "rise": 0,
+          "heat": 0
+        }
+      ]
+    },
+    {
+      "no": 199,
+      "title": "교과서 같다는 말이 이제 칭찬이 됐다",
+      "used": 1,
+      "heat": 0.2,
+      "hook": "칭찬",
+      "hooks": {
+        "title_keyword": "교과서",
+        "title_phrase": "교과서",
+        "rising": [],
+        "fresh_hook": null
+      },
+      "variants": [
+        {
+          "phrase": "교과서",
+          "avg": 65.5
+        },
+        {
+          "phrase": "교과서 광고",
+          "avg": 0
+        },
+        {
+          "phrase": "교과서 마케팅",
+          "avg": 0
+        },
+        {
+          "phrase": "교과서 브랜딩",
+          "avg": 0
+        },
+        {
+          "phrase": "교과서 캠페인",
+          "avg": 0
+        }
+      ],
+      "terms": [
+        {
+          "term": "칭찬",
+          "avg": 77.2,
+          "rise": 1.04,
+          "heat": 0.2
+        },
+        {
+          "term": "교과서",
+          "avg": 58.6,
+          "rise": 1.04,
+          "news7": 0,
+          "news": [],
+          "heat": 0.2
+        },
+        {
+          "term": "FMCG",
+          "avg": 18,
+          "rise": 0.89,
+          "news7": 0,
+          "news": [],
+          "heat": 0
+        },
+        {
+          "term": "말이",
+          "avg": 5.8,
+          "rise": 0.76,
+          "heat": 0
+        },
+        {
+          "term": "그게 매출로 연결되냐",
+          "avg": 0,
+          "rise": 0,
+          "heat": 0
+        }
+      ]
+    },
+    {
+      "no": 201,
+      "title": "유튜브 콘텐츠는 가구가 되고 있다",
+      "used": 0,
+      "heat": 0.2,
+      "hook": "유튜브",
+      "hooks": {
+        "title_keyword": "유튜브",
+        "title_phrase": "유튜브",
+        "rising": [],
+        "fresh_hook": null
+      },
+      "variants": [
+        {
+          "phrase": "유튜브",
+          "avg": 91.4
+        },
+        {
+          "phrase": "유튜브 광고",
+          "avg": 0
+        },
+        {
+          "phrase": "유튜브 마케팅",
+          "avg": 0
+        },
+        {
+          "phrase": "유튜브 브랜딩",
+          "avg": 0
+        },
+        {
+          "phrase": "유튜브 캠페인",
+          "avg": 0
+        }
+      ],
+      "terms": [
+        {
+          "term": "유튜브",
+          "avg": 91.4,
+          "rise": 1.03,
+          "news7": 0,
+          "news": [],
+          "heat": 0.2
+        },
+        {
+          "term": "가구",
+          "avg": 0,
+          "rise": 0.96,
+          "heat": 0
+        },
+        {
+          "term": "보는 콘텐츠",
+          "avg": 0,
+          "rise": 0,
+          "heat": 0
+        }
+      ]
+    },
+    {
+      "no": 217,
+      "title": "후기를 많이 쌓으면 해결되는 거 아닐까요",
+      "used": 0,
+      "heat": 0.1,
+      "hook": "많이",
+      "hooks": {
+        "title_keyword": "IMC",
+        "title_phrase": "IMC 마케팅",
+        "rising": [],
+        "fresh_hook": null
+      },
+      "variants": [
+        {
+          "phrase": "IMC",
+          "avg": 51.1
+        },
+        {
+          "phrase": "IMC 광고",
+          "avg": 0
+        },
+        {
+          "phrase": "IMC 마케팅",
+          "avg": 24.9
+        },
+        {
+          "phrase": "IMC 브랜딩",
+          "avg": 0
+        },
+        {
+          "phrase": "IMC 캠페인",
+          "avg": 5.4
+        }
+      ],
+      "terms": [
+        {
+          "term": "많이",
+          "avg": 58.3,
+          "rise": 1.02,
+          "heat": 0.1
+        },
+        {
+          "term": "후기",
+          "avg": 80.4,
+          "rise": 0.98,
+          "heat": 0
+        },
+        {
+          "term": "IMC",
+          "avg": 50.5,
+          "rise": 0.97,
+          "news7": 0,
+          "news": [],
+          "heat": 0
+        },
+        {
+          "term": "쌓으면",
+          "avg": 0,
+          "rise": 0,
+          "heat": 0
+        },
+        {
+          "term": "해결되",
+          "avg": 0,
+          "rise": 0,
+          "heat": 0
+        }
+      ]
+    },
+    {
+      "no": 219,
+      "title": "지난 캠페인에서도 했던 말인데, 또 해야 하나요 ",
+      "used": 1,
+      "heat": 0,
+      "hook": null,
+      "hooks": {
+        "title_keyword": "해야",
+        "title_phrase": "해야",
+        "rising": [],
+        "fresh_hook": null
+      },
+      "variants": [],
+      "terms": [
+        {
+          "term": "해야",
+          "avg": 69.4,
+          "rise": 0.88,
+          "heat": 0
+        },
+        {
+          "term": "지난",
+          "avg": 42.5,
+          "rise": 0.96,
+          "heat": 0
+        },
+        {
+          "term": "캠페인에서",
+          "avg": 0,
+          "rise": 0,
+          "heat": 0
+        },
+        {
+          "term": "말인데",
+          "avg": 0,
+          "rise": 0,
+          "heat": 0
+        }
+      ]
+    },
+    {
+      "no": 212,
+      "title": "스위첸은 왜 8년째 집 이야기를 할까",
+      "used": 0,
+      "heat": 0,
+      "hook": null,
+      "hooks": {
+        "title_keyword": "스위첸",
+        "title_phrase": "스위첸 광고",
+        "rising": [],
+        "fresh_hook": null
+      },
+      "variants": [
+        {
+          "phrase": "스위첸",
+          "avg": 57.5
+        },
+        {
+          "phrase": "스위첸 광고",
+          "avg": 10.1
+        },
+        {
+          "phrase": "스위첸 마케팅",
+          "avg": 0
+        },
+        {
+          "phrase": "스위첸 브랜딩",
+          "avg": 0
+        },
+        {
+          "phrase": "스위첸 캠페인",
+          "avg": 0
+        }
+      ],
+      "terms": [
+        {
+          "term": "스위첸",
+          "avg": 57.5,
+          "rise": 0.85,
+          "news7": 0,
+          "news": [],
+          "heat": 0
+        },
+        {
+          "term": "문명의 충돌",
+          "avg": 3.8,
+          "rise": 0.67,
+          "news7": 0,
+          "news": [],
+          "heat": 0
+        },
+        {
+          "term": "위대한 집안일",
+          "avg": 3.5,
+          "rise": 0.77,
+          "heat": 0
+        },
+        {
+          "term": "광고 맛집",
+          "avg": 2.3,
+          "rise": 0,
+          "heat": 0
+        },
+        {
+          "term": "엄마의 빈방",
+          "avg": 0,
+          "rise": 0,
+          "heat": 0
+        }
+      ]
+    },
+    {
+      "no": 216,
+      "title": "우리도 요즘 애들이 좋아하는 거 해보면 어떨까요",
+      "used": 0,
+      "heat": 0,
+      "hook": null,
+      "hooks": {
+        "title_keyword": "해보면",
+        "title_phrase": "해보면",
+        "rising": [],
+        "fresh_hook": null
+      },
+      "variants": [
+        {
+          "phrase": "해보면",
+          "avg": 69.8
+        },
+        {
+          "phrase": "해보면 광고",
+          "avg": 0
+        },
+        {
+          "phrase": "해보면 마케팅",
+          "avg": 0
+        },
+        {
+          "phrase": "해보면 브랜딩",
+          "avg": 0
+        },
+        {
+          "phrase": "해보면 캠페인",
+          "avg": 0
+        }
+      ],
+      "terms": [
+        {
+          "term": "애들",
+          "avg": 75.9,
+          "rise": 0.99,
+          "heat": 0
+        },
+        {
+          "term": "해보면",
+          "avg": 10.5,
+          "rise": 0.95,
+          "news7": 0,
+          "news": [],
+          "heat": 0
+        },
+        {
+          "term": "좋아하",
+          "avg": 0,
+          "rise": 0,
+          "heat": 0
+        }
+      ]
+    },
+    {
+      "no": 221,
+      "title": "사람들은 왜 만든 사람을 궁금해할까?",
+      "used": 0,
+      "heat": 0,
+      "hook": null,
+      "hooks": {
+        "title_keyword": "지구오락실",
+        "title_phrase": "지구오락실",
+        "rising": [],
+        "fresh_hook": null
+      },
+      "variants": [
+        {
+          "phrase": "지구오락실",
+          "avg": 48.6
+        },
+        {
+          "phrase": "지구오락실 광고",
+          "avg": 0
+        },
+        {
+          "phrase": "지구오락실 마케팅",
+          "avg": 0
+        },
+        {
+          "phrase": "지구오락실 브랜딩",
+          "avg": 0
+        },
+        {
+          "phrase": "지구오락실 캠페인",
+          "avg": 0
+        }
+      ],
+      "terms": [
+        {
+          "term": "지구오락실",
+          "avg": 48.6,
+          "rise": 0.73,
+          "news7": 0,
+          "news": [],
+          "heat": 0
+        },
+        {
+          "term": "피디니무",
+          "avg": 10.7,
+          "rise": 0.85,
+          "news7": 0,
+          "news": [],
+          "heat": 0
+        },
+        {
+          "term": "그 너머의 이야기",
+          "avg": 0,
+          "rise": 0,
+          "heat": 0
+        }
+      ]
+    },
+    {
+      "no": 209,
+      "title": "광고는 웃겼는데, 브랜드는 남았나",
+      "used": 0,
+      "heat": 0,
+      "hook": null,
+      "hooks": {
+        "title_keyword": "돌고래 유괴단",
+        "title_phrase": "돌고래 유괴단",
+        "rising": [],
+        "fresh_hook": null
+      },
+      "variants": [
+        {
+          "phrase": "돌고래 유괴단",
+          "avg": 32.8
+        },
+        {
+          "phrase": "돌고래 유괴단 광고",
+          "avg": 1.9
+        },
+        {
+          "phrase": "돌고래 유괴단 마케팅",
+          "avg": 0
+        },
+        {
+          "phrase": "돌고래 유괴단 브랜딩",
+          "avg": 0
+        },
+        {
+          "phrase": "돌고래 유괴단 캠페인",
+          "avg": 0
+        }
+      ],
+      "terms": [
+        {
+          "term": "돌고래 유괴단",
+          "avg": 32.8,
+          "rise": 0.61,
+          "news7": 0,
+          "news": [],
+          "heat": 0
+        },
+        {
+          "term": "스튜디오 좋",
+          "avg": 2.7,
+          "rise": 0.84,
+          "news7": 0,
+          "news": [],
+          "heat": 0
+        },
+        {
+          "term": "자산화",
+          "avg": 0,
+          "rise": 0,
+          "heat": 0
+        },
+        {
+          "term": "웃겼는데",
+          "avg": 0,
+          "rise": 0,
+          "heat": 0
+        },
+        {
+          "term": "남았나",
+          "avg": 0,
+          "rise": 0,
+          "heat": 0
+        }
+      ]
+    }
+  ]
+}
