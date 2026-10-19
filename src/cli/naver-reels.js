@@ -54,6 +54,13 @@ for (const source of reelSources(queue, cacheIndex, { now })) {
       entry.news = news.top;
     }
     for (const entry of scored) entry.heat = heatOf(entry);
+    // 릴스 검색량 그래프(compose.py kind "trend")용: 검색량 상위 이름 2개의 30일 일별 값(같은 요청 안 상대값이라 같은 눈금)
+    const series = Object.fromEntries(
+      scored.filter((term) => term.avg > 0).slice(0, 2).map((entry) => [
+        entry.term,
+        (results.find((result) => result.title === entry.term)?.data ?? []).map((point) => ({ period: point.period, ratio: Math.round(Number(point.ratio) * 100) / 100 })),
+      ]),
+    );
     // 유튜브와 같은 검색 훅: 검색량 1위 이름이 사람들에게 어떤 말과 함께 찾히는지(광고·마케팅·브랜딩·캠페인).
     let variants = [];
     const top = scored.find((term) => term.avg > 0 && newsWorthy(term.term));
@@ -64,7 +71,7 @@ for (const source of reelSources(queue, cacheIndex, { now })) {
     }
     const hooks = pickHooks(scored, variants, { until: now, freshDays: 7 });
     scored.sort((a, b) => b.heat - a.heat || b.avg - a.avg);
-    items.push({ ...source, heat: scored[0].heat, hook: scored[0].heat > 0 ? scored[0].term : null, hooks, variants, terms: scored });
+    items.push({ ...source, heat: scored[0].heat, hook: scored[0].heat > 0 ? scored[0].term : null, hooks, variants, series, terms: scored });
   } catch (error) {
     warnings.push(`${source.no}: ${error.message.slice(0, 160)}`);
   }
@@ -77,7 +84,7 @@ await writeJson(path, {
   for_date: nextKstDate(now),
   window: { trend: { since: startDate, until: endDate }, news_days: 7 },
   source: `네이버 데이터랩 검색어 트렌드 · 네이버 뉴스 검색 · ${naver.provider}`,
-  note: "avg 는 같은 글 안의 이름끼리만 비교한다(데이터랩 상대값). rise = 최근 7일 ÷ 그 전 23일(null = 새로 뜬 말). news7 = 최근 7일 「이름 + 마케팅」 기사 중 제목에 그 이름이 들어간 수(두 글자 한글 일반 명사는 뉴스를 찾지 않는다). heat 가 높은 글부터. 이름은 원문에서 뽑았다. hooks = 유튜브와 같은 검색 훅(title_keyword 검색량 1위 이름 · title_phrase 함께 찾는 말 · rising 최근 오른 이름 · fresh_hook 7일 안 가장 새 기사), variants = title_keyword 와 함께 찾는 말의 상대값.",
+  note: "avg 는 같은 글 안의 이름끼리만 비교한다(데이터랩 상대값). rise = 최근 7일 ÷ 그 전 23일(null = 새로 뜬 말). news7 = 최근 7일 「이름 + 마케팅」 기사 중 제목에 그 이름이 들어간 수(두 글자 한글 일반 명사는 뉴스를 찾지 않는다). heat 가 높은 글부터. 이름은 원문에서 뽑았다. hooks = 유튜브와 같은 검색 훅(title_keyword 검색량 1위 이름 · title_phrase 함께 찾는 말 · rising 최근 오른 이름 · fresh_hook 7일 안 가장 새 기사), variants = title_keyword 와 함께 찾는 말의 상대값. series = 검색량 상위 이름 2개의 30일 일별 값(릴스 검색량 그래프용).",
   warnings,
   items,
 });

@@ -16,4 +16,5 @@
   | `riser.mp3` · `impact.mp3` | 긴장 상승 · 낮은 '쿵' | 예비(아직 자동으로 쓰지 않음) |
 
   같은 소리가 0.3초 안에 겹치면 하나만 낸다. 파일이 없으면 그 소리만 건너뛴다.
+- 릴스(`insight-reels/scripts/compose.py`)도 같은 파일·같은 크기를 쓴다: 장면 전환 whoosh, 라벨 pop, 펀치 impact, 하트 숫자 tick·ding, split ding, 움직이는 도식은 유튜브와 같은 소리.
 

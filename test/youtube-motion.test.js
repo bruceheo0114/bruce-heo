@@ -89,3 +89,15 @@ test("데이터랩 일별 값 → 주 평균", () => {
   const days = Array.from({ length: 10 }, (_, i) => ({ period: `2026-08-${String(i + 1).padStart(2, "0")}`, ratio: i < 7 ? 7 : 1 }));
   assert.deepEqual(weeklySeries(days), [{ period: "2026-08-01", ratio: 7 }, { period: "2026-08-08", ratio: 1 }]);
 });
+
+test("릴스 합성기도 같은 도식 종류·효과음 파일을 쓴다", async () => {
+  const { readFile, access } = await import("node:fs/promises");
+  const compose = await readFile("insight-reels/scripts/compose.py", "utf8");
+  for (const kind of ["count", "trend", "timeline", "compare", "quote", "scroll"]) assert.match(compose, new RegExp(`kind == "${kind}"`));
+  const levels = JSON.parse(compose.match(/SFX_LEVELS = (\{[^}]*\})/)[1]);
+  for (const [name, level] of Object.entries(levels)) {
+    assert.equal(level, SFX_LEVELS[name], name);
+    await access(`bruce-youtube/channel/sfx/${name}.mp3`);
+  }
+  await access("bruce-youtube/channel/sfx/chapter.mp3");
+});
