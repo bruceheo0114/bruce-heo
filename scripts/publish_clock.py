@@ -25,6 +25,7 @@ SLOTS = [
     (12, 30, None, "threads-publish.yml", True),
     (12, 30, {2, 4}, "insight-reels-publish.yml", True, (("post_slot", "noon"),)),  # 수·금 카드뉴스(posts/DATE.noon.json)
     (20, 7, {0, 1, 2, 3, 4, 5}, "naver-reels.yml", False),  # 21:13 릴스 루틴 전에 시의성 훅 재료(다음 날이 월요일인 일요일은 쉼)
+    (20, 9, {0, 2, 5}, "naver-youtube.yml", False),  # 월·수·토 21:13 유튜브 루틴 전에 제목·도입부 검색 훅 재료
 ]
 
 # 한 번만 도는 예약. 브런치 예약 발행 직후 홈페이지 갱신(일일 자동화)과 원문 백업을 앞당긴다.

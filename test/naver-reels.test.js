@@ -66,3 +66,50 @@ test("릴스 시의성 수집은 월~토 21:13 릴스 루틴 전에 Secrets 로 
   const clock = await readFile("scripts/publish_clock.py", "utf8");
   assert.match(clock, /\(20, 7, \{0, 1, 2, 3, 4, 5\}, "naver-reels\.yml", False\)/);
 });
+
+test("youtube targets: only todo items with yt_slot within the next 7 days, in slot order", async () => {
+  const { youtubeTargets } = await import("../src/naver/youtube.js");
+  const queue = {
+    items: [
+      { no: 212, title: "B", status: "todo", yt_slot: "2026-11-02" },
+      { no: 211, title: "A", status: "todo", yt_slot: "2026-10-26", series: "브랜드 케이스" },
+      { no: 219, title: "C", status: "todo", yt_slot: "2026-10-28", extra_sources: [193] },
+      { no: 208, title: "D", status: "episode", yt_slot: "2026-10-27" },
+      { no: 215, title: "E", status: "reserve" },
+    ],
+  };
+  const targets = youtubeTargets(queue, { now: new Date("2026-10-24T11:00:00Z") });
+  assert.deepEqual(targets.map((t) => t.no), [211, 219]);
+  assert.deepEqual(targets[1].extra_sources, [193]);
+  assert.equal(targets[0].series, "브랜드 케이스");
+});
+
+test("youtube hooks: title keyword, searched-with phrase, rising names and a fresh article", async () => {
+  const { pickHooks, titleVariants, parseBrunchMarkdown } = await import("../src/naver/youtube.js");
+  assert.deepEqual(titleVariants("버거킹"), ["버거킹", "버거킹 광고", "버거킹 마케팅", "버거킹 브랜딩", "버거킹 캠페인"]);
+  const terms = [
+    { term: "기사식당", avg: 12, rise: 1.0 },
+    { term: "버거킹", avg: 80, rise: 1.5, news: [{ title: "버거킹 새 광고", date: "2026-10-20", link: "x" }] },
+    { term: "와퍼", avg: 30, rise: null },
+  ];
+  const variants = [
+    { phrase: "버거킹", avg: 90 },
+    { phrase: "버거킹 광고", avg: 7 },
+    { phrase: "버거킹 마케팅", avg: 3 },
+  ];
+  const hooks = pickHooks(terms, variants, { until: new Date("2026-10-24T11:00:00Z") });
+  assert.equal(hooks.title_keyword, "버거킹");
+  assert.equal(hooks.title_phrase, "버거킹");
+  assert.deepEqual(hooks.rising, ["버거킹", "와퍼"]);
+  assert.equal(hooks.fresh_hook.term, "버거킹");
+  const old = pickHooks(terms, variants, { until: new Date("2026-11-20T11:00:00Z") });
+  assert.equal(old.fresh_hook, null);
+  const parsed = parseBrunchMarkdown('---\ntitle: "버거킹은 왜"\n---\n# 버거킹은 왜\n본문');
+  assert.equal(parsed.title, "버거킹은 왜");
+  assert.match(parsed.body, /본문/);
+  const workflow = parse(await readFile(".github/workflows/naver-youtube.yml", "utf8"));
+  assert.deepEqual(workflow.on.schedule, [{ cron: "9 11 * * 1,3,6" }]);
+  assert.match(JSON.stringify(workflow.jobs.collect.steps), /node src\/cli\/naver-youtube\.js/);
+  const clock = await readFile("scripts/publish_clock.py", "utf8");
+  assert.match(clock, /\(20, 9, \{0, 2, 5\}, "naver-youtube\.yml", False\)/);
+});

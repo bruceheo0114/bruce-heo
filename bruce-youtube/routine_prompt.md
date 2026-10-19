@@ -26,6 +26,7 @@ Bruce는 중간 확인을 하지 않는다(사용자 결정 2026-10-08). 대본 
 4. `node src/cli/youtube.js episode <글번호>` → 출력이 Episode 폴더 이름(EPISODE, 예: `EP006_brunch-211`)이고 앞의 `EP006`이 EP다.
    항목에 `extra_sources`가 있으면 그 글들도 `python3 insight-reels/scripts/brunch_text.py <no>`로 읽어 대본의 보조 사례로 쓴다.
    항목의 `series`로 제목 앞머리·오프닝 톤을 맞춘다(마케터의 질문은 광고주·상사의 실제 질문 한 문장으로 연다).
+6. `git pull` 후 `bruce-youtube/trends/<D>.json`(같은 날 20:09 Actions가 만든 네이버 검색 훅 재료)이 있으면 제작 패키지의 제목·도입부를 그 「검색 훅」 규칙대로 쓴다(`prompts/youtube_producer.md`). 없으면 그대로 진행한다.
 5. D 슬롯 영상이 이미 `output/<EP>/<EP>.mp4`까지 있으면 "D 편은 이미 만들어 둠" 한 줄로 끝낸다.
 비어 있으면 11단계(커밋)만 하고 끝낸다. 이때 stderr에 "이번 주 글은 미리 만들어 둠: <EP>"가 나오면 마지막 메시지는
 "이번 주 글은 미리 만든 <EP>로 대신해요(이미 보내 드림)" 한 줄, 아니면 "이번 주 제작 없음" 한 줄.

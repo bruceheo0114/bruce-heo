@@ -40,6 +40,7 @@
 
 Hook → Phenomenon → Case → Question → Analysis → Contrast → Insight → Practical Meaning → Conclusion.
 첫 30초 안에 왜 이 영상을 봐야 하는지 보여준다. 로고 인트로나 긴 자기소개로 시작하지 않는다.
+제목·도입부는 네이버 검색 훅 재료(`trends/<yt_slot>.json`, Actions `naver-youtube.yml`이 제작 날 20:09에 만든다)로 실제로 많이 찾는 이름·함께 찾는 말·최근 기사를 쓴다(`prompts/youtube_producer.md` 「검색 훅」).
 제목·썸네일·오프닝·밀도·내레이션은 `insight-reels/HOOKS.md` 5절(EP001 성과 진단, 2026-10-11)을 따른다: 브랜드명 + 역설적 질문 제목, 짧은 문구 + 강한 대비 썸네일, 가장 흥미로운 결론부터, 길이보다 밀도.
 
 ## VISUAL
