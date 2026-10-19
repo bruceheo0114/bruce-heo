@@ -62,7 +62,7 @@ Bruce는 중간 확인을 하지 않는다(사용자 결정 2026-10-08). 대본 
 
 - 대본에 클라이언트를 짐작할 수 있는 업종·지역·수치가 있으면 생성 전에 일반적인 표현으로 바꾼다.
 - 챕터마다 `creative_generate_speech` 한 번: voice_id `ZuzhDyVIYUQSaEkxo38e`(Bruce Heo | 브루스), model `eleven_v4`, `generations_count: 2`. (표준 스타일: `bruce-youtube/CLAUDE.md`의 '표준 스타일')
-  모든 챕터를 같은 flow에 만든다(먼저 `creative_create_flow`). 1자 ≈ 0.41크레딧, 한 편 약 2,200크레딧(2테이크) — 사용자가 매주 쓰는 것을 승인했다.
+  모든 챕터를 같은 flow에 만든다(먼저 `creative_create_flow`). 1자(띄어쓰기 포함) = 1크레딧, 한 편 약 4,500크레딧(2테이크, 2026-10-19 실측) — 사용자가 매주 쓰는 것을 승인했다.
 - `creative_get_flow_run_status`로 끝날 때까지 기다린 뒤 테이크마다 `content_url`을 curl로 받아 `output/<EP>/narration/takes/CH01_a.mp3`·`CH01_b.mp3 …`로 저장한다(2시간 뒤 만료).
 - **싱크용 받아쓰기(필수, 0크레딧):** 테이크마다 `creative_add_flow_asset_node`(generation_id)로 노드를 고정하고 `creative_transcribe_audio`(`eleven_scribe_v1`, `connect_from`에 그 노드) →
   `words_download_url`을 받아 `takes/CH01_a.words.json`처럼 음성 옆에 저장한다. (음악·업로드 파일 받아쓰기는 유료다 — 생성한 음성만 0.)
@@ -93,7 +93,7 @@ Bruce는 중간 확인을 하지 않는다(사용자 결정 2026-10-08). 대본 
    그다음 **영상 클립 1개**(주 3편 예산, 2026-10-19): 움직임이 어울리는 AI 정지 이미지(사람 얼굴 없는 것)의 job id를 `start_image`로 `grok_video_v15_lite`(5초, 720p, 16:9) → 클립당 5 크레딧.
    결과 주소를 `{"id": "V01", "kind": "video", "ai": true, "url": "<result_url>", "source": "AI 생성 영상 (Higgsfield)", "scenes": ["S007"]}`로 넣고, `scene_images`의 그 장면에 `V01`을 적는다. 첫·중간·끝 프레임을 뽑아 손·몸 왜곡이 있으면 빼고 정지 이미지로 둔다.
 4. 마음에 들지 않아도 다시 생성하지 않는다(실패한 작업만 1회 재시도). Episode당 30, 월 150 크레딧을 넘기지 않는다.
-5. **ElevenLabs Kling 클립 1개 더(선택, 2026-10-19):** 이번 달 ElevenLabs 사용이 70,000 아래일 때만. 다른 AI 정지 이미지(사람 얼굴 없는 것) 주소를
+5. **ElevenLabs Kling 클립 1개 더(선택, 2026-10-19):** 이번 달 ElevenLabs 사용이 80,000 아래일 때만. 다른 AI 정지 이미지(사람 얼굴 없는 것) 주소를
    `creative_attach_reference_file`로 올리고 `creative_generate_video`(`kling-2.5-turbo`, 5초, 16:9, 그 이미지를 첫 프레임) → 약 2,120 크레딧.
    완료되면 결과 `content_url`(storage.googleapis.com, 2시간 유효)을 바로 받아
    `ffmpeg -i <받은 파일> -an -vf "scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,fps=30" -c:v libx264 -pix_fmt yuv420p bruce-youtube/assets/references/<EP>/<Scene>-kling.mp4`
