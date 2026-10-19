@@ -71,7 +71,8 @@ export function timelineSteps(lines) {
 
 function timelineCard(scene, chapter, speech) {
   const lines = cleanLines(scene.fields.ON_SCREEN_TEXT);
-  const title = lines.length > 2 && !timelineSteps([lines[0]])[0].label.match(/\d/) ? lines.shift() : "";
+  // 첫 줄이 "라벨 · 문구" 꼴이면 점이고, 구분 기호 없는 줄만 제목("고시원 · 월급 없이"가 제목으로 올라가던 문제)
+  const title = lines.length > 2 && !/\s(?:·|:|：|\||—|-)\s/.test(lines[0]) && !timelineSteps([lines[0]])[0].label.match(/\d/) ? lines.shift() : "";
   const steps = timelineSteps(lines);
   if (steps.length < 2) return null;
   const gap = 0.45;

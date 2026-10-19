@@ -201,6 +201,12 @@ function rowsCard(rows, chapter, speech) {
   );
 }
 
+// 흐름 칸 "기회(검증 중)" → 큰 글씨 "기회" + 아래 작은 "검증 중"(좁은 칸에서 괄호가 "(검증 / 중)"으로 깨지던 문제)
+function boxLabel(step) {
+  const match = String(step).match(/^(.+?)\s*\((.+)\)$/);
+  return match ? `${escapeHtml(match[1])}<small>${escapeHtml(match[2])}</small>` : escapeHtml(step);
+}
+
 function graphicCard(scene, chapter, speech) {
   const source = cleanLines(scene.fields.ON_SCREEN_TEXT).join("\n") || cleanLines(scene.fields.VISUAL).join("\n");
   const lines = source.split("\n").filter(Boolean);
@@ -221,12 +227,14 @@ function graphicCard(scene, chapter, speech) {
     // 화살표는 다음 칸과 함께(조금 먼저) 나타난다
     const sepStyle = (index) => (times ? `--i:0;--d:${Math.max(0, times[index] - 0.15).toFixed(2)}s` : `--i:${index * 2 - 1}`);
     const boxes = steps
-      .map((step, index) => `${index ? `<div class="sep rv" style="${sepStyle(index)}">${escapeHtml(sep)}</div>` : ""}<div class="box rv${index === steps.length - 1 ? " last" : ""}" style="${revealStyle(times, index, index * 2)}">${escapeHtml(step)}</div>`)
+      .map((step, index) => `${index ? `<div class="sep rv" style="${sepStyle(index)}">${escapeHtml(sep)}</div>` : ""}<div class="box rv${index === steps.length - 1 ? " last" : ""}" style="${revealStyle(times, index, index * 2)}">${boxLabel(step)}</div>`)
       .join("");
     return page(
       `.flow{position:absolute;left:200px;right:200px;top:140px;bottom:200px;display:flex;align-items:center;justify-content:center}
        .box{width:${width}px;min-height:220px;padding:36px 28px;border:4px solid ${COLORS.ink};border-radius:28px;display:flex;align-items:center;justify-content:center;
          text-align:center;font-size:${width < 260 ? 34 : 44}px;font-weight:800;letter-spacing:-.04em;line-height:1.25;background:#fff}
+       .box{flex-direction:column;gap:10px;word-break:keep-all}
+       .box small{font-size:.72em;font-weight:700;opacity:.75}
        .box.last{background:${COLORS.ink};color:#fff}
        .sep{width:90px;text-align:center;font-size:56px;font-weight:900;color:${COLORS.mint}}`,
       `${chrome({ chapter })}<div class="flow">${boxes}</div>`,
