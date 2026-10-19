@@ -122,8 +122,8 @@ TIME: 00:45-00:51
 NARRATION:
 끝까지 보시면, 회의에서 바로 쓸 수 있는 구분 3가지(세 가지)와 질문 4개(네 개)가 남을 거예요.
 VISUAL:
-미니멀 도식, 항목이 차례로 나타남
-SOURCE_TYPE: GRAPHIC
+오프화이트 배경 위 큰 문구, 포인트 컬러 한 단어
+SOURCE_TYPE: TYPE
 ON_SCREEN_TEXT:
 구분 3가지
 질문 4개
@@ -507,10 +507,10 @@ TIME: 03:40-03:46
 NARRATION:
 첫째, 지켜야 할 것. 핵심 가치, 소비자가 믿는 이유, 제품이 실제로 주는 효용입니다.
 VISUAL:
-미니멀 도식, 항목이 차례로 나타남
-SOURCE_TYPE: GRAPHIC
+오프화이트 배경 위 큰 문구, 포인트 컬러 한 단어
+SOURCE_TYPE: TYPE
 ON_SCREEN_TEXT:
-① 지켜야 할 것
+지켜야 할 것
 핵심 가치 · 믿는 이유 · 실제 효용
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
@@ -520,10 +520,10 @@ TIME: 03:46-03:53
 NARRATION:
 둘째, 번역할 수 있는 것. 타깃이 알아듣는 언어, 제품을 만나는 장면, 메시지의 순서예요.
 VISUAL:
-미니멀 도식, 항목이 차례로 나타남
-SOURCE_TYPE: GRAPHIC
+오프화이트 배경 위 큰 문구, 포인트 컬러 한 단어
+SOURCE_TYPE: TYPE
 ON_SCREEN_TEXT:
-② 번역할 수 있는 것
+번역할 수 있는 것
 언어 · 만나는 장면 · 메시지 순서
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
@@ -533,10 +533,10 @@ TIME: 03:53-04:02
 NARRATION:
 셋째, 실험할 수 있는 것. 채널, 포맷, 크리에이터, 콘텐츠의 리듬입니다. 실패 비용을 관리하면서 빠르게 확인할 수 있는 영역이죠.
 VISUAL:
-미니멀 도식, 항목이 차례로 나타남
-SOURCE_TYPE: GRAPHIC
+오프화이트 배경 위 큰 문구, 포인트 컬러 한 단어
+SOURCE_TYPE: TYPE
 ON_SCREEN_TEXT:
-③ 실험할 수 있는 것
+실험할 수 있는 것
 채널 · 포맷 · 크리에이터 · 리듬
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
@@ -571,8 +571,8 @@ TIME: 04:13-04:18
 NARRATION:
 경계를 정한 다음에는, 아이디어마다 네 가지를 물어봅니다.
 VISUAL:
-미니멀 도식, 항목이 차례로 나타남
-SOURCE_TYPE: GRAPHIC
+오프화이트 배경 위 큰 문구, 포인트 컬러 한 단어
+SOURCE_TYPE: TYPE
 ON_SCREEN_TEXT:
 아이디어를 거르는
 질문 4개
@@ -584,10 +584,10 @@ TIME: 04:18-04:23
 NARRATION:
 왜 지금, 이 브랜드가 해야 하나요? 시의성입니다.
 VISUAL:
-미니멀 도식, 항목이 차례로 나타남
-SOURCE_TYPE: GRAPHIC
+오프화이트 배경 위 큰 문구, 포인트 컬러 한 단어
+SOURCE_TYPE: TYPE
 ON_SCREEN_TEXT:
-1. 왜 지금, 이 브랜드인가
+왜 지금, 이 브랜드인가
 시의성
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
@@ -597,10 +597,10 @@ TIME: 04:23-04:28
 NARRATION:
 브랜드 이름을 지워도 다른 브랜드 캠페인과 구분되나요? 고유성이에요.
 VISUAL:
-미니멀 도식, 항목이 차례로 나타남
-SOURCE_TYPE: GRAPHIC
+오프화이트 배경 위 큰 문구, 포인트 컬러 한 단어
+SOURCE_TYPE: TYPE
 ON_SCREEN_TEXT:
-2. 이름을 지워도 구분되나
+이름을 지워도 구분되나
 고유성
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
@@ -610,10 +610,10 @@ TIME: 04:28-04:34
 NARRATION:
 새 타깃에게 가면서도, 기존 고객이 알던 이유는 남아 있나요? 일관성이죠.
 VISUAL:
-미니멀 도식, 항목이 차례로 나타남
-SOURCE_TYPE: GRAPHIC
+오프화이트 배경 위 큰 문구, 포인트 컬러 한 단어
+SOURCE_TYPE: TYPE
 ON_SCREEN_TEXT:
-3. 기존 고객의 이유가 남나
+기존 고객의 이유가 남나
 일관성
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
@@ -623,10 +623,10 @@ TIME: 04:34-04:40
 NARRATION:
 그리고 캠페인이 끝난 뒤에도, 브랜드가 다시 쓸 자산이 남나요? 축적 가능성입니다.
 VISUAL:
-미니멀 도식, 항목이 차례로 나타남
-SOURCE_TYPE: GRAPHIC
+오프화이트 배경 위 큰 문구, 포인트 컬러 한 단어
+SOURCE_TYPE: TYPE
 ON_SCREEN_TEXT:
-4. 끝난 뒤 자산이 남나
+끝난 뒤 자산이 남나
 축적 가능성
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
