@@ -91,7 +91,7 @@ STYLE: observational documentary reenactment, muted palette
 ASPECT RATIO: 16:9
 REUSE POSSIBILITY: 시즌 다른 편의 같은 시기 장면
 
-SCENE ID: S034
+SCENE ID: S036
 PURPOSE: 함께 만든 제작진 (CH04)
 DURATION: 6s
 REFERENCE ASSET: REF-G07 (still + slow push-in in edit)
@@ -102,7 +102,7 @@ STYLE: observational documentary reenactment, muted palette
 ASPECT RATIO: 16:9
 REUSE POSSIBILITY: 시즌 다른 편의 같은 시기 장면
 
-SCENE ID: S039
+SCENE ID: S043
 PURPOSE: 작은 회사의 운영 업무 (CH05)
 DURATION: 6s
 REFERENCE ASSET: REF-G08 (still + slow push-in in edit)
@@ -113,7 +113,7 @@ STYLE: observational documentary reenactment, muted palette
 ASPECT RATIO: 16:9
 REUSE POSSIBILITY: 시즌 다른 편의 같은 시기 장면
 
-SCENE ID: S046
+SCENE ID: S050
 PURPOSE: 업무 시간 밖의 공부 (CH06)
 DURATION: 6s
 REFERENCE ASSET: REF-G09 (still + slow push-in in edit)
@@ -124,7 +124,7 @@ STYLE: observational documentary reenactment, muted palette
 ASPECT RATIO: 16:9
 REUSE POSSIBILITY: 시즌 다른 편의 같은 시기 장면
 
-SCENE ID: S051
+SCENE ID: S056
 PURPOSE: 면접 (CH07)
 DURATION: 6s
 REFERENCE ASSET: REF-G10 (still + slow push-in in edit)
@@ -135,7 +135,7 @@ STYLE: observational documentary reenactment, muted palette
 ASPECT RATIO: 16:9
 REUSE POSSIBILITY: 시즌 다른 편의 같은 시기 장면
 
-SCENE ID: S063
+SCENE ID: S070
 PURPOSE: 회사 간판을 떼었을 때 (CH08)
 DURATION: 6s
 REFERENCE ASSET: REF-G11 (still + slow push-in in edit)

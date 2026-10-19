@@ -70,7 +70,7 @@
       "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261019_012532_504b9e92-7eb8-4ccb-b9d3-d667bca4fe7c.png",
       "source": "재현 화면 (AI 생성)",
       "scenes": [
-        "S034"
+        "S036"
       ]
     },
     {
@@ -80,7 +80,7 @@
       "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261019_012532_f1e22224-a151-4ab8-aeac-833418d2433c.png",
       "source": "재현 화면 (AI 생성)",
       "scenes": [
-        "S039"
+        "S043"
       ]
     },
     {
@@ -90,7 +90,7 @@
       "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261019_012745_9f8a1c55-8ee5-4da3-8579-fcd3b834781d.png",
       "source": "재현 화면 (AI 생성)",
       "scenes": [
-        "S046"
+        "S050"
       ]
     },
     {
@@ -100,7 +100,7 @@
       "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261019_012532_492308ae-1774-4e48-b5f9-9372c0ead206.png",
       "source": "재현 화면 (AI 생성)",
       "scenes": [
-        "S051"
+        "S056"
       ]
     },
     {
@@ -110,8 +110,8 @@
       "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261019_012745_65ef145d-0e52-497f-9fa7-1aa9695fe5ca.png",
       "source": "재현 화면 (AI 생성)",
       "scenes": [
-        "S063",
-        "S068"
+        "S070",
+        "S076"
       ]
     },
     {
@@ -126,7 +126,6 @@
     }
   ],
   "scene_images": {
-    "_note": "재현 이미지(AI)만. 나머지 장면은 직접 만든 카드·모션. 사용자 제공 사진이 오면 해당 장면에 추가.",
     "S004": [
       "G01"
     ],
@@ -149,30 +148,34 @@
     "S023": [
       "G06"
     ],
-    "S034": [
+    "S036": [
       "G07"
     ],
-    "S039": [
+    "S043": [
       "G08"
     ],
-    "S046": [
-      "G09"
-    ],
-    "S051": [
-      "G10"
-    ],
-    "S063": [
-      "G11"
-    ],
-    "S068": [
-      "G11"
-    ],
-    "S041": [
+    "S045": [
       "G05"
     ],
-    "S044": [
+    "S048": [
       "G09"
-    ]
+    ],
+    "S050": [
+      "G09"
+    ],
+    "S056": [
+      "G10"
+    ],
+    "S066": [
+      "A004-book"
+    ],
+    "S070": [
+      "G11"
+    ],
+    "S076": [
+      "G11"
+    ],
+    "_note": "재현 이미지(AI)만. 나머지 장면은 직접 만든 카드·모션. 사용자 제공 사진이 오면 해당 장면에 추가."
   },
   "thumbnail": [
     {
@@ -193,5 +196,8 @@
       "layout": "full",
       "pill": "브루스 이야기"
     }
-  ]
+  ],
+  "local_credits": {
+    "A004-book": "도서 표지 · 슬로디미디어"
+  }
 }

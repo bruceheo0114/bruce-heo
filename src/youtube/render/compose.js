@@ -115,6 +115,8 @@ async function loadMedia(episode, referenceDir, root) {
   const byKey = new Map();
   const byName = new Map();
   const pool = [];
+  // references.json의 local_credits: { "S060-book": "도서 표지 · 슬로디미디어" } 직접 둔 파일의 출처 표기
+  const localCredits = references.local_credits ?? {};
   const add = (key, media) => byKey.set(key, [...(byKey.get(key) ?? []), media]);
   for (const item of credits.items ?? []) {
     const file = path.join(referenceDir, item.file);
@@ -136,7 +138,7 @@ async function loadMedia(episode, referenceDir, root) {
     if (!MEDIA.test(name) || known.has(name) || isExcluded(name)) continue;
     const key = path.parse(name).name.toUpperCase().replace(/[-_].*$/, "");
     // 직접 둔 파일(사용자 제공 자료, ElevenLabs Kling 클립 S007-kling.mp4 등). scene_images에서 파일 이름으로도 고를 수 있다.
-    const media = { file: path.join(referenceDir, name), kind: /\.(mp4|mov|m4v)$/i.test(name) ? "video" : "image", credit: /-kling\./i.test(name) ? "AI 생성 영상 (Kling)" : "제공 자료" };
+    const media = { file: path.join(referenceDir, name), kind: /\.(mp4|mov|m4v)$/i.test(name) ? "video" : "image", credit: localCredits[path.parse(name).name] ?? (/-kling\./i.test(name) ? "AI 생성 영상 (Kling)" : "제공 자료") };
     if (/^(S|A)\d+$/.test(key)) add(key, media);
     if (!byName.has(path.parse(name).name.toUpperCase())) byName.set(path.parse(name).name.toUpperCase(), media);
   }
@@ -377,7 +379,7 @@ WrapStyle: 0
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: Default,Pretendard SemiBold,50,&H00FFFFFF,${karaoke ? "&H00A9ADAD" : "&H00FFFFFF"},&H64111111,&H64111111,0,0,0,0,100,100,0,0,3,14,0,2,260,260,92,1
+Style: Default,Pretendard Bold,52,&H00FFFFFF,${karaoke ? "&H00A9ADAD" : "&H00FFFFFF"},&H00141414,&H96000000,0,0,0,0,100,100,0,0,1,4,1.5,2,240,240,72,1
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
@@ -513,7 +515,7 @@ export async function loadTrend(episode, root) {
   return found;
 }
 
-export async function renderEpisode(episode, audioFiles, { root, outDir, preview = false, cleanup = true, syntheticVoice = false, bgm: bgmOverride = null, karaoke = true, log = () => {} }) {
+export async function renderEpisode(episode, audioFiles, { root, outDir, preview = false, cleanup = true, syntheticVoice = false, bgm: bgmOverride = null, karaoke = false, log = () => {} }) {
   const storyboardText = await readEpisodeFile(episode, "03_storyboard.md");
   const script = await readEpisodeFile(episode, "02_script.md");
   const brief = (await readEpisodeFile(episode, "01_brief.md")) ?? "";

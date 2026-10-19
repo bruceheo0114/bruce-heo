@@ -58,7 +58,7 @@ HIGGSFIELD_REQUIRED: YES
 SCENE ID: S005
 TIME: 00:33-00:38
 NARRATION:
-그리고 십 년이 넘게 지난 지금도 한 가지 고민을 하고 있습니다.
+그리고 10년이 넘게 지난 지금도 한 가지 고민을 하고 있습니다.
 VISUAL:
 그때와 지금 두 점.
 SOURCE_TYPE: GRAPHIC
@@ -110,7 +110,7 @@ HIGGSFIELD_REQUIRED: NO
 SCENE ID: S009
 TIME: 01:04-01:16
 NARRATION:
-서울로 올라와 고시원에서 살았습니다. 오전 아홉 시부터 오후 여섯 시까지 회사에서 일하고, 생활비를 벌기 위해 밤에는 카페에서 아르바이트를 했습니다.
+서울로 올라와 고시원에서 살았습니다. 오전 9시부터 오후 6시까지 회사에서 일하고, 생활비를 벌기 위해 밤에는 카페에서 아르바이트를 했습니다.
 VISUAL:
 하루의 세 칸.
 SOURCE_TYPE: GRAPHIC
@@ -200,7 +200,7 @@ HIGGSFIELD_REQUIRED: NO
 SCENE ID: S016
 TIME: 02:19-02:32
 NARRATION:
-그렇다고 일이 쉬웠던 것도 아닙니다. 일 년 차 사원이었는데 사실상 혼자 AE를 맡아 광고주를 상대하고, 기획안을 쓰고, 결정을 해야 했습니다. 실수도 정말 많았습니다.
+그렇다고 일이 쉬웠던 것도 아닙니다. 1년 차 사원이었는데 사실상 혼자 AE를 맡아 광고주를 상대하고, 기획안을 쓰고, 결정을 해야 했습니다. 실수도 정말 많았습니다.
 VISUAL:
 [재현] 늦은 밤 책상, 빈 기획서 종이와 펜을 쥔 손(글자·로고 없음).
 SOURCE_TYPE: AI
@@ -266,7 +266,7 @@ HIGGSFIELD_REQUIRED: NO
 SCENE ID: S021
 TIME: 03:15-03:24
 NARRATION:
-이후 약 이 년 반을 스포츠마케팅 회사에서 일했습니다. 마지막에 맡았던 중요한 프로젝트 중 하나가 KBL TV였습니다.
+이후 약 2년 반을 스포츠마케팅 회사에서 일했습니다. 마지막에 맡았던 중요한 프로젝트 중 하나가 KBL TV였습니다.
 VISUAL:
 -
 SOURCE_TYPE: TYPE
@@ -342,7 +342,7 @@ HIGGSFIELD_REQUIRED: NO
 SCENE ID: S027
 TIME: 04:06-04:12
 NARRATION:
-버스를 네 시간이나 타고 갔다가 십 분도 촬영하지 못하고 돌아온 적도 있었습니다.
+버스를 4시간이나 타고 갔다가 10분도 촬영하지 못하고 돌아온 적도 있었습니다.
 VISUAL:
 회고 기반 숫자라고 화면에 표시.
 SOURCE_TYPE: GRAPHIC
@@ -379,11 +379,11 @@ ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
 SCENE ID: S030
-TIME: 04:30-04:48
+TIME: 04:30-04:39
 NARRATION:
-방털기와 올스타 외전 같은 기획을 거쳐, 비시즌에는 선수들이 좋아하는 맛집에서 이야기를 나누는 크블식당도 만들었습니다. 기획 과정에서는 KBL 팀장님이 좋은 아이디어를 더해주셨고, 제작진과 함께 구현하는 일이 무엇보다 중요했습니다.
+방털기와 올스타 외전 같은 기획을 거쳐, 비시즌에는 선수들이 좋아하는 맛집에서 이야기를 나누는 크블식당도 만들었습니다.
 VISUAL:
-KBL 팀장·제작진과 공동 기획. 회차·출연자 미표기.
+회차·출연자 미표기.
 SOURCE_TYPE: GRAPHIC
 ON_SCREEN_TEXT:
 함께 만든 기획들
@@ -395,6 +395,18 @@ HIGGSFIELD_REQUIRED: NO
 MOTION: timeline
 
 SCENE ID: S031
+TIME: 04:39-04:48
+NARRATION:
+기획 과정에서는 KBL 팀장님이 좋은 아이디어를 더해주셨고, 제작진과 함께 구현하는 일이 무엇보다 중요했습니다.
+VISUAL:
+공동 기획.
+SOURCE_TYPE: GRAPHIC
+ON_SCREEN_TEXT:
+KBL 팀장의 아이디어 → 제작진과 함께 구현
+ASSET: -
+HIGGSFIELD_REQUIRED: NO
+
+SCENE ID: S032
 TIME: 04:48-04:49
 NARRATION:
 조금씩 달라졌습니다.
@@ -407,7 +419,7 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S032
+SCENE ID: S033
 TIME: 04:49-05:01
 NARRATION:
 팬들이 기획 콘텐츠를 기다리기 시작했습니다. 댓글로 다음 콘텐츠를 기대하는 반응이 보였고, 다른 구단들도 비슷한 시도를 하는 모습이 눈에 들어왔습니다.
@@ -420,10 +432,23 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S033
-TIME: 05:01-05:13
+SCENE ID: S034
+TIME: 05:01-05:05
 NARRATION:
-무엇보다 선수들과 구단 관계자들이 협조하는 태도가 달라졌습니다. 처음에는 십 분도 촬영하지 못했는데, 나중에는 일정이 허락하는 날 한두 시간씩 시간을 내주기도 했습니다.
+무엇보다 선수들과 구단 관계자들이 협조하는 태도가 달라졌습니다.
+VISUAL:
+-
+SOURCE_TYPE: TYPE
+ON_SCREEN_TEXT:
+선수와 구단의
+태도가 달라졌다
+ASSET: -
+HIGGSFIELD_REQUIRED: NO
+
+SCENE ID: S035
+TIME: 05:05-05:13
+NARRATION:
+처음에는 10분도 촬영하지 못했는데, 나중에는 일정이 허락하는 날 한두 시간씩 시간을 내주기도 했습니다.
 VISUAL:
 회고 기반.
 SOURCE_TYPE: GRAPHIC
@@ -435,7 +460,7 @@ ASSET: -
 HIGGSFIELD_REQUIRED: NO
 MOTION: compare
 
-SCENE ID: S034
+SCENE ID: S036
 TIME: 05:13-05:19
 NARRATION:
 그 변화가 좋았습니다. 우리가 무언가를 만들어가고 있다는 느낌이 들었거든요.
@@ -447,7 +472,7 @@ ON_SCREEN_TEXT:
 ASSET: G07
 HIGGSFIELD_REQUIRED: YES
 
-SCENE ID: S035
+SCENE ID: S037
 TIME: 05:19-05:28
 NARRATION:
 물론 기획자 혼자 만든 성과는 아닙니다. 촬영과 편집, 디자인, 팀장과 광고주, 선수, 구단 관계자가 함께 만든 결과였습니다.
@@ -461,10 +486,23 @@ KBL 팀장 · 광고주
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S036
-TIME: 05:28-05:40
+SCENE ID: S038
+TIME: 05:28-05:33
 NARRATION:
-이 경험이 제게 남긴 건 성공한 영상의 형식이 아니었습니다. **사람들이 왜 참여하고, 왜 보고 싶어 하는지 이해해야 콘텐츠도 달라진다**는 감각이었습니다.
+이 경험이 제게 남긴 건 성공한 영상의 형식이 아니었습니다. **
+VISUAL:
+-
+SOURCE_TYPE: TYPE
+ON_SCREEN_TEXT:
+남은 건
+성공한 영상의 형식이 아니었다
+ASSET: -
+HIGGSFIELD_REQUIRED: NO
+
+SCENE ID: S039
+TIME: 05:33-05:40
+NARRATION:
+사람들이 왜 참여하고, 왜 보고 싶어 하는지 이해해야 콘텐츠도 달라진다**는 감각이었습니다.
 VISUAL:
 -
 SOURCE_TYPE: TYPE
@@ -475,7 +513,7 @@ ASSET: -
 HIGGSFIELD_REQUIRED: NO
 MOTION: quote
 
-SCENE ID: S037
+SCENE ID: S040
 TIME: 05:40-05:56
 NARRATION:
 그다음에는 팀장을 믿고 새로운 스포츠 MCN 사업으로 옮겼습니다. 유명 크리에이터와 함께 일하면 성장하는 인플루언서 산업에서 새로운 기회를 만들 수 있을 거라고 생각했습니다.
@@ -487,20 +525,32 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S038
-TIME: 05:56-06:17
+SCENE ID: S041
+TIME: 05:56-06:03
 NARRATION:
-그런데 옮기기도 전에 그 크리에이터에게 큰 이슈가 생기면서 광고가 끊겼습니다. 시작부터 예상과 달랐습니다. 그래도 기존 KBL TV 같은 콘텐츠 사업이 있어 버틸 수 있었고, 이후 다양한 크리에이터와 유튜브 광고 프로젝트를 경험했습니다.
+그런데 옮기기도 전에 그 크리에이터에게 큰 이슈가 생기면서 광고가 끊겼습니다.
 VISUAL:
 크리에이터 이름·사건 언급하지 않음.
 SOURCE_TYPE: TYPE
 ON_SCREEN_TEXT:
-시작부터
-예상과 달랐다
+옮기기도 전에
+광고가 끊겼다
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S039
+SCENE ID: S042
+TIME: 06:03-06:17
+NARRATION:
+시작부터 예상과 달랐습니다. 그래도 기존 KBL TV 같은 콘텐츠 사업이 있어 버틸 수 있었고, 이후 다양한 크리에이터와 유튜브 광고 프로젝트를 경험했습니다.
+VISUAL:
+-
+SOURCE_TYPE: GRAPHIC
+ON_SCREEN_TEXT:
+KBL TV 콘텐츠 사업으로 버티며 → 크리에이터 · 유튜브 광고 프로젝트
+ASSET: -
+HIGGSFIELD_REQUIRED: NO
+
+SCENE ID: S043
 TIME: 06:17-06:27
 NARRATION:
 작은 회사에서 세금계산서를 발행하고 운영 업무까지 하면서, 콘텐츠뿐 아니라 사업이 어떻게 돌아가는지도 배웠습니다.
@@ -512,7 +562,7 @@ ON_SCREEN_TEXT:
 ASSET: G08
 HIGGSFIELD_REQUIRED: YES
 
-SCENE ID: S040
+SCENE ID: S044
 TIME: 06:27-06:34
 NARRATION:
 그런데 코로나19가 왔습니다. 스포츠와 관련된 일이 끊기기 시작했습니다.
@@ -525,7 +575,7 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S041
+SCENE ID: S045
 TIME: 06:34-06:49
 NARRATION:
 사실 그전부터 고민은 있었습니다. 스포츠 산업에서 처우를 개선하며 성장하는 데 한계가 있다고 느꼈고, 좋아하던 스포츠를 일로 하면서 취미를 잃어가는 느낌도 들었습니다.
@@ -538,7 +588,7 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S042
+SCENE ID: S046
 TIME: 06:49-06:55
 NARRATION:
 결국 스포츠를 떠나 일반 마케팅에서 다시 살아남아 보기로 했습니다.
@@ -553,8 +603,8 @@ ASSET: -
 HIGGSFIELD_REQUIRED: NO
 MOTION: timeline
 
-SCENE ID: S043
-TIME: 06:55-07:10
+SCENE ID: S047
+TIME: 06:55-07:11
 NARRATION:
 코로나19는 위기였지만, 다른 한편으로 기회이기도 했습니다. 디지털 마케팅 수요가 늘면서 유튜브 채널 운영 경험을 경력으로 인정받아 일반 마케팅 회사로 옮길 수 있었습니다.
 VISUAL:
@@ -565,8 +615,8 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S044
-TIME: 07:10-07:24
+SCENE ID: S048
+TIME: 07:11-07:24
 NARRATION:
 하지만 처음에는 어려웠습니다. As-Is, To-Be, 캐러셀, CPV, CPM. 지금은 익숙한 말이지만 그때는 기본적인 업계 용어도 제대로 몰랐습니다.
 VISUAL:
@@ -578,7 +628,7 @@ As-Is · To-Be
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S045
+SCENE ID: S049
 TIME: 07:24-07:31
 NARRATION:
 그걸 이유로 무시받는 듯한 분위기를 느낄 때도 있었습니다. 그게 싫었습니다.
@@ -591,7 +641,7 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S046
+SCENE ID: S050
 TIME: 07:31-07:43
 NARRATION:
 그래서 업무 시간 밖에서도 공부했습니다. 책을 읽고, 마케팅 채널을 구독하고, 제가 보는 콘텐츠와 알고리즘까지 바꿔가며 익혔습니다.
@@ -603,8 +653,8 @@ ON_SCREEN_TEXT:
 ASSET: G09
 HIGGSFIELD_REQUIRED: YES
 
-SCENE ID: S047
-TIME: 07:43-07:54
+SCENE ID: S051
+TIME: 07:43-07:55
 NARRATION:
 그런데 한 가지는 자신이 있었습니다. 마케팅 업계의 언어는 몰랐어도, 문제를 해결하기 위해 논리를 세우는 일은 해왔다는 것입니다.
 VISUAL:
@@ -616,22 +666,35 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S048
-TIME: 07:54-08:10
+SCENE ID: S052
+TIME: 07:55-08:02
 NARRATION:
-일 년 차부터 혼자 제안서를 쓰고 광고주 앞에서 설명하며 배운 것이 있었습니다. 죽이 되든 밥이 되든 일단 구조를 만들고, 제 논리를 설명하고, 틀리면 다시 고쳤습니다.
+1년 차부터 혼자 제안서를 쓰고 광고주 앞에서 설명하며 배운 것이 있었습니다.
+VISUAL:
+-
+SOURCE_TYPE: TYPE
+ON_SCREEN_TEXT:
+1년 차부터
+혼자 쓴 제안서
+ASSET: -
+HIGGSFIELD_REQUIRED: NO
+
+SCENE ID: S053
+TIME: 08:02-08:10
+NARRATION:
+죽이 되든 밥이 되든 일단 구조를 만들고, 제 논리를 설명하고, 틀리면 다시 고쳤습니다.
 VISUAL:
 -
 SOURCE_TYPE: GRAPHIC
 ON_SCREEN_TEXT:
-경험 → 문제 정의 → 논리 구조 → 제안 → 수정 → 학습
+구조 만들기 → 논리 설명 → 틀리면 고치기
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S049
+SCENE ID: S054
 TIME: 08:10-08:18
 NARRATION:
-일 년 이 개월 동안 바이럴부터 퍼포먼스까지 여러 일을 경험했습니다. 정말 압축적으로 배웠죠.
+1년 2개월 동안 바이럴부터 퍼포먼스까지 여러 일을 경험했습니다. 정말 압축적으로 배웠죠.
 VISUAL:
 1년 2개월 = 14개월.
 SOURCE_TYPE: GRAPHIC
@@ -642,7 +705,7 @@ ASSET: -
 HIGGSFIELD_REQUIRED: NO
 MOTION: count
 
-SCENE ID: S050
+SCENE ID: S055
 TIME: 08:18-08:30
 NARRATION:
 그러나 조직 안에서 저를 바라보는 고정된 인식을 바꾸기는 어렵다고 느꼈습니다. 저는 더 배우고 싶었고, 그래서 다시 옮기기로 했습니다.
@@ -654,10 +717,10 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S051
+SCENE ID: S056
 TIME: 08:30-08:40
 NARRATION:
-그렇게 헤드헌팅을 통해 PR One을 알게 됐습니다. 회사를 잘 알고 지원한 건 아니었습니다. 그런데 면접관이 좋았습니다.
+그렇게 헤드헌팅을 통해 지금의 회사를 알게 됐습니다. 회사를 잘 알고 지원한 건 아니었습니다. 그런데 면접관이 좋았습니다.
 VISUAL:
 [재현] 회의실 테이블에 마주 앉은 두 사람의 뒷모습·손, 얼굴 없음.
 SOURCE_TYPE: AI
@@ -666,7 +729,7 @@ ON_SCREEN_TEXT:
 ASSET: G10
 HIGGSFIELD_REQUIRED: YES
 
-SCENE ID: S052
+SCENE ID: S057
 TIME: 08:40-08:57
 NARRATION:
 제 판단과 경험을 존중해 준다는 느낌이 있었거든요. 입사한 후에도 무언가를 물으면 그 이유를 충분히 설명해 주는 사람이었습니다. 모든 생각이 맞았던 건 아니지만, 인간적으로 존경할 수 있었습니다.
@@ -679,7 +742,7 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S053
+SCENE ID: S058
 TIME: 08:57-09:05
 NARRATION:
 그 믿음 덕분에 저는 더 열심히 일했고, 제 경험이 어떤 강점을 갖는지도 알게 됐습니다.
@@ -692,19 +755,32 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S054
-TIME: 09:05-09:23
+SCENE ID: S059
+TIME: 09:05-09:15
 NARRATION:
-비슷한 연차의 동료들이 제안서를 어디서부터 시작할지 막막해할 때, 저는 문제를 정의하고 논리구조를 만드는 데 익숙했습니다. 처음에는 저를 힘들게 했던 맨땅에 헤딩하는 경험이, 시간이 지나 제 일의 강점이 된 것이죠.
+비슷한 연차의 동료들이 제안서를 어디서부터 시작할지 막막해할 때, 저는 문제를 정의하고 논리구조를 만드는 데 익숙했습니다.
 VISUAL:
 동료 폄하 아님.
 SOURCE_TYPE: GRAPHIC
 ON_SCREEN_TEXT:
-맨땅에 헤딩한 경험 → 문제 정의 → 논리 구조 → 강점
+어디서부터 시작할지 → 문제 정의 → 논리 구조
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S055
+SCENE ID: S060
+TIME: 09:15-09:23
+NARRATION:
+처음에는 저를 힘들게 했던 맨땅에 헤딩하는 경험이, 시간이 지나 제 일의 강점이 된 것이죠.
+VISUAL:
+-
+SOURCE_TYPE: TYPE
+ON_SCREEN_TEXT:
+맨땅에 헤딩한 경험이
+일의 강점이 되다
+ASSET: -
+HIGGSFIELD_REQUIRED: NO
+
+SCENE ID: S061
 TIME: 09:23-09:37
 NARRATION:
 지금은 사람들과 함께 일하는 방식도 고민합니다. AI에게는 반복적인 일을 맡기고, 동료 마케터들에게는 직접 판단하고 편집해야 하는 일에 집중하게 하려고 합니다.
@@ -718,7 +794,7 @@ ASSET: -
 HIGGSFIELD_REQUIRED: NO
 MOTION: compare
 
-SCENE ID: S056
+SCENE ID: S062
 TIME: 09:37-09:45
 NARRATION:
 제가 모든 일을 대신하기 위해서가 아니라, 사람들이 더 중요한 일을 할 시간을 만들기 위해서입니다.
@@ -731,7 +807,7 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S057
+SCENE ID: S063
 TIME: 09:45-09:54
 NARRATION:
 여러 산업과 브랜드를 경험하면서 하나의 생각이 자리 잡았습니다. 사람의 선택은 결국 맥락 속에서 이루어진다는 것입니다.
@@ -744,7 +820,7 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S058
+SCENE ID: S064
 TIME: 09:54-10:06
 NARRATION:
 똑같은 사람도 어떤 상황에 놓여 있는지, 무엇을 원하는지에 따라 다른 선택을 합니다. AI에게 무엇을 물어볼 때도 우리는 각자의 상황과 목적을 가지고 질문합니다.
@@ -756,7 +832,7 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S059
+SCENE ID: S065
 TIME: 10:06-10:11
 NARRATION:
 브랜드 역시 사람들이 선택하는 그 맥락 안에 들어가야 한다고 생각합니다.
@@ -769,24 +845,35 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S060
-TIME: 10:11-10:21
+SCENE ID: S066
+TIME: 10:11-10:22
 NARRATION:
-그 생각을 설명하고 싶어서 글을 썼고, 《맥락을 설계하는 일》이라는 책을 준비했고, 브루스 인사이트라는 채널도 만들었습니다.
+그 생각을 설명하고 싶어서 글을 썼고, 《AI는 답을 만들고 마케터는 맥락을 설계한다》라는 책을 준비했고, 브루스 인사이트라는 채널도 만들었습니다.
 VISUAL:
-본인 자산(텍스트만).
-SOURCE_TYPE: GRAPHIC
+책 표지(사용자 제공) + 글·채널.
+SOURCE_TYPE: REAL
 ON_SCREEN_TEXT:
-글 · 브런치 200편+
-책 · 《맥락을 설계하는 일》
-채널 · 브루스 인사이트
+책 《AI는 답을 만들고 마케터는 맥락을 설계한다》
+ASSET: A004
+HIGGSFIELD_REQUIRED: NO
+
+SCENE ID: S067
+TIME: 10:22-10:27
+NARRATION:
+그런데 제가 왜 회사 일 외에 이렇게 많은 활동을 하는 걸까요?
+VISUAL:
+-
+SOURCE_TYPE: TYPE
+ON_SCREEN_TEXT:
+왜 회사 일 밖에서도
+이렇게 많은 일을 할까
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S061
-TIME: 10:21-10:28
+SCENE ID: S068
+TIME: 10:27-10:29
 NARRATION:
-그런데 제가 왜 회사 일 외에 이렇게 많은 활동을 하는 걸까요? 지금도 살아남기 위해서입니다.
+지금도 살아남기 위해서입니다.
 VISUAL:
 -
 SOURCE_TYPE: TYPE
@@ -796,8 +883,8 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S062
-TIME: 10:28-10:34
+SCENE ID: S069
+TIME: 10:29-10:35
 NARRATION:
 예전에는 제가 서울에서 살아남는 게 중요했습니다. 지금은 제가 지켜야 할 가족이 있습니다.
 VISUAL:
@@ -810,8 +897,8 @@ ASSET: -
 HIGGSFIELD_REQUIRED: NO
 MOTION: compare
 
-SCENE ID: S063
-TIME: 10:34-10:47
+SCENE ID: S070
+TIME: 10:35-10:48
 NARRATION:
 언젠가 회사라는 간판을 떼었을 때 아무것도 아닌 사람이 된다면, 가족의 삶도 불안해질 수 있습니다. 그래서 제 이름만으로 어디까지 갈 수 있는지 미리 시험해 보고 싶습니다.
 VISUAL:
@@ -822,8 +909,8 @@ ON_SCREEN_TEXT:
 ASSET: G11
 HIGGSFIELD_REQUIRED: YES
 
-SCENE ID: S064
-TIME: 10:47-11:00
+SCENE ID: S071
+TIME: 10:48-11:00
 NARRATION:
 마케팅에서 '맥락'을 떠올릴 때 누군가 제 이름도 함께 떠올리는 것. 글과 콘텐츠, 출판과 강의가 서로 신뢰를 쌓고, 그것이 실제 일과 수익의 기회로 이어지는 것.
 VISUAL:
@@ -834,7 +921,7 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S065
+SCENE ID: S072
 TIME: 11:00-11:04
 NARRATION:
 아직 다 이룬 건 아닙니다. 지금 시험하고 있는 중입니다.
@@ -847,10 +934,23 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S066
-TIME: 11:04-11:13
+SCENE ID: S073
+TIME: 11:04-11:08
 NARRATION:
-돌이켜보면 제가 해온 일은 하나로 이어집니다. 상황을 이해하고, 선택을 만들고, 그 선택의 이유를 설명하려고 했다는 것.
+돌이켜보면 제가 해온 일은 하나로 이어집니다.
+VISUAL:
+-
+SOURCE_TYPE: TYPE
+ON_SCREEN_TEXT:
+돌이켜보면
+하나로 이어진다
+ASSET: -
+HIGGSFIELD_REQUIRED: NO
+
+SCENE ID: S074
+TIME: 11:08-11:13
+NARRATION:
+상황을 이해하고, 선택을 만들고, 그 선택의 이유를 설명하려고 했다는 것.
 VISUAL:
 -
 SOURCE_TYPE: GRAPHIC
@@ -861,8 +961,8 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S067
-TIME: 11:13-11:22
+SCENE ID: S075
+TIME: 11:13-11:23
 NARRATION:
 고시원에서 월급 없이 일하던 때에도, KBL TV를 기획하던 때에도, 지금 제 이름으로 새로운 일을 만들어 보려는 순간에도요.
 VISUAL:
@@ -876,8 +976,8 @@ ASSET: -
 HIGGSFIELD_REQUIRED: NO
 MOTION: timeline
 
-SCENE ID: S068
-TIME: 11:22-11:26
+SCENE ID: S076
+TIME: 11:23-11:26
 NARRATION:
 저는 여전히 살아남기 위해 일합니다. **
 VISUAL:
@@ -889,7 +989,7 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S069
+SCENE ID: S077
 TIME: 11:26-11:30
 NARRATION:
 정답보다 맥락을. 아이디어보다 판단을. 브루스 인사이트.**
