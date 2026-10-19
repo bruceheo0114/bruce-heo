@@ -38,7 +38,9 @@ export function titleVariants(term) {
 export function pickHooks(terms, variants = [], { until, freshDays = 14 } = {}) {
   const ranked = [...terms].sort((a, b) => b.avg - a.avg);
   const keyword = ranked.find((term) => term.avg > 0 && newsWorthy(term.term)) ?? ranked.find((term) => term.avg > 0) ?? null;
-  const phrase = [...variants].filter((variant) => variant.avg > 0).sort((a, b) => b.avg - a.avg)[0] ?? null;
+  // 이름만 찾는 수가 늘 가장 크므로, 말이 붙은 변형 중 검색이 있는 것을 먼저 고른다(「버거킹 광고」).
+  const searched = [...variants].filter((variant) => variant.avg > 0).sort((a, b) => b.avg - a.avg);
+  const phrase = searched.find((variant) => variant.phrase.includes(" ")) ?? searched[0] ?? null;
   const rising = ranked.filter((term) => term.rise === null || (term.rise ?? 0) >= 1.3).map((term) => term.term);
   const since = kstDate(new Date(until).valueOf() - freshDays * DAY_MS);
   const fresh = ranked

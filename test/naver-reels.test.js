@@ -99,7 +99,7 @@ test("youtube hooks: title keyword, searched-with phrase, rising names and a fre
   ];
   const hooks = pickHooks(terms, variants, { until: new Date("2026-10-24T11:00:00Z") });
   assert.equal(hooks.title_keyword, "버거킹");
-  assert.equal(hooks.title_phrase, "버거킹");
+  assert.equal(hooks.title_phrase, "버거킹 광고");
   assert.deepEqual(hooks.rising, ["버거킹", "와퍼"]);
   assert.equal(hooks.fresh_hook.term, "버거킹");
   const old = pickHooks(terms, variants, { until: new Date("2026-11-20T11:00:00Z") });
