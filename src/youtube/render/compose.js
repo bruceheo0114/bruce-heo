@@ -379,7 +379,7 @@ WrapStyle: 0
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: Default,Pretendard Bold,52,&H00FFFFFF,${karaoke ? "&H00A9ADAD" : "&H00FFFFFF"},&H00141414,&H96000000,0,0,0,0,100,100,0,0,1,4,1.5,2,240,240,72,1
+Style: Default,Pretendard SemiBold,50,&H00FFFFFF,${karaoke ? "&H00A9ADAD" : "&H00FFFFFF"},&H64111111,&H64111111,0,0,0,0,100,100,0,0,3,14,0,2,260,260,92,1
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text

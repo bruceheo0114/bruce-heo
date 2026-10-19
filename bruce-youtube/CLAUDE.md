@@ -142,6 +142,6 @@ node src/cli/youtube.js upload <EP>       YouTube 업로드(예비 — 사용자
 - **움직이는 도식:** 스토리보드 선택 항목 `MOTION: count|trend|timeline|compare|quote` (형식은 youtube_producer.md). 숫자 올라가기·네이버 검색량 꺾은선·연표·비교·인용 카드를 Playwright로 프레임마다 찍어 만든다(`src/youtube/render/motion.js`). 보통 카드·도식도 줄마다 차례로 나타난다.
 - **검색량 그래프:** `naver-youtube.yml`이 `trends/<yt_slot>.json`에 검색량 상위 이름 3개의 주 단위 `series`를 남긴다. render가 원문 파일 이름(글 번호)으로 찾아 `MOTION: trend` 장면에 쓰고, 영상 설명 자료 출처에 '네이버 데이터랩 검색어 트렌드'를 넣는다.
 - **효과음:** `channel/sfx/` (README 참고). 간지·움직이는 카드·도식·스크롤 컷에 자동.
-- **자막 스타일:** 흰 굵은 글씨 + 짙은 외곽선·옅은 그림자(상자 없음), 화면 아래 중앙. 낱말 강조(말한 낱말부터 흰색, 나머지 회색)는 기본 꺼짐 — Bruce 2026-10-19 "자막이 왜 이렇게 뜨냐" 피드백. 켤 때만 `renderEpisode({ karaoke: true })`.
+- **자막 스타일:** 반투명 짙은 상자 + 흰 글씨(Pretendard SemiBold 50), 화면 아래 중앙. 낱말 강조(말하는 대로 바가 채워지는 효과)는 쓰지 않는다 — Bruce 2026-10-19 "말 나올 때마다 뒤에 바가 채워지는 건 아니다". 기본 꺼짐, 켤 때만 `renderEpisode({ karaoke: true })`.
 - **브랜드 사이트 스크롤:** references.json `page` 항목에 `"scroll": true`.
 - **Kling 클립:** ElevenLabs 크레딧이 남는 달에 편당 1개(약 2,120, routine_prompt 6-5). `assets/references/<EP>/<Scene>-kling.mp4`.
