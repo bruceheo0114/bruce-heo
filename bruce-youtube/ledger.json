@@ -4,7 +4,7 @@
   "note": "Higgsfield Starter 270 = 인스타그램 120 + YouTube 150",
   "cycles": {
     "2026-10": {
-      "spent": 27.5,
+      "spent": 34,
       "entries": [
         {
           "date": "2026-10-07",
@@ -315,6 +315,48 @@
           "scene": "S012",
           "credits": 5,
           "note": "재현 영상 클립 V01 (grok_video_v15_lite 5초)"
+        },
+        {
+          "date": "2026-10-19",
+          "episode": "EP007",
+          "scene": "S001",
+          "credits": 0.25
+        },
+        {
+          "date": "2026-10-19",
+          "episode": "EP007",
+          "scene": "S024",
+          "credits": 0.25
+        },
+        {
+          "date": "2026-10-19",
+          "episode": "EP007",
+          "scene": "S014",
+          "credits": 0.25
+        },
+        {
+          "date": "2026-10-19",
+          "episode": "EP007",
+          "scene": "S037",
+          "credits": 0.25
+        },
+        {
+          "date": "2026-10-19",
+          "episode": "EP007",
+          "scene": "S039",
+          "credits": 0.25
+        },
+        {
+          "date": "2026-10-19",
+          "episode": "EP007",
+          "scene": "S007",
+          "credits": 0.25
+        },
+        {
+          "date": "2026-10-19",
+          "episode": "EP007",
+          "scene": "S034",
+          "credits": 5
         }
       ]
     }
