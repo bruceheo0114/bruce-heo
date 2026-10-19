@@ -1,6 +1,7 @@
 // Scene마다 1920×1080 화면을 그린다. 화면 배치는 모든 컷에서 같다:
 //   왼쪽 위 = 지금 이야기하는 챕터, 오른쪽 위 = 채널 로고(최종 합성에서 고정), 오른쪽 아래 = 출처, 아래 가운데 = 자막
-import { readFile } from "node:fs/promises";
+import { existsSync } from "node:fs";
+import { readFile, unlink } from "node:fs/promises";
 import { createRequire } from "node:module";
 import path from "node:path";
 import { normalize } from "./align.js";
@@ -350,6 +351,12 @@ export async function renderFrames(jobs, outDir) {
         for (let index = 0; index < count; index += 1) {
           await page.evaluate((t) => window.__seek(t), index / fps);
           await page.screenshot({ path: path.join(outDir, pattern.replace("%04d", String(index + 1).padStart(4, "0"))), type: "jpeg", quality: 92 });
+        }
+        // 지난 렌더에서 같은 이름으로 더 길게 찍어 둔 프레임이 남아 있으면 영상에 다른 카드가 끼어든다 — 지운다
+        for (let index = count + 1; ; index += 1) {
+          const stale = path.join(outDir, pattern.replace("%04d", String(index).padStart(4, "0")));
+          if (!existsSync(stale)) break;
+          await unlink(stale);
         }
       }
       await page.evaluate(() => window.__seek(999));
