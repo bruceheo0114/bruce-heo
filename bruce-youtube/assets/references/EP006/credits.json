@@ -1,0 +1,129 @@
+{
+  "references_hash": "68de9eb0b7c81f06",
+  "fetched_at": "2026-10-19T02:30:36.160Z",
+  "items": [
+    {
+      "file": "G01.jpg",
+      "id": "G01",
+      "scenes": [
+        "S004",
+        "S006"
+      ],
+      "kind": "ai",
+      "source": "재현 화면 (AI 생성)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261019_012612_c094d0f9-0429-4589-8847-6339cb869d38.png"
+    },
+    {
+      "file": "G02.jpg",
+      "id": "G02",
+      "scenes": [
+        "S007"
+      ],
+      "kind": "ai",
+      "source": "재현 화면 (AI 생성)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261019_012612_d5de695d-7893-4e18-be67-ccfe67cdf360.png"
+    },
+    {
+      "file": "G03.jpg",
+      "id": "G03",
+      "scenes": [
+        "S012"
+      ],
+      "kind": "ai",
+      "source": "재현 화면 (AI 생성)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261019_012612_089deb25-c1c4-4633-97c6-88d3b65caac5.png"
+    },
+    {
+      "file": "G04.jpg",
+      "id": "G04",
+      "scenes": [
+        "S016"
+      ],
+      "kind": "ai",
+      "source": "재현 화면 (AI 생성)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261019_012531_3549a346-195c-4487-98f4-0e503e0fe2f1.png"
+    },
+    {
+      "file": "G05.jpg",
+      "id": "G05",
+      "scenes": [
+        "S022"
+      ],
+      "kind": "ai",
+      "source": "재현 화면 (AI 생성)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261019_012613_b03a5c9b-e174-4a01-8674-ed9cbc359bbf.png"
+    },
+    {
+      "file": "G06.jpg",
+      "id": "G06",
+      "scenes": [
+        "S023"
+      ],
+      "kind": "ai",
+      "source": "재현 화면 (AI 생성)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261019_012745_4171c089-7c99-4c58-8270-4fc214c2c706.png"
+    },
+    {
+      "file": "G07.jpg",
+      "id": "G07",
+      "scenes": [
+        "S034"
+      ],
+      "kind": "ai",
+      "source": "재현 화면 (AI 생성)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261019_012532_504b9e92-7eb8-4ccb-b9d3-d667bca4fe7c.png"
+    },
+    {
+      "file": "G08.jpg",
+      "id": "G08",
+      "scenes": [
+        "S039"
+      ],
+      "kind": "ai",
+      "source": "재현 화면 (AI 생성)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261019_012532_f1e22224-a151-4ab8-aeac-833418d2433c.png"
+    },
+    {
+      "file": "G09.jpg",
+      "id": "G09",
+      "scenes": [
+        "S046"
+      ],
+      "kind": "ai",
+      "source": "재현 화면 (AI 생성)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261019_012745_9f8a1c55-8ee5-4da3-8579-fcd3b834781d.png"
+    },
+    {
+      "file": "G10.jpg",
+      "id": "G10",
+      "scenes": [
+        "S051"
+      ],
+      "kind": "ai",
+      "source": "재현 화면 (AI 생성)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261019_012532_492308ae-1774-4e48-b5f9-9372c0ead206.png"
+    },
+    {
+      "file": "G11.jpg",
+      "id": "G11",
+      "scenes": [
+        "S063",
+        "S068"
+      ],
+      "kind": "ai",
+      "source": "재현 화면 (AI 생성)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261019_012745_65ef145d-0e52-497f-9fa7-1aa9695fe5ca.png"
+    },
+    {
+      "file": "V01.mp4",
+      "id": "V01",
+      "scenes": [
+        "S012"
+      ],
+      "kind": "video",
+      "source": "재현 영상 (AI 생성)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261019_013119_3fd82b39-99b0-4e96-ab19-c6756e72ca05.mp4"
+    }
+  ],
+  "failures": []
+}
