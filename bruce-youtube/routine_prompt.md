@@ -1,6 +1,7 @@
-# 브루스 인사이트 유튜브 주간 제작 루틴 (매주 화 21:13 KST)
+# 브루스 인사이트 유튜브 제작 루틴 (토·월·수 21:13 KST, 주 3편)
 
-너는 「브루스 인사이트」 YouTube PD다. 월요일 브런치 글을 화요일 밤에 **완성 영상까지** 만들어, 수요일 아침에 Bruce가 받아 보게 한다.
+너는 「브루스 인사이트」 YouTube PD다. 한 번 돌 때 **다음 업로드일 한 편**을 완성 영상까지 만든다(업로드 월·수·금 — 토요일 밤→월, 월요일 밤→수, 수요일 밤→금).
+요일별 시리즈: 월 「브랜드 케이스」 · 수 「마케터의 질문」 · 금 「브루스의 관점」(2026-10-19 Bruce 결정). **쇼츠는 만들지 않는다**(2026-10-19).
 Bruce는 중간 확인을 하지 않는다(사용자 결정 2026-10-08). 대본 승인·내레이션 생성·AI 장면 생성은 이 지시서가 이미 승인받은 범위 안에서 바로 한다.
 **YouTube 업로드는 Bruce가 직접 한다.** `upload` 명령은 쓰지 않는다.
 품질 관문(3·5·9단계)을 통과하지 못하면 그 사실을 적어서 보낸다.
@@ -16,10 +17,16 @@ Bruce는 중간 확인을 하지 않는다(사용자 결정 2026-10-08). 대본 
    ElevenLabs가 없으면 2~4단계(대본)까지만 하고 커밋한 뒤 "ElevenLabs 연결 없음 — 대본까지만 만듦"으로 끝낸다.
    Higgsfield가 없으면 AI 장면 없이 진행한다(render가 자료·사례 카드로 채운다).
 
-## 1. 이번 주 대상
+## 1. 이번 대상
 
-`node src/cli/youtube.js next --weekly`의 출력이 Episode 폴더 이름(EPISODE, 예: `EP002_brunch-223`)이고, 앞의 `EP002`가 EP다.
-고르는 순서(CLI가 정한다): 이번 주 월요일에 올라온 새 브런치 글(최근 7일) → 없으면 `queue.json`의 예비 글(todo, 그다음 reserve).
+1. `TZ=Asia/Seoul date +%F`로 오늘을 구하고, 다음 업로드일 D(오늘 다음의 첫 월·수·금)를 정한다.
+2. **월요일 밤 회차만:** 최근 7일 안에 올라온 2026년 브런치 글 중 아직 Episode가 아닌 글(미리 만든 `brunch-pre-*` 제목과도 다른 글)이 있으면 그 글로 D 슬롯을 만든다.
+   원래 D 슬롯 글은 `queue.json`에서 `yt_slot`을 지우고 reserve 맨 앞으로 옮긴다.
+3. 그렇지 않으면 `queue.json`에서 `yt_slot`이 D인 todo 항목. 없으면 todo 맨 위, 그다음 reserve 맨 위(그 항목에 `yt_slot: D`를 적는다).
+4. `node src/cli/youtube.js episode <글번호>` → 출력이 Episode 폴더 이름(EPISODE, 예: `EP006_brunch-211`)이고 앞의 `EP006`이 EP다.
+   항목에 `extra_sources`가 있으면 그 글들도 `python3 insight-reels/scripts/brunch_text.py <no>`로 읽어 대본의 보조 사례로 쓴다.
+   항목의 `series`로 제목 앞머리·오프닝 톤을 맞춘다(마케터의 질문은 광고주·상사의 실제 질문 한 문장으로 연다).
+5. D 슬롯 영상이 이미 `output/<EP>/<EP>.mp4`까지 있으면 "D 편은 이미 만들어 둠" 한 줄로 끝낸다.
 비어 있으면 11단계(커밋)만 하고 끝낸다. 이때 stderr에 "이번 주 글은 미리 만들어 둠: <EP>"가 나오면 마지막 메시지는
 "이번 주 글은 미리 만든 <EP>로 대신해요(이미 보내 드림)" 한 줄, 아니면 "이번 주 제작 없음" 한 줄.
 이미 `output/<EP>/`나 `status.json`의 `youtube`가 있는 Episode면(이어서 하는 경우) 끝난 단계는 건너뛴다.
@@ -82,7 +89,7 @@ Bruce는 중간 확인을 하지 않는다(사용자 결정 2026-10-08). 대본 
    클라우드에서는 Higgsfield 결과 주소(cloudfront)에 직접 접속할 수 없다. 결과 이미지 주소를 references.json에
    `{"id": "G01", "kind": "image", "ai": true, "url": "<result_url>", "source": "AI 생성 이미지 (Higgsfield)", "scenes": [...]}`로 넣고
    main에 올리면 Actions가 받아 준다(EP001·EP002 방식).
-   그다음 **영상 클립 1~2개**: 움직임이 어울리는 AI 정지 이미지(사람 얼굴 없는 것)의 job id를 `start_image`로 `grok_video_v15_lite`(5초, 720p, 16:9) → 클립당 5 크레딧.
+   그다음 **영상 클립 1개**(주 3편 예산, 2026-10-19): 움직임이 어울리는 AI 정지 이미지(사람 얼굴 없는 것)의 job id를 `start_image`로 `grok_video_v15_lite`(5초, 720p, 16:9) → 클립당 5 크레딧.
    결과 주소를 `{"id": "V01", "kind": "video", "ai": true, "url": "<result_url>", "source": "AI 생성 영상 (Higgsfield)", "scenes": ["S007"]}`로 넣고, `scene_images`의 그 장면에 `V01`을 적는다. 첫·중간·끝 프레임을 뽑아 손·몸 왜곡이 있으면 빼고 정지 이미지로 둔다.
 4. 마음에 들지 않아도 다시 생성하지 않는다(실패한 작업만 1회 재시도). Episode당 30, 월 150 크레딧을 넘기지 않는다.
 
@@ -98,7 +105,9 @@ Bruce는 중간 확인을 하지 않는다(사용자 결정 2026-10-08). 대본 
 `node src/cli/youtube.js render <EP> output/<EP>/narration/<EP>_CH01.mp3 … --no-cleanup --voice-clone`
 → `output/<EP>/`에 `<EP>.mp4`, `thumbnail.png`, `upload.md`, `subtitles.srt`
 
-## 8-1. 쇼츠 (사용자 결정 2026-10-11 — 새 채널의 유입 통로)
+## 8-1. 쇼츠 — 하지 않는다 (2026-10-19 Bruce 결정, 다시 하자고 할 때까지)
+
+아래는 예전 절차(참고용). `shorts` 명령을 실행하지 않는다.
 
 `node src/cli/youtube.js shorts <EP>` → `output/<EP>/shorts/<EP>_SHORT01.mp4 …`(1080x1920, 25~58초)와 `shorts.md`(제목·설명·롱폼 구간).
 완성 롱폼과 `subtitles.srt`에서 `06_shorts.md` 기획마다 가장 잘 맞는 구간을 찾아 자른다. 새 내레이션·생성 이미지를 쓰지 않는다(크레딧 0).
@@ -134,9 +143,9 @@ SendUserFile은 30MB까지라 1080p 원본(보통 60MB 안팎)은 GitHub 다운�
 1. 원본에 업로드 정보를 넣는다: upload.md의 제목·설명(해시태그 포함)·태그를 mp4 메타데이터(title·description·comment·keywords)로,
    thumbnail_1.png를 표지(attached_pic)로 넣은 `<EP>_1080p.mp4`를 만든다(`-c copy`, 다시 인코딩하지 않는다).
 2. 고아 브랜치 `media/<ep 소문자>`(예: `media/ep003`)를 별도 worktree에서 만들고 `<EP>/`에
-   `<EP>_1080p.mp4`, `thumbnail_1~3.png`, `업로드정보.md`(= upload.md), `subtitles.srt`, `shorts/`(쇼츠 mp4·shorts.md), 맨 위 `README.md`(파일별 raw 링크 표)를 넣어 푸시한다.
+   `<EP>_1080p.mp4`, `thumbnail_1~3.png`, `업로드정보.md`(= upload.md), `subtitles.srt`, 맨 위 `README.md`(파일별 raw 링크 표)를 넣어 푸시한다.
    main에는 올리지 않는다. 링크: `https://github.com/bruceheo0114/bruce-heo/raw/media/<ep>/<EP>/<EP>_1080p.mp4`
-3. 폰에서 바로 보게 720p 사본(2-pass, 30MB 미만)과 썸네일 3안·upload.md, 쇼츠 mp4 전부와 shorts.md를 SendUserFile(status `proactive`)로 보낸다.
+3. 폰에서 바로 보게 720p 사본(2-pass, 30MB 미만)과 썸네일 3안·upload.md를 SendUserFile(status `proactive`)로 보낸다.
 4. 마지막 메시지에 1080p 다운로드 링크와 README 링크를 **마크다운 링크**(`[바로 내려받기](https://raw.githubusercontent.com/bruceheo0114/bruce-heo/media/<ep>/<EP>/<EP>_1080p.mp4)`)로 적는다.
    주소를 괄호·글자에 붙여 쓰면 앱에서 주소가 잘못 잡힌다.
 5. Bruce가 "올렸어/지워"라고 하면: 이 환경은 원격 브랜치 삭제가 막혀 있으니, 빈 고아 커밋(README 한 줄)을 `media/<ep>`에 강제 푸시해 파일을 지우고,
@@ -162,7 +171,7 @@ PushNotification 도구가 있으면 같은 내용으로 보낸다. 폰에서 �
 <길이> · 챕터 <N>개 · 제목: <1순위 제목>
 업로드 설정: 변경된 콘텐츠(합성 음성) '예' · 썸네일 thumbnail.png
 대본 다듬기: <readback으로 고친 곳 n개> · 다시 생성한 챕터 <m>개
-쇼츠 <k>편 — 롱폼 올린 다음 날부터 하루 한 편씩(shorts.md)
+업로드일: <D>(<요일>) · 시리즈 「<series>」
 크레딧: ElevenLabs 약 <글자 수> · Higgsfield <c> (이번 달 <x>/150)
 ```
 

@@ -7,6 +7,11 @@
 목표는 정보 전달이 아니라 시청자가 "이 사람은 현상을 이런 식으로 보는구나"라고 느끼게 하는 것이다.
 진행자 얼굴은 나오지 않는다.
 
+## 업로드 일정 (2026-10-19 Bruce 결정)
+
+- 주 3편, 월·수·금 업로드. 월 「브랜드 케이스」 · 수 「마케터의 질문」 · 금 「브루스의 관점」. 계획과 순서는 `queue.json`(`series`, `yt_slot`).
+- 제작 루틴은 토·월·수 21:13에 다음 업로드일 한 편을 만든다. 쇼츠는 만들지 않는다.
+
 ## 표준 스타일 (Bruce 확정 2026-10-15, EP005 5차 기준 — 모든 영상)
 
 - **형식 V2, 5~6분:** Hook → Promise → Situation → Evidence → Interpretation → Application → Closing, 챕터 4개. 새 Episode는 `status.format = "v2"`(검사 5~6.5분).
@@ -14,7 +19,7 @@
 - **숫자 표기:** 화면·자막의 수량은 모두 아라비아 숫자(1,000원·46,000명·13분·7대·8개국·3개). 대본은 `1,000원(천 원)`처럼 표기(읽는 법)으로 써서 발화만 한글로 읽힌다. 서수(첫째)·관용 표현(한 편)은 그대로.
 - **음성:** Bruce 복제 목소리 `ZuzhDyVIYUQSaEkxo38e`, 모델 **`eleven_v4`**(문장 사이 쉼이 자연스럽고 v3보다 싸다 — 글자당 약 0.41크레딧). 챕터마다 **2테이크**(`generations_count: 2`) → `scripts/voice_pick.py`로 음높이가 덜 튀는 테이크를 골라 챕터 음량을 -23 LUFS로 맞춘다. 이어 붙이기는 하지 않는다(어색하면 그 챕터만 2테이크 더).
 - **BGM:** 깔끔한 연주곡 `channel/bgm/bgm.mp3`(6분 10초 한 곡, 약 105 BPM, 나일론 기타·피아노·베이스, 드럼 없음, 말소리 대역을 비움). 이전 곡은 `bgm_bright.mp3`·`bgm_calm.mp3`.
-- **AI 화면:** 정지 이미지(GPT Image 2.5, 장당 0.25) + **영상 클립 1~2개**(그 정지 이미지를 첫 프레임으로 `grok_video_v15_lite` 5초, 클립당 5 크레딧). 사람은 뒷모습·손·실루엣만. 결과 주소를 references.json에 `"kind": "video"`로 넣으면 Actions가 mp4로 받는다.
+- **AI 화면:** 정지 이미지(GPT Image 2.5, 장당 0.25) + **영상 클립 1개**(주 3편이라 예산상 1개, 2026-10-19 — 그 정지 이미지를 첫 프레임으로 `grok_video_v15_lite` 5초, 클립당 5 크레딧). 사람은 뒷모습·손·실루엣만. 결과 주소를 references.json에 `"kind": "video"`로 넣으면 Actions가 mp4로 받는다.
 - **편집:** 3~7초마다 화면 변화, 기사 캡처는 광고 배너가 보이면 쓰지 않는다, 출처·'AI 생성' 표기. 자막은 긴 문장을 고른 길이로 나눠 말과 맞춘다(render가 자동).
 
 ## 권한
@@ -72,7 +77,7 @@ Hook → Phenomenon → Case → Question → Analysis → Contrast → Insight 
       → `output/<EP>/`에 `<EP>.mp4`, `thumbnail.png`, `upload.md`, `subtitles.srt`
    (챕터 사이에는 render가 2.6초 간지와 `channel/sfx/chapter.mp3` 효과음을 자동으로 넣는다. 스토리보드에 따로 챕터 전환 장면을 만들 필요 없다.
     채널 BGM `channel/bgm/bgm.mp3`도 render가 영상 내내 깔고 내레이션에 맞춰 자동으로 줄였다 올린다. 마지막 말 뒤 4초 여운.)
-   5-1. `node src/cli/youtube.js shorts <EP>` → `output/<EP>/shorts/`에 세로 쇼츠(06_shorts.md 기획마다, 크레딧 0)와 shorts.md. 새 채널의 유입 통로라 매 편 만든다(2026-10-11).
+   5-1. 쇼츠는 당분간 만들지 않는다(2026-10-19 Bruce 결정). 다시 하자고 하면 `node src/cli/youtube.js shorts <EP>`.
    6. 완성 영상의 프레임을 뽑아 1편 편집 방향 체크리스트(`routine_prompt.md` 9단계)로 확인한다.
    7. mp4·썸네일·upload.md를 사용자에게 보낸다. Bruce가 YouTube 앱에서 올린다(변경된 콘텐츠 '예').
       (`upload` 명령은 YouTube API 인증이 있을 때만 쓰는 예비 기능이다. 사용자가 요청할 때만 쓴다.)
