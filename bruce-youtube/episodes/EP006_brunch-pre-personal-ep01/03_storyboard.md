@@ -706,18 +706,31 @@ HIGGSFIELD_REQUIRED: NO
 MOTION: count
 
 SCENE ID: S055
-TIME: 08:18-08:30
+TIME: 08:18-08:25
 NARRATION:
-그러나 조직 안에서 저를 바라보는 고정된 인식을 바꾸기는 어렵다고 느꼈습니다. 저는 더 배우고 싶었고, 그래서 다시 옮기기로 했습니다.
+그러나 조직 안에서 저를 바라보는 고정된 인식을 바꾸기는 어렵다고 느꼈습니다.
 VISUAL:
 이전 조직 단정 아님.
+SOURCE_TYPE: TYPE
+ON_SCREEN_TEXT:
+고정된 인식은
+바꾸기 어려웠다
+ASSET: -
+HIGGSFIELD_REQUIRED: NO
+
+SCENE ID: S056
+TIME: 08:25-08:30
+NARRATION:
+저는 더 배우고 싶었고, 그래서 다시 옮기기로 했습니다.
+VISUAL:
+-
 SOURCE_TYPE: TYPE
 ON_SCREEN_TEXT:
 더 배우고 싶었다
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S056
+SCENE ID: S057
 TIME: 08:30-08:40
 NARRATION:
 그렇게 헤드헌팅을 통해 지금의 회사를 알게 됐습니다. 회사를 잘 알고 지원한 건 아니었습니다. 그런데 면접관이 좋았습니다.
@@ -729,7 +742,7 @@ ON_SCREEN_TEXT:
 ASSET: G10
 HIGGSFIELD_REQUIRED: YES
 
-SCENE ID: S057
+SCENE ID: S058
 TIME: 08:40-08:57
 NARRATION:
 제 판단과 경험을 존중해 준다는 느낌이 있었거든요. 입사한 후에도 무언가를 물으면 그 이유를 충분히 설명해 주는 사람이었습니다. 모든 생각이 맞았던 건 아니지만, 인간적으로 존경할 수 있었습니다.
@@ -742,7 +755,7 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S058
+SCENE ID: S059
 TIME: 08:57-09:05
 NARRATION:
 그 믿음 덕분에 저는 더 열심히 일했고, 제 경험이 어떤 강점을 갖는지도 알게 됐습니다.
@@ -750,12 +763,12 @@ VISUAL:
 -
 SOURCE_TYPE: TYPE
 ON_SCREEN_TEXT:
-믿음이
-일하는 방식을 바꿨다
+믿음 덕분에 더 열심히
+내 경험의 강점을 알게 됐다
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S059
+SCENE ID: S060
 TIME: 09:05-09:15
 NARRATION:
 비슷한 연차의 동료들이 제안서를 어디서부터 시작할지 막막해할 때, 저는 문제를 정의하고 논리구조를 만드는 데 익숙했습니다.
@@ -767,7 +780,7 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S060
+SCENE ID: S061
 TIME: 09:15-09:23
 NARRATION:
 처음에는 저를 힘들게 했던 맨땅에 헤딩하는 경험이, 시간이 지나 제 일의 강점이 된 것이죠.
@@ -780,7 +793,7 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S061
+SCENE ID: S062
 TIME: 09:23-09:37
 NARRATION:
 지금은 사람들과 함께 일하는 방식도 고민합니다. AI에게는 반복적인 일을 맡기고, 동료 마케터들에게는 직접 판단하고 편집해야 하는 일에 집중하게 하려고 합니다.
@@ -794,7 +807,7 @@ ASSET: -
 HIGGSFIELD_REQUIRED: NO
 MOTION: compare
 
-SCENE ID: S062
+SCENE ID: S063
 TIME: 09:37-09:45
 NARRATION:
 제가 모든 일을 대신하기 위해서가 아니라, 사람들이 더 중요한 일을 할 시간을 만들기 위해서입니다.
@@ -802,15 +815,28 @@ VISUAL:
 -
 SOURCE_TYPE: TYPE
 ON_SCREEN_TEXT:
-더 중요한 일을 할
-시간을 만들기 위해
+일을 대신하려는 게 아니라
+더 중요한 일을 할 시간을 위해
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S063
-TIME: 09:45-09:54
+SCENE ID: S064
+TIME: 09:45-09:50
 NARRATION:
-여러 산업과 브랜드를 경험하면서 하나의 생각이 자리 잡았습니다. 사람의 선택은 결국 맥락 속에서 이루어진다는 것입니다.
+여러 산업과 브랜드를 경험하면서 하나의 생각이 자리 잡았습니다.
+VISUAL:
+-
+SOURCE_TYPE: TYPE
+ON_SCREEN_TEXT:
+여러 산업과 브랜드를 지나며
+자리 잡은 하나의 생각
+ASSET: -
+HIGGSFIELD_REQUIRED: NO
+
+SCENE ID: S065
+TIME: 09:50-09:54
+NARRATION:
+사람의 선택은 결국 맥락 속에서 이루어진다는 것입니다.
 VISUAL:
 -
 SOURCE_TYPE: TYPE
@@ -820,7 +846,7 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S064
+SCENE ID: S066
 TIME: 09:54-10:06
 NARRATION:
 똑같은 사람도 어떤 상황에 놓여 있는지, 무엇을 원하는지에 따라 다른 선택을 합니다. AI에게 무엇을 물어볼 때도 우리는 각자의 상황과 목적을 가지고 질문합니다.
@@ -832,7 +858,7 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S065
+SCENE ID: S067
 TIME: 10:06-10:11
 NARRATION:
 브랜드 역시 사람들이 선택하는 그 맥락 안에 들어가야 한다고 생각합니다.
@@ -845,7 +871,7 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S066
+SCENE ID: S068
 TIME: 10:11-10:22
 NARRATION:
 그 생각을 설명하고 싶어서 글을 썼고, 《AI는 답을 만들고 마케터는 맥락을 설계한다》라는 책을 준비했고, 브루스 인사이트라는 채널도 만들었습니다.
@@ -857,7 +883,7 @@ ON_SCREEN_TEXT:
 ASSET: A004
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S067
+SCENE ID: S069
 TIME: 10:22-10:27
 NARRATION:
 그런데 제가 왜 회사 일 외에 이렇게 많은 활동을 하는 걸까요?
@@ -870,7 +896,7 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S068
+SCENE ID: S070
 TIME: 10:27-10:29
 NARRATION:
 지금도 살아남기 위해서입니다.
@@ -883,7 +909,7 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S069
+SCENE ID: S071
 TIME: 10:29-10:35
 NARRATION:
 예전에는 제가 서울에서 살아남는 게 중요했습니다. 지금은 제가 지켜야 할 가족이 있습니다.
@@ -897,7 +923,7 @@ ASSET: -
 HIGGSFIELD_REQUIRED: NO
 MOTION: compare
 
-SCENE ID: S070
+SCENE ID: S072
 TIME: 10:35-10:48
 NARRATION:
 언젠가 회사라는 간판을 떼었을 때 아무것도 아닌 사람이 된다면, 가족의 삶도 불안해질 수 있습니다. 그래서 제 이름만으로 어디까지 갈 수 있는지 미리 시험해 보고 싶습니다.
@@ -909,7 +935,7 @@ ON_SCREEN_TEXT:
 ASSET: G11
 HIGGSFIELD_REQUIRED: YES
 
-SCENE ID: S071
+SCENE ID: S073
 TIME: 10:48-11:00
 NARRATION:
 마케팅에서 '맥락'을 떠올릴 때 누군가 제 이름도 함께 떠올리는 것. 글과 콘텐츠, 출판과 강의가 서로 신뢰를 쌓고, 그것이 실제 일과 수익의 기회로 이어지는 것.
@@ -921,7 +947,7 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S072
+SCENE ID: S074
 TIME: 11:00-11:04
 NARRATION:
 아직 다 이룬 건 아닙니다. 지금 시험하고 있는 중입니다.
@@ -934,7 +960,7 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S073
+SCENE ID: S075
 TIME: 11:04-11:08
 NARRATION:
 돌이켜보면 제가 해온 일은 하나로 이어집니다.
@@ -947,7 +973,7 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S074
+SCENE ID: S076
 TIME: 11:08-11:13
 NARRATION:
 상황을 이해하고, 선택을 만들고, 그 선택의 이유를 설명하려고 했다는 것.
@@ -961,7 +987,7 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S075
+SCENE ID: S077
 TIME: 11:13-11:23
 NARRATION:
 고시원에서 월급 없이 일하던 때에도, KBL TV를 기획하던 때에도, 지금 제 이름으로 새로운 일을 만들어 보려는 순간에도요.
@@ -976,7 +1002,7 @@ ASSET: -
 HIGGSFIELD_REQUIRED: NO
 MOTION: timeline
 
-SCENE ID: S076
+SCENE ID: S078
 TIME: 11:23-11:26
 NARRATION:
 저는 여전히 살아남기 위해 일합니다. **
@@ -989,7 +1015,7 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S077
+SCENE ID: S079
 TIME: 11:26-11:30
 NARRATION:
 정답보다 맥락을. 아이디어보다 판단을. 브루스 인사이트.**

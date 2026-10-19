@@ -124,7 +124,7 @@ STYLE: observational documentary reenactment, muted palette
 ASPECT RATIO: 16:9
 REUSE POSSIBILITY: 시즌 다른 편의 같은 시기 장면
 
-SCENE ID: S056
+SCENE ID: S057
 PURPOSE: 면접 (CH07)
 DURATION: 6s
 REFERENCE ASSET: REF-G10 (still + slow push-in in edit)
@@ -135,7 +135,7 @@ STYLE: observational documentary reenactment, muted palette
 ASPECT RATIO: 16:9
 REUSE POSSIBILITY: 시즌 다른 편의 같은 시기 장면
 
-SCENE ID: S070
+SCENE ID: S072
 PURPOSE: 회사 간판을 떼었을 때 (CH08)
 DURATION: 6s
 REFERENCE ASSET: REF-G11 (still + slow push-in in edit)

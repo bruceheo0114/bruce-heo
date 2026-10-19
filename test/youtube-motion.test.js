@@ -113,7 +113,7 @@ test("카드 항목은 그 말을 할 때 하나씩 나타나고, 받아쓰기�
   assert.deepEqual(revealTimes(["구조", "없는 말", "틀리면"], speech), [0.2, 2, 3.8]);
   assert.equal(revealTimes(["구조", "틀리면"], null), null);
   const card = sceneFrameHtml(scene(null, "구조 만들기 → 논리 설명 → 틀리면 고치기"), { speech });
-  assert.match(card.html, /class="box rv" style="--i:0;--d:1\.80s">논리 설명/);
-  assert.ok(card.seconds > 3.8);
+  assert.match(card.html, /class="box rv" style="--i:0;--d:1\.40s">논리 설명/); // 가로 흐름은 칸 사이 최대 1.2초
+  assert.ok(card.seconds > 2.6);
   assert.match(sceneFrameHtml(scene(null, "구조 만들기 → 논리 설명")).html, /style="--i:2">논리 설명/);
 });

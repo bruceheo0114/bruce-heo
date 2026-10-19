@@ -213,6 +213,10 @@ function graphicCard(scene, chapter, speech) {
     const width = Math.floor((1480 - (steps.length - 1) * 90) / steps.length);
     const sep = separator.trim() === "↓" ? "→" : separator.trim();
     const times = revealTimes(steps, speech);
+    // 오른쪽 칸이 말을 기다리느라 늦게 뜨지 않게 칸 사이는 최대 1.2초(Bruce 2026-10-19 "오른쪽 카드는 빨리")
+    times?.forEach((time, index) => {
+      if (index) times[index] = Number(Math.min(time, times[index - 1] + 1.2).toFixed(2));
+    });
     // 화살표는 다음 칸과 함께(조금 먼저) 나타난다
     const sepStyle = (index) => (times ? `--i:0;--d:${Math.max(0, times[index] - 0.15).toFixed(2)}s` : `--i:${index * 2 - 1}`);
     const boxes = steps
