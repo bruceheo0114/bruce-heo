@@ -1,6 +1,6 @@
 {
-  "references_hash": "8dc229e540732025",
-  "fetched_at": "2026-10-19T03:29:17.968Z",
+  "references_hash": "642b8b20143c182b",
+  "fetched_at": "2026-10-19T05:30:46.215Z",
   "items": [
     {
       "file": "G01.jpg",
@@ -97,7 +97,7 @@
       "file": "G10.jpg",
       "id": "G10",
       "scenes": [
-        "S056"
+        "S057"
       ],
       "kind": "ai",
       "source": "재현 화면 (AI 생성)",
@@ -107,8 +107,8 @@
       "file": "G11.jpg",
       "id": "G11",
       "scenes": [
-        "S070",
-        "S076"
+        "S072",
+        "S078"
       ],
       "kind": "ai",
       "source": "재현 화면 (AI 생성)",
