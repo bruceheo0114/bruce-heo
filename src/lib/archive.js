@@ -387,6 +387,7 @@ function layout({ title, description, url, image, imageSize = null, canonical, j
 ${imageSize ? `<meta property="og:image:width" content="${imageSize[0]}">\n<meta property="og:image:height" content="${imageSize[1]}">\n` : ""}<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="${escapeHtml(image)}">
 ${jsonLd ? `<script type="application/ld+json">${JSON.stringify(jsonLd).replaceAll("<", "\\u003c")}</script>` : ""}
+<script defer src="/assets/interaction-tracking.js"></script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=${CONFIG.gaMeasurementId}"></script>
 <script>
