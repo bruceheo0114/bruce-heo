@@ -1,35 +1,20 @@
 {
   "date": "2026-10-21",
-  "type": "carousel",
-  "source": "brunch-card-news",
   "brunch_no": 226,
   "title": "국내 최고의 광고회사는 왜 영화 제작을 시작할까?",
   "brunch_url": "https://brunch.co.kr/@heoboram/226",
-  "status": "cancelled",
-  "caption": "🎬 영화는 브랜드가 만드는 또 하나의 팝업스토어가 될 수 있어요.\n\n\"이게 아이오닉 광고였다고?\" 2024년 단편영화 <밤낚시>는 현대자동차와 이노션이 만든 약 13분짜리 작품이에요. 관람료 1,000원에 약 4만 6천 명이 극장에서 봤고, 2025년 칸 라이언즈 엔터테인먼트 부문 그랑프리까지 받았어요. 차량에 설치한 카메라 7대로 아이오닉 5의 시점을 담았고, 기술 설명 대신 촬영 방식에 녹였죠.\n\n📌 이노션은 올해 '시네마바이브랜드'를 선보이며 브랜드의 철학을 영화적 서사로 풀겠다고 했어요. 첫 파트너는 한화그룹, 영화는 2027년 공개 예정이에요.\n\n팝업스토어가 공간과 체험으로 경험을 설계한다면, 영화는 배우·감독·이야기·사운드로 경험을 설계해요. 다만 영화를 재미있게 봤다고 브랜드까지 기억하진 않아요. 기억될 장면과 후속 커뮤니케이션까지 설계해야 해요.\n\n우리 브랜드의 이야기는 영화로 만들었을 때 더 매력적일까요?\n\n🔍 더 많은 브랜드 이야기는 bruceheo.com 에서 만나보세요.\n\n나중에 다시 보고 싶다면 저장 꾹 👆\n\n#브루스매거진 #브랜디드콘텐츠 #이노션 #브랜딩 #마케팅",
-  "images": [
-    "https://bruceheo.com/content/226/cards/01.jpg",
-    "https://bruceheo.com/content/226/cards/02.jpg",
-    "https://bruceheo.com/content/226/cards/03.jpg",
-    "https://bruceheo.com/content/226/cards/04.jpg",
-    "https://bruceheo.com/content/226/cards/05.jpg",
-    "https://bruceheo.com/content/226/cards/06.jpg",
-    "https://bruceheo.com/content/226/cards/07.jpg",
-    "https://bruceheo.com/content/226/cards/08.jpg",
-    "https://bruceheo.com/content/226/cards/09.jpg",
-    "https://bruceheo.com/content/226/cards/10.jpg"
-  ],
-  "images_backup": [
-    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/content/226/cards/01.jpg",
-    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/content/226/cards/02.jpg",
-    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/content/226/cards/03.jpg",
-    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/content/226/cards/04.jpg",
-    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/content/226/cards/05.jpg",
-    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/content/226/cards/06.jpg",
-    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/content/226/cards/07.jpg",
-    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/content/226/cards/08.jpg",
-    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/content/226/cards/09.jpg",
-    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/content/226/cards/10.jpg"
-  ],
-  "cancel_reason": "2026-10-18 결정: 인스타는 매일 릴스 + 월요일 트렌드. 지금까지 만든 브런치 카드뉴스는 쓰지 않는다. 릴스 루틴이 이 날짜를 릴스로 덮어쓴다."
+  "angle": "광고는 피해도 보고 싶은 이야기는 찾아간다 — 돈 내고 본 광고 <밤낚시>와 기술을 작품의 재료로 쓴 방식",
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/42511cbf-d68c-4fe3-b1c3-5869413ffb00.mp4",
+  "cover_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/0fe61442-3213-4854-99d4-cdb7a3a42ce0.jpg",
+  "qa_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/13f29791-9af8-4ff3-9387-5ad31abb504c.jpg",
+  "video_backup_url": "https://bruceheo.com/insight-reels/media/2026-10-21.mp4",
+  "cover_backup_url": "https://bruceheo.com/insight-reels/media/2026-10-21.jpg",
+  "script": "이게 아이오닉 광고였다고?\n천 원 내고 극장에서 본 단편영화, 밤낚시 얘기예요.\n광고인데, 사만 육천 명이 돈을 내고 봤어요.\n광고회사는 왜 영화를 만들었을까요?\n광고는 피해도, 보고 싶은 이야기는 찾아가거든요.\n차를 자랑하는 대신, 차에 단 카메라 일곱 대로 찍었어요.\n기술이 광고 문구가 아니라 작품이 된 거죠.\n칸 라이언즈 그랑프리까지 받았어요.\n우리 캠페인, 새 메시지가 필요할까요, 새 방식이 필요할까요?\n캠페인 회의 전에 저장해 두세요.",
+  "caption": "🎬 관람료 1,000원, 13분짜리 영화를 보러 4만 6천 명이 극장에 갔어요. 끝나고 보니 아이오닉 광고였죠 👇\n\n손석구 주연의 단편영화 <밤낚시>는 현대자동차와 이노션이 만든 약 13분짜리 작품이에요. 문병곤 감독이 아이오닉 5의 차량 카메라 시점을 구현하려고 차에 카메라 7대를 달아 찍었어요. 실제 극장에서 상영됐고 약 4만 6천 명의 유료 관객이 봤어요. 2025년엔 칸 라이언즈 엔터테인먼트 부문 그랑프리까지 받았죠.\n\n여기서 볼 건 세 가지예요.\n\n1️⃣ 광고는 피해도, 보고 싶은 이야기는 찾아간다\n브랜드 콘텐츠의 가장 큰 차이는 사람들이 스스로 골라서 본다는 점이에요. 광고처럼 일방적으로 받는 게 아니라, 자기 시간을 내서 감상하죠.\n\n2️⃣ 기술을 설명하지 않고 작품의 재료로 썼다\n아이오닉 5의 성능을 말로 자랑하는 대신, 차의 카메라 시점을 영화의 촬영 방식으로 썼어요. 기술이 광고 문구가 아니라 작품을 이루는 요소가 된 거예요.\n\n3️⃣ 한 편으로 끝내지 않는다\n이노션은 이 경험을 바탕으로 브랜드와 영화 창작자를 잇는 '시네마바이브랜드'를 선보였어요. 첫 파트너는 한화로, 우주 태양광을 소재로 한 영화가 2027년 공개될 예정이에요. 다만 1,000원이라는 가격에서 얻은 성과를 일반 영화 시장의 수익성과 같게 볼 수는 없어요.\n\n브랜드 경험의 본질이 바뀐 게 아니라, 그걸 전달하는 방식이 바뀌었을 뿐이에요.\n\"소비자의 기억에 남을 장면 하나. 그리고 그 장면이 우리 브랜드를 떠올리게 만드는 이유 하나.\"\n\n💬 우리 브랜드 이야기를 영화로 만든다면, 사람들이 돈 내고 볼까요? O / X로 답해 주세요.\n📌 다음 캠페인 기획 회의에서 \"또 영상 하나 찍자\"는 말이 나오면 꺼내 볼 수 있게 저장해 두세요.\n\n원문은 브런치 「브루스」에 영화가 '또 하나의 팝업스토어'인 이유까지 정리해 뒀어요 (프로필 링크)\n\n#브루스매거진 #밤낚시 #이노션 #브랜디드콘텐츠 #아이오닉5",
+  "credits": {
+    "higgsfield": 6.0,
+    "elevenlabs": 500
+  },
+  "status": "scheduled",
+  "note": "예약돼 있던 브런치 카드뉴스(226) 자리를 릴스로 덮어씀(2026-10-18 결정)"
 }
