@@ -4,8 +4,8 @@
   "higgsfield_monthly_cap": 120,
   "cycles": {
     "2026-10": {
-      "higgsfield_spent": 56.25,
-      "elevenlabs_spent": 4870,
+      "higgsfield_spent": 62.25,
+      "elevenlabs_spent": 5372,
       "entries": [
         {
           "date": "2026-10-02",
@@ -84,6 +84,12 @@
           "what": "릴스 226(10/21 게시분) — 이미지 4장(1.0) + Grok Lite 클립 1개(5.0) + eleven_v4 2테이크(250+250)",
           "higgsfield": 6.0,
           "elevenlabs": 500
+        },
+        {
+          "date": "2026-10-21",
+          "what": "릴스 211(10/22 게시분) — 이미지 4장(1.0) + Grok Lite 클립 1개(5.0) + eleven_v4 2테이크(251+251)",
+          "higgsfield": 6.0,
+          "elevenlabs": 502
         }
       ]
     }
