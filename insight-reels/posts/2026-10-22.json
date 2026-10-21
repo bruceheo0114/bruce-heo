@@ -15,8 +15,10 @@
     "higgsfield": 6.0,
     "elevenlabs": 502
   },
-  "status": "scheduled",
+  "status": "publishing",
   "note": "시의성 훅 없음(trends 10/22: heat 3 이상 후보가 원문과 다른 대상이거나 7일 안에 쓴 글). 검색 훅 title_keyword 버거킹 사용",
   "time": "07:00",
-  "type": "reel"
+  "type": "reel",
+  "claimed_by": "39683184516",
+  "claimed_at": "2026-10-21T22:00:18.132125Z"
 }
