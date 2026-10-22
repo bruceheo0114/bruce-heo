@@ -338,6 +338,15 @@ h1{font-size:clamp(28px,5vw,40px);line-height:1.3;letter-spacing:-.035em;font-we
 .pick:hover{border-color:var(--mint)}
 .pick img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;background:var(--bg-soft)}
 .pick span{display:block;padding:12px 14px 14px;font-size:15px;font-weight:700;line-height:1.45}
+.collab{margin-top:40px;scroll-margin-top:72px}
+.collab h2{font-size:14px;font-weight:800;color:var(--accent);margin-bottom:12px}
+.collab__list{display:grid;gap:10px}
+.collab__item{display:block;padding:16px 18px;border:1.5px solid var(--mint);border-radius:14px;background:var(--bg-card,#FBFAF7);transition:border-color .15s}
+.collab__item:hover{border-color:var(--accent)}
+.collab__item small{display:block;font-size:12px;font-weight:700;color:var(--accent);margin-bottom:4px}
+.collab__item strong{display:block;font-size:16.5px;line-height:1.45}
+.collab__item p{margin-top:6px;font-size:14.5px;line-height:1.7;color:var(--text-2)}
+.collab__item:focus-visible{outline:3px solid var(--mint);outline-offset:2px}
 .filters{margin-top:44px;display:flex;flex-wrap:wrap;gap:8px}
 .filters button{font:inherit;font-size:14px;font-weight:700;padding:8px 14px;border-radius:999px;border:1.5px solid var(--border-strong);background:transparent;color:var(--text-2);cursor:pointer}
 .filters button[aria-pressed="true"]{border-color:var(--text);background:var(--text);color:#fff}
@@ -510,6 +519,7 @@ export function renderArchiveIndex(articles, meta = {}) {
   const byId = new Map(sorted.map((article) => [article.id, article]));
   const picks = (meta.picks ?? []).map((id) => byId.get(id)).filter(Boolean);
   const categories = meta.categories ?? [];
+  const collabs = meta.collabs ?? [];
   const years = [];
   for (const article of sorted) {
     const { year } = toSeoulDateParts(article.publishedAt);
@@ -540,6 +550,9 @@ ${items
 </div>
 ${picks.length ? `<section class="picks" aria-labelledby="picks-title"><h2 id="picks-title">먼저 읽을 글</h2><div class="picks__grid">
 ${picks.map((article) => `<a class="pick" href="/writing/${article.id}/">${article.coverImage ? `<img src="${escapeHtml(imagePath(article.id, article.coverImage, article.coverLocal))}" alt="" loading="lazy" decoding="async">` : ""}<span>${escapeHtml(article.title)}</span></a>`).join("\n")}
+</div></section>` : ""}
+${collabs.length ? `<section class="collab" id="collab" aria-labelledby="collab-title"><h2 id="collab-title">콜라보</h2><div class="collab__list">
+${collabs.map((item) => `<a class="collab__item" href="${escapeHtml(item.url)}" target="_blank" rel="noopener"><small>${escapeHtml([item.series, item.episode, item.date].filter(Boolean).join(" · "))}</small><strong>${escapeHtml(item.title)}</strong>${item.desc ? `<p>${escapeHtml(item.desc)}</p>` : ""}</a>`).join("\n")}
 </div></section>` : ""}
 ${categories.length ? `<div class="filters" role="group" aria-label="주제별로 보기"><button type="button" data-filter="" aria-pressed="true">전체</button>${categories.map((item) => `<button type="button" data-filter="${escapeHtml(item.key)}" aria-pressed="false">${escapeHtml(item.label)}</button>`).join("")}</div>` : ""}
 ${sections}

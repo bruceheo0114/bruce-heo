@@ -1378,6 +1378,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .reading-grid { display: grid; grid-template-columns: 1fr; gap: 32px; }
 @media (min-width: 900px) { .reading-grid { grid-template-columns: 1fr 1fr; gap: 40px; } }
 .reading-col__title { font-size: 14px; font-weight: 800; color: var(--accent); margin-bottom: 10px; }
+.reading-col__title--next { margin-top: 28px; }
 .reading-col .posts { margin-bottom: 0; }
 #writing .posts .post:nth-child(n+4) { display: none; }
 .posts-links { margin-top: 24px; }

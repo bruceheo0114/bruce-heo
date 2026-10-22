@@ -97,6 +97,15 @@ h1{font-size:clamp(28px,5vw,40px);line-height:1.3;letter-spacing:-.035em;font-we
 .pick:hover{border-color:var(--mint)}
 .pick img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;background:var(--bg-soft)}
 .pick span{display:block;padding:12px 14px 14px;font-size:15px;font-weight:700;line-height:1.45}
+.collab{margin-top:40px;scroll-margin-top:72px}
+.collab h2{font-size:14px;font-weight:800;color:var(--accent);margin-bottom:12px}
+.collab__list{display:grid;gap:10px}
+.collab__item{display:block;padding:16px 18px;border:1.5px solid var(--mint);border-radius:14px;background:var(--bg-card,#FBFAF7);transition:border-color .15s}
+.collab__item:hover{border-color:var(--accent)}
+.collab__item small{display:block;font-size:12px;font-weight:700;color:var(--accent);margin-bottom:4px}
+.collab__item strong{display:block;font-size:16.5px;line-height:1.45}
+.collab__item p{margin-top:6px;font-size:14.5px;line-height:1.7;color:var(--text-2)}
+.collab__item:focus-visible{outline:3px solid var(--mint);outline-offset:2px}
 .filters{margin-top:44px;display:flex;flex-wrap:wrap;gap:8px}
 .filters button{font:inherit;font-size:14px;font-weight:700;padding:8px 14px;border-radius:999px;border:1.5px solid var(--border-strong);background:transparent;color:var(--text-2);cursor:pointer}
 .filters button[aria-pressed="true"]{border-color:var(--text);background:var(--text);color:#fff}
@@ -140,6 +149,9 @@ footer{border-top:1px solid var(--border);padding:28px 20px;text-align:center;fo
 <a class="pick" href="/writing/110/"><img src="/writing/110/images/aCoWqj6bDip7QM-ddSXLOiqnpHA.webp" alt="" loading="lazy" decoding="async"><span>뉴진스 하니의 푸른 산호초는 왜 떴을까?</span></a>
 <a class="pick" href="/writing/215/"><img src="/writing/215/images/IEwomZRMiBRD53vjDl2A9PCFQpg.webp" alt="" loading="lazy" decoding="async"><span>새로운 것을 제안하되, 브랜드보다 앞서가지는 말 것</span></a>
 <a class="pick" href="/writing/186/"><img src="/writing/186/images/Rq4effLr8WbIl87xBnTM3hdANQc.webp" alt="" loading="lazy" decoding="async"><span>AI에게 선택을 받으려면 맥락을 지배해야해요.</span></a>
+</div></section>
+<section class="collab" id="collab" aria-labelledby="collab-title"><h2 id="collab-title">콜라보</h2><div class="collab__list">
+<a class="collab__item" href="https://www.openads.co.kr/festival/festivalDetail?festivalId=15390101" target="_blank" rel="noopener"><small>오픈애즈 오리지널 · 1화 · 2026.10</small><strong>남들이 다 하는 말, 우리 브랜드도 꼭 해야 할까?</strong><p>트렌드를 따라 할지 말지, 감이 아닌 기준으로 정하는 법. 캠페인 현장에서 쌓아온 판단 기준을 네 가지 질문으로 풀어 오픈애즈와 함께 썼습니다.</p></a>
 </div></section>
 <div class="filters" role="group" aria-label="주제별로 보기"><button type="button" data-filter="" aria-pressed="true">전체</button><button type="button" data-filter="brand" aria-pressed="false">브랜드·캠페인</button><button type="button" data-filter="culture" aria-pressed="false">소비자·문화</button><button type="button" data-filter="judgment" aria-pressed="false">마케터의 판단</button><button type="button" data-filter="work" aria-pressed="false">AI·일하는 법</button></div>
 <h2 class="year">2026</h2>

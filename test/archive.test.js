@@ -89,6 +89,7 @@ test("글 상세에 저자·맥락 읽기·함께 읽을 글을, 목록에 주�
   const meta = {
     categories: [{ key: "brand", label: "브랜드·캠페인" }, { key: "work", label: "AI·일하는 법" }],
     picks: ["4", "999"],
+    collabs: [{ series: "오픈애즈 오리지널", episode: "1화", title: "콜라보 <글>", url: "https://example.com/c?a=1&b=2" }],
     posts: { 1: { category: "brand", insight: "맥락 <요약>" }, 2: { category: "work" }, 3: { category: "brand" }, 4: { category: "brand" } },
   };
 
@@ -113,6 +114,8 @@ test("글 상세에 저자·맥락 읽기·함께 읽을 글을, 목록에 주�
   assert.equal((index.match(/class="post" href=/g) ?? []).length, 5);
   assert.match(index, /먼저 읽을 글[\s\S]*href="\/writing\/4\/"/);
   assert.doesNotMatch(index, /writing\/999/, "없는 글은 추천하지 않는다");
+  assert.match(index, /<section class="collab" id="collab"[\s\S]*href="https:\/\/example\.com\/c\?a=1&amp;b=2" target="_blank"[\s\S]*오픈애즈 오리지널 · 1화[\s\S]*콜라보 &lt;글&gt;/);
+  assert.doesNotMatch(renderArchiveIndex(all, { ...meta, collabs: [] }), /class="collab"/, "콜라보가 없으면 칸을 만들지 않는다");
 });
 
 test("글 분류 데이터가 실제 백업 글과 일치한다", async () => {
