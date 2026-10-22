@@ -4,8 +4,8 @@
   "higgsfield_monthly_cap": 120,
   "cycles": {
     "2026-10": {
-      "higgsfield_spent": 62.25,
-      "elevenlabs_spent": 5372,
+      "higgsfield_spent": 69.25,
+      "elevenlabs_spent": 6368,
       "entries": [
         {
           "date": "2026-10-02",
@@ -90,6 +90,12 @@
           "what": "릴스 211(10/22 게시분) — 이미지 4장(1.0) + Grok Lite 클립 1개(5.0) + eleven_v4 2테이크(251+251)",
           "higgsfield": 6.0,
           "elevenlabs": 502
+        },
+        {
+          "date": "2026-10-22",
+          "what": "릴스 212(10/23 게시분) — 이미지 4장(1.0) + Grok Lite 클립 1개(5.0) + eleven_v4 2테이크(249+249). 먼저 만든 하인즈 208 버전(이미지 4장 1.0 + 2테이크 498)은 사용자 요청으로 버림",
+          "higgsfield": 7.0,
+          "elevenlabs": 996
         }
       ]
     }
