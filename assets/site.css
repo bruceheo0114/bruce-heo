@@ -1378,7 +1378,11 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .reading-grid { display: grid; grid-template-columns: 1fr; gap: 32px; }
 @media (min-width: 900px) { .reading-grid { grid-template-columns: 1fr 1fr; gap: 40px; } }
 .reading-col__title { font-size: 14px; font-weight: 800; color: var(--accent); margin-bottom: 10px; }
-.reading-col__title--next { margin-top: 28px; }
+.collab-band { display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; align-items: center; margin-bottom: 36px; padding: 18px 22px; border: 1.5px solid var(--mint); border-radius: 16px; background: var(--bg-card, #FBFAF7); transition: border-color .15s, transform .15s; }
+.collab-band:hover { border-color: var(--accent); transform: translateY(-2px); }
+.collab-band__kicker { grid-column: 1; font-size: 13px; font-weight: 800; color: var(--accent); }
+.collab-band__title { grid-column: 1; font-size: 17px; font-weight: 700; line-height: 1.45; letter-spacing: -0.01em; word-break: keep-all; }
+.collab-band__arrow { grid-column: 2; grid-row: 1 / span 2; font-size: 18px; color: var(--text-3); }
 .reading-col .posts { margin-bottom: 0; }
 #writing .posts .post:nth-child(n+4) { display: none; }
 .posts-links { margin-top: 24px; }
