@@ -1,0 +1,304 @@
+{
+  "references_hash": "0f589ccfb36aa12d",
+  "fetched_at": "2026-10-24T12:23:41.912Z",
+  "items": [
+    {
+      "file": "A001-screen.jpg",
+      "id": "A001",
+      "scenes": [
+        "S001",
+        "S003",
+        "S014",
+        "S047"
+      ],
+      "kind": "screen",
+      "source": "한국경제 (2026-07-28)",
+      "url": "https://www.hankyung.com/article/202607280645g"
+    },
+    {
+      "file": "A001-scroll.jpg",
+      "id": "A001",
+      "scenes": [
+        "S001",
+        "S003",
+        "S014",
+        "S047"
+      ],
+      "kind": "scroll",
+      "source": "한국경제 (2026-07-28)",
+      "url": "https://www.hankyung.com/article/202607280645g"
+    },
+    {
+      "file": "A001-img1.jpg",
+      "id": "A001",
+      "scenes": [
+        "S001",
+        "S003",
+        "S014",
+        "S047"
+      ],
+      "kind": "image",
+      "source": "한국경제 (2026-07-28)",
+      "url": "https://www.hankyung.com/article/202607280645g"
+    },
+    {
+      "file": "A002-screen.jpg",
+      "id": "A002",
+      "scenes": [
+        "S004",
+        "S012"
+      ],
+      "kind": "screen",
+      "source": "머니투데이 (2026-07-28)",
+      "url": "https://www.mt.co.kr/living/2026/07/28/2026072809385455510"
+    },
+    {
+      "file": "A002-scroll.jpg",
+      "id": "A002",
+      "scenes": [
+        "S004",
+        "S012"
+      ],
+      "kind": "scroll",
+      "source": "머니투데이 (2026-07-28)",
+      "url": "https://www.mt.co.kr/living/2026/07/28/2026072809385455510"
+    },
+    {
+      "file": "A002-img1.jpg",
+      "id": "A002",
+      "scenes": [
+        "S004",
+        "S012"
+      ],
+      "kind": "image",
+      "source": "머니투데이 (2026-07-28)",
+      "url": "https://www.mt.co.kr/living/2026/07/28/2026072809385455510"
+    },
+    {
+      "file": "A003-screen.jpg",
+      "id": "A003",
+      "scenes": [
+        "S006",
+        "S011"
+      ],
+      "kind": "screen",
+      "source": "버거킹 공식 홈페이지",
+      "url": "https://www.burgerking.co.kr/"
+    },
+    {
+      "file": "A003-scroll.jpg",
+      "id": "A003",
+      "scenes": [
+        "S006",
+        "S011"
+      ],
+      "kind": "scroll",
+      "source": "버거킹 공식 홈페이지",
+      "url": "https://www.burgerking.co.kr/"
+    },
+    {
+      "file": "A003-img1.jpg",
+      "id": "A003",
+      "scenes": [
+        "S006",
+        "S011"
+      ],
+      "kind": "image",
+      "source": "버거킹 공식 홈페이지",
+      "url": "https://www.burgerking.co.kr/"
+    },
+    {
+      "file": "A003-img2.jpg",
+      "id": "A003",
+      "scenes": [
+        "S006",
+        "S011"
+      ],
+      "kind": "image",
+      "source": "버거킹 공식 홈페이지",
+      "url": "https://www.burgerking.co.kr/"
+    },
+    {
+      "file": "A003-img3.jpg",
+      "id": "A003",
+      "scenes": [
+        "S006",
+        "S011"
+      ],
+      "kind": "image",
+      "source": "버거킹 공식 홈페이지",
+      "url": "https://www.burgerking.co.kr/"
+    },
+    {
+      "file": "A004-screen.jpg",
+      "id": "A004",
+      "scenes": [
+        "S022",
+        "S023"
+      ],
+      "kind": "screen",
+      "source": "한국경제 (2024-04-15)",
+      "url": "https://www.hankyung.com/article/202404150509g"
+    },
+    {
+      "file": "A004-scroll.jpg",
+      "id": "A004",
+      "scenes": [
+        "S022",
+        "S023"
+      ],
+      "kind": "scroll",
+      "source": "한국경제 (2024-04-15)",
+      "url": "https://www.hankyung.com/article/202404150509g"
+    },
+    {
+      "file": "A005-screen.jpg",
+      "id": "A005",
+      "scenes": [
+        "S021",
+        "S025"
+      ],
+      "kind": "screen",
+      "source": "롱블랙",
+      "url": "https://longblack.co/note/1337"
+    },
+    {
+      "file": "G01.jpg",
+      "id": "G01",
+      "scenes": [
+        "S009"
+      ],
+      "kind": "ai",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261024_121914_d11a5963-82cc-4001-8bb0-87a9ab9b45c4.png"
+    },
+    {
+      "file": "G02.jpg",
+      "id": "G02",
+      "scenes": [
+        "S019"
+      ],
+      "kind": "ai",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261024_121914_b6cadc21-3ba7-4e8e-9194-cefedc9354f5.png"
+    },
+    {
+      "file": "G03.jpg",
+      "id": "G03",
+      "scenes": [
+        "S026"
+      ],
+      "kind": "ai",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261024_121914_7432cf07-96f9-46e7-ba0c-e4012c26b6ee.png"
+    },
+    {
+      "file": "G04.jpg",
+      "id": "G04",
+      "scenes": [
+        "S036"
+      ],
+      "kind": "ai",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261024_121939_55e9acbc-bb1b-4b32-9903-ae1792ef13c2.png"
+    },
+    {
+      "file": "G05.jpg",
+      "id": "G05",
+      "scenes": [
+        "S041"
+      ],
+      "kind": "ai",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261024_121920_093650e5-fc22-468a-a71e-312ff79a9133.png"
+    },
+    {
+      "file": "G06.jpg",
+      "id": "G06",
+      "scenes": [
+        "S045"
+      ],
+      "kind": "ai",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261024_121939_5f27bd28-c561-4b64-9404-546c5799339b.png"
+    },
+    {
+      "file": "V01.mp4",
+      "id": "V01",
+      "scenes": [
+        "S036"
+      ],
+      "kind": "video",
+      "source": "AI 생성 영상 (Higgsfield)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261024_122001_5dc5164a-43a7-4bde-b919-c8c78cfa974d.mp4"
+    },
+    {
+      "file": "brunch-01.jpg",
+      "id": "brunch",
+      "scenes": [],
+      "kind": "image",
+      "source": "브런치 @heoboram 원문",
+      "url": "https://brunch.co.kr/@heoboram/211"
+    },
+    {
+      "file": "brunch-02.jpg",
+      "id": "brunch",
+      "scenes": [],
+      "kind": "image",
+      "source": "브런치 @heoboram 원문",
+      "url": "https://brunch.co.kr/@heoboram/211"
+    }
+  ],
+  "failures": [
+    {
+      "id": "B01",
+      "url": "early morning korean street small restaurant exterior taxi parked",
+      "error": "PEXELS_API_KEY가 없습니다 (저장소 Secrets에 넣는다)"
+    },
+    {
+      "id": "B02",
+      "url": "croissant sandwich breakfast on tray close up",
+      "error": "PEXELS_API_KEY가 없습니다 (저장소 Secrets에 넣는다)"
+    },
+    {
+      "id": "B03",
+      "url": "person scrolling social media feed on smartphone close up hands",
+      "error": "PEXELS_API_KEY가 없습니다 (저장소 Secrets에 넣는다)"
+    },
+    {
+      "id": "B04",
+      "url": "stone dropped into calm water ripples spreading slow motion",
+      "error": "PEXELS_API_KEY가 없습니다 (저장소 Secrets에 넣는다)"
+    },
+    {
+      "id": "B05",
+      "url": "crowd crossing city crosswalk top view",
+      "error": "PEXELS_API_KEY가 없습니다 (저장소 Secrets에 넣는다)"
+    },
+    {
+      "id": "B06",
+      "url": "many people looking at their phones on subway",
+      "error": "PEXELS_API_KEY가 없습니다 (저장소 Secrets에 넣는다)"
+    },
+    {
+      "id": "B07",
+      "url": "endless scrolling phone screen blur close up",
+      "error": "PEXELS_API_KEY가 없습니다 (저장소 Secrets에 넣는다)"
+    },
+    {
+      "id": "B08",
+      "url": "ice cracking on frozen lake close up",
+      "error": "PEXELS_API_KEY가 없습니다 (저장소 Secrets에 넣는다)"
+    },
+    {
+      "id": "B09",
+      "url": "water drop ripple macro slow motion",
+      "error": "PEXELS_API_KEY가 없습니다 (저장소 Secrets에 넣는다)"
+    },
+    {
+      "id": "B10",
+      "url": "laptop screen with many browser tabs and notifications",
+      "error": "PEXELS_API_KEY가 없습니다 (저장소 Secrets에 넣는다)"
+    }
+  ]
+}
