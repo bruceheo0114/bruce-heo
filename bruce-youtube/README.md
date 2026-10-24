@@ -23,6 +23,7 @@ Actions(매일 07:17) brunch_cache 갱신
 | `prompts/youtube_producer.md` | 제작 지시서(출력 형식) |
 | `routine_prompt.md` | 화요일 밤 클라우드 루틴 지시서 |
 | `channel/` | 채널 개설 키트(프로필·배너·설명) |
+| `../tools/ffmpeg-skill/` | 완성 영상 검사 도구(MIT 복사본) — YouTube 규격·음량 검사, 프레임 모아 보기. `VENDORED.md` |
 
 음성·완성 영상(`output/`)은 git에 올리지 않는다.
 
