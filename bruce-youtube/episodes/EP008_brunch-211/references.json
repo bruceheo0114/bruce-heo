@@ -313,5 +313,21 @@
     "S052": [],
     "S053": [],
     "S054": []
-  }
+  },
+  "thumbnail": [
+    {
+      "image": "brunch-01",
+      "copy": "버거킹이 기사식당?",
+      "focus": "left"
+    },
+    {
+      "image": "brunch-01",
+      "copy": "아침 식사 됩니다",
+      "focus": "left"
+    },
+    {
+      "image": "G02",
+      "copy": "이게 버거킹 광고?"
+    }
+  ]
 }
