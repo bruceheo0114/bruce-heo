@@ -134,6 +134,76 @@
       "scenes": [
         "S038"
       ]
+    },
+    {
+      "id": "G01",
+      "kind": "image",
+      "ai": true,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261024_121914_d11a5963-82cc-4001-8bb0-87a9ab9b45c4.png",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "scenes": [
+        "S009"
+      ]
+    },
+    {
+      "id": "G02",
+      "kind": "image",
+      "ai": true,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261024_121914_b6cadc21-3ba7-4e8e-9194-cefedc9354f5.png",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "scenes": [
+        "S019"
+      ]
+    },
+    {
+      "id": "G03",
+      "kind": "image",
+      "ai": true,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261024_121914_7432cf07-96f9-46e7-ba0c-e4012c26b6ee.png",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "scenes": [
+        "S026"
+      ]
+    },
+    {
+      "id": "G04",
+      "kind": "image",
+      "ai": true,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261024_121939_55e9acbc-bb1b-4b32-9903-ae1792ef13c2.png",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "scenes": [
+        "S036"
+      ]
+    },
+    {
+      "id": "G05",
+      "kind": "image",
+      "ai": true,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261024_121920_093650e5-fc22-468a-a71e-312ff79a9133.png",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "scenes": [
+        "S041"
+      ]
+    },
+    {
+      "id": "G06",
+      "kind": "image",
+      "ai": true,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261024_121939_5f27bd28-c561-4b64-9404-546c5799339b.png",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "scenes": [
+        "S045"
+      ]
+    },
+    {
+      "id": "V01",
+      "kind": "video",
+      "ai": true,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261024_122001_5dc5164a-43a7-4bde-b919-c8c78cfa974d.mp4",
+      "source": "AI 생성 영상 (Higgsfield)",
+      "scenes": [
+        "S036"
+      ]
     }
   ]
 }

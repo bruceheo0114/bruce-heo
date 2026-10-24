@@ -9,7 +9,7 @@
     "source_file": "source/brunch/211.md",
     "body_hash": "fc1d26fda8cb1a8011d7a75bf1623ad3632a1e2aabe0034c7a644411342149bb"
   },
-  "status": "WAITING_APPROVAL",
+  "status": "ASSETS_READY",
   "format": "v2",
   "higgsfield_generation": false,
   "recommendation": "MAKE_VIDEO",
@@ -23,8 +23,64 @@
     "TOTAL": 48,
     "MAX": 60
   },
-  "approved_scenes": [],
-  "generated": {},
+  "approved_scenes": [
+    "S009",
+    "S019",
+    "S026",
+    "S036",
+    "S041",
+    "S045"
+  ],
+  "generated": {
+    "S009": {
+      "job": "d11a5963-82cc-4001-8bb0-87a9ab9b45c4",
+      "files": [
+        "bruce-youtube/assets/references/EP008/G01.png"
+      ],
+      "credits": 0.25,
+      "at": "2026-10-24T12:21:12.200Z"
+    },
+    "S019": {
+      "job": "b6cadc21-3ba7-4e8e-9194-cefedc9354f5",
+      "files": [
+        "bruce-youtube/assets/references/EP008/G02.png"
+      ],
+      "credits": 0.25,
+      "at": "2026-10-24T12:21:12.271Z"
+    },
+    "S026": {
+      "job": "7432cf07-96f9-46e7-ba0c-e4012c26b6ee",
+      "files": [
+        "bruce-youtube/assets/references/EP008/G03.png"
+      ],
+      "credits": 0.25,
+      "at": "2026-10-24T12:21:12.334Z"
+    },
+    "S036": {
+      "job": "55e9acbc-bb1b-4b32-9903-ae1792ef13c2",
+      "files": [
+        "bruce-youtube/assets/references/EP008/G04.png"
+      ],
+      "credits": 5.25,
+      "at": "2026-10-24T12:21:12.408Z"
+    },
+    "S041": {
+      "job": "093650e5-fc22-468a-a71e-312ff79a9133",
+      "files": [
+        "bruce-youtube/assets/references/EP008/G05.png"
+      ],
+      "credits": 0.25,
+      "at": "2026-10-24T12:21:12.490Z"
+    },
+    "S045": {
+      "job": "5f27bd28-c561-4b64-9404-546c5799339b",
+      "files": [
+        "bruce-youtube/assets/references/EP008/G06.png"
+      ],
+      "credits": 0.25,
+      "at": "2026-10-24T12:21:12.567Z"
+    }
+  },
   "plan": {
     "runtime_seconds": 330,
     "runtime": "5:30",
@@ -61,7 +117,7 @@
   },
   "update": null,
   "created_at": "2026-10-24T12:14:39.276Z",
-  "updated_at": "2026-10-24T12:17:54.220Z",
+  "updated_at": "2026-10-24T12:21:12.567Z",
   "history": [
     {
       "at": "2026-10-24T12:14:39.276Z",
@@ -74,6 +130,19 @@
       "from": "PACKAGE_PENDING",
       "to": "WAITING_APPROVAL",
       "note": "영상화 평가 48/60 · MAKE_VIDEO"
+    },
+    {
+      "at": "2026-10-24T12:19:05.550Z",
+      "from": "WAITING_APPROVAL",
+      "to": "APPROVED",
+      "note": "Higgsfield 승인: S009, S019, S026, S036, S041, S045"
+    },
+    {
+      "at": "2026-10-24T12:21:12.567Z",
+      "from": "APPROVED",
+      "to": "ASSETS_READY",
+      "note": "승인된 AI Scene 생성 완료"
     }
-  ]
+  ],
+  "approved_at": "2026-10-24T12:19:05.550Z"
 }
