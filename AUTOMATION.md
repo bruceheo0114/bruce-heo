@@ -72,7 +72,7 @@
 | 화~일 07:00 | 브런치 글 릴스(전날 21:13 릴스 루틴이 만듦, `insight-reels/routine_daily_prompt.md`) |
 | 수·금 12:30 | 카드뉴스 — 수 「검색량 리포트」(네이버 데이터랩) · 금 「레퍼런스 모음」(주제별 사례). 전날 19:37 루틴이 원고·표지·캡션을 쓰고 `insight-reels-decks.yml` 이 LG 카드뉴스 렌더러로 그린다(`posts/<날짜>.noon.json`, `insight-reels/routine_noon_cards_prompt.md`) |
 
-- **한 글 → 여러 릴스**: 앞서 만든 각도와 핵심 주장·첫 사례·첫 단어가 겹치지 않으면 같은 글로 다른 릴스를 만든다(`insight-reels/queue.json` 의 `angles`).
+- **한 글 = 릴스 한 편**: 인스타에 릴스로 이미 나간 글은 다시 쓰지 않는다(사용자 결정 2026-10-24, `insight-reels/queue.json` 의 `exhausted`).
 - **시의성 훅(네이버 API)**: 월~토 20:07 `naver-reels.yml` 이 쓸 수 있는 글마다 원문 속 이름의 데이터랩 검색량·최근 7일 뉴스를 `insight-reels/trends/<다음 날>.json` 에 남기고, 루틴이 지금 뜨는 이름으로 첫 문장을 연다(르게다꼼 공식).
 - **브런치 카드뉴스는 쓰지 않는다(2026-10-18)**: `schedule-instagram.js`·`card-backlog.js` 를 일일 자동화에서 뺐고, 예약돼 있던 10/21~11/6 카드뉴스는 `status: cancelled` 로 내렸다. `content/<id>/cards` 는 기록으로만 남는다.
 
