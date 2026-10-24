@@ -579,7 +579,7 @@ HIGGSFIELD_REQUIRED: NO
 SCENE ID: S047
 TIME: 04:35-04:40
 NARRATION:
-그 하나를 위해 매장을 통째로 기사식당으로 바꾼 집중이었죠.
+그 하나를 위해 현수막부터 종이가방까지, 매장의 말투를 기사식당으로 바꾼 집중이었죠.
 VISUAL:
 한국경제 기사 속 버거킹 매장 입간판·현수막 사진
 SOURCE_TYPE: REAL
