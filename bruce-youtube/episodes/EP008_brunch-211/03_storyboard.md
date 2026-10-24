@@ -144,11 +144,11 @@ TIME: 01:01-01:07
 NARRATION:
 갓 구운 크루아상 번에 오믈렛, 잠봉햄과 치즈, 비엘티를 넣은 메뉴예요.
 VISUAL:
-머니투데이 기사 속 크루아상위치·매장 사진
-SOURCE_TYPE: REAL
+오프화이트 배경 위 큰 문구, 포인트 컬러 한 단어
+SOURCE_TYPE: TYPE
 ON_SCREEN_TEXT:
 오믈렛 · 잠봉햄&치즈 · BLT
-ASSET: A002
+ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
 SCENE ID: S013
@@ -192,11 +192,11 @@ TIME: 01:24-01:27
 NARRATION:
 반응은 SNS(에스엔에스)에서 먼저 왔습니다.
 VISUAL:
-움직이는 자료화면(Pexels 무료 영상): SNS 반응
-SOURCE_TYPE: REAL
+오프화이트 배경 위 큰 문구, 포인트 컬러 한 단어
+SOURCE_TYPE: TYPE
 ON_SCREEN_TEXT:
 SNS 반응
-ASSET: B03
+ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
 SCENE ID: S017
@@ -219,11 +219,11 @@ TIME: 01:33-01:41
 NARRATION:
 "버거킹 코리아의 존재 이유를 알았다"는 말까지 나왔어요. 매장 사진 한 장이 SNS(에스엔에스)를 타고 번진 거죠.
 VISUAL:
-움직이는 자료화면(Pexels 무료 영상): "존재 이유를 알았다"
-SOURCE_TYPE: REAL
+오프화이트 배경 위 큰 문구, 포인트 컬러 한 단어
+SOURCE_TYPE: TYPE
 ON_SCREEN_TEXT:
 "존재 이유를 알았다"
-ASSET: B03
+ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
 SCENE ID: S019
@@ -268,12 +268,12 @@ TIME: 02:01-02:07
 NARRATION:
 2024년(이천이십사 년) 4월(사월), 버거킹은 대표 메뉴 와퍼를 40년(사십 년) 만에 판매 종료한다고 발표했습니다.
 VISUAL:
-한국경제 2024년 와퍼 판매 종료·뉴와퍼 기사
-SOURCE_TYPE: REAL
+오프화이트 배경 위 큰 문구, 포인트 컬러 한 단어
+SOURCE_TYPE: TYPE
 ON_SCREEN_TEXT:
-"40년 만에 와퍼 판매 종료"
-2024년 4월 8일
-ASSET: A004
+40년 만에
+와퍼 판매 종료?
+ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
 SCENE ID: S023
@@ -396,11 +396,11 @@ TIME: 03:07-03:11
 NARRATION:
 뾰족할수록 파문은 크게 일고, 더 멀리 퍼집니다.
 VISUAL:
-움직이는 자료화면(Pexels 무료 영상): 뾰족할수록 멀리 퍼진다
-SOURCE_TYPE: REAL
+오프화이트 배경 위 큰 문구, 포인트 컬러 한 단어
+SOURCE_TYPE: TYPE
 ON_SCREEN_TEXT:
 뾰족할수록 멀리 퍼진다
-ASSET: B09
+ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
 SCENE ID: S033
@@ -457,11 +457,11 @@ TIME: 03:34-03:40
 NARRATION:
 요즘 마케팅은 많이 착해졌습니다. 논란을 피하려는 브랜드가 늘었죠.
 VISUAL:
-움직이는 자료화면(Pexels 무료 영상): 착해진 마케팅
-SOURCE_TYPE: REAL
+오프화이트 배경 위 큰 문구, 포인트 컬러 한 단어
+SOURCE_TYPE: TYPE
 ON_SCREEN_TEXT:
 착해진 마케팅
-ASSET: B05
+ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
 SCENE ID: S038
@@ -494,11 +494,11 @@ TIME: 03:51-03:59
 NARRATION:
 그런데 그 사이, 모두가 함께 보던 화제도 사라졌습니다. 한 번에 모두를 멈춰 세우기가 더 어려워진 거예요.
 VISUAL:
-움직이는 자료화면(Pexels 무료 영상): 모두를 멈춰 세우기 어려워졌다
-SOURCE_TYPE: REAL
+오프화이트 배경 위 큰 문구, 포인트 컬러 한 단어
+SOURCE_TYPE: TYPE
 ON_SCREEN_TEXT:
 모두를 멈춰 세우기 어려워졌다
-ASSET: B06
+ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
 SCENE ID: S041
@@ -531,11 +531,11 @@ TIME: 04:09-04:14
 NARRATION:
 그러다 보면 무난하게 지나가는 콘텐츠만 쌓입니다.
 VISUAL:
-움직이는 자료화면(Pexels 무료 영상): 무난하게 지나가는 콘텐츠
-SOURCE_TYPE: REAL
+오프화이트 배경 위 큰 문구, 포인트 컬러 한 단어
+SOURCE_TYPE: TYPE
 ON_SCREEN_TEXT:
 무난하게 지나가는 콘텐츠
-ASSET: B07
+ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
 SCENE ID: S044
