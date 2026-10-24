@@ -105,6 +105,9 @@ Bruce는 중간 확인을 하지 않는다(사용자 결정 2026-10-08). 대본 
    `git pull --rebase -q` 후 `bruce-youtube/assets/references/<EP>/credits.json`이 생길 때까지 기다린다(Monitor로 1분 간격, 최대 20분).
    20분이 지나도 없으면 자료 없이 진행한다(render가 사례 카드로 그린다).
 2. 받은 그림을 확인하고 references.json에 `scene_images`(장면별로 내레이션과 맞는 그림)를 적는다. EP001처럼 장면 내용과 맞지 않는 그림은 넣지 않는다.
+   영상 자료(`B01.mp4`, `A001-video1.mp4` …)는 하나씩 `python3 tools/ffmpeg-skill/scripts/look.py <파일> --tiles 3x1 -o output/<EP>/check/<이름>.png`로 3장만 보고 고른다.
+   맞지 않는 stock은 `"pick": 1`을 적어 한 번만 다시 받는다(references.json 푸시 → Actions). 그래도 안 맞으면 그 장면은 그림이나 카드로 둔다.
+   빈 장면(카드)이 연달아 3개 넘게 이어지지 않게, 개념 장면에 stock 영상을 넣는다.
 
 ## 8. 렌더
 
@@ -122,7 +125,12 @@ Bruce는 중간 확인을 하지 않는다(사용자 결정 2026-10-08). 대본 
 
 ## 9. 1편 편집 방향 확인 (관문 3)
 
-`ffmpeg -ss <초> -i output/<EP>/<EP>.mp4 -frames:v 1 <파일>.jpg`로 오프닝 3초, 각 챕터 간지, REAL 장면 2곳, AI 장면 1곳, 마지막 10초 프레임을 뽑아 직접 본다.
+프레임을 한 장씩 따로 열지 않고 모아 보기 이미지로 본다(이미지 수가 적어 토큰이 덜 든다, 도구 설명은 `tools/ffmpeg-skill/VENDORED.md`):
+
+1. `python3 tools/ffmpeg-skill/scripts/check.py output/<EP>/<EP>.mp4 --platform youtube` — FAIL이 없어야 한다(`subtitles none` WARN은 무시).
+2. `python3 tools/ffmpeg-skill/scripts/look.py output/<EP>/<EP>.mp4 --tiles 4x3 -o output/<EP>/check/sheet.png` — 전체 흐름 12장을 한 장으로 본다.
+3. `python3 tools/ffmpeg-skill/scripts/look.py output/<EP>/<EP>.mp4 --at <초> --at <초> … -o output/<EP>/check/frame` — 오프닝 3초, 각 챕터 간지, REAL 장면 2곳, AI 장면 1곳, 마지막 10초만 따로 본다.
+
 아래가 모두 맞아야 완성으로 보낸다 (EP001에서 정한 방향 — 코드가 기본으로 하지만 결과를 눈으로 확인한다):
 
 - [ ] 자막이 그 순간 말소리와 맞고(받아쓰기 싱크), 두 줄 안에서 읽힌다. `[확인 필요]`·`챕터 전환` 같은 대본 메모가 화면에 없다.
@@ -133,7 +141,7 @@ Bruce는 중간 확인을 하지 않는다(사용자 결정 2026-10-08). 대본 
 - [ ] 정지 화면은 천천히 움직이고 떨리지 않는다. 기사·홈페이지 캡처는 확대 컷 없이 전체가 보인다. 가로로 긴 배너는 잘리지 않는다.
 - [ ] REAL 자료 화면마다 출처가 보이고, 내용이 그 순간 내레이션과 맞는다.
 - [ ] 사람 얼굴이 나오는 AI 영상이 없다. AI 화면 비중 40% 이하.
-- [ ] 음량: `ffmpeg -i <EP>.mp4 -af volumedetect -f null - 2>&1 | grep max_volume`이 0 dB 미만, 무음 구간에 잡음이 커지지 않는다.
+- [ ] 음량: 1번 `check.py`의 loudness(-14 ± 2 LUFS)·true peak(-1 dBTP 이하)가 PASS, 무음 구간에 잡음이 커지지 않는다.
 - [ ] 길이 5~6분(V2), 첫 30초 안에 이 영상을 볼 이유가 나온다.
 - [ ] 자막·화면의 수량이 모두 아라비아 숫자다(`grep -nE "천 원|사만|이천" subtitles.srt`가 비어 있다).
 - [ ] (HOOKS 5절) 첫 10초 안에 가장 흥미로운 결론이 나오고, 1순위 제목은 브랜드명 + 역설적 질문, 썸네일은 짧은 문구 + 강한 대비다.

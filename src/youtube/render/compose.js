@@ -549,7 +549,7 @@ export async function renderEpisode(episode, audioFiles, { root, outDir, preview
   const shots = planShots(timeline, media);
   const trend = storyboard.scenes.some((scene) => scene.motion?.type === "trend") ? await loadTrend(episode, root) : null;
   if (storyboard.scenes.some((scene) => scene.motion?.type === "trend") && !trend) log("! MOTION: trend 장면이 있지만 이 글의 검색량(trends/*.json series)이 없어 보통 카드로 그립니다.");
-  log(`화면 ${shots.length}컷 (실제 자료 ${shots.filter((shot) => shot.media && shot.media.kind !== "ai").length}컷, AI 이미지 ${shots.filter((shot) => shot.media?.kind === "ai").length}컷, 카드 ${shots.filter((shot) => !shot.media).length}컷)`);
+  log(`화면 ${shots.length}컷 (실제 자료 ${shots.filter((shot) => shot.media && shot.media.kind !== "ai").length}컷, AI 이미지 ${shots.filter((shot) => shot.media?.kind === "ai").length}컷, 움직이는 영상 ${shots.filter((shot) => shot.media?.kind === "video").length}컷, 카드 ${shots.filter((shot) => !shot.media).length}컷)`);
 
   // 1) 컷마다 카드 또는 투명 레이어(챕터·출처·문구) 그리기, 그리고 고정 로고
   const jobs = [{ file: "logo.png", html: logoHtml(), transparent: true }];

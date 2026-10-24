@@ -135,6 +135,24 @@ test("references.json 형식 검사", async () => {
   assert.ok(errors.some((error) => error.includes("kind")));
   assert.ok(errors.some((error) => error.includes("source")));
 });
+test("references.json stock 항목과 자료 영상 고르기", async () => {
+  const { validateReferences, pickStockFile } = await import("../src/youtube/references.js");
+  assert.deepEqual(validateReferences({ items: [{ id: "B01", kind: "stock", query: "orange juice pouring", scenes: ["S010"] }] }), []);
+  assert.match(validateReferences({ items: [{ id: "B01", kind: "stock", scenes: [] }] }).join("\n"), /query/);
+
+  const file = (width, link) => ({ file_type: "video/mp4", width, height: Math.round(width * 9 / 16), link });
+  const videos = [
+    { id: 1, duration: 3, width: 1920, height: 1080, video_files: [file(1920, "short")] },
+    { id: 2, duration: 9, width: 1080, height: 1920, video_files: [file(1920, "portrait")] },
+    { id: 3, duration: 9, width: 3840, height: 2160, video_files: [file(960, "sd"), file(3840, "4k"), file(1920, "hd")] },
+    { id: 4, duration: 12, width: 1920, height: 1080, video_files: [file(1280, "720p")] },
+  ];
+  assert.equal(pickStockFile(videos).file.link, "hd");
+  assert.equal(pickStockFile(videos, { pick: 1 }).file.link, "720p");
+  assert.equal(pickStockFile(videos, { seen: new Set([3]) }).file.link, "720p");
+  assert.equal(pickStockFile(videos, { pick: 5 }), null);
+});
+
 
 test("대본 메모([확인 필요]·챕터 전환)는 자막과 화면 문구에 나오지 않는다", async () => {
   const { subtitleCues } = await import("../src/youtube/render/timeline.js");
