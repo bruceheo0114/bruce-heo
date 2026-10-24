@@ -37,6 +37,9 @@ jobs:
           sudo apt-get install -y -qq ffmpeg
 
       - name: Fetch references
+        env:
+          # 무료 자료 영상(references.json의 kind: stock). 없으면 stock 항목만 건너뛴다.
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
         run: node src/cli/youtube.js references --changed
 
       - name: Commit references

@@ -27,18 +27,25 @@ export function validateReferences(data) {
     if (!item.id || !/^[A-Za-z0-9_-]+$/.test(item.id)) errors.push(`${label}: id는 영문·숫자로 (예: A001).`);
     if (ids.has(item.id)) errors.push(`${label}: id 중복`);
     ids.add(item.id);
-    if (!["page", "article", "image", "video"].includes(item.kind)) errors.push(`${label}: kind는 page / article / image / video`);
-    if (!/^https?:\/\//.test(item.url ?? "")) errors.push(`${label}: url이 없습니다.`);
-    if (!item.source) errors.push(`${label}: source(출처 표기)가 없습니다.`);
+    if (!["page", "article", "image", "video", "stock"].includes(item.kind)) errors.push(`${label}: kind는 page / article / image / video / stock`);
+    if (item.kind === "stock") {
+      // 무료 자료 영상(Pexels) 검색어. 출처는 받을 때 'Pexels · 촬영자'로 자동으로 적는다.
+      if (!String(item.query ?? "").trim()) errors.push(`${label}: stock은 query(영어 검색어)가 필요합니다.`);
+    } else {
+      if (!/^https?:\/\//.test(item.url ?? "")) errors.push(`${label}: url이 없습니다.`);
+      if (!item.source) errors.push(`${label}: source(출처 표기)가 없습니다.`);
+    }
     if (!Array.isArray(item.scenes)) errors.push(`${label}: scenes 배열이 필요합니다 (없으면 []).`);
   }
   return errors;
 }
 
-// Higgsfield 영상 클립(클라우드에서는 결과 주소에 직접 접속할 수 없다)을 1920x1080 무음 H.264로 맞춘다.
+// 영상 클립(Higgsfield 결과, 자료 영상, 공식 페이지 영상)을 1920x1080 무음 H.264로 맞춘다.
+// 저장소에 커밋되므로 앞 8초만 남긴다(한 컷은 3~7초).
+const MAX_CLIP_SECONDS = 8;
 async function normalizeVideo(input, output) {
-  await run("ffmpeg", ["-v", "error", "-y", "-i", input, "-an", "-vf", "scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,fps=30",
-    "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p", "-movflags", "+faststart", output]);
+  await run("ffmpeg", ["-v", "error", "-y", "-i", input, "-t", String(MAX_CLIP_SECONDS), "-an", "-vf", "scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,fps=30",
+    "-c:v", "libx264", "-preset", "veryfast", "-crf", "25", "-pix_fmt", "yuv420p", "-movflags", "+faststart", output]);
   const { stdout } = await run("ffprobe", ["-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", output]);
   return Number(stdout) > 0.5;
 }
@@ -52,14 +59,77 @@ async function normalizeImage(input, output) {
   return { width: Math.min(1920, width), height: Math.round((Math.min(1920, width) / width) * height) };
 }
 
-async function download(context, url, file) {
-  const response = await context.request.get(url, { headers: { "user-agent": UA }, timeout: 30000 });
+async function download(context, url, file, { timeout = 30000 } = {}) {
+  const response = await context.request.get(url, { headers: { "user-agent": UA }, timeout });
   if (!response.ok()) throw new Error(`${response.status()} ${url}`);
   await writeFile(file, await response.body());
 }
 
 // 같은 그림이 여러 페이지·og:image로 겹쳐도 한 번만 받는다
 const seenImages = new Set();
+const seenStock = new Set();
+
+/**
+ * Pexels 검색 결과에서 쓸 영상 파일 하나를 고른다. 5초 이상 가로 영상, 화질은 1920(없으면 1280 이상) mp4.
+ * pick: 같은 검색어의 몇 번째 후보를 쓸지(0부터). 마음에 들지 않으면 pick을 올려 다시 받는다.
+ */
+export function pickStockFile(videos, { pick = 0, seen = new Set() } = {}) {
+  const candidates = [];
+  for (const video of videos ?? []) {
+    if (seen.has(video.id) || !(video.duration >= 5) || !(video.width > video.height)) continue;
+    const files = (video.video_files ?? [])
+      .filter((file) => file.file_type === "video/mp4" && file.width >= 1280 && file.width <= 2560 && file.link)
+      .sort((a, b) => Math.abs(a.width - 1920) - Math.abs(b.width - 1920));
+    if (files.length) candidates.push({ video, file: files[0] });
+  }
+  return candidates[pick] ?? null;
+}
+
+async function fetchStock(context, item, dir) {
+  const key = process.env.PEXELS_API_KEY;
+  if (!key) throw new Error("PEXELS_API_KEY가 없습니다 (저장소 Secrets에 넣는다)");
+  const query = new URLSearchParams({ query: item.query, orientation: "landscape", size: "medium", per_page: "15" });
+  const response = await context.request.get(`https://api.pexels.com/videos/search?${query}`, { headers: { authorization: key }, timeout: 30000 });
+  if (!response.ok()) throw new Error(`Pexels ${response.status()}`);
+  const chosen = pickStockFile((await response.json()).videos, { pick: item.pick ?? 0, seen: seenStock });
+  if (!chosen) throw new Error(`'${item.query}' 검색 결과에 쓸 만한 영상이 없습니다`);
+  seenStock.add(chosen.video.id);
+  const raw = path.join(dir, `.raw-${item.id}`);
+  try {
+    await download(context, chosen.file.link, raw, { timeout: 120000 });
+    if (!(await normalizeVideo(raw, path.join(dir, `${item.id}.mp4`)))) throw new Error("영상을 읽을 수 없습니다");
+  } finally {
+    await rm(raw, { force: true });
+  }
+  const author = chosen.video.user?.name;
+  return { file: `${item.id}.mp4`, id: item.id, scenes: item.scenes, kind: "video", source: item.source ?? (author ? `Pexels · ${author}` : "Pexels"), url: chosen.video.url };
+}
+
+// 공식 페이지에 들어 있는 영상(첫 화면 배경 영상, 캠페인 영상 mp4). 유튜브 같은 임베드 플레이어는 받지 않는다.
+async function capturePageVideos(context, page, item, dir, credits, maxVideos) {
+  if (maxVideos <= 0) return;
+  const sources = await page.evaluate(() => [...document.querySelectorAll("video")]
+    .map((video) => video.currentSrc || video.src || video.querySelector("source[type='video/mp4'], source")?.src)
+    .filter((src) => src && !src.startsWith("blob:"))
+    .map((src) => new URL(src, location.href).href));
+  let count = 0;
+  for (const url of [...new Set(sources)]) {
+    if (count >= maxVideos) break;
+    const raw = path.join(dir, `.raw-${item.id}-video${count}`);
+    const file = `${item.id}-video${count + 1}.mp4`;
+    try {
+      await download(context, url, raw, { timeout: 120000 });
+      if (await normalizeVideo(raw, path.join(dir, file))) {
+        credits.push({ file, id: item.id, scenes: item.scenes, kind: "video", source: item.source, url: item.url });
+        count += 1;
+      }
+    } catch {
+      // 받지 못한 영상은 건너뛴다
+    } finally {
+      await rm(raw, { force: true });
+    }
+  }
+}
 
 async function capturePage(context, item, dir, credits, maxImages) {
   const page = await context.newPage();
@@ -84,6 +154,9 @@ async function capturePage(context, item, dir, credits, maxImages) {
       await page.screenshot({ path: path.join(dir, tall), type: "jpeg", quality: 80, fullPage: true, clip: { x: 0, y: 0, width: 1920, height: 3240 } }).catch(() => {});
       credits.push({ file: tall, id: item.id, scenes: item.scenes, kind: "scroll", source: item.source, url: item.url });
     }
+
+    // 공식 페이지는 영상도 1개 받는다(기사는 광고 영상이 섞여서 받지 않는다). max_videos로 바꾼다.
+    await capturePageVideos(context, page, item, dir, credits, item.max_videos ?? (item.kind === "page" ? 1 : 0));
 
     const images = await page.evaluate(() => {
       const og = document.querySelector('meta[property="og:image"]')?.content;
@@ -141,6 +214,8 @@ export async function fetchReferences(episode, root, { log = () => {} } = {}) {
           await rm(raw, { force: true });
           if (!ok) throw new Error("그림이 너무 작습니다");
           credits.push({ file: `${item.id}.jpg`, id: item.id, scenes: item.scenes, kind: item.ai ? "ai" : "image", source: item.source, url: item.page ?? item.url });
+        } else if (item.kind === "stock") {
+          credits.push(await fetchStock(context, item, dir));
         } else if (item.kind === "video") {
           const raw = path.join(dir, `.raw-${item.id}`);
           await download(context, item.url, raw);
@@ -151,9 +226,9 @@ export async function fetchReferences(episode, root, { log = () => {} } = {}) {
         } else {
           await capturePage(context, item, dir, credits, item.max_images ?? 3);
         }
-        log(`✓ ${item.id} ${item.url}`);
+        log(`✓ ${item.id} ${item.url ?? item.query}`);
       } catch (error) {
-        failures.push({ id: item.id, url: item.url, error: String(error.message).slice(0, 200) });
+        failures.push({ id: item.id, url: item.url ?? item.query, error: String(error.message).slice(0, 200) });
         log(`✗ ${item.id} ${error.message}`);
       }
     }

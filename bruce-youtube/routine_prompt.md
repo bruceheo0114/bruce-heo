@@ -105,6 +105,9 @@ Bruce는 중간 확인을 하지 않는다(사용자 결정 2026-10-08). 대본 
    `git pull --rebase -q` 후 `bruce-youtube/assets/references/<EP>/credits.json`이 생길 때까지 기다린다(Monitor로 1분 간격, 최대 20분).
    20분이 지나도 없으면 자료 없이 진행한다(render가 사례 카드로 그린다).
 2. 받은 그림을 확인하고 references.json에 `scene_images`(장면별로 내레이션과 맞는 그림)를 적는다. EP001처럼 장면 내용과 맞지 않는 그림은 넣지 않는다.
+   영상 자료(`B01.mp4`, `A001-video1.mp4` …)는 하나씩 `python3 tools/ffmpeg-skill/scripts/look.py <파일> --tiles 3x1 -o output/<EP>/check/<이름>.png`로 3장만 보고 고른다.
+   맞지 않는 stock은 `"pick": 1`을 적어 한 번만 다시 받는다(references.json 푸시 → Actions). 그래도 안 맞으면 그 장면은 그림이나 카드로 둔다.
+   빈 장면(카드)이 연달아 3개 넘게 이어지지 않게, 개념 장면에 stock 영상을 넣는다.
 
 ## 8. 렌더
 
