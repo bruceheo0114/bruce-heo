@@ -286,7 +286,7 @@
       "file": "211.md",
       "firstSeenAt": "2026-10-07T02:00:00.000Z",
       "updatedAt": "2026-10-07T02:00:00.000Z",
-      "episode": null
+      "episode": "EP008"
     },
     "212": {
       "id": "212",
@@ -432,5 +432,5 @@
       "episode": "EP005"
     }
   },
-  "lastSyncedAt": "2026-10-21T12:22:54.087Z"
+  "lastSyncedAt": "2026-10-24T12:14:26.313Z"
 }

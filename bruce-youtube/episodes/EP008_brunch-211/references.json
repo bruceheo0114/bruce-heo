@@ -1,0 +1,139 @@
+{
+  "brunch": true,
+  "items": [
+    {
+      "id": "A001",
+      "kind": "article",
+      "url": "https://www.hankyung.com/article/202607280645g",
+      "source": "한국경제 (2026-07-28)",
+      "scenes": [
+        "S001",
+        "S003",
+        "S014",
+        "S047"
+      ]
+    },
+    {
+      "id": "A002",
+      "kind": "article",
+      "url": "https://www.mt.co.kr/living/2026/07/28/2026072809385455510",
+      "source": "머니투데이 (2026-07-28)",
+      "scenes": [
+        "S004",
+        "S012"
+      ]
+    },
+    {
+      "id": "A003",
+      "kind": "page",
+      "url": "https://www.burgerking.co.kr/",
+      "source": "버거킹 공식 홈페이지",
+      "scroll": true,
+      "scenes": [
+        "S006",
+        "S011"
+      ]
+    },
+    {
+      "id": "A004",
+      "kind": "article",
+      "url": "https://www.hankyung.com/article/202404150509g",
+      "source": "한국경제 (2024-04-15)",
+      "scenes": [
+        "S022",
+        "S023"
+      ]
+    },
+    {
+      "id": "A005",
+      "kind": "page",
+      "url": "https://longblack.co/note/1337",
+      "source": "롱블랙",
+      "scenes": [
+        "S021",
+        "S025"
+      ]
+    },
+    {
+      "id": "B01",
+      "kind": "stock",
+      "query": "early morning korean street small restaurant exterior taxi parked",
+      "scenes": [
+        "S005"
+      ]
+    },
+    {
+      "id": "B02",
+      "kind": "stock",
+      "query": "croissant sandwich breakfast on tray close up",
+      "scenes": [
+        "S013"
+      ]
+    },
+    {
+      "id": "B03",
+      "kind": "stock",
+      "query": "person scrolling social media feed on smartphone close up hands",
+      "scenes": [
+        "S016",
+        "S018"
+      ]
+    },
+    {
+      "id": "B04",
+      "kind": "stock",
+      "query": "stone dropped into calm water ripples spreading slow motion",
+      "scenes": [
+        "S031"
+      ]
+    },
+    {
+      "id": "B05",
+      "kind": "stock",
+      "query": "crowd crossing city crosswalk top view",
+      "scenes": [
+        "S037"
+      ]
+    },
+    {
+      "id": "B06",
+      "kind": "stock",
+      "query": "many people looking at their phones on subway",
+      "scenes": [
+        "S040"
+      ]
+    },
+    {
+      "id": "B07",
+      "kind": "stock",
+      "query": "endless scrolling phone screen blur close up",
+      "scenes": [
+        "S043"
+      ]
+    },
+    {
+      "id": "B08",
+      "kind": "stock",
+      "query": "ice cracking on frozen lake close up",
+      "scenes": [
+        "S051"
+      ]
+    },
+    {
+      "id": "B09",
+      "kind": "stock",
+      "query": "water drop ripple macro slow motion",
+      "scenes": [
+        "S032"
+      ]
+    },
+    {
+      "id": "B10",
+      "kind": "stock",
+      "query": "laptop screen with many browser tabs and notifications",
+      "scenes": [
+        "S038"
+      ]
+    }
+  ]
+}
