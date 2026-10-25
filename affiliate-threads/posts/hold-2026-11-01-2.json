@@ -1,5 +1,5 @@
 {
-  "status": "draft",
+  "status": "hold",
   "category": "욕실 정리",
   "product_name": "하루꿈 욕실 스텐 수납선반 무타공 세면대 다용도 물빠짐 정리대, 2개, 스텐, 대",
   "topic_tag": "욕실인테리어",
@@ -10,5 +10,7 @@
   "source_url": "https://www.coupang.com/vp/products/9663372933?itemId=28932768202",
   "image_url": "https://thumbnail.coupangcdn.com/thumbnails/remote/640x640ex/image/vendor_inventory/images/15f12856-22cc-4202-aeca-4cc4ba37f52a5102861515995317188.jpg",
   "verified_at": "2026-10-25T18:40:00+09:00",
-  "review_note": "routine draft — 링크 대기"
+  "review_note": "routine draft — 링크 대기",
+  "hold_reason": "파트너스 링크 생성 안 됨(브루스, 2026-10-25 대화)",
+  "original_slot": "2026-11-01-2"
 }
