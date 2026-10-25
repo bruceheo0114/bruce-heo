@@ -59,6 +59,10 @@ python affiliate-threads/scripts/publish.py --mode dry-run --date 2026-10-27 --s
 - 원고에 `image_url`(상품 페이지의 coupangcdn.com 대표 이미지)이 있으면 사진 1장 + 글로 게시합니다.
 - 실제 게시는 위 Actions 만 합니다.
 
+## 답글 권한 (thread_replies)
+
+타래(첫 글 → 광고 답글)는 토큰에 `threads_manage_replies` 권한이 있어야 합니다. 2026-10-26 첫 타래에서 답글 생성이 HTTP 403 으로 거절돼, 권한을 받기 전까지 `config.json` 의 `thread_replies: false` 로 둡니다. 이때는 광고 문구 → 첫 글 훅·장면 → 상품 소개 → 링크·사진을 한 글로 올립니다. 권한 추가 후 새 토큰을 `COUPANG_THREADS_ACCESS_TOKEN` 에 넣고 `thread_replies` 를 true 로 바꿉니다.
+
 ## 자동 링크 모드 (최종 승인 후)
 
 쿠팡 파트너스 딥링크 API 는 최종 승인(링크로 누적 매출 15만 원 이상 → 채널 검증) 회원에게만 열립니다. 승인 후:

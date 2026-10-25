@@ -199,6 +199,18 @@ class ThreadPosts(unittest.TestCase):
         self.assertEqual(ad["reply_to_id"], "published-container-4")
         self.assertEqual(json.loads(self.path.read_text())["stage"], "posted")
 
+    def test_without_reply_permission_thread_becomes_one_disclosed_post(self):
+        self.config["thread_replies"] = False
+        client = FakeThreads()
+        self.run_post(client)
+        created = self.creates(client)
+        self.assertEqual(len(created), 1)
+        self.assertNotIn("reply_to_id", created[0])
+        self.assertTrue(created[0]["text"].startswith(P.DISCLOSURE + "\n\n" + self.post["text"]))
+        self.assertTrue(created[0]["text"].endswith(self.post["affiliate_url"]))
+        self.assertEqual(created[0]["media_type"], "IMAGE")
+        self.assertEqual(created[0]["topic_tag"], "살림팁")
+
     def test_links_in_opener_or_replies_are_rejected_before_api(self):
         original = dict(self.post)
         for changes in [{"text": "자세히는 https://example.com"}, {"replies": ["link.coupang.com/a/x"]}, {"topic_tag": "생활 꿀팁"}]:

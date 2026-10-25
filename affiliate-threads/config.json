@@ -4,5 +4,6 @@
   "enabled": true,
   "display_name": "생활픽노트",
   "channel": "threads_only",
-  "auto_links": false
+  "auto_links": false,
+  "thread_replies": false
 }

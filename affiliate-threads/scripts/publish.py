@@ -113,6 +113,22 @@ def thread_parts(post):
     return [opener, *replies, ad]
 
 
+def parts_for(config, post):
+    """Without the threads_manage_replies permission (config thread_replies=false) a thread
+    collapses into one post: disclosure, the opener's hook line, the ad body, the link and photo."""
+    parts = thread_parts(post)
+    if len(parts) == 1 or config.get("thread_replies", True):
+        return parts
+    paragraphs = post["text"].strip().split("\n\n")
+    for lead in ("\n\n".join(paragraphs[:2]), paragraphs[0]):  # hook + scene if it fits, else hook only
+        single = dict(post, body=f"{lead}\n\n{post['body'].strip()}")
+        try:
+            return [{"text": compose(single), "image": image_url(post), "topic_tag": parts[0].get("topic_tag", "")}]
+        except ValueError:
+            continue
+    raise ValueError("한 글로 합치면 500자를 넘습니다.")
+
+
 class Threads:
     def __init__(self, token):
         if not token:
@@ -209,11 +225,10 @@ def publish(config, post, state_path, client, save=save_state, sleep=time.sleep)
         raise ValueError("계정 연결과 가입 완료 후 두 활성화 설정을 켜야 게시할 수 있습니다.")
     if post.get("status") != "scheduled":
         raise ValueError("status=scheduled인 원고만 게시할 수 있습니다.")
-    parts = thread_parts(post)
+    parts = parts_for(config, post)
     if len(parts) > 1:
         return publish_thread(config, parts, state_path, client, save, sleep)
-    text = compose(post)
-    image = image_url(post)
+    text, image, tag = parts[0]["text"], parts[0]["image"], parts[0].get("topic_tag", "")
     profile = client.call("GET", "me", fields="id,username")
     check_account(config, profile)
     identity = str(profile["id"])
@@ -232,6 +247,8 @@ def publish(config, post, state_path, client, save=save_state, sleep=time.sleep)
         save(state_path, state)
         try:
             media = {"media_type": "IMAGE", "image_url": image} if image else {"media_type": "TEXT"}
+            if tag:
+                media["topic_tag"] = tag
             state["container_id"] = client.call("POST", f"{identity}/threads", text=text, **media)["id"]
         except Exception:
             state["stage"] = "needs_review"
@@ -336,7 +353,7 @@ def main():
             if post.get("status") == "scheduled":
                 if not post.get("affiliate_url") and config.get("auto_links"):
                     post = dict(post, affiliate_url="https://link.coupang.com/a/AUTO")  # issued at publish time
-                thread_parts(post)
+                parts_for(config, post)
         print(f"원고 검사 완료: {len(files)}개 파일")
         return
     dt.date.fromisoformat(args.date)
@@ -355,7 +372,7 @@ def main():
         post = dict(post, affiliate_url="https://link.coupang.com/a/AUTO")  # 게시 때 딥링크 API 로 발급
     elif args.mode == "publish":
         post = fill_link(config, post, path)
-    parts = thread_parts(post)
+    parts = parts_for(config, post)
     if args.mode == "dry-run":
         for index, part in enumerate(parts, 1):
             label = "첫 글" if index == 1 and len(parts) > 1 else ("광고 댓글" if index == len(parts) else f"댓글 {index - 1}")
