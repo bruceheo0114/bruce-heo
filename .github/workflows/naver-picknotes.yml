@@ -1,0 +1,42 @@
+name: Naver trends for picknotes products
+
+# 일 19:48 생활픽노트 주간 원고 루틴이 상품을 고르기 전에, affiliate-threads/trend_keywords.json 키워드의
+# 최근 7일 네이버 검색량 상승폭을 affiliate-threads/trends/<날짜>.json 으로 커밋한다(데이터랩 9회 남짓, Claude 미사용).
+on:
+  schedule:
+    - cron: "7 10 * * 0"  # 매주 일 19:07 KST
+  workflow_dispatch:
+
+concurrency:
+  group: naver-picknotes
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      NAVER_CLIENT_ID: ${{ secrets.NAVER_CLIENT_ID }}
+      NAVER_CLIENT_SECRET: ${{ secrets.NAVER_CLIENT_SECRET }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Compare product keywords
+        run: node src/cli/naver-picknotes.js
+
+      - name: Commit
+        run: |
+          git add affiliate-threads/trends
+          git diff --cached --quiet && exit 0
+          git config user.name "bruce-content-bot"
+          git config user.email "bruce-content-bot@users.noreply.github.com"
+          git commit -m "chore: picknotes product trends"
+          git pull --rebase -q && git push

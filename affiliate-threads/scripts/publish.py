@@ -52,6 +52,18 @@ def text_length(text):
                or ord(c) > 0xFFFF or c in "\u200d\ufe0f" else 1 for c in text)
 
 
+def image_url(post):
+    """Optional official product photo from Coupang's CDN; Threads fetches it by URL."""
+    link = post.get("image_url", "").strip()
+    if not link:
+        return ""
+    url = urllib.parse.urlsplit(link)
+    host = url.hostname or ""
+    if url.scheme != "https" or not (host == "coupangcdn.com" or host.endswith(".coupangcdn.com")):
+        raise ValueError("image_url 은 상품 페이지의 https://*.coupangcdn.com 이미지만 사용할 수 있습니다.")
+    return link
+
+
 def compose(post):
     body = post.get("body", "").strip()
     link = post.get("affiliate_url", "").strip()
@@ -116,10 +128,12 @@ def publish(config, post, state_path, client, save=save_state, sleep=time.sleep)
     if post.get("status") != "scheduled":
         raise ValueError("status=scheduled인 원고만 게시할 수 있습니다.")
     text = compose(post)
+    image = image_url(post)
     profile = client.call("GET", "me", fields="id,username")
     check_account(config, profile)
     identity = str(profile["id"])
-    digest = hashlib.sha256((identity + "\n" + text).encode()).hexdigest()
+    # Text-only posts keep their original digest so existing checkpoints stay valid.
+    digest = hashlib.sha256((identity + "\n" + text + ("\n" + image if image else "")).encode()).hexdigest()
     state = read_json(state_path) if state_path.exists() else {}
     if state and state.get("digest") != digest:
         raise ValueError("체크포인트 원고·계정이 변경됐습니다. 수동 확인이 필요합니다.")
@@ -132,7 +146,8 @@ def publish(config, post, state_path, client, save=save_state, sleep=time.sleep)
         state = {"digest": digest, "user_id": identity, "stage": "creating"}
         save(state_path, state)
         try:
-            state["container_id"] = client.call("POST", f"{identity}/threads", media_type="TEXT", text=text)["id"]
+            media = {"media_type": "IMAGE", "image_url": image} if image else {"media_type": "TEXT"}
+            state["container_id"] = client.call("POST", f"{identity}/threads", text=text, **media)["id"]
         except Exception:
             state["stage"] = "needs_review"
             save(state_path, state)
@@ -181,6 +196,7 @@ def main():
             post = read_json(path)
             if post.get("status") == "scheduled":
                 compose(post)
+                image_url(post)
         print(f"원고 검사 완료: {len(files)}개 파일")
         return
     dt.date.fromisoformat(args.date)
@@ -196,8 +212,10 @@ def main():
         print("예약 승인된 원고 아님. 게시 없음.")
         return
     text = compose(post)
+    image = image_url(post)
     if args.mode == "dry-run":
         print(text)
+        print(f"\n이미지: {image or '없음(텍스트 글)'}")
         print(f"\n검사 길이: {text_length(text)}/500, API 호출 없음")
         return
     client = Threads(os.environ.get("COUPANG_THREADS_ACCESS_TOKEN"))

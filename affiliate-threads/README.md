@@ -55,6 +55,8 @@ python affiliate-threads/scripts/publish.py --mode dry-run --date 2026-10-27 --s
 
 - **주간 원고** (일 19:48 KST): `routine_writer_prompt.md`. 다음 7일 × 3슬롯 draft 를 쓰고(상품 페이지는 Firecrawl 로 확인) `[생활픽노트] 주간 원고 미리보기` 메일을 보냅니다. 제휴 링크는 만들지 않습니다.
 - **링크·승인 반영** (매일 08:07·12:07·19:07 KST): `routine_approval_prompt.md`. 브루스가 메일에 `10/27-1 https://link.coupang.com/a/...` 로 회신한 슬롯만 상품을 재확인해 `scheduled` 로 바꿉니다. 링크 회신이 없는 슬롯은 게시되지 않습니다.
+- **트렌드** (일 19:07 KST, Actions `naver-picknotes.yml`): `trend_keywords.json` 키워드의 최근 7일 네이버 검색량 상승폭을 `trends/<날짜>.json` 에 남기고, 주간 원고 루틴이 튄 키워드부터 상품을 고릅니다.
+- 원고에 `image_url`(상품 페이지의 coupangcdn.com 대표 이미지)이 있으면 사진 1장 + 글로 게시합니다.
 - 실제 게시는 위 Actions 만 합니다.
 
 ## 공식 근거

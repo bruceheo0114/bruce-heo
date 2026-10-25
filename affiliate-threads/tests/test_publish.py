@@ -74,6 +74,28 @@ class PublishingBoundaries(unittest.TestCase):
         self.assertTrue(sent.endswith(self.post["affiliate_url"]))
         self.assertEqual(sum(c[1].endswith("/threads") for c in client.calls), 1)
 
+    def test_product_photo_is_sent_as_image_post(self):
+        self.post["image_url"] = "https://thumbnail.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/x.jpg"
+        client = FakeThreads()
+        self.run_post(client)
+        create = next(c[2] for c in client.calls if c[1].endswith("/threads"))
+        self.assertEqual(create["media_type"], "IMAGE")
+        self.assertEqual(create["image_url"], self.post["image_url"])
+
+    def test_image_from_other_hosts_fails_before_api(self):
+        for link in ["http://thumbnail.coupangcdn.com/x.jpg", "https://coupangcdn.com.attacker.example/x.jpg", "https://example.com/x.jpg"]:
+            with self.subTest(link=link):
+                self.post["image_url"] = link
+                client = FakeThreads()
+                with self.assertRaises(ValueError):
+                    self.run_post(client)
+                self.assertFalse(any(c[0] == "POST" for c in client.calls))
+
+    def test_text_only_digest_is_unchanged_for_existing_checkpoints(self):
+        self.run_post()
+        expected = P.hashlib.sha256(("123456789\n" + P.compose(self.post)).encode()).hexdigest()
+        self.assertEqual(json.loads(self.path.read_text())["digest"], expected)
+
     def test_success_is_not_republished(self):
         self.run_post()
         client = FakeThreads()
