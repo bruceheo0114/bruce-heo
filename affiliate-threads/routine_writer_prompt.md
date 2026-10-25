@@ -38,6 +38,9 @@ python3 -c "import importlib.util,json,sys;s=importlib.util.spec_from_file_locat
 ```
 에러가 나거나 넘치면 줄인다.
 
+## 3-1. 자동 링크 모드
+`affiliate-threads/config.json` 의 `auto_links` 가 `true` 면(쿠팡 파트너스 최종 승인 후 딥링크 API 키가 Secrets 에 들어간 상태) 원고를 `status: "scheduled"` 로 저장한다. `affiliate_url` 은 비워 둔다 — 게시 직전 Actions 가 `source_url` 을 딥링크 API 로 변환해 넣는다. 미리보기 메일은 알림용이고 회신이 없어도 올라간다(안내 문구도 그렇게 바꾼다: "회신 없이 자동으로 올라갑니다. 빼려면 `보류 M/D-N`."). `auto_links` 가 `false` 면 지금처럼 draft + 링크 회신.
+
 ## 4. 저장
 `python -m unittest discover -s affiliate-threads/tests` 와 `python affiliate-threads/scripts/publish.py --mode validate` 가 통과하면 `git pull --rebase` 후 `affiliate-threads/posts/` 만 커밋·main 푸시. 메시지 `content: picknotes drafts for <첫날짜>~<끝날짜>`.
 

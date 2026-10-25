@@ -59,6 +59,15 @@ python affiliate-threads/scripts/publish.py --mode dry-run --date 2026-10-27 --s
 - 원고에 `image_url`(상품 페이지의 coupangcdn.com 대표 이미지)이 있으면 사진 1장 + 글로 게시합니다.
 - 실제 게시는 위 Actions 만 합니다.
 
+## 자동 링크 모드 (최종 승인 후)
+
+쿠팡 파트너스 딥링크 API 는 최종 승인(링크로 누적 매출 15만 원 이상 → 채널 검증) 회원에게만 열립니다. 승인 후:
+1. 파트너스 포털 → API 관리에서 Access Key / Secret Key 발급
+2. GitHub Secrets `COUPANG_PARTNERS_ACCESS_KEY`, `COUPANG_PARTNERS_SECRET_KEY` 에 저장(채팅·파일에 적지 않음)
+3. `config.json` 의 `auto_links` 를 `true` 로
+
+그 뒤로는 원고 루틴이 바로 scheduled 로 쓰고, 게시기가 게시 직전 `source_url` 을 딥링크 API 로 변환해 원고에 저장(커밋)한 다음 올립니다. 회신은 보류·수정할 때만 필요합니다.
+
 ## 공식 근거
 
 - Meta: https://developers.facebook.com/documentation/threads/get-started

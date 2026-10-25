@@ -2,6 +2,7 @@
 import argparse
 import datetime as dt
 import hashlib
+import hmac
 import json
 import os
 import pathlib
@@ -16,6 +17,8 @@ import urllib.request
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 API = "https://graph.threads.com/v1.0"
+COUPANG_API = "https://api-gateway.coupang.com"
+DEEPLINK_PATH = "/v2/providers/affiliate_open_api/apis/openapi/v1/deeplink"
 DISCLOSURE = "[광고] 이 게시물은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다."
 EXCLUDED = {"heo.boram", "bruce.insight", "work_bruce"}
 KST = dt.timezone(dt.timedelta(hours=9))
@@ -129,6 +132,57 @@ class Threads:
             raise RuntimeError(f"Threads API HTTP {error.code}; 토큰·권한·게시 상태를 확인하세요.") from None
         except Exception:
             raise RuntimeError("Threads API 통신 결과를 확정할 수 없습니다. 자동 재게시하지 않습니다.") from None
+
+
+def coupang_deeplink(source_url, access_key, secret_key, opener=urllib.request.urlopen, now=None):
+    """Convert a product page into a partners link with the Coupang Partners deeplink API
+    (available after final approval). Keys come only from GitHub Secrets."""
+    if not access_key or not secret_key:
+        raise ValueError("COUPANG_PARTNERS_ACCESS_KEY / COUPANG_PARTNERS_SECRET_KEY 시크릿이 필요합니다.")
+    source = urllib.parse.urlsplit(source_url)
+    if source.scheme != "https" or source.hostname not in {"www.coupang.com", "coupang.com"}:
+        raise ValueError("딥링크는 쿠팡 상품 페이지 주소만 변환합니다.")
+    signed = (now or dt.datetime.now(dt.timezone.utc)).strftime("%y%m%dT%H%M%SZ")
+    signature = hmac.new(secret_key.encode(), (signed + "POST" + DEEPLINK_PATH).encode(), hashlib.sha256).hexdigest()
+    request = urllib.request.Request(
+        COUPANG_API + DEEPLINK_PATH, data=json.dumps({"coupangUrls": [source_url]}).encode(), method="POST",
+        headers={"Content-Type": "application/json;charset=UTF-8",
+                 "Authorization": f"CEA algorithm=HmacSHA256, access-key={access_key}, signed-date={signed}, signature={signature}"})
+    try:
+        with opener(request, timeout=30) as response:
+            body = json.load(response)
+    except urllib.error.HTTPError as error:
+        raise RuntimeError(f"쿠팡 딥링크 API HTTP {error.code}; 키·최종 승인 상태를 확인하세요.") from None
+    except Exception:
+        raise RuntimeError("쿠팡 딥링크 API 통신 실패. 이번 슬롯은 게시하지 않습니다.") from None
+    link = ((body.get("data") or [{}])[0] or {}).get("shortenUrl", "")
+    url = urllib.parse.urlsplit(link)
+    if str(body.get("rCode")) != "0" or url.scheme != "https" or url.hostname != "link.coupang.com" or not url.path.startswith("/a/"):
+        raise RuntimeError("쿠팡 딥링크 API 가 파트너스 링크를 돌려주지 않았습니다. 이번 슬롯은 게시하지 않습니다.")
+    return link
+
+
+def persist_post(path):
+    """Commit the post file (e.g. a freshly issued link) before any Threads call, so a retry reuses it."""
+    if os.environ.get("COUPANG_GIT_CHECKPOINT") != "true":
+        return
+    repo = ROOT.parent
+    relative = path.relative_to(repo).as_posix()
+    subprocess.run(["git", "add", "--", relative], cwd=repo, check=True)
+    subprocess.run(["git", "commit", "-m", "chore: picknotes partners link", "--", relative], cwd=repo, check=True)
+    subprocess.run(["git", "push", "origin", "HEAD:main"], cwd=repo, check=True)
+
+
+def fill_link(config, post, path, deeplink=coupang_deeplink):
+    """auto_links mode: a scheduled post without affiliate_url gets one from the deeplink API."""
+    if post.get("affiliate_url") or not config.get("auto_links"):
+        return post
+    post["affiliate_url"] = deeplink(post.get("source_url", ""), os.environ.get("COUPANG_PARTNERS_ACCESS_KEY"),
+                                     os.environ.get("COUPANG_PARTNERS_SECRET_KEY"))
+    thread_parts(post)  # validate with the real link before saving
+    path.write_text(json.dumps(post, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    persist_post(path)
+    return post
 
 
 def save_state(path, state):
@@ -280,6 +334,8 @@ def main():
         for path in files:
             post = read_json(path)
             if post.get("status") == "scheduled":
+                if not post.get("affiliate_url") and config.get("auto_links"):
+                    post = dict(post, affiliate_url="https://link.coupang.com/a/AUTO")  # issued at publish time
                 thread_parts(post)
         print(f"원고 검사 완료: {len(files)}개 파일")
         return
@@ -295,6 +351,10 @@ def main():
     if post.get("status") != "scheduled":
         print("예약 승인된 원고 아님. 게시 없음.")
         return
+    if args.mode == "dry-run" and not post.get("affiliate_url") and config.get("auto_links"):
+        post = dict(post, affiliate_url="https://link.coupang.com/a/AUTO")  # 게시 때 딥링크 API 로 발급
+    elif args.mode == "publish":
+        post = fill_link(config, post, path)
     parts = thread_parts(post)
     if args.mode == "dry-run":
         for index, part in enumerate(parts, 1):

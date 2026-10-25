@@ -3,5 +3,6 @@
   "user_id": "39249057824741583",
   "enabled": true,
   "display_name": "생활픽노트",
-  "channel": "threads_only"
+  "channel": "threads_only",
+  "auto_links": false
 }

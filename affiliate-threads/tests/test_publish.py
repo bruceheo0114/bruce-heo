@@ -232,6 +232,55 @@ class ThreadPosts(unittest.TestCase):
         self.assertTrue(created[0]["text"].startswith(P.DISCLOSURE))
 
 
+class AutoLinks(unittest.TestCase):
+    class Response:
+        def __init__(self, body):
+            self.body = json.dumps(body).encode()
+
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *_):
+            return False
+
+        def read(self):
+            return self.body
+
+    def test_deeplink_request_is_signed_and_returns_the_short_link(self):
+        seen = {}
+        def opener(request, timeout):
+            seen["auth"] = request.headers["Authorization"]
+            seen["body"] = json.loads(request.data)
+            return self.Response({"rCode": "0", "data": [{"shortenUrl": "https://link.coupang.com/a/abc123"}]})
+        now = P.dt.datetime(2026, 10, 26, 0, 0, 5, tzinfo=P.dt.timezone.utc)
+        link = P.coupang_deeplink("https://www.coupang.com/vp/products/1?itemId=2", "AK", "SK", opener=opener, now=now)
+        self.assertEqual(link, "https://link.coupang.com/a/abc123")
+        self.assertEqual(seen["body"], {"coupangUrls": ["https://www.coupang.com/vp/products/1?itemId=2"]})
+        expected = P.hmac.new(b"SK", ("261026T000005ZPOST" + P.DEEPLINK_PATH).encode(), P.hashlib.sha256).hexdigest()
+        self.assertEqual(seen["auth"], f"CEA algorithm=HmacSHA256, access-key=AK, signed-date=261026T000005Z, signature={expected}")
+
+    def test_bad_answers_and_non_coupang_pages_never_become_links(self):
+        for body in [{"rCode": "1", "data": []}, {"rCode": "0", "data": [{"shortenUrl": "https://evil.example/a/1"}]}]:
+            with self.subTest(body=body), self.assertRaises(RuntimeError):
+                P.coupang_deeplink("https://www.coupang.com/vp/products/1", "AK", "SK", opener=lambda *_ , **__: self.Response(body))
+        with self.assertRaises(ValueError):
+            P.coupang_deeplink("https://example.com/p/1", "AK", "SK", opener=None)
+        with self.assertRaises(ValueError):
+            P.coupang_deeplink("https://www.coupang.com/vp/products/1", "", "", opener=None)
+
+    def test_fill_link_only_in_auto_mode_and_saves_before_publishing(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = pathlib.Path(tmp) / "post.json"
+            post = {"status": "scheduled", "text": "기준만 쓴 첫 글", "body": "상품 설명", "affiliate_url": "",
+                    "source_url": "https://www.coupang.com/vp/products/1", "verified_at": "2026-10-25T18:40:00+09:00"}
+            same = P.fill_link({"auto_links": False}, dict(post), path, deeplink=lambda *_: self.fail("called"))
+            self.assertEqual(same["affiliate_url"], "")
+            with mock.patch.dict(P.os.environ, {"COUPANG_GIT_CHECKPOINT": "false"}):
+                filled = P.fill_link({"auto_links": True}, dict(post), path, deeplink=lambda *_: "https://link.coupang.com/a/auto1")
+            self.assertEqual(filled["affiliate_url"], "https://link.coupang.com/a/auto1")
+            self.assertEqual(json.loads(path.read_text())["affiliate_url"], "https://link.coupang.com/a/auto1")
+
+
 class DailySlots(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
