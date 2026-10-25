@@ -1,0 +1,282 @@
+{
+  "generated_at": "2026-10-25T09:12:56.411Z",
+  "window": {
+    "startDate": "2026-09-28",
+    "endDate": "2026-10-25",
+    "recent_days": 7
+  },
+  "provider": "API HUB",
+  "calls": 9,
+  "items": [
+    {
+      "keyword": "단열 커튼",
+      "category": "현관·단열",
+      "rise": 2.02,
+      "avg": 4.6
+    },
+    {
+      "keyword": "김장 매트",
+      "category": "주방 도구·보관",
+      "rise": 1.81,
+      "avg": 14.6
+    },
+    {
+      "keyword": "수면 양말",
+      "category": "침실·생활",
+      "rise": 1.81,
+      "avg": 18.3
+    },
+    {
+      "keyword": "칫솔 거치대",
+      "category": "욕실 정리",
+      "rise": 1.69,
+      "avg": 32.7
+    },
+    {
+      "keyword": "우산꽂이",
+      "category": "현관·단열",
+      "rise": 1.65,
+      "avg": 27.7
+    },
+    {
+      "keyword": "극세사 이불",
+      "category": "침실·생활",
+      "rise": 1.57,
+      "avg": 39
+    },
+    {
+      "keyword": "문풍지",
+      "category": "현관·단열",
+      "rise": 1.42,
+      "avg": 56.3
+    },
+    {
+      "keyword": "모니터 받침대",
+      "category": "책상·케이블 정리",
+      "rise": 1.36,
+      "avg": 63.2
+    },
+    {
+      "keyword": "옷장 정리",
+      "category": "옷장·서랍 수납",
+      "rise": 1.36,
+      "avg": 20.8
+    },
+    {
+      "keyword": "러그",
+      "category": "침실·생활",
+      "rise": 1.23,
+      "avg": 62.8
+    },
+    {
+      "keyword": "바지걸이",
+      "category": "옷장·서랍 수납",
+      "rise": 1.22,
+      "avg": 77.2
+    },
+    {
+      "keyword": "냉장고 정리",
+      "category": "주방 도구·보관",
+      "rise": 1.17,
+      "avg": 7
+    },
+    {
+      "keyword": "욕실 매트",
+      "category": "욕실 정리",
+      "rise": 1.14,
+      "avg": 40.7
+    },
+    {
+      "keyword": "멀티탭 정리함",
+      "category": "책상·케이블 정리",
+      "rise": 1.12,
+      "avg": 12.9
+    },
+    {
+      "keyword": "밀폐용기",
+      "category": "주방 도구·보관",
+      "rise": 1.1,
+      "avg": 22.2
+    },
+    {
+      "keyword": "빨래 건조대",
+      "category": "세탁·건조",
+      "rise": 1.1,
+      "avg": 83.3
+    },
+    {
+      "keyword": "방석",
+      "category": "침실·생활",
+      "rise": 1.1,
+      "avg": 26.4
+    },
+    {
+      "keyword": "노트북 거치대",
+      "category": "책상·케이블 정리",
+      "rise": 1.08,
+      "avg": 81.1
+    },
+    {
+      "keyword": "창문 청소",
+      "category": "청소 도구",
+      "rise": 1.08,
+      "avg": 46.7
+    },
+    {
+      "keyword": "샤워기 거치대",
+      "category": "욕실 정리",
+      "rise": 1.08,
+      "avg": 47
+    },
+    {
+      "keyword": "뽁뽁이",
+      "category": "현관·단열",
+      "rise": 1.08,
+      "avg": 50.3
+    },
+    {
+      "keyword": "서랍 정리함",
+      "category": "옷장·서랍 수납",
+      "rise": 1.07,
+      "avg": 26.8
+    },
+    {
+      "keyword": "수건 걸이",
+      "category": "욕실 정리",
+      "rise": 1.07,
+      "avg": 35.2
+    },
+    {
+      "keyword": "성에 제거",
+      "category": "차량 정리",
+      "rise": 1.07,
+      "avg": 12.1
+    },
+    {
+      "keyword": "패딩 보관",
+      "category": "옷장·서랍 수납",
+      "rise": 1.06,
+      "avg": 1.1
+    },
+    {
+      "keyword": "식기건조대",
+      "category": "주방 도구·보관",
+      "rise": 1.06,
+      "avg": 82.6
+    },
+    {
+      "keyword": "이불 압축팩",
+      "category": "옷장·서랍 수납",
+      "rise": 1.05,
+      "avg": 47.5
+    },
+    {
+      "keyword": "케이블 정리",
+      "category": "책상·케이블 정리",
+      "rise": 1.04,
+      "avg": 3.9
+    },
+    {
+      "keyword": "세탁망",
+      "category": "세탁·건조",
+      "rise": 1.04,
+      "avg": 5.4
+    },
+    {
+      "keyword": "책상 정리함",
+      "category": "책상·케이블 정리",
+      "rise": 1.03,
+      "avg": 18.5
+    },
+    {
+      "keyword": "신발 정리대",
+      "category": "현관·단열",
+      "rise": 1.01,
+      "avg": 18.6
+    },
+    {
+      "keyword": "니트 건조대",
+      "category": "세탁·건조",
+      "rise": 0.99,
+      "avg": 0.5
+    },
+    {
+      "keyword": "빨래 바구니",
+      "category": "세탁·건조",
+      "rise": 0.97,
+      "avg": 30.4
+    },
+    {
+      "keyword": "욕실 선반",
+      "category": "욕실 정리",
+      "rise": 0.96,
+      "avg": 72.6
+    },
+    {
+      "keyword": "밀대 걸레",
+      "category": "청소 도구",
+      "rise": 0.94,
+      "avg": 69.5
+    },
+    {
+      "keyword": "트렁크 정리함",
+      "category": "차량 정리",
+      "rise": 0.94,
+      "avg": 82.2
+    },
+    {
+      "keyword": "이불 건조대",
+      "category": "세탁·건조",
+      "rise": 0.9,
+      "avg": 4.2
+    },
+    {
+      "keyword": "암막 커튼",
+      "category": "침실·생활",
+      "rise": 0.85,
+      "avg": 81.7
+    },
+    {
+      "keyword": "먼지떨이",
+      "category": "청소 도구",
+      "rise": 0.79,
+      "avg": 8.1
+    },
+    {
+      "keyword": "차량용 수납",
+      "category": "차량 정리",
+      "rise": 0.78,
+      "avg": 1.3
+    },
+    {
+      "keyword": "차량 햇빛가리개",
+      "category": "차량 정리",
+      "rise": 0.72,
+      "avg": 54.2
+    },
+    {
+      "keyword": "차량 컵홀더",
+      "category": "차량 정리",
+      "rise": 0.61,
+      "avg": 20.2
+    },
+    {
+      "keyword": "김장 용기",
+      "category": "주방 도구·보관",
+      "rise": 0,
+      "avg": 0
+    },
+    {
+      "keyword": "틈새 브러시",
+      "category": "청소 도구",
+      "rise": 0,
+      "avg": 0
+    },
+    {
+      "keyword": "결로 제거",
+      "category": "청소 도구",
+      "rise": 0,
+      "avg": 0
+    }
+  ]
+}
