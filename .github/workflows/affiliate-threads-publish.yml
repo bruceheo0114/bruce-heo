@@ -1,0 +1,69 @@
+name: Coupang affiliate Threads (separate account)
+
+on:
+  pull_request:
+    paths:
+      - 'affiliate-threads/**'
+      - '.github/workflows/affiliate-threads-publish.yml'
+  schedule:
+    - cron: '30 10 * * *' # 19:30 Asia/Seoul; initial operational slot, not an optimal-time claim.
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'check=계정 확인, dry-run=미리보기, publish=실제 게시'
+        type: choice
+        options: [check, dry-run, publish]
+        default: dry-run
+      post_date:
+        description: 'YYYY-MM-DD (비우면 오늘 KST)'
+        required: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: coupang-affiliate-threads
+  cancel-in-progress: false
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s affiliate-threads/tests -v
+      - run: python affiliate-threads/scripts/publish.py --mode validate
+  publish:
+    needs: test
+    if: github.ref == 'refs/heads/main' && (vars.COUPANG_THREADS_ENABLED == 'true' || (github.event_name == 'workflow_dispatch' && inputs.mode != 'publish'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Configure checkpoint author
+        run: |
+          git config user.name 'coupang-threads-bot'
+          git config user.email 'coupang-threads-bot@users.noreply.github.com'
+      - name: Validate and publish only to the affiliate account
+        env:
+          COUPANG_THREADS_ACCESS_TOKEN: ${{ secrets.COUPANG_THREADS_ACCESS_TOKEN }}
+          COUPANG_THREADS_ENABLED: ${{ vars.COUPANG_THREADS_ENABLED }}
+          COUPANG_GIT_CHECKPOINT: 'true'
+          MODE: ${{ github.event_name == 'schedule' && 'publish' || inputs.mode }}
+          POST_DATE: ${{ inputs.post_date }}
+        run: |
+          python affiliate-threads/scripts/publish.py --mode validate
+          if [ -n "$POST_DATE" ]; then
+            python affiliate-threads/scripts/publish.py --mode "$MODE" --date "$POST_DATE"
+          else
+            python affiliate-threads/scripts/publish.py --mode "$MODE"
+          fi
