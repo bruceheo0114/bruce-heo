@@ -1,5 +1,5 @@
 {
-  "status": "draft",
+  "status": "hold",
   "category": "침실·생활",
   "product_name": "컴바이미 털빠짐없는 무압박 수면양말 4P",
   "topic_tag": "침구",
@@ -11,5 +11,6 @@
   "image_url": "https://thumbnail.coupangcdn.com/thumbnails/remote/640x640ex/image/vendor_inventory/2630/d92b0e7039e63786c46f9c8a477bf8dbcc89ef0067e32cad22aeed7224cc.jpg",
   "trend_keyword": "수면 양말",
   "verified_at": "2026-10-25T18:40:00+09:00",
-  "review_note": "routine draft — 링크 회신 대기"
+  "review_note": "routine draft — 링크 회신 대기",
+  "hold_reason": "파트너스 링크 생성 안 됨(브루스, 2026-10-25 대화)"
 }

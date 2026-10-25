@@ -1,5 +1,5 @@
 {
-  "status": "draft",
+  "status": "hold",
   "category": "욕실 정리",
   "product_name": "스파이더락 무타공 스마트접착 칫솔걸이, 실버, 1개",
   "topic_tag": "욕실인테리어",
@@ -11,5 +11,6 @@
   "image_url": "https://thumbnail.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/61967870870058-5a970a7a-86e5-4a2a-9bd0-87648062e4d3.jpg",
   "trend_keyword": "칫솔 거치대",
   "verified_at": "2026-10-25T18:40:00+09:00",
-  "review_note": "routine draft — 링크 회신 대기"
+  "review_note": "routine draft — 링크 회신 대기",
+  "hold_reason": "파트너스 링크 생성 안 됨(브루스, 2026-10-25 대화)"
 }
