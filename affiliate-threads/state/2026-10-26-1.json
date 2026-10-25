@@ -1,7 +1,7 @@
 {
   "digest": "eb680929998be388eada910096a1d6b539a763f7a5189d4adb0abdf5f9dd0bbd",
   "user_id": "39249057824741583",
-  "stage": "threading",
+  "stage": "needs_review",
   "parts": [
     {
       "stage": "posted",
@@ -9,7 +9,7 @@
       "media_id": "18107631986262444"
     },
     {
-      "stage": "creating"
+      "stage": "needs_review"
     }
   ]
 }
