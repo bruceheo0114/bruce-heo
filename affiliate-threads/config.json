@@ -1,7 +1,7 @@
 {
   "username": "daily.picknotes",
   "user_id": "39249057824741583",
-  "enabled": false,
+  "enabled": true,
   "display_name": "생활픽노트",
   "channel": "threads_only"
 }
