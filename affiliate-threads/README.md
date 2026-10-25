@@ -12,7 +12,7 @@
 2. 완료: 새 공개 Threads `https://www.threads.com/@daily.picknotes` 생성, 생활픽노트 이름·소개 설정. 인스타그램 게시·크로스포스팅은 사용하지 않습니다. 기존 계정 센터에 새 계정을 추가하는 연결은 아직 확인되지 않았습니다.
 3. 기존 Meta 개발자 앱에서 새 Threads 프로필을 테스터로 초대하고 새 프로필에서 수락합니다. `threads_basic`, `threads_content_publish`만 우선 요청합니다. 계정 연결·권한 부여 마지막 단계는 사용자가 확인합니다.
 4. 새 프로필 전용 장기 토큰을 GitHub Actions Secret `COUPANG_THREADS_ACCESS_TOKEN`에 저장합니다. 기존 `THREADS_ACCESS_TOKEN`을 복사하거나 덮어쓰지 않습니다. 토큰은 원고·코드·커밋·채팅에 기록하지 않습니다.
-5. 새 토큰으로 확인한 `/me`의 실제 id를 `config.json.user_id`에 등록합니다. 변경된 최종 아이디도 다시 확인합니다.
+5. `identify` 모드로 새 토큰의 username과 `/me`의 실제 id를 확인해 `config.json.user_id`에 등록합니다. identify는 설정을 수정하거나 게시하지 않고, 지정된 전용 username과 일치할 때만 ID를 출력합니다. 변경된 최종 아이디도 다시 확인합니다.
 6. 완료: 쿠팡 파트너스 개인 가입·PASS 본인 인증·약관 확인·새 Threads 프로필 URL 등록. 최종 활동 심사는 별개로 미완료입니다. 제휴 링크와 대가성 표시가 함께 보이는 실제 게시물 증빙을 준비해야 합니다.
 7. 쿠팡 파트너스 포털에서 본인 제휴 링크를 발급한 뒤 원고에 넣습니다. 이 버전은 쿠팡 상품 API를 호출하지 않으므로 쿠팡 API 키가 없어도 포털에서 발급한 링크를 사용할 수 있습니다.
 8. `check`, `dry-run` 확인 후 `config.json.enabled=true` 및 Actions Variable `COUPANG_THREADS_ENABLED=true`를 설정합니다. 매일 19:30 KST에 그날의 scheduled 원고 한 개만 게시합니다. 초기 운영 시각이며 성과가 검증된 최적 시각이라는 뜻은 아닙니다. GitHub 예약 실행은 지연될 수 있습니다.
@@ -42,6 +42,7 @@ Python 표준 라이브러리만 사용합니다.
 ```text
 python -m unittest discover -s affiliate-threads/tests -v
 python affiliate-threads/scripts/publish.py --mode validate
+python affiliate-threads/scripts/publish.py --mode identify
 python affiliate-threads/scripts/publish.py --mode check
 python affiliate-threads/scripts/publish.py --mode dry-run --date 2026-10-26
 ```

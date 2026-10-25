@@ -149,13 +149,18 @@ def publish(config, post, state_path, client, save=save_state, sleep=time.sleep)
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--mode", choices=["validate", "check", "dry-run", "publish"], default="dry-run")
+    parser.add_argument("--mode", choices=["validate", "identify", "check", "dry-run", "publish"], default="dry-run")
     parser.add_argument("--date", default=dt.datetime.now(KST).strftime("%Y-%m-%d"))
     args = parser.parse_args()
     config = read_json(ROOT / "config.json")
-    if args.mode == "check":
+    if args.mode in {"identify", "check"}:
         client = Threads(os.environ.get("COUPANG_THREADS_ACCESS_TOKEN"))
         profile = client.call("GET", "me", fields="id,username")
+        if args.mode == "identify":
+            candidate = dict(config, user_id=str(profile.get("id", "")))
+            check_account(candidate, profile)
+            print("최초 연결용 ID 조회 (설정 변경·게시 없음):", profile["username"], profile["id"])
+            return
         check_account(config, profile)
         print("쿠팡 전용 계정 일치 확인:", profile["username"], profile["id"])
         return

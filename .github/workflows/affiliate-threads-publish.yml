@@ -10,9 +10,9 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: 'check=계정 확인, dry-run=미리보기, publish=실제 게시'
+        description: 'identify=최초 ID 조회, check=계정 확인, dry-run=미리보기, publish=실제 게시'
         type: choice
-        options: [check, dry-run, publish]
+        options: [identify, check, dry-run, publish]
         default: dry-run
       post_date:
         description: 'YYYY-MM-DD (비우면 오늘 KST)'
