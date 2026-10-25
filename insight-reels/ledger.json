@@ -5,7 +5,7 @@
   "cycles": {
     "2026-10": {
       "higgsfield_spent": 87.25,
-      "elevenlabs_spent": 7854,
+      "elevenlabs_spent": 8044,
       "entries": [
         {
           "date": "2026-10-02",
@@ -108,6 +108,12 @@
           "what": "릴스 213(10/25 게시분) — 이미지 4장(1.0) + Grok Lite 클립 1개(5.0) + eleven_v4 2테이크(246+246). 먼저 만든 202 스크럽대디 버전(이미지 4장 1.0 + 클립 5.0 + 2테이크 498)은 사용자 요청으로 버림",
           "higgsfield": 12.0,
           "elevenlabs": 990
+        },
+        {
+          "date": "2026-10-25",
+          "what": "월요일 이슈 카드뉴스 10/26 표지 이미지 1장 — 힉스필드 연결 실패로 ElevenLabs gpt-image-2.5 사용(약 190 크레딧), 표지·마무리 재사용",
+          "higgsfield": 0,
+          "elevenlabs": 190
         }
       ]
     }
