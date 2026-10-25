@@ -11,20 +11,23 @@ SPEC.loader.exec_module(P)
 
 
 class FakeThreads:
-    def __init__(self, profile=None, uncertain=False):
+    def __init__(self, profile=None, uncertain=False, fail_on_publish=None):
         self.profile = profile or {"username": "daily.picknotes", "id": "123456789"}
         self.uncertain = uncertain
+        self.fail_on_publish = fail_on_publish
         self.calls = []
+        self.published = 0
 
     def call(self, method, path, **params):
         self.calls.append((method, path, params))
         if method == "GET":
             return self.profile
         if path.endswith("/threads_publish"):
-            if self.uncertain:
+            self.published += 1
+            if self.uncertain or self.published == self.fail_on_publish:
                 raise RuntimeError("Connection lost after server may have published")
-            return {"id": "published-post"}
-        return {"id": "container"}
+            return {"id": f"published-{params['creation_id']}"}
+        return {"id": f"container-{len(self.calls)}"}
 
 
 class PublishingBoundaries(unittest.TestCase):
@@ -153,6 +156,80 @@ class PublishingBoundaries(unittest.TestCase):
                      "affiliate_url": "https://link.coupang.com/a/unit-test-only",
                      "source_url": "https://www.coupang.com/vp/products/example",
                      "verified_at": "2026-10-25T17:00:00+09:00"}
+
+
+class ThreadPosts(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.path = pathlib.Path(self.tmp.name) / "state.json"
+        self.config = {"username": "daily.picknotes", "user_id": "123456789", "enabled": True, "channel": "threads_only"}
+        self.post = {"status": "scheduled", "text": "문풍지 사기 전에, 길이부터 재보세요.", "topic_tag": "살림팁",
+                     "replies": ["방문 아래, 현관 틈까지 길이를 다 더해 보세요."],
+                     "body": "이 제품은 상품 페이지에 3M 5개 구성으로 표시돼 있어요.",
+                     "affiliate_url": "https://link.coupang.com/a/unit-test-only",
+                     "image_url": "https://thumbnail.coupangcdn.com/x.jpg",
+                     "source_url": "https://www.coupang.com/vp/products/example",
+                     "verified_at": "2026-10-25T17:00:00+09:00"}
+        self.env = mock.patch.dict(P.os.environ, {"COUPANG_THREADS_ENABLED": "true", "COUPANG_GIT_CHECKPOINT": "false"})
+        self.env.start()
+
+    def tearDown(self):
+        self.env.stop()
+        self.tmp.cleanup()
+
+    def run_post(self, client):
+        return P.publish(self.config, self.post, self.path, client, sleep=lambda _: None)
+
+    def creates(self, client):
+        return [c[2] for c in client.calls if c[1].endswith("/threads")]
+
+    def test_ad_and_link_come_last_in_one_reply_with_the_photo(self):
+        client = FakeThreads()
+        self.run_post(client)
+        opener, middle, ad = self.creates(client)
+        self.assertEqual((opener["media_type"], opener["topic_tag"]), ("TEXT", "살림팁"))
+        self.assertNotIn("reply_to_id", opener)
+        self.assertNotIn("link.coupang", opener["text"] + middle["text"])
+        self.assertTrue(ad["text"].startswith(P.DISCLOSURE + "\n\n"))
+        self.assertTrue(ad["text"].endswith(self.post["affiliate_url"]))
+        self.assertEqual(ad["media_type"], "IMAGE")
+        self.assertNotIn("topic_tag", middle)
+        # Each reply hangs off the previous published post, so the ad is the last in the thread.
+        self.assertEqual(middle["reply_to_id"], "published-container-2")
+        self.assertEqual(ad["reply_to_id"], "published-container-4")
+        self.assertEqual(json.loads(self.path.read_text())["stage"], "posted")
+
+    def test_links_in_opener_or_replies_are_rejected_before_api(self):
+        original = dict(self.post)
+        for changes in [{"text": "자세히는 https://example.com"}, {"replies": ["link.coupang.com/a/x"]}, {"topic_tag": "생활 꿀팁"}]:
+            with self.subTest(changes=changes):
+                self.post = dict(original, **changes)
+                client = FakeThreads()
+                with self.assertRaises(ValueError):
+                    self.run_post(client)
+                self.assertEqual(client.calls, [])
+
+    def test_uncertain_reply_stops_and_never_reposts_the_opener(self):
+        with self.assertRaises(RuntimeError):
+            self.run_post(FakeThreads(fail_on_publish=2))
+        state = json.loads(self.path.read_text())
+        self.assertEqual([p.get("stage") for p in state["parts"]], ["posted", "needs_review", None])
+        client = FakeThreads()
+        with self.assertRaises(ValueError):
+            self.run_post(client)
+        self.assertFalse(any(c[0] == "POST" for c in client.calls))
+
+    def test_interrupted_run_resumes_after_the_last_posted_part(self):
+        self.run_post(FakeThreads())
+        state = json.loads(self.path.read_text())
+        state["stage"] = "threading"
+        state["parts"][2] = {}
+        self.path.write_text(json.dumps(state))
+        client = FakeThreads()
+        self.run_post(client)
+        created = self.creates(client)
+        self.assertEqual(len(created), 1)
+        self.assertTrue(created[0]["text"].startswith(P.DISCLOSURE))
 
 
 class DailySlots(unittest.TestCase):

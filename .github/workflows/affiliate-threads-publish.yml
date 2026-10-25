@@ -50,7 +50,7 @@ jobs:
     needs: test
     if: github.ref == 'refs/heads/main' && (vars.COUPANG_THREADS_ENABLED == 'true' || (github.event_name == 'workflow_dispatch' && inputs.mode != 'publish'))
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
         with:

@@ -82,6 +82,34 @@ def compose(post):
     return text
 
 
+def plain_part(text, label):
+    """Thread opener/middle replies: no URLs, no product link, within the 500-char limit."""
+    text = (text or "").strip()
+    if not text:
+        raise ValueError(f"{label} 이 비었습니다.")
+    if re.search(r"https?://|www\.|link\.coupang", text, re.I):
+        raise ValueError(f"{label} 에는 링크를 넣지 마세요. 링크는 마지막 광고 댓글에만 둡니다.")
+    if text_length(text) > 500:
+        raise ValueError(f"{label} 이 Threads 500자 한도를 넘었습니다.")
+    return text
+
+
+def thread_parts(post):
+    """A post with `text` is a thread: opener → replies → ad reply (disclosure first, link, photo).
+    Posts without `text` stay a single ad post."""
+    ad = {"text": compose(post), "image": image_url(post)}
+    if not post.get("text"):
+        return [ad]
+    tag = (post.get("topic_tag") or "").strip().lstrip("#")
+    if tag and (len(tag) > 50 or re.search(r"[.&\s]", tag)):
+        raise ValueError("topic_tag 는 공백·마침표·& 없는 50자 이하 한 단어만 쓸 수 있습니다.")
+    opener = {"text": plain_part(post["text"], "첫 글"), "image": "", "topic_tag": tag}
+    replies = [{"text": plain_part(r, f"댓글 {i}"), "image": ""} for i, r in enumerate(post.get("replies") or [], 1)]
+    if len(replies) > 3:
+        raise ValueError("중간 댓글은 3개까지만 씁니다.")
+    return [opener, *replies, ad]
+
+
 class Threads:
     def __init__(self, token):
         if not token:
@@ -127,6 +155,9 @@ def publish(config, post, state_path, client, save=save_state, sleep=time.sleep)
         raise ValueError("계정 연결과 가입 완료 후 두 활성화 설정을 켜야 게시할 수 있습니다.")
     if post.get("status") != "scheduled":
         raise ValueError("status=scheduled인 원고만 게시할 수 있습니다.")
+    parts = thread_parts(post)
+    if len(parts) > 1:
+        return publish_thread(config, parts, state_path, client, save, sleep)
     text = compose(post)
     image = image_url(post)
     profile = client.call("GET", "me", fields="id,username")
@@ -171,6 +202,60 @@ def publish(config, post, state_path, client, save=save_state, sleep=time.sleep)
     return state
 
 
+def publish_thread(config, parts, state_path, client, save=save_state, sleep=time.sleep):
+    profile = client.call("GET", "me", fields="id,username")
+    check_account(config, profile)
+    identity = str(profile["id"])
+    digest = hashlib.sha256((identity + "\n" + json.dumps(parts, ensure_ascii=False, sort_keys=True)).encode()).hexdigest()
+    state = read_json(state_path) if state_path.exists() else {}
+    if state and state.get("digest") != digest:
+        raise ValueError("체크포인트 원고·계정이 변경됐습니다. 수동 확인이 필요합니다.")
+    if state.get("stage") == "posted":
+        print("이미 게시된 타래입니다. 추가 게시 없음.")
+        return state
+    if not state:
+        state = {"digest": digest, "user_id": identity, "stage": "threading", "parts": [{} for _ in parts]}
+    for index, part in enumerate(parts):
+        done = state["parts"][index]
+        if done.get("stage") == "posted":
+            continue
+        if done.get("stage") in {"creating", "publishing", "needs_review"} or state.get("stage") == "needs_review":
+            raise ValueError(f"타래 {index + 1}번째 글의 직전 결과가 불확실합니다. Threads 에서 확인 후 상태를 수동 복구하세요.")
+        if not done:
+            media = {"media_type": "IMAGE", "image_url": part["image"]} if part["image"] else {"media_type": "TEXT"}
+            if index:
+                media["reply_to_id"] = state["parts"][index - 1]["media_id"]
+            elif part.get("topic_tag"):
+                media["topic_tag"] = part["topic_tag"]
+            done["stage"] = "creating"
+            save(state_path, state)
+            try:
+                done["container_id"] = client.call("POST", f"{identity}/threads", text=part["text"], **media)["id"]
+            except Exception:
+                done["stage"] = state["stage"] = "needs_review"
+                save(state_path, state)
+                raise
+            done["stage"] = "container"
+            save(state_path, state)
+        if done.get("stage") != "container" or not done.get("container_id"):
+            raise ValueError("알 수 없는 게시 상태입니다. 수동 확인이 필요합니다.")
+        sleep(30)
+        done["stage"] = "publishing"
+        save(state_path, state)
+        try:
+            done["media_id"] = client.call("POST", f"{identity}/threads_publish", creation_id=done["container_id"])["id"]
+        except Exception:
+            done["stage"] = state["stage"] = "needs_review"
+            save(state_path, state)
+            raise
+        done["stage"] = "posted"
+        save(state_path, state)
+    state.update(stage="posted", media_id=state["parts"][0]["media_id"], posted_at=dt.datetime.now(dt.timezone.utc).isoformat())
+    save(state_path, state)
+    print("쿠팡 전용 Threads 타래 게시 완료:", state["media_id"], f"({len(parts)}개 글)")
+    return state
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--mode", choices=["validate", "identify", "check", "dry-run", "publish"], default="dry-run")
@@ -195,8 +280,7 @@ def main():
         for path in files:
             post = read_json(path)
             if post.get("status") == "scheduled":
-                compose(post)
-                image_url(post)
+                thread_parts(post)
         print(f"원고 검사 완료: {len(files)}개 파일")
         return
     dt.date.fromisoformat(args.date)
@@ -211,12 +295,15 @@ def main():
     if post.get("status") != "scheduled":
         print("예약 승인된 원고 아님. 게시 없음.")
         return
-    text = compose(post)
-    image = image_url(post)
+    parts = thread_parts(post)
     if args.mode == "dry-run":
-        print(text)
-        print(f"\n이미지: {image or '없음(텍스트 글)'}")
-        print(f"\n검사 길이: {text_length(text)}/500, API 호출 없음")
+        for index, part in enumerate(parts, 1):
+            label = "첫 글" if index == 1 and len(parts) > 1 else ("광고 댓글" if index == len(parts) else f"댓글 {index - 1}")
+            extra = f" · 주제 태그 #{part['topic_tag']}" if part.get("topic_tag") else ""
+            print(f"── {label} ({text_length(part['text'])}/500){extra}")
+            print(part["text"])
+            print(f"이미지: {part['image']}\n" if part["image"] else "")
+        print("API 호출 없음")
         return
     client = Threads(os.environ.get("COUPANG_THREADS_ACCESS_TOKEN"))
     publish(config, post, ROOT / "state" / name, client)

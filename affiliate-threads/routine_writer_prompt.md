@@ -14,38 +14,39 @@
 - **이미지**: 대표 상품 이미지(og:image, `thumbnail.coupangcdn.com/...`)를 `https:` 를 붙인 전체 URL 로 `image_url` 에 넣는다. 게시기가 사진 1장 + 글로 올린다. coupangcdn.com 이 아닌 이미지, 이미지를 못 찾은 상품은 `image_url` 을 비운다(텍스트 글로 올라간다).
 - `source_url` 은 `https://www.coupang.com/vp/products/<id>?itemId=<itemId>` 형태로 정리한다(추적 파라미터 제거).
 
-## 3. 원고
-`posts/2026-10-25.json` 이 기준 예시다. 구조:
-1. 첫 줄 훅 — "OO, △△보다 먼저 볼 게 있어요." 처럼 고르는 기준을 던진다.
-2. 기준 1~2개 — 재야 할 치수, 실패하는 상황(왜 다시 밖으로 나오는지). 생활 상식 수준만, 지어낸 경험담 없이.
-3. 상품 사실 한 문단 — "이 제품은 상품 페이지에 …로 표시돼 있어요." 상품 페이지에서 확인한 크기·구성·소재만.
-4. 마지막 줄 고정: `직접 사용 후기가 아닌 상품 정보 기반 소개입니다.`
+## 3. 원고 — 타래(사용자 결정 2026-10-25)
+`posts/2026-10-28-2.json` 이 기준 예시다. 한 슬롯 = 타래 하나:
+1. **첫 글 `text`** — 고르는 기준만. 첫 줄 훅("OO, △△보다 먼저 볼 게 있어요." / 트렌드 키워드면 "김장철 앞두고 김장매트 검색이 많이 늘었어요.") + 재야 할 치수·실패하는 상황 1~2개 + 마지막 줄 `👇 이 기준에 맞춰 고른 제품은 타래에`. **상품명·브랜드·사진·링크는 넣지 않는다**(광고 표시 없이 특정 상품을 추천하면 안 되므로). 120~250자.
+2. **중간 댓글 `replies`** — 보통 빈 배열. 기준이 길어질 때만 0~2개, 같은 규칙(상품명·링크 없음).
+3. **광고 댓글 `body`** — 게시기가 맨 앞에 `[광고] …수수료를 제공받습니다.`, 맨 뒤에 링크를 붙이고 상품 사진을 단다. 형식: `👉 <product_name>` / 빈 줄 / "이 제품은 상품 페이지에 …로 표시돼 있어요." 상품 페이지에서 확인한 크기·구성·소재만 / 빈 줄 / 고정 줄 `직접 사용 후기가 아닌 상품 정보 기반 소개입니다.`
+4. **주제 태그 `topic_tag`** — Threads 는 글당 주제 태그 1개만 노출되므로 첫 글에만 하나. 범주별 기본값: 책상·케이블 정리=데스크테리어, 옷장·서랍 수납=수납정리, 주방 도구·보관=살림템, 청소 도구=청소꿀팁, 세탁·건조=살림팁, 욕실 정리=욕실정리, 현관·신발 정리=현관정리, 현관·단열·침실 겨울용품=겨울준비, 차량 정리=차량용품. 트렌드 키워드가 시즌 행사면 그 이름(예: 김장 매트=김장준비). 공백·마침표·& 없이 한 단어. 본문에 `#해시태그` 는 쓰지 않는다.
 
-금지: 가격·할인·쿠폰·평점·리뷰 수·"N명 구매"·배송 속도(바뀌는 값), "써봤다/내돈내산/강추/최저가/품절 임박", 효능 주장, 본문 안 URL, 해시태그 남발(0~1개), 이모지 2개 초과. 광고 문구와 링크는 게시기가 붙이니 본문에 넣지 않는다.
+금지: 가격·할인·쿠폰·평점·리뷰 수·"N명 구매"·배송 속도(바뀌는 값), "써봤다/내돈내산/강추/최저가/품절 임박", 효능 주장, 확인 안 된 날씨·시사 이야기, 본문 안 URL, 이모지 글당 2개 초과.
 
 파일 형식(`affiliate_url` 은 비워 둔다 — 브루스가 포털에서 발급해 회신한다):
 ```json
-{"status": "draft", "category": "책상·케이블 정리", "product_name": "상품 페이지의 정확한 상품명, 옵션",
- "body": "본문", "affiliate_url": "", "source_url": "https://www.coupang.com/vp/products/...?itemId=...",
+{"status": "draft", "category": "주방 도구·보관", "product_name": "상품 페이지의 정확한 상품명, 옵션", "topic_tag": "김장준비",
+ "text": "첫 글", "replies": [], "body": "👉 상품명\n\n이 제품은 …\n\n직접 사용 후기가 아닌 상품 정보 기반 소개입니다.",
+ "affiliate_url": "", "source_url": "https://www.coupang.com/vp/products/...?itemId=...",
  "image_url": "https://thumbnail.coupangcdn.com/thumbnails/remote/492x492ex/image/...jpg", "trend_keyword": "트렌드 파일에서 고른 키워드(없으면 생략)",
  "verified_at": "확인한 실제 ISO 8601 시각(+09:00)", "review_note": "routine draft — 링크 회신 대기"}
 ```
 
-길이 확인(광고 문구·링크 포함 500 이하, 목표 430 이하):
+길이 확인(글마다 500 이하, 광고 댓글 목표 430 이하):
 ```
-python3 -c "import importlib.util,json,sys;s=importlib.util.spec_from_file_location('p','affiliate-threads/scripts/publish.py');p=importlib.util.module_from_spec(s);s.loader.exec_module(p);d=json.load(open(sys.argv[1]));d['affiliate_url']='https://link.coupang.com/a/XXXXXXXXXX';print(p.text_length(p.compose(d)))" <파일>
+python3 -c "import importlib.util,json,sys;s=importlib.util.spec_from_file_location('p','affiliate-threads/scripts/publish.py');p=importlib.util.module_from_spec(s);s.loader.exec_module(p);d=json.load(open(sys.argv[1]));d['affiliate_url']='https://link.coupang.com/a/XXXXXXXXXX';print([p.text_length(x['text']) for x in p.thread_parts(d)])" <파일>
 ```
-에러가 나거나 430 을 넘으면 본문을 줄인다.
+에러가 나거나 넘치면 줄인다.
 
 ## 4. 저장
 `python -m unittest discover -s affiliate-threads/tests` 와 `python affiliate-threads/scripts/publish.py --mode validate` 가 통과하면 `git pull --rebase` 후 `affiliate-threads/posts/` 만 커밋·main 푸시. 메시지 `content: picknotes drafts for <첫날짜>~<끝날짜>`.
 
 ## 5. 미리보기 메일
 Gmail 로 heoboram0114@gmail.com 에 한 통. 제목 `[생활픽노트] 주간 원고 미리보기 (<첫날짜>~<끝날짜>)`.
-본문: 슬롯마다 `M/D-슬롯(요일 HH:MM) · 범주 · 상품명`(트렌드 키워드면 `🔥키워드 +NN%`), 상품 사진(`<img src=image_url width=160>`, htmlBody 로) / 상품 페이지 링크 / 본문 전문 / 예상 글자 수(광고·링크 포함).
+본문: 슬롯마다 `M/D-슬롯(요일 HH:MM) · 범주 · #주제태그 · 상품명`(트렌드 키워드면 `🔥키워드 +NN%`), 상품 사진(`<img src=image_url width=160>`, htmlBody 로) / 상품 페이지 링크 / 첫 글 전문 / 광고 댓글 전문(광고 문구·링크 포함 모습) / 글자 수.
 맨 아래 안내(그대로):
 - "쿠팡 파트너스 → 링크 생성에 위 상품 페이지 주소를 넣어 만든 링크를, 이 메일에 슬롯별로 한 줄씩 회신해 주세요. 예: `10/27-1 https://link.coupang.com/a/xxxx` (슬롯 1=08:40, 2=12:40, 3=19:30)"
 - "링크를 받은 슬롯만 올라갑니다(링크 회신 = 그 슬롯 승인). 하루 2개만 올리고 싶으면 2개만 회신하면 됩니다. 매일 08:07·12:07·19:07 에 회신을 확인하니 슬롯 시각 30분 전까지 보내 주세요. 일주일 치를 한 번에 보내도 됩니다."
-- "빼려면 `보류 M/D-슬롯`(하루 전체는 `보류 M/D`), 문장을 고치려면 `수정 M/D-슬롯:` 다음 줄부터 고친 본문 전체를 적어 주세요."
+- "빼려면 `보류 M/D-슬롯`(하루 전체는 `보류 M/D`), 첫 글을 고치려면 `수정 M/D-슬롯:`, 광고 댓글의 상품 설명을 고치려면 `수정광고 M/D-슬롯:` 다음 줄부터 고친 글 전체를 적어 주세요."
 
 하지 말 것: Threads 직접 게시, 제휴 링크를 직접 만들거나 추측해서 넣기, 상품 페이지에 없는 사실, status 를 scheduled 로 바꾸기, 토큰·시크릿 다루기.
