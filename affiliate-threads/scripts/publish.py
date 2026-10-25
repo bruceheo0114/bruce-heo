@@ -19,6 +19,15 @@ API = "https://graph.threads.com/v1.0"
 DISCLOSURE = "[광고] 이 게시물은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다."
 EXCLUDED = {"heo.boram", "bruce.insight", "work_bruce"}
 KST = dt.timezone(dt.timedelta(hours=9))
+SLOTS = {1: "08:40", 2: "12:40", 3: "19:30"}  # KST; slot 3 also reads the legacy <date>.json
+
+
+def post_name(date, slot):
+    """Slot N reads posts/<date>-N.json; slot 3 falls back to the one-a-day <date>.json."""
+    name = f"{date}-{slot}.json"
+    if slot == 3 and not (ROOT / "posts" / name).exists() and (ROOT / "posts" / f"{date}.json").exists():
+        return f"{date}.json"
+    return name
 
 
 def read_json(path):
@@ -151,6 +160,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--mode", choices=["validate", "identify", "check", "dry-run", "publish"], default="dry-run")
     parser.add_argument("--date", default=dt.datetime.now(KST).strftime("%Y-%m-%d"))
+    parser.add_argument("--slot", type=int, choices=sorted(SLOTS), default=3)
     args = parser.parse_args()
     config = read_json(ROOT / "config.json")
     if args.mode in {"identify", "check"}:
@@ -165,7 +175,8 @@ def main():
         print("쿠팡 전용 계정 일치 확인:", profile["username"], profile["id"])
         return
     if args.mode == "validate":
-        files = list((ROOT / "posts").glob("????-??-??.json"))
+        files = [path for path in (ROOT / "posts").glob("????-??-??*.json")
+                 if re.fullmatch(r"\d{4}-\d{2}-\d{2}(-[123])?\.json", path.name)]
         for path in files:
             post = read_json(path)
             if post.get("status") == "scheduled":
@@ -175,9 +186,10 @@ def main():
     dt.date.fromisoformat(args.date)
     if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", args.date):
         raise ValueError("YYYY-MM-DD 형식만 사용할 수 있습니다.")
-    path = ROOT / "posts" / f"{args.date}.json"
+    name = post_name(args.date, args.slot)
+    path = ROOT / "posts" / name
     if not path.exists():
-        print("이 날짜의 원고 없음. 게시 없음.")
+        print(f"{args.date} {SLOTS[args.slot]} 슬롯 원고 없음. 게시 없음.")
         return
     post = read_json(path)
     if post.get("status") != "scheduled":
@@ -189,7 +201,7 @@ def main():
         print(f"\n검사 길이: {text_length(text)}/500, API 호출 없음")
         return
     client = Threads(os.environ.get("COUPANG_THREADS_ACCESS_TOKEN"))
-    publish(config, post, ROOT / "state" / f"{args.date}.json", client)
+    publish(config, post, ROOT / "state" / name, client)
 
 
 if __name__ == "__main__":

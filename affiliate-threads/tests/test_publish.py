@@ -133,5 +133,27 @@ class PublishingBoundaries(unittest.TestCase):
                      "verified_at": "2026-10-25T17:00:00+09:00"}
 
 
+class DailySlots(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        (pathlib.Path(self.tmp.name) / "posts").mkdir()
+        self.root = mock.patch.object(P, "ROOT", pathlib.Path(self.tmp.name))
+        self.root.start()
+
+    def tearDown(self):
+        self.root.stop()
+        self.tmp.cleanup()
+
+    def test_each_slot_has_its_own_file_and_checkpoint_name(self):
+        self.assertEqual(P.post_name("2026-10-27", 1), "2026-10-27-1.json")
+        self.assertEqual(P.post_name("2026-10-27", 2), "2026-10-27-2.json")
+        self.assertEqual(P.post_name("2026-10-27", 3), "2026-10-27-3.json")
+
+    def test_evening_slot_still_reads_legacy_one_a_day_file(self):
+        (P.ROOT / "posts" / "2026-10-27.json").write_text("{}")
+        self.assertEqual(P.post_name("2026-10-27", 3), "2026-10-27.json")
+        self.assertEqual(P.post_name("2026-10-27", 1), "2026-10-27-1.json")
+
+
 if __name__ == "__main__":
     unittest.main()

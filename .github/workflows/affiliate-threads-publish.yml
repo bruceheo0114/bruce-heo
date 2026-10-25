@@ -6,7 +6,11 @@ on:
       - 'affiliate-threads/**'
       - '.github/workflows/affiliate-threads-publish.yml'
   schedule:
-    - cron: '30 10 * * *' # 19:30 Asia/Seoul; initial operational slot, not an optimal-time claim.
+    # Up to three posts a day (Asia/Seoul): slot 1 08:40, slot 2 12:40, slot 3 19:30.
+    # Initial operational slots, not an optimal-time claim. Empty slots post nothing.
+    - cron: '40 23 * * *'
+    - cron: '40 3 * * *'
+    - cron: '30 10 * * *'
   workflow_dispatch:
     inputs:
       mode:
@@ -17,6 +21,11 @@ on:
       post_date:
         description: 'YYYY-MM-DD (비우면 오늘 KST)'
         required: false
+      slot:
+        description: '1=08:40, 2=12:40, 3=19:30'
+        type: choice
+        options: ['1', '2', '3']
+        default: '3'
 
 permissions:
   contents: write
@@ -60,10 +69,11 @@ jobs:
           COUPANG_GIT_CHECKPOINT: 'true'
           MODE: ${{ github.event_name == 'schedule' && 'publish' || inputs.mode }}
           POST_DATE: ${{ inputs.post_date }}
+          SLOT: ${{ github.event.schedule == '40 23 * * *' && '1' || github.event.schedule == '40 3 * * *' && '2' || inputs.slot || '3' }}
         run: |
           python affiliate-threads/scripts/publish.py --mode validate
           if [ -n "$POST_DATE" ]; then
-            python affiliate-threads/scripts/publish.py --mode "$MODE" --date "$POST_DATE"
+            python affiliate-threads/scripts/publish.py --mode "$MODE" --date "$POST_DATE" --slot "$SLOT"
           else
-            python affiliate-threads/scripts/publish.py --mode "$MODE"
+            python affiliate-threads/scripts/publish.py --mode "$MODE" --slot "$SLOT"
           fi

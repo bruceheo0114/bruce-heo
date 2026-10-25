@@ -15,11 +15,11 @@
 5. `identify` 모드로 새 토큰의 username과 `/me`의 실제 id를 확인해 `config.json.user_id`에 등록합니다. identify는 설정을 수정하거나 게시하지 않고, 지정된 전용 username과 일치할 때만 ID를 출력합니다. 변경된 최종 아이디도 다시 확인합니다.
 6. 완료: 쿠팡 파트너스 개인 가입·PASS 본인 인증·약관 확인·새 Threads 프로필 URL 등록. 최종 활동 심사는 별개로 미완료입니다. 제휴 링크와 대가성 표시가 함께 보이는 실제 게시물 증빙을 준비해야 합니다.
 7. 쿠팡 파트너스 포털에서 본인 제휴 링크를 발급한 뒤 원고에 넣습니다. 이 버전은 쿠팡 상품 API를 호출하지 않으므로 쿠팡 API 키가 없어도 포털에서 발급한 링크를 사용할 수 있습니다.
-8. `check`, `dry-run` 확인 후 `config.json.enabled=true` 및 Actions Variable `COUPANG_THREADS_ENABLED=true`를 설정합니다. 매일 19:30 KST에 그날의 scheduled 원고 한 개만 게시합니다. 초기 운영 시각이며 성과가 검증된 최적 시각이라는 뜻은 아닙니다. GitHub 예약 실행은 지연될 수 있습니다.
+8. `check`, `dry-run` 확인 후 `config.json.enabled=true` 및 Actions Variable `COUPANG_THREADS_ENABLED=true`를 설정합니다. 하루 최대 3슬롯(1=08:40, 2=12:40, 3=19:30 KST)에 각 슬롯의 scheduled 원고 한 개씩 게시합니다. 초기 운영 시각이며 성과가 검증된 최적 시각이라는 뜻은 아닙니다. GitHub 예약 실행은 지연될 수 있습니다.
 
 ## 원고 작성
 
-`posts/YYYY-MM-DD.json` 형식입니다. 검토 중인 원고는 `draft`, 확인한 원고만 `scheduled`로 바꿉니다.
+`posts/YYYY-MM-DD-<슬롯>.json` 형식입니다(슬롯 1=08:40, 2=12:40, 3=19:30). 예전 `posts/YYYY-MM-DD.json` 은 슬롯 3으로 읽습니다. 검토 중인 원고는 `draft`, 확인한 원고만 `scheduled`로 바꿉니다.
 
 ```json
 {
@@ -44,12 +44,18 @@ python -m unittest discover -s affiliate-threads/tests -v
 python affiliate-threads/scripts/publish.py --mode validate
 python affiliate-threads/scripts/publish.py --mode identify
 python affiliate-threads/scripts/publish.py --mode check
-python affiliate-threads/scripts/publish.py --mode dry-run --date 2026-10-26
+python affiliate-threads/scripts/publish.py --mode dry-run --date 2026-10-27 --slot 1
 ```
 
 `check`에는 새 전용 토큰이 필요합니다. `dry-run`은 API를 호출하지 않습니다. 게시 상태는 `state/YYYY-MM-DD.json`에 보관합니다. Actions는 외부 생성·게시 요청 전에 의도를 먼저 main에 커밋·푸시합니다. 브랜치 보호 등으로 저장이 실패하면 요청을 보내지 않습니다. 네트워크 실패나 실행 중단으로 결과가 불확실하면 `needs_review`/`creating`/`publishing`에서 중단하며 자동 재게시하지 않습니다. 실제 Threads를 확인한 뒤 게시됐으면 media_id와 stage=posted를 기록합니다. 미게시가 확실하면 수동으로 상태를 복구합니다. 확인 없이 체크포인트를 삭제하지 마세요.
 
 장기 토큰은 60일 유효하며 만료 전에 갱신해야 합니다. 이 초안에는 자동 토큰 갱신·GitHub Secret 교체 기능이 없습니다. 만료 시 게시가 실패하므로 운영 시작 시 갱신 절차를 함께 정해야 합니다.
+
+## 자동 루틴 (Claude)
+
+- **주간 원고** (일 19:48 KST): `routine_writer_prompt.md`. 다음 7일 × 3슬롯 draft 를 쓰고(상품 페이지는 Firecrawl 로 확인) `[생활픽노트] 주간 원고 미리보기` 메일을 보냅니다. 제휴 링크는 만들지 않습니다.
+- **링크·승인 반영** (매일 08:07·12:07·19:07 KST): `routine_approval_prompt.md`. 브루스가 메일에 `10/27-1 https://link.coupang.com/a/...` 로 회신한 슬롯만 상품을 재확인해 `scheduled` 로 바꿉니다. 링크 회신이 없는 슬롯은 게시되지 않습니다.
+- 실제 게시는 위 Actions 만 합니다.
 
 ## 공식 근거
 
