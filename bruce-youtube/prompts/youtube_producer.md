@@ -52,13 +52,17 @@ RECOMMENDATION은 `MAKE_VIDEO` / `SHORTS_ONLY` / `HOLD` / `SKIP` 중 하나. 아
 다음 `##` 제목을 이 이름 그대로 모두 쓴다.
 
 `## Original Article` (제목, URL) · `## One Sentence Thesis` · `## Audience` · `## Why Now` · `## Expected Runtime` ·
-`## Title Candidates` (목록 5개) · `## Thumbnail Copy` (목록 5개) · `## Opening Hook` (첫 30초 내레이션) ·
+`## Title Candidates` (목록 5개) · `## Thumbnail Copy` (목록 5개) · `## Hook Candidates` (표, 아래) · `## Opening Hook` (첫 30초 내레이션) ·
 `## Main Question` · `## Core Argument` · `## Chapter Structure` (타임코드 포함) · `## Key Examples` · `## Ending Question / Statement`
 
 제목·썸네일·오프닝은 `insight-reels/HOOKS.md` 5절(성과 진단에서 배운 것)을 따른다(이 파일만 예외로 읽는다):
 - `## Title Candidates` 1순위는 **브랜드명(또는 원문 속 구체적 대상) + 역설적 질문**. 관점을 선언하는 추상 문장(예: 「하인즈는 케첩이 아니라 기억을 판다」)은 1순위로 두지 않는다.
 - `## Thumbnail Copy`는 한눈에 읽히는 짧은 한 줄. 화면 구성은 글자와 배경의 대비가 분명하게.
 - `## Opening Hook`은 가장 흥미로운 결론(반전)을 첫 문장~10초 안에 던지고, 배경 설명은 그 뒤로 미룬다.
+- **훅 10개 → 1개 (2026-10-26 Bruce 결정)** — `insight-reels/HOOK_RULES.md`(1쪽)도 읽는다. `## Title Candidates`·`## Thumbnail Copy`를 쓰기 전에 `## Hook Candidates`에 후보 10개를 표로 쓴다: `| 번호 | 화면 글자 | 첫마디 | 방식 |`.
+  - 화면 글자 = 썸네일 문구(한 줄 10단어 이하), 첫마디 = 영상 첫 문장. 정답(원문의 판단·"왜")은 말하지 않고 궁금증만 남긴다. 결론(무슨 일이 있었는지)은 먼저 보여 줘도 된다 — 숨기는 건 "왜"이고, 본문에서 꼭 답한다.
+  - 10개를 서로 다른 방식으로(숫자·질문·흔한 실수·반전·내 경험·비교·비밀 공개·낯선 말). 사실·숫자·말은 원문과 trends 기사에 있는 것만.
+  - 표 아래 `**Pick:** 번호 — 이유 한 줄`. 고른 후보의 화면 글자가 `## Thumbnail Copy` 1번, 첫마디가 `## Opening Hook` 첫 문장이 되고, `## Title Candidates` 1순위도 그 궁금증으로 쓴다(검색 훅 조건 우선).
 - **검색 훅 (네이버, 2026-10-19 Bruce 결정)** — `trends/<yt_slot>.json`의 `hooks`·`terms`·`variants`를 근거로:
   - **제목:** 1순위 제목은 `hooks.title_keyword`(사람들이 실제로 가장 많이 찾는 이름)로 시작한다. 원문 제목이 다른 이름으로 시작해도 바꾼다(예: 「기사식당 전단지」보다 「버거킹」이 많이 찾히면 「버거킹은 왜 …」).
     `Title Candidates`에 1순위(검색 이름 + 역설적 질문) · 2순위(숫자 반전형) · 3순위(시리즈 말투 — 마케터의 질문이면 광고주·상사의 실제 질문 그대로)를 쓰고, 1순위 옆에 `[검색: 이름 avg … · 함께 찾는 말 …]` 근거를 적는다.
@@ -228,7 +232,8 @@ REUSE POSSIBILITY: S009 챕터 전환에서 같은 REF01 재사용
 `## SHORT 01` ~ `## SHORT 03` (3~5개). 인스타그램 @bruce.insight 릴스로도 쓸 수 있게 30~45초. 각 Short 아래:
 
 ```text
-HOOK: ...
+HOOK OPTIONS: 1) ... / 2) ... / 3) ...  (서로 다른 방식, 각 10단어 이하)
+HOOK: ...  (고른 1개 = ON SCREEN TEXT 첫 줄)
 SCRIPT: ...
 ON SCREEN TEXT: ...
 SOURCE TIMECODE: 03:20-04:05
