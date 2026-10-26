@@ -1,0 +1,34 @@
+{
+  "brunch": true,
+  "items": [
+    {
+      "id": "A001",
+      "kind": "page",
+      "url": "https://www.nike.com/nrc-app",
+      "source": "Nike 공식 홈페이지",
+      "scroll": true,
+      "scenes": [
+        "S030"
+      ]
+    },
+    {
+      "id": "A002",
+      "kind": "image",
+      "url": "https://static.nike.com/a/images/f_auto/dpr_1.0,cs_srgb/w_1809,c_limit/859dbe31-f75f-4f8c-a128-2dd74ee0d56c/nike-run-club-app.jpg",
+      "page": "https://www.nike.com/nrc-app",
+      "source": "Nike 공식 홈페이지",
+      "scenes": [
+        "S032"
+      ]
+    },
+    {
+      "id": "A003",
+      "kind": "article",
+      "url": "https://trophy.so/blog/nike-run-club-gamification-case-study",
+      "source": "Trophy (Nike Run Club 분석)",
+      "scenes": [
+        "S031"
+      ]
+    }
+  ]
+}
