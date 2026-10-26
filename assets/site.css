@@ -1520,7 +1520,6 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .book-launch__cover { order: -1; width: min(40vw, 160px); }
   .book-launch__cta .btn { flex: 1 1 100%; justify-content: center; }
 }
-.book-launch + .hero { padding-top: clamp(72px, 9vw, 120px); min-height: 0; }
 .nav__link--book { color: var(--accent); font-weight: 800; }
 .book-launch__parts { display: grid; gap: 8px; margin: 24px 0 0; padding: 0; list-style: none; max-width: 640px; }
 .book-launch__parts li {
@@ -1540,3 +1539,62 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .book-launch__parts li { grid-template-columns: 64px 1fr; padding: 9px 12px; }
   .book-launch__parts em { display: none; }
 }
+
+/* 첫 화면 슬라이드: 1 책 소개 → 2 브루스 소개 */
+.hero-slider { position: relative; }
+.hero-slider__track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+}
+.hero-slider__track::-webkit-scrollbar { display: none; }
+.hero-slide { flex: 0 0 100%; min-width: 0; scroll-snap-align: start; scroll-snap-stop: always; }
+.hero-slider .book-launch,
+.hero-slider .hero { padding: 104px 0 88px; min-height: 0; }
+.hero-slider .hero { display: flex; align-items: center; }
+.hero-slider__nav {
+  position: absolute;
+  left: 50%;
+  bottom: 22px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.16);
+  z-index: 5;
+}
+.hero-slider__btn, .hero-slider__dot {
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--text-2);
+  cursor: pointer;
+  border-radius: 999px;
+  padding: 7px 12px;
+}
+.hero-slider__btn { padding: 7px 10px; color: var(--text-3); }
+.hero-slider__dot[aria-current="true"] { background: var(--text); color: #fff; }
+.hero-slider__dot[data-slide-to="0"][aria-current="true"] { background: #D30874; }
+.hero-slider__btn:hover, .hero-slider__dot:hover { color: var(--text); }
+.hero-slider__dot[aria-current="true"]:hover { color: #fff; }
+@media (min-width: 900px) {
+  .hero-slider .book-launch, .hero-slider .hero { padding: 120px 0 96px; }
+  .hero-slider .book-launch__cover { margin-top: 0; width: min(100%, 330px); }
+  .hero-slider .book-launch__grid { align-items: center; }
+}
+.hero-slider .book-launch { display: flex; align-items: center; }
+.hero-slider .book-launch > .wrap { width: 100%; }
+@media (min-width: 900px) {
+  .hero-slide { min-height: min(100svh, 860px); }
+}
+.hero-slider__track { align-items: flex-start; transition: height 0.35s ease; }
+.hero-slider .hero { padding-top: 96px; padding-bottom: 76px; }
+.hero-slider__nav { bottom: 16px; }

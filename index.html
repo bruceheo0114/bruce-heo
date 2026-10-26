@@ -105,7 +105,9 @@
 <!-- ============================================================
      BOOK LAUNCH — 첫 책 출간 (2026-11-05)
      ============================================================ -->
-<section class="book-launch" id="book" aria-labelledby="book-title">
+<div class="hero-slider" aria-roledescription="carousel" aria-label="책 소개와 브루스 소개">
+<div class="hero-slider__track" id="hero-track">
+<section class="book-launch hero-slide" id="book" aria-roledescription="slide" aria-label="1 / 2 책 소개" aria-labelledby="book-title">
   <div class="wrap book-launch__grid">
     <div class="book-launch__copy">
       <p class="book-launch__kicker"><span class="book-launch__dot" aria-hidden="true"></span>첫 책 출간 · 지금 판매 중</p>
@@ -115,32 +117,25 @@
         <a class="btn book-launch__buy" data-book-store="yes24" href="https://www.yes24.com/product/goods/199439514" target="_blank" rel="noopener">YES24에서 구매하기 →</a>
         <a class="btn book-launch__buy book-launch__buy--alt" data-book-store="kyobo" href="https://product.kyobobook.co.kr/detail/S000221776404" target="_blank" rel="noopener">교보문고에서 구매하기 →</a>
       </div>
-      <ol class="book-launch__parts" aria-label="책의 구성: 5단계 맥락 판단 프레임">
-        <li><b>READ</b><span>1부 사람의 맥락을 읽는 일</span><em>사람들은 왜 굳이 불편을 살까 · 광고 같아도 끝까지 보게 만드는 이유</em></li>
-        <li><b>ROOT</b><span>2부 브랜드의 맥락을 지키는 일</span><em>하인즈는 케첩이 아니라 기억을 판다 · 광고는 웃겼는데, 브랜드는 남았나</em></li>
-        <li><b>REACH</b><span>3부 관심을 행동으로 연결하는 일</span><em>후기 1,000개보다 먼저 봐야 할 것 · 인플루언서는 종착지가 아니라 입구다</em></li>
-        <li><b>RALLY</b><span>4부 사람과 함께 일하는 맥락</span><em>“조금 더 임팩트 있게”라는 말의 뜻 · 모두가 반대했고, 한 사람이 믿었다</em></li>
-        <li><b>REMAIN</b><span>5부 AI 시대, 판단을 남기는 일</span><em>11년 차의 경험을 AI에게 인수인계할 수 있을까 · AI가 뭉툭한 게 아니라 내가 뭉툭해지고 있었다</em></li>
+      <ol class="book-launch__frame" aria-label="5단계 맥락 판단 프레임">
+        <li><b>READ</b>사람을 읽고</li>
+        <li><b>ROOT</b>브랜드를 지키고</li>
+        <li><b>REACH</b>행동으로 잇고</li>
+        <li><b>RALLY</b>사람을 모으고</li>
+        <li><b>REMAIN</b>판단을 남긴다</li>
       </ol>
-      <p class="book-launch__note">30개 장 + 장마다 바로 쓰는 판단 노트(체크리스트)</p>
-      <p class="book-launch__meta">허보람 지음 · 슬로디미디어 · 184쪽 · 정가 17,000원</p>
+      <p class="book-launch__meta">허보람 지음 · 슬로디미디어 · 30개 장 + 장마다 판단 체크리스트</p>
     </div>
     <a class="book-launch__cover" data-book-store="yes24" href="https://www.yes24.com/product/goods/199439514" target="_blank" rel="noopener" aria-label="YES24에서 책 보기">
       <img src="/assets/book/cover.jpg" width="800" height="1135" alt="책 표지: AI는 답을 만들고 마케터는 맥락을 설계한다 (허보람 지음, 슬로디미디어)" fetchpriority="high">
     </a>
   </div>
 </section>
-<script>
-  document.addEventListener('click', function (e) {
-    var a = e.target.closest && e.target.closest('[data-book-store]');
-    if (a && typeof gtag === 'function') gtag('event', 'book_store_click', { store: a.getAttribute('data-book-store'), link_url: a.href });
-  }, true);
-</script>
 
 <!-- ============================================================
      HERO
      ============================================================ -->
-<header class="hero" id="hero">
+<header class="hero hero-slide" id="hero" aria-roledescription="slide" aria-label="2 / 2 브루스 소개">
   <div class="wrap hero__grid">
     <div>
       <span class="hero__eyebrow">마케터 허보람(브루스) · Brand Communication &amp; IMC</span>
@@ -203,6 +198,49 @@
     </aside>
   </div>
 </header>
+</div>
+<div class="hero-slider__nav">
+  <button type="button" class="hero-slider__btn" data-slide-prev aria-label="이전 슬라이드">←</button>
+  <button type="button" class="hero-slider__dot" data-slide-to="0" aria-label="책 소개">책</button>
+  <button type="button" class="hero-slider__dot" data-slide-to="1" aria-label="브루스 소개">소개</button>
+  <button type="button" class="hero-slider__btn" data-slide-next aria-label="다음 슬라이드">→</button>
+</div>
+</div>
+<script>
+  (function () {
+    var track = document.getElementById('hero-track');
+    if (!track) return;
+    var slides = track.querySelectorAll('.hero-slide');
+    var dots = document.querySelectorAll('.hero-slider__dot');
+    var current = 0, timer = null;
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function go(i) {
+      current = (i + slides.length) % slides.length;
+      track.scrollTo({ left: track.clientWidth * current, behavior: reduce ? 'auto' : 'smooth' });
+    }
+    function fit() { var el = slides[current]; if (el) track.style.height = el.offsetHeight + 'px'; }
+    function mark() {
+      current = Math.round(track.scrollLeft / Math.max(track.clientWidth, 1));
+      fit();
+      dots.forEach(function (d, i) { d.setAttribute('aria-current', i === current ? 'true' : 'false'); });
+    }
+    function stop() { if (timer) { clearInterval(timer); timer = null; } }
+    track.addEventListener('scroll', function () { window.requestAnimationFrame(mark); }, { passive: true });
+    window.addEventListener('resize', fit);
+    window.addEventListener('load', fit);
+    document.querySelectorAll('[data-slide-to]').forEach(function (d) { d.addEventListener('click', function () { stop(); go(+d.getAttribute('data-slide-to')); }); });
+    document.querySelector('[data-slide-prev]').addEventListener('click', function () { stop(); go(current - 1); });
+    document.querySelector('[data-slide-next]').addEventListener('click', function () { stop(); go(current + 1); });
+    ['pointerdown', 'wheel', 'touchstart', 'keydown'].forEach(function (ev) { track.addEventListener(ev, stop, { passive: true }); });
+    if (location.hash === '#hero' || location.hash === '#about-top') go(1);
+    mark();
+    if (!reduce) timer = setInterval(function () { go(current + 1); }, 9000);
+  })();
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('[data-book-store]');
+    if (a && typeof gtag === 'function') gtag('event', 'book_store_click', { store: a.getAttribute('data-book-store'), link_url: a.href });
+  }, true);
+</script>
 
 <!-- ============================================================
      WRITING
