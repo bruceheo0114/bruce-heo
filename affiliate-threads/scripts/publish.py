@@ -290,6 +290,11 @@ def publish_thread(config, parts, state_path, client, save=save_state, sleep=tim
         done = state["parts"][index]
         if done.get("stage") == "posted":
             continue
+        if done.get("stage") in {"creating", "needs_review"} and not done.get("container_id"):
+            # Container creation never returned an id (e.g. HTTP 403 before reply permission), so
+            # threads_publish was never called and nothing went live: safe to retry this part.
+            done.clear()
+            state["stage"] = "threading"
         if done.get("stage") in {"creating", "publishing", "needs_review"} or state.get("stage") == "needs_review":
             raise ValueError(f"타래 {index + 1}번째 글의 직전 결과가 불확실합니다. Threads 에서 확인 후 상태를 수동 복구하세요.")
         if not done:

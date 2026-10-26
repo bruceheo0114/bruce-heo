@@ -11,12 +11,14 @@ SPEC.loader.exec_module(P)
 
 
 class FakeThreads:
-    def __init__(self, profile=None, uncertain=False, fail_on_publish=None):
+    def __init__(self, profile=None, uncertain=False, fail_on_publish=None, fail_on_create=None):
         self.profile = profile or {"username": "daily.picknotes", "id": "123456789"}
         self.uncertain = uncertain
         self.fail_on_publish = fail_on_publish
+        self.fail_on_create = fail_on_create
         self.calls = []
         self.published = 0
+        self.created = 0
 
     def call(self, method, path, **params):
         self.calls.append((method, path, params))
@@ -27,6 +29,9 @@ class FakeThreads:
             if self.uncertain or self.published == self.fail_on_publish:
                 raise RuntimeError("Connection lost after server may have published")
             return {"id": f"published-{params['creation_id']}"}
+        self.created += 1
+        if self.created == self.fail_on_create:
+            raise RuntimeError("Threads API HTTP 403")
         return {"id": f"container-{len(self.calls)}"}
 
 
@@ -230,6 +235,18 @@ class ThreadPosts(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.run_post(client)
         self.assertFalse(any(c[0] == "POST" for c in client.calls))
+
+    def test_rejected_reply_container_is_retried_without_reposting_the_opener(self):
+        with self.assertRaises(RuntimeError):
+            self.run_post(FakeThreads(fail_on_create=2))
+        state = json.loads(self.path.read_text())
+        self.assertEqual([p.get("stage") for p in state["parts"]], ["posted", "needs_review", None])
+        client = FakeThreads()
+        self.run_post(client)
+        middle, ad = self.creates(client)
+        self.assertEqual(middle["reply_to_id"], state["parts"][0]["media_id"])
+        self.assertTrue(ad["text"].startswith(P.DISCLOSURE))
+        self.assertEqual(json.loads(self.path.read_text())["stage"], "posted")
 
     def test_interrupted_run_resumes_after_the_last_posted_part(self):
         self.run_post(FakeThreads())

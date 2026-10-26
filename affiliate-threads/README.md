@@ -61,7 +61,9 @@ python affiliate-threads/scripts/publish.py --mode dry-run --date 2026-10-27 --s
 
 ## 답글 권한 (thread_replies)
 
-타래(첫 글 → 광고 답글)는 토큰에 `threads_manage_replies` 권한이 있어야 합니다. 2026-10-26 첫 타래에서 답글 생성이 HTTP 403 으로 거절돼, 권한을 받기 전까지 `config.json` 의 `thread_replies: false` 로 둡니다. 이때는 광고 문구 → 첫 글 훅·장면 → 상품 소개 → 링크·사진을 한 글로 올립니다. 권한 추가 후 새 토큰을 `COUPANG_THREADS_ACCESS_TOKEN` 에 넣고 `thread_replies` 를 true 로 바꿉니다.
+타래(첫 글 → 광고 답글)는 토큰에 `threads_manage_replies` 권한이 있어야 합니다. 2026-10-26 첫 타래에서 답글 생성이 HTTP 403 으로 거절돼, 권한을 받기 전까지 `config.json` 의 `thread_replies: false` 로 둡니다. 이때는 광고 문구 → 첫 글 훅·장면 → 상품 소개 → 링크·사진을 한 글로 올립니다. 권한 추가 후 새 토큰을 `COUPANG_THREADS_ACCESS_TOKEN` 에 넣고 `thread_replies` 를 true 로 바꿉니다. 2026-10-26 새 토큰(만료 약 12-24)으로 true 전환.
+
+답글 컨테이너 생성이 거절돼 `container_id` 없이 `needs_review` 로 남은 글은 아무것도 게시되지 않은 상태라, 같은 날짜·슬롯으로 Actions 를 다시 돌리면 첫 글은 건너뛰고 그 답글부터 다시 올립니다. `container_id` 가 있는 `needs_review`(게시 호출 중 끊김)는 지금처럼 Threads 에서 확인 후 수동 복구합니다.
 
 ## 자동 링크 모드 (최종 승인 후)
 
