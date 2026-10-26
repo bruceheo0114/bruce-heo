@@ -263,7 +263,16 @@
       "axis": "브랜드 사례",
       "insight": "화제성은 이어질 때 자산이 된다",
       "status": "todo",
-      "reason": "카드뉴스로 이관(carousel_queue.json)"
+      "reason": "카드뉴스로 이관(carousel_queue.json)",
+      "angles": [
+        {
+          "date": "2026-10-27",
+          "angle": "화제성은 시작이지 결과가 아니다 — 제작사만 기억되는 광고 시대, G마켓처럼 같은 결이 반복될 때 광고비가 자산이 된다",
+          "hook": "돌고래 유괴단은 아는데, 그 광고 브랜드는요?"
+        }
+      ],
+      "exhausted": true,
+      "exhausted_reason": "인스타 릴스 게시(10/27)"
     },
     {
       "no": 188,
