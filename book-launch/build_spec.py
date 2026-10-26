@@ -88,8 +88,8 @@ def build(cfg, words, dur):
          "spot": {"at": 1.6, "x": 0.5, "y": 0.5, "r": 0.22},
          "labels": [{"at": 1.8, "text": cfg["labels"][2], "x": 0.5, "y": 0.5, "dy": 0.28, "hl": True}]},
         {"kind": "image", "src": sc[1], "start": t4, "end": t5, "focus_y": 0.5, "zoom": "out", "xfade": "slideleft"},
-        {"kind": "image", "src": "../img/cover.jpg", "start": t5, "end": dur, "focus_y": 0.42, "xfade": "fadeblack",
-         "punch": [{"at": 0.8, "x": 0.5, "y": 0.45}]},
+        # 표지 전체가 보이는 4:3 패널(img/cover_panel.png — 실제 표지 + 「지금 판매 중」)
+        {"kind": "image", "src": "../img/cover_panel.png", "start": t5, "end": dur, "focus_y": 0.5, "xfade": "fadeblack"},
         {"kind": "card", "start": dur, "end": round(dur + 2.0, 2)},
     ]
     vis = [v for v in vis if v["end"] > v["start"]]
