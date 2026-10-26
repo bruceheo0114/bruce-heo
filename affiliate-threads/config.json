@@ -5,5 +5,5 @@
   "display_name": "생활픽노트",
   "channel": "threads_only",
   "auto_links": false,
-  "thread_replies": false
+  "thread_replies": true
 }
