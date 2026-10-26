@@ -1406,3 +1406,116 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .media--nolink { cursor: default; }
 .media--nolink:hover { transform: none; box-shadow: none; }
 .footer__social { flex-wrap: wrap; row-gap: 8px; }
+
+/* ============================================================
+   BOOK LAUNCH — 첫 책 (표지 색: 마젠타 #D30874 · 그레이 #BDC1C2)
+   ============================================================ */
+.book-launch {
+  --book-pink: #D30874;
+  --book-gray: #BDC1C2;
+  position: relative;
+  overflow: hidden;
+  padding: 112px 0 64px;
+  background: #111;
+  color: #F2F1ED;
+}
+.book-launch::before {
+  content: "";
+  position: absolute;
+  inset: auto -10% -40% 45%;
+  height: 120%;
+  background: radial-gradient(closest-side, rgba(211, 8, 116, 0.35), transparent 70%);
+  pointer-events: none;
+}
+.book-launch__grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: center;
+}
+.book-launch__kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 20px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(211, 8, 116, 0.16);
+  color: #FF7DBE;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+.book-launch__dot { width: 8px; height: 8px; border-radius: 50%; background: var(--book-pink); box-shadow: 0 0 0 4px rgba(211, 8, 116, 0.25); }
+.book-launch__title {
+  margin: 0;
+  font-size: clamp(32px, 5.4vw, 60px);
+  font-weight: 900;
+  line-height: 1.16;
+  letter-spacing: -0.035em;
+  word-break: keep-all;
+}
+.book-launch__title em {
+  font-style: normal;
+  color: #fff;
+  background: linear-gradient(transparent 62%, var(--book-pink) 62%, var(--book-pink) 96%, transparent 96%);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+.book-launch__sub { margin: 18px 0 0; font-size: clamp(16px, 2vw, 20px); font-weight: 700; color: var(--book-gray); word-break: keep-all; }
+.book-launch__desc { margin: 18px 0 0; max-width: 620px; font-size: 15.5px; line-height: 1.75; color: #C9C8C2; word-break: keep-all; }
+.book-launch__desc strong { color: #fff; }
+.book-launch__frame {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 24px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.book-launch__frame li {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 7px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 10px;
+  font-size: 12.5px;
+  color: #C9C8C2;
+}
+.book-launch__frame b { font-size: 12.5px; font-weight: 900; color: #fff; letter-spacing: 0.02em; }
+.book-launch__cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+.book-launch__buy { background: var(--book-pink); color: #fff; font-weight: 800; }
+.book-launch__buy:hover { background: #E8238C; transform: translateY(-1px); }
+.book-launch__buy--alt { background: #fff; color: #111; }
+.book-launch__buy--alt:hover { background: var(--book-gray); }
+.book-launch__meta { margin: 16px 0 0; font-size: 13px; color: #8E8D87; }
+.book-launch__cover {
+  justify-self: center;
+  width: min(62vw, 300px);
+  transform: rotate(3deg);
+  transition: transform 0.25s ease;
+}
+.book-launch__cover:hover { transform: rotate(0deg) translateY(-4px); }
+.book-launch__cover img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 4px 8px 8px 4px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+@media (min-width: 900px) {
+  .book-launch { padding: 136px 0 88px; }
+  .book-launch__grid { grid-template-columns: 1.45fr 1fr; gap: 64px; }
+  .book-launch__cover { width: min(100%, 380px); }
+}
+@media (max-width: 640px) {
+  .book-launch { padding-top: 100px; }
+  .book-launch__grid { gap: 28px; }
+  .book-launch__desc { display: none; }
+  .book-launch__cover { order: -1; width: min(40vw, 160px); }
+  .book-launch__cta .btn { flex: 1 1 100%; justify-content: center; }
+}
+.book-launch + .hero { padding-top: clamp(72px, 9vw, 120px); min-height: 0; }
+.nav__link--book { color: var(--accent); font-weight: 800; }
