@@ -116,7 +116,7 @@
   },
   "update": null,
   "created_at": "2026-10-26T12:16:28.059Z",
-  "updated_at": "2026-10-26T12:21:45.792Z",
+  "updated_at": "2026-10-26T12:22:23.365Z",
   "history": [
     {
       "at": "2026-10-26T12:16:28.059Z",
@@ -143,5 +143,31 @@
       "note": "승인된 AI Scene 생성 완료"
     }
   ],
-  "approved_at": "2026-10-26T12:19:45.820Z"
+  "approved_at": "2026-10-26T12:19:45.820Z",
+  "narration": {
+    "takes": [
+      {
+        "file": "bruce-youtube/output/EP009/narration/EP009_CH01.mp3",
+        "seconds": 36.127347,
+        "added_at": "2026-10-26T12:22:23.365Z"
+      },
+      {
+        "file": "bruce-youtube/output/EP009/narration/EP009_CH02.mp3",
+        "seconds": 54.047347,
+        "added_at": "2026-10-26T12:22:23.365Z"
+      },
+      {
+        "file": "bruce-youtube/output/EP009/narration/EP009_CH03.mp3",
+        "seconds": 143.647347,
+        "added_at": "2026-10-26T12:22:23.365Z"
+      },
+      {
+        "file": "bruce-youtube/output/EP009/narration/EP009_CH04.mp3",
+        "seconds": 69.564082,
+        "added_at": "2026-10-26T12:22:23.365Z"
+      }
+    ],
+    "total_seconds": 303.386123,
+    "updated_at": "2026-10-26T12:22:23.365Z"
+  }
 }
