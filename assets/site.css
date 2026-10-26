@@ -1542,15 +1542,15 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 /* 첫 화면 슬라이드: 1 책 소개 → 2 브루스 소개 */
 .hero-slider { position: relative; }
-.hero-slider__track {
+.hero-slider__track, .main-slider__track {
   display: flex;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
   overscroll-behavior-x: contain;
 }
-.hero-slider__track::-webkit-scrollbar { display: none; }
-.hero-slide { flex: 0 0 100%; min-width: 0; scroll-snap-align: start; scroll-snap-stop: always; }
+.hero-slider__track::-webkit-scrollbar, .main-slider__track::-webkit-scrollbar, .main-slider__tabs::-webkit-scrollbar { display: none; }
+.hero-slide, .main-slide { flex: 0 0 100%; min-width: 0; scroll-snap-align: start; scroll-snap-stop: always; }
 .hero-slider .book-launch,
 .hero-slider .hero { padding: 104px 0 88px; min-height: 0; }
 .hero-slider .hero { display: flex; align-items: center; }
@@ -1598,3 +1598,58 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .hero-slider__track { align-items: flex-start; transition: height 0.35s ease; }
 .hero-slider .hero { padding-top: 96px; padding-bottom: 76px; }
 .hero-slider__nav { bottom: 16px; }
+
+/* 주요 내용 슬라이드: 글 · 맥락 · 소개 · 일과 경력 · 영상·카드 */
+.main-slider { position: relative; scroll-margin-top: 72px; }
+.main-slider__track { align-items: flex-start; transition: height 0.35s ease; }
+.main-slider .main-slide { padding: clamp(40px, 6vw, 72px) 0 clamp(56px, 7vw, 88px); }
+.main-slider .section-head { margin-bottom: clamp(28px, 4vw, 48px); }
+.main-slider__bar {
+  position: sticky;
+  top: 72px;
+  z-index: 20;
+  background: rgba(242, 241, 237, 0.92);
+  backdrop-filter: saturate(180%) blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+.main-slider__barinner { display: flex; align-items: center; gap: 12px; height: 56px; }
+.main-slider__tabs {
+  display: flex;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.main-slider__tab {
+  flex: none;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--text-3);
+  padding: 8px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.main-slider__tab:hover { color: var(--text); }
+.main-slider__tab[aria-selected="true"] { background: var(--text); color: #fff; }
+.main-slider__arrows { display: flex; gap: 6px; flex: none; }
+.main-slider__arrow {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--border-strong);
+  border-radius: 50%;
+  background: var(--bg-card);
+  font: inherit;
+  font-size: 15px;
+  color: var(--text-2);
+  cursor: pointer;
+}
+.main-slider__arrow:hover { border-color: var(--text); color: var(--text); }
+@media (max-width: 640px) {
+  .main-slider__arrows { display: none; }
+  .main-slider__tab { font-size: 14px; padding: 8px 12px; }
+}
