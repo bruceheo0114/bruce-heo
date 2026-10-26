@@ -34,7 +34,7 @@ const banners = {
           <span class="fill" style="margin-top:12px">마케터는 맥락을 설계한다</span>
         </div>
         <div style="margin-top:30px;font-size:29px;font-weight:700;line-height:1.5">
-          트렌드를 따라 할지 말지, 감이 아닌 기준으로.<br>11년 차 마케터의 <b style="color:${PINK}">5단계 판단 프레임</b>을 한 권에 담았어요.
+          트렌드를 따라 할지 말지, 감이 아닌 기준으로.<br>11년 차 마케터의 <b style="color:${PINK}">5단계 판단 프레임</b>을 한 권에 담았다.
         </div>
         <div class="cta" style="margin-top:36px;font-size:27px;padding:18px 32px 20px">지금 판매 중 · YES24 · 교보문고 <span style="color:${PINK}">→</span></div>
       </div>

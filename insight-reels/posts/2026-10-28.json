@@ -1,33 +1,94 @@
 {
   "date": "2026-10-28",
-  "type": "carousel",
-  "source": "brunch-card-news",
-  "brunch_no": 218,
-  "title": "IMC 캠페인은 인플루언서가 전부 아닌가요",
-  "brunch_url": "https://brunch.co.kr/@heoboram/218",
-  "status": "cancelled",
-  "caption": "📣 IMC 캠페인, 인플루언서가 전부일까요?\n\n메가급 인플루언서와 진행한 한 캠페인에서는 브랜드 검색량이 전일 대비 200% 이상 올랐고, 그 수준이 일정 기간 유지됐어요. 그래도 한 사람에게 성패를 맡기면 안 돼요. 팔로워가 많아도 조회수가 불안정하거나, 시청자가 제품 카테고리에 관심이 없으면 노출이 구매로 이어지지 않거든요.\n\n📌 유명한 사람보다 맞는 사람이 중요해요. 유명세는 사람을 데려오고, 적합성은 메시지를 믿게 만들어요.\n\n그래서 섭외 전에 확인해요. 핵심 시청자가 실제 구매자와 겹치는지, 평소 서사 안에 제품이 자연스럽게 나올 장면이 있는지, 노출 뒤 검색·후기·상세 페이지가 같은 메시지를 이어받는지. 인플루언서는 종착지가 아니라 구매 여정으로 들어오는 강한 입구예요.\n\n지금 검토 중인 인플루언서의 평소 삶 안에서 우리 제품은 자연스러울까요?\n\n🔍 섭외 전에 확인하는 세 가지 체크 항목은 bruceheo.com 에 있어요.\n\n인플루언서 후보 리스트 받는 날, 이 세 가지로 먼저 걸러 보게 저장해 두세요.\n\n#브루스매거진 #인플루언서섭외 #IMC #검색량 #적합성",
-  "images": [
-    "https://bruceheo.com/content/218/cards/01.jpg",
-    "https://bruceheo.com/content/218/cards/02.jpg",
-    "https://bruceheo.com/content/218/cards/03.jpg",
-    "https://bruceheo.com/content/218/cards/04.jpg",
-    "https://bruceheo.com/content/218/cards/05.jpg",
-    "https://bruceheo.com/content/218/cards/06.jpg",
-    "https://bruceheo.com/content/218/cards/07.jpg",
-    "https://bruceheo.com/content/218/cards/08.jpg",
-    "https://bruceheo.com/content/218/cards/09.jpg"
+  "time": "07:00",
+  "type": "reel",
+  "series": "book-launch",
+  "title": "브런치 글 200편이 책이 됐어요",
+  "book_url": "https://bruceheo.com/#book",
+  "angle": "브런치 200편 → 11년의 '왜 지금' 기록 → 5가지 판단 기준과 첫 책",
+  "hook_candidates": [
+    {
+      "no": 1,
+      "screen": "브런치 글 200편이 책이 됐어요",
+      "first_line": "이백 편.",
+      "method": "숫자"
+    },
+    {
+      "no": 2,
+      "screen": "마케터가 될 생각은 없었어요",
+      "first_line": "처음부터 마케터가 될 생각은 없었어요.",
+      "method": "내 경험"
+    },
+    {
+      "no": 3,
+      "screen": "11년 하니까 정답이 줄었어요",
+      "first_line": "십일 년을 하니까, 정답이 줄었어요.",
+      "method": "반전"
+    },
+    {
+      "no": 4,
+      "screen": "첫 책, 제목부터 길어요",
+      "first_line": "제 첫 책, 제목이 좀 길어요.",
+      "method": "낯선 말"
+    },
+    {
+      "no": 5,
+      "screen": "왜 '무엇'보다 '왜 지금'일까",
+      "first_line": "무엇을 할지보다, 왜 지금인지.",
+      "method": "질문"
+    },
+    {
+      "no": 6,
+      "screen": "틀린 기록이 더 쓸모 있었어요",
+      "first_line": "맞힌 기록보다 틀린 기록이 쓸모 있었어요.",
+      "method": "비밀 공개"
+    },
+    {
+      "no": 7,
+      "screen": "작은 회사에서 시작했어요",
+      "first_line": "작은 회사, 콘텐츠 만들고 사람 섭외하던 일.",
+      "method": "장면"
+    },
+    {
+      "no": 8,
+      "screen": "잘될 줄 안 선택이 빗나갔어요",
+      "first_line": "잘될 줄 알았던 선택이 빗나갔어요.",
+      "method": "흔한 실수"
+    },
+    {
+      "no": 9,
+      "screen": "기록 vs 기억, 뭐가 남을까",
+      "first_line": "기억은 흐려지고, 기록은 남아요.",
+      "method": "비교"
+    },
+    {
+      "no": 10,
+      "screen": "다섯 단어로 11년을 정리했어요",
+      "first_line": "리드, 루트, 리치, 랠리, 리메인.",
+      "method": "낯선 말"
+    }
   ],
-  "images_backup": [
-    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/content/218/cards/01.jpg",
-    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/content/218/cards/02.jpg",
-    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/content/218/cards/03.jpg",
-    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/content/218/cards/04.jpg",
-    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/content/218/cards/05.jpg",
-    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/content/218/cards/06.jpg",
-    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/content/218/cards/07.jpg",
-    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/content/218/cards/08.jpg",
-    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/content/218/cards/09.jpg"
-  ],
-  "cancel_reason": "2026-10-18 결정: 인스타는 매일 릴스 + 월요일 트렌드. 지금까지 만든 브런치 카드뉴스는 쓰지 않는다. 릴스 루틴이 이 날짜를 릴스로 덮어쓴다."
+  "hook_pick": {
+    "no": 1,
+    "reason": "진짜 숫자(200편)로 열고 \"그게 어떻게 책이 됐지?\"라는 궁금증을 바로 남긴다. 홈페이지·브런치에 실제로 있는 숫자."
+  },
+  "script": "이백 편.\n브런치에 '브루스'라는 이름으로 쓴 글이에요.\n그 기록이 이번에 책 한 권이 됐어요.\n사실 처음부터 마케터가 될 계획은 없었어요.\n작은 회사에서 콘텐츠 만들고, 사람 섭외하며 배웠죠.\n그런데 십일 년을 하니까, 정답은 오히려 줄었어요.\n그래서 '무엇을'보다 '왜 지금'을 적었어요.\n그게 다섯 가지 판단 기준이 됐고요.\n여러분은 일하면서 무엇을 기록하고 있나요?\n지금 판매 중이에요. 프로필 링크에 담아 뒀어요.",
+  "caption": "브런치에 '브루스'라는 이름으로 200편 넘게 글을 썼어요. 그 기록이 첫 책이 됐어요 👇\n\n처음부터 마케터가 되겠다는 거창한 계획이 있었던 건 아니에요. 작은 회사에서 일을 시작해 콘텐츠를 만들고, 사람을 섭외하고, 캠페인을 기획하며 하나씩 배웠어요. 그렇게 10년 넘게 PR과 마케팅 현장에서 다양한 브랜드를 만났죠.\n\n여기서 말하고 싶은 건 세 가지예요.\n\n1️⃣ 오래 할수록 정답은 줄어들었어요\n새로운 것이 언제나 좋은 것도 아니었고, 유행을 따라간다고 사람들이 움직이는 것도 아니었어요.\n\n2️⃣ 그래서 '왜 지금'을 기록했어요\n잘될 거라 생각한 선택이 빗나가기도 하고, 평범해 보인 판단이 더 좋은 결과를 내기도 했어요. 그때마다 '무엇을 해야 하나'보다 '왜 지금 이걸 해야 하나'를 적었어요.\n\n3️⃣ 그 기록이 다섯 가지 기준이 됐어요\nREAD(사람을 읽고), ROOT(브랜드를 지키고), REACH(관심을 행동으로 잇고), RALLY(함께할 사람을 모으고), REMAIN(판단을 남기는 것). 장마다 바로 쓰는 판단 체크리스트도 넣었어요.\n\n판단하고, 틀리고, 다시 생각하며 만든 기준을 담은 첫 책 《AI는 답을 만들고 마케터는 맥락을 설계한다》가 나왔어요.\n\n💬 여러분은 일하면서 무엇을 기록하고 있나요? 한 단어로 남겨 주세요.\n📌 다음 편부터 책 속 판단 기준을 하나씩 30초로 풀어요. 팔로우해 두세요.\n\n원문은 첫 책 「AI는 답을 만들고 마케터는 맥락을 설계한다」 — YES24·교보문고 판매 중 (프로필 링크)\n\n#브루스매거진 #AI는답을만들고마케터는맥락을설계한다 #마케터의기록 #브런치작가 #첫책",
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/f6d10c4d-11d9-45c6-9e03-1b1611a7be7d.mp4",
+  "cover_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/1730d4e2-a34b-414e-904f-1e2308362d58.jpg",
+  "qa_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/8f6aad69-ac8a-4677-bf7a-738e015d6b47.jpg",
+  "video_backup_url": "https://bruceheo.com/insight-reels/media/2026-10-28.mp4",
+  "cover_backup_url": "https://bruceheo.com/insight-reels/media/2026-10-28.jpg",
+  "youtube_short": {
+    "title": "브런치 글 200편이 어떻게 책이 됐을까 #Shorts",
+    "description": "브런치에 쓴 글이 어떻게 첫 책이 됐을까요?\n'무엇을'보다 '왜 지금'을 기록한 11년이 다섯 가지 판단 기준이 됐어요.\n책: https://bruceheo.com/#book\n#브루스매거진 #AI는답을만들고마케터는맥락을설계한다 #마케터의기록",
+    "tags": "마케터, 마케팅책, 브런치, 첫책, 신간, 브랜드마케팅, AI마케팅, 마케터기록, 허보람, 브루스",
+    "altered": true
+  },
+  "credits": {
+    "higgsfield": 5.75,
+    "elevenlabs": 472
+  },
+  "status": "scheduled",
+  "note": "첫 책 릴스 시리즈(book-launch/reels.md). 브런치 글이 아니라 책 소개·목차·책 속 문장이 원본."
 }
