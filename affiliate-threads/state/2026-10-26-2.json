@@ -4,8 +4,9 @@
   "stage": "threading",
   "parts": [
     {
-      "stage": "publishing",
-      "container_id": "18152326171507421"
+      "stage": "posted",
+      "container_id": "18152326171507421",
+      "media_id": "18101522618420992"
     },
     {}
   ]
