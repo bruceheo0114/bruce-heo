@@ -105,8 +105,8 @@
 <!-- ============================================================
      BOOK LAUNCH — 첫 책 출간 (2026-11-05)
      ============================================================ -->
-<div class="hero-slider" aria-roledescription="carousel" aria-label="책 소개와 브루스 소개">
-<div class="hero-slider__track" id="hero-track">
+<div class="hero-slider" data-slider data-autoplay="9000" aria-roledescription="carousel" aria-label="책 소개와 브루스 소개">
+<div class="hero-slider__track" id="hero-track" data-slider-track>
 <section class="book-launch hero-slide" id="book" aria-roledescription="slide" aria-label="1 / 2 책 소개" aria-labelledby="book-title">
   <div class="wrap book-launch__grid">
     <div class="book-launch__copy">
@@ -207,45 +207,33 @@
 </div>
 </div>
 <script>
-  (function () {
-    var track = document.getElementById('hero-track');
-    if (!track) return;
-    var slides = track.querySelectorAll('.hero-slide');
-    var dots = document.querySelectorAll('.hero-slider__dot');
-    var current = 0, timer = null;
-    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    function go(i) {
-      current = (i + slides.length) % slides.length;
-      track.scrollTo({ left: track.clientWidth * current, behavior: reduce ? 'auto' : 'smooth' });
-    }
-    function fit() { var el = slides[current]; if (el) track.style.height = el.offsetHeight + 'px'; }
-    function mark() {
-      current = Math.round(track.scrollLeft / Math.max(track.clientWidth, 1));
-      fit();
-      dots.forEach(function (d, i) { d.setAttribute('aria-current', i === current ? 'true' : 'false'); });
-    }
-    function stop() { if (timer) { clearInterval(timer); timer = null; } }
-    track.addEventListener('scroll', function () { window.requestAnimationFrame(mark); }, { passive: true });
-    window.addEventListener('resize', fit);
-    window.addEventListener('load', fit);
-    document.querySelectorAll('[data-slide-to]').forEach(function (d) { d.addEventListener('click', function () { stop(); go(+d.getAttribute('data-slide-to')); }); });
-    document.querySelector('[data-slide-prev]').addEventListener('click', function () { stop(); go(current - 1); });
-    document.querySelector('[data-slide-next]').addEventListener('click', function () { stop(); go(current + 1); });
-    ['pointerdown', 'wheel', 'touchstart', 'keydown'].forEach(function (ev) { track.addEventListener(ev, stop, { passive: true }); });
-    if (location.hash === '#hero' || location.hash === '#about-top') go(1);
-    mark();
-    if (!reduce) timer = setInterval(function () { go(current + 1); }, 9000);
-  })();
   document.addEventListener('click', function (e) {
     var a = e.target.closest && e.target.closest('[data-book-store]');
     if (a && typeof gtag === 'function') gtag('event', 'book_store_click', { store: a.getAttribute('data-book-store'), link_url: a.href });
   }, true);
 </script>
 
+<div class="main-slider" data-slider id="main" aria-roledescription="carousel" aria-label="주요 내용">
+<div class="main-slider__bar">
+  <div class="wrap main-slider__barinner">
+    <div class="main-slider__tabs" role="tablist" aria-label="주요 내용">
+      <button type="button" role="tab" class="main-slider__tab" id="tab-writing" aria-controls="writing" data-slide-to="0">글</button>
+      <button type="button" role="tab" class="main-slider__tab" id="tab-context" aria-controls="context" data-slide-to="1">맥락과 마케팅</button>
+      <button type="button" role="tab" class="main-slider__tab" id="tab-about" aria-controls="about" data-slide-to="2">소개</button>
+      <button type="button" role="tab" class="main-slider__tab" id="tab-explore" aria-controls="explore" data-slide-to="3">일과 경력</button>
+      <button type="button" role="tab" class="main-slider__tab" id="tab-content" aria-controls="content" data-slide-to="4">영상·카드</button>
+    </div>
+    <div class="main-slider__arrows">
+      <button type="button" class="main-slider__arrow" data-slide-prev aria-label="이전">←</button>
+      <button type="button" class="main-slider__arrow" data-slide-next aria-label="다음">→</button>
+    </div>
+  </div>
+</div>
+<div class="main-slider__track" data-slider-track>
 <!-- ============================================================
      WRITING
      ============================================================ -->
-<section class="section section--soft" id="writing">
+<section class="section section--soft main-slide" id="writing" role="tabpanel" aria-labelledby="tab-writing">
   <div class="wrap">
     <div class="section-head reveal">
       <div>
@@ -365,7 +353,7 @@
 <!-- ============================================================
      CONTEXT
      ============================================================ -->
-<section class="section" id="context">
+<section class="section main-slide" id="context" role="tabpanel" aria-labelledby="tab-context">
   <div class="wrap">
     <div class="section-head reveal">
       <div>
@@ -395,7 +383,7 @@
 <!-- ============================================================
      ABOUT
      ============================================================ -->
-<section class="section" id="about">
+<section class="section main-slide" id="about" role="tabpanel" aria-labelledby="tab-about">
   <div class="wrap">
     <div class="section-head reveal">
       <div>
@@ -466,7 +454,7 @@
 <!-- ============================================================
      EXPLORE
      ============================================================ -->
-<section class="section section--soft" id="explore">
+<section class="section section--soft main-slide" id="explore" role="tabpanel" aria-labelledby="tab-explore">
   <div class="wrap">
     <div class="section-head reveal">
       <div>
@@ -507,7 +495,7 @@
 <!-- ============================================================
      CONTENT
      ============================================================ -->
-<section class="section" id="content">
+<section class="section main-slide" id="content" role="tabpanel" aria-labelledby="tab-content">
   <div class="wrap">
     <div class="section-head reveal">
       <div>
@@ -579,6 +567,9 @@
   </div>
 </section>
 
+</div>
+</div>
+
 <!-- ============================================================
      CONTACT
      ============================================================ -->
@@ -641,6 +632,7 @@
   </div>
 </footer>
 
+<script defer src="/assets/slider.js"></script>
 <script>
 // Nav shadow on scroll
 (function () {
