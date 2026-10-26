@@ -1,0 +1,116 @@
+{
+  "brunch": false,
+  "items": [
+    {
+      "id": "A001",
+      "kind": "image",
+      "url": "https://contents.kyobobook.co.kr/sih/fit-in/1200x0/pdt/9791167853325.jpg",
+      "page": "https://product.kyobobook.co.kr/detail/S000221776404",
+      "source": "교보문고 상품 이미지",
+      "scenes": [
+        "S006",
+        "S048"
+      ]
+    },
+    {
+      "id": "A002",
+      "kind": "image",
+      "url": "https://contents.kyobobook.co.kr/sih/fit-in/1200x0/pdt/addt/9791167853325_01.jpg",
+      "page": "https://product.kyobobook.co.kr/detail/S000221776404",
+      "source": "교보문고 상품 이미지",
+      "scenes": [
+        "S047"
+      ]
+    },
+    {
+      "id": "A003",
+      "kind": "page",
+      "url": "https://www.openads.co.kr/festival/festivalDetail?festivalId=15390101",
+      "source": "오픈애즈",
+      "scroll": true,
+      "scenes": [
+        "S026"
+      ]
+    },
+    {
+      "id": "G01",
+      "kind": "image",
+      "ai": true,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261026_135632_b72cbaef-ce32-425b-a811-fdf196bd54b1.png",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "scenes": [
+        "S002"
+      ]
+    },
+    {
+      "id": "G02",
+      "kind": "image",
+      "ai": true,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261026_135631_2a1c227e-db85-410e-aa50-76036b32b49c.png",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "scenes": [
+        "S009"
+      ]
+    },
+    {
+      "id": "G03",
+      "kind": "image",
+      "ai": true,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261026_135631_2cce7fdc-23e7-458b-b3cb-272ed44d9c85.png",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "scenes": [
+        "S013"
+      ]
+    },
+    {
+      "id": "G04",
+      "kind": "image",
+      "ai": true,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261026_135631_92b76e5c-ad9f-4688-a6ca-86630f67b506.png",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "scenes": [
+        "S018"
+      ]
+    },
+    {
+      "id": "G05",
+      "kind": "image",
+      "ai": true,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261026_135643_fba5e2d3-f1d7-4bcc-b7f4-61b949fec7a0.png",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "scenes": [
+        "S023"
+      ]
+    },
+    {
+      "id": "G06",
+      "kind": "image",
+      "ai": true,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261026_135643_62016da5-1fc7-499a-b276-450c59be3d06.png",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "scenes": [
+        "S032"
+      ]
+    },
+    {
+      "id": "G07",
+      "kind": "image",
+      "ai": true,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261026_141419_3b92c27e-555c-42fe-8c51-9e6951c97c05.png",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "scenes": [
+        "S039"
+      ]
+    },
+    {
+      "id": "V01",
+      "kind": "video",
+      "ai": true,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261026_141421_27480d02-f9ba-4866-9814-c4f6f84d2e13.mp4",
+      "source": "AI 생성 영상 (Higgsfield)",
+      "scenes": [
+        "S013"
+      ]
+    }
+  ]
+}

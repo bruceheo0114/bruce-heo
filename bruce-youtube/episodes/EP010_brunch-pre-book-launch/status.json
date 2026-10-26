@@ -1,0 +1,160 @@
+{
+  "episode": "EP010",
+  "folder": "EP010_brunch-pre-book-launch",
+  "article": {
+    "id": "pre-book-launch",
+    "url": "https://bruceheo.com/#book",
+    "title": "AI는 답을 만들고 마케터는 맥락을 설계한다",
+    "published_at": "2026-10-26T13:55:05.313Z",
+    "source_file": "source/brunch/pre-book-launch.md",
+    "body_hash": "206be6381a5293b7fa7ba96854bd22d247af6479108b0a1acf6ffd261cb6405f",
+    "prebuilt": true
+  },
+  "status": "ASSETS_READY",
+  "format": "v2",
+  "higgsfield_generation": false,
+  "recommendation": "MAKE_VIDEO",
+  "video_potential": {
+    "NARRATIVE": 8,
+    "CASE STUDY": 6,
+    "VISUAL MATERIAL": 7,
+    "TIMELINESS": 9,
+    "ORIGINAL POV": 9,
+    "30MIN POTENTIAL": 7,
+    "TOTAL": 46,
+    "MAX": 60
+  },
+  "approved_scenes": [
+    "S002",
+    "S009",
+    "S013",
+    "S018",
+    "S023",
+    "S032",
+    "S039"
+  ],
+  "generated": {
+    "S002": {
+      "job": "b72cbaef-ce32-425b-a811-fdf196bd54b1",
+      "files": [
+        "bruce-youtube/assets/references/EP010/S002"
+      ],
+      "credits": 0.25,
+      "at": "2026-10-26T14:15:41.949Z"
+    },
+    "S009": {
+      "job": "2a1c227e-db85-410e-aa50-76036b32b49c",
+      "files": [
+        "bruce-youtube/assets/references/EP010/S009"
+      ],
+      "credits": 0.25,
+      "at": "2026-10-26T14:15:42.184Z"
+    },
+    "S013": {
+      "job": "27480d02-f9ba-4866-9814-c4f6f84d2e13",
+      "files": [
+        "bruce-youtube/assets/references/EP010/S013"
+      ],
+      "credits": 5.25,
+      "at": "2026-10-26T14:15:42.361Z"
+    },
+    "S018": {
+      "job": "92b76e5c-ad9f-4688-a6ca-86630f67b506",
+      "files": [
+        "bruce-youtube/assets/references/EP010/S018"
+      ],
+      "credits": 0.25,
+      "at": "2026-10-26T14:15:42.549Z"
+    },
+    "S023": {
+      "job": "fba5e2d3-f1d7-4bcc-b7f4-61b949fec7a0",
+      "files": [
+        "bruce-youtube/assets/references/EP010/S023"
+      ],
+      "credits": 0.25,
+      "at": "2026-10-26T14:15:42.723Z"
+    },
+    "S032": {
+      "job": "62016da5-1fc7-499a-b276-450c59be3d06",
+      "files": [
+        "bruce-youtube/assets/references/EP010/S032"
+      ],
+      "credits": 0.25,
+      "at": "2026-10-26T14:15:42.907Z"
+    },
+    "S039": {
+      "job": "3b92c27e-555c-42fe-8c51-9e6951c97c05",
+      "files": [
+        "bruce-youtube/assets/references/EP010/S039"
+      ],
+      "credits": 0.25,
+      "at": "2026-10-26T14:15:43.116Z"
+    }
+  },
+  "plan": {
+    "runtime_seconds": 320,
+    "runtime": "5:20",
+    "total_scenes": 48,
+    "scenes_by_type": {
+      "REAL": 4,
+      "TYPE": 27,
+      "GRAPHIC": 10,
+      "AI": 7
+    },
+    "seconds_by_type": {
+      "REAL": 39,
+      "TYPE": 177,
+      "GRAPHIC": 62,
+      "AI": 42
+    },
+    "ai_share": 0.131,
+    "ai_scenes": [
+      "S002",
+      "S009",
+      "S013",
+      "S018",
+      "S023",
+      "S032",
+      "S039"
+    ],
+    "estimated_generations": 8,
+    "estimated_credits": 7,
+    "reusable_assets": [],
+    "cost_saving": [
+      "기준 이미지를 먼저 만들고 image-to-video로 움직임만 추가한다.",
+      "같은 장소·분위기 Scene은 같은 reference asset을 재사용한다.",
+      "REAL 자료가 확보되면 해당 AI Scene은 생성하지 않는다.",
+      "승인된 Scene만 생성하고, 결과가 나쁘면 프롬프트를 고친 뒤 한 번만 다시 생성한다."
+    ]
+  },
+  "update": null,
+  "created_at": "2026-10-26T13:55:05.313Z",
+  "updated_at": "2026-10-26T14:15:43.116Z",
+  "history": [
+    {
+      "at": "2026-10-26T13:55:05.313Z",
+      "from": null,
+      "to": "PACKAGE_PENDING",
+      "note": "발행 전 원고로 미리 제작"
+    },
+    {
+      "at": "2026-10-26T13:55:17.617Z",
+      "from": "PACKAGE_PENDING",
+      "to": "WAITING_APPROVAL",
+      "note": "영상화 평가 46/60 · MAKE_VIDEO"
+    },
+    {
+      "at": "2026-10-26T13:55:17.774Z",
+      "from": "WAITING_APPROVAL",
+      "to": "APPROVED",
+      "note": "Higgsfield 승인: S002, S009, S013, S018, S023, S032, S039"
+    },
+    {
+      "at": "2026-10-26T14:15:43.116Z",
+      "from": "APPROVED",
+      "to": "ASSETS_READY",
+      "note": "승인된 AI Scene 생성 완료"
+    }
+  ],
+  "approved_at": "2026-10-26T13:55:17.774Z"
+}
