@@ -47,6 +47,26 @@
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Book",
+  "name": "AI는 답을 만들고 마케터는 맥락을 설계한다",
+  "alternativeHeadline": "정답이 넘치는 AI 시대, 차이를 만드는 판단의 기준",
+  "author": { "@type": "Person", "name": "허보람", "url": "https://bruceheo.com/" },
+  "publisher": { "@type": "Organization", "name": "슬로디미디어" },
+  "datePublished": "2026-11-05",
+  "isbn": "9791167853325",
+  "numberOfPages": 184,
+  "inLanguage": "ko",
+  "image": "https://bruceheo.com/assets/book/cover.jpg",
+  "url": "https://bruceheo.com/#book",
+  "offers": [
+    { "@type": "Offer", "url": "https://www.yes24.com/product/goods/199439514", "price": "15300", "priceCurrency": "KRW", "seller": { "@type": "Organization", "name": "YES24" } },
+    { "@type": "Offer", "url": "https://product.kyobobook.co.kr/detail/S000221776404", "price": "15300", "priceCurrency": "KRW", "seller": { "@type": "Organization", "name": "교보문고" } }
+  ]
+}
+</script>
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="/assets/site.css">
@@ -71,6 +91,7 @@
   <div class="nav__inner">
     <a href="/" class="nav__brand" aria-label="허보람(브루스) 홈"><span class="brand-mark">BR<i>.</i></span>Bruce Heo</a>
     <div class="nav__links">
+      <a href="/#book" class="nav__link nav__link--keep nav__link--book">책</a>
       <a href="/writing/" class="nav__link nav__link--keep">글</a>
       <a href="/context/" class="nav__link">맥락과 마케팅</a>
       <a href="/work/" class="nav__link">대표 작업</a>
@@ -82,9 +103,39 @@
 </nav>
 
 <!-- ============================================================
+     BOOK LAUNCH — 첫 책 출간 (2026-11-05)
+     ============================================================ -->
+<div class="hero-slider" aria-roledescription="carousel" aria-label="책 소개와 브루스 소개">
+<div class="hero-slider__track" id="hero-track">
+<section class="book-launch hero-slide" id="book" aria-roledescription="slide" aria-label="1 / 2 책 소개" aria-labelledby="book-title">
+  <div class="wrap book-launch__grid">
+    <div class="book-launch__copy">
+      <p class="book-launch__kicker"><span class="book-launch__dot" aria-hidden="true"></span>첫 책 출간 · 지금 판매 중</p>
+      <h2 class="book-launch__title" id="book-title">AI는 답을 만들고<br><em>마케터는 맥락을 설계한다</em></h2>
+      <p class="book-launch__sub">정답이 넘치는 AI 시대, 차이를 만드는 판단의 기준</p>
+      <div class="book-launch__cta">
+        <a class="btn book-launch__buy" data-book-store="yes24" href="https://www.yes24.com/product/goods/199439514" target="_blank" rel="noopener">YES24에서 구매하기 →</a>
+        <a class="btn book-launch__buy book-launch__buy--alt" data-book-store="kyobo" href="https://product.kyobobook.co.kr/detail/S000221776404" target="_blank" rel="noopener">교보문고에서 구매하기 →</a>
+      </div>
+      <ol class="book-launch__frame" aria-label="5단계 맥락 판단 프레임">
+        <li><b>READ</b>사람을 읽고</li>
+        <li><b>ROOT</b>브랜드를 지키고</li>
+        <li><b>REACH</b>행동으로 잇고</li>
+        <li><b>RALLY</b>사람을 모으고</li>
+        <li><b>REMAIN</b>판단을 남긴다</li>
+      </ol>
+      <p class="book-launch__meta">허보람 지음 · 슬로디미디어 · 30개 장 + 장마다 판단 체크리스트</p>
+    </div>
+    <a class="book-launch__cover" data-book-store="yes24" href="https://www.yes24.com/product/goods/199439514" target="_blank" rel="noopener" aria-label="YES24에서 책 보기">
+      <img src="/assets/book/cover.jpg" width="800" height="1135" alt="책 표지: AI는 답을 만들고 마케터는 맥락을 설계한다 (허보람 지음, 슬로디미디어)" fetchpriority="high">
+    </a>
+  </div>
+</section>
+
+<!-- ============================================================
      HERO
      ============================================================ -->
-<header class="hero" id="hero">
+<header class="hero hero-slide" id="hero" aria-roledescription="slide" aria-label="2 / 2 브루스 소개">
   <div class="wrap hero__grid">
     <div>
       <span class="hero__eyebrow">마케터 허보람(브루스) · Brand Communication &amp; IMC</span>
@@ -96,7 +147,7 @@
         사람들은 왜 어떤 브랜드에 반응하고, 어떤 메시지는 지나칠까요?<br>
         브랜드와 소비자의 <strong>맥락을 읽고</strong>, 마케팅의 선택과 판단을 기록합니다.
       </p>
-      <p class="hero__profile">11년차 통합 커뮤니케이션 리드 · 칼럼니스트 · 브런치북 《맥락을 설계하는 일》</p>
+      <p class="hero__profile">11년차 통합 커뮤니케이션 리드 · 칼럼니스트 · 《AI는 답을 만들고 마케터는 맥락을 설계한다》 저자</p>
       <div class="hero__tags">
         <span class="tag">IMC 캠페인</span>
         <span class="tag">브랜드 커뮤니케이션</span>
@@ -147,6 +198,49 @@
     </aside>
   </div>
 </header>
+</div>
+<div class="hero-slider__nav">
+  <button type="button" class="hero-slider__btn" data-slide-prev aria-label="이전 슬라이드">←</button>
+  <button type="button" class="hero-slider__dot" data-slide-to="0" aria-label="책 소개">책</button>
+  <button type="button" class="hero-slider__dot" data-slide-to="1" aria-label="브루스 소개">소개</button>
+  <button type="button" class="hero-slider__btn" data-slide-next aria-label="다음 슬라이드">→</button>
+</div>
+</div>
+<script>
+  (function () {
+    var track = document.getElementById('hero-track');
+    if (!track) return;
+    var slides = track.querySelectorAll('.hero-slide');
+    var dots = document.querySelectorAll('.hero-slider__dot');
+    var current = 0, timer = null;
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function go(i) {
+      current = (i + slides.length) % slides.length;
+      track.scrollTo({ left: track.clientWidth * current, behavior: reduce ? 'auto' : 'smooth' });
+    }
+    function fit() { var el = slides[current]; if (el) track.style.height = el.offsetHeight + 'px'; }
+    function mark() {
+      current = Math.round(track.scrollLeft / Math.max(track.clientWidth, 1));
+      fit();
+      dots.forEach(function (d, i) { d.setAttribute('aria-current', i === current ? 'true' : 'false'); });
+    }
+    function stop() { if (timer) { clearInterval(timer); timer = null; } }
+    track.addEventListener('scroll', function () { window.requestAnimationFrame(mark); }, { passive: true });
+    window.addEventListener('resize', fit);
+    window.addEventListener('load', fit);
+    document.querySelectorAll('[data-slide-to]').forEach(function (d) { d.addEventListener('click', function () { stop(); go(+d.getAttribute('data-slide-to')); }); });
+    document.querySelector('[data-slide-prev]').addEventListener('click', function () { stop(); go(current - 1); });
+    document.querySelector('[data-slide-next]').addEventListener('click', function () { stop(); go(current + 1); });
+    ['pointerdown', 'wheel', 'touchstart', 'keydown'].forEach(function (ev) { track.addEventListener(ev, stop, { passive: true }); });
+    if (location.hash === '#hero' || location.hash === '#about-top') go(1);
+    mark();
+    if (!reduce) timer = setInterval(function () { go(current + 1); }, 9000);
+  })();
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('[data-book-store]');
+    if (a && typeof gtag === 'function') gtag('event', 'book_store_click', { store: a.getAttribute('data-book-store'), link_url: a.href });
+  }, true);
+</script>
 
 <!-- ============================================================
      WRITING
