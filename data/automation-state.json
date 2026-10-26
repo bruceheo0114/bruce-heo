@@ -1,8 +1,8 @@
 {
   "version": 1,
   "initialized": true,
-  "lastCheckedAt": "2026-10-26T00:52:52.553Z",
-  "lastCheckedCanonicalUrl": "https://brunch.co.kr/@heoboram/223",
+  "lastCheckedAt": "2026-10-26T23:00:27.706Z",
+  "lastCheckedCanonicalUrl": "https://brunch.co.kr/@heoboram/227",
   "reviewSuccessCount": 1,
   "mode": "review",
   "articles": {
@@ -1100,6 +1100,38 @@
       },
       "approvedAt": "2026-10-16T04:51:05.846Z",
       "scheduledAt": "2026-10-19T22:30:00.000Z",
+      "completedAt": null
+    },
+    "227": {
+      "id": "227",
+      "canonicalUrl": "https://brunch.co.kr/@heoboram/227",
+      "title": "구글과 ChatGPT는 왜 평범한 일상을 광고할까?",
+      "publishedAt": "2026-10-26T12:00:04.000Z",
+      "bodyHash": "0e87d0e785f13ce28c8beddfbc5b9f5690b08df3a4a502d8504ebbd29de38974",
+      "batchId": "40416618833",
+      "homepage": {
+        "status": "published",
+        "updatedAt": "2026-10-26T23:00:27.706Z"
+      },
+      "package": {
+        "status": "awaiting_review",
+        "manifestPath": "content/227/manifest.json",
+        "generatedAt": null
+      },
+      "linkedin": {
+        "status": "manual_pending",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "instagram": {
+        "status": "manual_pending",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "approvedAt": null,
+      "scheduledAt": null,
       "completedAt": null
     }
   }
