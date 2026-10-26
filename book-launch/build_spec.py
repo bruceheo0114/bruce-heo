@@ -76,6 +76,7 @@ def build(cfg, words, dur):
     t2 = cut(t1, 5.0, 3.0)       # 클립 5초 이하
     t3 = cut(t2, 7.0, 4.0)       # 도식
     t4 = cut(t3, 7.5, 4.0)       # 장면 3
+    t5 = cut(t4, 6.0, 3.0) if dur - t4 > 9 else t4  # 표지 앞 장면(클립 첫 프레임 사진)
     vis = [
         {"kind": "image", "src": sc[0], "start": 0, "end": t1, "focus_y": 0.5, "xfade": "slideleft",
          "punch": [{"at": 0.6, "x": 0.5, "y": 0.5}],
@@ -86,10 +87,12 @@ def build(cfg, words, dur):
         {"kind": "image", "src": sc[2], "start": t3, "end": t4, "focus_y": 0.5, "zoom": "in", "xfade": "fade",
          "spot": {"at": 1.6, "x": 0.5, "y": 0.5, "r": 0.22},
          "labels": [{"at": 1.8, "text": cfg["labels"][2], "x": 0.5, "y": 0.5, "dy": 0.28, "hl": True}]},
-        {"kind": "image", "src": "../img/cover.jpg", "start": t4, "end": dur, "focus_y": 0.42, "xfade": "fadeblack",
+        {"kind": "image", "src": sc[1], "start": t4, "end": t5, "focus_y": 0.5, "zoom": "out", "xfade": "slideleft"},
+        {"kind": "image", "src": "../img/cover.jpg", "start": t5, "end": dur, "focus_y": 0.42, "xfade": "fadeblack",
          "punch": [{"at": 0.8, "x": 0.5, "y": 0.45}]},
         {"kind": "card", "start": dur, "end": round(dur + 2.0, 2)},
     ]
+    vis = [v for v in vis if v["end"] > v["start"]]
     return {
         "audio": "v.mp3",
         "series": "브루스 인사이트  |  첫 책 이야기",
