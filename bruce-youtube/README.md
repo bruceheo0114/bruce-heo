@@ -5,7 +5,7 @@
 
 ```text
 Actions(매일 07:17) brunch_cache 갱신
-화 21:13 클라우드 루틴 ─ sync --cache ─ next --weekly(이번 주 월요일 새 글, 없으면 queue.json 예비 글) ─ 00_score~06_shorts ─ finalize
+화 21:13 클라우드 루틴 ─ sync --cache ─ next --weekly(이번 주 월요일 새 글, 없으면 queue.json 예비 글) ─ 00_score~05_higgsfield ─ finalize
    ─ readback(소리 내어 읽고 다듬기) ─ 패키지 main 커밋(→ Actions가 실제 자료 수집)
    ─ 복제 목소리 내레이션 + 받아쓰기 ─ readback(다르게 읽은 곳 다시 생성) ─ Higgsfield(예산 안)
    ─ render(자동 편집: 화면·싱크 자막·간지·효과음·음량·썸네일·업로드 정보) ─ 1편 편집 방향 확인
@@ -18,7 +18,7 @@ Actions(매일 07:17) brunch_cache 갱신
 |---|---|
 | `queue.json` | 제작 순서(선별한 글·관점·릴스 게시일). 새 글은 맨 뒤에 자동 추가 |
 | `source/brunch/` | 브런치 원문 Markdown(2026년 이후) + `index.json` |
-| `episodes/EP###_brunch-<글번호>/` | `00_score.md` `01_brief.md` ~ `06_shorts.md`, `status.json` |
+| `episodes/EP###_brunch-<글번호>/` | `00_score.md` `01_brief.md` ~ `05_higgsfield.md`, `status.json` |
 | `ledger.json` | YouTube Higgsfield 크레딧 장부 (월 150, 2일 리셋) |
 | `prompts/youtube_producer.md` | 제작 지시서(출력 형식) |
 | `routine_prompt.md` | 화요일 밤 클라우드 루틴 지시서 |
@@ -53,7 +53,7 @@ node src/cli/youtube.js resolve-update EP001 keep|regenerate
 
 - 전체 10~15분, AI 화면 40% 이하, AI Scene 24개 이하(4~8초, 영상 클립 4개 이하), REAL 30% 미만이면 경고
 - Higgsfield 예상 30 크레딧/Episode 이하, 월 150 크레딧 상한(장부 기준으로 생성 차단)
-- 제목·썸네일 카피 각 5개, Shorts 3~5개, 원문과 같은 문장 20% 이하
+- 제목·썸네일 카피 각 5개(쇼츠는 롱폼에서 만들지 않는다 — 인스타 릴스를 그대로 올린다, 2026-10-26), 원문과 같은 문장 20% 이하
 
 ## 안전장치
 

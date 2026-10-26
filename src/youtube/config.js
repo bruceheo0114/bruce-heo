@@ -24,7 +24,6 @@ export const EPISODE_FILES = Object.freeze([
   "03_storyboard.md",
   "04_assets.md",
   "05_higgsfield.md",
-  "06_shorts.md",
 ]);
 
 export const SCORE_FILE = "00_score.md";

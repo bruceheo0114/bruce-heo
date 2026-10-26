@@ -20,8 +20,8 @@
 
 1. 원문을 읽고 `00_score.md`를 먼저 쓴다.
 2. 추천이 `HOLD` 또는 `SKIP`이면 여기서 끝낸다.
-3. `SHORTS_ONLY`면 `06_shorts.md`만 쓰고 끝낸다.
-4. `MAKE_VIDEO`면 `01_brief.md`~`06_shorts.md`를 모두 쓴다. 이번 채널은 **5~6분 V2 지식 영상**이다(`bruce-youtube/CLAUDE.md` '표준 스타일'). 00_score를 쓰기 전에 `status.json`의 `format`이 `v2`인지 확인한다.
+3. `SHORTS_ONLY`는 쓰지 않는다(2026-10-26 — 유튜브 쇼츠는 인스타 릴스를 그대로 올린다). 5분을 못 버티는 글은 `HOLD`로 두고 판단 이유에 "릴스 후보"라고 적는다.
+4. `MAKE_VIDEO`면 `01_brief.md`~`05_higgsfield.md`를 쓴다. `06_shorts.md`는 쓰지 않는다. 이번 채널은 **5~6분 V2 지식 영상**이다(`bruce-youtube/CLAUDE.md` '표준 스타일'). 00_score를 쓰기 전에 `status.json`의 `format`이 `v2`인지 확인한다.
 5. `node src/cli/youtube.js validate <EPISODE>`를 실행해 ✗ 오류를 모두 고친다. (! 경고는 판단해서 고친다.)
 6. `node src/cli/youtube.js finalize <EPISODE>`를 실행한다. 통과하면 status.json이 자동으로 바뀐다. status.json을 직접 고치지 않는다.
 7. Higgsfield 도구는 절대 호출하지 않는다. 생성은 사용자 승인 뒤 별도로 진행한다.
@@ -44,7 +44,7 @@ RECOMMENDATION: MAKE_VIDEO
 ```
 
 RECOMMENDATION은 `MAKE_VIDEO` / `SHORTS_ONLY` / `HOLD` / `SKIP` 중 하나. 아래에 2~4줄로 판단 이유를 적는다.
-억지로 영상화하지 않는다. 사례·관점이 5분을 버티지 못하면 SHORTS_ONLY나 HOLD가 맞다.
+억지로 영상화하지 않는다. 사례·관점이 5분을 버티지 못하면 HOLD(릴스 후보)가 맞다.
 `30min Potential` 항목은 이 채널에서 '5~6분 지식 영상으로서의 밀도'로 채점한다.
 
 ## 01_brief.md
@@ -73,7 +73,7 @@ RECOMMENDATION은 `MAKE_VIDEO` / `SHORTS_ONLY` / `HOLD` / `SKIP` 중 하나. 아
     어느 쪽이든 원문에 없는 주장·수치를 만들지 않는다. 기사를 쓰면 `references.json`에 그 기사를 자료로 넣고 화면에 출처를 단다.
   - **썸네일:** `title_keyword`를 크게, 나머지는 4~8자 반전 문구.
   - `01_brief.md`의 `## Why Now`에 쓴 검색 근거(이름·avg·rise·기사 날짜)를 한 줄로 남긴다.
-- 대본은 길이보다 밀도: 앞 챕터와 같은 말을 되풀이하는 단락은 덜어낸다(5분 하한을 채우려고 늘리지 않는다 — 모자라면 00_score에서 SHORTS_ONLY를 검토).
+- 대본은 길이보다 밀도: 앞 챕터와 같은 말을 되풀이하는 단락은 덜어낸다(5분 하한을 채우려고 늘리지 않는다 — 모자라면 00_score에서 HOLD를 검토).
 
 업로드용으로 `## Hashtags`(이번 편 해시태그 5~7개, 한 줄, 첫 3개가 제목 위에 보이니 가장 중요한 것부터), `## Tags`(쉼표로 구분한 검색 태그 12~20개, 합쳐서 450자 이내), `## Pinned Comment`(시청자에게 묻는 질문 1~2문장 + 브런치 원문 안내)도 쓴다.
 
@@ -227,17 +227,6 @@ REUSE POSSIBILITY: S009 챕터 전환에서 같은 REF01 재사용
 - **사람 얼굴이 나오는 장면은 영상으로 만들지 않는다**(2026-10-02 파일럿에서 Grok Lite 영상의 얼굴이 일그러짐). 사람은 뒷모습·손·실루엣, 또는 정지 이미지로.
 - 마지막에 `## Cost Saving` 목록으로 이번 Episode의 비용 절약 방법을 적는다.
 
-## 06_shorts.md
+## 06_shorts.md — 쓰지 않는다
 
-`## SHORT 01` ~ `## SHORT 03` (3~5개). 인스타그램 @bruce.insight 릴스로도 쓸 수 있게 30~45초. 각 Short 아래:
-
-```text
-HOOK OPTIONS: 1) ... / 2) ... / 3) ...  (서로 다른 방식, 각 10단어 이하)
-HOOK: ...  (고른 1개 = ON SCREEN TEXT 첫 줄)
-SCRIPT: ...
-ON SCREEN TEXT: ...
-SOURCE TIMECODE: 03:20-04:05
-EXPECTED LENGTH: 45s
-```
-
-본편 Thesis를 해치는 Short는 만들지 않는다. 9:16 세로, 30~60초.
+2026-10-26 Bruce 결정: 롱폼에서 자르는 쇼츠는 만들지 않는다. 유튜브 쇼츠는 인스타 릴스(@bruce.insight)를 Bruce가 그대로 올린다(제목·설명은 릴스 루틴이 만든다). 검사기는 이 파일이 없어도 통과한다.

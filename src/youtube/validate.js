@@ -228,9 +228,11 @@ export async function validatePackage(episode, paths = youtubePaths()) {
 
   if (recommendation === "HOLD" || recommendation === "SKIP" || !recommendation) return result;
 
+  // 롱폼에서 자르는 쇼츠는 2026-10-26부터 만들지 않는다(쇼츠 = 인스타 릴스 재업로드). 파일이 있을 때만 검사한다.
   const shorts = await read("06_shorts.md");
-  if (!shorts) errors.push("06_shorts.md가 없습니다.");
-  else {
+  if (!shorts) {
+    if (recommendation === "SHORTS_ONLY") errors.push("06_shorts.md가 없습니다.");
+  } else {
     const blocks = splitHeadingBlocks(shorts, /^SHORT\b/i);
     if (blocks.length < RULES.shortsMin || blocks.length > RULES.shortsMax) {
       errors.push(`06_shorts.md: '## SHORT 01' 형식의 Shorts가 ${blocks.length}개입니다 (3~5개 필요).`);

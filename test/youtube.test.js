@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { execFile } from "node:child_process";
-import { mkdtemp, readFile, writeFile } from "node:fs/promises";
+import { mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import { promisify } from "node:util";
@@ -224,6 +224,13 @@ test("정상 패키지는 통과하고 finalize 후 WAITING_APPROVAL이 된다",
   assert.equal(episode.status.plan.scenes_by_type.AI, 6);
   assert.equal(episode.status.plan.estimated_credits, 20);
   assert.equal(episode.status.video_potential.TOTAL, 51);
+});
+
+test("롱폼 패키지는 06_shorts.md 없이도 통과한다(쇼츠 = 릴스 재업로드)", async () => {
+  const { paths, episode } = await setup();
+  await writePackage(episode);
+  await rm(path.join(episode.dir, "06_shorts.md"));
+  assert.deepEqual((await validatePackage(episode, paths)).errors, []);
 });
 
 test("AI 비중·크레딧 상한·원문 복사를 막는다", async () => {

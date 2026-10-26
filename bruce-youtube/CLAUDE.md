@@ -79,7 +79,7 @@ Hook → Phenomenon → Case → Question → Analysis → Contrast → Insight 
       → `output/<EP>/`에 `<EP>.mp4`, `thumbnail.png`, `upload.md`, `subtitles.srt`
    (챕터 사이에는 render가 2.6초 간지와 `channel/sfx/chapter.mp3` 효과음을 자동으로 넣는다. 스토리보드에 따로 챕터 전환 장면을 만들 필요 없다.
     채널 BGM `channel/bgm/bgm.mp3`도 render가 영상 내내 깔고 내레이션에 맞춰 자동으로 줄였다 올린다. 마지막 말 뒤 4초 여운.)
-   5-1. 쇼츠는 당분간 만들지 않는다(2026-10-19 Bruce 결정). 다시 하자고 하면 `node src/cli/youtube.js shorts <EP>`.
+   5-1. 롱폼에서 자르는 쇼츠는 만들지 않는다(2026-10-19, 2026-10-26 확정 — `06_shorts.md`도 쓰지 않는다). 유튜브 쇼츠는 인스타 릴스를 Bruce가 그대로 올린다(`insight-reels/routine_daily_prompt.md` 「유튜브 쇼츠 업로드 키트」).
    6. 완성 영상의 프레임을 뽑아 1편 편집 방향 체크리스트(`routine_prompt.md` 9단계)로 확인한다.
    7. mp4·썸네일·upload.md를 사용자에게 보낸다. Bruce가 YouTube 앱에서 올린다(변경된 콘텐츠 '예').
       (`upload` 명령은 YouTube API 인증이 있을 때만 쓰는 예비 기능이다. 사용자가 요청할 때만 쓴다.)

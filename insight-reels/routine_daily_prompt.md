@@ -98,13 +98,19 @@
    - 시의성 훅을 썼으면 맥락 문단에 그 기사 사실 한 줄과 날짜(M/D 기사 기준)를 밝힌다.
    - **검색 훅(2026-10-19)**: 상단 제목 밴드(spec `title`) 첫 줄은 `hooks.title_keyword` 로 시작한다(원문 사례가 그 이름일 때). 해시태그 4~6개 중 첫 이 편 전용 태그는 `hooks.title_phrase` 를 붙여 쓴 것(예 `#버거킹광고`), 검색량 있는 `variants` 말을 그다음에. 캡션 첫 줄 훅에도 그 이름이 들어가게 한다.
    - 금지: 기사·원문에 없는 시의성 사실, 광고주(클라이언트) 실명·내부 수치, 과장("무조건", "역대급"), 이모지 남발(위 4종 외 최대 1개).
-9. 완성 영상과 표지를 저장소에도 보관한다: `curl -sfL -o insight-reels/media/<D>.mp4 <video_url>`, `insight-reels/media/<D>.jpg` 도 같은 방식. 크기가 0이면 다시 받는다. 루틴 환경에서 CDN 이 막혀 받을 수 없으면 건너뛴다 — 게시 파일을 푸시하면 `.github/workflows/insight-reels-backup.yml` 이 video_url·cover_url 을 받아 media/ 에 커밋한다. 푸시 후 GitHub MCP 로 그 워크플로 실행이 성공했는지 확인한다.
-10. 게시 파일 작성(`insight-reels/posts/2026-10-17.json` 형식 그대로, `"date": "<D>"`, status `scheduled`, `angle`(한 줄), 시의성 훅을 썼으면 `trend: {term, news_title, news_date, news_link}`, `video_backup_url`/`cover_backup_url` 은 `https://bruceheo.com/insight-reels/media/<D>.mp4`/`.jpg`). `queue.json` 해당 항목의 `angles` 에 `{date: <D>, angle, hook}` 를 더하고 `"exhausted": true, "exhausted_reason": "인스타 릴스 게시(<D>)"` 를 쓴다(3단계 — 같은 글로 두 번째 릴스를 만들지 않는다). `ledger.json` 에 실제 지출을 기록한다(힉스필드는 `transactions` 로 확인한 실제 값).
+9. **유튜브 쇼츠 업로드 키트(사용자 결정 2026-10-26)** — 같은 릴스 영상을 Bruce가 유튜브 앱에서 쇼츠로 직접 올린다(자동 업로드 안 함, 영상 재편집 없음). 게시 파일에 `youtube_short` 를 쓴다:
+   - `title`: 2단계에서 고른 훅(화면 글자)으로 연다. 브랜드명이 있으면 앞에, 40자 안팎(최대 100자), 끝에 ` #Shorts`. 표지 title 을 그대로 복사하지 않는다.
+   - `description`: 3~5줄. 첫 줄 = 캡션 첫 줄과 다른 문장으로 이 편의 궁금증 한 줄 → 원문의 한 줄 원칙 → `원문: https://bruceheo.com/writing/<글번호>/`(저장소에 `writing/<글번호>/index.html` 이 없으면 브런치 원문 주소) → 해시태그 3개(캡션 전용 태그 중 3개, `#브루스매거진` 포함). 해요체, 이모지 최대 1개.
+   - `tags`: 8~12개(브랜드·캠페인명, `hooks.title_phrase`, 업종, 현상 키워드). 쉼표로 이어 450자 안.
+   - `altered`: `true`(복제 목소리·AI 이미지 → 업로드 때 「변경된 콘텐츠」 '예').
+   - 사실은 캡션과 같은 범위(원문·trends 기사)만.
+10. 완성 영상과 표지를 저장소에도 보관한다: `curl -sfL -o insight-reels/media/<D>.mp4 <video_url>`, `insight-reels/media/<D>.jpg` 도 같은 방식. 크기가 0이면 다시 받는다. 루틴 환경에서 CDN 이 막혀 받을 수 없으면 건너뛴다 — 게시 파일을 푸시하면 `.github/workflows/insight-reels-backup.yml` 이 video_url·cover_url 을 받아 media/ 에 커밋한다. 푸시 후 GitHub MCP 로 그 워크플로 실행이 성공했는지 확인한다.
+11. 게시 파일 작성(`insight-reels/posts/2026-10-17.json` 형식 그대로, `"date": "<D>"`, status `scheduled`, `angle`(한 줄), 시의성 훅을 썼으면 `trend: {term, news_title, news_date, news_link}`, 9단계의 `youtube_short`, `video_backup_url`/`cover_backup_url` 은 `https://bruceheo.com/insight-reels/media/<D>.mp4`/`.jpg`). `queue.json` 해당 항목의 `angles` 에 `{date: <D>, angle, hook}` 를 더하고 `"exhausted": true, "exhausted_reason": "인스타 릴스 게시(<D>)"` 를 쓴다(3단계 — 같은 글로 두 번째 릴스를 만들지 않는다). `ledger.json` 에 실제 지출을 기록한다(힉스필드는 `transactions` 로 확인한 실제 값).
 
 ## 5. 저장과 알림
 - `git pull --rebase` 후 커밋·푸시한다. 메시지: `chore: insight reel for <D>`.
 - Gmail 로 `heoboram0114@gmail.com` 에 보낸다. 제목: `[브루스 인사이트] 릴스 미리보기 (<MM/DD>)`.
-  본문: 게시일·시각 · 원문 제목·링크 · 이번 각도(한 줄) · 훅 후보 10개 표와 고른 훅·이유 · 시의성 훅을 썼으면 그 기사 제목·날짜·링크 · 영상 링크 · 표지 링크 · 대본 · 캡션. 맨 아래: 이번 사이클 크레딧 사용(힉스필드 x/270, 릴스·카드뉴스 상한 170 · 일레븐랩스 이번 달 x).
+  본문: 게시일·시각 · 원문 제목·링크 · 이번 각도(한 줄) · 훅 후보 10개 표와 고른 훅·이유 · 시의성 훅을 썼으면 그 기사 제목·날짜·링크 · 영상 링크 · 표지 링크 · 대본 · 캡션 · **「유튜브 쇼츠로 올리기」** 칸(영상 내려받기 링크 `https://bruceheo.com/insight-reels/media/<D>.mp4`(백업 전이면 영상 링크) · 제목 · 설명 · 태그를 각각 복사하기 쉽게 따로 · "변경된 콘텐츠: 예" · "인스타 게시(07:00) 뒤에 올려 주세요"). 맨 아래: 이번 사이클 크레딧 사용(힉스필드 x/270, 릴스·카드뉴스 상한 170 · 일레븐랩스 이번 달 x).
   마지막 줄: "게시하지 않으려면 이 메일에 `보류 MM/DD` 라고 회신해 주세요. 회신이 없으면 예정대로 올라갑니다."
 
 ## 하지 말 것

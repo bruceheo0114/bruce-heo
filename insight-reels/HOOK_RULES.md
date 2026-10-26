@@ -22,7 +22,7 @@
 |---|---|---|---|
 | 릴스 | 0초 첫 자막 | 내레이션 첫 문장 | 게시 파일 `hook_candidates`·`hook_pick`, 미리보기 메일 |
 | 유튜브 | 썸네일 문구(1순위) | `## Opening Hook` 첫 문장 | `01_brief.md` `## Hook Candidates` |
-| 유튜브 Shorts | `ON SCREEN TEXT` 첫 줄 | `HOOK` | Short마다 후보 3개만(`HOOK OPTIONS`) |
+| 유튜브 쇼츠 | 릴스 그대로(0초 첫 자막) | 릴스 첫 문장 | 릴스 표를 그대로 쓰고, 쇼츠 제목은 고른 훅으로 연다 |
 | 스레드 | 본문 첫 줄(15~25자) | 둘째 줄까지 | 원고 파일 `hook_candidates`·`hook_pick` |
 
 ## 3. 절대 안 쓰는 표현 10개
