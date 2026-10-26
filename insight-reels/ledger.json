@@ -4,8 +4,8 @@
   "higgsfield_monthly_cap": 120,
   "cycles": {
     "2026-10": {
-      "higgsfield_spent": 87.25,
-      "elevenlabs_spent": 8044,
+      "higgsfield_spent": 127.5,
+      "elevenlabs_spent": 11424,
       "entries": [
         {
           "date": "2026-10-02",
@@ -114,6 +114,12 @@
           "what": "월요일 이슈 카드뉴스 10/26 표지 이미지 1장 — 힉스필드 연결 실패로 ElevenLabs gpt-image-2.5 사용(약 190 크레딧), 표지·마무리 재사용",
           "higgsfield": 0,
           "elevenlabs": 190
+        },
+        {
+          "date": "2026-10-26",
+          "what": "첫 책 릴스 7편(10/28·10/30·11/1·11/3·11/5·11/7·11/10 게시분) — 이미지 21장(5.25) + Grok Lite 클립 7개(35.0) + eleven_v4 7편×2테이크(3,380). 표지는 실제 책 표지(생성 안 함)",
+          "higgsfield": 40.25,
+          "elevenlabs": 3380
         }
       ]
     }

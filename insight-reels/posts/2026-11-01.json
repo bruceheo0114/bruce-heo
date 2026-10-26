@@ -1,33 +1,94 @@
 {
   "date": "2026-11-01",
-  "type": "carousel",
-  "source": "brunch-card-news",
-  "brunch_no": 161,
-  "title": "기획자가 삶의 해상도를 높여야하는 이유",
-  "brunch_url": "https://brunch.co.kr/@heoboram/161",
-  "status": "cancelled",
-  "caption": "🔍 기획자에게 필요한 건 '삶의 해상도'예요.\n\n\"그동안 어떻게 지내셨나요?\" 이 질문에 머릿속이 하얘진 적 있나요? 같은 질문에도 자연스럽게 답하는 사람들은 스쳐가는 순간을 기억해 두었다가 이야기해요. 평범한 하루도 그들의 입을 통하면 특별한 경험이 되죠.\n\n📌 차이는 일상을 얼마나 세밀하게 관찰하느냐, 즉 해상도에서 나와요.\n\n사람을 관찰하고 공감으로 설득해야 하는 기획자라면 해상도를 높일 3가지 방법이 있어요. 가까운 사람에게 질문하기, 다양한 콘텐츠로 관점 넓히기, 그리고 휘발되는 일상을 기록하기. 나중에 다시 보지 않더라도 기록하는 순간 삶은 달라져요.\n\n오늘 하루 중 기록해 두고 싶은 순간은 무엇인가요?\n\n🔍 더 많은 브랜드 이야기는 bruceheo.com 에서 만나보세요.\n\n나중에 다시 보고 싶다면 저장 꾹 👆\n\n#브루스매거진 #기획자 #기록 #인사이트 #마케팅",
-  "images": [
-    "https://bruceheo.com/content/161/cards/01.jpg",
-    "https://bruceheo.com/content/161/cards/02.jpg",
-    "https://bruceheo.com/content/161/cards/03.jpg",
-    "https://bruceheo.com/content/161/cards/04.jpg",
-    "https://bruceheo.com/content/161/cards/05.jpg",
-    "https://bruceheo.com/content/161/cards/06.jpg",
-    "https://bruceheo.com/content/161/cards/07.jpg",
-    "https://bruceheo.com/content/161/cards/08.jpg",
-    "https://bruceheo.com/content/161/cards/09.jpg"
+  "time": "07:00",
+  "type": "reel",
+  "series": "book-launch",
+  "title": "광고인 거, 다 알고 봐요",
+  "book_url": "https://bruceheo.com/#book",
+  "angle": "광고인 걸 알아도 볼 이유를 만든다 — READ",
+  "hook_candidates": [
+    {
+      "no": 1,
+      "screen": "광고인 거, 다 알고 봐요",
+      "first_line": "광고인 거, 사람들은 이미 알아요.",
+      "method": "반전"
+    },
+    {
+      "no": 2,
+      "screen": "광고 같지 않은 광고의 함정",
+      "first_line": "광고 같지 않게 만들수록 어색해져요.",
+      "method": "흔한 실수"
+    },
+    {
+      "no": 3,
+      "screen": "끝까지 본 광고, 왜였을까",
+      "first_line": "끝까지 본 광고, 이유가 있었어요.",
+      "method": "질문"
+    },
+    {
+      "no": 4,
+      "screen": "브랜드는 시간을 경쟁해요",
+      "first_line": "지갑보다 시간이에요.",
+      "method": "비교"
+    },
+    {
+      "no": 5,
+      "screen": "하루 24시간 쟁탈전",
+      "first_line": "이십사 시간, 그게 전부예요.",
+      "method": "숫자"
+    },
+    {
+      "no": 6,
+      "screen": "두 번의 기회는 없어요",
+      "first_line": "소비자는 두 번 기회를 안 줘요.",
+      "method": "비밀 공개"
+    },
+    {
+      "no": 7,
+      "screen": "건너뛰기 버튼 누르셨죠?",
+      "first_line": "방금 건너뛰기 누르셨죠?",
+      "method": "장면"
+    },
+    {
+      "no": 8,
+      "screen": "형식은 쉽고 이유는 어려워요",
+      "first_line": "형식은 베끼기 쉬워요.",
+      "method": "낯선 말"
+    },
+    {
+      "no": 9,
+      "screen": "잘된 광고, 저장 말고 이것",
+      "first_line": "잘된 광고 보면 뭐부터 저장하세요?",
+      "method": "내 경험"
+    },
+    {
+      "no": 10,
+      "screen": "콘텐츠가 가구가 되고 있어요",
+      "first_line": "콘텐츠가 가구가 되고 있어요.",
+      "method": "낯선 말"
+    }
   ],
-  "images_backup": [
-    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/content/161/cards/01.jpg",
-    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/content/161/cards/02.jpg",
-    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/content/161/cards/03.jpg",
-    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/content/161/cards/04.jpg",
-    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/content/161/cards/05.jpg",
-    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/content/161/cards/06.jpg",
-    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/content/161/cards/07.jpg",
-    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/content/161/cards/08.jpg",
-    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/content/161/cards/09.jpg"
-  ],
-  "cancel_reason": "2026-10-18 결정: 인스타는 매일 릴스 + 월요일 트렌드. 지금까지 만든 브런치 카드뉴스는 쓰지 않는다. 릴스 루틴이 이 날짜를 릴스로 덮어쓴다."
+  "hook_pick": {
+    "no": 1,
+    "reason": "시청자 자신이 광고를 보고 있는 순간과 겹쳐 3초 안에 멈추게 한다. 6장 p.43 문장."
+  },
+  "script": "광고인 거, 사람들은 이미 알아요.\n그런데도 끝까지 보는 광고가 있죠.\n왜일까요?\n광고처럼 안 보이게 애쓸수록 오히려 더 어색해져요.\n중요한 건 광고가 아닌 척하는 게 아니라,\n광고인 걸 알아도 계속 볼 이유를 만드는 일이에요.\n소비자에게 주어진 건 하루 이십사 시간뿐이고,\n두 번의 기회는 잘 주지 않거든요.\n형식은 가져오기 쉽지만, 이유는 가져오기 어려워요.\n최근에 끝까지 본 광고, 이유가 뭐였나요?\n다음 콘텐츠 기획 전에 저장해 두세요.",
+  "caption": "사람들은 광고라는 사실을 모르지 않아요. 오히려 너무 잘 알아요. 그런데도 끝까지 보는 광고가 있죠 👇\n\n책 1부 「사람의 맥락을 읽는 일」에서 가장 먼저 짚은 게 이거예요. 광고처럼 보이지 않게 만드는 데 집착할수록 더 어색해져요.\n\n여기서 볼 건 세 가지예요.\n\n1️⃣ 광고가 아닌 척하지 않아요\n중요한 건 광고라는 걸 알아도 계속 볼 이유를 만드는 일이에요.\n\n2️⃣ 브랜드는 지갑보다 시간을 경쟁해요\n현대 마케팅은 소비자가 보내는 24시간을 어떻게 점유하느냐의 경쟁이에요. 그 시간에 우리 브랜드를 골랐을 때 실패하지 않는다는 걸 증명해야 다음 시간을 얻을 기회가 생겨요.\n\n3️⃣ 형식보다 반응의 이유를 적어요\n예전엔 잘된 캠페인을 보면 모델, 포맷, 화면 구성부터 저장했어요. 지금은 반응의 이유를 먼저 적어요. 형식은 가져오기 쉽지만, 이유는 가져오기 어렵거든요.\n\n\"소비자는 두 번의 기회를 잘 주지 않는다.\" — 책 3장 중\n\n💬 최근 끝까지 본 광고 하나만 댓글로 알려 주세요.\n📌 레퍼런스 정리할 때 다시 보게 저장해 두세요.\n\n원문은 첫 책 「AI는 답을 만들고 마케터는 맥락을 설계한다」 — YES24·교보문고 판매 중 (프로필 링크)\n\n#브루스매거진 #AI는답을만들고마케터는맥락을설계한다 #광고기획 #콘텐츠마케팅 #소비자심리",
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/a83df712-49ae-477b-a0f6-3f2d9d21a764.mp4",
+  "cover_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/9533baa5-3662-4227-a9bd-856a29333aa8.jpg",
+  "qa_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/f9ff5686-9c30-4dbe-8212-9f2316cc3f47.jpg",
+  "video_backup_url": "https://bruceheo.com/insight-reels/media/2026-11-01.mp4",
+  "cover_backup_url": "https://bruceheo.com/insight-reels/media/2026-11-01.jpg",
+  "youtube_short": {
+    "title": "광고인 걸 알면서도 끝까지 보는 이유 #Shorts",
+    "description": "광고인 걸 알면서도 끝까지 보는 광고엔 이유가 있어요.\n광고가 아닌 척보다, 광고인 걸 알아도 볼 이유를 만드는 게 먼저예요.\n책: https://bruceheo.com/#book\n#브루스매거진 #AI는답을만들고마케터는맥락을설계한다 #광고기획",
+    "tags": "광고, 광고기획, 콘텐츠마케팅, 소비자심리, 브랜디드콘텐츠, 마케팅책, 신간, 브루스",
+    "altered": true
+  },
+  "credits": {
+    "higgsfield": 5.75,
+    "elevenlabs": 496
+  },
+  "status": "scheduled",
+  "note": "첫 책 릴스 시리즈(book-launch/reels.md). 브런치 글이 아니라 책 소개·목차·책 속 문장이 원본."
 }

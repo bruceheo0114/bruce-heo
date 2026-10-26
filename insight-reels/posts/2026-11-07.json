@@ -1,0 +1,94 @@
+{
+  "date": "2026-11-07",
+  "time": "07:00",
+  "type": "reel",
+  "series": "book-launch",
+  "title": "\"조금 더 임팩트 있게\"의 뜻",
+  "book_url": "https://bruceheo.com/#book",
+  "angle": "공감은 해석하는 힘, 결재 뒤에도 촬영장이 남는다 — RALLY",
+  "hook_candidates": [
+    {
+      "no": 1,
+      "screen": "\"조금 더 임팩트 있게\"의 뜻",
+      "first_line": "조금 더 임팩트 있게.",
+      "method": "낯선 말"
+    },
+    {
+      "no": 2,
+      "screen": "글자 크기 키우라는 뜻일까?",
+      "first_line": "글자 크기 키우라는 걸까요?",
+      "method": "질문"
+    },
+    {
+      "no": 3,
+      "screen": "공감은 착한 마음이 아니에요",
+      "first_line": "공감, 착한 마음 아니에요.",
+      "method": "반전"
+    },
+    {
+      "no": 4,
+      "screen": "결재가 끝나도 끝이 아니에요",
+      "first_line": "결재가 끝나도, 촬영장이 남아요.",
+      "method": "비밀 공개"
+    },
+    {
+      "no": 5,
+      "screen": "모두가 반대했고 한 사람이 믿었다",
+      "first_line": "모두가 반대했어요. 한 사람만 빼고요.",
+      "method": "장면"
+    },
+    {
+      "no": 6,
+      "screen": "내가 답을 주면 팀이 멈춰요",
+      "first_line": "내가 답을 주는 순간, 팀원 생각이 멈춰요.",
+      "method": "흔한 실수"
+    },
+    {
+      "no": 7,
+      "screen": "좋은 아이디어를 모으면?",
+      "first_line": "좋은 아이디어만 모으면, 좋은 캠페인일까요?",
+      "method": "질문"
+    },
+    {
+      "no": 8,
+      "screen": "피드백 해석법 3초",
+      "first_line": "피드백, 이렇게 읽어요.",
+      "method": "비밀 공개"
+    },
+    {
+      "no": 9,
+      "screen": "광고주 말 vs 진짜 뜻",
+      "first_line": "광고주가 한 말, 진짜 뜻은 따로 있어요.",
+      "method": "비교"
+    },
+    {
+      "no": 10,
+      "screen": "파격은 설득에서 나와요",
+      "first_line": "파격은 아이디어가 아니라 설득이에요.",
+      "method": "반전"
+    }
+  ],
+  "hook_pick": {
+    "no": 1,
+    "reason": "21장 제목 그대로, 실무자가 매일 듣는 '진짜 말'로 연다(르게다꼼 공식)."
+  },
+  "script": "조금 더 임팩트 있게.\n광고주가 이렇게 말하면, 무슨 뜻일까요?\n글자 크기를 키우라는 걸까요?\n말 한마디 뒤에는 조직의 사정이 있어요.\n일할 때 공감은 착한 마음이 아니라, 해석하는 힘이에요.\n같은 요청도 누가 어떤 자리에서 했는지에 따라\n답의 순서가 달라져야 하죠.\n그리고 결재가 끝나도, 촬영장은 남아요.\n현장의 사람이 마음을 열어야 하거든요.\n여러분이 들은 가장 어려운 피드백은 뭐였나요?\n다음 피드백 받기 전에 저장해 두세요.",
+  "caption": "\"조금 더 임팩트 있게.\" 회의 끝에 이 말을 들으면 뭘 고치세요? 👇\n\n책 4부 「사람과 함께 일하는 맥락」의 첫 장이 이 질문이에요. 숫자와 문장만으로는 보이지 않는 변수가 있어요.\n\n여기서 볼 건 세 가지예요.\n\n1️⃣ 일할 때 공감은 해석하는 힘이에요\n광고주의 말 한마디 뒤에는 조직의 사정이 있고, 제작사의 일정 뒤에는 사람이 있고, 팀원의 질문 뒤에는 경험의 차이가 있어요.\n\n2️⃣ 같은 요청도 답의 순서가 달라요\n누가 어떤 자리에서 말했는지에 따라 먼저 풀어야 할 게 달라져요.\n\n3️⃣ 좋은 제안서는 승인 뒤에도 계속 통과해야 해요\n결재가 끝나도 촬영장이 남아요. 현장의 사람이 마음을 열어 주지 않으면 제안서는 문서로 남을 뿐이에요.\n\n\"내가 답을 주는 순간, 팀원의 생각은 멈춘다\" — 책 25장 제목\n\n💬 여러분이 들은 가장 어려운 피드백, 한 줄로 남겨 주세요.\n📌 같은 피드백 받는 동료에게 공유해 주세요.\n\n원문은 첫 책 「AI는 답을 만들고 마케터는 맥락을 설계한다」 — YES24·교보문고 판매 중 (프로필 링크)\n\n#브루스매거진 #AI는답을만들고마케터는맥락을설계한다 #피드백 #협업 #대행사",
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/6c5723cb-bc50-4297-8770-abef116c3f28.mp4",
+  "cover_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/da52d277-1e80-4980-9672-a49ba54aea00.jpg",
+  "qa_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/3fbbe010-78e5-484f-a424-2c57494c5d4f.jpg",
+  "video_backup_url": "https://bruceheo.com/insight-reels/media/2026-11-07.mp4",
+  "cover_backup_url": "https://bruceheo.com/insight-reels/media/2026-11-07.jpg",
+  "youtube_short": {
+    "title": "\"조금 더 임팩트 있게\" 이 피드백의 진짜 뜻 #Shorts",
+    "description": "피드백 한마디 뒤에는 조직의 사정이 있어요.\n일할 때 공감은 착한 마음이 아니라 해석하는 힘이에요.\n책: https://bruceheo.com/#book\n#브루스매거진 #AI는답을만들고마케터는맥락을설계한다 #피드백",
+    "tags": "피드백, 광고주, 대행사, 협업, 커뮤니케이션, 마케터, 직장생활, 마케팅책, 브루스",
+    "altered": true
+  },
+  "credits": {
+    "higgsfield": 5.75,
+    "elevenlabs": 484
+  },
+  "status": "scheduled",
+  "note": "첫 책 릴스 시리즈(book-launch/reels.md). 브런치 글이 아니라 책 소개·목차·책 속 문장이 원본."
+}

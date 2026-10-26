@@ -1,0 +1,94 @@
+{
+  "date": "2026-11-10",
+  "time": "07:00",
+  "type": "reel",
+  "series": "book-launch",
+  "title": "AI가 아니라 제가 뭉툭해졌어요",
+  "book_url": "https://bruceheo.com/#book",
+  "angle": "AI가 아니라 내가 뭉툭해졌다 — REMAIN",
+  "hook_candidates": [
+    {
+      "no": 1,
+      "screen": "AI가 아니라 제가 뭉툭해졌어요",
+      "first_line": "AI가 뭉툭한 줄 알았어요.",
+      "method": "반전"
+    },
+    {
+      "no": 2,
+      "screen": "AI 돌릴수록 사라지는 것",
+      "first_line": "AI를 돌릴수록 사라지는 게 있어요.",
+      "method": "비밀 공개"
+    },
+    {
+      "no": 3,
+      "screen": "프롬프트 잘 쓰면 끝일까?",
+      "first_line": "프롬프트만 잘 쓰면 될까요?",
+      "method": "질문"
+    },
+    {
+      "no": 4,
+      "screen": "11년 경험, AI에 인수인계될까",
+      "first_line": "십일 년 경험, AI한테 넘길 수 있을까요?",
+      "method": "질문"
+    },
+    {
+      "no": 5,
+      "screen": "가본 만큼만 내 땅이에요",
+      "first_line": "가본 만큼만 내 땅이에요.",
+      "method": "낯선 말"
+    },
+    {
+      "no": 6,
+      "screen": "파격이 AI를 못 통과해요",
+      "first_line": "파격적인 아이디어, AI를 못 통과해요.",
+      "method": "흔한 실수"
+    },
+    {
+      "no": 7,
+      "screen": "업종이 바뀌어도 남는 것",
+      "first_line": "업종이 바뀌어도 남는 게 있어요.",
+      "method": "비교"
+    },
+    {
+      "no": 8,
+      "screen": "무엇을 말하지 않을지",
+      "first_line": "무엇을 말할지보다, 말하지 않을지.",
+      "method": "비교"
+    },
+    {
+      "no": 9,
+      "screen": "AI한테 반박당한 기획안",
+      "first_line": "AI한테 반박당한 기획안이 있었어요.",
+      "method": "내 경험"
+    },
+    {
+      "no": 10,
+      "screen": "어떤 마케터가 되고 싶나요?",
+      "first_line": "AI 시대, 어떤 마케터가 되고 싶으세요?",
+      "method": "질문"
+    }
+  ],
+  "hook_pick": {
+    "no": 1,
+    "reason": "29장 제목의 반전 구조. \"그럼 뭐가 뭉툭해졌다는 거지?\"가 바로 둘째 문장으로 이어진다."
+  },
+  "script": "AI가 뭉툭한 줄 알았어요.\n그런데 뭉툭해지고 있던 건 저였어요.\n파격적인 아이디어는 원래 반박당하기 쉬워요.\n그래서 AI를 계속 거치면, 뾰족한 부분이 사라지죠.\n프롬프트를 잘 쓰는 게 실력인 줄 알았는데,\n원하는 결과를 설명하려면 기준이 먼저 있어야 해요.\n무엇을 말하지 않을지, 어떤 선택에 이름을 걸지.\n그건 아직 사람의 몫이에요.\n여러분은 AI에게 어디까지 맡기나요?\nAI 쓰는 동료에게 공유해 주세요.",
+  "caption": "AI가 내놓는 답이 늘 무난하다고 느낀 적 있나요? 저는 문제가 AI에 있지 않다는 걸 늦게 알았어요 👇\n\n책 5부 「AI 시대, 판단을 남기는 일」의 이야기예요.\n\n여기서 볼 건 세 가지예요.\n\n1️⃣ 파격은 반복할수록 깎여요\n파격적인 아이디어는 원래 반박당할 가능성이 높아요. 그래서 AI를 반복해서 거치다 보면 자연스럽게 파격적인 부분이 사라져요.\n\n2️⃣ 프롬프트보다 기준이 먼저예요\n프롬프트는 원하는 결과를 설명하는 문장이에요. 무엇이 좋은지 모르는 상태에서 문장만 정교해져도 결과는 크게 달라지지 않아요.\n\n3️⃣ 이름을 걸 선택은 사람이 해요\n그럴듯한 문장이 넘치는 시대엔 무엇을 말하지 않을지, 무엇을 끝까지 반복할지, 어떤 선택에 자기 이름을 걸지 정하는 사람이 뚜렷한 경쟁력을 가져요.\n\n\"AI가 뭉툭한 게 아니라, AI를 계속 돌리는 내가 점점 뭉툭해지고 있었다.\" — 책 29장 중\n\n💬 AI에게 절대 안 맡기는 일 하나, 댓글로 알려 주세요.\n📌 시리즈 마지막 편이에요. 일곱 편 다 보신 분은 저장해 두고 필요할 때 꺼내 보세요.\n\n원문은 첫 책 「AI는 답을 만들고 마케터는 맥락을 설계한다」 — YES24·교보문고 판매 중 (프로필 링크)\n\n#브루스매거진 #AI는답을만들고마케터는맥락을설계한다 #AI활용 #프롬프트 #일하는법",
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/9a8dc433-55b4-4f19-957f-fa942c6b5c78.mp4",
+  "cover_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/488bacd8-c8a9-4fb9-9e80-2e828fd80c88.jpg",
+  "qa_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/d43676e5-1678-4995-9333-6d0e27f746a1.jpg",
+  "video_backup_url": "https://bruceheo.com/insight-reels/media/2026-11-10.mp4",
+  "cover_backup_url": "https://bruceheo.com/insight-reels/media/2026-11-10.jpg",
+  "youtube_short": {
+    "title": "AI가 뭉툭한 게 아니라 내가 뭉툭해지고 있었다 #Shorts",
+    "description": "AI 답이 무난하게 느껴진다면, 문제는 AI가 아닐 수 있어요.\n프롬프트보다 머릿속 기준이 먼저예요.\n책: https://bruceheo.com/#book\n#브루스매거진 #AI는답을만들고마케터는맥락을설계한다 #AI활용",
+    "tags": "AI활용, 생성형AI, 프롬프트, 일하는법, 마케터, 기획, 판단력, 마케팅책, 브루스",
+    "altered": true
+  },
+  "credits": {
+    "higgsfield": 5.75,
+    "elevenlabs": 460
+  },
+  "status": "scheduled",
+  "note": "첫 책 릴스 시리즈(book-launch/reels.md). 브런치 글이 아니라 책 소개·목차·책 속 문장이 원본."
+}

@@ -1,35 +1,94 @@
 {
   "date": "2026-10-30",
-  "type": "carousel",
-  "source": "brunch-card-news",
-  "brunch_no": 219,
-  "title": "지난 캠페인에서도 했던 말인데, 또 해야 하나요",
-  "brunch_url": "https://brunch.co.kr/@heoboram/219",
-  "status": "cancelled",
-  "caption": "🔁 지난 캠페인에서도 했던 말인데, 또 해야 할까요?\n\n캠페인 보고서를 쓰던 때, 저는 새로운 방향을 제안하려 했어요. 그런데 광고주는 \"아직 각인되지 않았어요. 다음에도 이 메시지를 반복해야 합니다\"라고 했죠. 마케터는 한 캠페인을 수십 번 보지만, 소비자는 한두 번 스쳐봤을 뿐이에요. 우리가 지겨워진 시점에 소비자는 이제 막 알아보기 시작해요.\n\n📌 반복은 아이디어의 부족이 아니라 브랜드 자산의 조건이에요.\n\n단, 같은 모양으로 복제하는 건 관성이에요. 핵심 약속은 반복하고, 그 약속이 나타나는 장면은 타깃·계절·채널에 맞게 넓혀요. 잘 기억된 요소는 남기고, 이해되지 않은 표현은 고치고, 반응이 좋았던 상황은 더 넓히는 거죠.\n\n우리가 충분히 말했는가가 아니라, 소비자가 충분히 들었는가. 여러분의 브랜드는 어느 쪽인가요?\n\n🔍 반복할 것과 넓힐 것을 가르는 네 가지 질문은 bruceheo.com 에 있어요.\n\n'또 같은 메시지냐'는 피드백을 받은 날, 팀에 이 글을 보내 주세요.\n\n#브루스매거진 #브랜드자산 #일관성 #메시지전략 #광고기획",
-  "images": [
-    "https://bruceheo.com/content/219/cards/01.jpg",
-    "https://bruceheo.com/content/219/cards/02.jpg",
-    "https://bruceheo.com/content/219/cards/03.jpg",
-    "https://bruceheo.com/content/219/cards/04.jpg",
-    "https://bruceheo.com/content/219/cards/05.jpg",
-    "https://bruceheo.com/content/219/cards/06.jpg",
-    "https://bruceheo.com/content/219/cards/07.jpg",
-    "https://bruceheo.com/content/219/cards/08.jpg",
-    "https://bruceheo.com/content/219/cards/09.jpg",
-    "https://bruceheo.com/content/219/cards/10.jpg"
+  "time": "07:00",
+  "type": "reel",
+  "series": "book-launch",
+  "title": "콘셉트 20개, 몇 초면 나와요",
+  "book_url": "https://bruceheo.com/#book",
+  "angle": "아이디어가 아니라 고르는 기준이 비싸진다 — 책 프롤로그",
+  "hook_candidates": [
+    {
+      "no": 1,
+      "screen": "콘셉트 20개, 몇 초면 나와요",
+      "first_line": "콘셉트 스무 개, 몇 초면 나와요.",
+      "method": "숫자"
+    },
+    {
+      "no": 2,
+      "screen": "그럼 마케터는 필요 없을까?",
+      "first_line": "AI가 다 하면, 마케터는요?",
+      "method": "질문"
+    },
+    {
+      "no": 3,
+      "screen": "답이 싸질수록 비싸지는 것",
+      "first_line": "답이 싸질수록, 비싸지는 게 있어요.",
+      "method": "반전"
+    },
+    {
+      "no": 4,
+      "screen": "아이디어는 이제 문제가 아니에요",
+      "first_line": "아이디어가 없어서 못 하는 시대는 끝났어요.",
+      "method": "흔한 실수"
+    },
+    {
+      "no": 5,
+      "screen": "AI 답 20개 중 하나 고르기",
+      "first_line": "스무 개 중에 하나, 어떻게 고르세요?",
+      "method": "장면"
+    },
+    {
+      "no": 6,
+      "screen": "맥락은 전략 용어가 아니에요",
+      "first_line": "맥락, 멋있는 말 아니에요.",
+      "method": "낯선 말"
+    },
+    {
+      "no": 7,
+      "screen": "고르는 사람 vs 만드는 사람",
+      "first_line": "만드는 사람보다 고르는 사람.",
+      "method": "비교"
+    },
+    {
+      "no": 8,
+      "screen": "그럴듯한 문장이 넘쳐요",
+      "first_line": "그럴듯한 문장, 이제 넘쳐요.",
+      "method": "장면"
+    },
+    {
+      "no": 9,
+      "screen": "자기 이름을 걸 수 있나요?",
+      "first_line": "이 선택에 이름 걸 수 있어요?",
+      "method": "질문"
+    },
+    {
+      "no": 10,
+      "screen": "11년 차가 AI 쓰고 느낀 것",
+      "first_line": "십일 년 차가 AI 쓰고 알게 된 거.",
+      "method": "내 경험"
+    }
   ],
-  "images_backup": [
-    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/content/219/cards/01.jpg",
-    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/content/219/cards/02.jpg",
-    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/content/219/cards/03.jpg",
-    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/content/219/cards/04.jpg",
-    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/content/219/cards/05.jpg",
-    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/content/219/cards/06.jpg",
-    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/content/219/cards/07.jpg",
-    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/content/219/cards/08.jpg",
-    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/content/219/cards/09.jpg",
-    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/content/219/cards/10.jpg"
-  ],
-  "cancel_reason": "2026-10-18 결정: 인스타는 매일 릴스 + 월요일 트렌드. 지금까지 만든 브런치 카드뉴스는 쓰지 않는다. 릴스 루틴이 이 날짜를 릴스로 덮어쓴다."
+  "hook_pick": {
+    "no": 1,
+    "reason": "누구나 겪어 본 장면(AI가 몇 초 만에 쏟아내는 콘셉트)이라 공감이 빠르고, \"그럼 뭐가 남지?\"를 남긴다. 숫자는 추천평 문장(\"콘셉트 스무 개가 몇 초 만에\")."
+  },
+  "script": "콘셉트 스무 개, 몇 초면 나와요.\nAI한테 물어보면요.\n그럼 이제 마케터는 필요 없을까요?\n문제는 그다음이에요.\n수십 개 중에 지금 이 브랜드에 맞는 하나를 고르는 일.\n그게 오히려 더 어려워졌어요.\n맥락은 멋진 전략 용어가 아니라, 고르려고 보는 조건들이에요.\n답이 싸질수록, 답을 고르는 기준은 비싸져요.\n제 첫 책은 그 기준에 관한 이야기예요.\n여러분은 AI가 준 답, 무엇으로 고르나요?\n기획안 고르기 전에 꺼내 보게 저장해 두세요.",
+  "caption": "AI에게 물으면 콘셉트 20개가 몇 초 만에 나와요. 그런데 고르는 건 더 어려워졌어요 👇\n\n이제 아이디어가 부족해서 기획을 못 하는 시대는 아니에요. 장단점을 어느 정도 아는 방법이 수십 개 쌓여 있을 때, 그중 지금 이 브랜드에 맞는 방법 하나를 고르는 일이 더 어렵죠.\n\n여기서 볼 건 세 가지예요.\n\n1️⃣ 맥락은 멋있는 전략 용어가 아니에요\n선택하기 위해 봐야 하는 조건들의 묶음이에요. 소비자가 지금 어떤 상태인지, 브랜드가 무엇을 쌓아왔는지, 누가 이 이야기를 말하는지.\n\n2️⃣ 조건을 한꺼번에 놓고 볼 때 덜 흔들려요\n조직이 실제로 실행할 수 있는지, 캠페인이 끝난 뒤 무엇이 남을지까지 함께 보면 판단이 단단해져요.\n\n3️⃣ 답이 싸질수록 고르는 기준이 비싸져요\n그럴듯한 문장이 넘치는 시대엔 무엇을 말하지 않을지, 무엇을 끝까지 반복할지, 어떤 선택에 자기 이름을 걸지 정할 수 있는 사람이 경쟁력을 가져요.\n\n\"AI가 더 많은 답을 만들수록 답을 만드는 비용은 낮아지고, 답을 고르는 판단의 가치는 높아진다.\" — 책 에필로그 중\n\n💬 AI가 준 답을 고를 때 가장 먼저 보는 건 뭔가요? A. 브랜드다움 B. 실행 가능성\n📌 기획안 고르기 전에 다시 보게 저장해 두세요.\n\n원문은 첫 책 「AI는 답을 만들고 마케터는 맥락을 설계한다」 — YES24·교보문고 판매 중 (프로필 링크)\n\n#브루스매거진 #AI는답을만들고마케터는맥락을설계한다 #AI마케팅 #기획자 #판단력",
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/a8720246-bf1e-4b79-a887-b661495cdd5d.mp4",
+  "cover_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/447e8ad5-3d28-4474-a0dd-b1ef283fe9c4.jpg",
+  "qa_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/013aee80-37cf-4f05-9685-99f42effb5d1.jpg",
+  "video_backup_url": "https://bruceheo.com/insight-reels/media/2026-10-30.mp4",
+  "cover_backup_url": "https://bruceheo.com/insight-reels/media/2026-10-30.jpg",
+  "youtube_short": {
+    "title": "AI가 콘셉트 20개를 몇 초 만에 준다면, 마케터는? #Shorts",
+    "description": "AI가 답을 쏟아낼 때, 마케터는 무엇으로 고를까요?\n답이 싸질수록, 답을 고르는 기준은 비싸져요.\n책: https://bruceheo.com/#book\n#브루스매거진 #AI는답을만들고마케터는맥락을설계한다 #AI마케팅",
+    "tags": "AI마케팅, 생성형AI, 기획, 마케터, 마케팅책, 판단력, 맥락, 신간, 브루스",
+    "altered": true
+  },
+  "credits": {
+    "higgsfield": 5.75,
+    "elevenlabs": 494
+  },
+  "status": "scheduled",
+  "note": "첫 책 릴스 시리즈(book-launch/reels.md). 브런치 글이 아니라 책 소개·목차·책 속 문장이 원본."
 }
