@@ -4,7 +4,7 @@
   "stage": "threading",
   "parts": [
     {
-      "stage": "container",
+      "stage": "publishing",
       "container_id": "18152579692507421"
     },
     {}
