@@ -130,10 +130,10 @@
   },
   "publishing": {
     "linkedin": {
-      "status": "pending",
+      "status": "failed",
       "postId": null,
       "commentId": null,
-      "error": null
+      "error": "LinkedIn API 오류 (401): {\"status\":401,\"serviceErrorCode\":65602,\"code\":\"EXPIRED_ACCESS_TOKEN\",\"message\":\"The token used in the request has expired\"}"
     },
     "instagram": {
       "status": "manual_source_ready",
