@@ -22,6 +22,10 @@ jobs:
         run: |
           import datetime as dt, json, os, urllib.request, urllib.parse, urllib.error
           
+          records = []
+          def record(text):
+              records.append(json.loads(text))
+              print(text)
           TOKENS = {k: os.environ.get(k, "") for k in (
               "LINKEDIN_ACCESS_TOKEN", "IG_ACCESS_TOKEN", "THREADS_ACCESS_TOKEN", "COUPANG_THREADS_ACCESS_TOKEN")}
           def safe(value):
@@ -66,7 +70,7 @@ jobs:
                       result["recommended_refresh_by_kst"] = date(expiry - 7 * 86400)
               else:
                   result["error"] = payload.get("error", {})
-              print(json.dumps({"service": label, "token_metadata": result}, ensure_ascii=False))
+              record(json.dumps({"service": label, "token_metadata": result}, ensure_ascii=False))
           
           print("Read-only token audit: no publish, refresh or secret changes.")
           print("Checked at KST:", dt.datetime.now(dt.timezone(dt.timedelta(hours=9))).isoformat())
@@ -80,24 +84,45 @@ jobs:
                   result["matches_existing_author"] = expected == "urn:li:person:" + str(data.get("sub", ""))
               else:
                   result["error"] = data.get("error", data)
-              print(json.dumps(result, ensure_ascii=False))
+              record(json.dumps(result, ensure_ascii=False))
           ig = TOKENS["IG_ACCESS_TOKEN"]
           if ig:
               host = os.environ.get("IG_GRAPH_HOST") or "graph.instagram.com"
               if host not in ("graph.instagram.com", "graph.facebook.com"):
                   raise SystemExit("Unsupported IG_GRAPH_HOST")
               status, data = get("https://" + host + "/v25.0/me", ig, {"fields": "user_id,username,account_type"})
-              print(json.dumps({"service": "Instagram", "http_status": status,
+              record(json.dumps({"service": "Instagram", "http_status": status,
                   "username": data.get("username"), "account_type": data.get("account_type"),
                   "error": data.get("error")}, ensure_ascii=False))
               debug("Instagram", "https://" + host, ig)
           for label, key in (("Threads main", "THREADS_ACCESS_TOKEN"), ("Threads affiliate", "COUPANG_THREADS_ACCESS_TOKEN")):
               token = TOKENS[key]
               if not token:
-                  print(json.dumps({"service": label, "configured": False}))
+                  record(json.dumps({"service": label, "configured": False}))
                   continue
               status, data = get("https://graph.threads.com/v1.0/me", token, {"fields": "id,username"})
-              print(json.dumps({"service": label, "http_status": status,
+              record(json.dumps({"service": label, "http_status": status,
                   "username": data.get("username"), "error": data.get("error")}, ensure_ascii=False))
               debug(label, "https://graph.threads.com/v1.0", token)
+          
+          
+          combined = {}
+          for item in records:
+              combined.setdefault(item["service"], {}).update(item)
+          summary = ["# Social token check", "", "Read-only audit; no posts or token changes.", "",
+              "| Service | Account | Authentication | Expires (KST) | Refresh by (KST) |",
+              "| --- | --- | --- | --- | --- |"]
+          for service, item in combined.items():
+              metadata = item.get("token_metadata", {})
+              status = "Valid" if item.get("http_status") == 200 else ("Expired" if item.get("http_status") == 401 else "Check required")
+              account = item.get("username") or item.get("account_name") or "-"
+              if item.get("matches_existing_author") is False:
+                  status = "AUTHOR MISMATCH"
+              summary.append("| " + " | ".join(str(v) for v in (
+                  service, account, status, metadata.get("expires_at_kst") or "Unavailable",
+                  metadata.get("recommended_refresh_by_kst") or "Unavailable")) + " |")
+          summary += ["", "Unavailable means the API did not provide an expiry. It does not mean the token never expires.",
+              "Refresh-by dates leave a seven-day margin before confirmed expiry."]
+          with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as f:
+              f.write("\n".join(summary) + "\n")
           
