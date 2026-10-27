@@ -1,0 +1,103 @@
+name: Social token check
+
+on:
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check existing credentials without publishing
+        env:
+          LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
+          LINKEDIN_PERSON_URN: ${{ secrets.LINKEDIN_PERSON_URN }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_GRAPH_HOST: ${{ vars.IG_GRAPH_HOST }}
+          THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
+          COUPANG_THREADS_ACCESS_TOKEN: ${{ secrets.COUPANG_THREADS_ACCESS_TOKEN }}
+        shell: python
+        run: |
+          import datetime as dt, json, os, urllib.request, urllib.parse, urllib.error
+          
+          TOKENS = {k: os.environ.get(k, "") for k in (
+              "LINKEDIN_ACCESS_TOKEN", "IG_ACCESS_TOKEN", "THREADS_ACCESS_TOKEN", "COUPANG_THREADS_ACCESS_TOKEN")}
+          def safe(value):
+              text = str(value)
+              for token in TOKENS.values():
+                  if token:
+                      text = text.replace(token, "[redacted]")
+              return text[:250]
+          def get(url, token, params=None):
+              if params:
+                  url += "?" + urllib.parse.urlencode(params)
+              req = urllib.request.Request(url, headers={"Authorization": "Bearer " + token})
+              try:
+                  with urllib.request.urlopen(req, timeout=30) as response:
+                      return response.status, json.load(response)
+              except urllib.error.HTTPError as error:
+                  try:
+                      payload = json.loads(error.read())
+                  except Exception:
+                      payload = {}
+                  detail = payload.get("error", payload)
+                  if not isinstance(detail, dict):
+                      detail = {}
+                  return error.code, {"error": {
+                      k: safe(detail[k]) for k in ("code", "type", "error_subcode", "message") if k in detail}}
+              except Exception as error:
+                  return 0, {"error": {"type": type(error).__name__}}
+          def date(value):
+              if isinstance(value, (int, float)) and value > 0:
+                  return dt.datetime.fromtimestamp(value, dt.timezone(dt.timedelta(hours=9))).isoformat()
+              return None
+          def debug(label, base, token):
+              status, payload = get(base + "/debug_token", token, {"input_token": token})
+              data = payload.get("data", {})
+              result = {"http_status": status}
+              if data:
+                  result.update({k: data[k] for k in ("is_valid", "type", "scopes") if k in data})
+                  for key in ("issued_at", "expires_at", "data_access_expires_at"):
+                      result[key + "_kst"] = date(data.get(key))
+                  expiry = data.get("expires_at")
+                  if expiry:
+                      result["recommended_refresh_by_kst"] = date(expiry - 7 * 86400)
+              else:
+                  result["error"] = payload.get("error", {})
+              print(json.dumps({"service": label, "token_metadata": result}, ensure_ascii=False))
+          
+          print("Read-only token audit: no publish, refresh or secret changes.")
+          print("Checked at KST:", dt.datetime.now(dt.timezone(dt.timedelta(hours=9))).isoformat())
+          li = TOKENS["LINKEDIN_ACCESS_TOKEN"]
+          if li:
+              status, data = get("https://api.linkedin.com/v2/userinfo", li)
+              result = {"service": "LinkedIn", "http_status": status}
+              if status == 200:
+                  expected = os.environ.get("LINKEDIN_PERSON_URN", "")
+                  result["account_name"] = data.get("name")
+                  result["matches_existing_author"] = expected == "urn:li:person:" + str(data.get("sub", ""))
+              else:
+                  result["error"] = data.get("error", data)
+              print(json.dumps(result, ensure_ascii=False))
+          ig = TOKENS["IG_ACCESS_TOKEN"]
+          if ig:
+              host = os.environ.get("IG_GRAPH_HOST") or "graph.instagram.com"
+              if host not in ("graph.instagram.com", "graph.facebook.com"):
+                  raise SystemExit("Unsupported IG_GRAPH_HOST")
+              status, data = get("https://" + host + "/v25.0/me", ig, {"fields": "user_id,username,account_type"})
+              print(json.dumps({"service": "Instagram", "http_status": status,
+                  "username": data.get("username"), "account_type": data.get("account_type"),
+                  "error": data.get("error")}, ensure_ascii=False))
+              debug("Instagram", "https://" + host, ig)
+          for label, key in (("Threads main", "THREADS_ACCESS_TOKEN"), ("Threads affiliate", "COUPANG_THREADS_ACCESS_TOKEN")):
+              token = TOKENS[key]
+              if not token:
+                  print(json.dumps({"service": label, "configured": False}))
+                  continue
+              status, data = get("https://graph.threads.com/v1.0/me", token, {"fields": "id,username"})
+              print(json.dumps({"service": label, "http_status": status,
+                  "username": data.get("username"), "error": data.get("error")}, ensure_ascii=False))
+              debug(label, "https://graph.threads.com/v1.0", token)
+          
