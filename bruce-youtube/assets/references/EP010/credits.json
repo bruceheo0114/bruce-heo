@@ -1,0 +1,214 @@
+{
+  "references_hash": "697a0f40e84afb0e",
+  "fetched_at": "2026-10-29T08:10:23.542Z",
+  "items": [
+    {
+      "file": "A001-screen.jpg",
+      "id": "A001",
+      "scenes": [
+        "S019"
+      ],
+      "kind": "screen",
+      "source": "한국경제 (2026-03-13)",
+      "url": "https://www.hankyung.com/article/202603138446g"
+    },
+    {
+      "file": "A001-scroll.jpg",
+      "id": "A001",
+      "scenes": [
+        "S019"
+      ],
+      "kind": "scroll",
+      "source": "한국경제 (2026-03-13)",
+      "url": "https://www.hankyung.com/article/202603138446g"
+    },
+    {
+      "file": "A001-img1.jpg",
+      "id": "A001",
+      "scenes": [
+        "S019"
+      ],
+      "kind": "image",
+      "source": "한국경제 (2026-03-13)",
+      "url": "https://www.hankyung.com/article/202603138446g"
+    },
+    {
+      "file": "A001-img2.jpg",
+      "id": "A001",
+      "scenes": [
+        "S019"
+      ],
+      "kind": "image",
+      "source": "한국경제 (2026-03-13)",
+      "url": "https://www.hankyung.com/article/202603138446g"
+    },
+    {
+      "file": "A002-screen.jpg",
+      "id": "A002",
+      "scenes": [
+        "S017"
+      ],
+      "kind": "screen",
+      "source": "메트로서울 (2026-02-11)",
+      "url": "https://www.metroseoul.co.kr/article/20260211500131"
+    },
+    {
+      "file": "A002-scroll.jpg",
+      "id": "A002",
+      "scenes": [
+        "S017"
+      ],
+      "kind": "scroll",
+      "source": "메트로서울 (2026-02-11)",
+      "url": "https://www.metroseoul.co.kr/article/20260211500131"
+    },
+    {
+      "file": "A003-screen.jpg",
+      "id": "A003",
+      "scenes": [
+        "S034",
+        "S036"
+      ],
+      "kind": "screen",
+      "source": "한국경제 (2021-02-17)",
+      "url": "https://www.hankyung.com/article/202102171075g"
+    },
+    {
+      "file": "A003-scroll.jpg",
+      "id": "A003",
+      "scenes": [
+        "S034",
+        "S036"
+      ],
+      "kind": "scroll",
+      "source": "한국경제 (2021-02-17)",
+      "url": "https://www.hankyung.com/article/202102171075g"
+    },
+    {
+      "file": "A004-screen.jpg",
+      "id": "A004",
+      "scenes": [
+        "S038"
+      ],
+      "kind": "screen",
+      "source": "토스피드",
+      "url": "https://toss.im/tossfeed/article/moneygraphy-popup"
+    },
+    {
+      "file": "A004-scroll.jpg",
+      "id": "A004",
+      "scenes": [
+        "S038"
+      ],
+      "kind": "scroll",
+      "source": "토스피드",
+      "url": "https://toss.im/tossfeed/article/moneygraphy-popup"
+    },
+    {
+      "file": "A004-img1.jpg",
+      "id": "A004",
+      "scenes": [
+        "S038"
+      ],
+      "kind": "image",
+      "source": "토스피드",
+      "url": "https://toss.im/tossfeed/article/moneygraphy-popup"
+    },
+    {
+      "file": "A004-img2.jpg",
+      "id": "A004",
+      "scenes": [
+        "S038"
+      ],
+      "kind": "image",
+      "source": "토스피드",
+      "url": "https://toss.im/tossfeed/article/moneygraphy-popup"
+    },
+    {
+      "file": "A005-screen.jpg",
+      "id": "A005",
+      "scenes": [
+        "S002",
+        "S011"
+      ],
+      "kind": "screen",
+      "source": "브랜드브리프 (2021-12-21)",
+      "url": "https://www.brandbrief.co.kr/site/data/html/2021/12/21/2021122104903.html"
+    },
+    {
+      "file": "A005-scroll.jpg",
+      "id": "A005",
+      "scenes": [
+        "S002",
+        "S011"
+      ],
+      "kind": "scroll",
+      "source": "브랜드브리프 (2021-12-21)",
+      "url": "https://www.brandbrief.co.kr/site/data/html/2021/12/21/2021122104903.html"
+    },
+    {
+      "file": "brunch-01.jpg",
+      "id": "brunch",
+      "scenes": [],
+      "kind": "image",
+      "source": "브런치 @heoboram 원문",
+      "url": "https://brunch.co.kr/@heoboram/209"
+    },
+    {
+      "file": "brunch-02.jpg",
+      "id": "brunch",
+      "scenes": [],
+      "kind": "image",
+      "source": "브런치 @heoboram 원문",
+      "url": "https://brunch.co.kr/@heoboram/209"
+    },
+    {
+      "file": "brunch-03.jpg",
+      "id": "brunch",
+      "scenes": [],
+      "kind": "image",
+      "source": "브런치 @heoboram 원문",
+      "url": "https://brunch.co.kr/@heoboram/209"
+    },
+    {
+      "file": "brunch-04.jpg",
+      "id": "brunch",
+      "scenes": [],
+      "kind": "image",
+      "source": "브런치 @heoboram 원문",
+      "url": "https://brunch.co.kr/@heoboram/209"
+    }
+  ],
+  "failures": [
+    {
+      "id": "B01",
+      "url": "person scrolling short videos on smartphone close up hands",
+      "error": "PEXELS_API_KEY가 없습니다 (저장소 Secrets에 넣는다)"
+    },
+    {
+      "id": "B02",
+      "url": "friends laughing while watching phone video on couch",
+      "error": "PEXELS_API_KEY가 없습니다 (저장소 Secrets에 넣는다)"
+    },
+    {
+      "id": "B03",
+      "url": "online shopping add to cart on laptop close up",
+      "error": "PEXELS_API_KEY가 없습니다 (저장소 Secrets에 넣는다)"
+    },
+    {
+      "id": "B04",
+      "url": "marketing team reviewing charts in meeting room",
+      "error": "PEXELS_API_KEY가 없습니다 (저장소 Secrets에 넣는다)"
+    },
+    {
+      "id": "B05",
+      "url": "hand painting brush strokes layering color on canvas",
+      "error": "PEXELS_API_KEY가 없습니다 (저장소 Secrets에 넣는다)"
+    },
+    {
+      "id": "B06",
+      "url": "stacking wooden blocks one by one on table",
+      "error": "PEXELS_API_KEY가 없습니다 (저장소 Secrets에 넣는다)"
+    }
+  ]
+}
