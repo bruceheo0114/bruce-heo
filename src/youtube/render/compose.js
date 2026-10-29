@@ -679,14 +679,17 @@ export async function renderEpisode(episode, audioFiles, { root, outDir, preview
   const pads = audio.map((item, index) => `[${index}:a]aformat=sample_rates=48000:channel_layouts=stereo,${VOICE_LEVELER},apad=pad_dur=${item.gap}[p${index}]`).join(";");
   const join = `${pads};${audio.map((_, index) => `[p${index}]`).join("")}`;
   // 음량은 두 번에 나눠 맞춘다(먼저 재고, 같은 비율로 키운다). 한 번에 하면 말이 없는 구간의 잡음까지 말소리만큼 커진다.
-  const chain = `${join}concat=n=${audio.length}:v=0:a=1,${cleanup ? "highpass=f=80,afftdn=nf=-25:tn=1," : ""}`;
+  // 이어붙이기는 먼저 파일로 뽑는다. concat 뒤에 loudnorm을 한 그래프로 걸면 첫 챕터에서 끊기는 일이 있었다(EP010, ffmpeg 5.1).
+  const joined = path.join(work, "voice_joined.wav");
+  await ffmpeg([...inputs, "-filter_complex", `${join}concat=n=${audio.length}:v=0:a=1[j]`, "-map", "[j]", joined]);
+  const chain = `[0:a]${cleanup ? "highpass=f=80,afftdn=nf=-25:tn=1," : ""}`;
   const target = "I=-14:TP=-1.5:LRA=11";
-  const measured = await measureLoudness([...inputs, "-filter_complex", `${chain}loudnorm=${target}:print_format=json`]);
+  const measured = await measureLoudness(["-i", joined, "-filter_complex", `${chain}loudnorm=${target}:print_format=json`]);
   const linear = measured
     ? `:measured_I=${measured.input_i}:measured_TP=${measured.input_tp}:measured_LRA=${measured.input_lra}:measured_thresh=${measured.input_thresh}:offset=${measured.target_offset}:linear=true`
     : "";
   const voiceOut = path.join(work, "voice.m4a");
-  await ffmpeg([...inputs, "-filter_complex", `${chain}loudnorm=${target}${linear}[a]`, "-map", "[a]", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", voiceOut]);
+  await ffmpeg(["-i", joined, "-filter_complex", `${chain}loudnorm=${target}${linear}[a]`, "-map", "[a]", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", voiceOut]);
   // 효과음: 챕터 간지(chapter.mp3) + 움직이는 카드·스크롤 컷 소리(bruce-youtube/channel/sfx/<이름>.mp3)를 작게 깐다.
   const sfxDir = path.join(root, "channel", "sfx"); // root = bruce-youtube
   const wanted = sfxEvents(cardStarts, shots);
