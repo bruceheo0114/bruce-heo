@@ -103,9 +103,9 @@ ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
 SCENE ID: S009
-TIME: 00:40-00:46
+TIME: 00:40-00:47
 NARRATION:
-요즘 광고는 하나의 콘텐츠가 됐어요. 유튜버 영상을 보듯 광고를 보고, 쇼츠로 퍼뜨리죠.
+요즘 광고는 하나의 콘텐츠가 됐어요. 유튜버 영상을 보듯 광고를 보고, 쇼츠로 퍼뜨리고, 댓글과 밈으로 즐기죠.
 VISUAL:
 오프화이트 배경 위 큰 문구, 포인트 컬러 한 단어
 SOURCE_TYPE: TYPE
@@ -115,7 +115,7 @@ ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
 SCENE ID: S010
-TIME: 00:46-00:53
+TIME: 00:47-00:55
 NARRATION:
 예전 광고가 제품을 얼마나 잘 보여 줄까에 집중했다면, 이제는 얼마나 화제가 될까가 중요한 기준이 됐죠.
 VISUAL:
@@ -129,7 +129,7 @@ HIGGSFIELD_REQUIRED: NO
 MOTION: compare
 
 SCENE ID: S011
-TIME: 00:53-00:58
+TIME: 00:55-01:00
 NARRATION:
 돌고래 유괴단, 스튜디오 좋 같은 크리에이티브 그룹들이 이 흐름을 이끌었어요.
 VISUAL:
@@ -141,9 +141,9 @@ ASSET: A005
 HIGGSFIELD_REQUIRED: NO
 
 SCENE ID: S012
-TIME: 00:58-01:05
+TIME: 01:00-01:05
 NARRATION:
-댓글과 밈으로 즐기고요. 올해 상반기에도 짐빔, 삼양, G(지)마켓 광고가 연달아 화제가 됐습니다.
+올해 상반기에도 짐빔, 삼양, G(지)마켓 광고가 연달아 화제가 됐습니다.
 VISUAL:
 미니멀 도식, 항목이 말에 맞춰 나타남
 SOURCE_TYPE: GRAPHIC
@@ -246,7 +246,7 @@ HIGGSFIELD_REQUIRED: NO
 SCENE ID: S020
 TIME: 01:39-01:43
 NARRATION:
-3월 총거래액은 1년 전보다 12%(십이 퍼센트) 늘었어요.
+3월(삼월) 총거래액은 1년(일 년) 전보다 12%(십이 퍼센트) 늘었어요.
 VISUAL:
 미니멀 도식, 항목이 말에 맞춰 나타남
 SOURCE_TYPE: GRAPHIC
@@ -258,7 +258,7 @@ HIGGSFIELD_REQUIRED: NO
 MOTION: count
 
 SCENE ID: S021
-TIME: 01:43-01:50
+TIME: 01:43-01:49
 NARRATION:
 성과는 분명 좋아요. 하지만 저는 이 숫자만으로, 화제성이 곧 매출이라고 말하긴 어렵다고 봐요.
 VISUAL:
@@ -271,7 +271,7 @@ ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
 SCENE ID: S022
-TIME: 01:50-01:55
+TIME: 01:49-01:55
 NARRATION:
 G(지)마켓은 오픈마켓이에요. 광고에 나온 상품을, 그 자리에서 바로 살 수 있는 구조죠.
 VISUAL:
@@ -309,7 +309,7 @@ ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
 SCENE ID: S025
-TIME: 02:05-02:10
+TIME: 02:05-02:09
 NARRATION:
 판매에는 가격, 시즌, 미디어 집행 같은 변수가 함께 움직여요.
 VISUAL:
@@ -323,7 +323,7 @@ ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
 SCENE ID: S026
-TIME: 02:10-02:15
+TIME: 02:09-02:14
 NARRATION:
 그래서 숫자만으로는, 화제성과 매출 사이에 등호를 그릴 수 없습니다.
 VISUAL:
@@ -335,7 +335,7 @@ ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
 SCENE ID: S027
-TIME: 02:15-02:20
+TIME: 02:14-02:20
 NARRATION:
 그럼 큰 캠페인의 진짜 성과는 뭘로 봐야 할까요? 저는 자산화라고 생각해요.
 VISUAL:
@@ -399,7 +399,7 @@ ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
 SCENE ID: S032
-TIME: 02:39-02:46
+TIME: 02:39-02:45
 NARRATION:
 3년(삼 년) 연속 적자 속에서 올드한 오픈마켓처럼 보이던 브랜드가, 지금은 힙한 브랜드로 다시 읽히죠.
 VISUAL:
@@ -413,7 +413,7 @@ HIGGSFIELD_REQUIRED: NO
 MOTION: compare
 
 SCENE ID: S033
-TIME: 02:46-02:51
+TIME: 02:45-02:51
 NARRATION:
 저는 단기 매출보다, 소비자가 브랜드를 보는 감정이 바뀐 게 더 크다고 봐요.
 VISUAL:
@@ -453,7 +453,7 @@ ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
 SCENE ID: S036
-TIME: 03:02-03:06
+TIME: 03:02-03:05
 NARRATION:
 식품업계에선 처음으로 유튜브 실버버튼도 받았고요.
 VISUAL:
@@ -466,7 +466,7 @@ ASSET: A003
 HIGGSFIELD_REQUIRED: NO
 
 SCENE ID: S037
-TIME: 03:06-03:12
+TIME: 03:05-03:12
 NARRATION:
 이게 곧바로 매출을 만들었다고 단정할 순 없어요. 다만 빙그레를 보는 시선이 달라진 건 분명하죠.
 VISUAL:
@@ -567,7 +567,7 @@ ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
 SCENE ID: S045
-TIME: 03:50-03:57
+TIME: 03:50-03:56
 NARRATION:
 한 캠페인이 크게 터져도, 다음 캠페인에서 전혀 다른 말과 태도를 보이면 쌓이지 않습니다.
 VISUAL:
@@ -579,7 +579,7 @@ ASSET: G05
 HIGGSFIELD_REQUIRED: YES
 
 SCENE ID: S046
-TIME: 03:57-04:03
+TIME: 03:56-04:03
 NARRATION:
 같은 맥락이 여러 캠페인에 걸쳐 반복될 때, 비로소 소비자 머릿속에 브랜드의 색이 입혀져요.
 VISUAL:
@@ -658,7 +658,7 @@ ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
 SCENE ID: S052
-TIME: 04:30-04:36
+TIME: 04:30-04:35
 NARRATION:
 첫째, 사람들이 광고를 떠올릴 때, 우리 브랜드 이름도 같이 떠올리나요?
 VISUAL:
@@ -671,7 +671,7 @@ ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
 SCENE ID: S053
-TIME: 04:36-04:41
+TIME: 04:35-04:40
 NARRATION:
 둘째, 이번 캠페인의 톤과 말투를, 다음 캠페인에서도 이어 갈 수 있나요?
 VISUAL:
@@ -684,7 +684,7 @@ ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
 SCENE ID: S054
-TIME: 04:41-04:44
+TIME: 04:40-04:44
 NARRATION:
 셋째, 이 광고가 잊혀도, 브랜드에 남는 감각이 있나요?
 VISUAL:
