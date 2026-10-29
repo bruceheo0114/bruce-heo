@@ -430,12 +430,12 @@ TIME: 02:51-02:57
 NARRATION:
 빙그레는 이걸 더 오래 쌓았어요. 2020년(이천이십 년)부터 이어 온, 빙그레우스 세계관이죠.
 VISUAL:
-빙그레 유튜브 실버버튼 기사 화면
-SOURCE_TYPE: REAL
+오프화이트 배경 위 큰 문구, 포인트 컬러 한 단어
+SOURCE_TYPE: TYPE
 ON_SCREEN_TEXT:
 빙그레우스 세계관
 2020년부터
-ASSET: A003
+ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
 SCENE ID: S035
@@ -457,12 +457,12 @@ TIME: 03:02-03:05
 NARRATION:
 식품업계에선 처음으로 유튜브 실버버튼도 받았고요.
 VISUAL:
-빙그레 유튜브 실버버튼 기사 화면
-SOURCE_TYPE: REAL
+오프화이트 배경 위 큰 문구, 포인트 컬러 한 단어
+SOURCE_TYPE: TYPE
 ON_SCREEN_TEXT:
 식품업계 첫
 유튜브 실버버튼
-ASSET: A003
+ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
 SCENE ID: S037
