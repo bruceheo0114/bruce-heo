@@ -1,6 +1,6 @@
 {
-  "references_hash": "5844f2ed6feddfc9",
-  "fetched_at": "2026-10-29T08:14:15.699Z",
+  "references_hash": "d7f43ac3f6e393e3",
+  "fetched_at": "2026-10-29T08:39:11.363Z",
   "items": [
     {
       "file": "A001-screen.jpg",
@@ -43,32 +43,9 @@
       "url": "https://www.hankyung.com/article/202603138446g"
     },
     {
-      "file": "A002-screen.jpg",
-      "id": "A002",
-      "scenes": [
-        "S017"
-      ],
-      "kind": "screen",
-      "source": "메트로서울 (2026-02-11)",
-      "url": "https://www.metroseoul.co.kr/article/20260211500131"
-    },
-    {
-      "file": "A002-scroll.jpg",
-      "id": "A002",
-      "scenes": [
-        "S017"
-      ],
-      "kind": "scroll",
-      "source": "메트로서울 (2026-02-11)",
-      "url": "https://www.metroseoul.co.kr/article/20260211500131"
-    },
-    {
       "file": "A003-screen.jpg",
       "id": "A003",
-      "scenes": [
-        "S034",
-        "S036"
-      ],
+      "scenes": [],
       "kind": "screen",
       "source": "한국경제 (2021-02-17)",
       "url": "https://www.hankyung.com/article/202102171075g"
@@ -76,10 +53,7 @@
     {
       "file": "A003-scroll.jpg",
       "id": "A003",
-      "scenes": [
-        "S034",
-        "S036"
-      ],
+      "scenes": [],
       "kind": "scroll",
       "source": "한국경제 (2021-02-17)",
       "url": "https://www.hankyung.com/article/202102171075g"
@@ -250,6 +224,11 @@
     }
   ],
   "failures": [
+    {
+      "id": "A002",
+      "url": "https://www.metroseoul.co.kr/article/20260211500131",
+      "error": "page.goto: Timeout 45000ms exceeded.\nCall log:\n  - navigating to \"https://www.metroseoul.co.kr/article/20260211500131\", waiting until \"domcontentloaded\"\n"
+    },
     {
       "id": "B01",
       "url": "person scrolling short videos on smartphone close up hands",
