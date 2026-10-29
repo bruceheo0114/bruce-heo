@@ -105,7 +105,7 @@
 <!-- ============================================================
      BOOK LAUNCH — 첫 책 출간 (2026-11-05)
      ============================================================ -->
-<div class="hero-slider" data-slider data-autoplay="9000" aria-roledescription="carousel" aria-label="책 소개와 브루스 소개">
+<div class="hero-slider" data-slider data-drag data-autoplay="9000" aria-roledescription="carousel" aria-label="책 소개와 브루스 소개">
 <div class="hero-slider__track" id="hero-track" data-slider-track>
 <section class="book-launch hero-slide" id="book" aria-roledescription="slide" aria-label="1 / 2 책 소개" aria-labelledby="book-title">
   <div class="wrap book-launch__grid">
@@ -201,8 +201,8 @@
 </div>
 <div class="hero-slider__nav">
   <button type="button" class="hero-slider__btn" data-slide-prev aria-label="이전 슬라이드">←</button>
-  <button type="button" class="hero-slider__dot" data-slide-to="0" aria-label="책 소개">책</button>
-  <button type="button" class="hero-slider__dot" data-slide-to="1" aria-label="브루스 소개">소개</button>
+  <button type="button" class="hero-slider__dot" data-slide-to="0" aria-label="책 소개"><img class="hero-slider__thumb" src="/assets/book/cover.jpg" width="20" height="28" alt="">책<i class="hero-slider__progress" data-slide-progress aria-hidden="true"></i></button>
+  <button type="button" class="hero-slider__dot" data-slide-to="1" aria-label="브루스 소개"><span class="hero-slider__thumb hero-slider__thumb--mark" aria-hidden="true">BR.</span>소개<i class="hero-slider__progress" data-slide-progress aria-hidden="true"></i></button>
   <button type="button" class="hero-slider__btn" data-slide-next aria-label="다음 슬라이드">→</button>
 </div>
 </div>
@@ -420,7 +420,7 @@
     <div class="capabilities reveal">
       <span class="capabilities__intro">What I do</span>
       <h3 class="capabilities__lead">맥락 설계자의 일은<br>다섯 단계로 이어집니다</h3>
-      <div class="capabilities__grid">
+      <div class="capabilities__grid" data-carousel="stack" data-carousel-max="639" data-carousel-label="단계">
         <div class="capability">
           <span class="capability__num">01</span>
           <div class="capability__verb">읽는다</div>
@@ -465,7 +465,7 @@
         경력, 대표 캠페인, 세션과 강연은 각각의 페이지에 정리해 두었습니다.
       </p>
     </div>
-    <div class="explore reveal">
+    <div class="explore reveal" data-carousel="coverflow" data-carousel-max="899" data-carousel-label="페이지">
       <a class="explore-card" href="/career/">
         <span class="explore-card__kicker">Career</span>
         <h3 class="explore-card__title">네 개의 세계를 건너온 11년</h3>
@@ -538,7 +538,7 @@
     </div>
 
     <h3 class="writing-subhead">인터뷰 · 기사</h3>
-    <div class="media-grid reveal">
+    <div class="media-grid reveal" data-carousel="peek" data-carousel-max="899" data-carousel-label="인터뷰·기사">
       <div class="media media--nolink">
         <div class="media__body">
           <div class="media__type">▶ 영상 · 다큐멘터리</div>

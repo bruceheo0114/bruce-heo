@@ -1,14 +1,46 @@
-/* 홈페이지 가로 슬라이드(첫 화면·주요 내용). scroll-snap 위에 탭·화살표·자동 넘김·해시 이동만 얹는다. */
+/* 홈페이지 가로 슬라이드(첫 화면·주요 내용)와 모바일 캐러셀(peek·coverflow·card stack).
+   scroll-snap 위에 탭·화살표·자동 넘김(프로그레스 바)·마우스 드래그·해시 이동만 얹는다. */
 (function () {
   'use strict';
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var slice = function (list) { return Array.prototype.slice.call(list); };
+
+  // 터치는 scroll-snap 이 처리하니, 마우스로 끌어 넘기기만 보탠다. 끌었으면 링크 클릭은 막는다.
+  function mouseDrag(track, onStart, onEnd) {
+    var down = false, moved = false, startX = 0, startLeft = 0;
+    track.addEventListener('pointerdown', function (e) {
+      if (e.pointerType !== 'mouse' || e.button !== 0) return;
+      down = true; moved = false; startX = e.clientX; startLeft = track.scrollLeft;
+      if (onStart) onStart();
+    });
+    window.addEventListener('pointermove', function (e) {
+      if (!down) return;
+      var dx = e.clientX - startX;
+      if (!moved && Math.abs(dx) < 6) return;
+      if (!moved) { moved = true; track.classList.add('is-dragging'); }
+      track.scrollLeft = startLeft - dx;
+    });
+    window.addEventListener('pointerup', function (e) {
+      if (!down) return;
+      down = false;
+      if (!moved) return;
+      track.classList.remove('is-dragging');
+      onEnd(e.clientX - startX);
+    });
+    track.addEventListener('click', function (e) {
+      if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; }
+    }, true);
+    track.addEventListener('dragstart', function (e) { e.preventDefault(); });
+  }
+
+  function step(dx) { return dx < -40 ? 1 : dx > 40 ? -1 : 0; }
 
   function setup(root) {
     var track = root.querySelector('[data-slider-track]');
     if (!track) return null;
-    var slides = Array.prototype.slice.call(track.children);
+    var slides = slice(track.children);
     var tabs = root.querySelectorAll('[data-slide-to]');
-    var current = 0, timer = null;
+    var current = 0, dragFrom = 0;
 
     function fit() { var el = slides[current]; if (el) track.style.height = el.offsetHeight + 'px'; }
     function mark() {
@@ -29,7 +61,8 @@
       track.scrollTo({ left: track.clientWidth * current, behavior: instant || reduce ? 'auto' : 'smooth' });
       if (instant) mark();
     }
-    function stop() { if (timer) { clearInterval(timer); timer = null; } }
+    // 자동 넘김은 현재 탭의 프로그레스 바 애니메이션이 끝날 때 다음으로 간다. 멈추면 바는 꽉 찬 채로 남는다.
+    function stop() { root.classList.remove('is-autoplay'); }
 
     track.addEventListener('scroll', function () { window.requestAnimationFrame(mark); }, { passive: true });
     window.addEventListener('resize', function () { go(current, true); });
@@ -39,9 +72,18 @@
     root.querySelectorAll('[data-slide-next]').forEach(function (b) { b.addEventListener('click', function () { stop(); go(current + 1); }); });
     ['pointerdown', 'wheel', 'touchstart', 'keydown'].forEach(function (ev) { root.addEventListener(ev, stop, { passive: true }); });
     if ('ResizeObserver' in window) slides.forEach(function (s) { new ResizeObserver(fit).observe(s); });
+    if (root.hasAttribute('data-drag')) {
+      mouseDrag(track, function () { dragFrom = current; }, function (dx) { go(dragFrom + step(dx)); });
+    }
 
     var delay = +root.getAttribute('data-autoplay');
-    if (delay && !reduce) timer = setInterval(function () { go(current + 1); }, delay);
+    if (delay && !reduce) {
+      root.style.setProperty('--autoplay', delay + 'ms');
+      root.classList.add('is-autoplay');
+      root.addEventListener('animationend', function (e) {
+        if (e.target.hasAttribute('data-slide-progress') && root.classList.contains('is-autoplay')) go(current + 1);
+      });
+    }
     mark();
 
     return {
@@ -58,7 +100,122 @@
     };
   }
 
-  var sliders = Array.prototype.map.call(document.querySelectorAll('[data-slider]'), setup).filter(Boolean);
+  /* 모바일 캐러셀. data-carousel="peek|coverflow|stack", data-carousel-max 이하 폭에서만 켜고 그 위에서는 원래 그리드로 둔다. */
+  function carousel(root) {
+    var mode = root.getAttribute('data-carousel');
+    var mq = window.matchMedia('(max-width: ' + (+root.getAttribute('data-carousel-max') || 899) + 'px)');
+    var items = slice(root.children);
+    var n = items.length, current = 0, on = false, dragFrom = 0;
+    var label = root.getAttribute('data-carousel-label') || '카드';
+
+    var bar = document.createElement('div');
+    bar.className = 'carousel__bar carousel__bar--' + mode;
+    var dots = [], counter = null;
+    function button(cls, text, aria, fn) {
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = cls; b.textContent = text; b.setAttribute('aria-label', aria);
+      b.addEventListener('click', fn);
+      bar.appendChild(b);
+      return b;
+    }
+    if (mode === 'stack') {
+      button('carousel__arrow', '←', '이전 ' + label, function () { show(current - 1); });
+      counter = document.createElement('span');
+      counter.className = 'carousel__count';
+      counter.setAttribute('aria-live', 'polite');
+      bar.appendChild(counter);
+      button('carousel__arrow', '→', '다음 ' + label, function () { show(current + 1); });
+    } else {
+      items.forEach(function (_, i) {
+        dots.push(button('carousel__dot', '', label + ' ' + (i + 1) + ' / ' + n, function () { show(i); }));
+      });
+    }
+    root.after(bar);
+
+    function center(el) { return el.offsetLeft + el.offsetWidth / 2; }
+    function nearest() {
+      var mid = root.scrollLeft + root.clientWidth / 2, best = 0;
+      items.forEach(function (el, i) { if (Math.abs(center(el) - mid) < Math.abs(center(items[best]) - mid)) best = i; });
+      return best;
+    }
+    function paint() {
+      dots.forEach(function (d, i) { d.setAttribute('aria-current', i === current ? 'true' : 'false'); });
+      if (counter) counter.textContent = String(current + 1).padStart(2, '0') + ' / ' + String(n).padStart(2, '0');
+      if (mode === 'stack') {
+        items.forEach(function (el, i) {
+          var d = (i - current + n) % n;
+          el.setAttribute('data-pos', d === 0 ? '0' : d === n - 1 && n > 3 ? 'out' : d <= 2 ? String(d) : 'back');
+          el.toggleAttribute('inert', d !== 0);
+          el.style.transform = '';
+        });
+      }
+    }
+    // coverflow: 가운데 카드는 크게, 양옆은 거리만큼 기울이고 줄인다
+    function flow() {
+      if (mode !== 'coverflow') return;
+      var mid = root.scrollLeft + root.clientWidth / 2;
+      items.forEach(function (el) {
+        var o = Math.max(-1, Math.min(1, (center(el) - mid) / el.offsetWidth));
+        el.style.transform = 'perspective(1000px) rotateY(' + (o * 32).toFixed(1) + 'deg) scale(' + (1 - Math.abs(o) * 0.14).toFixed(3) + ')';
+        el.style.opacity = (1 - Math.abs(o) * 0.35).toFixed(2);
+        el.style.zIndex = String(10 - Math.round(Math.abs(o) * 4));
+      });
+    }
+    function show(i) {
+      current = (i + n) % n;
+      if (mode === 'stack') { paint(); return; }
+      var el = items[current];
+      root.scrollTo({ left: center(el) - root.clientWidth / 2, behavior: reduce ? 'auto' : 'smooth' });
+    }
+
+    root.addEventListener('scroll', function () {
+      if (!on || mode === 'stack') return;
+      window.requestAnimationFrame(function () { current = nearest(); paint(); flow(); });
+    }, { passive: true });
+    if (mode !== 'stack') {
+      mouseDrag(root, function () { dragFrom = current; }, function (dx) { if (on) show(dragFrom + step(dx)); });
+    } else {
+      // 맨 위 카드를 손가락(마우스)으로 밀어 넘긴다. 세로 스크롤은 그대로 둔다(touch-action: pan-y).
+      var startX = null, dx = 0, top = null;
+      root.addEventListener('pointerdown', function (e) {
+        if (!on || (e.pointerType === 'mouse' && e.button !== 0)) return;
+        startX = e.clientX; dx = 0; top = items[current];
+      });
+      window.addEventListener('pointermove', function (e) {
+        if (startX === null) return;
+        dx = e.clientX - startX;
+        if (Math.abs(dx) < 4) return;
+        root.classList.add('is-dragging');
+        top.style.transform = 'translateX(' + dx + 'px) rotate(' + (dx / 24).toFixed(2) + 'deg)';
+      });
+      var release = function () {
+        if (startX === null) return;
+        startX = null;
+        root.classList.remove('is-dragging');
+        var s = step(dx);
+        if (s) show(current + s); else top.style.transform = '';
+      };
+      window.addEventListener('pointerup', release);
+      window.addEventListener('pointercancel', release);
+    }
+
+    function toggle() {
+      on = mq.matches;
+      root.classList.toggle('is-carousel', on);
+      bar.hidden = !on;
+      if (on) { paint(); flow(); return; }
+      items.forEach(function (el) {
+        el.removeAttribute('data-pos'); el.removeAttribute('inert');
+        el.style.transform = el.style.opacity = el.style.zIndex = '';
+      });
+    }
+    if (mq.addEventListener) mq.addEventListener('change', toggle); else mq.addListener(toggle);
+    window.addEventListener('resize', flow);
+    toggle();
+  }
+
+  slice(document.querySelectorAll('[data-carousel]')).forEach(carousel);
+  var sliders = slice(document.querySelectorAll('[data-slider]')).map(setup).filter(Boolean);
 
   function openHash(hash, scroll) {
     var id = (hash || '').replace(/^#/, '');
