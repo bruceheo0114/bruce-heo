@@ -1,4 +1,4 @@
-# Storyboard — EP010
+# Storyboard — EP011
 
 ```text
 SCENE ID: S001

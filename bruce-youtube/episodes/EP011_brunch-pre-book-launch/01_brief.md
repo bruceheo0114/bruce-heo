@@ -1,4 +1,4 @@
-# EP010 Brief
+# EP011 Brief
 
 ## Original Article
 첫 책 《AI는 답을 만들고 마케터는 맥락을 설계한다》(허보람 지음, 슬로디미디어, 2026.11.5) — https://www.yes24.com/product/goods/199439514 · https://product.kyobobook.co.kr/detail/S000221776404 (책 소개·목차·책 속 문장·저자 소개). 보조: 오픈애즈 오리지널 1화 https://www.openads.co.kr/festival/festivalDetail?festivalId=15390101

@@ -1,6 +1,6 @@
 {
-  "episode": "EP010",
-  "folder": "EP010_brunch-pre-book-launch",
+  "episode": "EP011",
+  "folder": "EP011_brunch-pre-book-launch",
   "article": {
     "id": "pre-book-launch",
     "url": "https://bruceheo.com/#book",
@@ -37,7 +37,7 @@
     "S002": {
       "job": "b72cbaef-ce32-425b-a811-fdf196bd54b1",
       "files": [
-        "bruce-youtube/assets/references/EP010/S002"
+        "bruce-youtube/assets/references/EP011/S002"
       ],
       "credits": 0.25,
       "at": "2026-10-26T14:15:41.949Z"
@@ -45,7 +45,7 @@
     "S009": {
       "job": "2a1c227e-db85-410e-aa50-76036b32b49c",
       "files": [
-        "bruce-youtube/assets/references/EP010/S009"
+        "bruce-youtube/assets/references/EP011/S009"
       ],
       "credits": 0.25,
       "at": "2026-10-26T14:15:42.184Z"
@@ -53,7 +53,7 @@
     "S013": {
       "job": "27480d02-f9ba-4866-9814-c4f6f84d2e13",
       "files": [
-        "bruce-youtube/assets/references/EP010/S013"
+        "bruce-youtube/assets/references/EP011/S013"
       ],
       "credits": 5.25,
       "at": "2026-10-26T14:15:42.361Z"
@@ -61,7 +61,7 @@
     "S018": {
       "job": "92b76e5c-ad9f-4688-a6ca-86630f67b506",
       "files": [
-        "bruce-youtube/assets/references/EP010/S018"
+        "bruce-youtube/assets/references/EP011/S018"
       ],
       "credits": 0.25,
       "at": "2026-10-26T14:15:42.549Z"
@@ -69,7 +69,7 @@
     "S023": {
       "job": "fba5e2d3-f1d7-4bcc-b7f4-61b949fec7a0",
       "files": [
-        "bruce-youtube/assets/references/EP010/S023"
+        "bruce-youtube/assets/references/EP011/S023"
       ],
       "credits": 0.25,
       "at": "2026-10-26T14:15:42.723Z"
@@ -77,7 +77,7 @@
     "S032": {
       "job": "62016da5-1fc7-499a-b276-450c59be3d06",
       "files": [
-        "bruce-youtube/assets/references/EP010/S032"
+        "bruce-youtube/assets/references/EP011/S032"
       ],
       "credits": 0.25,
       "at": "2026-10-26T14:15:42.907Z"
@@ -85,7 +85,7 @@
     "S039": {
       "job": "3b92c27e-555c-42fe-8c51-9e6951c97c05",
       "files": [
-        "bruce-youtube/assets/references/EP010/S039"
+        "bruce-youtube/assets/references/EP011/S039"
       ],
       "credits": 0.25,
       "at": "2026-10-26T14:15:43.116Z"
