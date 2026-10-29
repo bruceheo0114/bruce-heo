@@ -643,7 +643,7 @@ ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
 SCENE ID: S051
-TIME: 05:15-05:24
+TIME: 05:15-05:30
 NARRATION:
 지난 캠페인에서 했던 말이라면, 먼저 이렇게 물어보세요. 우리가 충분히 말했나요? 아니면 소비자가 충분히 들었나요?
 VISUAL:
@@ -655,16 +655,4 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S052
-TIME: 05:24-05:30
-NARRATION:
-금요일엔 "광고는 웃겼는데, 브랜드는 남았나"라는 질문으로 이어갑니다.
-VISUAL:
-오프화이트 배경 위 큰 문구, 포인트 컬러 한 단어
-SOURCE_TYPE: TYPE
-ON_SCREEN_TEXT:
-금요일
-"브랜드는 남았나"
-ASSET: -
-HIGGSFIELD_REQUIRED: NO
 ```
