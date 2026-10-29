@@ -13,6 +13,9 @@ on:
     - cron: '40 23 * * *'
     - cron: '40 3 * * *'
     - cron: '30 10 * * *'
+    # Hourly catch-up (09:10–22:10 KST). GitHub often starts or drops the three slot runs late;
+    # publish-due posts only an overdue slot and keeps 2 hours between posts.
+    - cron: '10 0-13 * * *'
   workflow_dispatch:
     inputs:
       mode:

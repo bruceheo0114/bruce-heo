@@ -334,17 +334,30 @@ def publish_thread(config, parts, state_path, client, save=save_state, sleep=tim
 
 QUIET_HOURS = range(0, 8)  # KST; a late scheduled run never posts overnight
 RESUMABLE = {"threading", "container"}
+MIN_GAP = dt.timedelta(hours=2)  # catch-up runs never post two threads back to back
+
+
+def last_posted_at(root):
+    times = []
+    for path in (root / "state").glob("*.json"):
+        stamp = read_json(path).get("posted_at")
+        if stamp:
+            times.append(dt.datetime.fromisoformat(stamp))
+    return max(times) if times else None
 
 
 def due_slot(now=None, root=None):
-    """The earliest scheduled slot (yesterday or today, KST) whose time has passed and is not posted yet.
+    """The earliest scheduled slot (last 3 days or today, KST) whose time has passed and is not posted yet.
     GitHub cron can start hours late; picking by due time keeps a late 19:30 run from posting
     tomorrow's slot after midnight, and lets the next run catch up on a skipped one."""
     root = root or ROOT
     now = (now or dt.datetime.now(KST)).astimezone(KST)
     if now.hour in QUIET_HOURS:
         return None
-    for day in (now.date() - dt.timedelta(days=1), now.date()):
+    last = last_posted_at(root)
+    if last and now - last < MIN_GAP:
+        return None
+    for day in (now.date() - dt.timedelta(days=n) for n in (3, 2, 1, 0)):
         for slot, hhmm in sorted(SLOTS.items()):
             hour, minute = map(int, hhmm.split(":"))
             if dt.datetime.combine(day, dt.time(hour, minute), KST) > now:

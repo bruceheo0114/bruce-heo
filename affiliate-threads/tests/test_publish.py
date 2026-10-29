@@ -362,6 +362,12 @@ class DueSlot(unittest.TestCase):
         self.post("2026-10-26-3", stage="posted")
         self.assertEqual(P.due_slot(self.at("2026-10-27T08:45"), self.root), ("2026-10-27", 1))
 
+    def test_catch_up_waits_two_hours_after_the_last_post(self):
+        self.post("2026-10-27-1")
+        (self.root / "state" / "2026-10-26-3.json").write_text(json.dumps({"stage": "posted", "posted_at": "2026-10-27T01:00:00+00:00"}))
+        self.assertIsNone(P.due_slot(self.at("2026-10-27T11:30"), self.root))
+        self.assertEqual(P.due_slot(self.at("2026-10-27T12:10"), self.root), ("2026-10-27", 1))
+
     def test_future_slots_drafts_and_stuck_states_are_not_due(self):
         self.post("2026-10-27-1", stage="needs_review")
         self.post("2026-10-27-2", status="draft")
