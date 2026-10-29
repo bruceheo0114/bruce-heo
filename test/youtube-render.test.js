@@ -243,6 +243,8 @@ test("자막은 읽는 법 대신 원래 표기로 보여 준다", async () => {
   assert.equal(displayText("엘지전자는 엘지이닷컴에서 티비와 일대일 상담을", pairs), "LG전자는 LGE닷컴에서 TV와 1대1 상담을");
   const duo = readingPairs("듀오링고의 캐릭터 Duo(듀오)의 생일카페. Duo(듀오)는 듀오링고를 떠올리게 한다.");
   assert.equal(displayText("듀오링고의 캐릭터 듀오의 생일. 듀오는 듀오링고를", duo), "듀오링고의 캐릭터 Duo의 생일. Duo는 듀오링고를");
+  const g = readingPairs("G(지)마켓은 끝까지 갔어요. 시작이지요.");
+  assert.equal(displayText("지마켓은 끝까지 갔어요. 시작이지요.", g), "G마켓은 끝까지 갔어요. 시작이지요.");
 });
 
 test("balanceLines wraps long card lines instead of shrinking them", async () => {
