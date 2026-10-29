@@ -77,6 +77,8 @@ export function displayText(text, pairs) {
     let from = 0;
     for (let at = result.indexOf(reading); at !== -1; at = result.indexOf(reading, at + reading.length)) {
       if (keep.some((word) => result.startsWith(word, at))) continue;
+      // 낱말 중간의 같은 소리(까지 → 까G)는 바꾸지 않는다. 읽는 법은 낱말 첫머리에서만 표기로 돌린다.
+      if (at > 0 && /[가-힣]/.test(result[at - 1])) continue;
       out += result.slice(from, at) + display;
       from = at + reading.length;
     }

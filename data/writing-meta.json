@@ -396,6 +396,10 @@
     },
     "226": {
       "category": "brand"
+    },
+    "227": {
+      "category": "work",
+      "auto": true
     }
   }
 }

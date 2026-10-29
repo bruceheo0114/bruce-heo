@@ -4,7 +4,7 @@
   "higgsfield_monthly_cap": 120,
   "cycles": {
     "2026-10": {
-      "higgsfield_spent": 133.5,
+      "higgsfield_spent": 134.0,
       "elevenlabs_spent": 11922,
       "entries": [
         {
@@ -126,6 +126,18 @@
           "what": "첫 책 릴스 7편(10/28·10/30·11/1·11/3·11/5·11/7·11/10 게시분) — 이미지 21장(5.25) + Grok Lite 클립 7개(35.0) + eleven_v4 7편×2테이크(3,380). 표지는 실제 책 표지(생성 안 함)",
           "higgsfield": 40.25,
           "elevenlabs": 3380
+        },
+        {
+          "date": "2026-10-27",
+          "what": "수요일 카드뉴스 검색량 리포트(10/28 12:30) — 표지 이미지 1장",
+          "higgsfield": 0.25,
+          "elevenlabs": 0
+        },
+        {
+          "date": "2026-10-29",
+          "what": "금요일 카드뉴스 레퍼런스 모음(10/30 12:30) — 표지 이미지 1장",
+          "higgsfield": 0.25,
+          "elevenlabs": 0
         }
       ]
     }

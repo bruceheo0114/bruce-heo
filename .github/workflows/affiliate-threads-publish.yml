@@ -7,10 +7,15 @@ on:
       - '.github/workflows/affiliate-threads-publish.yml'
   schedule:
     # Up to three posts a day (Asia/Seoul): slot 1 08:40, slot 2 12:40, slot 3 19:30.
+    # Scheduled runs use publish-due: they post the earliest passed, unposted slot, so a late
+    # or skipped run is caught up by the next one and nothing posts between 00:00 and 08:00.
     # Initial operational slots, not an optimal-time claim. Empty slots post nothing.
     - cron: '40 23 * * *'
     - cron: '40 3 * * *'
     - cron: '30 10 * * *'
+    # Hourly catch-up (09:10–22:10 KST). GitHub often starts or drops the three slot runs late;
+    # publish-due posts only an overdue slot and keeps 2 hours between posts.
+    - cron: '10 0-13 * * *'
   workflow_dispatch:
     inputs:
       mode:
@@ -69,7 +74,7 @@ jobs:
           COUPANG_PARTNERS_SECRET_KEY: ${{ secrets.COUPANG_PARTNERS_SECRET_KEY }}
           COUPANG_THREADS_ENABLED: ${{ vars.COUPANG_THREADS_ENABLED }}
           COUPANG_GIT_CHECKPOINT: 'true'
-          MODE: ${{ github.event_name == 'schedule' && 'publish' || inputs.mode }}
+          MODE: ${{ github.event_name == 'schedule' && 'publish-due' || inputs.mode }}
           POST_DATE: ${{ inputs.post_date }}
           SLOT: ${{ github.event.schedule == '40 23 * * *' && '1' || github.event.schedule == '40 3 * * *' && '2' || inputs.slot || '3' }}
         run: |

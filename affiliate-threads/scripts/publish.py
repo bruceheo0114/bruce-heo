@@ -332,9 +332,52 @@ def publish_thread(config, parts, state_path, client, save=save_state, sleep=tim
     return state
 
 
+QUIET_HOURS = range(0, 8)  # KST; a late scheduled run never posts overnight
+RESUMABLE = {"threading", "container"}
+MIN_GAP = dt.timedelta(hours=2)  # catch-up runs never post two threads back to back
+
+
+def last_posted_at(root):
+    times = []
+    for path in (root / "state").glob("*.json"):
+        stamp = read_json(path).get("posted_at")
+        if stamp:
+            times.append(dt.datetime.fromisoformat(stamp))
+    return max(times) if times else None
+
+
+def due_slot(now=None, root=None):
+    """The earliest scheduled slot (last 3 days or today, KST) whose time has passed and is not posted yet.
+    GitHub cron can start hours late; picking by due time keeps a late 19:30 run from posting
+    tomorrow's slot after midnight, and lets the next run catch up on a skipped one."""
+    root = root or ROOT
+    now = (now or dt.datetime.now(KST)).astimezone(KST)
+    if now.hour in QUIET_HOURS:
+        return None
+    last = last_posted_at(root)
+    if last and now - last < MIN_GAP:
+        return None
+    for day in (now.date() - dt.timedelta(days=n) for n in (3, 2, 1, 0)):
+        for slot, hhmm in sorted(SLOTS.items()):
+            hour, minute = map(int, hhmm.split(":"))
+            if dt.datetime.combine(day, dt.time(hour, minute), KST) > now:
+                continue
+            name = f"{day.isoformat()}-{slot}.json"
+            path = root / "posts" / name
+            if not path.exists() or read_json(path).get("status") != "scheduled":
+                continue
+            state_path = root / "state" / name
+            stage = read_json(state_path).get("stage") if state_path.exists() else None
+            if stage is None or stage in RESUMABLE:
+                return day.isoformat(), slot
+            if stage != "posted":
+                print(f"{name}: 상태 {stage} — 수동 확인 필요, 건너뜀", file=sys.stderr)
+    return None
+
+
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--mode", choices=["validate", "identify", "check", "dry-run", "publish"], default="dry-run")
+    parser.add_argument("--mode", choices=["validate", "identify", "check", "dry-run", "publish", "publish-due"], default="dry-run")
     parser.add_argument("--date", default=dt.datetime.now(KST).strftime("%Y-%m-%d"))
     parser.add_argument("--slot", type=int, choices=sorted(SLOTS), default=3)
     args = parser.parse_args()
@@ -361,6 +404,14 @@ def main():
                 parts_for(config, post)
         print(f"원고 검사 완료: {len(files)}개 파일")
         return
+    if args.mode == "publish-due":
+        due = due_slot()
+        if not due:
+            print("올릴 시간이 된 미게시 원고 없음(또는 0~8시). 게시 없음.")
+            return
+        args.date, args.slot = due
+        args.mode = "publish"
+        print(f"게시 대상: {args.date} 슬롯 {args.slot} ({SLOTS[args.slot]})")
     dt.date.fromisoformat(args.date)
     if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", args.date):
         raise ValueError("YYYY-MM-DD 형식만 사용할 수 있습니다.")

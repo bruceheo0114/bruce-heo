@@ -1,0 +1,263 @@
+{
+  "references_hash": "d7f43ac3f6e393e3",
+  "fetched_at": "2026-10-29T08:39:11.363Z",
+  "items": [
+    {
+      "file": "A001-screen.jpg",
+      "id": "A001",
+      "scenes": [
+        "S019"
+      ],
+      "kind": "screen",
+      "source": "한국경제 (2026-03-13)",
+      "url": "https://www.hankyung.com/article/202603138446g"
+    },
+    {
+      "file": "A001-scroll.jpg",
+      "id": "A001",
+      "scenes": [
+        "S019"
+      ],
+      "kind": "scroll",
+      "source": "한국경제 (2026-03-13)",
+      "url": "https://www.hankyung.com/article/202603138446g"
+    },
+    {
+      "file": "A001-img1.jpg",
+      "id": "A001",
+      "scenes": [
+        "S019"
+      ],
+      "kind": "image",
+      "source": "한국경제 (2026-03-13)",
+      "url": "https://www.hankyung.com/article/202603138446g"
+    },
+    {
+      "file": "A001-img2.jpg",
+      "id": "A001",
+      "scenes": [
+        "S019"
+      ],
+      "kind": "image",
+      "source": "한국경제 (2026-03-13)",
+      "url": "https://www.hankyung.com/article/202603138446g"
+    },
+    {
+      "file": "A003-screen.jpg",
+      "id": "A003",
+      "scenes": [],
+      "kind": "screen",
+      "source": "한국경제 (2021-02-17)",
+      "url": "https://www.hankyung.com/article/202102171075g"
+    },
+    {
+      "file": "A003-scroll.jpg",
+      "id": "A003",
+      "scenes": [],
+      "kind": "scroll",
+      "source": "한국경제 (2021-02-17)",
+      "url": "https://www.hankyung.com/article/202102171075g"
+    },
+    {
+      "file": "A004-screen.jpg",
+      "id": "A004",
+      "scenes": [
+        "S038"
+      ],
+      "kind": "screen",
+      "source": "토스피드",
+      "url": "https://toss.im/tossfeed/article/moneygraphy-popup"
+    },
+    {
+      "file": "A004-scroll.jpg",
+      "id": "A004",
+      "scenes": [
+        "S038"
+      ],
+      "kind": "scroll",
+      "source": "토스피드",
+      "url": "https://toss.im/tossfeed/article/moneygraphy-popup"
+    },
+    {
+      "file": "A004-img1.jpg",
+      "id": "A004",
+      "scenes": [
+        "S038"
+      ],
+      "kind": "image",
+      "source": "토스피드",
+      "url": "https://toss.im/tossfeed/article/moneygraphy-popup"
+    },
+    {
+      "file": "A004-img2.jpg",
+      "id": "A004",
+      "scenes": [
+        "S038"
+      ],
+      "kind": "image",
+      "source": "토스피드",
+      "url": "https://toss.im/tossfeed/article/moneygraphy-popup"
+    },
+    {
+      "file": "A005-screen.jpg",
+      "id": "A005",
+      "scenes": [
+        "S002",
+        "S011"
+      ],
+      "kind": "screen",
+      "source": "브랜드브리프 (2021-12-21)",
+      "url": "https://www.brandbrief.co.kr/site/data/html/2021/12/21/2021122104903.html"
+    },
+    {
+      "file": "A005-scroll.jpg",
+      "id": "A005",
+      "scenes": [
+        "S002",
+        "S011"
+      ],
+      "kind": "scroll",
+      "source": "브랜드브리프 (2021-12-21)",
+      "url": "https://www.brandbrief.co.kr/site/data/html/2021/12/21/2021122104903.html"
+    },
+    {
+      "file": "G01.jpg",
+      "id": "G01",
+      "scenes": [
+        "S006"
+      ],
+      "kind": "ai",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261029_080918_47b88084-d143-4130-a4a8-bf89b020f52e.png"
+    },
+    {
+      "file": "G02.jpg",
+      "id": "G02",
+      "scenes": [
+        "S040"
+      ],
+      "kind": "ai",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261029_080858_be2b59a6-f1f8-4d39-a793-cde7221f8272.png"
+    },
+    {
+      "file": "G03.jpg",
+      "id": "G03",
+      "scenes": [
+        "S022"
+      ],
+      "kind": "ai",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261029_080858_0ee12157-a609-48ab-8662-84733562b265.png"
+    },
+    {
+      "file": "G04.jpg",
+      "id": "G04",
+      "scenes": [
+        "S046"
+      ],
+      "kind": "ai",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261029_080858_76a8e434-2341-419d-ba29-92d39ec88e03.png"
+    },
+    {
+      "file": "G05.jpg",
+      "id": "G05",
+      "scenes": [
+        "S045"
+      ],
+      "kind": "ai",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261029_080917_5068b3b6-9ad4-4f60-a626-5c0a2e61a377.png"
+    },
+    {
+      "file": "G06.jpg",
+      "id": "G06",
+      "scenes": [
+        "S055"
+      ],
+      "kind": "ai",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261029_080858_55af4d36-b15b-4e1a-8617-1d893f4dba12.png"
+    },
+    {
+      "file": "V01.mp4",
+      "id": "V01",
+      "scenes": [
+        "S046"
+      ],
+      "kind": "video",
+      "source": "AI 생성 영상 (Higgsfield)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261029_080926_abc33de7-5d25-4f6c-80d2-5420fb461d6a.mp4"
+    },
+    {
+      "file": "brunch-01.jpg",
+      "id": "brunch",
+      "scenes": [],
+      "kind": "image",
+      "source": "브런치 @heoboram 원문",
+      "url": "https://brunch.co.kr/@heoboram/209"
+    },
+    {
+      "file": "brunch-02.jpg",
+      "id": "brunch",
+      "scenes": [],
+      "kind": "image",
+      "source": "브런치 @heoboram 원문",
+      "url": "https://brunch.co.kr/@heoboram/209"
+    },
+    {
+      "file": "brunch-03.jpg",
+      "id": "brunch",
+      "scenes": [],
+      "kind": "image",
+      "source": "브런치 @heoboram 원문",
+      "url": "https://brunch.co.kr/@heoboram/209"
+    },
+    {
+      "file": "brunch-04.jpg",
+      "id": "brunch",
+      "scenes": [],
+      "kind": "image",
+      "source": "브런치 @heoboram 원문",
+      "url": "https://brunch.co.kr/@heoboram/209"
+    }
+  ],
+  "failures": [
+    {
+      "id": "A002",
+      "url": "https://www.metroseoul.co.kr/article/20260211500131",
+      "error": "page.goto: Timeout 45000ms exceeded.\nCall log:\n  - navigating to \"https://www.metroseoul.co.kr/article/20260211500131\", waiting until \"domcontentloaded\"\n"
+    },
+    {
+      "id": "B01",
+      "url": "person scrolling short videos on smartphone close up hands",
+      "error": "PEXELS_API_KEY가 없습니다 (저장소 Secrets에 넣는다)"
+    },
+    {
+      "id": "B02",
+      "url": "friends laughing while watching phone video on couch",
+      "error": "PEXELS_API_KEY가 없습니다 (저장소 Secrets에 넣는다)"
+    },
+    {
+      "id": "B03",
+      "url": "online shopping add to cart on laptop close up",
+      "error": "PEXELS_API_KEY가 없습니다 (저장소 Secrets에 넣는다)"
+    },
+    {
+      "id": "B04",
+      "url": "marketing team reviewing charts in meeting room",
+      "error": "PEXELS_API_KEY가 없습니다 (저장소 Secrets에 넣는다)"
+    },
+    {
+      "id": "B05",
+      "url": "hand painting brush strokes layering color on canvas",
+      "error": "PEXELS_API_KEY가 없습니다 (저장소 Secrets에 넣는다)"
+    },
+    {
+      "id": "B06",
+      "url": "stacking wooden blocks one by one on table",
+      "error": "PEXELS_API_KEY가 없습니다 (저장소 Secrets에 넣는다)"
+    }
+  ]
+}

@@ -1,0 +1,193 @@
+{
+  "references_hash": "36bfc5e932057646",
+  "fetched_at": "2026-10-26T15:48:37.602Z",
+  "items": [
+    {
+      "file": "A001-screen.jpg",
+      "id": "A001",
+      "scenes": [
+        "S030"
+      ],
+      "kind": "screen",
+      "source": "Nike 공식 홈페이지",
+      "url": "https://www.nike.com/nrc-app"
+    },
+    {
+      "file": "A001-scroll.jpg",
+      "id": "A001",
+      "scenes": [
+        "S030"
+      ],
+      "kind": "scroll",
+      "source": "Nike 공식 홈페이지",
+      "url": "https://www.nike.com/nrc-app"
+    },
+    {
+      "file": "A001-img1.jpg",
+      "id": "A001",
+      "scenes": [
+        "S030"
+      ],
+      "kind": "image",
+      "source": "Nike 공식 홈페이지",
+      "url": "https://www.nike.com/nrc-app"
+    },
+    {
+      "file": "A001-img2.jpg",
+      "id": "A001",
+      "scenes": [
+        "S030"
+      ],
+      "kind": "image",
+      "source": "Nike 공식 홈페이지",
+      "url": "https://www.nike.com/nrc-app"
+    },
+    {
+      "file": "A001-img3.jpg",
+      "id": "A001",
+      "scenes": [
+        "S030"
+      ],
+      "kind": "image",
+      "source": "Nike 공식 홈페이지",
+      "url": "https://www.nike.com/nrc-app"
+    },
+    {
+      "file": "A002.jpg",
+      "id": "A002",
+      "scenes": [
+        "S032"
+      ],
+      "kind": "image",
+      "source": "Nike 공식 홈페이지",
+      "url": "https://www.nike.com/nrc-app"
+    },
+    {
+      "file": "A003-screen.jpg",
+      "id": "A003",
+      "scenes": [
+        "S031"
+      ],
+      "kind": "screen",
+      "source": "Trophy (Nike Run Club 분석)",
+      "url": "https://trophy.so/blog/nike-run-club-gamification-case-study"
+    },
+    {
+      "file": "A003-scroll.jpg",
+      "id": "A003",
+      "scenes": [
+        "S031"
+      ],
+      "kind": "scroll",
+      "source": "Trophy (Nike Run Club 분석)",
+      "url": "https://trophy.so/blog/nike-run-club-gamification-case-study"
+    },
+    {
+      "file": "A003-img1.jpg",
+      "id": "A003",
+      "scenes": [
+        "S031"
+      ],
+      "kind": "image",
+      "source": "Trophy (Nike Run Club 분석)",
+      "url": "https://trophy.so/blog/nike-run-club-gamification-case-study"
+    },
+    {
+      "file": "A003-img2.jpg",
+      "id": "A003",
+      "scenes": [
+        "S031"
+      ],
+      "kind": "image",
+      "source": "Trophy (Nike Run Club 분석)",
+      "url": "https://trophy.so/blog/nike-run-club-gamification-case-study"
+    },
+    {
+      "file": "G01.jpg",
+      "id": "G01",
+      "scenes": [
+        "S002"
+      ],
+      "kind": "ai",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261026_122016_9b7388c9-8979-46bf-b2f8-caeba1de718e.png"
+    },
+    {
+      "file": "G02.jpg",
+      "id": "G02",
+      "scenes": [
+        "S009"
+      ],
+      "kind": "ai",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261026_121955_b9ca9e10-74a4-4962-b4c5-db16b43002e2.png"
+    },
+    {
+      "file": "G03.jpg",
+      "id": "G03",
+      "scenes": [
+        "S013"
+      ],
+      "kind": "ai",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261026_121955_28b3e2c4-8262-4b57-8feb-6a253caf023e.png"
+    },
+    {
+      "file": "G04.jpg",
+      "id": "G04",
+      "scenes": [
+        "S023"
+      ],
+      "kind": "ai",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261026_122004_07a3f842-e8e7-4dc1-a876-07f59ed5a6ec.png"
+    },
+    {
+      "file": "G05.jpg",
+      "id": "G05",
+      "scenes": [
+        "S038"
+      ],
+      "kind": "ai",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261026_122004_3433f4c0-95e2-4e83-814d-a47a69c80147.png"
+    },
+    {
+      "file": "G06.jpg",
+      "id": "G06",
+      "scenes": [
+        "S049"
+      ],
+      "kind": "ai",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261026_122016_09604c30-7832-468b-9137-21e5794b3250.png"
+    },
+    {
+      "file": "V01.mp4",
+      "id": "V01",
+      "scenes": [
+        "S049"
+      ],
+      "kind": "video",
+      "source": "AI 생성 영상 (Higgsfield)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261026_122035_512ea07e-0bfa-40e3-a4c8-fc9412f917d9.mp4"
+    },
+    {
+      "file": "brunch-01.jpg",
+      "id": "brunch",
+      "scenes": [],
+      "kind": "image",
+      "source": "브런치 @heoboram 원문",
+      "url": "https://brunch.co.kr/@heoboram/219"
+    },
+    {
+      "file": "brunch-02.jpg",
+      "id": "brunch",
+      "scenes": [],
+      "kind": "image",
+      "source": "브런치 @heoboram 원문",
+      "url": "https://brunch.co.kr/@heoboram/219"
+    }
+  ],
+  "failures": []
+}
