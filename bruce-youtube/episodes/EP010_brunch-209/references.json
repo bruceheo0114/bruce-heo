@@ -1,0 +1,101 @@
+{
+  "brunch": true,
+  "items": [
+    {
+      "id": "A001",
+      "kind": "article",
+      "url": "https://www.hankyung.com/article/202603138446g",
+      "source": "한국경제 (2026-03-13)",
+      "scenes": [
+        "S019"
+      ]
+    },
+    {
+      "id": "A002",
+      "kind": "article",
+      "url": "https://www.metroseoul.co.kr/article/20260211500131",
+      "source": "메트로서울 (2026-02-11)",
+      "scenes": [
+        "S017"
+      ]
+    },
+    {
+      "id": "A003",
+      "kind": "article",
+      "url": "https://www.hankyung.com/article/202102171075g",
+      "source": "한국경제 (2021-02-17)",
+      "scenes": [
+        "S034",
+        "S036"
+      ]
+    },
+    {
+      "id": "A004",
+      "kind": "page",
+      "url": "https://toss.im/tossfeed/article/moneygraphy-popup",
+      "source": "토스피드",
+      "scroll": true,
+      "scenes": [
+        "S038"
+      ]
+    },
+    {
+      "id": "A005",
+      "kind": "article",
+      "url": "https://www.brandbrief.co.kr/site/data/html/2021/12/21/2021122104903.html",
+      "source": "브랜드브리프 (2021-12-21)",
+      "scenes": [
+        "S002",
+        "S011"
+      ]
+    },
+    {
+      "id": "B01",
+      "kind": "stock",
+      "query": "person scrolling short videos on smartphone close up hands",
+      "scenes": [
+        "S009"
+      ]
+    },
+    {
+      "id": "B02",
+      "kind": "stock",
+      "query": "friends laughing while watching phone video on couch",
+      "scenes": [
+        "S013"
+      ]
+    },
+    {
+      "id": "B03",
+      "kind": "stock",
+      "query": "online shopping add to cart on laptop close up",
+      "scenes": [
+        "S023"
+      ]
+    },
+    {
+      "id": "B04",
+      "kind": "stock",
+      "query": "marketing team reviewing charts in meeting room",
+      "scenes": [
+        "S041"
+      ]
+    },
+    {
+      "id": "B05",
+      "kind": "stock",
+      "query": "hand painting brush strokes layering color on canvas",
+      "scenes": [
+        "S047"
+      ]
+    },
+    {
+      "id": "B06",
+      "kind": "stock",
+      "query": "stacking wooden blocks one by one on table",
+      "scenes": [
+        "S057"
+      ]
+    }
+  ]
+}
