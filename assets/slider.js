@@ -41,8 +41,10 @@
     var slides = slice(track.children);
     var tabs = root.querySelectorAll('[data-slide-to]');
     var current = 0, dragFrom = 0;
+    var equal = root.hasAttribute('data-equal');
 
-    function fit() { var el = slides[current]; if (el) track.style.height = el.offsetHeight + 'px'; }
+    // data-equal 이면 슬라이드 높이를 가장 긴 것에 맞춰 두어(CSS stretch) 넘길 때 아래 내용이 들썩이지 않게 한다
+    function fit() { var el = slides[current]; if (el && !equal) track.style.height = el.offsetHeight + 'px'; }
     function mark() {
       current = Math.round(track.scrollLeft / Math.max(track.clientWidth, 1));
       fit();

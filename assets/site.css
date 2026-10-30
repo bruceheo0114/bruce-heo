@@ -1806,3 +1806,25 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 @media (prefers-reduced-motion: reduce) {
   .is-carousel[data-carousel] > * { transition: none; }
 }
+
+/* 첫 화면 두 슬라이드는 높이를 같게(가장 긴 쪽) 맞추고, 모바일 소개 슬라이드를 책 슬라이드와 같은 구조로 줄인다 */
+.hero-slider [data-slider-track] { align-items: stretch; }
+@media (max-width: 640px) {
+  .hero-slider .hero__grid { gap: 28px; }
+  .hero-slider .hero__card {
+    order: -1;
+    justify-self: center;
+    width: min(40vw, 160px);
+    border: 0;
+    border-radius: 14px;
+    transform: rotate(-3deg);
+    box-shadow: 0 24px 48px rgba(20, 30, 45, 0.22);
+  }
+  .hero-slider .hero__photo { aspect-ratio: 800 / 1135; }
+  /* 원본 사진 위아래 흰 여백(800px 중 137~738px만 사진)을 잘라낸다 */
+  .hero-slider .hero__photo img { transform: scale(1.36) translateY(-4.7%); }
+  .hero-slider .hero__card-body,
+  .hero-slider .hero__photo-badge,
+  .hero-slider .hero__tags { display: none; }
+  .hero-slider .hero__cta .btn { flex: 1 1 100%; justify-content: center; }
+}
