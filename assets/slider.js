@@ -64,7 +64,8 @@
         t.setAttribute('aria-selected', on ? 'true' : 'false');
         t.setAttribute('aria-current', on ? 'true' : 'false');
         if (on && t.parentNode.scrollWidth > t.parentNode.clientWidth) {
-          t.parentNode.scrollTo({ left: t.offsetLeft - 16, behavior: reduce ? 'auto' : 'smooth' });
+          var strip = t.parentNode;
+          strip.scrollTo({ left: strip.scrollLeft + t.getBoundingClientRect().left - strip.getBoundingClientRect().left - 16, behavior: reduce ? 'auto' : 'smooth' });
         }
       });
     }

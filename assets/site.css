@@ -1917,6 +1917,18 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 /* 좁은 화면: 첫 화면은 버튼으로만 넘기고(스와이프·자동 넘김 끔), 주요 내용은 세로로 쌓아 스크롤한다 */
 .hero-slider.is-buttons .hero-slider__track { overflow-x: hidden; cursor: auto; }
-.main-slider.is-stacked .main-slider__track { display: block; overflow: visible; height: auto !important; }
-.main-slider.is-stacked .main-slide { scroll-margin-top: 128px; }
-.main-slider.is-stacked .main-slide + .main-slide { border-top: 1px solid var(--border); }
+
+/* 좁은 화면: 스크립트가 늦거나 옛 파일이 남아 있어도 주요 내용은 세로로 쌓는다(옆으로 밀려 넘어가지 않게) */
+@media (max-width: 899px) {
+  .main-slider .main-slider__track { display: block; overflow: visible; height: auto !important; }
+  .main-slider .main-slide { scroll-margin-top: 128px; }
+  .main-slider .main-slide + .main-slide { border-top: 1px solid var(--border); }
+}
+/* 콜라보 카드는 모바일에서 옆으로 넘기지 않고 '썸네일 + 제목' 줄로 쌓는다 */
+@media (max-width: 719px) {
+  .collab-card { display: grid; grid-template-columns: 132px 1fr; grid-template-rows: auto auto; column-gap: 14px; row-gap: 4px; align-items: center; padding: 10px 14px 10px 10px; }
+  .collab-card__thumb { grid-row: 1 / span 2; margin-bottom: 0; border-radius: 9px; }
+  .collab-card__kicker, .collab-card__title { padding: 0; }
+  .collab-card__kicker { align-self: end; }
+  .collab-card__title { align-self: start; font-size: 15.5px; }
+}
