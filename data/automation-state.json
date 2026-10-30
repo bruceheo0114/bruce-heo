@@ -1122,7 +1122,7 @@
       "linkedin": {
         "status": "failed",
         "id": null,
-        "lastAttemptAt": "2026-10-29T22:30:30.417Z",
+        "lastAttemptAt": "2026-10-30T22:30:31.286Z",
         "error": "LinkedIn API 오류 (401): {\"status\":401,\"serviceErrorCode\":65602,\"code\":\"EXPIRED_ACCESS_TOKEN\",\"message\":\"The token used in the request has expired\"}"
       },
       "instagram": {
