@@ -218,10 +218,11 @@
   <div class="wrap main-slider__barinner">
     <div class="main-slider__tabs" role="tablist" aria-label="주요 내용">
       <button type="button" role="tab" class="main-slider__tab" id="tab-writing" aria-controls="writing" data-slide-to="0">글</button>
-      <button type="button" role="tab" class="main-slider__tab" id="tab-context" aria-controls="context" data-slide-to="1">맥락과 마케팅</button>
-      <button type="button" role="tab" class="main-slider__tab" id="tab-about" aria-controls="about" data-slide-to="2">소개</button>
-      <button type="button" role="tab" class="main-slider__tab" id="tab-explore" aria-controls="explore" data-slide-to="3">일과 경력</button>
-      <button type="button" role="tab" class="main-slider__tab" id="tab-content" aria-controls="content" data-slide-to="4">영상·카드</button>
+      <button type="button" role="tab" class="main-slider__tab main-slider__tab--book" id="tab-book-story" aria-controls="book-story" data-slide-to="1">책 이야기</button>
+      <button type="button" role="tab" class="main-slider__tab" id="tab-context" aria-controls="context" data-slide-to="2">맥락과 마케팅</button>
+      <button type="button" role="tab" class="main-slider__tab" id="tab-about" aria-controls="about" data-slide-to="3">소개</button>
+      <button type="button" role="tab" class="main-slider__tab" id="tab-explore" aria-controls="explore" data-slide-to="4">일과 경력</button>
+      <button type="button" role="tab" class="main-slider__tab" id="tab-content" aria-controls="content" data-slide-to="5">영상·카드</button>
     </div>
     <div class="main-slider__arrows">
       <button type="button" class="main-slider__arrow" data-slide-prev aria-label="이전">←</button>
@@ -362,6 +363,43 @@
     <div class="posts-links">
       <a href="/writing/" class="posts-more">전체 글 보기</a>
       <a href="https://brunch.co.kr/@heoboram" target="_blank" rel="noopener" class="posts-more">브런치에서 구독하기</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     BOOK STORY — 책 관련 콘텐츠
+     ============================================================ -->
+<section class="section section--soft main-slide" id="book-story" role="tabpanel" aria-labelledby="tab-book-story">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="section-eyebrow">Book</span>
+        <h2 class="section-title">책 이야기</h2>
+      </div>
+      <p class="section-desc">
+        첫 책 <strong>《AI는 답을 만들고 마케터는 맥락을 설계한다》</strong>를 둘러싼 콘텐츠를 모았습니다. 책에 담은 판단의 기준을 짧은 영상과 카드로도 풀어냅니다.
+      </p>
+    </div>
+
+    <div class="book-story reveal">
+      <div class="book-story__feed">
+        <blockquote class="instagram-media book-story__embed" data-instgrm-permalink="https://www.instagram.com/p/DfHNhxPjQSF/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14">
+          <a class="book-story__fallback" href="https://www.instagram.com/p/DfHNhxPjQSF/" target="_blank" rel="noopener">Instagram에서 책 콘텐츠 보기 →</a>
+        </blockquote>
+      </div>
+      <aside class="book-story__card">
+        <img class="book-story__cover" src="/assets/book/cover.jpg" width="800" height="1135" alt="책 표지: AI는 답을 만들고 마케터는 맥락을 설계한다" loading="lazy" decoding="async">
+        <div>
+          <p class="book-story__kicker">첫 책 · 지금 판매 중</p>
+          <h3 class="book-story__title">AI는 답을 만들고<br>마케터는 맥락을 설계한다</h3>
+          <p class="book-story__meta">허보람 지음 · 슬로디미디어</p>
+          <div class="book-story__cta">
+            <a class="btn btn--primary" data-book-store="yes24" href="https://www.yes24.com/product/goods/199439514" target="_blank" rel="noopener">YES24 →</a>
+            <a class="btn btn--ghost" data-book-store="kyobo" href="https://product.kyobobook.co.kr/detail/S000221776404" target="_blank" rel="noopener">교보문고 →</a>
+          </div>
+        </div>
+      </aside>
     </div>
   </div>
 </section>
@@ -659,6 +697,23 @@
   };
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
+})();
+
+// 인스타그램 임베드는 '책 이야기' 탭이 화면에 보일 때 한 번만 불러온다
+(function () {
+  var embeds = document.querySelectorAll('.instagram-media');
+  if (!embeds.length) return;
+  var load = function () {
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.instagram.com/embed.js';
+    document.body.appendChild(s);
+  };
+  if (!('IntersectionObserver' in window)) { load(); return; }
+  var io = new IntersectionObserver(function (entries) {
+    if (entries.some(function (e) { return e.isIntersecting; })) { io.disconnect(); load(); }
+  }, { rootMargin: '200px 0px' });
+  embeds.forEach(function (el) { io.observe(el); });
 })();
 
 // Reveal on scroll (IntersectionObserver)
