@@ -1870,23 +1870,32 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .posts--thumbs .post__thumb { grid-column: 3; grid-row: 1; }
 }
 
-/* 책 이야기 탭: 인스타그램 임베드 + 책 카드 */
+/* 책 이야기 탭: 책 관련 콘텐츠 썸네일 카드 + 책 구매 카드 */
 .main-slider__tab--book:not([aria-selected="true"]) { color: #D30874; }
 .book-story { display: grid; grid-template-columns: 1fr; gap: 20px; align-items: start; }
-@media (min-width: 900px) { .book-story { grid-template-columns: minmax(0, 540px) minmax(0, 1fr); gap: 32px; } }
+@media (min-width: 900px) { .book-story { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 32px; } }
 .book-story__feed { min-width: 0; }
-.book-story .instagram-media {
-  width: 100% !important;
-  max-width: 540px !important;
-  min-width: 0 !important;
-  margin: 0 auto !important;
-  border-radius: var(--radius) !important;
-  border: 1px solid var(--border) !important;
-  box-shadow: none !important;
-  background: var(--bg-card) !important;
+.book-post {
+  display: grid;
+  grid-template-columns: 136px 1fr;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 16px 10px 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-card);
+  transition: border-color .15s, transform .15s, box-shadow .15s;
 }
-.book-story blockquote.instagram-media { display: grid; place-items: center; min-height: 420px; padding: 24px; }
-.book-story__fallback { font-size: 15px; font-weight: 700; color: var(--accent); }
+.book-post:hover { border-color: #D30874; transform: translateY(-2px); box-shadow: var(--shadow); }
+.book-post__thumb { width: 100%; height: auto; aspect-ratio: 2 / 3; object-fit: cover; border-radius: 12px; background: #1a1a1a; }
+.book-post__body { display: flex; flex-direction: column; gap: 6px; }
+.book-post__kicker { font-size: 12.5px; font-weight: 800; color: #D30874; }
+.book-post__title { font-size: clamp(16px, 4.2vw, 20px); font-weight: 800; line-height: 1.4; letter-spacing: -0.02em; word-break: keep-all; }
+.book-post__more { margin-top: 4px; font-size: 14px; font-weight: 700; color: var(--text-3); }
+.book-post:hover .book-post__more { color: #D30874; }
+@media (min-width: 560px) {
+  .book-post { grid-template-columns: 220px 1fr; gap: 24px; padding: 12px 24px 12px 12px; }
+}
 .book-story__card {
   display: grid;
   grid-template-columns: 112px 1fr;
@@ -1905,7 +1914,3 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .book-story__cta .btn { padding: 10px 16px; font-size: 14px; }
 .book-story__cta .btn--primary { background: #D30874; color: #fff; }
 .book-story__cta .btn--ghost { background: #fff; color: #111; }
-@media (min-width: 900px) {
-  .book-story__card { grid-template-columns: 1fr; padding: 28px; }
-  .book-story__cover { width: 150px; }
-}

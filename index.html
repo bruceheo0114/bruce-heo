@@ -384,9 +384,14 @@
 
     <div class="book-story reveal">
       <div class="book-story__feed">
-        <blockquote class="instagram-media book-story__embed" data-instgrm-permalink="https://www.instagram.com/p/DfHNhxPjQSF/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14">
-          <a class="book-story__fallback" href="https://www.instagram.com/p/DfHNhxPjQSF/" target="_blank" rel="noopener">Instagram에서 책 콘텐츠 보기 →</a>
-        </blockquote>
+        <a class="book-post" href="https://www.instagram.com/p/DfHNhxPjQSF/" target="_blank" rel="noopener">
+          <img class="book-post__thumb" src="/assets/book/mkt-card.webp" width="720" height="1080" alt="mkt 카드뉴스 표지: 11년차 마케터가 밝히는 AI 시대에 살아남는 법" loading="lazy" decoding="async">
+          <span class="book-post__body">
+            <span class="book-post__kicker">mkt · 책 소개 카드뉴스 · Instagram</span>
+            <span class="book-post__title">11년차 마케터가 밝히는<br>AI 시대에 살아남는 법</span>
+            <span class="book-post__more">인스타그램에서 10장 모두 보기 →</span>
+          </span>
+        </a>
       </div>
       <aside class="book-story__card">
         <img class="book-story__cover" src="/assets/book/cover.jpg" width="800" height="1135" alt="책 표지: AI는 답을 만들고 마케터는 맥락을 설계한다" loading="lazy" decoding="async">
@@ -697,23 +702,6 @@
   };
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
-})();
-
-// 인스타그램 임베드는 '책 이야기' 탭이 화면에 보일 때 한 번만 불러온다
-(function () {
-  var embeds = document.querySelectorAll('.instagram-media');
-  if (!embeds.length) return;
-  var load = function () {
-    var s = document.createElement('script');
-    s.async = true;
-    s.src = 'https://www.instagram.com/embed.js';
-    document.body.appendChild(s);
-  };
-  if (!('IntersectionObserver' in window)) { load(); return; }
-  var io = new IntersectionObserver(function (entries) {
-    if (entries.some(function (e) { return e.isIntersecting; })) { io.disconnect(); load(); }
-  }, { rootMargin: '200px 0px' });
-  embeds.forEach(function (el) { io.observe(el); });
 })();
 
 // Reveal on scroll (IntersectionObserver)
