@@ -1914,3 +1914,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .book-story__cta .btn { padding: 10px 16px; font-size: 14px; }
 .book-story__cta .btn--primary { background: #D30874; color: #fff; }
 .book-story__cta .btn--ghost { background: #fff; color: #111; }
+
+/* 좁은 화면: 첫 화면은 버튼으로만 넘기고(스와이프·자동 넘김 끔), 주요 내용은 세로로 쌓아 스크롤한다 */
+.hero-slider.is-buttons .hero-slider__track { overflow-x: hidden; cursor: auto; }
+.main-slider.is-stacked .main-slider__track { display: block; overflow: visible; height: auto !important; }
+.main-slider.is-stacked .main-slide { scroll-margin-top: 128px; }
+.main-slider.is-stacked .main-slide + .main-slide { border-top: 1px solid var(--border); }

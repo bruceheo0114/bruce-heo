@@ -1,4 +1,5 @@
 /* 홈페이지 가로 슬라이드(첫 화면·주요 내용)와 모바일 캐러셀(peek·coverflow·card stack).
+   좁은 화면에서 주요 내용은 세로 스크롤, 첫 화면은 버튼으로만 넘긴다(data-mobile).
    scroll-snap 위에 탭·화살표·자동 넘김(프로그레스 바)·마우스 드래그·해시 이동만 얹는다. */
 (function () {
   'use strict';
@@ -35,6 +36,11 @@
 
   function step(dx) { return dx < -40 ? 1 : dx > 40 ? -1 : 0; }
 
+  // 좁은 화면(모바일·태블릿)에서 슬라이더를 다르게 쓴다.
+  // data-mobile="stack": 슬라이드를 세로로 쌓고 탭은 해당 섹션으로 이동하는 고정 메뉴가 된다(현재 위치 표시).
+  // data-mobile="buttons": 자동 넘김과 손가락 스와이프를 끄고 버튼으로만 넘긴다.
+  var narrow = window.matchMedia('(max-width: 899px)');
+
   function setup(root) {
     var track = root.querySelector('[data-slider-track]');
     if (!track) return null;
@@ -42,32 +48,76 @@
     var tabs = root.querySelectorAll('[data-slide-to]');
     var current = 0, dragFrom = 0;
     var equal = root.hasAttribute('data-equal');
+    var mode = root.getAttribute('data-mobile');
+    var stacked = false;
 
     // data-equal 이면 슬라이드 높이를 가장 긴 것에 맞춰 두어(CSS stretch) 넘길 때 아래 내용이 들썩이지 않게 한다
-    function fit() { var el = slides[current]; if (el && !equal) track.style.height = el.offsetHeight + 'px'; }
-    function mark() {
-      current = Math.round(track.scrollLeft / Math.max(track.clientWidth, 1));
-      fit();
+    function fit() {
+      if (stacked) { track.style.height = ''; return; }
+      var el = slides[current];
+      if (el && !equal) track.style.height = el.offsetHeight + 'px';
+    }
+    function paint() {
       tabs.forEach(function (t) {
         var on = +t.getAttribute('data-slide-to') === current;
+        if (t.getAttribute('aria-selected') === (on ? 'true' : 'false')) return;
         t.setAttribute('aria-selected', on ? 'true' : 'false');
         t.setAttribute('aria-current', on ? 'true' : 'false');
-        if (on && t.scrollIntoView && t.parentNode.scrollWidth > t.parentNode.clientWidth) {
+        if (on && t.parentNode.scrollWidth > t.parentNode.clientWidth) {
           t.parentNode.scrollTo({ left: t.offsetLeft - 16, behavior: reduce ? 'auto' : 'smooth' });
         }
       });
+    }
+    function mark() {
+      if (stacked) return;
+      current = Math.round(track.scrollLeft / Math.max(track.clientWidth, 1));
+      fit();
+      paint();
       slides.forEach(function (s, i) { s.toggleAttribute('inert', i !== current); });
+    }
+    // 세로로 쌓였을 때: 고정 메뉴 바로 아래를 지난 마지막 섹션이 현재 섹션이다
+    function spy() {
+      if (!stacked) return;
+      var line = root.querySelector('.main-slider__bar');
+      line = line ? line.getBoundingClientRect().bottom + 24 : 140;
+      var i = 0;
+      slides.forEach(function (s, k) { if (s.getBoundingClientRect().top <= line) i = k; });
+      current = i;
+      paint();
     }
     function go(i, instant) {
       current = (i + slides.length) % slides.length;
+      if (stacked) {
+        slides[current].scrollIntoView({ behavior: instant || reduce ? 'auto' : 'smooth', block: 'start' });
+        paint();
+        return;
+      }
       track.scrollTo({ left: track.clientWidth * current, behavior: instant || reduce ? 'auto' : 'smooth' });
       if (instant) mark();
     }
     // 자동 넘김은 현재 탭의 프로그레스 바 애니메이션이 끝날 때 다음으로 간다. 멈추면 바는 꽉 찬 채로 남는다.
     function stop() { root.classList.remove('is-autoplay'); }
 
+    function layout() {
+      var small = narrow.matches;
+      root.classList.toggle('is-buttons', mode === 'buttons' && small);
+      if (mode === 'buttons' && small) stop();
+      if (mode !== 'stack') return;
+      var was = stacked;
+      stacked = small;
+      root.classList.toggle('is-stacked', stacked);
+      if (stacked) {
+        slides.forEach(function (s) { s.removeAttribute('inert'); });
+        fit();
+        spy();
+      } else if (was) {
+        go(current, true);
+      }
+    }
+
     track.addEventListener('scroll', function () { window.requestAnimationFrame(mark); }, { passive: true });
-    window.addEventListener('resize', function () { go(current, true); });
+    window.addEventListener('scroll', function () { window.requestAnimationFrame(spy); }, { passive: true });
+    window.addEventListener('resize', function () { if (!stacked) go(current, true); });
     window.addEventListener('load', fit);
     tabs.forEach(function (t) { t.addEventListener('click', function () { stop(); go(+t.getAttribute('data-slide-to')); }); });
     root.querySelectorAll('[data-slide-prev]').forEach(function (b) { b.addEventListener('click', function () { stop(); go(current - 1); }); });
@@ -77,22 +127,24 @@
     if (root.hasAttribute('data-drag')) {
       mouseDrag(track, function () { dragFrom = current; }, function (dx) { go(dragFrom + step(dx)); });
     }
+    if (narrow.addEventListener) narrow.addEventListener('change', layout); else narrow.addListener(layout);
 
     var delay = +root.getAttribute('data-autoplay');
-    if (delay && !reduce) {
+    if (delay && !reduce && !(mode === 'buttons' && narrow.matches)) {
       root.style.setProperty('--autoplay', delay + 'ms');
       root.classList.add('is-autoplay');
       root.addEventListener('animationend', function (e) {
         if (e.target.hasAttribute('data-slide-progress') && root.classList.contains('is-autoplay')) go(current + 1);
       });
     }
+    layout();
     mark();
 
     return {
-      // id 가 이 슬라이더의 어느 슬라이드 안에 있으면 그 슬라이드로 넘긴다
+      // id 가 이 슬라이더의 어느 슬라이드 안에 있으면 그 슬라이드로 넘긴다. 세로로 쌓였으면 브라우저 기본 이동에 맡긴다.
       show: function (id) {
         var el = document.getElementById(id);
-        if (!el || !track.contains(el)) return false;
+        if (stacked || !el || !track.contains(el)) return false;
         for (var i = 0; i < slides.length; i++) {
           if (slides[i].contains(el)) { stop(); go(i, true); return true; }
         }
