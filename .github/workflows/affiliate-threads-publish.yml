@@ -19,9 +19,9 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: 'identify=최초 ID 조회, check=계정 확인, dry-run=미리보기, publish=실제 게시'
+        description: 'publish-due=밀린 슬롯 하나 게시(Claude 루틴이 사용), identify=최초 ID 조회, check=계정 확인, dry-run=미리보기, publish=지정 슬롯 게시'
         type: choice
-        options: [identify, check, dry-run, publish]
+        options: [publish-due, identify, check, dry-run, publish]
         default: dry-run
       post_date:
         description: 'YYYY-MM-DD (비우면 오늘 KST)'

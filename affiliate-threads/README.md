@@ -59,6 +59,10 @@ python affiliate-threads/scripts/publish.py --mode dry-run --date 2026-10-27 --s
 - 원고에 `image_url`(상품 페이지의 coupangcdn.com 대표 이미지)이 있으면 사진 1장 + 글로 게시합니다.
 - 실제 게시는 위 Actions 만 합니다.
 
+## 게시 실행 시점
+
+GitHub 예약 실행은 이 저장소에서 자주 늦거나 빠집니다(하루 2~3회만 실행된 날이 많음). 그래서 Claude 루틴 「생활픽노트 게시 실행」이 매일 08:42·12:42·15:42·19:32·21:32(KST)에 `workflow_dispatch` 로 `mode=publish-due` 를 실행합니다. publish-due 는 시간이 지난 미게시 슬롯 중 가장 이른 것 하나만, 직전 게시 2시간 뒤에, 0~8시를 피해서 올립니다. 예약 실행(cron)은 보조로 남겨 둡니다. 체크포인트 push 가 다른 워크플로와 겹쳐 거절되면 rebase 후 최대 3번 다시 시도합니다.
+
 ## 답글 권한 (thread_replies)
 
 타래(첫 글 → 광고 답글)는 토큰에 `threads_manage_replies` 권한이 있어야 합니다. 2026-10-26 첫 타래에서 답글 생성이 HTTP 403 으로 거절돼, 권한을 받기 전까지 `config.json` 의 `thread_replies: false` 로 둡니다. 이때는 광고 문구 → 첫 글 훅·장면 → 상품 소개 → 링크·사진을 한 글로 올립니다. 권한 추가 후 새 토큰을 `COUPANG_THREADS_ACCESS_TOKEN` 에 넣고 `thread_replies` 를 true 로 바꿉니다. 2026-10-26 새 토큰(만료 약 12-24)으로 true 전환.

@@ -178,6 +178,17 @@ def coupang_deeplink(source_url, access_key, secret_key, opener=urllib.request.u
     return link
 
 
+def push_main(repo, attempts=3):
+    """Other workflows push to main too; on a rejected push rebase onto the latest main and retry."""
+    for attempt in range(attempts):
+        if subprocess.run(["git", "push", "origin", "HEAD:main"], cwd=repo).returncode == 0:
+            return
+        if attempt + 1 < attempts:
+            subprocess.run(["git", "pull", "--rebase", "-q", "origin", "main"], cwd=repo, check=True)
+            time.sleep(3 * (attempt + 1))
+    raise RuntimeError("게시 상태를 main 에 저장하지 못했습니다(push 3회 실패).")
+
+
 def persist_post(path):
     """Commit the post file (e.g. a freshly issued link) before any Threads call, so a retry reuses it."""
     if os.environ.get("COUPANG_GIT_CHECKPOINT") != "true":
@@ -186,7 +197,7 @@ def persist_post(path):
     relative = path.relative_to(repo).as_posix()
     subprocess.run(["git", "add", "--", relative], cwd=repo, check=True)
     subprocess.run(["git", "commit", "-m", "chore: picknotes partners link", "--", relative], cwd=repo, check=True)
-    subprocess.run(["git", "push", "origin", "HEAD:main"], cwd=repo, check=True)
+    push_main(repo)
 
 
 def fill_link(config, post, path, deeplink=coupang_deeplink):
@@ -215,7 +226,7 @@ def save_state(path, state):
         diff = subprocess.run(["git", "diff", "--cached", "--quiet", "--", relative], cwd=repo)
         if diff.returncode == 1:
             subprocess.run(["git", "commit", "-m", "chore: checkpoint affiliate thread", "--", relative], cwd=repo, check=True)
-            subprocess.run(["git", "push", "origin", "HEAD:main"], cwd=repo, check=True)
+            push_main(repo)
         elif diff.returncode:
             raise RuntimeError("게시 상태 체크포인트를 저장하지 못했습니다.")
 
