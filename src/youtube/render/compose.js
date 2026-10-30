@@ -75,6 +75,9 @@ export function sfxEvents(cardStarts, shots) {
 const CHAPTER_GAP = 2.6; // 챕터 사이 무음(초). 이 자리에 챕터 간지와 효과음이 들어간다
 // 챕터 안 문장 크기 고르기(약 15초 창) + 문장 끝이 작아지는 합성 음성 버릇을 가볍게 눌러 맞춤(EP004 문장 앞뒤 차이 9dB → 4dB)
 const VOICE_LEVELER = "dynaudnorm=f=500:g=31:p=0.9:m=20:r=0.1:b=1,acompressor=threshold=-28dB:ratio=4:attack=5:release=120";
+const VOICE_LUFS = -14; // 유튜브 기준 음량
+// 내레이션 봉우리 상한 -3dBFS(0.708). 효과음·BGM을 더해도 마지막 리미터(-1.5dBFS)가 말소리를 누르지 않게 여유를 둔다. latency=1로 지연 보정
+const VOICE_LIMITER = "alimiter=limit=0.708:attack=5:release=80:level=false:latency=1";
 // 채널 BGM(bruce-youtube/channel/bgm/bgm.mp3). 영상 내내 반복해서 깔고, 내레이션이 나오면 자동으로 줄였다가
 // 말이 멈추는 곳(챕터 간지·마지막 여운)에서 다시 올라온다(사이드체인 덕킹).
 const BGM_LUFS = -27; // 말이 없을 때 BGM 크기(내레이션 -14 LUFS 대비 약 13dB 아래)
@@ -683,13 +686,13 @@ export async function renderEpisode(episode, audioFiles, { root, outDir, preview
   const joined = path.join(work, "voice_joined.wav");
   await ffmpeg([...inputs, "-filter_complex", `${join}concat=n=${audio.length}:v=0:a=1[j]`, "-map", "[j]", joined]);
   const chain = `[0:a]${cleanup ? "highpass=f=80,afftdn=nf=-25:tn=1," : ""}`;
-  const target = "I=-14:TP=-1.5:LRA=11";
-  const measured = await measureLoudness(["-i", joined, "-filter_complex", `${chain}loudnorm=${target}:print_format=json`]);
-  const linear = measured
-    ? `:measured_I=${measured.input_i}:measured_TP=${measured.input_tp}:measured_LRA=${measured.input_lra}:measured_thresh=${measured.input_thresh}:offset=${measured.target_offset}:linear=true`
-    : "";
+  // 재고 나서 같은 배율로 키우고, 튀는 봉우리만 리미터(미리보기 있음)로 -3dBFS 아래로 누른다.
+  // loudnorm은 키울 양(약 +16dB)이 봉우리 여유보다 크면 linear를 무시하고 dynamic으로 바뀌어, 영상 첫 문장 봉우리가 -1.5dBFS까지 올라
+  // 효과음·BGM과 합칠 때 마지막 리미터에 눌려 첫 소리가 깨졌다(EP009 「아직 각인되지 않았어요」, 2026-10-30).
+  const measured = await measureLoudness(["-i", joined, "-filter_complex", `${chain}loudnorm=I=-14:print_format=json`]);
+  const gain = (VOICE_LUFS - Number(measured?.input_i ?? VOICE_LUFS)).toFixed(2);
   const voiceOut = path.join(work, "voice.m4a");
-  await ffmpeg(["-i", joined, "-filter_complex", `${chain}loudnorm=${target}${linear}[a]`, "-map", "[a]", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", voiceOut]);
+  await ffmpeg(["-i", joined, "-filter_complex", `${chain}volume=${gain}dB,${VOICE_LIMITER}[a]`, "-map", "[a]", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", voiceOut]);
   // 효과음: 챕터 간지(chapter.mp3) + 움직이는 카드·스크롤 컷 소리(bruce-youtube/channel/sfx/<이름>.mp3)를 작게 깐다.
   const sfxDir = path.join(root, "channel", "sfx"); // root = bruce-youtube
   const wanted = sfxEvents(cardStarts, shots);
@@ -709,7 +712,7 @@ export async function renderEpisode(episode, audioFiles, { root, outDir, preview
       const placed = used.flatMap((name) => events.filter((event) => event.name === name).map((event, i) =>
         `[${name}${i}]adelay=${Math.round(event.time * 1000)}:all=1,volume=${SFX_LEVELS[name] ?? 0.3}[o_${name}${i}]`));
       const labels = placed.map((line) => line.slice(line.lastIndexOf("[")));
-      const mix = `[0:a]${labels.join("")}amix=inputs=${labels.length + 1}:normalize=0:duration=first,alimiter=limit=0.84:level=false[a]`;
+      const mix = `[0:a]${labels.join("")}amix=inputs=${labels.length + 1}:normalize=0:duration=first,alimiter=limit=0.84:level=false:latency=1[a]`;
       const sfxInputs = used.flatMap((name) => ["-i", path.join(sfxDir, `${name}.mp3`)]);
       await ffmpeg(["-i", voiceOut, ...sfxInputs, "-filter_complex", [...graph, ...placed, mix].join(";"), "-map", "[a]", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", audioOut]);
       log(`효과음 ${events.length}개 (${used.map((name) => `${name} ${events.filter((event) => event.name === name).length}`).join(", ")})`);
@@ -746,7 +749,7 @@ export async function renderEpisode(episode, audioFiles, { root, outDir, preview
       // 덕킹 기준은 효과음을 뺀 내레이션만(간지 효과음 때문에 음악이 줄지 않게)
       "[2:a]aformat=sample_rates=48000:channel_layouts=stereo[sc]",
       `[m][sc]sidechaincompress=threshold=0.03:ratio=${BGM_DUCK_RATIO}:attack=60:release=700:makeup=1[md]`,
-      "[0:a][md]amix=inputs=2:normalize=0:duration=first,alimiter=limit=0.84:level=false[a]",
+      "[0:a][md]amix=inputs=2:normalize=0:duration=first,alimiter=limit=0.84:level=false:latency=1[a]",
     ].join(";");
     await ffmpeg(["-i", audioOut, "-i", looped, "-i", voiceOut, "-filter_complex", graph, "-map", "[a]", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", finalAudio]);
   }
