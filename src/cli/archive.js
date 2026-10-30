@@ -9,7 +9,7 @@ import path from "node:path";
 import sharp from "sharp";
 import { CONFIG, PATHS } from "../config.js";
 import { canonicalUrl, fetchText } from "../lib/brunch.js";
-import { imageSlots, localImageName, parseArchiveArticle, renderArchiveIndex, renderArticlePage, renderContextPage, renderSitemap, sortArticles, suggestCategory } from "../lib/archive.js";
+import { imagePath, imageSlots, localImageName, parseArchiveArticle, renderArchiveIndex, renderArticlePage, renderContextPage, renderSitemap, sortArticles, suggestCategory } from "../lib/archive.js";
 import { mapLimit, readJson, writeFileAtomic, writeJson } from "../lib/files.js";
 import { linkArchivedPosts, replaceWritingPicks } from "../lib/homepage.js";
 
@@ -164,7 +164,8 @@ async function render() {
   // 홈페이지(한·영) Writing 목록의 글 링크를 브런치 대신 이 사이트의 백업 페이지로 연결한다.
   for (const homepage of [PATHS.homepage, "en/index.html"]) {
     const html = await readFile(homepage, "utf8");
-    const picks = (meta.picks ?? []).map((id) => articles.find((article) => article.id === id)).filter(Boolean);
+    const picks = (meta.picks ?? []).map((id) => articles.find((article) => article.id === id)).filter(Boolean)
+      .map((article) => ({ ...article, thumb: article.coverImage ? imagePath(article.id, article.coverImage, article.coverLocal) : null }));
     const linked = replaceWritingPicks(linkArchivedPosts(html, keep), picks);
     if (linked !== html) await writeFileAtomic(homepage, linked);
   }

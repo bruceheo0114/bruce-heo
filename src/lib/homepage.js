@@ -33,7 +33,8 @@ export function renderPostLinks(posts, archivedIds = new Set()) {
       (post) => `      <a class="post" ${postLinkAttributes(post.id, post.canonicalUrl, archivedIds)}>
         <div class="post__date">${formatHomepageMonth(post.publishedAt)}</div>
         <div class="post__title">${escapeHtml(post.title)}</div>
-        <div class="post__arrow">→</div>
+        <div class="post__arrow">→</div>${post.thumb ? `
+        <div class="post__thumb"><img src="${escapeHtml(post.thumb)}" alt="" loading="lazy" decoding="async"></div>` : ""}
       </a>`,
     )
     .join("\n");

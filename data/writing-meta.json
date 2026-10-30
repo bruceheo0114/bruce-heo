@@ -27,10 +27,20 @@
     {
       "partner": "오픈애즈",
       "series": "오픈애즈 오리지널",
+      "episode": "2화",
+      "title": "소비자가 듣고 싶은 말만 하면 좋은 브랜드가 될까?",
+      "date": "2026.10",
+      "thumb": "/assets/collab/openads-ep2.webp",
+      "url": "https://www.openads.co.kr/festival/festivalDetail?festivalId=15490062"
+    },
+    {
+      "partner": "오픈애즈",
+      "series": "오픈애즈 오리지널",
       "episode": "1화",
       "title": "남들이 다 하는 말, 우리 브랜드도 꼭 해야 할까?",
       "desc": "트렌드를 따라 할지 말지, 감이 아닌 기준으로 정하는 법. 캠페인 현장에서 쌓아온 판단 기준을 네 가지 질문으로 풀어 오픈애즈와 함께 썼습니다.",
       "date": "2026.10",
+      "thumb": "/assets/collab/openads-ep1.webp",
       "url": "https://www.openads.co.kr/festival/festivalDetail?festivalId=15390101"
     }
   ],

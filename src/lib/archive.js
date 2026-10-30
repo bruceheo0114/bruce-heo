@@ -217,7 +217,7 @@ export function formatKoreanDate(value) {
 }
 
 // 저장소에 내려받은 이미지가 있으면 그 주소를, 없으면 브런치 이미지 주소를 쓴다.
-function imagePath(articleId, src, local, absolute = false) {
+export function imagePath(articleId, src, local, absolute = false) {
   if (!local) return src;
   return `${absolute ? SITE : ""}/writing/${articleId}/${local}`;
 }
@@ -347,6 +347,9 @@ h1{font-size:clamp(28px,5vw,40px);line-height:1.3;letter-spacing:-.035em;font-we
 .collab__item strong{display:block;font-size:16.5px;line-height:1.45}
 .collab__item p{margin-top:6px;font-size:14.5px;line-height:1.7;color:var(--text-2)}
 .collab__item:focus-visible{outline:3px solid var(--mint);outline-offset:2px}
+.collab__item--thumb{display:grid;grid-template-columns:180px 1fr;gap:18px;align-items:center;padding:12px 18px 12px 12px}
+.collab__item--thumb img{width:100%;aspect-ratio:400/257;object-fit:cover;border-radius:10px;display:block;background:var(--bg-soft)}
+@media (max-width:560px){.collab__item--thumb{grid-template-columns:116px 1fr;gap:12px}.collab__item--thumb strong{font-size:15.5px}}
 .filters{margin-top:44px;display:flex;flex-wrap:wrap;gap:8px}
 .filters button{font:inherit;font-size:14px;font-weight:700;padding:8px 14px;border-radius:999px;border:1.5px solid var(--border-strong);background:transparent;color:var(--text-2);cursor:pointer}
 .filters button[aria-pressed="true"]{border-color:var(--text);background:var(--text);color:#fff}
@@ -552,7 +555,12 @@ ${picks.length ? `<section class="picks" aria-labelledby="picks-title"><h2 id="p
 ${picks.map((article) => `<a class="pick" href="/writing/${article.id}/">${article.coverImage ? `<img src="${escapeHtml(imagePath(article.id, article.coverImage, article.coverLocal))}" alt="" loading="lazy" decoding="async">` : ""}<span>${escapeHtml(article.title)}</span></a>`).join("\n")}
 </div></section>` : ""}
 ${collabs.length ? `<section class="collab" id="collab" aria-labelledby="collab-title"><h2 id="collab-title">콜라보</h2><div class="collab__list">
-${collabs.map((item) => `<a class="collab__item" href="${escapeHtml(item.url)}" target="_blank" rel="noopener"><small>${escapeHtml([item.series, item.episode, item.date].filter(Boolean).join(" · "))}</small><strong>${escapeHtml(item.title)}</strong>${item.desc ? `<p>${escapeHtml(item.desc)}</p>` : ""}</a>`).join("\n")}
+${collabs.map((item) => {
+  const text = `<small>${escapeHtml([item.series, item.episode, item.date].filter(Boolean).join(" · "))}</small><strong>${escapeHtml(item.title)}</strong>${item.desc ? `<p>${escapeHtml(item.desc)}</p>` : ""}`;
+  return item.thumb
+    ? `<a class="collab__item collab__item--thumb" href="${escapeHtml(item.url)}" target="_blank" rel="noopener"><img src="${escapeHtml(item.thumb)}" alt="" loading="lazy" decoding="async"><div>${text}</div></a>`
+    : `<a class="collab__item" href="${escapeHtml(item.url)}" target="_blank" rel="noopener">${text}</a>`;
+}).join("\n")}
 </div></section>` : ""}
 ${categories.length ? `<div class="filters" role="group" aria-label="주제별로 보기"><button type="button" data-filter="" aria-pressed="true">전체</button>${categories.map((item) => `<button type="button" data-filter="${escapeHtml(item.key)}" aria-pressed="false">${escapeHtml(item.label)}</button>`).join("")}</div>` : ""}
 ${sections}
