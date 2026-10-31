@@ -1,0 +1,61 @@
+{
+  "brunch": true,
+  "items": [
+    {
+      "id": "A001",
+      "kind": "page",
+      "url": "https://www.switzen.com/",
+      "source": "스위첸 공식 홈페이지",
+      "scroll": true,
+      "scenes": [
+        "S009",
+        "S039"
+      ]
+    },
+    {
+      "id": "A002",
+      "kind": "article",
+      "url": "https://www.viva100.com/article/20261006500257",
+      "source": "브릿지경제 (2026-10-06)",
+      "scenes": [
+        "S003"
+      ]
+    },
+    {
+      "id": "A003",
+      "kind": "article",
+      "url": "https://www.donga.com/news/Economy/article/all/20260825/134537392/1",
+      "source": "동아일보 (2026-08-25)",
+      "scenes": [
+        "S050"
+      ]
+    },
+    {
+      "id": "A004",
+      "kind": "article",
+      "url": "https://www.donga.com/news/Economy/article/all/20260108/133115348/1",
+      "source": "동아일보 (2026-01-08)",
+      "scenes": [
+        "S012"
+      ]
+    },
+    {
+      "id": "A005",
+      "kind": "article",
+      "url": "https://www.g-enews.com/article/Real-Estate/2025/10/202510300927474405ac06cade6e_1",
+      "source": "글로벌이코노믹 (2025-10-30)",
+      "scenes": [
+        "S026"
+      ]
+    },
+    {
+      "id": "A006",
+      "kind": "page",
+      "url": "https://webzine.kccworld.co.kr/synergy/kcc-construct-issues/kcc%EA%B1%B4%EC%84%A4-%EC%8A%A4%EC%9C%84%EC%B2%B8-%EC%84%9C%EC%9A%B8%EC%98%81%EC%83%81%EA%B4%91%EA%B3%A0%EC%A0%9C-7%EB%85%84-%EC%97%B0%EC%86%8D-%EC%88%98%EC%83%81/",
+      "source": "KCC 웹진",
+      "scenes": [
+        "S012"
+      ]
+    }
+  ]
+}
