@@ -1,0 +1,235 @@
+{
+  "references_hash": "927b73f78c26acee",
+  "fetched_at": "2026-10-31T12:20:40.789Z",
+  "items": [
+    {
+      "file": "A001-screen.jpg",
+      "id": "A001",
+      "scenes": [
+        "S009",
+        "S039"
+      ],
+      "kind": "screen",
+      "source": "스위첸 공식 홈페이지",
+      "url": "https://www.switzen.com/"
+    },
+    {
+      "file": "A001-scroll.jpg",
+      "id": "A001",
+      "scenes": [
+        "S009",
+        "S039"
+      ],
+      "kind": "scroll",
+      "source": "스위첸 공식 홈페이지",
+      "url": "https://www.switzen.com/"
+    },
+    {
+      "file": "A002-screen.jpg",
+      "id": "A002",
+      "scenes": [
+        "S003"
+      ],
+      "kind": "screen",
+      "source": "브릿지경제 (2026-10-06)",
+      "url": "https://www.viva100.com/article/20261006500257"
+    },
+    {
+      "file": "A002-scroll.jpg",
+      "id": "A002",
+      "scenes": [
+        "S003"
+      ],
+      "kind": "scroll",
+      "source": "브릿지경제 (2026-10-06)",
+      "url": "https://www.viva100.com/article/20261006500257"
+    },
+    {
+      "file": "A002-img1.jpg",
+      "id": "A002",
+      "scenes": [
+        "S003"
+      ],
+      "kind": "image",
+      "source": "브릿지경제 (2026-10-06)",
+      "url": "https://www.viva100.com/article/20261006500257"
+    },
+    {
+      "file": "A002-img2.jpg",
+      "id": "A002",
+      "scenes": [
+        "S003"
+      ],
+      "kind": "image",
+      "source": "브릿지경제 (2026-10-06)",
+      "url": "https://www.viva100.com/article/20261006500257"
+    },
+    {
+      "file": "A003-screen.jpg",
+      "id": "A003",
+      "scenes": [
+        "S050"
+      ],
+      "kind": "screen",
+      "source": "동아일보 (2026-08-25)",
+      "url": "https://www.donga.com/news/Economy/article/all/20260825/134537392/1"
+    },
+    {
+      "file": "A003-scroll.jpg",
+      "id": "A003",
+      "scenes": [
+        "S050"
+      ],
+      "kind": "scroll",
+      "source": "동아일보 (2026-08-25)",
+      "url": "https://www.donga.com/news/Economy/article/all/20260825/134537392/1"
+    },
+    {
+      "file": "A003-img1.jpg",
+      "id": "A003",
+      "scenes": [
+        "S050"
+      ],
+      "kind": "image",
+      "source": "동아일보 (2026-08-25)",
+      "url": "https://www.donga.com/news/Economy/article/all/20260825/134537392/1"
+    },
+    {
+      "file": "A003-img2.jpg",
+      "id": "A003",
+      "scenes": [
+        "S050"
+      ],
+      "kind": "image",
+      "source": "동아일보 (2026-08-25)",
+      "url": "https://www.donga.com/news/Economy/article/all/20260825/134537392/1"
+    },
+    {
+      "file": "A004-screen.jpg",
+      "id": "A004",
+      "scenes": [
+        "S012"
+      ],
+      "kind": "screen",
+      "source": "동아일보 (2026-01-08)",
+      "url": "https://www.donga.com/news/Economy/article/all/20260108/133115348/1"
+    },
+    {
+      "file": "A004-scroll.jpg",
+      "id": "A004",
+      "scenes": [
+        "S012"
+      ],
+      "kind": "scroll",
+      "source": "동아일보 (2026-01-08)",
+      "url": "https://www.donga.com/news/Economy/article/all/20260108/133115348/1"
+    },
+    {
+      "file": "A004-img1.jpg",
+      "id": "A004",
+      "scenes": [
+        "S012"
+      ],
+      "kind": "image",
+      "source": "동아일보 (2026-01-08)",
+      "url": "https://www.donga.com/news/Economy/article/all/20260108/133115348/1"
+    },
+    {
+      "file": "A005-screen.jpg",
+      "id": "A005",
+      "scenes": [
+        "S026"
+      ],
+      "kind": "screen",
+      "source": "글로벌이코노믹 (2025-10-30)",
+      "url": "https://www.g-enews.com/article/Real-Estate/2025/10/202510300927474405ac06cade6e_1"
+    },
+    {
+      "file": "A005-scroll.jpg",
+      "id": "A005",
+      "scenes": [
+        "S026"
+      ],
+      "kind": "scroll",
+      "source": "글로벌이코노믹 (2025-10-30)",
+      "url": "https://www.g-enews.com/article/Real-Estate/2025/10/202510300927474405ac06cade6e_1"
+    },
+    {
+      "file": "A005-img1.jpg",
+      "id": "A005",
+      "scenes": [
+        "S026"
+      ],
+      "kind": "image",
+      "source": "글로벌이코노믹 (2025-10-30)",
+      "url": "https://www.g-enews.com/article/Real-Estate/2025/10/202510300927474405ac06cade6e_1"
+    },
+    {
+      "file": "A005-img2.jpg",
+      "id": "A005",
+      "scenes": [
+        "S026"
+      ],
+      "kind": "image",
+      "source": "글로벌이코노믹 (2025-10-30)",
+      "url": "https://www.g-enews.com/article/Real-Estate/2025/10/202510300927474405ac06cade6e_1"
+    },
+    {
+      "file": "A006-screen.jpg",
+      "id": "A006",
+      "scenes": [
+        "S012"
+      ],
+      "kind": "screen",
+      "source": "KCC 웹진",
+      "url": "https://webzine.kccworld.co.kr/synergy/kcc-construct-issues/kcc%EA%B1%B4%EC%84%A4-%EC%8A%A4%EC%9C%84%EC%B2%B8-%EC%84%9C%EC%9A%B8%EC%98%81%EC%83%81%EA%B4%91%EA%B3%A0%EC%A0%9C-7%EB%85%84-%EC%97%B0%EC%86%8D-%EC%88%98%EC%83%81/"
+    },
+    {
+      "file": "A006-img1.jpg",
+      "id": "A006",
+      "scenes": [
+        "S012"
+      ],
+      "kind": "image",
+      "source": "KCC 웹진",
+      "url": "https://webzine.kccworld.co.kr/synergy/kcc-construct-issues/kcc%EA%B1%B4%EC%84%A4-%EC%8A%A4%EC%9C%84%EC%B2%B8-%EC%84%9C%EC%9A%B8%EC%98%81%EC%83%81%EA%B4%91%EA%B3%A0%EC%A0%9C-7%EB%85%84-%EC%97%B0%EC%86%8D-%EC%88%98%EC%83%81/"
+    },
+    {
+      "file": "A006-img2.jpg",
+      "id": "A006",
+      "scenes": [
+        "S012"
+      ],
+      "kind": "image",
+      "source": "KCC 웹진",
+      "url": "https://webzine.kccworld.co.kr/synergy/kcc-construct-issues/kcc%EA%B1%B4%EC%84%A4-%EC%8A%A4%EC%9C%84%EC%B2%B8-%EC%84%9C%EC%9A%B8%EC%98%81%EC%83%81%EA%B4%91%EA%B3%A0%EC%A0%9C-7%EB%85%84-%EC%97%B0%EC%86%8D-%EC%88%98%EC%83%81/"
+    },
+    {
+      "file": "A006-img3.jpg",
+      "id": "A006",
+      "scenes": [
+        "S012"
+      ],
+      "kind": "image",
+      "source": "KCC 웹진",
+      "url": "https://webzine.kccworld.co.kr/synergy/kcc-construct-issues/kcc%EA%B1%B4%EC%84%A4-%EC%8A%A4%EC%9C%84%EC%B2%B8-%EC%84%9C%EC%9A%B8%EC%98%81%EC%83%81%EA%B4%91%EA%B3%A0%EC%A0%9C-7%EB%85%84-%EC%97%B0%EC%86%8D-%EC%88%98%EC%83%81/"
+    },
+    {
+      "file": "brunch-01.jpg",
+      "id": "brunch",
+      "scenes": [],
+      "kind": "image",
+      "source": "브런치 @heoboram 원문",
+      "url": "https://brunch.co.kr/@heoboram/212"
+    },
+    {
+      "file": "brunch-02.jpg",
+      "id": "brunch",
+      "scenes": [],
+      "kind": "image",
+      "source": "브런치 @heoboram 원문",
+      "url": "https://brunch.co.kr/@heoboram/212"
+    }
+  ],
+  "failures": []
+}
