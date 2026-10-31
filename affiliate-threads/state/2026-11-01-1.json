@@ -1,7 +1,7 @@
 {
   "digest": "f02252188d59fabbeecc5449142f83efa6c73451cb15d57cea51650d3e4ea3c1",
   "user_id": "39249057824741583",
-  "stage": "threading",
+  "stage": "posted",
   "parts": [
     {
       "stage": "posted",
@@ -13,5 +13,7 @@
       "container_id": "18154563400507421",
       "media_id": "17990737446117715"
     }
-  ]
+  ],
+  "media_id": "18111970895130228",
+  "posted_at": "2026-10-31T23:45:13.472730+00:00"
 }
