@@ -9,9 +9,9 @@
     "source_file": "source/brunch/212.md",
     "body_hash": "c37fe99e7dac654637a8eada815a79629dd71a914e0741bc443277e2297c482b"
   },
-  "status": "WAITING_APPROVAL",
+  "status": "APPROVED",
   "format": "v2",
-  "higgsfield_generation": false,
+  "higgsfield_generation": true,
   "recommendation": "MAKE_VIDEO",
   "video_potential": {
     "NARRATIVE": 9,
@@ -23,8 +23,66 @@
     "TOTAL": 51,
     "MAX": 60
   },
-  "approved_scenes": [],
-  "generated": {},
+  "approved_scenes": [
+    "S004",
+    "S015",
+    "S023",
+    "S035",
+    "S037",
+    "S042",
+    "S046",
+    "S048"
+  ],
+  "generated": {
+    "S023": {
+      "job": "398b3fd0-1fad-458e-baa4-dd9753009e68",
+      "files": [
+        "bruce-youtube/assets/references/EP012/V01.mp4"
+      ],
+      "credits": 5,
+      "at": "2026-10-31T12:19:38.845Z"
+    },
+    "S042": {
+      "job": "9d724cb2-17eb-446b-b054-072e3cbd21c4",
+      "files": [
+        "bruce-youtube/assets/references/EP012/G01.png"
+      ],
+      "credits": 0.25,
+      "at": "2026-10-31T12:19:38.948Z"
+    },
+    "S004": {
+      "job": "a2c859e1-be26-4982-89f6-5c20f3d4fb79",
+      "files": [
+        "bruce-youtube/assets/references/EP012/G02.png"
+      ],
+      "credits": 0.25,
+      "at": "2026-10-31T12:19:39.038Z"
+    },
+    "S015": {
+      "job": "0e20bdfd-4f1e-40ee-8c7f-4caebaf3809f",
+      "files": [
+        "bruce-youtube/assets/references/EP012/G03.png"
+      ],
+      "credits": 0.25,
+      "at": "2026-10-31T12:19:39.126Z"
+    },
+    "S037": {
+      "job": "42884bd0-f26d-4cfc-aa30-c8538c5cd61a",
+      "files": [
+        "bruce-youtube/assets/references/EP012/G05.png"
+      ],
+      "credits": 0.25,
+      "at": "2026-10-31T12:19:39.411Z"
+    },
+    "S046": {
+      "job": "dc885794-74c3-43b4-ba77-b273ba38aa4b",
+      "files": [
+        "bruce-youtube/assets/references/EP012/G06.png"
+      ],
+      "credits": 0.25,
+      "at": "2026-10-31T12:19:39.534Z"
+    }
+  },
   "plan": {
     "runtime_seconds": 306,
     "runtime": "5:06",
@@ -63,7 +121,7 @@
   },
   "update": null,
   "created_at": "2026-10-31T12:15:10.244Z",
-  "updated_at": "2026-10-31T12:17:45.209Z",
+  "updated_at": "2026-10-31T12:21:14.226Z",
   "history": [
     {
       "at": "2026-10-31T12:15:10.244Z",
@@ -76,6 +134,39 @@
       "from": "PACKAGE_PENDING",
       "to": "WAITING_APPROVAL",
       "note": "영상화 평가 51/60 · MAKE_VIDEO"
+    },
+    {
+      "at": "2026-10-31T12:18:04.063Z",
+      "from": "WAITING_APPROVAL",
+      "to": "APPROVED",
+      "note": "Higgsfield 승인: S042, S004, S015, S023, S037, S046, S035, S048"
     }
-  ]
+  ],
+  "approved_at": "2026-10-31T12:18:04.063Z",
+  "narration": {
+    "takes": [
+      {
+        "file": "bruce-youtube/output/EP012/narration/EP012_CH01.mp3",
+        "seconds": 63.242449,
+        "added_at": "2026-10-31T12:21:14.226Z"
+      },
+      {
+        "file": "bruce-youtube/output/EP012/narration/EP012_CH02.mp3",
+        "seconds": 71.810612,
+        "added_at": "2026-10-31T12:21:14.226Z"
+      },
+      {
+        "file": "bruce-youtube/output/EP012/narration/EP012_CH03.mp3",
+        "seconds": 107.075918,
+        "added_at": "2026-10-31T12:21:14.226Z"
+      },
+      {
+        "file": "bruce-youtube/output/EP012/narration/EP012_CH04.mp3",
+        "seconds": 77.714286,
+        "added_at": "2026-10-31T12:21:14.226Z"
+      }
+    ],
+    "total_seconds": 319.84326500000003,
+    "updated_at": "2026-10-31T12:21:14.226Z"
+  }
 }
