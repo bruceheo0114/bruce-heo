@@ -1,8 +1,8 @@
 {
   "version": 1,
   "initialized": true,
-  "lastCheckedAt": "2026-11-01T01:42:02.638Z",
-  "lastCheckedCanonicalUrl": "https://brunch.co.kr/@heoboram/227",
+  "lastCheckedAt": "2026-11-01T22:38:03.761Z",
+  "lastCheckedCanonicalUrl": "https://brunch.co.kr/@heoboram/228",
   "reviewSuccessCount": 1,
   "mode": "review",
   "articles": {
@@ -1133,6 +1133,38 @@
       },
       "approvedAt": "2026-10-27T04:52:19.732Z",
       "scheduledAt": "2026-10-27T07:13:00.000Z",
+      "completedAt": null
+    },
+    "228": {
+      "id": "228",
+      "canonicalUrl": "https://brunch.co.kr/@heoboram/228",
+      "title": "이수만은 어떻게 익숙한 방식으로 사람들을 열광시켰을까?",
+      "publishedAt": "2026-11-01T12:00:06.000Z",
+      "bodyHash": "4407ca6130a30dde084ed236ef68b309ddae23ae0ac31fe75108f93daae4a193",
+      "batchId": "41358081787",
+      "homepage": {
+        "status": "published",
+        "updatedAt": "2026-11-01T22:38:03.761Z"
+      },
+      "package": {
+        "status": "awaiting_review",
+        "manifestPath": "content/228/manifest.json",
+        "generatedAt": null
+      },
+      "linkedin": {
+        "status": "manual_pending",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "instagram": {
+        "status": "manual_pending",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "approvedAt": null,
+      "scheduledAt": null,
       "completedAt": null
     }
   }
