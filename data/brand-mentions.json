@@ -1,25 +1,14 @@
 {
-  "generated_at": "2026-10-25T13:41:38.155Z",
+  "generated_at": "2026-11-01T15:58:41.833Z",
   "window": {
-    "since": "2026-10-18",
-    "until": "2026-10-25"
+    "since": "2026-10-26",
+    "until": "2026-11-02"
   },
   "source": "네이버 검색 API(블로그·카페·뉴스) · API HUB",
   "counts": {
-    "blog": 1,
+    "blog": 0,
     "cafearticle": 0,
     "news": 0
   },
-  "mentions": [
-    {
-      "type": "blog",
-      "query": "LG전자는 왜 발음하기도 어려운 닉네임을 만들었을까?",
-      "post": "224",
-      "title": "26년 10월 19일 안장 출근길 뉴스 헤드라인",
-      "description": "업무 돕는 'AI의 역설'… 회의시간 더 길어져 [IT트렌드 속성 가이드북] 넷플릭스 10년 그리고 미디어의 변화 [브루스의 영감노트] LG전자는 왜 발음하기도 어려운 닉네임을 만들었을까?",
-      "by": "안장‘s Newslog",
-      "date": "2026-10-19",
-      "url": "https://blog.naver.com/anjangram/224446141291"
-    }
-  ]
+  "mentions": []
 }
