@@ -1,0 +1,102 @@
+{
+  "date": "2026-11-02",
+  "type": "carousel",
+  "series": "weekly_issues",
+  "title": "이번 주 마케팅 이슈 10 (2026년 11월 1주)",
+  "sources": [
+    "https://www.financialpost.co.kr/news/articleView.html?idxno=282836",
+    "https://www.marketingdive.com/news/googles-ai-overhaul-of-search-hits-snags-as-ad-revenue-growth-cools/873150/",
+    "https://www.sedaily.com/article/20106011",
+    "https://www.newsis.com/view/NISX20261027_0003843378",
+    "https://www.yna.co.kr/view/AKR20261026054500061",
+    "https://www.adweek.com/brand-marketing/the-sydney-sweeney-effect-can-fade-fast-for-brands-data-suggests/",
+    "https://www.news1.kr/it-science/internet-platform/6334607",
+    "https://www.financialpost.co.kr/news/articleView.html?idxno=283367",
+    "https://www.marketingdive.com/news/walmart-cmo-breaks-down-retailers-muppet-fueled-holiday-campaign/833778/",
+    "https://www.news1.kr/local/daegu-gyeongbuk/6332477"
+  ],
+  "checks": [
+    {
+      "no": 1,
+      "published": "2026-10-27",
+      "executed": "2026-10-27",
+      "urls": [
+        "https://www.financialpost.co.kr/news/articleView.html?idxno=282836"
+      ]
+    },
+    {
+      "no": 2,
+      "published": "2026-10-29",
+      "executed": "2026-10-29",
+      "urls": [
+        "https://www.marketingdive.com/news/googles-ai-overhaul-of-search-hits-snags-as-ad-revenue-growth-cools/873150/"
+      ]
+    },
+    {
+      "no": 3,
+      "published": "2026-10-26",
+      "executed": "2026-10-26",
+      "urls": [
+        "https://www.sedaily.com/article/20106011"
+      ]
+    },
+    {
+      "no": 4,
+      "published": "2026-10-28",
+      "executed": "2026-10-28",
+      "urls": [
+        "https://www.newsis.com/view/NISX20261027_0003843378"
+      ]
+    },
+    {
+      "no": 5,
+      "published": "2026-10-26",
+      "executed": "2026-10-26",
+      "urls": [
+        "https://www.yna.co.kr/view/AKR20261026054500061"
+      ]
+    },
+    {
+      "no": 6,
+      "published": "2026-10-29",
+      "executed": "2026-10-29",
+      "urls": [
+        "https://www.adweek.com/brand-marketing/the-sydney-sweeney-effect-can-fade-fast-for-brands-data-suggests/"
+      ]
+    },
+    {
+      "no": 7,
+      "published": "2026-10-28",
+      "executed": "2026-10-28",
+      "urls": [
+        "https://www.news1.kr/it-science/internet-platform/6334607"
+      ]
+    },
+    {
+      "no": 8,
+      "published": "2026-10-29",
+      "executed": "2026-10-29",
+      "urls": [
+        "https://www.financialpost.co.kr/news/articleView.html?idxno=283367"
+      ]
+    },
+    {
+      "no": 9,
+      "published": "2026-10-26",
+      "executed": "2026-10-26",
+      "urls": [
+        "https://www.marketingdive.com/news/walmart-cmo-breaks-down-retailers-muppet-fueled-holiday-campaign/833778/"
+      ]
+    },
+    {
+      "no": 10,
+      "published": "2026-10-26",
+      "executed": "2026-10-25",
+      "urls": [
+        "https://www.news1.kr/local/daegu-gyeongbuk/6332477"
+      ]
+    }
+  ],
+  "status": "render",
+  "caption": "🧾 배달 앱 주문서 속 '요청사항' 한 줄이 530만 뷰 광고가 됐어요. 지난주 마케팅 이슈 10개, 넘겨서 보세요.\n\n1️⃣ 배민, 주문 요청사항으로 530만 뷰\n'배민영수증 프로젝트' 영상이 공개 18일 만에 유튜브 530만 회를 넘겼어요.\n\n2️⃣ 구글, 검색량은 늘고 광고 성장은 꺾였어요\n3분기 검색 광고는 12%, 유튜브 광고는 9% 늘어 성장세가 둔화했어요. AI 모드로 검색량은 늘었지만 수익화는 아직이에요.\n\n3️⃣ '피자설기' 열풍, 편의점까지\n떡집 하루 판매가 200개에서 6000개로 뛰었고, CU 떡 매출은 올해 96.5% 늘었어요(9월 말 기준).\n\n4️⃣ 도파민 스테이션, 매출 1000억 돌파\n용산 아이파크몰의 취향 공간에 누적 1260만 명이 다녀갔어요. 팝업을 수시로 바꾸는 게 비결이에요.\n\n5️⃣ 에버랜드, 유튜브 구독 200만\n여행·레저 업계 최초예요. 누적 조회는 8억3000만 회예요.\n\n6️⃣ 시드니 스위니 효과, 오래 가지 않았어요\n아메리칸이글의 초반 상승은 사라졌고, 닥터스쿼치 판매도 오래 오르지 않았다는 데이터가 나왔어요.\n\n7️⃣ 숏폼 드라마, 한국 조회 1년 새 130%↑\n상반기 글로벌 조회는 65억 회를 넘었고, 유튜브는 '숏츠 시리즈' 기능을 도입해요.\n\n8️⃣ KB국민카드, 소상공인 영상 1000만 뷰\n'국민극장'이 공개 50일 만에 1000만 회를 넘기고 한국PR대상 최우수상을 받았어요.\n\n9️⃣ 월마트, 머펫으로 연말 광고 시작\n'머펫 크리스마스 캐럴'을 다시 만든 캠페인으로 연말 경쟁의 문을 열었어요.\n\n🔟 김천 김밥축제, 비 속에 17만 명\n사흘 중 이틀 비가 왔는데도 17만 명이 찾았어요. 서울에서 앙코르 팝업도 열어요.\n\n📌 열 이슈를 꿰는 한 줄\n셀럽 효과는 빨리 식고, AI 검색은 아직 돈이 덜 돼요. 오래 남은 건 고객이 쓴 한 줄, 가게 주인의 이야기, 새벽 떡집 앞의 줄이었어요.\n\n💬 열 개 중 한 달 뒤에도 기억날 이슈는 몇 번인가요? 이번 주 기획 회의에 들고 갈 동료에게 공유해 주세요.\n\n출처: 파이낸셜포스트(10/27·10/29), Marketing Dive(10/26·10/29), 서울경제(10/26), 뉴시스(10/28), 연합뉴스(10/26), Adweek(10/29), 뉴스1(10/26·10/28)\n\n#브루스매거진 #배민 #피자설기 #숏폼드라마 #도파민스테이션"
+}
