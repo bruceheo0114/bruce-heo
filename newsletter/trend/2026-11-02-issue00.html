@@ -1,0 +1,352 @@
+<title>브루스의 트렌드 노트 #0</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;800&family=IBM+Plex+Sans+KR:wght@400;500;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: one reading column (letter), each trend is a "lens card" headed by its 5R tag; book magenta marks the 5R lens, site green marks facts & links. */
+:root {
+  --bg: #F2F1ED;
+  --paper: #FBFAF7;
+  --line: #E0DDD5;
+  --ink: #141413;
+  --ink-2: #3A3A37;
+  --ink-3: #6F6E68;
+  --green: #23744C;
+  --green-soft: #E1F0E6;
+  --lens: #B0246A;
+  --lens-soft: #F7E3EC;
+  --display: "Noto Serif KR", "Apple SD Gothic Neo", serif;
+  --body: "IBM Plex Sans KR", "Pretendard Variable", Pretendard, -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #161716; --paper: #1E201E; --line: #33362F; --ink: #EDEBE4; --ink-2: #C9C7BF; --ink-3: #9A988F;
+    --green: #6CC596; --green-soft: #1F3328; --lens: #F07AB2; --lens-soft: #3A1E2C; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #161716; --paper: #1E201E; --line: #33362F; --ink: #EDEBE4; --ink-2: #C9C7BF; --ink-3: #9A988F;
+  --green: #6CC596; --green-soft: #1F3328; --lens: #F07AB2; --lens-soft: #3A1E2C; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink); font-family: var(--body);
+  font-size: 16.5px; line-height: 1.75; word-break: keep-all; overflow-wrap: break-word;
+}
+.page {
+  max-width: 720px; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 40px 72px;
+  display: flex; flex-direction: column; gap: 40px;
+}
+a { color: var(--green); text-underline-offset: 3px; }
+a:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; border-radius: 2px; }
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; line-height: 1.35; margin: 0; }
+p { margin: 0; }
+.label { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); }
+
+/* masthead */
+.mast { display: flex; flex-direction: column; gap: 18px; border-bottom: 1px solid var(--line); padding-bottom: 32px; }
+.mast-top { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+.mast h1 { font-size: clamp(28px, 6vw, 40px); font-weight: 800; letter-spacing: -.01em; }
+.lede { color: var(--ink-2); font-size: 17.5px; }
+.test-note { font-size: 14px; color: var(--ink-3); background: var(--paper); border: 1px dashed var(--line); border-radius: 10px; padding: 10px 14px; }
+
+/* 5R legend */
+.legend { display: flex; flex-direction: column; gap: 14px; }
+.legend h2 { font-size: 20px; }
+.legend-intro { color: var(--ink-2); }
+.r-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; }
+.r-cell { background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 12px 10px; display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.r-cell b { font-family: var(--mono); font-size: 13px; color: var(--lens); letter-spacing: .06em; }
+.r-cell span { font-size: 13.5px; line-height: 1.5; color: var(--ink-2); }
+@media (max-width: 560px) { .r-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .r-cell:last-child { grid-column: span 2; } }
+
+/* summary table */
+.summary h2 { font-size: 20px; margin-bottom: 12px; }
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 14.5px; min-width: 520px; }
+th, td { text-align: left; padding: 10px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-family: var(--mono); font-size: 12px; font-weight: 500; letter-spacing: .06em; color: var(--ink-3); }
+td.r { font-family: var(--mono); color: var(--lens); white-space: nowrap; font-size: 13px; }
+
+/* trend card */
+.trend { background: var(--paper); border: 1px solid var(--line); border-radius: 18px; padding: clamp(20px, 4vw, 32px); display: flex; flex-direction: column; gap: 22px; }
+.trend-head { display: flex; flex-direction: column; gap: 10px; }
+.tag { align-self: flex-start; font-family: var(--mono); font-size: 12.5px; letter-spacing: .08em; color: var(--lens); background: var(--lens-soft); border-radius: 999px; padding: 4px 12px; }
+.trend h2 { font-size: clamp(21px, 4.4vw, 26px); font-weight: 800; }
+.block { display: flex; flex-direction: column; gap: 8px; }
+.block h3 { font-family: var(--body); font-size: 14px; font-weight: 700; color: var(--ink-3); letter-spacing: .02em; }
+.facts { margin: 0; padding-left: 1.1em; display: flex; flex-direction: column; gap: 6px; }
+.facts strong, .num { color: var(--green); font-variant-numeric: tabular-nums; }
+.lens { border-left: 3px solid var(--lens); padding: 4px 0 4px 16px; display: flex; flex-direction: column; gap: 10px; }
+.lens h3 { color: var(--lens); }
+.book-line { font-family: var(--display); font-weight: 600; font-size: 17px; color: var(--ink); }
+.check { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.check li { display: grid; grid-template-columns: 22px 1fr; gap: 8px; align-items: start; }
+.check input { width: 17px; height: 17px; margin-top: 5px; accent-color: var(--lens); }
+.bruce { border: 1.5px dashed var(--line); border-radius: 12px; padding: 12px 14px; color: var(--ink-3); font-size: 14.5px; }
+.bruce b { color: var(--ink-2); }
+.src { font-size: 13px; color: var(--ink-3); }
+
+/* closing */
+.scenes, .closing, .sources, .book { display: flex; flex-direction: column; gap: 12px; }
+.scenes h2, .closing h2, .sources h2, .book h2 { font-size: 20px; }
+.scenes ul, .sources ol { margin: 0; padding-left: 1.2em; display: flex; flex-direction: column; gap: 8px; }
+.ask { font-family: var(--display); font-size: 20px; font-weight: 600; }
+.book { background: var(--lens-soft); border-radius: 18px; padding: 22px; }
+.book p { color: var(--ink-2); }
+.book .links { display: flex; flex-wrap: wrap; gap: 10px; }
+.book .links a { background: var(--paper); border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; text-decoration: none; font-weight: 500; font-size: 14px; }
+.sources ol { font-size: 13.5px; color: var(--ink-2); }
+.sources a { word-break: break-all; }
+footer { font-size: 13px; color: var(--ink-3); border-top: 1px solid var(--line); padding-top: 18px; }
+</style>
+
+<main class="page">
+
+<header class="mast">
+  <div class="mast-top">
+    <span class="label">브루스의 트렌드 노트 · #0</span>
+    <span class="label">2026년 11월 첫째 주</span>
+  </div>
+  <h1>AI가 정답을 골라주는데, 사람들은 왜 더 '나한테 맞는 것'을 찾을까?</h1>
+  <p class="lede">이번 달 국내외 마케팅 자료 다섯 개를 골랐습니다. 소개로 끝내지 않고, 제 책 《AI는 답을 만들고 마케터는 맥락을 설계한다》의 다섯 가지 판단 기준으로 하나씩 읽어 봅니다. 답이 싸질수록 비싸지는 건 답을 고르는 기준이니까요.</p>
+  <p class="test-note">테스트호입니다. 점선 상자의 「브루스 한 줄」은 발행 전에 브루스가 직접 씁니다. 체크 질문은 이번 호용 초안이라 책 체크리스트와 맞춰 고칠 수 있습니다.</p>
+</header>
+
+<section class="legend" aria-labelledby="legend-h">
+  <h2 id="legend-h">이번 호를 읽는 다섯 개의 렌즈</h2>
+  <p class="legend-intro">책에서 11년 현장 기록을 묶은 다섯 단어입니다. 트렌드마다 가장 잘 맞는 렌즈 하나를 붙였습니다.</p>
+  <div class="r-grid">
+    <div class="r-cell"><b>READ</b><span>사람의 맥락을 읽는다</span></div>
+    <div class="r-cell"><b>ROOT</b><span>브랜드의 맥락을 지킨다</span></div>
+    <div class="r-cell"><b>REACH</b><span>관심을 행동으로 잇는다</span></div>
+    <div class="r-cell"><b>RALLY</b><span>함께 일할 사람을 모은다</span></div>
+    <div class="r-cell"><b>REMAIN</b><span>판단을 남긴다</span></div>
+  </div>
+</section>
+
+<section class="summary" aria-labelledby="sum-h">
+  <h2 id="sum-h">한눈에 보기</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>렌즈</th><th>트렌드</th><th>이번 호의 판단 질문</th></tr></thead>
+      <tbody>
+        <tr><td class="r">READ</td><td>2027 소비 키워드 '영점소비'</td><td>우리 제품은 AI에게 맡길 영역인가, 마음이 뛰는 영역인가</td></tr>
+        <tr><td class="r">ROOT</td><td>AI 검색이 새 진열대가 됐다</td><td>AI가 우리 브랜드를 한 문장으로 설명할 수 있나</td></tr>
+        <tr><td class="r">REACH</td><td>콘텐츠가 곧 매장</td><td>구매를 멈추게 하는 질문에 누가 답하고 있나</td></tr>
+        <tr><td class="r">RALLY</td><td>광고비의 두 속도, 작아지는 팀</td><td>데이터에 안 남는 사정은 누구에게 묻고 있나</td></tr>
+        <tr><td class="r">REMAIN</td><td>광고를 끊고도 큰 러쉬, 올해의 밈 '딸깍'</td><td>우리가 끝까지 하지 않기로 한 것은 무엇인가</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- READ -->
+<article class="trend" aria-labelledby="t1">
+  <div class="trend-head">
+    <span class="tag">READ · 사람의 맥락</span>
+    <h2 id="t1">효율은 AI에게, 설렘엔 내 돈을: 2027 키워드 '영점소비'</h2>
+  </div>
+  <div class="block">
+    <h3>무슨 일</h3>
+    <p>마크로밀 엠브레인이 「2027 트렌드모니터」의 핵심 개념으로 영점(零點)소비를 제시했습니다. 사회가 정한 기준이나 다수의 정답 대신 나에게 맞는 기준점을 다시 잡고, 거기에 시간과 돈을 모으는 소비입니다.</p>
+    <ul class="facts">
+      <li><strong>BPM 이코노미</strong>: 긴 웨이팅, 아이돌·캐릭터 굿즈처럼 심박수를 올리는 소비엔 아끼지 않는다.</li>
+      <li><strong>확률주의 생존법</strong>: 총액이 정해진 예식, 결말이 보장된 콘텐츠처럼 실패 확률부터 줄인다.</li>
+      <li><strong>언클리셰</strong>: 편의점의 명품, B급으로 망가지는 정상급 배우처럼 예상 밖 조합이 재미를 만든다.</li>
+      <li>엠브레인의 정리: 가격·스펙 비교는 AI에게 맡기고, 취향과 감정이 중요한 곳에 적극 투자한다.</li>
+    </ul>
+  </div>
+  <div class="lens">
+    <h3>READ로 읽으면</h3>
+    <p class="book-line">소비자에게 주어진 건 하루 24시간뿐이고, 두 번의 기회는 잘 주지 않는다.</p>
+    <p>책의 READ는 이 한정된 시간을 전제로 출발합니다. 영점소비는 그 시간을 쓰는 방식이 둘로 갈라졌다는 신호입니다. 비교하는 시간은 AI에게 넘기고, 남은 시간은 마음이 뛰는 곳에만 씁니다. 그래서 "더 좋은 제품"이라는 말은 AI의 비교표 안으로 들어가 버립니다. 마케터가 읽어야 할 맥락은 이 사람이 지금 우리 제품을 '맡길 일'로 보는지, '고를 일'로 보는지입니다.</p>
+  </div>
+  <div class="block">
+    <h3>판단 체크</h3>
+    <ul class="check">
+      <li><input type="checkbox" id="c1a" aria-label="체크"><label for="c1a">우리 제품은 소비자에게 AI에게 맡길 영역인가, 내가 직접 고를 영역인가?</label></li>
+      <li><input type="checkbox" id="c1b" aria-label="체크"><label for="c1b">맡길 영역이라면, AI가 비교할 때 빠지지 않을 정보(가격·스펙·후기)가 정리돼 있나?</label></li>
+      <li><input type="checkbox" id="c1c" aria-label="체크"><label for="c1c">고를 영역이라면, 줄을 서도 아깝지 않을 경험이 하나라도 있나?</label></li>
+    </ul>
+  </div>
+  <p class="bruce"><b>브루스 한 줄</b> · 발행 전 직접 작성</p>
+  <p class="src">출처: 브랜드브리프 2026.10.21 · 함께 읽기: <a href="https://bruceheo.com/writing/223/">영어 공부 앱이 왜 생일카페를 열까?</a></p>
+</article>
+
+<!-- ROOT -->
+<article class="trend" aria-labelledby="t2">
+  <div class="trend-head">
+    <span class="tag">ROOT · 브랜드의 맥락</span>
+    <h2 id="t2">AI 검색이 새 진열대가 됐다: 이케아는 왜 "일관성"을 말할까</h2>
+  </div>
+  <div class="block">
+    <h3>무슨 일</h3>
+    <ul class="facts">
+      <li>네이버 장윤석 실장(10.15 한국디지털광고협회 세미나): 올해 1분기 분석한 광고주 사이트 중 <strong>약 90%</strong>가 검색 시스템이 정보를 읽고 이해하는 데 개선이 필요했다. "SEO가 되지 않으면 그다음은 없다."</li>
+      <li>풀무원은 공식몰에 GEO(생성형 엔진 최적화)를 적용한 뒤 4개월 비교에서 방문자 <strong>2.3배</strong>, 구매 건수 <strong>7.4배</strong>가 늘었다고 밝혔다. 핵심은 따로 만든 'AI 전용 상품 카탈로그'.</li>
+      <li>덴츠 크리에이티브 CMO 1,950명 조사: <strong>81%</strong>가 "AI 에이전트 때문에 강한 브랜드 선호가 더 중요해진다", <strong>78%</strong>가 "브랜드 경험이 보이지 않게 될까 걱정된다".</li>
+      <li>이케아 글로벌 CMO(Digiday): LLM은 광고와 IR 자료를 구분하지 않는다. AI는 브랜드를 "만드는 데가 아니라 퍼뜨리는 데" 써야 한다. 시기마다 다른 약속을 해 온 브랜드는 AI가 정체를 정리하지 못한다.</li>
+    </ul>
+  </div>
+  <div class="lens">
+    <h3>ROOT로 읽으면</h3>
+    <p class="book-line">좋은 제안서는 브랜드가 어디까지 움직일 수 있는지 정확히 아는 제안서다.</p>
+    <p>ROOT는 유행보다 브랜드의 범위를 먼저 묻습니다. AI 검색은 이 질문을 기술 문제처럼 보이게 하지만, 이케아의 말은 정반대입니다. AI가 홈페이지, 상세 페이지, 기사, 공시까지 한꺼번에 읽고 요약할 때, 캠페인마다 다른 말을 해 온 브랜드는 한 문장으로 정리되지 않습니다. GEO는 구조화 작업이고, 그 구조에 담을 '한 문장'은 ROOT에서 나옵니다.</p>
+  </div>
+  <div class="block">
+    <h3>판단 체크</h3>
+    <ul class="check">
+      <li><input type="checkbox" id="c2a" aria-label="체크"><label for="c2a">고객이 할 법한 질문 10개를 ChatGPT·제미나이·네이버 AI 브리핑에 물었을 때, 우리 브랜드는 추천되나, 언급만 되나, 없나?</label></li>
+      <li><input type="checkbox" id="c2b" aria-label="체크"><label for="c2b">AI가 요약한 우리 브랜드 설명이 우리가 지키려는 한 문장과 같은가?</label></li>
+      <li><input type="checkbox" id="c2c" aria-label="체크"><label for="c2c">지난 1년 캠페인 중 그 한 문장과 어긋난 메시지가 있었나?</label></li>
+    </ul>
+  </div>
+  <p class="bruce"><b>브루스 한 줄</b> · 발행 전 직접 작성</p>
+  <p class="src">출처: 브랜드브리프 2026.10.16 · 더피알 2026.09.22 · Digiday 2026.10.14</p>
+</article>
+
+<!-- REACH -->
+<article class="trend" aria-labelledby="t3">
+  <div class="trend-head">
+    <span class="tag">REACH · 관심에서 행동으로</span>
+    <h2 id="t3">같은 영어 교재가 1억에서 20억이 된 이유: "콘텐츠가 곧 매장"</h2>
+  </div>
+  <div class="block">
+    <h3>무슨 일</h3>
+    <ul class="facts">
+      <li>CJ온스타일은 10월 22일 국내 첫 '크리에이터 커머스 페스티벌 코리아'를 열고, 2030년까지 크리에이터 커머스 취급고를 2025년 대비 <strong>35배</strong>로 키우고 커머스 크리에이터 <strong>10만 명</strong>을 육성한다고 밝혔다.</li>
+      <li>회당 1억 원 안팎 팔리던 유아 영어 교재가, 그 교재로 실제 아이를 키운 교사 출신 크리에이터와 콘텐츠를 만들자 <strong>한 번에 20억 원어치</strong> 팔렸다.</li>
+      <li>크리에이터가 구하기 어려운 해외 육아 브랜드를 연결하자 그 크리에이터의 팔로워가 <strong>6개월 새 41%</strong> 늘었다.</li>
+      <li>김도현 국민대 교수: 신뢰의 주체가 "써본 사람 → 브랜드·리뷰 → 다시 믿을 만한 사람"으로 돌아왔다. 중소 브랜드에겐 기회다.</li>
+    </ul>
+  </div>
+  <div class="lens">
+    <h3>REACH로 읽으면</h3>
+    <p class="book-line">후기는 콘텐츠가 아니라 '질문의 재고'다. 제품마다 구매를 멈추게 하는 질문이 다르다.</p>
+    <p>교재가 20배 팔린 이유를 '유명한 크리에이터'로 읽으면 다음 캠페인도 팔로워 수로 고르게 됩니다. REACH로 읽으면 다르게 보입니다. 부모가 교재 앞에서 멈추는 질문은 "우리 아이가 정말 따라 할까"입니다. 그 교재로 아이를 키운 교사는 그 질문에 직접 답할 수 있는 유일한 사람이었습니다. 콘텐츠가 매장이 되려면, 매장 직원처럼 멈춘 질문에 답해야 합니다.</p>
+  </div>
+  <div class="block">
+    <h3>판단 체크</h3>
+    <ul class="check">
+      <li><input type="checkbox" id="c3a" aria-label="체크"><label for="c3a">우리 제품 앞에서 고객이 멈추는 질문 세 가지를 후기와 문의에서 찾아 적었나?</label></li>
+      <li><input type="checkbox" id="c3b" aria-label="체크"><label for="c3b">크리에이터 리스트를 팔로워 수가 아니라 '그 질문에 답할 수 있는 사람인가'로 다시 정렬하면 몇 명이 남나?</label></li>
+      <li><input type="checkbox" id="c3c" aria-label="체크"><label for="c3c">콘텐츠를 본 사람이 그 자리에서 살 수 있는 길이 열려 있나?</label></li>
+    </ul>
+  </div>
+  <p class="bruce"><b>브루스 한 줄</b> · 발행 전 직접 작성</p>
+  <p class="src">출처: 더피알 2026.10.22</p>
+</article>
+
+<!-- RALLY -->
+<article class="trend" aria-labelledby="t4">
+  <div class="trend-head">
+    <span class="tag">RALLY · 함께 일할 사람</span>
+    <h2 id="t4">광고비는 두 속도로, 팀은 작게: AI는 '재고가 없다'는 걸 모른다</h2>
+  </div>
+  <div class="block">
+    <h3>무슨 일</h3>
+    <ul class="facts">
+      <li>WARC 「Global Ad Trends: The cost of being seen」: 미국 주요 광고주 25곳의 광고비는 2019~2025년 56% 늘었지만 매출이 73% 늘어, 매출 대비 광고비 비중은 <strong>6.1% → 5.5%</strong>로 낮아졌다. 2026년 전 세계 광고비 전망은 <strong>1조 3,400억 달러(+11.9%)</strong>.</li>
+      <li>WARC: 성장은 중소기업과 크로스보더 이커머스 판매자가 이끈다. "대기업을 고객으로 둔 대행사 생태계에 중대한 시사점."</li>
+      <li>강성무 카카오 수석 매니저: AI는 전환 비용이 오른 시점과 소재 피로도는 분석하지만, "세일이 3일 남았고 주력 상품 재고가 없다"는 사업 사정은 광고주와 대화해야 안다. "질문을 잘해야 한다."</li>
+      <li>박성호 몽규 대표: 회사 전체를 하나의 AI 에이전트로 묶으려다 실패했고, 5~10명 팀이 각자 에이전트를 만드는 방식이 효과적이었다. "중간 관리자가 할 일이 에이전트를 만드는 일."</li>
+    </ul>
+  </div>
+  <div class="lens">
+    <h3>RALLY로 읽으면</h3>
+    <p class="book-line">일할 때 공감은 착한 마음이 아니라 해석하는 힘이다. 말 한마디 뒤에는 조직의 사정이 있다.</p>
+    <p>카카오 사례는 RALLY의 정확한 예입니다. AI가 데이터를 다 읽어도 재고, 일정, 촬영 가능 여부처럼 데이터에 남지 않는 사정은 사람에게 물어야 나옵니다. WARC 숫자는 그 '사람'이 바뀌고 있다는 신호입니다. 광고비가 빠르게 느는 쪽은 대형 광고주가 아니라 중소·크로스보더 판매자이고, 팀은 에이전트를 직접 만드는 작은 단위로 쪼개집니다. 누구와 일할지, 누구에게 물을지가 다시 정해지는 시기입니다.</p>
+  </div>
+  <div class="block">
+    <h3>판단 체크</h3>
+    <ul class="check">
+      <li><input type="checkbox" id="c4a" aria-label="체크"><label for="c4a">AI 분석 결과를 받은 뒤, 광고주(또는 영업·MD)에게 데이터에 없는 사정을 묻는 단계가 일정에 들어 있나?</label></li>
+      <li><input type="checkbox" id="c4b" aria-label="체크"><label for="c4b">우리 팀이 반복하는 일 하나를 골라, 그 일을 아는 사람이 직접 에이전트로 만들어 본 적이 있나?</label></li>
+      <li><input type="checkbox" id="c4c" aria-label="체크"><label for="c4c">내년에 예산이 늘어날 고객은 누구이고, 그들과 일하는 방식은 지금과 같아도 되나?</label></li>
+    </ul>
+  </div>
+  <p class="bruce"><b>브루스 한 줄</b> · 발행 전 직접 작성</p>
+  <p class="src">출처: 브랜드브리프 2026.10.21(WARC) · 브랜드브리프 2026.10.16</p>
+</article>
+
+<!-- REMAIN -->
+<article class="trend" aria-labelledby="t5">
+  <div class="trend-head">
+    <span class="tag">REMAIN · 판단을 남긴다</span>
+    <h2 id="t5">5년째 소셜 광고를 끊은 러쉬, 그리고 올해의 밈 '딸깍'</h2>
+  </div>
+  <div class="block">
+    <h3>무슨 일</h3>
+    <ul class="facts">
+      <li>러쉬는 2021년부터 인스타그램·페이스북·틱톡·스냅챗 유료 광고와 게시를 멈췄다(2023년엔 X도). 대신 자체 앱(이용자 <strong>280만</strong>), 이메일(<strong>600만 명</strong> 이상), 크리에이터, 오프라인 이벤트, 협업 컬렉션(약 <strong>3,400만 파운드</strong> 매출)에 투자했다.</li>
+      <li>러쉬 2025 회계연도 매출: <strong>6억 7,270만 → 7억 3,620만 파운드</strong>. 원칙은 "플랫폼보다 사람에 투자한다(people over platforms)". 단, 원래도 유료 소셜 비중이 크지 않았다.</li>
+      <li>캐릿 「2026 밈 총정리」: 1월 1일~10월 20일 SNS 언급량 1위는 '딸깍'(약 <strong>33만 건</strong>). 힘들이지 않고 결과를 얻는 상황을 뜻하는 게임 밈이 AI 대중화로 더 많이 쓰였다.</li>
+    </ul>
+  </div>
+  <div class="lens">
+    <h3>REMAIN으로 읽으면</h3>
+    <p class="book-line">AI가 뭉툭한 게 아니라, 내가 뭉툭해지고 있었다.</p>
+    <p>'딸깍'은 결과물이 쉬워진 시대의 감각입니다. 결과가 쉬워지면 판단도 같이 쉬워지기 쉽습니다. 모두가 같은 도구로 같은 답을 받으면, 뾰족한 선택부터 깎여 나갑니다. 러쉬의 5년은 그 반대편입니다. 책에서 REMAIN은 무엇을 말하지 않을지, 무엇을 끝까지 반복할지, 어떤 선택에 이름을 걸지를 남기는 일입니다. 러쉬가 남긴 것은 "하지 않기로 한 것"이었고, 그 판단을 5년 동안 바꾸지 않았습니다.</p>
+  </div>
+  <div class="block">
+    <h3>판단 체크</h3>
+    <ul class="check">
+      <li><input type="checkbox" id="c5a" aria-label="체크"><label for="c5a">우리 브랜드가 "이건 하지 않는다"고 정해 둔 것이 문서로 남아 있나?</label></li>
+      <li><input type="checkbox" id="c5b" aria-label="체크"><label for="c5b">유료 소셜을 내일 멈춘다면, 고객에게 직접 말을 걸 채널은 몇 개 남나?</label></li>
+      <li><input type="checkbox" id="c5c" aria-label="체크"><label for="c5c">최근 기획안에서 AI를 거치며 사라진 아이디어 중, 다시 꺼내 볼 만한 것이 있나?</label></li>
+    </ul>
+  </div>
+  <p class="bruce"><b>브루스 한 줄</b> · 발행 전 직접 작성</p>
+  <p class="src">출처: Digiday 2026.10.28 · 캐릿 2026.10.27</p>
+</article>
+
+<section class="scenes" aria-labelledby="sc-h">
+  <h2 id="sc-h">이번 주 브랜드 장면</h2>
+  <ul>
+    <li><a href="https://www.brandbrief.co.kr/site/data/html/2026/10/13/2026101310410.html">한화는 왜 '광고' 대신 '영화' 제작에 나섰을까</a>(브랜드브리프). 브루스의 <a href="https://bruceheo.com/writing/226/">국내 최고의 광고회사는 왜 영화 제작을 시작할까?</a>와 함께 읽기.</li>
+    <li>크리스마스는 10월에 시작된다. 영국 데버넘스가 10월 15일 첫 대형 크리스마스 광고를 냈고, 트윅스는 핼러윈과 크리스마스를 합친 'Hallowmas'를 이어 갑니다(Adweek 정리).</li>
+    <li><a href="https://www.the-pr.co.kr/news/articleView.html?idxno=62990">해외 식품 브랜드의 핼러윈은 한정판 포장에서 '이야기'로</a>(더피알). 프링글스는 자사 제품에 얽힌 일화를 캠페인으로 만들었습니다.</li>
+  </ul>
+</section>
+
+<section class="closing" aria-labelledby="cl-h">
+  <h2 id="cl-h">이번 호의 질문</h2>
+  <p class="ask">여러분의 브랜드는 AI에게 물었을 때, 한 문장으로 설명되나요?</p>
+  <p>다섯 렌즈 중 지금 여러분 브랜드에 가장 필요한 하나를 댓글로 골라 주세요. 가장 많이 나온 주제로 다음 월요일 브런치 글을 씁니다.</p>
+</section>
+
+<section class="book" aria-labelledby="bk-h">
+  <h2 id="bk-h">다섯 렌즈를 더 깊게</h2>
+  <p>《AI는 답을 만들고 마케터는 맥락을 설계한다》에는 READ·ROOT·REACH·RALLY·REMAIN 30개 장과, 장마다 바로 쓰는 판단 체크리스트가 들어 있습니다.</p>
+  <div class="links">
+    <a href="https://www.yes24.com/product/goods/199439514">YES24</a>
+    <a href="https://product.kyobobook.co.kr/detail/S000221776404">교보문고</a>
+    <a href="https://bruceheo.com/#book">bruceheo.com</a>
+  </div>
+</section>
+
+<section class="sources" aria-labelledby="so-h">
+  <h2 id="so-h">출처</h2>
+  <ol>
+    <li>브랜드브리프, 「엠브레인, 2027 트렌드 '영점소비' 제시」, 2026.10.21 · <a href="https://www.brandbrief.co.kr/site/data/html/2026/10/21/2026102110451.html">링크</a></li>
+    <li>브랜드브리프, 「AI가 바꾼 디지털 마케팅 공식… 장윤석 네이버 실장 "운영보다 전략, 클릭보다 맥락"」, 2026.10.16 · <a href="https://www.brandbrief.co.kr/site/data/html/2026/10/16/2026101610428.html">링크</a></li>
+    <li>더피알, 「AI가 선택한 풀무원…GEO 적용 후 방문자 2.3배·구매 7.4배 늘었다」, 2026.09.22 · <a href="https://www.the-pr.co.kr/news/articleView.html?idxno=62696">링크</a></li>
+    <li>Digiday, "Ikea's CMO sees LLMs as the newest place a brand has to hold its line", 2026.10.14 · <a href="https://digiday.com/marketing/ikeas-cmo-sees-llms-as-the-newest-place-a-brand-has-to-hold-its-line/">링크</a></li>
+    <li>더피알, 「"콘텐츠가 곧 매장"…브랜드가 크리에이터와 '가게'를 차리는 법」, 2026.10.22 · <a href="https://www.the-pr.co.kr/news/articleView.html?idxno=63011">링크</a></li>
+    <li>브랜드브리프, 「"코카콜라·나이키가 광고비 비중 높이는 사이 구글·메타는 줄였다"」, 2026.10.21 · <a href="https://www.brandbrief.co.kr/site/data/html/2026/10/21/2026102150001.html">링크</a></li>
+    <li>WARC, "Global Ad Trends: The cost of being seen", 2026.10.14 · <a href="https://www.warc.com/en/article/global-ad-trends-the-cost-of-being-seen-66b0d576f948430a9b6713132fe7276b">링크</a></li>
+    <li>Digiday, "How Lush quit social media ads and still drove growth", 2026.10.28 · <a href="https://digiday.com/marketing/how-lush-quit-social-media-ads-and-still-drove-growth/">링크</a></li>
+    <li>캐릿, 「밈으로 회고하는 2026 트렌드 총정리」, 2026.10.27 · <a href="https://www.careet.net/2017">링크</a></li>
+    <li>Lean Summits, "10 Brands That Are Making Holiday Marketing Unique in 2026"(Adweek·PRWeek 정리) · <a href="https://www.leansummits.com/brands-that-are-making-holiday-marketing-unique">링크</a></li>
+  </ol>
+</section>
+
+<footer>브루스의 트렌드 노트 · 에이전시 마케터 브루스가 격주로 보내는 트렌드 해석 · bruceheo.com</footer>
+
+</main>
