@@ -1,0 +1,150 @@
+{
+  "version": 1,
+  "article": {
+    "id": "228",
+    "canonicalUrl": "https://brunch.co.kr/@heoboram/228",
+    "title": "이수만은 어떻게 익숙한 방식으로 사람들을 열광시켰을까?",
+    "subtitle": "AI 시대, 유행을 따르는 능력보다 중요한 안목자본의 힘",
+    "publishedAt": "2026-11-01T12:00:06.000Z",
+    "excerpt": "AI 시대, 유행을 따르는 능력보다 중요한 안목자본의 힘 | “Neon and beyond!” 소셜미디어에서 한 번쯤 들어봤을 법한 노래다. 심지어 '미혼 앤 비혼'으로 들린다는 밈까지 생겨났다. SM엔터테인먼트의 설립자 이수만이 새로운 소속사 A2O엔터테인먼트에서 선보인 걸그룹 A2O LITE의 데뷔곡 'NEON'이다. 노래를 처음 들었을 때 묘한 기시감이 느껴졌다. 익숙한 멜로디와 강렬한 비트, 고음이 강조된",
+    "bodyHash": "4407ca6130a30dde084ed236ef68b309ddae23ae0ac31fe75108f93daae4a193",
+    "sourceImages": [
+      "https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.kakaocdn.net/brunch/service/user/2fCF/image/FaYV7vFxU2KK7Dyl29Ju8gDogWk.jpg",
+      "https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.kakaocdn.net/brunch/service/user/2fCF/image/x0HQARNUD_5ETBaCkAug7Z-onEo.jpg"
+    ]
+  },
+  "cards": [
+    {
+      "sequence": 1,
+      "kind": "cover",
+      "title": "이수만은 왜 옛날 방식으로 1위를 했을까?",
+      "body": "새로운 걸 보여주지 않았는데\n사람들은 왜 새롭다고 느꼈을까",
+      "imageUrl": null,
+      "sourceImageIndex": null,
+      "altText": "이수만의 A2O LITE NEON 흥행과 안목자본을 다루는 카드뉴스 표지",
+      "file": "cards/01.jpg"
+    },
+    {
+      "sequence": 2,
+      "kind": "hook",
+      "title": "\"Neon and beyond!\"",
+      "body": "소셜미디어에서 한 번쯤 들어봤을 노래예요.\nA2O LITE의 데뷔곡 'NEON'이에요.\n처음 들었는데 묘하게 익숙한 느낌이 들었어요.",
+      "imageUrl": null,
+      "sourceImageIndex": null,
+      "altText": "A2O LITE의 데뷔곡 NEON의 유명한 가사를 보여주는 장면",
+      "file": "cards/02.jpg"
+    },
+    {
+      "sequence": 3,
+      "kind": "evidence",
+      "title": "발매 하루 남짓 만에 멜론 TOP100 1위",
+      "body": "10월 13일 발매된 'NEON'은 정상을 지켰어요.\n익숙한 멜로디, 강렬한 비트, 칼군무까지\n이수만이 오래 해온 K-POP의 문법을 다시 꺼낸 곡이에요.",
+      "imageUrl": null,
+      "sourceImageIndex": null,
+      "altText": "NEON이 멜론 TOP100 1위를 기록한 성과",
+      "file": "cards/03.jpg"
+    },
+    {
+      "sequence": 4,
+      "kind": "question",
+      "title": "새롭지 않은데 왜 새롭다고 느꼈을까?",
+      "body": "최근엔 이지리스닝, 숏폼 챌린지 안무,\n3분 미만의 짧은 곡이 흥행 공식이었어요.\n그런데 NEON은 3분 28초에 고음과 댄스 브레이크를 그대로 살렸어요.",
+      "imageUrl": null,
+      "sourceImageIndex": null,
+      "altText": "흥행 공식과 다른 선택을 한 NEON에 대한 질문",
+      "file": "cards/04.jpg"
+    },
+    {
+      "sequence": 5,
+      "kind": "context",
+      "title": "같은 음악, 서로 다른 이유의 반응",
+      "body": "과거 K-POP을 기억하는 세대에게는 향수를,\n새로운 세대에게는 신선함을 줬어요.\n그 중심에는 '이수만'이라는 이름이 있었어요.",
+      "imageUrl": null,
+      "sourceImageIndex": null,
+      "altText": "세대별로 다르게 반응한 NEON과 이수만이라는 이름",
+      "file": "cards/05.jpg"
+    },
+    {
+      "sequence": 6,
+      "kind": "interpretation",
+      "title": "안목이 자본이 되는 과정",
+      "body": "AI로 누구나 그럴듯한 결과물을 만들 수 있게 됐어요.\n그럴수록 무엇을 만들고 무엇을 고르는지가 중요해져요.\n오래 쌓은 선택의 기준이 타인의 신뢰로 이어지는 것, 그게 안목자본이에요.",
+      "imageUrl": null,
+      "sourceImageIndex": null,
+      "altText": "AI 시대에 선택의 기준이 신뢰가 되는 안목자본의 설명",
+      "file": "cards/06.jpg"
+    },
+    {
+      "sequence": 7,
+      "kind": "example",
+      "title": "비슷한 수분 세럼, 서로 다른 이야기",
+      "body": "ODM으로 일정 수준 이상의 제품을 만들기 쉬워졌어요.\n한 브랜드는 성분과 기술력을 말하고,\n다른 브랜드는 바쁜 아침의 일상에 집중할 수 있어요.",
+      "imageUrl": null,
+      "sourceImageIndex": null,
+      "altText": "비슷한 수분 세럼을 서로 다르게 설명하는 두 브랜드의 사례",
+      "file": "cards/07.jpg"
+    },
+    {
+      "sequence": 8,
+      "kind": "application",
+      "title": "브랜드의 안목은 선택을 반복해 쌓인다",
+      "body": "소비자가 어떤 순간에 제품을 필요로 하는지 읽어내요.\n우리가 가장 잘 설명할 장면을 고르고,\n그 선택을 기획부터 패키지, 채널, 콘텐츠까지 이어가요.",
+      "imageUrl": null,
+      "sourceImageIndex": null,
+      "altText": "소비자의 순간을 읽고 일관되게 선택하는 브랜드의 안목",
+      "file": "cards/08.jpg"
+    },
+    {
+      "sequence": 9,
+      "kind": "conclusion",
+      "title": "오늘 해볼 한 가지: 우리의 선택을 돌아보세요",
+      "body": "우리 브랜드는 무엇을 선택해 왔나요?\n그리고 그 선택을\n소비자도 기억하고 있을까요?",
+      "imageUrl": null,
+      "sourceImageIndex": null,
+      "altText": "브랜드가 해온 선택과 소비자의 기억을 점검하는 질문",
+      "file": "cards/09.jpg"
+    },
+    {
+      "sequence": 10,
+      "kind": "cta",
+      "title": "기획서에 유행 아이디어를 적기 전에 저장해두세요",
+      "body": "이수만 사례에서 본 선택의 기준은\nbruceheo.com 에서 전문으로 다시 볼 수 있어요.",
+      "imageUrl": null,
+      "sourceImageIndex": null,
+      "altText": "저장을 권하고 bruceheo.com 에서 전문을 안내하는 마무리 카드",
+      "file": "cards/10.jpg"
+    }
+  ],
+  "linkedin": {
+    "body": "[이수만은 어떻게 익숙한 방식으로 사람들을 열광시켰을까?]\n\n\"Neon and beyond!\"\n\n소셜미디어에서 한 번쯤 들어봤을 노래입니다. 이수만이 새 소속사 A2O엔터테인먼트에서 선보인 걸그룹 A2O LITE의 데뷔곡 'NEON'입니다.\n\n처음 들었을 때 묘한 기시감이 느껴졌습니다. 익숙한 멜로디와 강렬한 비트, 고음이 강조된 보컬과 칼군무까지, 보아와 소녀시대, f(x)가 자연스럽게 떠올랐습니다. 이수만이 완전히 새로운 음악을 들고 온 것은 아닙니다. 오히려 자신이 오랫동안 잘해왔던 것을 다시 꺼냈습니다.\n\n그런데 반응은 폭발적이었습니다. 10월 13일 발매된 'NEON'은 하루 남짓 만에 멜론 TOP100 1위를 기록했고 이후에도 정상을 지켰습니다. 새로운 것을 보여주지 않았는데 사람들은 왜 새롭다고 느꼈을까요?\n\n1. 유행을 따르지 않은 것이 유행이 되다\n\n최근 K-POP 시장에서는 이지리스닝 음악과 숏폼 챌린지용 안무, 3분 미만의 짧은 곡이 흥행 공식처럼 자리 잡았습니다. 그런데 'NEON'은 3분 28초에 고음과 아카펠라, 댄스 브레이크까지 넣었습니다. 덜어냈을 법한 요소를 그대로 살린 것입니다.\n\n이 선택은 과거 K-POP을 기억하는 세대에게는 향수를, 새로운 세대에게는 신선함을 줬습니다. 같은 음악을 듣고도 서로 다른 이유로 반응했고, 그 중심에는 '이수만'이라는 이름이 있었습니다.\n\n2. AI 시대, 안목이 자본이 되는 이유\n\n『트렌드 코리아 2027』의 '안목자본'은 감각과 취향, 무엇이 가치 있는지 알아보는 판단력이 자산이 되는 현상입니다. AI로 누구나 그럴듯한 결과물을 만들 수 있게 될수록 무엇을 만들고 무엇을 고르는지가 중요해집니다.\n\n오랫동안 쌓아온 선택의 기준이 타인의 신뢰로 이어지는 것, 그것이 안목이 자본이 되는 과정입니다.\n\n3. 브랜드에도 안목자본이 필요하다\n\n뷰티처럼 ODM으로 일정 수준 이상의 제품을 만들기 쉬워진 시장에서는 소비자가 비슷하게 느끼는 제품이 많아집니다. 같은 수분 세럼이라도 어떤 브랜드는 기술력을, 어떤 브랜드는 바쁜 아침의 일상을 이야기할 수 있고 소비자가 받아들이는 의미는 달라집니다.\n\n에이전시 마케터로서 캠페인 제안서를 쓰다 보면 유행하는 콘텐츠나 AI로 무엇을 만들 수 있는지부터 이야기하게 됩니다. 하지만 왜 이 브랜드가 그 이야기를 해야 하는지 설명하지 못하면 소비자에게는 콘텐츠만 남습니다.\n\n안목은 한 번의 캠페인으로 만들어지지 않습니다. 어떤 선택을 반복해 왔는지가 결국 하나의 자산으로 남습니다.\n\n우리 브랜드는 무엇을 선택해 왔고, 소비자도 그 선택을 기억하고 있을까요?\n\n#안목자본 #브랜딩 #마케팅 #이수만 #A2OLITE #트렌드코리아2027 #에이전시마케터 #브루스매거진",
+    "firstComment": "이수만은 어떻게 익숙한 방식으로 사람들을 열광시켰을까? 전체 글은 여기서 읽을 수 있어요: https://brunch.co.kr/@heoboram/228"
+  },
+  "instagram": {
+    "caption": "🎤 'NEON'은 새롭지 않은데 왜 새롭게 들렸을까요?\n\n이수만이 선보인 A2O LITE의 데뷔곡은 10월 13일 발매 하루 남짓 만에 멜론 TOP100 1위를 했어요. 익숙한 멜로디와 칼군무, 3분 28초의 고음과 댄스 브레이크까지 오래 해온 K-POP 문법 그대로였어요.\n\n📌 유행을 따르지 않은 선택이 오히려 새롭게 읽혔어요. 『트렌드 코리아 2027』의 '안목자본'처럼, 오래 쌓은 선택의 기준이 신뢰가 됐기 때문이에요.\n\n브랜드도 마찬가지예요. 비슷한 제품이 넘칠수록 소비자는 우리가 어떤 순간을 골라 이야기해 왔는지를 기억해요. 한 번의 캠페인이 아니라 반복해 온 선택이 자산이 돼요.\n\n💬 우리 브랜드는 무엇을 선택해 왔고, 소비자도 그걸 기억할까요?\n\n🔍 이수만 사례와 브랜드 안목 이야기의 전문은 bruceheo.com 에서 볼 수 있어요.\n\n다음 캠페인 제안서에 유행 아이디어를 적기 전에 저장해 두세요.\n\n#브루스매거진 #이수만 #A2OLITE #안목자본 #트렌드코리아2027",
+    "account": "bruce.insight",
+    "collaboratorOrTag": "heo.boram"
+  },
+  "schedule": {
+    "approvedAt": null,
+    "scheduledAt": null,
+    "publishedAt": null
+  },
+  "publishing": {
+    "linkedin": {
+      "status": "pending",
+      "postId": null,
+      "commentId": null,
+      "error": null
+    },
+    "instagram": {
+      "status": "manual_source_ready",
+      "mediaId": null,
+      "error": null
+    }
+  },
+  "generatedAt": "2026-11-02T04:52:16.012Z",
+  "generator": {
+    "model": "claude-routine",
+    "renderer": "bruce-insight-html-css-v1"
+  }
+}
