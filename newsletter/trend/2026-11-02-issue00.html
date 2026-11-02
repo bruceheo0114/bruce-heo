@@ -1,402 +1,302 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>브루스의 트렌드 노트 #0</title>
+<meta name="description" content="영점소비, 이케아와 AI 검색, 1억에서 20억이 된 영어 교재, 러쉬의 5년, 올해의 단어 '딸깍'. 국내외 트렌드를 형식이 아니라 반응의 이유로 읽습니다.">
 <meta name="claude:viewport-fit-sides" content="cover">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;800&family=IBM+Plex+Sans+KR:wght@400;500;700&family=IBM+Plex+Mono:wght@500&display=swap">
-<style>
-/* Layout: one reading column like a Brunch essay; each trend is a case essay with condition chips, a "형식 vs 이유" take-away, and a book quote. Book magenta = Bruce's book voice, site green = facts & links. */
-:root {
-  --bg: #F2F1ED;
-  --paper: #FBFAF7;
-  --line: #E0DDD5;
-  --ink: #141413;
-  --ink-2: #3A3A37;
-  --ink-3: #6F6E68;
-  --green: #23744C;
-  --green-soft: #E1F0E6;
-  --lens: #B0246A;
-  --lens-soft: #F7E3EC;
-  --display: "Noto Serif KR", "Apple SD Gothic Neo", serif;
-  --body: "IBM Plex Sans KR", "Pretendard Variable", Pretendard, -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
-  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #161716; --paper: #1E201E; --line: #33362F; --ink: #EDEBE4; --ink-2: #C9C7BF; --ink-3: #9A988F;
-    --green: #6CC596; --green-soft: #1F3328; --lens: #F07AB2; --lens-soft: #3A1E2C; color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --bg: #161716; --paper: #1E201E; --line: #33362F; --ink: #EDEBE4; --ink-2: #C9C7BF; --ink-3: #9A988F;
-  --green: #6CC596; --green-soft: #1F3328; --lens: #F07AB2; --lens-soft: #3A1E2C; color-scheme: dark;
-}
-* { box-sizing: border-box; }
-body {
-  background: var(--bg); color: var(--ink); font-family: var(--body);
-  font-size: 16.5px; line-height: 1.8; word-break: keep-all; overflow-wrap: break-word;
-}
-.page {
-  max-width: 700px; margin: 0 auto;
-  padding-left: max(16px, env(safe-area-inset-left, 0px));
-  padding-right: max(16px, env(safe-area-inset-right, 0px));
-  padding-block: 40px 72px;
-  display: flex; flex-direction: column; gap: 44px;
-}
-a { color: var(--green); text-underline-offset: 3px; }
-a:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; border-radius: 2px; }
-h1, h2, h3 { font-family: var(--display); text-wrap: balance; line-height: 1.4; margin: 0; }
-p { margin: 0; }
-.label { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; color: var(--ink-3); }
-.prose { display: flex; flex-direction: column; gap: 16px; color: var(--ink-2); }
-.prose strong { color: var(--ink); }
-.num { color: var(--green); font-weight: 700; font-variant-numeric: tabular-nums; }
+<link rel="canonical" href="https://bruceheo.com/newsletter/trend/2026-11-02-issue00.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="AI가 정답을 골라주는데, 사람들은 왜 더 '나한테 맞는 것'을 찾을까? | 브루스의 트렌드 노트">
+<meta property="og:description" content="국내외 트렌드를 형식이 아니라 반응의 이유로 읽는 주간 노트.">
+<meta property="og:image" content="https://bruceheo.com/assets/book/mockup.jpg">
+<meta name="robots" content="noindex">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-17SXL7Q2XV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-17SXL7Q2XV');
+</script>
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/newsletter/newsletter.css">
+</head>
+<body>
+<header class="top"><div class="top__in"><a class="top__brand" href="/"><span class="brand-mark">BR<i>.</i></span>허보람(브루스)</a><nav class="top__nav"><a class="opt" href="/writing/">글</a><a class="opt" href="/context/">맥락과 마케팅</a><a href="/newsletter/" aria-current="page">트렌드 노트</a><a href="/#about">소개</a></nav></div></header>
+<main>
+<article>
+<a class="eyebrow" href="/newsletter/">트렌드 노트 #0</a>
+<h1>AI가 정답을 골라주는데, 사람들은 왜 더 '나한테 맞는 것'을 찾을까?</h1>
+<p class="subtitle">영점소비부터 러쉬의 5년까지, 11월 첫째 주 국내외 사례 다섯 개</p>
+<p class="meta"><a href="/#about">허보람(브루스)</a> · <time datetime="2026-11-04">2026. 11. 4. 수요일</time> · 약 9분</p>
+<p class="note">테스트호입니다. 「브루스의 한 줄」과 체크리스트는 모두 책 《AI는 답을 만들고 마케터는 맥락을 설계한다》 원고에서 그대로 옮겼습니다.</p>
 
-/* masthead */
-.mast { display: flex; flex-direction: column; gap: 18px; border-bottom: 1px solid var(--line); padding-bottom: 32px; }
-.mast-top { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
-.mast h1 { font-size: clamp(27px, 6vw, 38px); font-weight: 800; letter-spacing: -.01em; }
-.test-note { font-size: 14px; color: var(--ink-3); background: var(--paper); border: 1px dashed var(--line); border-radius: 10px; padding: 10px 14px; }
-
-/* method */
-.method { background: var(--paper); border: 1px solid var(--line); border-radius: 18px; padding: clamp(20px, 4vw, 30px); display: flex; flex-direction: column; gap: 18px; }
-.method h2 { font-size: 21px; }
-.steps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; counter-reset: s; }
-.steps li { display: grid; grid-template-columns: 30px 1fr; gap: 10px; counter-increment: s; }
-.steps li::before { content: counter(s); font-family: var(--mono); font-size: 13px; color: var(--lens); border: 1.5px solid var(--lens); border-radius: 50%; width: 26px; height: 26px; display: grid; place-items: center; margin-top: 2px; }
-.steps b { color: var(--ink); }
-.steps span { color: var(--ink-2); }
-.conds { display: flex; flex-wrap: wrap; gap: 8px; }
-.chip { font-size: 13px; font-weight: 500; color: var(--lens); background: var(--lens-soft); border-radius: 999px; padding: 3px 11px; white-space: nowrap; }
-.method .note { font-size: 14px; color: var(--ink-3); }
-.qtable-wrap { overflow-x: auto; }
-.qtable { width: 100%; border-collapse: collapse; font-size: 14.5px; min-width: 480px; }
-.qtable th, .qtable td { text-align: left; padding: 9px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
-.qtable th { font-family: var(--mono); font-size: 12px; font-weight: 500; letter-spacing: .06em; color: var(--ink-3); }
-.qtable td:first-child { font-family: var(--mono); font-size: 13px; color: var(--lens); white-space: nowrap; }
-.qtable td:last-child { color: var(--ink); font-weight: 500; }
-.check-line { font-size: 14px; color: var(--ink-2); background: var(--lens-soft); border-radius: 10px; padding: 10px 12px; }
-.check-line b { color: var(--lens); font-weight: 700; margin-right: 6px; }
-
-/* trend essay */
-.trend { display: flex; flex-direction: column; gap: 18px; padding-top: 8px; border-top: 1px solid var(--line); }
-.trend .kicker { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; padding-top: 18px; }
-.trend h2 { font-size: clamp(22px, 4.6vw, 27px); font-weight: 800; }
-.case { background: var(--green-soft); border-radius: 14px; padding: 16px 18px; display: flex; flex-direction: column; gap: 8px; }
-.case h3 { font-family: var(--body); font-size: 13px; font-weight: 700; letter-spacing: .04em; color: var(--green); }
-.case ul { margin: 0; padding-left: 1.1em; display: flex; flex-direction: column; gap: 6px; color: var(--ink-2); font-size: 15.5px; }
-.take { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.take > div { background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
-.take h3 { font-family: var(--body); font-size: 13px; font-weight: 700; color: var(--ink-3); }
-.take .why h3 { color: var(--lens); }
-.take p { font-size: 15px; color: var(--ink-2); }
-@media (max-width: 540px) { .take { grid-template-columns: 1fr; } }
-.quote { margin: 0; border-left: 3px solid var(--lens); padding: 6px 0 6px 18px; display: flex; flex-direction: column; gap: 8px; }
-.quote .who { font-family: var(--mono); font-size: 12px; letter-spacing: .06em; color: var(--lens); }
-.quote p { font-family: var(--display); font-weight: 600; font-size: 17.5px; line-height: 1.7; color: var(--ink); }
-.quote cite { font-style: normal; font-size: 13px; color: var(--ink-3); }
-.src { font-size: 13px; color: var(--ink-3); }
-
-/* word of month */
-.word { background: var(--paper); border: 1px solid var(--line); border-radius: 18px; padding: clamp(20px, 4vw, 28px); display: flex; flex-direction: column; gap: 14px; }
-.word .big { font-family: var(--display); font-size: 40px; font-weight: 800; line-height: 1; }
-
-/* closing */
-.scenes, .closing, .sources, .book { display: flex; flex-direction: column; gap: 12px; }
-.scenes h2, .closing h2, .sources h2, .book h2 { font-size: 20px; }
-.scenes ul, .sources ol { margin: 0; padding-left: 1.2em; display: flex; flex-direction: column; gap: 8px; color: var(--ink-2); }
-.ask { font-family: var(--display); font-size: 20px; font-weight: 600; }
-.book { background: var(--lens-soft); border-radius: 18px; padding: 22px; }
-.book p { color: var(--ink-2); }
-.book .links { display: flex; flex-wrap: wrap; gap: 10px; }
-.book .links a { background: var(--paper); border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; text-decoration: none; font-weight: 500; font-size: 14px; }
-.sources ol { font-size: 13.5px; }
-.sources a { word-break: break-all; }
-footer { font-size: 13px; color: var(--ink-3); border-top: 1px solid var(--line); padding-top: 18px; }
-</style>
-
-<main class="page">
-
-<header class="mast">
-  <div class="mast-top">
-    <span class="label">브루스의 트렌드 노트 · #0</span>
-    <span class="label">2026년 11월 4일 수요일</span>
-  </div>
-  <h1>AI가 정답을 골라주는데, 사람들은 왜 더 '나한테 맞는 것'을 찾을까?</h1>
-  <div class="prose">
-    <p>요즘은 트렌드 리포트도 AI가 몇 초 만에 정리해 준다. 키워드는 넘치고, 요약은 깔끔하다. 그런데 한 가지 의문이 생긴다. 이렇게 많은 트렌드를 읽고 나서, 우리는 무엇을 가져가고 있을까?</p>
-    <p>이번 달 국내외 자료를 읽다 보니 다섯 개의 사례가 한 방향을 가리키고 있었다. AI가 비교와 추천을 대신할수록, 소비자는 다수가 고른 정답보다 나에게 맞는 선택을 찾는다. 그리고 브랜드는 AI에게도 사람에게도 '왜 우리인가'를 같은 말로 설명할 수 있어야 한다.</p>
-  </div>
-  <p class="test-note">테스트호입니다. 「브루스의 한 줄」과 체크리스트는 모두 책 《AI는 답을 만들고 마케터는 맥락을 설계한다》 원고에서 그대로 옮겼습니다.</p>
-</header>
+<div class="article">
+<p>요즘은 트렌드 리포트도 AI가 몇 초 만에 정리해 준다. 키워드는 넘치고, 요약은 깔끔하다. 그런데 한 가지 의문이 생긴다. 이렇게 많은 트렌드를 읽고 나서, 우리는 무엇을 가져가고 있을까?</p>
+<p>이번 달 국내외 자료를 읽다 보니 다섯 개의 사례가 한 방향을 가리키고 있었다. AI가 비교와 추천을 대신할수록, 소비자는 다수가 고른 정답보다 나에게 맞는 선택을 찾는다. 그리고 브랜드는 AI에게도 사람에게도 '왜 우리인가'를 같은 말로 설명할 수 있어야 한다.</p>
+</div>
 
 <section class="method" aria-labelledby="m-h">
-  <span class="label">이 노트를 읽는 법</span>
-  <h2 id="m-h">형식 말고 이유를 저장한다</h2>
-  <figure class="quote">
-    <p>"예전에는 잘된 캠페인을 보면 형식부터 저장했다. 어떤 모델을 썼고, 어떤 포맷이었고, 화면을 어떻게 구성했는지. 지금은 반응의 이유를 먼저 적는다. 형식은 가져오기 쉽지만, 이유는 가져오기 어렵다."</p>
-    <cite>《AI는 답을 만들고 마케터는 맥락을 설계한다》 1장 「기획자는 왜 삶의 해상도를 높여야 하는가」 중</cite>
-  </figure>
-  <div class="prose">
-    <p>트렌드도 마찬가지다. 요약된 키워드는 형식에 가깝다. 이 노트는 사례마다 반응의 이유를 찾고, 책에서 현장의 판단을 확인할 때 쓰는 다섯 가지 질문을 트렌드에 맞게 바꿔 묻는다. 다섯 개를 모든 사례에 다 묻지는 않는다. 사례마다 답이 나오는 질문만 골랐다.</p>
-  </div>
-  <div class="qtable-wrap">
-    <table class="qtable">
-      <thead><tr><th>기준</th><th>책의 질문</th><th>트렌드에 묻는 질문</th></tr></thead>
-      <tbody>
-        <tr><td>READ</td><td>사람이 지금 어떤 상태인가</td><td>이 트렌드는 사람들의 어떤 상태를 보여주나</td></tr>
-        <tr><td>ROOT</td><td>우리 브랜드는 무엇을 쌓아왔나</td><td>따라가도 우리다운가</td></tr>
-        <tr><td>REACH</td><td>그 둘이 만나는 장면은 어디인가</td><td>우리 제품이 사람을 만나는 장면으로 옮길 수 있나</td></tr>
-        <tr><td>RALLY</td><td>이 안을 실행할 사람들을 같은 방향으로 모았나</td><td>우리 조직이 실제로 해낼 수 있나</td></tr>
-        <tr><td>REMAIN</td><td>끝난 뒤 무엇이 기준으로 남나</td><td>유행이 지나도 남는 기준은 무엇인가</td></tr>
-      </tbody>
-    </table>
-  </div>
-  <p class="note">각 사례 끝에는 사례에서 저장할 이유, 책 속 한 줄, 책의 장 끝 체크리스트 한 항목을 붙였다.</p>
+<span class="kicker">이 노트를 읽는 법</span>
+<h2 id="m-h">형식 말고 이유를 저장한다</h2>
+<blockquote>"예전에는 잘된 캠페인을 보면 형식부터 저장했다. 어떤 모델을 썼고, 어떤 포맷이었고, 화면을 어떻게 구성했는지. 지금은 반응의 이유를 먼저 적는다. 형식은 가져오기 쉽지만, 이유는 가져오기 어렵다."<cite>《AI는 답을 만들고 마케터는 맥락을 설계한다》 1장 「기획자는 왜 삶의 해상도를 높여야 하는가」 중</cite></blockquote>
+<p>트렌드도 마찬가지다. 요약된 키워드는 형식에 가깝다. 이 노트는 사례마다 반응의 이유를 찾고, 책에서 현장의 판단을 확인할 때 쓰는 다섯 가지 질문을 트렌드에 맞게 바꿔 묻는다. 모든 사례에 다섯 개를 다 묻지는 않는다. 사례마다 답이 나오는 질문만 골랐다.</p>
+<div class="qtable-wrap">
+<table class="qtable">
+<thead><tr><th>기준</th><th>책의 질문</th><th>트렌드에 묻는 질문</th></tr></thead>
+<tbody>
+<tr><td>READ</td><td>사람이 지금 어떤 상태인가</td><td>이 트렌드는 사람들의 어떤 상태를 보여주나</td></tr>
+<tr><td>ROOT</td><td>우리 브랜드는 무엇을 쌓아왔나</td><td>따라가도 우리다운가</td></tr>
+<tr><td>REACH</td><td>그 둘이 만나는 장면은 어디인가</td><td>우리 제품이 사람을 만나는 장면으로 옮길 수 있나</td></tr>
+<tr><td>RALLY</td><td>이 안을 실행할 사람들을 같은 방향으로 모았나</td><td>우리 조직이 실제로 해낼 수 있나</td></tr>
+<tr><td>REMAIN</td><td>끝난 뒤 무엇이 기준으로 남나</td><td>유행이 지나도 남는 기준은 무엇인가</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section class="glance" aria-labelledby="g-h">
+<span class="kicker" id="g-h">이번 호 사례</span>
+<ol>
+<li><span>01</span><div><b>효율은 AI에게 맡기고, 설렘엔 돈을 쓴다</b><small>엠브레인 2027 키워드 '영점소비' · READ · REACH</small></div></li>
+<li><span>02</span><div><b>이케아 CMO는 왜 AI 시대에 "일관성"을 말할까</b><small>네이버 · 풀무원 · 덴츠 조사 · ROOT · RALLY</small></div></li>
+<li><span>03</span><div><b>같은 영어 교재가 1억에서 20억이 된 이유</b><small>CJ온스타일 크리에이터 커머스 · REACH · READ</small></div></li>
+<li><span>04</span><div><b>AI는 세일이 사흘 남았다는 걸 모른다</b><small>카카오 · 몽규 · WARC · RALLY</small></div></li>
+<li><span>05</span><div><b>러쉬는 왜 5년째 소셜 광고를 하지 않을까</b><small>Digiday · ROOT · REMAIN</small></div></li>
+<li><span>+</span><div><b>이번 달의 단어 '딸깍'</b><small>캐릿 2026 밈 총정리 · REMAIN</small></div></li>
+</ol>
 </section>
 
 <!-- 1 -->
-<article class="trend" aria-labelledby="t1">
-  <div class="kicker">
-    <span class="label">사례 1 · 소비자</span>
-    <div class="conds"><span class="chip">READ</span><span class="chip">REACH</span></div>
-  </div>
-  <h2 id="t1">효율은 AI에게 맡기고, 설렘엔 돈을 쓴다: 2027 키워드 '영점소비'</h2>
-  <div class="prose">
-    <p>인기 디저트를 사려고 한 시간을 줄 서는 사람이, 노트북을 살 때는 AI에게 스펙 비교를 맡긴다. 얼핏 모순처럼 보이는 이 장면을 마크로밀 엠브레인은 하나의 단어로 묶었다. 「2027 트렌드모니터」가 제시한 <strong>영점(零點)소비</strong>다.</p>
-    <p>영점소비는 사회가 정한 기준이나 다수가 고른 정답 대신, 나에게 맞는 기준점을 다시 잡고 거기에 시간과 돈을 모으는 소비를 말한다. 엠브레인은 이를 다섯 개의 키워드로 풀었다.</p>
-  </div>
-  <div class="case">
-    <h3>엠브레인이 정리한 장면들</h3>
-    <ul>
-      <li><b>BPM 이코노미</b>: 긴 웨이팅, 아이돌·캐릭터 굿즈처럼 심박수를 올리는 소비에는 아끼지 않는다.</li>
-      <li><b>확률주의 생존법</b>: 총액이 정해진 예식, 결말이 보장된 콘텐츠처럼 실패할 선택 자체를 줄인다.</li>
-      <li><b>언클리셰</b>: 편의점에서 파는 명품, B급으로 망가지는 정상급 배우처럼 예상 밖 조합이 재미를 만든다.</li>
-      <li><b>스탯 맥싱</b>: '건강하게 살기' 대신 '수면 점수 85점'처럼 한두 가지에만 집중한다.</li>
-      <li><b>마이-파이</b>: 결혼식이나 승진 같은 당연한 공식도 내 상황에 맞게 골라 따른다.</li>
-    </ul>
-  </div>
-  <div class="prose">
-    <p>엠브레인의 설명은 이렇다. 가격·스펙 비교처럼 효율이 중요한 소비는 AI에게 맡기고, 취향과 감정이 중요한 영역에는 적극적으로 투자한다는 것이다.</p>
-    <p>나는 여기서 '확률주의 생존법'에 더 눈이 간다. 소비자는 실패할 가능성이 있는 선택부터 지운다. 줄을 서는 디저트도, 결말을 알고 보는 드라마도 결국 실패하지 않을 확률이 높은 선택이다. 브랜드 입장에서 보면 '더 좋은 제품'이라는 말은 AI의 비교표 안으로 들어가 버리고, 남는 질문은 하나다. <strong>이 사람이 우리를 골랐을 때 실패하지 않는다는 걸 어떻게 보여줄 것인가.</strong></p>
-  </div>
-  <div class="take">
-    <div><h3>베끼기 쉬운 형식</h3><p>웨이팅 이벤트, 한정 굿즈, 예상 밖 콜라보</p></div>
-    <div class="why"><h3>가져와야 할 이유</h3><p>소비자는 고를 일과 맡길 일을 나눴다. 우리 제품이 어느 쪽인지부터 정해야 한다.</p></div>
-  </div>
-  <figure class="quote">
-    <span class="who">브루스의 한 줄</span>
-    <p>"기술은 계속 불편을 없애고 있는데, 사람들은 오히려 돈을 내고 불편을 사고 있다. (…) 마케터가 설계해야 하는 건 불편의 양이 아니라 불편과 보상의 관계다."</p>
-    <cite>《AI는 답을 만들고 마케터는 맥락을 설계한다》 2장 「사람들은 왜 굳이 불편을 살까」 중</cite>
-  </figure>
-  <p class="check-line"><b>책의 체크리스트</b>편의를 줄일 때 없앨 마찰과 남길 의식을 각각 목록으로 만든다.</p>
-  <p class="src">출처: 브랜드브리프 2026.10.21 · 함께 읽기: <a href="https://bruceheo.com/writing/223/">영어 공부 앱이 왜 생일카페를 열까?</a></p>
-</article>
+<section class="trend" aria-labelledby="t1">
+<div class="trend__head"><span class="kicker">사례 1 · 소비자</span><span class="chip">READ</span><span class="chip">REACH</span></div>
+<h2 class="title" id="t1">효율은 AI에게 맡기고, 설렘엔 돈을 쓴다: 2027 키워드 '영점소비'</h2>
+<div class="article">
+<p>인기 디저트를 사려고 한 시간을 줄 서는 사람이, 노트북을 살 때는 AI에게 스펙 비교를 맡긴다. 얼핏 모순처럼 보이는 이 장면을 마크로밀 엠브레인은 하나의 단어로 묶었다. 「2027 트렌드모니터」가 제시한 <strong>영점(零點)소비</strong>다.</p>
+<p>영점소비는 사회가 정한 기준이나 다수가 고른 정답 대신, 나에게 맞는 기준점을 다시 잡고 거기에 시간과 돈을 모으는 소비를 말한다. 엠브레인은 이를 다섯 개의 키워드로 풀었다.</p>
+<div class="facts">
+<span class="kicker">엠브레인이 정리한 장면들</span>
+<ul>
+<li><b>BPM 이코노미</b>: 긴 웨이팅, 아이돌·캐릭터 굿즈처럼 심박수를 올리는 소비에는 아끼지 않는다.</li>
+<li><b>확률주의 생존법</b>: 총액이 정해진 예식, 결말이 보장된 콘텐츠처럼 실패할 선택 자체를 줄인다.</li>
+<li><b>언클리셰</b>: 편의점에서 파는 명품, B급으로 망가지는 정상급 배우처럼 예상 밖 조합이 재미를 만든다.</li>
+<li><b>스탯 맥싱</b>: '건강하게 살기' 대신 '수면 점수 85점'처럼 한두 가지에만 집중한다.</li>
+<li><b>마이-파이</b>: 결혼식이나 승진 같은 당연한 공식도 내 상황에 맞게 골라 따른다.</li>
+</ul>
+</div>
+<p>엠브레인의 설명은 이렇다. 가격·스펙 비교처럼 효율이 중요한 소비는 AI에게 맡기고, 취향과 감정이 중요한 영역에는 적극적으로 투자한다는 것이다.</p>
+<p>나는 여기서 '확률주의 생존법'에 더 눈이 간다. 소비자는 실패할 가능성이 있는 선택부터 지운다. 줄을 서는 디저트도, 결말을 알고 보는 드라마도 결국 실패하지 않을 확률이 높은 선택이다. 브랜드 입장에서 보면 '더 좋은 제품'이라는 말은 AI의 비교표 안으로 들어가 버리고, 남는 질문은 하나다. <strong>이 사람이 우리를 골랐을 때 실패하지 않는다는 걸 어떻게 보여줄 것인가.</strong></p>
+</div>
+<div class="take">
+<div><small>베끼기 쉬운 형식</small><p>웨이팅 이벤트, 한정 굿즈, 예상 밖 콜라보</p></div>
+<div class="why"><small>가져와야 할 이유</small><p>소비자는 고를 일과 맡길 일을 나눴다. 우리 제품이 어느 쪽인지부터 정해야 한다.</p></div>
+</div>
+<aside class="insight">
+<span class="kicker">브루스의 한 줄</span>
+<blockquote><p>"기술은 계속 불편을 없애고 있는데, 사람들은 오히려 돈을 내고 불편을 사고 있다. (…) 마케터가 설계해야 하는 건 불편의 양이 아니라 불편과 보상의 관계다."</p><cite>《AI는 답을 만들고 마케터는 맥락을 설계한다》 2장 「사람들은 왜 굳이 불편을 살까」 중</cite></blockquote>
+<p class="check"><b>책의 체크리스트</b>편의를 줄일 때 없앨 마찰과 남길 의식을 각각 목록으로 만든다.</p>
+</aside>
+<p class="src">출처: <a href="https://www.brandbrief.co.kr/site/data/html/2026/10/21/2026102110451.html">브랜드브리프 2026.10.21</a> · 함께 읽기: <a href="/writing/223/">영어 공부 앱이 왜 생일카페를 열까?</a></p>
+</section>
 
 <!-- 2 -->
-<article class="trend" aria-labelledby="t2">
-  <div class="kicker">
-    <span class="label">사례 2 · AI 검색</span>
-    <div class="conds"><span class="chip">ROOT</span><span class="chip">RALLY</span></div>
-  </div>
-  <h2 id="t2">이케아 CMO는 왜 AI 시대에 "일관성"을 말할까</h2>
-  <div class="prose">
-    <p>"LLM은 광고 캠페인과 투자자 자료를 구분하지 않는다." 이케아 리테일의 글로벌 CMO 빈첸초 릴리가 Digiday 인터뷰에서 한 말이다. 누군가 AI에게 이케아에 대해 물으면, AI는 홈페이지와 상품 페이지, 기사, 공시까지 누가 썼는지 따지지 않고 한꺼번에 읽어 답을 만든다는 뜻이다.</p>
-    <p>그는 AI를 "브랜드를 만드는 데가 아니라 퍼뜨리는 데" 써야 한다고 말한다. 그리고 매출을 위해 시기마다 다른 약속을 해 온 브랜드들이 지금 어려움을 겪는 이유로 "모델이 그 브랜드가 무엇을 하는 곳인지 정리하지 못하기 때문"을 꼽았다.</p>
-    <p>국내 상황도 비슷하다. 10월 15일 한국디지털광고협회 세미나에서 장윤석 네이버 실장은 "SEO가 되지 않으면 사실 그다음은 없다"고 했다.</p>
-  </div>
-  <div class="case">
-    <h3>숫자로 보면</h3>
-    <ul>
-      <li>네이버가 올해 1분기 분석한 광고주 사이트의 <span class="num">약 90%</span>는 검색 시스템이 정보를 읽고 이해하는 데 개선이 필요했다.</li>
-      <li>풀무원은 공식몰에 'AI 전용 상품 카탈로그'(상품명·가격·카테고리·판매 상태)를 따로 만들고 영양정보와 후기를 AI가 읽기 쉽게 구조화했다. 4개월 비교에서 방문자 <span class="num">2.3배</span>, 구매 건수 <span class="num">7.4배</span>가 늘었다고 밝혔다.</li>
-      <li>덴츠 크리에이티브의 CMO 1,950명 조사에서 <span class="num">81%</span>는 "AI 에이전트 때문에 강한 브랜드 선호가 더 중요해진다", <span class="num">78%</span>는 "브랜드 경험이 보이지 않게 될까 걱정된다"고 답했다.</li>
-      <li>함샤우트글로벌 김재희 대표: 반도체·헬스케어처럼 전문 정보가 중요한 산업은 언론이, 육아·반려동물·캠핑처럼 경험이 중요한 산업은 소셜이 AI에 더 많이 인용됐다.</li>
-    </ul>
-  </div>
-  <div class="prose">
-    <p>GEO(생성형 엔진 최적화)라는 말 때문에 이 흐름은 기술 과제처럼 보인다. 풀무원의 사례도 겉으로는 데이터 구조화 작업이다. 하지만 이케아의 말을 겹쳐 보면 순서가 보인다. AI가 우리를 제대로 읽게 만드는 일은 구조의 문제이고, 읽은 뒤 무엇이라고 요약할지는 브랜드가 그동안 쌓아온 말의 문제다.</p>
-    <p>그래서 나는 GEO를 시작하기 전에 먼저 해볼 일이 있다고 생각한다. 고객이 할 법한 질문으로 우리 브랜드를 AI에게 직접 물어보는 것이다. AI의 답이 우리가 지키려는 한 문장과 다르다면, 고쳐야 할 것은 사이트 구조보다 그동안의 메시지일 수 있다.</p>
-  </div>
-  <div class="take">
-    <div><h3>베끼기 쉬운 형식</h3><p>GEO 컨설팅, 구조화 데이터, 'AI에 잘 뜨는 글' 템플릿</p></div>
-    <div class="why"><h3>가져와야 할 이유</h3><p>AI는 브랜드의 모든 말을 한 번에 읽는다. 쌓아온 말이 한 방향일수록 한 문장으로 요약된다.</p></div>
-  </div>
-  <figure class="quote">
-    <span class="who">브루스의 한 줄</span>
-    <p>"제품, 광고, 고객 응대, 공간, 콘텐츠가 서로 다른 태도를 보이면 결국 하나의 인상으로 묶이지 않는다. (…) 결국 사람들은 브랜드가 무엇이라고 말했는지보다 그 말을 실제로 지켰는지를 기억한다."</p>
-    <cite>《AI는 답을 만들고 마케터는 맥락을 설계한다》 9장 「교과서 같다는 말이 칭찬이 된 이유」 중</cite>
-  </figure>
-  <p class="check-line"><b>책의 체크리스트</b>성과를 볼 때 우리가 반복한 메시지와 소비자가 기억하는 메시지를 대조한다.</p>
-  <p class="src">출처: Digiday 2026.10.14 · 브랜드브리프 2026.10.16 · 더피알 2026.09.22</p>
-</article>
+<section class="trend" aria-labelledby="t2">
+<div class="trend__head"><span class="kicker">사례 2 · AI 검색</span><span class="chip">ROOT</span><span class="chip">RALLY</span></div>
+<h2 class="title" id="t2">이케아 CMO는 왜 AI 시대에 "일관성"을 말할까</h2>
+<div class="article">
+<p>"LLM은 광고 캠페인과 투자자 자료를 구분하지 않는다." 이케아 리테일의 글로벌 CMO 빈첸초 릴리가 Digiday 인터뷰에서 한 말이다. 누군가 AI에게 이케아에 대해 물으면, AI는 홈페이지와 상품 페이지, 기사, 공시까지 누가 썼는지 따지지 않고 한꺼번에 읽어 답을 만든다는 뜻이다.</p>
+<p>그는 AI를 "브랜드를 만드는 데가 아니라 퍼뜨리는 데" 써야 한다고 말한다. 그리고 매출을 위해 시기마다 다른 약속을 해 온 브랜드들이 지금 어려움을 겪는 이유로 "모델이 그 브랜드가 무엇을 하는 곳인지 정리하지 못하기 때문"을 꼽았다.</p>
+<p>국내 상황도 비슷하다. 10월 15일 한국디지털광고협회 세미나에서 장윤석 네이버 실장은 "SEO가 되지 않으면 사실 그다음은 없다"고 했다.</p>
+<div class="facts">
+<span class="kicker">숫자로 보면</span>
+<ul>
+<li>네이버가 올해 1분기 분석한 광고주 사이트의 <span class="num">약 90%</span>는 검색 시스템이 정보를 읽고 이해하는 데 개선이 필요했다.</li>
+<li>풀무원은 공식몰에 'AI 전용 상품 카탈로그'(상품명·가격·카테고리·판매 상태)를 따로 만들고 영양정보와 후기를 AI가 읽기 쉽게 구조화했다. 4개월 비교에서 방문자 <span class="num">2.3배</span>, 구매 건수 <span class="num">7.4배</span>가 늘었다고 밝혔다.</li>
+<li>덴츠 크리에이티브의 CMO 1,950명 조사에서 <span class="num">81%</span>는 "AI 에이전트 때문에 강한 브랜드 선호가 더 중요해진다", <span class="num">78%</span>는 "브랜드 경험이 보이지 않게 될까 걱정된다"고 답했다.</li>
+<li>함샤우트글로벌 김재희 대표: 반도체·헬스케어처럼 전문 정보가 중요한 산업은 언론이, 육아·반려동물·캠핑처럼 경험이 중요한 산업은 소셜이 AI에 더 많이 인용됐다.</li>
+</ul>
+</div>
+<p>GEO(생성형 엔진 최적화)라는 말 때문에 이 흐름은 기술 과제처럼 보인다. 풀무원의 사례도 겉으로는 데이터 구조화 작업이다. 하지만 이케아의 말을 겹쳐 보면 순서가 보인다. AI가 우리를 제대로 읽게 만드는 일은 구조의 문제이고, 읽은 뒤 무엇이라고 요약할지는 브랜드가 그동안 쌓아온 말의 문제다.</p>
+<p>그래서 나는 GEO를 시작하기 전에 먼저 해볼 일이 있다고 생각한다. 고객이 할 법한 질문으로 우리 브랜드를 AI에게 직접 물어보는 것이다. AI의 답이 우리가 지키려는 한 문장과 다르다면, 고쳐야 할 것은 사이트 구조보다 그동안의 메시지일 수 있다.</p>
+</div>
+<div class="take">
+<div><small>베끼기 쉬운 형식</small><p>GEO 컨설팅, 구조화 데이터, 'AI에 잘 뜨는 글' 템플릿</p></div>
+<div class="why"><small>가져와야 할 이유</small><p>AI는 브랜드의 모든 말을 한 번에 읽는다. 쌓아온 말이 한 방향일수록 한 문장으로 요약된다.</p></div>
+</div>
+<aside class="insight">
+<span class="kicker">브루스의 한 줄</span>
+<blockquote><p>"제품, 광고, 고객 응대, 공간, 콘텐츠가 서로 다른 태도를 보이면 결국 하나의 인상으로 묶이지 않는다. (…) 결국 사람들은 브랜드가 무엇이라고 말했는지보다 그 말을 실제로 지켰는지를 기억한다."</p><cite>《AI는 답을 만들고 마케터는 맥락을 설계한다》 9장 「교과서 같다는 말이 칭찬이 된 이유」 중</cite></blockquote>
+<p class="check"><b>책의 체크리스트</b>성과를 볼 때 우리가 반복한 메시지와 소비자가 기억하는 메시지를 대조한다.</p>
+</aside>
+<p class="src">출처: <a href="https://digiday.com/marketing/ikeas-cmo-sees-llms-as-the-newest-place-a-brand-has-to-hold-its-line/">Digiday 2026.10.14</a> · <a href="https://www.brandbrief.co.kr/site/data/html/2026/10/16/2026101610428.html">브랜드브리프 2026.10.16</a> · <a href="https://www.the-pr.co.kr/news/articleView.html?idxno=62696">더피알 2026.09.22</a></p>
+</section>
 
 <!-- 3 -->
-<article class="trend" aria-labelledby="t3">
-  <div class="kicker">
-    <span class="label">사례 3 · 커머스</span>
-    <div class="conds"><span class="chip">REACH</span><span class="chip">READ</span></div>
-  </div>
-  <h2 id="t3">같은 영어 교재가 1억에서 20억이 된 이유</h2>
-  <div class="prose">
-    <p>홈쇼핑 유아동 프로그램에서 회당 1억 원 안팎 팔리던 영어 교재가 있었다. 그런데 이 교재가 한 번에 20억 원어치 팔린 날이 있다. 바뀐 것은 가격도, 구성도 아니었다. <strong>말하는 사람</strong>이었다. 실제로 그 교재로 아이를 키운 교사 출신 크리에이터가 콘텐츠를 만든 것이다.</p>
-    <p>CJ온스타일이 10월 22일 국내 처음 연 '크리에이터 커머스 페스티벌 코리아(CCFK)'에서 공개한 사례다. 성동훈 CJ ENM 커머스부문 플랫폼본부장은 이 흐름을 한 문장으로 정리했다. "이제는 콘텐츠 자체가 매장이 되는 시대가 됐습니다."</p>
-  </div>
-  <div class="case">
-    <h3>현장에서 공개된 것들</h3>
-    <ul>
-      <li>CJ온스타일은 2030년까지 크리에이터 커머스 취급고를 사업 첫해(2025년) 대비 <span class="num">35배</span>로 키우고, 커머스 특화 크리에이터 <span class="num">10만 명</span>을 육성하겠다고 밝혔다.</li>
-      <li>크리에이터가 직접 구하기 어렵던 해외 기저귀·육아 브랜드를 연결해 주자, 그 크리에이터의 팔로워가 <span class="num">6개월 새 41%</span> 늘었다.</li>
-      <li>행사장 부스에서는 틱톡 뷰티 크리에이터가 K뷰티 제품 라이브를 진행했다. 미국 계정으로 보면 라이브 화면에서 바로 구매 페이지로 넘어간다.</li>
-      <li>김도현 국민대 교수는 소비자가 신뢰를 맡기는 대상이 '써본 사람 → 브랜드·리뷰 → 다시 믿을 만한 사람'으로 돌아왔다고 봤다.</li>
-    </ul>
-  </div>
-  <div class="prose">
-    <p>이 사례를 '유명한 크리에이터를 쓰면 팔린다'로 읽으면 다음 캠페인도 팔로워 수로 사람을 고르게 된다. 하지만 교재 앞에서 부모가 멈추는 질문을 떠올려 보면 다르게 보인다. "우리 아이가 정말 따라 할까?" 그 질문에 자기 경험으로 답할 수 있는 사람은 많지 않다.</p>
-    <p>나는 이것이 콘텐츠가 매장이 되는 조건이라고 생각한다. 좋은 매장 직원은 물건을 소개하는 사람이 아니라, 손님이 망설이는 지점을 알아채고 답해 주는 사람이다. 크리에이터 커머스도 결국 그 역할을 누가 하느냐의 문제다.</p>
-  </div>
-  <div class="take">
-    <div><h3>베끼기 쉬운 형식</h3><p>라이브 커머스, 공동구매, 인플루언서 시딩</p></div>
-    <div class="why"><h3>가져와야 할 이유</h3><p>구매를 멈추게 하는 질문에 경험으로 답할 수 있는 사람이 말했다.</p></div>
-  </div>
-  <figure class="quote">
-    <span class="who">브루스의 한 줄</span>
-    <p>"중요한 건 누가 가장 유명한가가 아니다. 누가 이 메시지를 가장 자기답게 말할 수 있고, 그 말을 다른 채널이 어떻게 이어받을 것인가다. 사람을 고르는 일은 곧 전환의 맥락을 고르는 일이다."</p>
-    <cite>《AI는 답을 만들고 마케터는 맥락을 설계한다》 17장 「인플루언서는 종착지가 아니라 입구다」 중</cite>
-  </figure>
-  <p class="check-line"><b>책의 체크리스트</b>노출 다음 날 검색, 후기, 상세 페이지가 받을 준비가 됐는지 점검한다.</p>
-  <p class="src">출처: 더피알 2026.10.22 · 브랜드브리프 2026.10.13</p>
-</article>
+<section class="trend" aria-labelledby="t3">
+<div class="trend__head"><span class="kicker">사례 3 · 커머스</span><span class="chip">REACH</span><span class="chip">READ</span></div>
+<h2 class="title" id="t3">같은 영어 교재가 1억에서 20억이 된 이유</h2>
+<div class="article">
+<p>홈쇼핑 유아동 프로그램에서 회당 1억 원 안팎 팔리던 영어 교재가 있었다. 그런데 이 교재가 한 번에 20억 원어치 팔린 날이 있다. 바뀐 것은 가격도, 구성도 아니었다. <strong>말하는 사람</strong>이었다. 실제로 그 교재로 아이를 키운 교사 출신 크리에이터가 콘텐츠를 만든 것이다.</p>
+<p>CJ온스타일이 10월 22일 국내 처음 연 '크리에이터 커머스 페스티벌 코리아(CCFK)'에서 공개한 사례다. 성동훈 CJ ENM 커머스부문 플랫폼본부장은 이 흐름을 한 문장으로 정리했다. "이제는 콘텐츠 자체가 매장이 되는 시대가 됐습니다."</p>
+<div class="facts">
+<span class="kicker">현장에서 공개된 것들</span>
+<ul>
+<li>CJ온스타일은 2030년까지 크리에이터 커머스 취급고를 사업 첫해(2025년) 대비 <span class="num">35배</span>로 키우고, 커머스 특화 크리에이터 <span class="num">10만 명</span>을 육성하겠다고 밝혔다.</li>
+<li>크리에이터가 직접 구하기 어렵던 해외 기저귀·육아 브랜드를 연결해 주자, 그 크리에이터의 팔로워가 <span class="num">6개월 새 41%</span> 늘었다.</li>
+<li>행사장 부스에서는 틱톡 뷰티 크리에이터가 K뷰티 제품 라이브를 진행했다. 미국 계정으로 보면 라이브 화면에서 바로 구매 페이지로 넘어간다.</li>
+<li>김도현 국민대 교수는 소비자가 신뢰를 맡기는 대상이 '써본 사람 → 브랜드·리뷰 → 다시 믿을 만한 사람'으로 돌아왔다고 봤다.</li>
+</ul>
+</div>
+<p>이 사례를 '유명한 크리에이터를 쓰면 팔린다'로 읽으면 다음 캠페인도 팔로워 수로 사람을 고르게 된다. 하지만 교재 앞에서 부모가 멈추는 질문을 떠올려 보면 다르게 보인다. "우리 아이가 정말 따라 할까?" 그 질문에 자기 경험으로 답할 수 있는 사람은 많지 않다.</p>
+<p>나는 이것이 콘텐츠가 매장이 되는 조건이라고 생각한다. 좋은 매장 직원은 물건을 소개하는 사람이 아니라, 손님이 망설이는 지점을 알아채고 답해 주는 사람이다. 크리에이터 커머스도 결국 그 역할을 누가 하느냐의 문제다.</p>
+</div>
+<div class="take">
+<div><small>베끼기 쉬운 형식</small><p>라이브 커머스, 공동구매, 인플루언서 시딩</p></div>
+<div class="why"><small>가져와야 할 이유</small><p>구매를 멈추게 하는 질문에 경험으로 답할 수 있는 사람이 말했다.</p></div>
+</div>
+<aside class="insight">
+<span class="kicker">브루스의 한 줄</span>
+<blockquote><p>"중요한 건 누가 가장 유명한가가 아니다. 누가 이 메시지를 가장 자기답게 말할 수 있고, 그 말을 다른 채널이 어떻게 이어받을 것인가다. 사람을 고르는 일은 곧 전환의 맥락을 고르는 일이다."</p><cite>《AI는 답을 만들고 마케터는 맥락을 설계한다》 17장 「인플루언서는 종착지가 아니라 입구다」 중</cite></blockquote>
+<p class="check"><b>책의 체크리스트</b>노출 다음 날 검색, 후기, 상세 페이지가 받을 준비가 됐는지 점검한다.</p>
+</aside>
+<p class="src">출처: <a href="https://www.the-pr.co.kr/news/articleView.html?idxno=63011">더피알 2026.10.22</a></p>
+</section>
 
 <!-- 4 -->
-<article class="trend" aria-labelledby="t4">
-  <div class="kicker">
-    <span class="label">사례 4 · 일하는 법</span>
-    <div class="conds"><span class="chip">RALLY</span></div>
-  </div>
-  <h2 id="t4">AI는 세일이 사흘 남았다는 걸 모른다</h2>
-  <div class="prose">
-    <p>전환 수는 비슷한데 전환 비용이 계속 오른다. AI에게 물으면 비용이 오르기 시작한 시점, 문제가 생긴 퍼널 단계, 소재의 피로도까지 분석해 준다. 그런데 AI가 모르는 것이 있다. 세일 종료까지 사흘밖에 안 남았고, 새 소재를 촬영할 여유가 없고, 주력 상품 재고가 부족하다는 사정이다.</p>
-    <p>같은 세미나에서 강성무 카카오 수석 매니저가 든 가상 사례다. 그는 "도구를 잘 쓰려면 무엇보다 질문을 잘해야 한다"며, 성과 신호와 사업 맥락을 함께 읽는 마케터가 더 주목받을 것이라고 봤다. 광고주와 대화해 그 사정을 알아내고 AI에 다시 입력해야, 재고가 부족한 상품을 빼고 카탈로그 광고로 돌리는 식의 현실적인 대안이 나온다는 것이다.</p>
-  </div>
-  <div class="case">
-    <h3>같은 자리에서 나온 이야기</h3>
-    <ul>
-      <li>박성호 몽규 대표: 회사 전체 업무를 하나의 AI 에이전트로 통합하려다 실패했다. 5~10명 규모의 팀이 각자 필요한 에이전트를 만드는 방식이 효과적이었다. "회사의 중간 관리자들이 해야 되는 일이 에이전트를 만드는 일."</li>
-      <li>양준모 한국디지털광고협회 회장: 기업 대표 약 30명이 참여한 바이브 코딩 해커톤에서 오히려 연령대가 높은 대표들이 뛰어난 결과물을 냈다. 기획·개발·영업까지 사업 전체의 맥락이 머릿속에 있기 때문이라는 설명이다.</li>
-      <li>그리고 바깥의 숫자 하나. WARC에 따르면 미국 주요 광고주 25곳의 매출 대비 광고비는 2019년 <span class="num">6.1%</span>에서 2025년 <span class="num">5.5%</span>로 낮아졌다. 광고비 증가는 중소기업과 크로스보더 이커머스 판매자가 이끌고 있다.</li>
-    </ul>
-  </div>
-  <div class="prose">
-    <p>세 이야기의 공통점은 AI가 분석을 대신할수록 '데이터에 남지 않는 것'의 가치가 올라간다는 점이다. 재고 사정, 사업 전체의 흐름, 팀이 실제로 반복하는 일. 이건 모두 사람에게 물어야 나온다.</p>
-    <p>WARC의 숫자도 같은 방향으로 읽힌다. 광고비를 빠르게 늘리는 쪽이 대형 광고주에서 중소 판매자로 옮겨가고 있다면, 대행사가 함께 일할 사람도, 그들의 사정을 묻는 방식도 달라져야 한다. 나는 AI 시대 실무자의 경쟁력이 프롬프트보다 '누구에게 무엇을 물어야 하는지 아는 것'에 더 가까워지고 있다고 생각한다.</p>
-  </div>
-  <div class="take">
-    <div><h3>베끼기 쉬운 형식</h3><p>AI 성과 진단 툴 도입, 전사 AI 에이전트</p></div>
-    <div class="why"><h3>가져와야 할 이유</h3><p>데이터에 남지 않는 사정을 아는 사람이 질문을 만들었다.</p></div>
-  </div>
-  <figure class="quote">
-    <span class="who">브루스의 한 줄</span>
-    <p>"일할 때의 공감은 착한 마음이 아니라 '해석하는 힘'이다. 숫자와 문장만으로는 보이지 않는 변수를 함께 읽는 능력이다. 광고주의 말 한마디 뒤에는 조직의 사정이 있고, 제작사의 일정 뒤에는 사람이 있다."</p>
-    <cite>《AI는 답을 만들고 마케터는 맥락을 설계한다》 21장 「"조금 더 임팩트 있게"라는 말의 뜻」 중</cite>
-  </figure>
-  <p class="check-line"><b>책의 체크리스트</b>익숙한 단어가 나올 때. 프리미엄, 콘셉트, 자연스러움. 서로 같은 그림을 보고 있는지 확인했는가.</p>
-  <p class="src">출처: 브랜드브리프 2026.10.16 · 브랜드브리프 2026.10.21(WARC 「Global Ad Trends: The cost of being seen」)</p>
-</article>
+<section class="trend" aria-labelledby="t4">
+<div class="trend__head"><span class="kicker">사례 4 · 일하는 법</span><span class="chip">RALLY</span></div>
+<h2 class="title" id="t4">AI는 세일이 사흘 남았다는 걸 모른다</h2>
+<div class="article">
+<p>전환 수는 비슷한데 전환 비용이 계속 오른다. AI에게 물으면 비용이 오르기 시작한 시점, 문제가 생긴 퍼널 단계, 소재의 피로도까지 분석해 준다. 그런데 AI가 모르는 것이 있다. 세일 종료까지 사흘밖에 안 남았고, 새 소재를 촬영할 여유가 없고, 주력 상품 재고가 부족하다는 사정이다.</p>
+<p>같은 세미나에서 강성무 카카오 수석 매니저가 든 가상 사례다. 그는 "도구를 잘 쓰려면 무엇보다 질문을 잘해야 한다"며, 성과 신호와 사업 맥락을 함께 읽는 마케터가 더 주목받을 것이라고 봤다. 광고주와 대화해 그 사정을 알아내고 AI에 다시 입력해야, 재고가 부족한 상품을 빼고 카탈로그 광고로 돌리는 식의 현실적인 대안이 나온다는 것이다.</p>
+<div class="facts">
+<span class="kicker">같은 자리에서 나온 이야기</span>
+<ul>
+<li>박성호 몽규 대표: 회사 전체 업무를 하나의 AI 에이전트로 통합하려다 실패했다. 5~10명 규모의 팀이 각자 필요한 에이전트를 만드는 방식이 효과적이었다. "회사의 중간 관리자들이 해야 되는 일이 에이전트를 만드는 일."</li>
+<li>양준모 한국디지털광고협회 회장: 기업 대표 약 30명이 참여한 바이브 코딩 해커톤에서 오히려 연령대가 높은 대표들이 뛰어난 결과물을 냈다. 기획·개발·영업까지 사업 전체의 맥락이 머릿속에 있기 때문이라는 설명이다.</li>
+<li>그리고 바깥의 숫자 하나. WARC에 따르면 미국 주요 광고주 25곳의 매출 대비 광고비는 2019년 <span class="num">6.1%</span>에서 2025년 <span class="num">5.5%</span>로 낮아졌다. 광고비 증가는 중소기업과 크로스보더 이커머스 판매자가 이끌고 있다.</li>
+</ul>
+</div>
+<p>세 이야기의 공통점은 AI가 분석을 대신할수록 '데이터에 남지 않는 것'의 가치가 올라간다는 점이다. 재고 사정, 사업 전체의 흐름, 팀이 실제로 반복하는 일. 이건 모두 사람에게 물어야 나온다.</p>
+<p>WARC의 숫자도 같은 방향으로 읽힌다. 광고비를 빠르게 늘리는 쪽이 대형 광고주에서 중소 판매자로 옮겨가고 있다면, 대행사가 함께 일할 사람도, 그들의 사정을 묻는 방식도 달라져야 한다. 나는 AI 시대 실무자의 경쟁력이 프롬프트보다 '누구에게 무엇을 물어야 하는지 아는 것'에 더 가까워지고 있다고 생각한다.</p>
+</div>
+<div class="take">
+<div><small>베끼기 쉬운 형식</small><p>AI 성과 진단 툴 도입, 전사 AI 에이전트</p></div>
+<div class="why"><small>가져와야 할 이유</small><p>데이터에 남지 않는 사정을 아는 사람이 질문을 만들었다.</p></div>
+</div>
+<aside class="insight">
+<span class="kicker">브루스의 한 줄</span>
+<blockquote><p>"일할 때의 공감은 착한 마음이 아니라 '해석하는 힘'이다. 숫자와 문장만으로는 보이지 않는 변수를 함께 읽는 능력이다. 광고주의 말 한마디 뒤에는 조직의 사정이 있고, 제작사의 일정 뒤에는 사람이 있다."</p><cite>《AI는 답을 만들고 마케터는 맥락을 설계한다》 21장 「"조금 더 임팩트 있게"라는 말의 뜻」 중</cite></blockquote>
+<p class="check"><b>책의 체크리스트</b>익숙한 단어가 나올 때. 프리미엄, 콘셉트, 자연스러움. 서로 같은 그림을 보고 있는지 확인했는가.</p>
+</aside>
+<p class="src">출처: <a href="https://www.brandbrief.co.kr/site/data/html/2026/10/16/2026101610428.html">브랜드브리프 2026.10.16</a> · <a href="https://www.brandbrief.co.kr/site/data/html/2026/10/21/2026102150001.html">브랜드브리프 2026.10.21(WARC)</a></p>
+</section>
 
 <!-- 5 -->
-<article class="trend" aria-labelledby="t5">
-  <div class="kicker">
-    <span class="label">사례 5 · 해외 브랜드</span>
-    <div class="conds"><span class="chip">ROOT</span><span class="chip">REMAIN</span></div>
-  </div>
-  <h2 id="t5">러쉬는 왜 5년째 소셜 광고를 하지 않을까</h2>
-  <div class="prose">
-    <p>러쉬의 틱톡 계정에는 게시물이 하나뿐이다. 적힌 문구는 "Be somewhere else(다른 곳에 있어요)". 팔로워 34만 명이 넘는 계정이 수년째 그대로다.</p>
-    <p>러쉬는 2021년 인스타그램·페이스북·틱톡·스냅챗에서 유료 광고와 게시를 멈췄다. 플랫폼의 데이터 정책과 알고리즘에 항의하는 결정이었고, 2023년에는 X 게시도 중단했다. 많은 마케터에게 이 선택은 무모해 보였을 것이다. 소셜은 가장 확실하게 도달을 살 수 있는 곳이기 때문이다.</p>
-  </div>
-  <div class="case">
-    <h3>러쉬가 대신 쓴 곳</h3>
-    <ul>
-      <li>자체 앱 이용자 <span class="num">280만 명</span>, 이메일 도달 <span class="num">600만 명</span> 이상.</li>
-      <li>위키드, 헬로키티, 마인크래프트, 그린치 같은 협업 컬렉션으로 약 <span class="num">3,400만 파운드</span> 매출.</li>
-      <li>크리에이터와 오프라인 이벤트, 유튜브·핀터레스트는 광고 없이 운영.</li>
-      <li>2025 회계연도 매출은 <span class="num">6억 7,270만 → 7억 3,620만 파운드</span>로 늘었다.</li>
-    </ul>
-  </div>
-  <div class="prose">
-    <p>러쉬 북미 마케팅 책임자 줄리아 햄펠트의 설명은 짧다. "우리의 철학은 플랫폼보다 사람에 투자하는 것입니다." 물론 러쉬는 원래도 유료 소셜 비중이 크지 않았고, 그 결정이 매출 성장의 직접적인 이유라고 단정할 수는 없다.</p>
-    <p>그래도 이 사례에서 눈여겨볼 것은 결정을 내린 순간보다 그 결정을 5년 동안 바꾸지 않았다는 점이다. 그 사이 소셜 광고 시장은 더 커졌다. 그럼에도 러쉬는 자기 앱과 이메일, 협업처럼 직접 고객에게 말을 걸 수 있는 길을 쌓았다. 나는 브랜드가 남기는 판단에는 '무엇을 할지'만큼 '무엇을 하지 않을지'가 들어 있다고 생각한다.</p>
-  </div>
-  <div class="take">
-    <div><h3>베끼기 쉬운 형식</h3><p>소셜 광고 중단 선언, 탈플랫폼 캠페인</p></div>
-    <div class="why"><h3>가져와야 할 이유</h3><p>하지 않기로 한 것을 끝까지 지켰고, 그 사이 직접 닿는 채널을 쌓았다.</p></div>
-  </div>
-  <figure class="quote">
-    <span class="who">브루스의 한 줄</span>
-    <p>"반복은 용기가 필요한 선택이다. 새로운 아이디어가 없어서가 아니라, 새로움의 유혹보다 기억의 속도를 믿는 일이기 때문이다."</p>
-    <cite>《AI는 답을 만들고 마케터는 맥락을 설계한다》 15장 「우리가 지겨울 때 소비자는 이제 막 기억한다」 중</cite>
-  </figure>
-  <p class="check-line"><b>책의 체크리스트</b>반복을 접을 때 접었을 때 사라지는 축적을 적어본다.</p>
-  <p class="src">출처: Digiday 2026.10.28 · WARC 2026.10.14</p>
-</article>
+<section class="trend" aria-labelledby="t5">
+<div class="trend__head"><span class="kicker">사례 5 · 해외 브랜드</span><span class="chip">ROOT</span><span class="chip">REMAIN</span></div>
+<h2 class="title" id="t5">러쉬는 왜 5년째 소셜 광고를 하지 않을까</h2>
+<div class="article">
+<p>러쉬의 틱톡 계정에는 게시물이 하나뿐이다. 적힌 문구는 "Be somewhere else(다른 곳에 있어요)". 팔로워 34만 명이 넘는 계정이 수년째 그대로다.</p>
+<p>러쉬는 2021년 인스타그램·페이스북·틱톡·스냅챗에서 유료 광고와 게시를 멈췄다. 플랫폼의 데이터 정책과 알고리즘에 항의하는 결정이었고, 2023년에는 X 게시도 중단했다. 많은 마케터에게 이 선택은 무모해 보였을 것이다. 소셜은 가장 확실하게 도달을 살 수 있는 곳이기 때문이다.</p>
+<div class="facts">
+<span class="kicker">러쉬가 대신 쓴 곳</span>
+<ul>
+<li>자체 앱 이용자 <span class="num">280만 명</span>, 이메일 도달 <span class="num">600만 명</span> 이상.</li>
+<li>위키드, 헬로키티, 마인크래프트, 그린치 같은 협업 컬렉션으로 약 <span class="num">3,400만 파운드</span> 매출.</li>
+<li>크리에이터와 오프라인 이벤트, 유튜브·핀터레스트는 광고 없이 운영.</li>
+<li>2025 회계연도 매출은 <span class="num">6억 7,270만 → 7억 3,620만 파운드</span>로 늘었다.</li>
+</ul>
+</div>
+<p>러쉬 북미 마케팅 책임자 줄리아 햄펠트의 설명은 짧다. "우리의 철학은 플랫폼보다 사람에 투자하는 것입니다." 물론 러쉬는 원래도 유료 소셜 비중이 크지 않았고, 그 결정이 매출 성장의 직접적인 이유라고 단정할 수는 없다.</p>
+<p>그래도 이 사례에서 눈여겨볼 것은 결정을 내린 순간보다 그 결정을 5년 동안 바꾸지 않았다는 점이다. 그 사이 소셜 광고 시장은 더 커졌다. 그럼에도 러쉬는 자기 앱과 이메일, 협업처럼 직접 고객에게 말을 걸 수 있는 길을 쌓았다. 나는 브랜드가 남기는 판단에는 '무엇을 할지'만큼 '무엇을 하지 않을지'가 들어 있다고 생각한다.</p>
+</div>
+<div class="take">
+<div><small>베끼기 쉬운 형식</small><p>소셜 광고 중단 선언, 탈플랫폼 캠페인</p></div>
+<div class="why"><small>가져와야 할 이유</small><p>하지 않기로 한 것을 끝까지 지켰고, 그 사이 직접 닿는 채널을 쌓았다.</p></div>
+</div>
+<aside class="insight">
+<span class="kicker">브루스의 한 줄</span>
+<blockquote><p>"반복은 용기가 필요한 선택이다. 새로운 아이디어가 없어서가 아니라, 새로움의 유혹보다 기억의 속도를 믿는 일이기 때문이다."</p><cite>《AI는 답을 만들고 마케터는 맥락을 설계한다》 15장 「우리가 지겨울 때 소비자는 이제 막 기억한다」 중</cite></blockquote>
+<p class="check"><b>책의 체크리스트</b>반복을 접을 때 접었을 때 사라지는 축적을 적어본다.</p>
+</aside>
+<p class="src">출처: <a href="https://digiday.com/marketing/how-lush-quit-social-media-ads-and-still-drove-growth/">Digiday 2026.10.28</a></p>
+</section>
 
 <section class="word" aria-labelledby="w-h">
-  <span class="label">이번 달의 단어</span>
-  <p class="big" id="w-h">딸깍</p>
-  <div class="prose">
-    <p>캐릿이 빅데이터 플랫폼 퀘타아이로 올해 1월 1일부터 10월 20일까지 SNS 5개 채널의 밈 언급량을 모았다. 1위는 '딸깍'으로 <span class="num">약 33만 건</span>이었다. 큰 힘 들이지 않고 무언가를 쉽게 이루는 상황을 뜻하는 게임 밈인데, AI 서비스가 대중화되며 더 많이 쓰였다는 분석이다.</p>
-    <p>결과물이 쉬워졌다는 감각이 말에 먼저 나타난 셈이다. 그런데 결과가 쉬워질수록 판단도 같이 쉬워지기 쉽다. 같은 도구로 같은 답을 받으면 뾰족한 생각부터 깎여 나간다.</p>
-  </div>
-  <figure class="quote">
-    <span class="who">브루스의 한 줄</span>
-    <p>"AI 시대에는 안전한 선택의 유혹이 더 커진다. 평균적으로 괜찮은 제목, 무난한 타깃 정의, 대부분의 사람이 반대하지 않을 아이디어는 몇 분 안에 만들 수 있다. 결과물의 최저점은 빠르게 올라간다. 반대로 '왜 굳이 이 선택이어야 하는가'를 설명하는 일은 더 어려워진다."</p>
-    <cite>《AI는 답을 만들고 마케터는 맥락을 설계한다》 29장 「AI가 뭉툭한 게 아니라 내가 뭉툭해지고 있었다」 중</cite>
-  </figure>
-  <p class="check-line"><b>책의 체크리스트</b>여러 번 돌리고 있을 때. 더 나은 답을 찾는 중인가, 반박당하기 전에 미리 안심하려는 중인가.</p>
-  <p class="src">출처: 캐릿 2026.10.27</p>
+<span class="kicker">이번 달의 단어 · REMAIN</span>
+<p class="word__big" id="w-h">딸깍</p>
+<div class="article">
+<p>캐릿이 빅데이터 플랫폼 퀘타아이로 올해 1월 1일부터 10월 20일까지 SNS 5개 채널의 밈 언급량을 모았다. 1위는 '딸깍'으로 <span class="num">약 33만 건</span>이었다. 큰 힘 들이지 않고 무언가를 쉽게 이루는 상황을 뜻하는 게임 밈인데, AI 서비스가 대중화되며 더 많이 쓰였다는 분석이다.</p>
+<p>결과물이 쉬워졌다는 감각이 말에 먼저 나타난 셈이다. 그런데 결과가 쉬워질수록 판단도 같이 쉬워지기 쉽다. 같은 도구로 같은 답을 받으면 뾰족한 생각부터 깎여 나간다.</p>
+</div>
+<aside class="insight">
+<span class="kicker">브루스의 한 줄</span>
+<blockquote><p>"AI 시대에는 안전한 선택의 유혹이 더 커진다. 평균적으로 괜찮은 제목, 무난한 타깃 정의, 대부분의 사람이 반대하지 않을 아이디어는 몇 분 안에 만들 수 있다. 결과물의 최저점은 빠르게 올라간다. 반대로 '왜 굳이 이 선택이어야 하는가'를 설명하는 일은 더 어려워진다."</p><cite>《AI는 답을 만들고 마케터는 맥락을 설계한다》 29장 「AI가 뭉툭한 게 아니라 내가 뭉툭해지고 있었다」 중</cite></blockquote>
+<p class="check"><b>책의 체크리스트</b>여러 번 돌리고 있을 때. 더 나은 답을 찾는 중인가, 반박당하기 전에 미리 안심하려는 중인가.</p>
+</aside>
+<p class="src">출처: <a href="https://www.careet.net/2017">캐릿 2026.10.27</a></p>
 </section>
 
-<section class="scenes" aria-labelledby="sc-h">
-  <h2 id="sc-h">이번 주 함께 볼 장면</h2>
-  <ul>
-    <li><a href="https://www.brandbrief.co.kr/site/data/html/2026/10/13/2026101310410.html">한화는 왜 '광고' 대신 '영화' 제작에 나섰을까</a>(브랜드브리프). 지난 글 <a href="https://bruceheo.com/writing/226/">국내 최고의 광고회사는 왜 영화 제작을 시작할까?</a>와 함께 읽으면 좋다.</li>
-    <li>크리스마스 광고는 이제 10월에 시작된다. 영국 데버넘스가 10월 15일 첫 대형 크리스마스 광고를 냈고, 트윅스는 핼러윈과 크리스마스를 합친 'Hallowmas'를 이어 가고 있다.</li>
-    <li><a href="https://www.the-pr.co.kr/news/articleView.html?idxno=62990">해외 식품 브랜드의 핼러윈은 한정판 포장에서 '이야기'로</a>(더피알). 프링글스는 자사 제품에 얽힌 일화를 캠페인으로 만들었다.</li>
-  </ul>
+<section class="related" aria-labelledby="sc-h">
+<span class="kicker" id="sc-h">이번 주 함께 볼 장면</span>
+<div class="related__list">
+<a class="related__item" href="https://www.brandbrief.co.kr/site/data/html/2026/10/13/2026101310410.html"><small>브랜드브리프</small><span>한화는 왜 '광고' 대신 '영화' 제작에 나섰을까</span><em>"PPL도, 브랜드 필름도 아닙니다."</em></a>
+<a class="related__item" href="/writing/226/"><small>함께 읽기 · 브루스의 글</small><span>국내 최고의 광고회사는 왜 영화 제작을 시작할까?</span></a>
+<a class="related__item" href="https://www.leansummits.com/brands-that-are-making-holiday-marketing-unique"><small>Adweek·PRWeek 정리</small><span>크리스마스 광고는 이제 10월에 시작된다</span><em>영국 데버넘스는 10월 15일 첫 대형 크리스마스 광고를 냈고, 트윅스는 핼러윈과 크리스마스를 합친 'Hallowmas'를 이어 간다.</em></a>
+<a class="related__item" href="https://www.the-pr.co.kr/news/articleView.html?idxno=62990"><small>더피알</small><span>해외 식품 브랜드의 핼러윈은 한정판 포장에서 '이야기'로</span><em>프링글스는 자사 제품에 얽힌 일화를 캠페인으로 만들었다.</em></a>
+</div>
 </section>
 
-<section class="closing" aria-labelledby="cl-h">
-  <h2 id="cl-h">이번 호의 질문</h2>
-  <p class="ask">여러분의 브랜드는 AI에게 물었을 때, 한 문장으로 설명되나요?</p>
-  <p class="prose">이번 호 사례 중 더 깊게 읽고 싶은 이야기를 댓글로 남겨 주세요. 가장 많이 나온 주제로 다음 브런치 글을 쓰겠습니다.</p>
+<section class="ask" aria-labelledby="ask-h">
+<span class="kicker" id="ask-h">이번 호의 질문</span>
+<blockquote>여러분의 브랜드는 AI에게 물었을 때, 한 문장으로 설명되나요?</blockquote>
+<p>이번 호 사례 중 더 깊게 읽고 싶은 이야기를 댓글로 남겨 주세요. 가장 많이 나온 주제로 다음 브런치 글을 쓰겠습니다.</p>
 </section>
 
-<section class="book" aria-labelledby="bk-h">
-  <h2 id="bk-h">형식 말고 이유를 보는 법, 더 깊게</h2>
-  <p>《AI는 답을 만들고 마케터는 맥락을 설계한다》에는 사람·브랜드·행동·함께 일하는 사람·AI 시대의 판단을 다룬 30개 장과, 장마다 바로 쓰는 판단 노트가 들어 있습니다.</p>
-  <div class="links">
-    <a href="https://www.yes24.com/product/goods/199439514">YES24</a>
-    <a href="https://product.kyobobook.co.kr/detail/S000221776404">교보문고</a>
-    <a href="https://bruceheo.com/#book">bruceheo.com</a>
-  </div>
+<section class="subscribe" aria-labelledby="sub-h">
+<h2 id="sub-h">매주 수요일, 메일로 받아 보세요</h2>
+<p>구독하면 우리 브랜드를 AI에게 물어볼 질문 10개와 기록표, 「AI 검색 브랜드 진단 시트」를 바로 보내 드립니다.</p>
+<div class="btns"><a class="btn btn--primary" href="/newsletter/?utm_source=archive&amp;utm_medium=newsletter&amp;utm_campaign=trend_2026-11-04">구독하고 진단 시트 받기</a><a class="btn btn--ghost" href="/newsletter/">지난 호 보기</a></div>
 </section>
 
-<section class="sources" aria-labelledby="so-h">
-  <h2 id="so-h">출처</h2>
-  <ol>
-    <li>브랜드브리프, 「엠브레인, 2027 트렌드 '영점소비' 제시」, 2026.10.21 · <a href="https://www.brandbrief.co.kr/site/data/html/2026/10/21/2026102110451.html">링크</a></li>
-    <li>Digiday, "Ikea's CMO sees LLMs as the newest place a brand has to hold its line", 2026.10.14 · <a href="https://digiday.com/marketing/ikeas-cmo-sees-llms-as-the-newest-place-a-brand-has-to-hold-its-line/">링크</a></li>
-    <li>브랜드브리프, 「AI가 바꾼 디지털 마케팅 공식… 장윤석 네이버 실장 "운영보다 전략, 클릭보다 맥락"」, 2026.10.16 · <a href="https://www.brandbrief.co.kr/site/data/html/2026/10/16/2026101610428.html">링크</a></li>
-    <li>더피알, 「AI가 선택한 풀무원…GEO 적용 후 방문자 2.3배·구매 7.4배 늘었다」, 2026.09.22 · <a href="https://www.the-pr.co.kr/news/articleView.html?idxno=62696">링크</a></li>
-    <li>더피알, 「"콘텐츠가 곧 매장"…브랜드가 크리에이터와 '가게'를 차리는 법」, 2026.10.22 · <a href="https://www.the-pr.co.kr/news/articleView.html?idxno=63011">링크</a></li>
-    <li>브랜드브리프, 「"코카콜라·나이키가 광고비 비중 높이는 사이 구글·메타는 줄였다"」, 2026.10.21 · <a href="https://www.brandbrief.co.kr/site/data/html/2026/10/21/2026102150001.html">링크</a></li>
-    <li>WARC, "Global Ad Trends: The cost of being seen", 2026.10.14 · <a href="https://www.warc.com/en/article/global-ad-trends-the-cost-of-being-seen-66b0d576f948430a9b6713132fe7276b">링크</a></li>
-    <li>Digiday, "How Lush quit social media ads and still drove growth", 2026.10.28 · <a href="https://digiday.com/marketing/how-lush-quit-social-media-ads-and-still-drove-growth/">링크</a></li>
-    <li>캐릿, 「밈으로 회고하는 2026 트렌드 총정리」, 2026.10.27 · <a href="https://www.careet.net/2017">링크</a></li>
-    <li>Lean Summits, "10 Brands That Are Making Holiday Marketing Unique in 2026"(Adweek·PRWeek 정리) · <a href="https://www.leansummits.com/brands-that-are-making-holiday-marketing-unique">링크</a></li>
-  </ol>
+<a class="book" href="/#book">
+<small>브루스의 책</small>
+<strong>《AI는 답을 만들고 마케터는 맥락을 설계한다》</strong>
+<p>READ·ROOT·REACH·RALLY·REMAIN, 다섯 가지 판단 기준을 담은 30개 장과 장마다 바로 쓰는 체크리스트.</p>
+</a>
+</article>
+
+<aside class="author-card" aria-label="저자 소개">
+<span class="brand-mark">BR<i>.</i></span>
+<div>
+<strong>허보람(브루스)</strong>
+<p>브랜드와 소비자의 맥락을 읽고, 마케팅의 판단을 기록하는 통합 커뮤니케이션 마케터.</p>
+<nav><a href="/writing/">다른 글 읽기</a><a href="/context/">맥락과 마케팅</a><a href="/newsletter/">트렌드 노트</a></nav>
+</div>
+</aside>
+
+<section class="source" aria-labelledby="so-h">
+<span class="kicker" id="so-h">출처</span>
+<ol>
+<li>브랜드브리프, 「엠브레인, 2027 트렌드 '영점소비' 제시」, 2026.10.21 · <a href="https://www.brandbrief.co.kr/site/data/html/2026/10/21/2026102110451.html">링크</a></li>
+<li>Digiday, "Ikea's CMO sees LLMs as the newest place a brand has to hold its line", 2026.10.14 · <a href="https://digiday.com/marketing/ikeas-cmo-sees-llms-as-the-newest-place-a-brand-has-to-hold-its-line/">링크</a></li>
+<li>브랜드브리프, 「AI가 바꾼 디지털 마케팅 공식… 장윤석 네이버 실장 "운영보다 전략, 클릭보다 맥락"」, 2026.10.16 · <a href="https://www.brandbrief.co.kr/site/data/html/2026/10/16/2026101610428.html">링크</a></li>
+<li>더피알, 「AI가 선택한 풀무원…GEO 적용 후 방문자 2.3배·구매 7.4배 늘었다」, 2026.09.22 · <a href="https://www.the-pr.co.kr/news/articleView.html?idxno=62696">링크</a></li>
+<li>더피알, 「"콘텐츠가 곧 매장"…브랜드가 크리에이터와 '가게'를 차리는 법」, 2026.10.22 · <a href="https://www.the-pr.co.kr/news/articleView.html?idxno=63011">링크</a></li>
+<li>브랜드브리프, 「"코카콜라·나이키가 광고비 비중 높이는 사이 구글·메타는 줄였다"」, 2026.10.21 · <a href="https://www.brandbrief.co.kr/site/data/html/2026/10/21/2026102150001.html">링크</a></li>
+<li>WARC, "Global Ad Trends: The cost of being seen", 2026.10.14 · <a href="https://www.warc.com/en/article/global-ad-trends-the-cost-of-being-seen-66b0d576f948430a9b6713132fe7276b">링크</a></li>
+<li>Digiday, "How Lush quit social media ads and still drove growth", 2026.10.28 · <a href="https://digiday.com/marketing/how-lush-quit-social-media-ads-and-still-drove-growth/">링크</a></li>
+<li>캐릿, 「밈으로 회고하는 2026 트렌드 총정리」, 2026.10.27 · <a href="https://www.careet.net/2017">링크</a></li>
+<li>Lean Summits, "10 Brands That Are Making Holiday Marketing Unique in 2026"(Adweek·PRWeek 정리) · <a href="https://www.leansummits.com/brands-that-are-making-holiday-marketing-unique">링크</a></li>
+</ol>
 </section>
-
-<footer>브루스의 트렌드 노트 · 에이전시 마케터 브루스가 매주 수요일 보내는 트렌드 해석 · bruceheo.com</footer>
-
 </main>
+<footer>© 허보람(브루스) · 브루스의 트렌드 노트 · 매주 수요일 발행 · 방문 통계를 위해 Google 애널리틱스를 사용합니다.</footer>
+</body>
+</html>

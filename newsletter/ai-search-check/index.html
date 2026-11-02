@@ -7,118 +7,83 @@
 <meta name="description" content="우리 브랜드를 AI에게 물어보는 질문 10개와 기록표. 브루스의 트렌드 노트 구독자용 시트.">
 <meta name="robots" content="noindex">
 <meta name="claude:viewport-fit-sides" content="cover">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@700;800&family=IBM+Plex+Sans+KR:wght@400;500;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/newsletter/newsletter.css">
 <style>
-/* Layout: a working sheet. Intro, 3-step how-to, the 10-question log table (editable, saved in this browser), then reading guide. */
-:root {
-  --bg: #F2F1ED; --paper: #FBFAF7; --line: #E0DDD5; --ink: #141413; --ink-2: #3A3A37; --ink-3: #6F6E68;
-  --green: #23744C; --green-soft: #E1F0E6; --lens: #B0246A; --lens-soft: #F7E3EC;
-  --display: "Noto Serif KR", "Apple SD Gothic Neo", serif;
-  --body: "IBM Plex Sans KR", "Pretendard Variable", Pretendard, -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
-  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
-  color-scheme: light;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) { --bg: #161716; --paper: #1E201E; --line: #33362F; --ink: #EDEBE4; --ink-2: #C9C7BF; --ink-3: #9A988F; --green: #6CC596; --green-soft: #1F3328; --lens: #F07AB2; --lens-soft: #3A1E2C; color-scheme: dark; }
-}
-:root[data-theme="dark"] { --bg: #161716; --paper: #1E201E; --line: #33362F; --ink: #EDEBE4; --ink-2: #C9C7BF; --ink-3: #9A988F; --green: #6CC596; --green-soft: #1F3328; --lens: #F07AB2; --lens-soft: #3A1E2C; color-scheme: dark; }
-* { box-sizing: border-box; }
-html { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
-body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.75; word-break: keep-all; overflow-wrap: break-word; }
-.page { max-width: 820px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 40px 72px; display: flex; flex-direction: column; gap: 36px; }
-h1, h2 { font-family: var(--display); line-height: 1.35; text-wrap: balance; margin: 0; }
-h1 { font-size: clamp(28px, 6vw, 38px); }
-h2 { font-size: 21px; }
-p { margin: 0; }
-a { color: var(--green); text-underline-offset: 3px; }
-.label { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; color: var(--ink-3); }
-.lede { color: var(--ink-2); font-size: 17px; }
-section { display: flex; flex-direction: column; gap: 14px; }
-.steps { margin: 0; padding-left: 1.3em; display: flex; flex-direction: column; gap: 8px; color: var(--ink-2); }
-.steps b { color: var(--ink); }
-.legend { display: flex; flex-wrap: wrap; gap: 8px; font-size: 13.5px; }
-.legend span { background: var(--paper); border: 1px solid var(--line); border-radius: 999px; padding: 3px 12px; }
-.table-wrap { overflow-x: auto; background: var(--paper); border: 1px solid var(--line); border-radius: 14px; }
-table { width: 100%; border-collapse: collapse; min-width: 720px; font-size: 14.5px; }
-th, td { text-align: left; padding: 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
-th { font-family: var(--mono); font-size: 12px; font-weight: 500; letter-spacing: .05em; color: var(--ink-3); background: var(--bg); }
-td.n { font-family: var(--mono); color: var(--lens); width: 36px; }
-td.q b { display: block; color: var(--ink); }
-td.q span { color: var(--ink-3); font-size: 13px; }
-select, input[type="text"] { font: inherit; font-size: 14px; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 6px 8px; width: 100%; }
-select:focus-visible, input:focus-visible, button:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
-.tools { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
-button { font: inherit; font-size: 14px; font-weight: 500; border: 1px solid var(--line); background: var(--paper); color: var(--ink); border-radius: 999px; padding: 7px 16px; cursor: pointer; }
-.score { font-size: 15px; color: var(--ink-2); }
-.score b { color: var(--green); font-variant-numeric: tabular-nums; }
-.read { background: var(--paper); border: 1px solid var(--line); border-radius: 16px; padding: clamp(18px, 4vw, 26px); }
-.read ul { margin: 0; padding-left: 1.2em; display: flex; flex-direction: column; gap: 8px; color: var(--ink-2); }
-.quote { border-left: 3px solid var(--lens); padding: 4px 0 4px 16px; }
-.quote p { font-family: var(--display); font-weight: 700; font-size: 17px; }
-.quote cite { font-style: normal; font-size: 13px; color: var(--ink-3); }
-.cta { background: var(--lens-soft); border-radius: 16px; padding: 22px; display: flex; flex-direction: column; gap: 10px; }
-footer { font-size: 13px; color: var(--ink-3); border-top: 1px solid var(--line); padding-top: 16px; }
+.steps{margin:14px 0 0 1.3em;display:grid;gap:8px;font-size:16px;line-height:1.8;color:var(--text-2)}
+.steps b{color:var(--text)}
+.legend{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px}
+.log{margin-top:56px}
+.table-wrap{overflow-x:auto;margin-top:6px;border:1px solid var(--border-strong);border-radius:14px;background:var(--bg-card)}
+.log table{width:100%;border-collapse:collapse;min-width:700px;font-size:14.5px}
+.log th,.log td{text-align:left;padding:10px;border-bottom:1px solid var(--border);vertical-align:top}
+.log th{font-size:12px;font-weight:700;color:var(--text-3);background:var(--bg-soft)}
+.log td.n{color:var(--text-3);width:40px;font-variant-numeric:tabular-nums}
+.log td.q b{display:block;font-weight:700;color:var(--text)}
+.log td.q span{font-size:13px;color:var(--text-3)}
+.log select,.log input{font:inherit;font-size:14px;color:var(--text);background:var(--bg);border:1px solid var(--border-strong);border-radius:8px;padding:6px 8px;width:100%}
+.tools{margin-top:12px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.score{font-size:15px;color:var(--text-2)}
+.score b{color:var(--accent);font-variant-numeric:tabular-nums}
+.tools button{font:inherit;font-size:14px;font-weight:600;padding:8px 14px;border-radius:999px;border:1.5px solid var(--border-strong);background:transparent;color:var(--text-2);cursor:pointer}
+.readout{margin-top:56px}
+.readout .article ul{display:grid;gap:10px}
 </style>
 </head>
 <body>
-<main class="page">
+<header class="top"><div class="top__in"><a class="top__brand" href="/"><span class="brand-mark">BR<i>.</i></span>허보람(브루스)</a><nav class="top__nav"><a class="opt" href="/writing/">글</a><a href="/newsletter/" aria-current="page">트렌드 노트</a><a href="/#about">소개</a></nav></div></header>
+<main>
+<span class="eyebrow">트렌드 노트 구독자 시트</span>
+<h1>AI 검색 브랜드 진단 시트</h1>
+<p class="subtitle">고객은 이제 검색창보다 AI에게 먼저 묻습니다. 우리 브랜드가 그 답 안에 있는지, 있다면 어떤 말로 요약되는지 30분이면 확인할 수 있습니다.</p>
 
-<header style="display:flex;flex-direction:column;gap:14px">
-  <span class="label">브루스의 트렌드 노트 · 구독자 시트</span>
-  <h1>AI 검색 브랜드 진단 시트</h1>
-  <p class="lede">고객은 이제 검색창보다 AI에게 먼저 묻습니다. 우리 브랜드가 그 답 안에 있는지, 있다면 어떤 말로 요약되는지 30분이면 확인할 수 있습니다. GEO를 시작하기 전에 먼저 해 볼 일입니다.</p>
-</header>
-
-<section aria-labelledby="how">
-  <h2 id="how">이렇게 씁니다</h2>
-  <ol class="steps">
-    <li><b>도구를 정합니다.</b> ChatGPT, 제미나이, 네이버 AI 브리핑 중 고객이 많이 쓸 곳 두세 개. 매번 새 대화창에서, 로그인 기록이 적은 상태로 묻습니다.</li>
-    <li><b>아래 질문 10개의 [ ]를 우리 상황으로 바꿔 묻습니다.</b> 카테고리, 고객 상황, 경쟁 브랜드를 넣습니다.</li>
-    <li><b>결과를 기록합니다.</b> 추천됐는지, 언급만 됐는지, 없는지. 그리고 AI가 우리를 어떤 말로 설명했는지 한 줄 적습니다. 하루 기록으로 결론 내지 말고 며칠 간격으로 두세 번 반복합니다.</li>
-  </ol>
-  <div class="legend" aria-label="기록 기준">
-    <span>추천됨 = 우리를 골라 권함</span><span>언급 = 목록에만 등장</span><span>없음 = 나오지 않음</span><span>틀림 = 사실과 다르게 설명</span>
-  </div>
+<section class="method" aria-labelledby="how">
+<span class="kicker">이렇게 씁니다</span>
+<h2 id="how">GEO를 시작하기 전에 먼저 해 볼 일</h2>
+<ol class="steps">
+<li><b>도구를 정합니다.</b> ChatGPT, 제미나이, 네이버 AI 브리핑 중 고객이 많이 쓸 곳 두세 개. 매번 새 대화창에서 묻습니다.</li>
+<li><b>아래 질문 10개의 [ ]를 우리 상황으로 바꿔 묻습니다.</b> 카테고리, 고객 상황, 경쟁 브랜드를 넣습니다.</li>
+<li><b>결과를 기록합니다.</b> 추천됐는지, 언급만 됐는지, 없는지. AI가 우리를 어떤 말로 설명했는지 한 줄 적습니다. 며칠 간격으로 두세 번 반복한 뒤 판단합니다.</li>
+</ol>
+<div class="legend" aria-label="기록 기준"><span class="chip">추천됨 · 우리를 골라 권함</span><span class="chip">언급 · 목록에만 등장</span><span class="chip">없음 · 나오지 않음</span><span class="chip">틀림 · 사실과 다르게 설명</span></div>
 </section>
 
-<section aria-labelledby="log">
-  <h2 id="log">질문 10개 기록표</h2>
-  <div class="table-wrap">
-    <table>
-      <thead><tr><th>#</th><th>질문</th><th>결과</th><th>AI가 우리를 설명한 말</th></tr></thead>
-      <tbody id="rows"></tbody>
-    </table>
-  </div>
-  <div class="tools">
-    <p class="score" id="score" aria-live="polite">추천 <b>0</b> · 언급 <b>0</b> · 없음 <b>0</b> · 틀림 <b>0</b></p>
-    <button type="button" id="reset">기록 지우기</button>
-  </div>
-  <p class="label">기록은 이 브라우저에만 저장됩니다.</p>
+<section class="log" aria-labelledby="log">
+<span class="kicker" id="log">질문 10개 기록표</span>
+<div class="table-wrap">
+<table>
+<thead><tr><th>#</th><th>질문</th><th>결과</th><th>AI가 우리를 설명한 말</th></tr></thead>
+<tbody id="rows"></tbody>
+</table>
+</div>
+<div class="tools"><p class="score" id="score" aria-live="polite">추천 <b>0</b> · 언급 <b>0</b> · 없음 <b>0</b> · 틀림 <b>0</b></p><button type="button" id="reset">기록 지우기</button></div>
+<p class="small">기록은 이 브라우저에만 저장됩니다.</p>
 </section>
 
-<section class="read" aria-labelledby="readh">
-  <h2 id="readh">결과를 읽는 법</h2>
-  <ul>
-    <li><b>1~3번(카테고리 질문)에서 없음</b>: AI가 우리를 그 카테고리의 선택지로 모릅니다. 상품명·가격·카테고리처럼 AI가 읽을 기본 정보부터 정리합니다. 네이버는 올해 1분기 광고주 사이트의 약 90%가 이 단계에서 개선이 필요했다고 밝혔습니다.</li>
-    <li><b>4~6번(상황 질문)에서 없음</b>: 고객의 상황과 우리 제품을 잇는 장면이 웹에 없습니다. 상세 페이지와 콘텐츠에 "이럴 때 쓴다"를 구체적으로 적습니다.</li>
-    <li><b>7~8번(비교 질문)에서 경쟁사만 추천됨</b>: AI가 어떤 채널을 인용했는지 확인합니다. 전문 정보가 중요한 산업은 언론, 경험이 중요한 산업은 소셜 인용이 많다는 분석이 있습니다. 우리 산업에서 반복 인용되는 채널을 찾는 게 먼저입니다.</li>
-    <li><b>9~10번(브랜드 질문)에서 '틀림'이나 흐릿한 설명</b>: 구조보다 메시지의 문제일 수 있습니다. 시기마다 다른 약속을 해 왔다면 AI도 우리를 한 문장으로 정리하지 못합니다.</li>
-  </ul>
-  <div class="quote">
-    <p>"결국 사람들은 브랜드가 무엇이라고 말했는지보다 그 말을 실제로 지켰는지를 기억한다."</p>
-    <cite>《AI는 답을 만들고 마케터는 맥락을 설계한다》 9장 중</cite>
-  </div>
+<section class="readout" aria-labelledby="readh">
+<span class="kicker" id="readh">결과를 읽는 법</span>
+<div class="article" style="margin-top:8px">
+<ul>
+<li><strong>1~3번(카테고리 질문)에서 없음</strong>: AI가 우리를 그 카테고리의 선택지로 모릅니다. 상품명·가격·카테고리처럼 AI가 읽을 기본 정보부터 정리합니다. 네이버는 올해 1분기 광고주 사이트의 약 90%가 이 단계에서 개선이 필요했다고 밝혔습니다.</li>
+<li><strong>4~6번(상황 질문)에서 없음</strong>: 고객의 상황과 우리 제품을 잇는 장면이 웹에 없습니다. 상세 페이지와 콘텐츠에 "이럴 때 쓴다"를 구체적으로 적습니다.</li>
+<li><strong>7~8번(비교 질문)에서 경쟁사만 추천됨</strong>: AI가 어떤 채널을 인용했는지 확인합니다. 전문 정보가 중요한 산업은 언론, 경험이 중요한 산업은 소셜 인용이 많다는 분석이 있습니다.</li>
+<li><strong>9~10번(브랜드 질문)에서 '틀림'이나 흐릿한 설명</strong>: 구조보다 메시지의 문제일 수 있습니다. 시기마다 다른 약속을 해 왔다면 AI도 우리를 한 문장으로 정리하지 못합니다.</li>
+</ul>
+</div>
+<aside class="insight">
+<span class="kicker">브루스의 한 줄</span>
+<blockquote><p>"결국 사람들은 브랜드가 무엇이라고 말했는지보다 그 말을 실제로 지켰는지를 기억한다."</p><cite>《AI는 답을 만들고 마케터는 맥락을 설계한다》 9장 「교과서 같다는 말이 칭찬이 된 이유」 중</cite></blockquote>
+</aside>
 </section>
 
-<section class="cta" aria-labelledby="ctah">
-  <h2 id="ctah">매주 수요일, 트렌드를 이유까지</h2>
-  <p>「브루스의 트렌드 노트」는 국내외 마케팅 사례를 형식이 아니라 반응의 이유로 읽어 드립니다. 지난 호는 <a href="https://bruceheo.com/newsletter/">bruceheo.com/newsletter</a>에서 볼 수 있습니다.</p>
+<section class="subscribe" aria-labelledby="ctah">
+<h2 id="ctah">매주 수요일, 트렌드를 이유까지</h2>
+<p>「브루스의 트렌드 노트」는 국내외 마케팅 사례를 형식이 아니라 반응의 이유로 읽어 드립니다.</p>
+<div class="btns"><a class="btn btn--ghost" href="/newsletter/">지난 호 보기</a></div>
 </section>
-
-<footer>브루스(허보람) · 《AI는 답을 만들고 마케터는 맥락을 설계한다》 저자 · bruceheo.com</footer>
 </main>
+<footer>© 허보람(브루스) · 《AI는 답을 만들고 마케터는 맥락을 설계한다》 저자</footer>
 
 <script>
 (function () {
