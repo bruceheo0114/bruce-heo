@@ -68,6 +68,14 @@ p { margin: 0; }
 .conds { display: flex; flex-wrap: wrap; gap: 8px; }
 .chip { font-size: 13px; font-weight: 500; color: var(--lens); background: var(--lens-soft); border-radius: 999px; padding: 3px 11px; white-space: nowrap; }
 .method .note { font-size: 14px; color: var(--ink-3); }
+.qtable-wrap { overflow-x: auto; }
+.qtable { width: 100%; border-collapse: collapse; font-size: 14.5px; min-width: 480px; }
+.qtable th, .qtable td { text-align: left; padding: 9px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.qtable th { font-family: var(--mono); font-size: 12px; font-weight: 500; letter-spacing: .06em; color: var(--ink-3); }
+.qtable td:first-child { font-family: var(--mono); font-size: 13px; color: var(--lens); white-space: nowrap; }
+.qtable td:last-child { color: var(--ink); font-weight: 500; }
+.check-line { font-size: 14px; color: var(--ink-2); background: var(--lens-soft); border-radius: 10px; padding: 10px 12px; }
+.check-line b { color: var(--lens); font-weight: 700; margin-right: 6px; }
 
 /* trend essay */
 .trend { display: flex; flex-direction: column; gap: 18px; padding-top: 8px; border-top: 1px solid var(--line); }
@@ -111,42 +119,46 @@ footer { font-size: 13px; color: var(--ink-3); border-top: 1px solid var(--line)
 <header class="mast">
   <div class="mast-top">
     <span class="label">브루스의 트렌드 노트 · #0</span>
-    <span class="label">2026년 11월 첫째 주</span>
+    <span class="label">2026년 11월 4일 수요일</span>
   </div>
   <h1>AI가 정답을 골라주는데, 사람들은 왜 더 '나한테 맞는 것'을 찾을까?</h1>
   <div class="prose">
     <p>요즘은 트렌드 리포트도 AI가 몇 초 만에 정리해 준다. 키워드는 넘치고, 요약은 깔끔하다. 그런데 한 가지 의문이 생긴다. 이렇게 많은 트렌드를 읽고 나서, 우리는 무엇을 가져가고 있을까?</p>
     <p>이번 달 국내외 자료를 읽다 보니 다섯 개의 사례가 한 방향을 가리키고 있었다. AI가 비교와 추천을 대신할수록, 소비자는 다수가 고른 정답보다 나에게 맞는 선택을 찾는다. 그리고 브랜드는 AI에게도 사람에게도 '왜 우리인가'를 같은 말로 설명할 수 있어야 한다.</p>
   </div>
-  <p class="test-note">테스트호입니다. 각 사례 끝의 「브루스의 한 줄」은 책 《AI는 답을 만들고 마케터는 맥락을 설계한다》의 「책 속으로」 발췌문에서 골랐습니다. 장 번호는 확인된 것만 적었습니다.</p>
+  <p class="test-note">테스트호입니다. 「브루스의 한 줄」과 체크리스트는 모두 책 《AI는 답을 만들고 마케터는 맥락을 설계한다》 원고에서 그대로 옮겼습니다.</p>
 </header>
 
 <section class="method" aria-labelledby="m-h">
   <span class="label">이 노트를 읽는 법</span>
   <h2 id="m-h">형식 말고 이유를 저장한다</h2>
+  <figure class="quote">
+    <p>"예전에는 잘된 캠페인을 보면 형식부터 저장했다. 어떤 모델을 썼고, 어떤 포맷이었고, 화면을 어떻게 구성했는지. 지금은 반응의 이유를 먼저 적는다. 형식은 가져오기 쉽지만, 이유는 가져오기 어렵다."</p>
+    <cite>《AI는 답을 만들고 마케터는 맥락을 설계한다》 1장 「기획자는 왜 삶의 해상도를 높여야 하는가」 중</cite>
+  </figure>
   <div class="prose">
-    <p>예전에는 잘된 캠페인을 보면 형식부터 저장했다. 어떤 모델을 썼고, 어떤 포맷이었는지. 지금은 반응의 이유를 먼저 적는다. 형식은 가져오기 쉽지만, 이유는 가져오기 어렵기 때문이다. 이 노트는 트렌드를 세 단계로 읽는다.</p>
+    <p>트렌드도 마찬가지다. 요약된 키워드는 형식에 가깝다. 이 노트는 사례마다 반응의 이유를 찾고, 책에서 현장의 판단을 확인할 때 쓰는 다섯 가지 질문을 트렌드에 맞게 바꿔 묻는다. 다섯 개를 모든 사례에 다 묻지는 않는다. 사례마다 답이 나오는 질문만 골랐다.</p>
   </div>
-  <ol class="steps">
-    <li><div><b>장면</b> <span>· 무슨 일이 있었나. 숫자와 사례를 먼저 본다.</span></div></li>
-    <li><div><b>이유</b> <span>· 사람들은 왜 움직였나. 아래 다섯 가지 맥락 조건 중 어디에서 답이 나오는지 찾는다.</span></div></li>
-    <li><div><b>가져오기</b> <span>· 베끼기 쉬운 형식과 가져와야 할 이유를 나눠 적는다.</span></div></li>
-  </ol>
-  <div class="conds" aria-label="다섯 가지 맥락 조건">
-    <span class="chip">소비자의 지금 상태</span>
-    <span class="chip">브랜드가 쌓아온 것</span>
-    <span class="chip">누가 말하는가</span>
-    <span class="chip">조직이 실행할 수 있나</span>
-    <span class="chip">끝난 뒤 무엇이 남나</span>
+  <div class="qtable-wrap">
+    <table class="qtable">
+      <thead><tr><th>기준</th><th>책의 질문</th><th>트렌드에 묻는 질문</th></tr></thead>
+      <tbody>
+        <tr><td>READ</td><td>사람이 지금 어떤 상태인가</td><td>이 트렌드는 사람들의 어떤 상태를 보여주나</td></tr>
+        <tr><td>ROOT</td><td>우리 브랜드는 무엇을 쌓아왔나</td><td>따라가도 우리다운가</td></tr>
+        <tr><td>REACH</td><td>그 둘이 만나는 장면은 어디인가</td><td>우리 제품이 사람을 만나는 장면으로 옮길 수 있나</td></tr>
+        <tr><td>RALLY</td><td>이 안을 실행할 사람들을 같은 방향으로 모았나</td><td>우리 조직이 실제로 해낼 수 있나</td></tr>
+        <tr><td>REMAIN</td><td>끝난 뒤 무엇이 기준으로 남나</td><td>유행이 지나도 남는 기준은 무엇인가</td></tr>
+      </tbody>
+    </table>
   </div>
-  <p class="note">다섯 조건은 책에서 말하는 '맥락'의 정의에서 가져왔다. 책의 READ·ROOT·REACH·RALLY·REMAIN이 각각 이 조건들을 다룬다. 사례마다 해당하는 조건만 표시했다.</p>
+  <p class="note">각 사례 끝에는 사례에서 저장할 이유, 책 속 한 줄, 책의 장 끝 체크리스트 한 항목을 붙였다.</p>
 </section>
 
 <!-- 1 -->
 <article class="trend" aria-labelledby="t1">
   <div class="kicker">
     <span class="label">사례 1 · 소비자</span>
-    <div class="conds"><span class="chip">소비자의 지금 상태</span></div>
+    <div class="conds"><span class="chip">READ</span><span class="chip">REACH</span></div>
   </div>
   <h2 id="t1">효율은 AI에게 맡기고, 설렘엔 돈을 쓴다: 2027 키워드 '영점소비'</h2>
   <div class="prose">
@@ -173,9 +185,10 @@ footer { font-size: 13px; color: var(--ink-3); border-top: 1px solid var(--line)
   </div>
   <figure class="quote">
     <span class="who">브루스의 한 줄</span>
-    <p>"그 시간에 우리 브랜드를 선택했을 때 실패하지 않는다는 걸 증명해야 다음 시간을 얻을 기회가 생긴다. 소비자는 두 번의 기회를 잘 주지 않는다."</p>
-    <cite>《AI는 답을 만들고 마케터는 맥락을 설계한다》 3장 중</cite>
+    <p>"기술은 계속 불편을 없애고 있는데, 사람들은 오히려 돈을 내고 불편을 사고 있다. (…) 마케터가 설계해야 하는 건 불편의 양이 아니라 불편과 보상의 관계다."</p>
+    <cite>《AI는 답을 만들고 마케터는 맥락을 설계한다》 2장 「사람들은 왜 굳이 불편을 살까」 중</cite>
   </figure>
+  <p class="check-line"><b>책의 체크리스트</b>편의를 줄일 때 없앨 마찰과 남길 의식을 각각 목록으로 만든다.</p>
   <p class="src">출처: 브랜드브리프 2026.10.21 · 함께 읽기: <a href="https://bruceheo.com/writing/223/">영어 공부 앱이 왜 생일카페를 열까?</a></p>
 </article>
 
@@ -183,7 +196,7 @@ footer { font-size: 13px; color: var(--ink-3); border-top: 1px solid var(--line)
 <article class="trend" aria-labelledby="t2">
   <div class="kicker">
     <span class="label">사례 2 · AI 검색</span>
-    <div class="conds"><span class="chip">브랜드가 쌓아온 것</span><span class="chip">조직이 실행할 수 있나</span></div>
+    <div class="conds"><span class="chip">ROOT</span><span class="chip">RALLY</span></div>
   </div>
   <h2 id="t2">이케아 CMO는 왜 AI 시대에 "일관성"을 말할까</h2>
   <div class="prose">
@@ -210,9 +223,10 @@ footer { font-size: 13px; color: var(--ink-3); border-top: 1px solid var(--line)
   </div>
   <figure class="quote">
     <span class="who">브루스의 한 줄</span>
-    <p>"화제성은 시작이지 결과가 아니다. 조회 수는 지나가고, 밈은 낡고, 유행은 빠르게 교체된다. (…) 그렇게 맥락이 쌓일 때만 광고비는 비용이 아니라 자산이 된다."</p>
-    <cite>《AI는 답을 만들고 마케터는 맥락을 설계한다》 중</cite>
+    <p>"제품, 광고, 고객 응대, 공간, 콘텐츠가 서로 다른 태도를 보이면 결국 하나의 인상으로 묶이지 않는다. (…) 결국 사람들은 브랜드가 무엇이라고 말했는지보다 그 말을 실제로 지켰는지를 기억한다."</p>
+    <cite>《AI는 답을 만들고 마케터는 맥락을 설계한다》 9장 「교과서 같다는 말이 칭찬이 된 이유」 중</cite>
   </figure>
+  <p class="check-line"><b>책의 체크리스트</b>성과를 볼 때 우리가 반복한 메시지와 소비자가 기억하는 메시지를 대조한다.</p>
   <p class="src">출처: Digiday 2026.10.14 · 브랜드브리프 2026.10.16 · 더피알 2026.09.22</p>
 </article>
 
@@ -220,7 +234,7 @@ footer { font-size: 13px; color: var(--ink-3); border-top: 1px solid var(--line)
 <article class="trend" aria-labelledby="t3">
   <div class="kicker">
     <span class="label">사례 3 · 커머스</span>
-    <div class="conds"><span class="chip">누가 말하는가</span><span class="chip">소비자의 지금 상태</span></div>
+    <div class="conds"><span class="chip">REACH</span><span class="chip">READ</span></div>
   </div>
   <h2 id="t3">같은 영어 교재가 1억에서 20억이 된 이유</h2>
   <div class="prose">
@@ -246,9 +260,10 @@ footer { font-size: 13px; color: var(--ink-3); border-top: 1px solid var(--line)
   </div>
   <figure class="quote">
     <span class="who">브루스의 한 줄</span>
-    <p>"나는 후기를 콘텐츠가 아니라 '질문의 재고'로 보는 편이 낫다고 생각한다. (…) 제품마다 구매를 멈추게 하는 질문이 다르다."</p>
-    <cite>《AI는 답을 만들고 마케터는 맥락을 설계한다》 16장 「후기 1,000개보다 먼저 봐야 할 것」 중</cite>
+    <p>"중요한 건 누가 가장 유명한가가 아니다. 누가 이 메시지를 가장 자기답게 말할 수 있고, 그 말을 다른 채널이 어떻게 이어받을 것인가다. 사람을 고르는 일은 곧 전환의 맥락을 고르는 일이다."</p>
+    <cite>《AI는 답을 만들고 마케터는 맥락을 설계한다》 17장 「인플루언서는 종착지가 아니라 입구다」 중</cite>
   </figure>
+  <p class="check-line"><b>책의 체크리스트</b>노출 다음 날 검색, 후기, 상세 페이지가 받을 준비가 됐는지 점검한다.</p>
   <p class="src">출처: 더피알 2026.10.22 · 브랜드브리프 2026.10.13</p>
 </article>
 
@@ -256,7 +271,7 @@ footer { font-size: 13px; color: var(--ink-3); border-top: 1px solid var(--line)
 <article class="trend" aria-labelledby="t4">
   <div class="kicker">
     <span class="label">사례 4 · 일하는 법</span>
-    <div class="conds"><span class="chip">조직이 실행할 수 있나</span></div>
+    <div class="conds"><span class="chip">RALLY</span></div>
   </div>
   <h2 id="t4">AI는 세일이 사흘 남았다는 걸 모른다</h2>
   <div class="prose">
@@ -282,8 +297,9 @@ footer { font-size: 13px; color: var(--ink-3); border-top: 1px solid var(--line)
   <figure class="quote">
     <span class="who">브루스의 한 줄</span>
     <p>"일할 때의 공감은 착한 마음이 아니라 '해석하는 힘'이다. 숫자와 문장만으로는 보이지 않는 변수를 함께 읽는 능력이다. 광고주의 말 한마디 뒤에는 조직의 사정이 있고, 제작사의 일정 뒤에는 사람이 있다."</p>
-    <cite>《AI는 답을 만들고 마케터는 맥락을 설계한다》 중</cite>
+    <cite>《AI는 답을 만들고 마케터는 맥락을 설계한다》 21장 「"조금 더 임팩트 있게"라는 말의 뜻」 중</cite>
   </figure>
+  <p class="check-line"><b>책의 체크리스트</b>익숙한 단어가 나올 때. 프리미엄, 콘셉트, 자연스러움. 서로 같은 그림을 보고 있는지 확인했는가.</p>
   <p class="src">출처: 브랜드브리프 2026.10.16 · 브랜드브리프 2026.10.21(WARC 「Global Ad Trends: The cost of being seen」)</p>
 </article>
 
@@ -291,7 +307,7 @@ footer { font-size: 13px; color: var(--ink-3); border-top: 1px solid var(--line)
 <article class="trend" aria-labelledby="t5">
   <div class="kicker">
     <span class="label">사례 5 · 해외 브랜드</span>
-    <div class="conds"><span class="chip">끝난 뒤 무엇이 남나</span><span class="chip">브랜드가 쌓아온 것</span></div>
+    <div class="conds"><span class="chip">ROOT</span><span class="chip">REMAIN</span></div>
   </div>
   <h2 id="t5">러쉬는 왜 5년째 소셜 광고를 하지 않을까</h2>
   <div class="prose">
@@ -317,9 +333,10 @@ footer { font-size: 13px; color: var(--ink-3); border-top: 1px solid var(--line)
   </div>
   <figure class="quote">
     <span class="who">브루스의 한 줄</span>
-    <p>"그럴듯한 문장이 넘치는 시대에는 무엇을 말하지 않을지, 무엇을 끝까지 반복할지, 어떤 선택에 자기 이름을 걸지 결정할 수 있는 사람이 더 뚜렷한 경쟁력을 갖는다."</p>
-    <cite>《AI는 답을 만들고 마케터는 맥락을 설계한다》 중</cite>
+    <p>"반복은 용기가 필요한 선택이다. 새로운 아이디어가 없어서가 아니라, 새로움의 유혹보다 기억의 속도를 믿는 일이기 때문이다."</p>
+    <cite>《AI는 답을 만들고 마케터는 맥락을 설계한다》 15장 「우리가 지겨울 때 소비자는 이제 막 기억한다」 중</cite>
   </figure>
+  <p class="check-line"><b>책의 체크리스트</b>반복을 접을 때 접었을 때 사라지는 축적을 적어본다.</p>
   <p class="src">출처: Digiday 2026.10.28 · WARC 2026.10.14</p>
 </article>
 
@@ -332,9 +349,10 @@ footer { font-size: 13px; color: var(--ink-3); border-top: 1px solid var(--line)
   </div>
   <figure class="quote">
     <span class="who">브루스의 한 줄</span>
-    <p>"파격적인 아이디어는 원래 반박당할 가능성이 높다. 그래서 AI를 반복해서 거치다 보면 자연스럽게 파격적인 부분이 사라진다. AI가 뭉툭한 게 아니라, AI를 계속 돌리는 내가 점점 뭉툭해지고 있었다."</p>
-    <cite>《AI는 답을 만들고 마케터는 맥락을 설계한다》 29장 중</cite>
+    <p>"AI 시대에는 안전한 선택의 유혹이 더 커진다. 평균적으로 괜찮은 제목, 무난한 타깃 정의, 대부분의 사람이 반대하지 않을 아이디어는 몇 분 안에 만들 수 있다. 결과물의 최저점은 빠르게 올라간다. 반대로 '왜 굳이 이 선택이어야 하는가'를 설명하는 일은 더 어려워진다."</p>
+    <cite>《AI는 답을 만들고 마케터는 맥락을 설계한다》 29장 「AI가 뭉툭한 게 아니라 내가 뭉툭해지고 있었다」 중</cite>
   </figure>
+  <p class="check-line"><b>책의 체크리스트</b>여러 번 돌리고 있을 때. 더 나은 답을 찾는 중인가, 반박당하기 전에 미리 안심하려는 중인가.</p>
   <p class="src">출처: 캐릿 2026.10.27</p>
 </section>
 
@@ -379,6 +397,6 @@ footer { font-size: 13px; color: var(--ink-3); border-top: 1px solid var(--line)
   </ol>
 </section>
 
-<footer>브루스의 트렌드 노트 · 에이전시 마케터 브루스가 격주로 보내는 트렌드 해석 · bruceheo.com</footer>
+<footer>브루스의 트렌드 노트 · 에이전시 마케터 브루스가 매주 수요일 보내는 트렌드 해석 · bruceheo.com</footer>
 
 </main>
