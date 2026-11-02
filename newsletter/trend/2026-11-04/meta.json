@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-04",
+  "issue": 1,
+  "title": "AI가 정답을 골라주는데, 사람들은 왜 더 '나한테 맞는 것'을 찾을까?",
+  "seo_title": "AI가 정답을 골라주는데 왜 '나한테 맞는 것'을 찾을까 | 트렌드 노트 #1",
+  "seo_description": "영점소비, 이케아와 AI 검색, 1억에서 20억이 된 영어 교재, 러쉬의 5년. 국내외 사례를 형식이 아니라 반응의 이유로 읽습니다.",
+  "brands": ["엠브레인", "이케아", "네이버", "풀무원", "덴츠", "함샤우트글로벌", "CJ온스타일", "카카오", "몽규", "러쉬", "캐릿", "한화", "데버넘스", "트윅스", "프링글스"],
+  "quotes": [
+    {"chapter": 1, "text": "형식은 가져오기 쉽지만, 이유는 가져오기 어렵다."},
+    {"chapter": 2, "text": "마케터가 설계해야 하는 건 불편의 양이 아니라 불편과 보상의 관계다."},
+    {"chapter": 9, "text": "결국 사람들은 브랜드가 무엇이라고 말했는지보다 그 말을 실제로 지켰는지를 기억한다."},
+    {"chapter": 17, "text": "중요한 건 누가 가장 유명한가가 아니다."},
+    {"chapter": 21, "text": "일할 때의 공감은 착한 마음이 아니라 '해석하는 힘'이다."},
+    {"chapter": 15, "text": "반복은 용기가 필요한 선택이다."},
+    {"chapter": 29, "text": "AI 시대에는 안전한 선택의 유혹이 더 커진다."}
+  ],
+  "sources": [
+    "https://www.brandbrief.co.kr/site/data/html/2026/10/21/2026102110451.html",
+    "https://digiday.com/marketing/ikeas-cmo-sees-llms-as-the-newest-place-a-brand-has-to-hold-its-line/",
+    "https://www.brandbrief.co.kr/site/data/html/2026/10/16/2026101610428.html",
+    "https://www.the-pr.co.kr/news/articleView.html?idxno=62696",
+    "https://www.the-pr.co.kr/news/articleView.html?idxno=63011",
+    "https://www.brandbrief.co.kr/site/data/html/2026/10/21/2026102150001.html",
+    "https://www.warc.com/en/article/global-ad-trends-the-cost-of-being-seen-66b0d576f948430a9b6713132fe7276b",
+    "https://digiday.com/marketing/how-lush-quit-social-media-ads-and-still-drove-growth/",
+    "https://www.careet.net/2017"
+  ]
+}

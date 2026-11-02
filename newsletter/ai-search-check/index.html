@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AI 검색 브랜드 진단 시트</title>
+<meta name="description" content="우리 브랜드를 AI에게 물어보는 질문 10개와 기록표. 브루스의 트렌드 노트 구독자용 시트.">
+<meta name="robots" content="noindex">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/newsletter/newsletter.css">
+<style>
+.steps{margin:14px 0 0 1.3em;display:grid;gap:8px;font-size:16px;line-height:1.8;color:var(--text-2)}
+.steps b{color:var(--text)}
+.legend{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px}
+.log{margin-top:56px}
+.table-wrap{overflow-x:auto;margin-top:6px;border:1px solid var(--border-strong);border-radius:14px;background:var(--bg-card)}
+.log table{width:100%;border-collapse:collapse;min-width:700px;font-size:14.5px}
+.log th,.log td{text-align:left;padding:10px;border-bottom:1px solid var(--border);vertical-align:top}
+.log th{font-size:12px;font-weight:700;color:var(--text-3);background:var(--bg-soft)}
+.log td.n{color:var(--text-3);width:40px;font-variant-numeric:tabular-nums}
+.log td.q b{display:block;font-weight:700;color:var(--text)}
+.log td.q span{font-size:13px;color:var(--text-3)}
+.log select,.log input{font:inherit;font-size:14px;color:var(--text);background:var(--bg);border:1px solid var(--border-strong);border-radius:8px;padding:6px 8px;width:100%}
+.tools{margin-top:12px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.score{font-size:15px;color:var(--text-2)}
+.score b{color:var(--accent);font-variant-numeric:tabular-nums}
+.tools button{font:inherit;font-size:14px;font-weight:600;padding:8px 14px;border-radius:999px;border:1.5px solid var(--border-strong);background:transparent;color:var(--text-2);cursor:pointer}
+.readout{margin-top:56px}
+.readout .article ul{display:grid;gap:10px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top__in"><a class="top__brand" href="/"><span class="brand-mark">BR<i>.</i></span>허보람(브루스)</a><nav class="top__nav"><a class="opt" href="/writing/">글</a><a href="/newsletter/" aria-current="page">트렌드 노트</a><a href="/#about">소개</a></nav></div></header>
+<main>
+<span class="eyebrow">트렌드 노트 구독자 시트</span>
+<h1>AI 검색 브랜드 진단 시트</h1>
+<p class="subtitle">고객은 이제 검색창보다 AI에게 먼저 묻습니다. 우리 브랜드가 그 답 안에 있는지, 있다면 어떤 말로 요약되는지 30분이면 확인할 수 있습니다.</p>
+
+<section class="method" aria-labelledby="how">
+<span class="kicker">이렇게 씁니다</span>
+<h2 id="how">GEO를 시작하기 전에 먼저 해 볼 일</h2>
+<ol class="steps">
+<li><b>도구를 정합니다.</b> ChatGPT, 제미나이, 네이버 AI 브리핑 중 고객이 많이 쓸 곳 두세 개. 매번 새 대화창에서 묻습니다.</li>
+<li><b>아래 질문 10개의 [ ]를 우리 상황으로 바꿔 묻습니다.</b> 카테고리, 고객 상황, 경쟁 브랜드를 넣습니다.</li>
+<li><b>결과를 기록합니다.</b> 추천됐는지, 언급만 됐는지, 없는지. AI가 우리를 어떤 말로 설명했는지 한 줄 적습니다. 며칠 간격으로 두세 번 반복한 뒤 판단합니다.</li>
+</ol>
+<div class="legend" aria-label="기록 기준"><span class="chip">추천됨 · 우리를 골라 권함</span><span class="chip">언급 · 목록에만 등장</span><span class="chip">없음 · 나오지 않음</span><span class="chip">틀림 · 사실과 다르게 설명</span></div>
+</section>
+
+<section class="log" aria-labelledby="log">
+<span class="kicker" id="log">질문 10개 기록표</span>
+<div class="table-wrap">
+<table>
+<thead><tr><th>#</th><th>질문</th><th>결과</th><th>AI가 우리를 설명한 말</th></tr></thead>
+<tbody id="rows"></tbody>
+</table>
+</div>
+<div class="tools"><p class="score" id="score" aria-live="polite">추천 <b>0</b> · 언급 <b>0</b> · 없음 <b>0</b> · 틀림 <b>0</b></p><button type="button" id="reset">기록 지우기</button></div>
+<p class="small">기록은 이 브라우저에만 저장됩니다.</p>
+</section>
+
+<section class="readout" aria-labelledby="readh">
+<span class="kicker" id="readh">결과를 읽는 법</span>
+<div class="article" style="margin-top:8px">
+<ul>
+<li><strong>1~3번(카테고리 질문)에서 없음</strong>: AI가 우리를 그 카테고리의 선택지로 모릅니다. 상품명·가격·카테고리처럼 AI가 읽을 기본 정보부터 정리합니다. 네이버는 올해 1분기 광고주 사이트의 약 90%가 이 단계에서 개선이 필요했다고 밝혔습니다.</li>
+<li><strong>4~6번(상황 질문)에서 없음</strong>: 고객의 상황과 우리 제품을 잇는 장면이 웹에 없습니다. 상세 페이지와 콘텐츠에 "이럴 때 쓴다"를 구체적으로 적습니다.</li>
+<li><strong>7~8번(비교 질문)에서 경쟁사만 추천됨</strong>: AI가 어떤 채널을 인용했는지 확인합니다. 전문 정보가 중요한 산업은 언론, 경험이 중요한 산업은 소셜 인용이 많다는 분석이 있습니다.</li>
+<li><strong>9~10번(브랜드 질문)에서 '틀림'이나 흐릿한 설명</strong>: 구조보다 메시지의 문제일 수 있습니다. 시기마다 다른 약속을 해 왔다면 AI도 우리를 한 문장으로 정리하지 못합니다.</li>
+</ul>
+</div>
+<aside class="insight">
+<span class="kicker">브루스의 한 줄</span>
+<blockquote><p>"결국 사람들은 브랜드가 무엇이라고 말했는지보다 그 말을 실제로 지켰는지를 기억한다."</p><cite>《AI는 답을 만들고 마케터는 맥락을 설계한다》 9장 「교과서 같다는 말이 칭찬이 된 이유」 중</cite></blockquote>
+</aside>
+</section>
+
+<section class="subscribe" aria-labelledby="ctah">
+<h2 id="ctah">매주 수요일, 트렌드를 이유까지</h2>
+<p>「브루스의 트렌드 노트」는 국내외 마케팅 사례를 형식이 아니라 반응의 이유로 읽어 드립니다.</p>
+<div class="btns"><a class="btn btn--ghost" href="/newsletter/">지난 호 보기</a></div>
+</section>
+</main>
+<footer>© 허보람(브루스) · 《AI는 답을 만들고 마케터는 맥락을 설계한다》 저자</footer>
+
+<script>
+(function () {
+  var Q = [
+    ["[카테고리] 브랜드 추천해 줘", "가장 넓은 질문. 첫 화면에 들어가는지"],
+    ["[카테고리] 중에 가성비 좋은 곳은?", "가격 기준 비교에서의 위치"],
+    ["[카테고리] 처음 사는 사람에게 뭘 권해?", "입문자 질문에서의 위치"],
+    ["[고객 상황]일 때 쓸 만한 [카테고리] 있어?", "예: 민감한 피부, 1인 가구, 아이와 함께"],
+    ["[특정 계절·시기]에 [제품 용도]로 뭐가 좋아?", "시즌·용도 질문"],
+    ["[고객 고민]을 해결하려면 뭘 사야 해?", "제품명 없이 문제만 말했을 때"],
+    ["[우리 브랜드] vs [경쟁 브랜드] 뭐가 나아?", "직접 비교. 어떤 근거로 갈리는지"],
+    ["[경쟁 브랜드] 말고 대안은?", "대안 목록에 들어가는지"],
+    ["[우리 브랜드]는 어떤 브랜드야?", "AI가 요약하는 우리의 한 문장"],
+    ["[우리 브랜드] 단점이나 후기는 어때?", "평판 신호. 사실과 맞는지"]
+  ];
+  var KEY = "bruce-ai-search-check-v1";
+  var state = {};
+  try { state = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch (e) { state = {}; }
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
+  var rows = document.getElementById("rows");
+  Q.forEach(function (q, i) {
+    var tr = document.createElement("tr");
+    tr.innerHTML = '<td class="n">' + String(i + 1).padStart(2, "0") + '</td>' +
+      '<td class="q"><b></b><span></span></td>' +
+      '<td><label class="sr" for="r' + i + '" hidden>결과</label><select id="r' + i + '"><option value="">선택</option><option value="rec">추천됨</option><option value="men">언급</option><option value="no">없음</option><option value="wrong">틀림</option></select></td>' +
+      '<td><label for="t' + i + '" hidden>설명</label><input type="text" id="t' + i + '" placeholder="한 줄 메모"></td>';
+    tr.querySelector("b").textContent = q[0];
+    tr.querySelector("span").textContent = q[1];
+    rows.appendChild(tr);
+    var s = tr.querySelector("select"), t = tr.querySelector("input");
+    var v = state[i] || {};
+    s.value = v.r || ""; t.value = v.t || "";
+    s.addEventListener("change", function () { state[i] = state[i] || {}; state[i].r = s.value; save(); tally(); });
+    t.addEventListener("input", function () { state[i] = state[i] || {}; state[i].t = t.value; save(); });
+  });
+  function tally() {
+    var c = { rec: 0, men: 0, no: 0, wrong: 0 };
+    Object.keys(state).forEach(function (k) { var r = state[k] && state[k].r; if (c[r] !== undefined) c[r]++; });
+    document.getElementById("score").innerHTML = "추천 <b>" + c.rec + "</b> · 언급 <b>" + c.men + "</b> · 없음 <b>" + c.no + "</b> · 틀림 <b>" + c.wrong + "</b>";
+  }
+  document.getElementById("reset").addEventListener("click", function () {
+    state = {}; save();
+    rows.querySelectorAll("select").forEach(function (s) { s.value = ""; });
+    rows.querySelectorAll("input").forEach(function (t) { t.value = ""; });
+    tally();
+  });
+  tally();
+})();
+</script>
+</body>
+</html>
