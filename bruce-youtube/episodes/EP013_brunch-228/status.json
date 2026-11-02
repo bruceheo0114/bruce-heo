@@ -1,0 +1,80 @@
+{
+  "episode": "EP013",
+  "folder": "EP013_brunch-228",
+  "article": {
+    "id": "228",
+    "url": "https://brunch.co.kr/@heoboram/228",
+    "title": "이수만은 어떻게 익숙한 방식으로 사람들을 열광시켰을까?",
+    "published_at": "2026-11-02T03:00:00.000Z",
+    "source_file": "source/brunch/228.md",
+    "body_hash": "47508d867ab6cf4c99f3a3ecfc224cdafbd4302d8e104bb9a355facf70c693f2"
+  },
+  "status": "WAITING_APPROVAL",
+  "format": "v2",
+  "higgsfield_generation": false,
+  "recommendation": "MAKE_VIDEO",
+  "video_potential": {
+    "NARRATIVE": 8,
+    "CASE STUDY": 8,
+    "VISUAL MATERIAL": 7,
+    "TIMELINESS": 9,
+    "ORIGINAL POV": 8,
+    "30MIN POTENTIAL": 8,
+    "TOTAL": 48,
+    "MAX": 60
+  },
+  "approved_scenes": [],
+  "generated": {},
+  "plan": {
+    "runtime_seconds": 311,
+    "runtime": "5:11",
+    "total_scenes": 46,
+    "scenes_by_type": {
+      "REAL": 3,
+      "TYPE": 22,
+      "GRAPHIC": 14,
+      "AI": 7
+    },
+    "seconds_by_type": {
+      "REAL": 20,
+      "TYPE": 143,
+      "GRAPHIC": 96,
+      "AI": 52
+    },
+    "ai_share": 0.167,
+    "ai_scenes": [
+      "S010",
+      "S013",
+      "S020",
+      "S045",
+      "S025",
+      "S033",
+      "S039"
+    ],
+    "estimated_generations": 7,
+    "estimated_credits": 7,
+    "reusable_assets": [],
+    "cost_saving": [
+      "AI는 정지 이미지 6장(장당 0.25)만, 영상 클립은 사람 없는 G03 하나(5).",
+      "G03은 두 장면에서 재사용한다.",
+      "사례 장면은 기사 캡처와 움직이는 도식으로 채운다."
+    ]
+  },
+  "update": null,
+  "created_at": "2026-11-02T12:19:41.867Z",
+  "updated_at": "2026-11-02T12:22:00.872Z",
+  "history": [
+    {
+      "at": "2026-11-02T12:19:41.867Z",
+      "from": null,
+      "to": "PACKAGE_PENDING",
+      "note": "새 브런치 글"
+    },
+    {
+      "at": "2026-11-02T12:22:00.872Z",
+      "from": "PACKAGE_PENDING",
+      "to": "WAITING_APPROVAL",
+      "note": "영상화 평가 48/60 · MAKE_VIDEO"
+    }
+  ]
+}

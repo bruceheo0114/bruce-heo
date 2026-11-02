@@ -1,0 +1,32 @@
+{
+  "brunch": true,
+  "items": [
+    {
+      "id": "A001",
+      "kind": "article",
+      "url": "https://www.chosun.com/entertainments/music/2026/10/21/GFRGGOBXGNSTCNLGHEYTEMBTGY/",
+      "source": "조선일보 (2026-10-21)",
+      "scenes": [
+        "S003"
+      ]
+    },
+    {
+      "id": "A002",
+      "kind": "article",
+      "url": "https://www.kedglobal.com/k-pop/newsView/ked202610200001",
+      "source": "Korea Economic Daily (2026-10-20)",
+      "scenes": [
+        "S019"
+      ]
+    },
+    {
+      "id": "A003",
+      "kind": "article",
+      "url": "https://m.nocutnews.co.kr/news/6585165",
+      "source": "노컷뉴스",
+      "scenes": [
+        "S023"
+      ]
+    }
+  ]
+}

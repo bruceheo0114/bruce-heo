@@ -441,7 +441,18 @@
       "firstSeenAt": "2026-10-29T08:03:09.073Z",
       "updatedAt": "2026-10-29T08:03:09.073Z",
       "episode": null
+    },
+    "228": {
+      "id": "228",
+      "url": "https://brunch.co.kr/@heoboram/228",
+      "title": "이수만은 어떻게 익숙한 방식으로 사람들을 열광시켰을까?",
+      "publishedAt": "2026-11-02T03:00:00.000Z",
+      "bodyHash": "47508d867ab6cf4c99f3a3ecfc224cdafbd4302d8e104bb9a355facf70c693f2",
+      "file": "228.md",
+      "firstSeenAt": "2026-11-02T12:19:30.239Z",
+      "updatedAt": "2026-11-02T12:19:30.239Z",
+      "episode": "EP013"
     }
   },
-  "lastSyncedAt": "2026-10-31T12:15:04.836Z"
+  "lastSyncedAt": "2026-11-02T12:19:30.239Z"
 }
