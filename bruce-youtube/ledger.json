@@ -545,6 +545,47 @@
           "credits": 0.25
         }
       ]
+    },
+    "2026-11": {
+      "spent": 6.5,
+      "entries": [
+        {
+          "date": "2026-11-02",
+          "episode": "EP013",
+          "scene": "S020",
+          "credits": 5.25
+        },
+        {
+          "date": "2026-11-02",
+          "episode": "EP013",
+          "scene": "S010",
+          "credits": 0.25
+        },
+        {
+          "date": "2026-11-02",
+          "episode": "EP013",
+          "scene": "S013",
+          "credits": 0.25
+        },
+        {
+          "date": "2026-11-02",
+          "episode": "EP013",
+          "scene": "S025",
+          "credits": 0.25
+        },
+        {
+          "date": "2026-11-02",
+          "episode": "EP013",
+          "scene": "S033",
+          "credits": 0.25
+        },
+        {
+          "date": "2026-11-02",
+          "episode": "EP013",
+          "scene": "S039",
+          "credits": 0.25
+        }
+      ]
     }
   }
 }
