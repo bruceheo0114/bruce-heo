@@ -1,0 +1,184 @@
+{
+  "references_hash": "4b42b0737fd5912c",
+  "fetched_at": "2026-11-02T12:26:40.511Z",
+  "items": [
+    {
+      "file": "A001-screen.jpg",
+      "id": "A001",
+      "scenes": [
+        "S003"
+      ],
+      "kind": "screen",
+      "source": "조선일보 (2026-10-21)",
+      "url": "https://www.chosun.com/entertainments/music/2026/10/21/GFRGGOBXGNSTCNLGHEYTEMBTGY/"
+    },
+    {
+      "file": "A001-scroll.jpg",
+      "id": "A001",
+      "scenes": [
+        "S003"
+      ],
+      "kind": "scroll",
+      "source": "조선일보 (2026-10-21)",
+      "url": "https://www.chosun.com/entertainments/music/2026/10/21/GFRGGOBXGNSTCNLGHEYTEMBTGY/"
+    },
+    {
+      "file": "A001-img1.jpg",
+      "id": "A001",
+      "scenes": [
+        "S003"
+      ],
+      "kind": "image",
+      "source": "조선일보 (2026-10-21)",
+      "url": "https://www.chosun.com/entertainments/music/2026/10/21/GFRGGOBXGNSTCNLGHEYTEMBTGY/"
+    },
+    {
+      "file": "A001-img2.jpg",
+      "id": "A001",
+      "scenes": [
+        "S003"
+      ],
+      "kind": "image",
+      "source": "조선일보 (2026-10-21)",
+      "url": "https://www.chosun.com/entertainments/music/2026/10/21/GFRGGOBXGNSTCNLGHEYTEMBTGY/"
+    },
+    {
+      "file": "A002-screen.jpg",
+      "id": "A002",
+      "scenes": [
+        "S019"
+      ],
+      "kind": "screen",
+      "source": "Korea Economic Daily (2026-10-20)",
+      "url": "https://www.kedglobal.com/k-pop/newsView/ked202610200001"
+    },
+    {
+      "file": "A002-scroll.jpg",
+      "id": "A002",
+      "scenes": [
+        "S019"
+      ],
+      "kind": "scroll",
+      "source": "Korea Economic Daily (2026-10-20)",
+      "url": "https://www.kedglobal.com/k-pop/newsView/ked202610200001"
+    },
+    {
+      "file": "A003-screen.jpg",
+      "id": "A003",
+      "scenes": [
+        "S023"
+      ],
+      "kind": "screen",
+      "source": "노컷뉴스",
+      "url": "https://m.nocutnews.co.kr/news/6585165"
+    },
+    {
+      "file": "A003-scroll.jpg",
+      "id": "A003",
+      "scenes": [
+        "S023"
+      ],
+      "kind": "scroll",
+      "source": "노컷뉴스",
+      "url": "https://m.nocutnews.co.kr/news/6585165"
+    },
+    {
+      "file": "A003-img1.jpg",
+      "id": "A003",
+      "scenes": [
+        "S023"
+      ],
+      "kind": "image",
+      "source": "노컷뉴스",
+      "url": "https://m.nocutnews.co.kr/news/6585165"
+    },
+    {
+      "file": "G01.jpg",
+      "id": "G01",
+      "scenes": [
+        "S010"
+      ],
+      "kind": "ai",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261102_122258_334ea0a5-2a40-4509-a1e5-e11c9617c670.png"
+    },
+    {
+      "file": "G02.jpg",
+      "id": "G02",
+      "scenes": [
+        "S013"
+      ],
+      "kind": "ai",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261102_122257_f9c737d5-8a21-4e8c-adfa-690e04690cab.png"
+    },
+    {
+      "file": "G03.jpg",
+      "id": "G03",
+      "scenes": [
+        "S020",
+        "S045"
+      ],
+      "kind": "ai",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261102_122257_77a04886-1879-42ad-bf27-1fe14b4678df.png"
+    },
+    {
+      "file": "G04.jpg",
+      "id": "G04",
+      "scenes": [
+        "S025"
+      ],
+      "kind": "ai",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261102_122325_37e3c725-15ef-45e6-9366-be1992c9c3a0.png"
+    },
+    {
+      "file": "G05.jpg",
+      "id": "G05",
+      "scenes": [
+        "S033"
+      ],
+      "kind": "ai",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261102_122325_59274192-1b71-4173-b35d-03bfc8f546f8.png"
+    },
+    {
+      "file": "G06.jpg",
+      "id": "G06",
+      "scenes": [
+        "S039"
+      ],
+      "kind": "ai",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261102_122324_25ca7eae-5a23-472c-ac04-b5031459c383.png"
+    },
+    {
+      "file": "V01.mp4",
+      "id": "V01",
+      "scenes": [
+        "S020"
+      ],
+      "kind": "video",
+      "source": "AI 생성 영상 (Higgsfield)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261102_122328_6537e25b-aada-4128-8f60-3c67189a7107.mp4"
+    },
+    {
+      "file": "brunch-01.jpg",
+      "id": "brunch",
+      "scenes": [],
+      "kind": "image",
+      "source": "브런치 @heoboram 원문",
+      "url": "https://brunch.co.kr/@heoboram/228"
+    },
+    {
+      "file": "brunch-02.jpg",
+      "id": "brunch",
+      "scenes": [],
+      "kind": "image",
+      "source": "브런치 @heoboram 원문",
+      "url": "https://brunch.co.kr/@heoboram/228"
+    }
+  ],
+  "failures": []
+}
