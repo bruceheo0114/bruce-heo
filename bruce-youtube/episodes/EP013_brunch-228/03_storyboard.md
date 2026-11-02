@@ -4,7 +4,7 @@
 SCENE ID: S001
 TIME: 00:00-00:04
 NARRATION:
-"Neon(네온) and(앤) beyond(비욘드)!" 소셜미디어에서 한 번쯤 들어 보셨을 거예요.
+"NEON(네온) and(앤) beyond(비욘드)!" 소셜미디어에서 한 번쯤 들어 보셨을 거예요.
 VISUAL:
 오프화이트 배경 위 큰 문구, 포인트 컬러 한 단어
 SOURCE_TYPE: TYPE
