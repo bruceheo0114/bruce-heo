@@ -5,9 +5,9 @@
 
 ## 할 일 (한 번에 한 호)
 
-1. `git fetch -q origin claude/trend-newsletter-draft && git checkout -q claude/trend-newsletter-draft && git pull -q --rebase`.
+1. `git checkout -q main && git pull --rebase -q`.
    이번 호 날짜 = 다음 날(수요일) `YYYY-MM-DD`. `newsletter/trend/<날짜>/` 가 이미 있으면 "이번 주 원고 있음" 한 줄 남기고 끝낸다.
-   호수 = `newsletter/trend/` 안 기존 호 수 + 1 (#0 테스트호 제외하고 #1부터).
+   호수 = `newsletter/trend/` 안 날짜 폴더 수 + 1 (#1 = `2026-11-04`).
 2. **자료 수집 (지난 7일)** — Firecrawl `firecrawl_search`(`tbs: qdr:w`) 로 아래를 찾는다. 후보 12개를 고른 뒤 원문을 `firecrawl_scrape` 로 읽는다(요약 기사 말고 원문 확인).
    - 국내: brandbrief.co.kr, careet.net, the-pr.co.kr, ditoday.com
    - 해외: digiday.com, warc.com, adweek.com, marketingweek.com, thedrum.com, marketingdive.com
@@ -21,7 +21,7 @@
    - 18장~에필로그: `02_원고_맥락을 설계하는 일_허보람_최종윤문본.docx` (fileId `1d99-qj5QlENeIJyZnOjfizdsPcTI7C-c`). 이 원고는 21~25장 순서가 최종 목차와 다르다. 장 번호는 **최종 목차 기준**(21 임팩트, 22 좋은 아이디어, 23 파격, 24 모두가 반대, 25 내가 답을)으로 적는다.
    - 사례마다 「브루스의 한 줄」 1개(원문 그대로, 생략은 `(…)`)와 「책의 체크리스트」 1항목(장 끝 체크리스트 문장 그대로). 같은 문장을 최근 4호 안에서 다시 쓰지 않는다(`newsletter/trend/*/meta.json` 의 `quotes` 확인).
    - 인용은 한 호에 장당 3문장 이내로 짧게.
-5. **쓰기** — 형식은 `newsletter/trend/2026-11-02-issue00.html` 을 그대로 따른다(디자인·구조 복사, 내용만 바꾼다). 디자인은 홈페이지 글 페이지와 같은 `/newsletter/newsletter.css` 하나로만 맞춘다. 새 CSS·색·폰트를 만들지 않고, 상단 바·`eyebrow`·`method`·`glance`·`trend`·`facts`·`take`·`insight`·`related`·`subscribe`·`book`·`author-card`·`source` 클래스를 그대로 쓴다. `robots noindex` 줄은 테스트호에만 있으니 빼고, eyebrow 는 `트렌드 노트 #<호수>`.
+5. **쓰기** — 형식은 `newsletter/trend/2026-11-04/` 의 네 파일을 그대로 따른다(디자인·구조 복사, 내용만 바꾼다). 디자인은 홈페이지 글 페이지와 같은 `/newsletter/newsletter.css` 하나로만 맞춘다. 새 CSS·색·폰트를 만들지 않고, 상단 바·`eyebrow`·`method`·`glance`·`trend`·`facts`·`take`·`insight`·`related`·`subscribe`·`book`·`author-card`·`source` 클래스를 그대로 쓴다. eyebrow 는 `트렌드 노트 #<호수>`. `sitemap.xml` 의 `/newsletter/` 줄 아래에 이번 호 주소를 추가한다.
    - 맨 위: 이번 호 질문형 제목(HOOKS.md 5절: 구체적 대상 + 역설적 질문) + 도입 2문단.
    - 「이 노트를 읽는 법」 블록은 매호 같은 내용(1장 인용 + 5R 질문표)을 유지한다.
    - 사례마다: 라벨 + 해당 5R 칩(1~2개, 억지로 다섯 개를 채우지 않는다) → 제목 → 장면으로 여는 본문 → 사례 박스(숫자·사실) → 해석 2문단 → 형식/이유 → 브루스의 한 줄 → 책의 체크리스트 → 출처.
@@ -33,11 +33,11 @@
    - `email.html` : 스티비 붙여넣기용. 같은 내용, 인라인 스타일, 폭 600px 한 단, 웹폰트·스크립트 없음. 구독 블록 대신 "주변에 이 노트가 필요한 분께 전달해 주세요" + 구독 링크(utm_source=forward).
    - `linkedin.md` : LinkedIn 뉴스레터 붙여넣기용 평문(소제목 `###`, 인용은 `>`). 끝에 "메일로 받기" 링크(utm_source=linkedin).
    - `meta.json` : `{"date","issue","title","seo_title","seo_description","brands":[],"quotes":[{"chapter","text"}],"sources":[]}`
-   그리고 `newsletter/index.html` 의 「지난 호」 목록 맨 위에 이번 호 `related__item` 한 줄을 추가한다(테스트호 #0 은 #1 발행 후 목록에서 뺀다).
-   `git add newsletter/trend/<날짜> newsletter/index.html` → 커밋 `content: trend note #<호수> (<날짜>)` → `git push origin claude/trend-newsletter-draft`.
+   그리고 `newsletter/index.html` 의 「지난 호」 목록 맨 위에 이번 호 `related__item` 한 줄을 추가한다.
+   `git add newsletter/trend/<날짜> newsletter/index.html sitemap.xml` → 커밋 `content: trend note #<호수> (<날짜>)` → `git pull --rebase -q && git push origin HEAD:main`. (홈페이지 `bruceheo.com/newsletter/trend/<날짜>/` 로 바로 공개된다. 수요일 발행 전에 공개돼도 괜찮다.)
 7. **메일** — Gmail `send_message` 로 **heoboram0114@gmail.com 한 곳에만**.
    - 제목: `[트렌드 노트 #<호수>] <제목> — 수요일 발행 원고`
-   - `htmlBody`: ① 확인할 것(다룬 브랜드 목록, 확인 못 한 숫자가 있으면 그 목록) ② 미리보기 링크 `https://github.com/bruceheo0114/bruce-heo/blob/claude/trend-newsletter-draft/newsletter/trend/<날짜>/index.html` ③ 구분선 ④ `email.html` 본문 전체 ⑤ 구분선 ⑥ `linkedin.md` 전문(제목·SEO 제목·설명 포함). `body` 에는 같은 내용의 평문.
+   - `htmlBody`: ① 확인할 것(다룬 브랜드 목록, 확인 못 한 숫자가 있으면 그 목록) ② 미리보기 링크 `https://bruceheo.com/newsletter/trend/<날짜>/` (반영까지 몇 분 걸릴 수 있음) ③ 구분선 ④ `email.html` 본문 전체 ⑤ 구분선 ⑥ `linkedin.md` 전문(제목·SEO 제목·설명 포함). `body` 에는 같은 내용의 평문.
 8. 끝나면 결과 한 줄(호수, 제목, 사례 수, 메일 발송 여부).
 
-하지 말 것: 스티비·LinkedIn·스레드에 직접 발행, 원고 PDF/docx 내용을 저장소에 저장, 원문에 없는 사실·수치·인용 추가, 다른 주소로 메일 발송, main 브랜치 수정.
+하지 말 것: 스티비·LinkedIn·스레드에 직접 발행, 원고 PDF/docx 내용을 저장소에 저장, 원문에 없는 사실·수치·인용 추가, 다른 주소로 메일 발송, `newsletter/`·`sitemap.xml` 밖의 파일 수정.

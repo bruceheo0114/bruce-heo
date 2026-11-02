@@ -56,7 +56,7 @@
 <section class="related" id="issues" aria-labelledby="is-h">
 <span class="kicker" id="is-h">지난 호</span>
 <div class="related__list">
-<a class="related__item" href="/newsletter/trend/2026-11-02-issue00.html"><small>#0 · 2026. 11. 4.</small><span>AI가 정답을 골라주는데, 사람들은 왜 더 '나한테 맞는 것'을 찾을까?</span><em>영점소비 · 이케아와 AI 검색 · 1억에서 20억이 된 영어 교재 · 러쉬의 5년 · 올해의 단어 '딸깍'</em></a>
+<a class="related__item" href="/newsletter/trend/2026-11-04/"><small>#1 · 2026. 11. 4.</small><span>AI가 정답을 골라주는데, 사람들은 왜 더 '나한테 맞는 것'을 찾을까?</span><em>영점소비 · 이케아와 AI 검색 · 1억에서 20억이 된 영어 교재 · 러쉬의 5년 · 올해의 단어 '딸깍'</em></a>
 </div>
 </section>
 
@@ -85,6 +85,11 @@
     ["sub-btn", "sub-btn-2"].forEach(function (id) {
       var a = document.getElementById(id);
       if (!a) return;
+      // 스티비 링크를 넣기 전까지는 메일로 구독 신청을 받는다.
+      if (a.href.indexOf("STIBEE_LIST_ID") > -1) {
+        a.href = "mailto:heoboram0114@gmail.com?subject=" + encodeURIComponent("[트렌드 노트 구독 신청]") + "&body=" + encodeURIComponent("이름:\n하시는 일(브랜드사/대행사/기타):\n유입 경로: " + (keep.get("utm_source") || "direct") + "\n\n구독을 신청합니다. 매주 수요일 트렌드 노트와 AI 검색 브랜드 진단 시트를 받겠습니다.");
+        return;
+      }
       if (keep.toString()) a.href += (a.href.indexOf("?") < 0 ? "?" : "&") + keep.toString();
       a.addEventListener("click", function () {
         if (typeof gtag === "function") gtag("event", "newsletter_subscribe_click", { source: keep.get("utm_source") || "direct", position: id });
