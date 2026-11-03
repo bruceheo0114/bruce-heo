@@ -56,3 +56,12 @@
 - 제목: `[트렌드 노트 #<호수>] <제목>` — #1: `[트렌드 노트 #1] AI가 정답을 골라주는데, 사람들은 왜 더 '나한테 맞는 것'을 찾을까?`
 - 테스트 발송으로 본인에게 먼저 확인 → 수요일 08:00 예약 발송
 - 참고: 수신거부 링크는 테스트 발송에서는 동작하지 않는다(스티비 도움말).
+
+## 5. 자동 발송 (한 번만 설정)
+
+- 스티비 요금제: 이메일 API 는 **프로 요금제 이상**에서만 열린다.
+- 스티비 → 워크스페이스 설정 → API 키 → 새로 만들기 → 복사
+- GitHub 저장소 → Settings → Secrets and variables → Actions → New repository secret
+  - Name: `STIBEE_API_KEY` · Secret: 복사한 키
+- 이후 매주 화요일 루틴이 원고를 main 에 올리면 Actions 「Trend note Stibee」가 수 08:00 으로 예약한다.
+- 네이버 신호는 기존 Secrets `NAVER_CLIENT_ID` · `NAVER_CLIENT_SECRET` 를 그대로 쓴다.

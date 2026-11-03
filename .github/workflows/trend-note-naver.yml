@@ -1,0 +1,66 @@
+name: Trend note Naver signals
+
+# 「브루스의 트렌드 노트」 화요일 루틴(19:52)이 쓰기 전에 네이버 뉴스·블로그·데이터랩으로 국내 사례 후보를 모은다.
+# 루틴은 사례를 고른 뒤 mode=keywords 로 이 워크플로를 다시 불러 사례 이름의 검색 관심도를 잰다.
+# 결과는 newsletter/signals/ 에 커밋한다. 키는 Secrets 의 NAVER_CLIENT_ID · NAVER_CLIENT_SECRET(다른 네이버 워크플로와 같은 키).
+on:
+  schedule:
+    - cron: "7 9 * * 2"  # 매주 화 18:07 KST
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "candidates(사례 후보) | keywords(검색 관심도)"
+        required: false
+        default: candidates
+      date:
+        description: "발행일 YYYY-MM-DD (keywords 모드)"
+        required: false
+        default: ""
+      keywords:
+        description: "쉼표로 구분한 사례 이름 (keywords 모드, 최대 15개)"
+        required: false
+        default: ""
+
+concurrency:
+  group: trend-note-naver
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      NAVER_CLIENT_ID: ${{ secrets.NAVER_CLIENT_ID }}
+      NAVER_CLIENT_SECRET: ${{ secrets.NAVER_CLIENT_SECRET }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Collect
+        env:
+          MODE: ${{ github.event.inputs.mode || 'candidates' }}
+          DATE: ${{ github.event.inputs.date }}
+          KEYWORDS: ${{ github.event.inputs.keywords }}
+        run: |
+          if [ "$MODE" = "keywords" ]; then
+            node src/cli/naver-trend-note.js keywords "$DATE" "$KEYWORDS"
+          else
+            node src/cli/naver-trend-note.js candidates
+          fi
+
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add newsletter/signals
+          if git diff --cached --quiet; then echo "변경 없음"; exit 0; fi
+          git commit -m "chore: trend note naver signals"
+          for i in 1 2 3; do git pull --rebase -q origin main && git push -q origin HEAD:main && exit 0; sleep $((i*5)); done
+          exit 1
