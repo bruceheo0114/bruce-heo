@@ -65,9 +65,10 @@
   "stibee": {
     "emailId": 3683414,
     "listId": 527738,
-    "status": "draft",
-    "updatedAt": "2026-11-03T03:10:00.000Z",
+    "status": "failed",
+    "updatedAt": "2026-11-03T03:06:44.398Z",
     "editUrl": "https://stibee.com/email/3683414",
-    "note": "스티비 화면에서 직접 만든 초안(테스트 발송 완료). 새로 만들지 말고 이 이메일에 본문을 넣어 예약한다."
+    "note": "스티비 화면에서 직접 만든 초안(테스트 발송 완료). 새로 만들지 말고 이 이메일에 본문을 넣어 예약한다.",
+    "error": "Stibee API 오류 (400): {\"code\":\"Errors.Service.UnsupportedAPI\",\"httpStatusCode\":400,\"message\":\"지원하지 않는 API 입니다.\",\"values\":{\"message\":\"프로 요금제가 필요합니다. \"}}"
   }
 }
