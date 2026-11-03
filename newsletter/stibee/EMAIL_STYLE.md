@@ -111,5 +111,5 @@ grep -oE 'https?://[^"]+' $f | grep -v -E '^https://(bruceheo\.com|www\.)' # 외
 - 주소록 `브루스의 트렌드 노트` (ID 527738), 발신자 이름 `브루스의 트렌드 노트`, 발신 주소 `heoboram0114-gm@send.stibee.com`
 - 구독 폼 `https://page.stibee.com/subscriptions/527738` (헤더 = `wordmark-1200.png`, 텍스트 제목은 끔)
 - 메일 제목 형식 `[트렌드 노트 #<호수>] <제목>`
-- 발송·예약은 GitHub Actions `trend-note-stibee.yml` 이 스티비 API(키: Secrets `STIBEE_API_KEY`)로 한다. 발행일 08:00 KST 예약, 결과는 `meta.json` 의 `stibee` 칸. 루틴은 스티비에 로그인하거나 API 를 직접 부르지 않는다.
-- 보류: Actions 「Trend note Stibee」를 action=cancel, date=<발행일> 로 실행하거나 스티비에서 예약 취소.
+- 발송·예약은 브루스가 스티비 화면에서 직접 한다(스탠다드 요금제라 이메일 API 없음). 절차는 `newsletter/stibee/WEEKLY_SEND.md`. 루틴은 스티비에 로그인하거나 API 를 부르지 않는다.
+- 그래서 `email.html` 은 **복사해 붙여넣기만 하면 끝나는 상태**여야 한다. 스티비에서 손볼 곳(빈 링크, `<날짜>` 같은 자리표시, 테스트 문구)을 남기지 않는다.

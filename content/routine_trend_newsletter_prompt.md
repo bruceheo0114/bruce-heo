@@ -1,7 +1,7 @@
 너는 「브루스의 트렌드 노트」(매주 수요일 발행) 원고 담당이다. 매주 화요일 저녁에 돈다. 이 파일과 메일 스타일 `newsletter/stibee/EMAIL_STYLE.md` 만 읽고 그대로 따른다.
 
-주간 흐름: 월 21:00 브런치 → 화 07:30 LinkedIn 피드 → **화 18:07 네이버 신호(Actions `trend-note-naver.yml`) → 화 19:52 트렌드 노트 원고(이 루틴) → main 푸시 → 스티비 예약(Actions `trend-note-stibee.yml`, 수 08:00 자동 발송)** → 수 아침 브루스가 LinkedIn 뉴스레터 게시 → 목 아침 브런치 원고 뉴스레터(기존 루틴).
-스티비 발송은 Actions 가 API 로 한다(이 루틴은 스티비에 로그인하거나 직접 호출하지 않는다). LinkedIn·스레드에는 게시하지 않는다.
+주간 흐름: 월 21:00 브런치 → 화 07:30 LinkedIn 피드 → **화 18:07 네이버 신호(Actions `trend-note-naver.yml`) → 화 19:52 트렌드 노트 원고(이 루틴) → main 푸시 → 원고 메일 → 브루스가 스티비에 직접 붙여넣고 수 08:00 예약** → 수 아침 브루스가 LinkedIn 뉴스레터 게시 → 목 아침 브런치 원고 뉴스레터(기존 루틴).
+스티비는 스탠다드 요금제라 이메일 API(만들기·예약)를 쓸 수 없다. 이 루틴은 스티비에 로그인하거나 API 를 부르지 않고, 브루스가 메일만 보고 바로 예약할 수 있게 원고 메일을 만든다(브루스 쪽 절차: `newsletter/stibee/WEEKLY_SEND.md`). LinkedIn·스레드에는 게시하지 않는다.
 
 **무인 실행 원칙** — 클라우드 정기 실행이라 중간에 묻지 않는다. 도구가 없으면 아래 대체 경로로 끝까지 가고, 대체한 사실을 메일 맨 위 「확인할 것」에 적는다. 검사(`newsletter/stibee/check.sh`)를 통과하지 못하면 푸시하지 않고 실패 이유를 메일로 보낸다. 날짜는 항상 `TZ=Asia/Seoul date` 기준.
 
@@ -44,12 +44,19 @@
    그리고 `newsletter/index.html` 의 「지난 호」 목록 맨 위에 이번 호 `related__item` 한 줄을 추가한다.
    **검사**: `bash newsletter/stibee/check.sh <날짜>` 가 `OK` 를 낼 때까지 고친다(최대 3번). 그래도 FAIL 이면 커밋하지 않고 7단계 메일 제목을 `[트렌드 노트 #<호수>] 원고 검사 실패` 로 바꿔 FAIL 줄들을 보낸다.
    `git add newsletter/trend/<날짜> newsletter/index.html sitemap.xml` → 커밋 `content: trend note #<호수> (<날짜>)` → `git pull --rebase -q && git push origin HEAD:main`. (홈페이지 `bruceheo.com/newsletter/trend/<날짜>/` 로 바로 공개된다. 수요일 발행 전에 공개돼도 괜찮다.)
-6-1. **스티비 예약 확인** — 푸시하면 Actions `trend-note-stibee.yml` 이 email.html 을 스티비 주소록(527738)에 일반 이메일로 만들고 `<날짜> 08:00` 에 예약한 뒤 `meta.json` 의 `stibee` 칸(`status`, `emailId`, `editUrl`)을 커밋한다. 푸시 후 최대 5분 동안 1분마다 `git pull -q` 로 `meta.json` 의 `stibee.status` 를 확인한다. `reserved` 면 성공. `failed` 면 `stibee.error` 를, 칸이 안 생기면 "스티비 예약 확인 안 됨(STIBEE_API_KEY Secret 확인)"을 메일 「확인할 것」 맨 위에 적는다. 직접 스티비 API 를 부르지 않는다.
-7. **메일** — Gmail `send_message` 로 **heoboram0114@gmail.com 한 곳에만**.
-   - 제목: `[트렌드 노트 #<호수>] <제목> — 수요일 발행 원고`
-   - `htmlBody` 맨 위에 **스티비 예약 상태**(예: "스티비 예약 완료 · 수 08:00 자동 발송 · 편집 <editUrl>")와 **보류 방법**("보내지 않으려면 GitHub Actions 「Trend note Stibee」를 action=cancel, date=<날짜> 로 실행하거나 스티비에서 예약 취소")을 적는다. 그 아래 렌더된 email.html 미리보기.
-   - `htmlBody`: ① 확인할 것(다룬 브랜드 목록, 확인 못 한 숫자가 있으면 그 목록) ② 미리보기 링크 `https://bruceheo.com/newsletter/trend/<날짜>/` (반영까지 몇 분 걸릴 수 있음) ③ 구분선 ④ `email.html` 본문 전체 ⑤ 구분선 ⑥ `linkedin.md` 전문(제목·SEO 제목·설명 포함). `body` 에는 같은 내용의 평문.
+7. **메일** — Gmail `send_message` 로 **heoboram0114@gmail.com 한 곳에만**. 브루스가 이 메일만 보고 스티비 예약을 끝낼 수 있게 쓴다.
+   - 제목: `[트렌드 노트 #<호수>] <제목> — 수요일 08:00 예약할 원고`
+   - `htmlBody` 순서:
+     ① **스티비에 넣을 것**(맨 위, 복사하기 쉽게 한 줄씩):
+        - 스티비 제목: `[트렌드 노트 #<호수>] <제목>`
+        - HTML 복사용 링크: `https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/newsletter/trend/<날짜>/email.html` (열면 원문 글자만 보인다 → 전체 선택·복사)
+        - 예약 시각: `<날짜> (수) 08:00`
+        - 한 줄 안내: "스티비 → 지난 호 복사 → 제목 바꾸기 → HTML 전체 교체 → 테스트 발송 → 수 08:00 예약 (자세히: WEEKLY_SEND.md)"
+     ② 확인할 것(다룬 브랜드 목록, 확인 못 한 숫자, 대체 경로를 쓴 도구)
+     ③ 미리보기 링크 `https://bruceheo.com/newsletter/trend/<날짜>/` (반영까지 몇 분 걸릴 수 있음)
+     ④ 구분선 ⑤ 렌더된 `email.html` 본문 전체(받은 메일에서 바로 모양을 본다) ⑥ 구분선 ⑦ `linkedin.md` 전문(제목·SEO 제목·설명 포함).
+   - `body` 에는 같은 내용의 평문(①의 세 줄은 반드시 포함).
    - **대체 경로**: Gmail 도구가 없으면 메일 대신 마지막 메시지에 미리보기 링크·스티비 제목·확인할 것을 적는다(PushNotification 도구가 있으면 같은 내용으로 푸시).
 8. 끝나면 결과 한 줄(호수, 제목, 사례 수, 검사 결과, 메일 발송 여부, 대체 경로를 쓴 도구).
 
-하지 말 것: 스티비 API 직접 호출·LinkedIn·스레드에 직접 발행, 원고 PDF/docx 내용을 저장소에 저장, 원문에 없는 사실·수치·인용 추가, 다른 주소로 메일 발송, `newsletter/`(signals 제외)·`sitemap.xml` 밖의 파일 수정.
+하지 말 것: 스티비 로그인·API 호출·예약, LinkedIn·스레드에 직접 발행, 원고 PDF/docx 내용을 저장소에 저장, 원문에 없는 사실·수치·인용 추가, 다른 주소로 메일 발송, `newsletter/`(signals 제외)·`sitemap.xml` 밖의 파일 수정.
