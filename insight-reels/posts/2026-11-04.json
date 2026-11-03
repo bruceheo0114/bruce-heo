@@ -1,35 +1,94 @@
 {
   "date": "2026-11-04",
-  "type": "carousel",
-  "source": "brunch-card-news",
-  "brunch_no": 214,
-  "title": "AI 시대, 도끼를 든 사람이 되자",
-  "brunch_url": "https://brunch.co.kr/@heoboram/214",
-  "status": "cancelled",
-  "caption": "🪓 AI가 모두에게 비슷한 무기를 쥐여줄수록, 차이를 만드는 건 '도끼 같은 생각'이에요.\n\n봉화군 김수성 주무관은 사비 약 33만 원으로 뉴욕 타임스스퀘어에 봉화사과 광고를 냈어요. 목적은 미국 판매가 아니라, 그 사실을 국내에서 이야기할 콘텐츠로 쓰는 것이었죠. 저도 클로드 코드로 몇 년 미뤄온 인플루언서 DB를 약 3일 만에 만들었어요. 생각과 실행 사이의 거리가 정말 짧아졌어요.\n\n📌 그런데 AI가 보여주는 A, B, C가 너무 그럴듯하면 우리는 그 안에서만 고르게 돼요. 10점짜리 D를 생각할 기회를 잃을 수 있어요.\n\n마케터에게 중요한 건 아이디어를 누가 먼저 떠올렸느냐가 아니라, 맥락을 읽고 무엇을 선택할지 결정하는 판단이에요. 내 일을 설명할 수 있어야 AI에게도 제대로 맡길 수 있어요.\n\nAI가 준 답 밖의 'D'를 마지막으로 생각해본 건 언제인가요?\n\n🔍 봉화사과 33만 원 광고와 3일 만에 만든 DB 이야기는 bruceheo.com 에서 이어져요.\n\nAI가 준 보기 안에서만 고르고 있는 팀원에게 보내 주세요. 'D는 없을까?' 한마디면 돼요.\n\n#브루스매거진 #봉화사과 #AI시대마케터 #아이디어발상 #생각의힘",
-  "images": [
-    "https://bruceheo.com/content/214/cards/01.jpg",
-    "https://bruceheo.com/content/214/cards/02.jpg",
-    "https://bruceheo.com/content/214/cards/03.jpg",
-    "https://bruceheo.com/content/214/cards/04.jpg",
-    "https://bruceheo.com/content/214/cards/05.jpg",
-    "https://bruceheo.com/content/214/cards/06.jpg",
-    "https://bruceheo.com/content/214/cards/07.jpg",
-    "https://bruceheo.com/content/214/cards/08.jpg",
-    "https://bruceheo.com/content/214/cards/09.jpg",
-    "https://bruceheo.com/content/214/cards/10.jpg"
+  "time": "07:00",
+  "type": "reel",
+  "brunch_no": 228,
+  "title": "이수만은 어떻게 익숙한 방식으로 사람들을 열광시켰을까?",
+  "brunch_url": "https://brunch.co.kr/@heoboram/228",
+  "angle": "유행 공식을 따르지 않고 제일 잘하던 것을 다시 꺼낸 판단 — 쌓아 온 선택(안목)이 이름에 대한 기대가 된다",
+  "hook_candidates": [
+    {
+      "no": 1,
+      "screen": "미혼 앤 비혼.",
+      "first_line": "미혼 앤 비혼. 결혼 얘기 같죠?",
+      "method": "낯선 말"
+    },
+    {
+      "no": 2,
+      "screen": "3분 28초짜리 노래가 1위",
+      "first_line": "삼 분 이십팔 초짜리 노래가 멜론 일 위를 했어요.",
+      "method": "숫자"
+    },
+    {
+      "no": 3,
+      "screen": "이수만은 새 걸 안 했어요",
+      "first_line": "이수만은 이번에 새로운 걸 하지 않았어요.",
+      "method": "반전"
+    },
+    {
+      "no": 4,
+      "screen": "요즘 공식을 다 어긴 노래",
+      "first_line": "요즘 케이팝 흥행 공식을 다 어긴 노래가 있어요.",
+      "method": "흔한 실수"
+    },
+    {
+      "no": 5,
+      "screen": "왜 옛날 SM 노래 같을까?",
+      "first_line": "처음 듣는데 왜 옛날 SM 노래 같을까요?",
+      "method": "질문"
+    },
+    {
+      "no": 6,
+      "screen": "Neon and beyond!",
+      "first_line": "네온 앤 비욘드. 이 노래, 들어 보셨죠?",
+      "method": "낯선 말"
+    },
+    {
+      "no": 7,
+      "screen": "짧은 곡 vs 3분 28초",
+      "first_line": "짧고 가벼운 곡, 그리고 삼 분 이십팔 초.",
+      "method": "비교"
+    },
+    {
+      "no": 8,
+      "screen": "'역시 이수만'의 정체",
+      "first_line": "사람들이 '역시 이수만'이라고 한 진짜 이유.",
+      "method": "비밀 공개"
+    },
+    {
+      "no": 9,
+      "screen": "처음 듣고 기시감이 들었어요",
+      "first_line": "처음 들었을 때 묘한 기시감이 느껴졌어요.",
+      "method": "내 경험"
+    },
+    {
+      "no": 10,
+      "screen": "하루 남짓 만에 멜론 1위",
+      "first_line": "하루 남짓 만에 멜론 일 위. 새 노래가 아니었어요.",
+      "method": "숫자"
+    }
   ],
-  "images_backup": [
-    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/content/214/cards/01.jpg",
-    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/content/214/cards/02.jpg",
-    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/content/214/cards/03.jpg",
-    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/content/214/cards/04.jpg",
-    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/content/214/cards/05.jpg",
-    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/content/214/cards/06.jpg",
-    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/content/214/cards/07.jpg",
-    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/content/214/cards/08.jpg",
-    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/content/214/cards/09.jpg",
-    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/content/214/cards/10.jpg"
-  ],
-  "cancel_reason": "2026-10-18 결정: 인스타는 매일 릴스 + 월요일 트렌드. 지금까지 만든 브런치 카드뉴스는 쓰지 않는다. 릴스 루틴이 이 날짜를 릴스로 덮어쓴다."
+  "hook_pick": {
+    "no": 1,
+    "reason": "원문 첫 장면이자 소셜미디어에서 실제로 도는 밈('미혼 앤 비혼')으로 열고 '결혼 얘기 같죠?' → 이수만 정체 공개. 르게다꼼 공식 그대로, 검색 이름(이수만)이 3초 안에. 직전 3편(반전·반전·장면)과 다른 낯선 말형."
+  },
+  "script": "미혼 앤 비혼.\n결혼 얘기 같죠?\n이수만의 새 걸그룹 노래, 네온이에요.\n요즘 케이팝은 짧은 곡이 공식인데,\n이 곡은 삼 분 이십팔 초에 고음, 아카펠라까지 넣었어요.\n그런데 하루 남짓 만에 멜론 1위.\n왜일까요?\n새로운 게 아니라, 제일 잘하던 걸 다시 꺼냈거든요.\nAI로 누구나 만드는 시대, 남는 건 고르는 기준이에요.\n여러분 브랜드가 반복해 온 선택은 뭔가요?\n유행 따라가자는 회의 전에 꺼내 보게 저장해 두세요.",
+  "caption": "🎧 '미혼 앤 비혼'으로 들린다는 그 노래, 3분 28초짜리 곡이 하루 남짓 만에 멜론 1위를 했어요. 만든 사람은 이수만이에요 👇\n\n10월 13일 발매된 A2O LITE의 데뷔곡 'NEON'. SM엔터테인먼트를 세운 이수만이 새 소속사 A2O엔터테인먼트에서 선보인 걸그룹이에요. 유영진을 비롯한 익숙한 제작진과 함께, 자신이 가장 잘 아는 K-POP의 문법을 다시 골랐어요. 대중은 '우리가 알던 K-POP이 돌아왔다'며 반겼죠.\n\n여기서 볼 건 세 가지예요.\n\n1️⃣ 유행을 따르지 않은 게 오히려 유행이 됐어요.\n요즘 K-POP은 이지리스닝, 숏폼 챌린지 안무, 3분 미만의 짧은 곡이 흥행 공식이에요. 'NEON'은 3분 28초에 고음, 아카펠라, 댄스 브레이크까지 그대로 살렸어요.\n\n2️⃣ 같은 노래를 다른 이유로 좋아했어요.\n예전 K-POP을 기억하는 세대에게는 향수를, 새로운 세대에게는 신선함을 줬어요. 사람들은 노래를 들으며 그가 만들어 온 수많은 아티스트를 함께 떠올렸고요.\n\n3️⃣ 쌓아 온 선택이 이름에 대한 기대가 됐어요.\n『트렌드 코리아 2027』의 '안목자본' — 무엇이 가치 있는지 알아보는 판단력이 자산이 되는 현상이에요. AI로 누구나 그럴듯한 결과물을 만들수록, 고르는 사람의 판단이 더 중요해져요.\n\n브랜드도 같아요. 유행하는 콘텐츠를 따라 만들어도, 왜 이 브랜드가 그 이야기를 해야 하는지 설명하지 못하면 소비자 기억에는 콘텐츠만 남아요.\n\"안목은 한 번의 성공적인 캠페인으로 만들어지지 않는다.\"\n\n💬 우리 브랜드가 지금까지 반복해 온 선택, 한 단어로 적어 주세요.\n📌 '요즘 유행하는 거 해 보자'는 말이 나오는 다음 회의 전에 꺼내 보게 저장해 두세요.\n\n원문은 브런치 「브루스」에 안목자본 이야기와 브랜드에 옮기는 법까지 정리해 뒀어요 (프로필 링크)\n\n#브루스매거진 #이수만 #A2OLITE #안목자본 #KPOP마케팅",
+  "youtube_short": {
+    "title": "이수만은 왜 새 걸 안 했을까? 미혼 앤 비혼의 비밀 #Shorts",
+    "description": "요즘 공식을 다 어긴 3분 28초짜리 노래가 왜 하루 만에 1위를 했을까요?\nAI로 누구나 만드는 시대, 남는 건 고르는 기준이에요.\n원문: https://bruceheo.com/writing/228/\n#브루스매거진 #이수만 #안목자본",
+    "tags": "이수만,A2O LITE,NEON,네온,미혼 앤 비혼,K-POP 마케팅,안목자본,트렌드 코리아 2027,브랜드 전략,브랜딩,마케팅 인사이트,브루스 인사이트",
+    "altered": true
+  },
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/f84d2235-9e28-441f-9768-ff2dec6a49ac.mp4",
+  "cover_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/a3e8e09b-03b3-454d-ac11-349be56f6370.jpg",
+  "qa_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/ffa3c565-23f1-4f30-9e9c-2fa6be5723de.jpg",
+  "video_backup_url": "https://bruceheo.com/insight-reels/media/2026-11-04.mp4",
+  "cover_backup_url": "https://bruceheo.com/insight-reels/media/2026-11-04.jpg",
+  "credits": {
+    "higgsfield": 6.0,
+    "elevenlabs": 472
+  },
+  "status": "scheduled",
+  "note": "취소된 카드뉴스 자리(11/04)를 11/02 새 브런치 글 228 릴스로 덮어씀. 시의성 훅 없음(heat 1.3). 검색 훅 title_keyword 이수만."
 }
