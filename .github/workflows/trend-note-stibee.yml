@@ -4,12 +4,16 @@ name: Trend note Stibee
 # 발행일 08:00(KST)에 예약 발송한다. 원고가 다시 고쳐지면 예약을 풀고 본문을 바꿔 다시 예약한다.
 # 키는 Secrets 의 STIBEE_API_KEY(스티비 워크스페이스 설정 → API 키, 프로 요금제 이상). 없으면 건너뛴다.
 # 보류: Actions 에서 이 워크플로를 action=cancel, date=<발행일> 로 실행하거나 스티비에서 예약 취소.
+#
+# 지금은 꺼 둔 상태(2026-11-03): 스티비가 스탠다드 요금제라 이메일 API 를 거절한다("프로 요금제가 필요합니다").
+# 매주 예약은 브루스가 직접 한다 → newsletter/stibee/WEEKLY_SEND.md
+# 프로로 올리면 아래 push 트리거 주석을 풀고 루틴 지침 7단계를 예약 상태 안내로 되돌린다(SETUP.md 5절).
 on:
-  push:
-    branches: [main]
-    paths:
-      - "newsletter/trend/*/email.html"
-      - "newsletter/trend/*/meta.json"
+  # push:
+  #   branches: [main]
+  #   paths:
+  #     - "newsletter/trend/*/email.html"
+  #     - "newsletter/trend/*/meta.json"
   workflow_dispatch:
     inputs:
       action:

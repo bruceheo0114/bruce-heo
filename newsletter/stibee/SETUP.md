@@ -60,8 +60,8 @@
 ## 5. 자동 발송 (프로 요금제로 올릴 때만)
 
 **지금은 쓰지 않는다.** 스탠다드 요금제라 매주 직접 예약한다 → `WEEKLY_SEND.md`.
-`STIBEE_API_KEY` Secret 은 들어 있지만 스티비가 "프로 요금제가 필요합니다"로 거절한다(2026-11-03). 그래서 `trend-note-stibee.yml` 은 꺼 둔다: `gh workflow disable trend-note-stibee.yml -R bruceheo0114/bruce-heo` 또는 GitHub → Actions → Trend note Stibee → ⋯ → Disable workflow. 켜져 있으면 매주 원고가 올라올 때 실패(엑박)만 남는다(발송에는 영향 없음).
-프로로 올리면: 워크플로를 다시 켜고(`gh workflow enable trend-note-stibee.yml`), 루틴 지침 7단계를 예약 상태 안내로 되돌린다.
+`STIBEE_API_KEY` Secret 은 들어 있지만 스티비가 "프로 요금제가 필요합니다"로 거절한다(2026-11-03). 그래서 `trend-note-stibee.yml` 의 push 트리거를 주석으로 꺼 두었다(수동 실행만 남음). 원고가 올라와도 돌지 않는다.
+프로로 올리면: 그 파일의 `push:` 주석을 풀고, 루틴 지침 7단계를 예약 상태 안내로 되돌린다.
 
 - 스티비 요금제: 이메일 API 는 **프로 요금제 이상**에서만 열린다.
 - 스티비 → 워크스페이스 설정 → API 키 → 새로 만들기 → 복사
