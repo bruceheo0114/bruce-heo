@@ -89,6 +89,8 @@
     "higgsfield": 6.0,
     "elevenlabs": 472
   },
-  "status": "scheduled",
-  "note": "취소된 카드뉴스 자리(11/04)를 11/02 새 브런치 글 228 릴스로 덮어씀. 시의성 훅 없음(heat 1.3). 검색 훅 title_keyword 이수만."
+  "status": "publishing",
+  "note": "취소된 카드뉴스 자리(11/04)를 11/02 새 브런치 글 228 릴스로 덮어씀. 시의성 훅 없음(heat 1.3). 검색 훅 title_keyword 이수만.",
+  "claimed_by": "41726818317",
+  "claimed_at": "2026-11-03T22:01:47.419030Z"
 }
