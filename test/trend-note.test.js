@@ -19,6 +19,8 @@ test("예약 계획: 새로 만들기 · 그대로 · 고치기 · 늦음", () =
   assert.equal(planReservation({ ...base, stibee: { emailId: 1, status: "reserved", contentHash: hash, reserveTime: base.reserveTime }, hash }), "skip");
   assert.equal(planReservation({ ...base, stibee: { emailId: 1, status: "reserved", contentHash: "old", reserveTime: base.reserveTime }, hash }), "update");
   assert.equal(planReservation({ ...base, stibee: { emailId: 1, status: "cancelled", contentHash: hash, reserveTime: base.reserveTime }, hash }), "update");
+  assert.equal(planReservation({ ...base, stibee: { emailId: 1, status: "failed" }, hash }), "update");
+  assert.equal(planReservation({ ...base, stibee: { status: "failed" }, hash }), "create");
   assert.equal(planReservation({ ...base, now: "20261111090000", stibee: undefined, hash }), "late");
   assert.equal(planReservation({ ...base, now: "20261111090000", stibee: { emailId: 1, status: "reserved" }, hash }), "skip");
   assert.equal(planReservation({ ...base, stibee: { emailId: 1, status: "sent" }, hash }), "skip");

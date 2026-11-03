@@ -39,8 +39,9 @@ export function contentHash(subject, html) {
 export function planReservation({ stibee, hash, reserveTime, now }) {
   if (stibee?.status === "sent") return "skip";
   if (reserveTime <= now) return stibee?.status === "reserved" ? "skip" : "late";
-  if (!stibee?.emailId || stibee.status === "failed") return "create";
-  if (stibee.status === "cancelled") return "update";
+  // 실패해도 emailId 가 있으면 그 이메일을 다시 쓴다(새로 만들면 같은 호가 두 통 생긴다).
+  if (!stibee?.emailId) return "create";
+  if (stibee.status === "cancelled" || stibee.status === "failed") return "update";
   return stibee.contentHash === hash && stibee.reserveTime === reserveTime ? "skip" : "update";
 }
 
