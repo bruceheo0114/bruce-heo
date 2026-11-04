@@ -1,8 +1,8 @@
 {
   "version": 1,
   "initialized": true,
-  "lastCheckedAt": "2026-11-04T02:49:57.351Z",
-  "lastCheckedCanonicalUrl": "https://brunch.co.kr/@heoboram/228",
+  "lastCheckedAt": "2026-11-04T23:00:28.639Z",
+  "lastCheckedCanonicalUrl": "https://brunch.co.kr/@heoboram/229",
   "reviewSuccessCount": 1,
   "mode": "review",
   "articles": {
@@ -1166,6 +1166,38 @@
       },
       "approvedAt": "2026-11-02T04:52:29.413Z",
       "scheduledAt": "2026-11-02T22:30:00.000Z",
+      "completedAt": null
+    },
+    "229": {
+      "id": "229",
+      "canonicalUrl": "https://brunch.co.kr/@heoboram/229",
+      "title": "저의 첫번째 책이 출간되었습니다.",
+      "publishedAt": "2026-11-04T12:00:05.000Z",
+      "bodyHash": "49194791ebda673746e62ca6a987551bfe386ea4b6d41e3f6cde38cc194637e4",
+      "batchId": "41930069528",
+      "homepage": {
+        "status": "published",
+        "updatedAt": "2026-11-04T23:00:28.639Z"
+      },
+      "package": {
+        "status": "awaiting_review",
+        "manifestPath": "content/229/manifest.json",
+        "generatedAt": null
+      },
+      "linkedin": {
+        "status": "manual_pending",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "instagram": {
+        "status": "manual_pending",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "approvedAt": null,
+      "scheduledAt": null,
       "completedAt": null
     }
   }
