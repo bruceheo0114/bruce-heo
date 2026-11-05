@@ -69,7 +69,7 @@
 </script>
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="/assets/site.css?v=20261105a">
+<link rel="stylesheet" href="/assets/site.css?v=20261105b">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <!-- Google tag (gtag.js) -->
@@ -96,6 +96,7 @@
       <a href="/context/" class="nav__link">맥락과 마케팅</a>
       <a href="/work/" class="nav__link">대표 작업</a>
       <a href="/#about" class="nav__link">소개</a>
+      <a href="/newsletter/" class="nav__link">뉴스레터</a>
       <a href="/en/" class="nav__link nav__lang" lang="en" aria-label="View the English site">EN</a>
       <a href="/talks/" class="nav__link nav__cta">세션</a>
     </div>
@@ -210,6 +211,8 @@
   document.addEventListener('click', function (e) {
     var a = e.target.closest && e.target.closest('[data-book-store]');
     if (a && typeof gtag === 'function') gtag('event', 'book_store_click', { store: a.getAttribute('data-book-store'), link_url: a.href });
+    var n = e.target.closest && e.target.closest('[data-newsletter]');
+    if (n && typeof gtag === 'function') gtag('event', 'newsletter_click', { action: n.getAttribute('data-newsletter'), link_url: n.href });
   }, true);
 </script>
 
@@ -633,6 +636,39 @@
 
 </div>
 </div>
+
+<!-- ============================================================
+     NEWSLETTER — 브루스의 트렌드 노트
+     ============================================================ -->
+<section class="section newsletter-section" id="newsletter">
+  <div class="wrap">
+    <div class="newsletter-band reveal">
+      <div class="newsletter-band__copy">
+        <span class="section-eyebrow">Newsletter · 매주 수요일</span>
+        <h2 class="newsletter-band__title">브루스의 트렌드 노트</h2>
+        <p class="newsletter-band__desc">트렌드 요약은 이제 AI도 몇 초면 해 줍니다. 이 노트는 그다음을 다룹니다. 사람들이 왜 반응했는지, 우리 브랜드가 가져와도 되는 건 무엇인지.</p>
+        <ul class="newsletter-band__points">
+          <li><b>01</b>국내외 사례 4~5개</li>
+          <li><b>02</b>형식 말고 이유 읽기</li>
+          <li><b>03</b>책 속 한 줄과 체크리스트</li>
+        </ul>
+        <div class="newsletter-band__cta">
+          <a class="btn btn--primary" data-newsletter="subscribe" href="https://page.stibee.com/subscriptions/527738" target="_blank" rel="noopener">무료로 구독하기 →</a>
+          <a class="btn btn--ghost" href="/newsletter/">뉴스레터 소개·지난 호</a>
+        </div>
+        <p class="newsletter-band__gift">구독하면 <strong>AI 검색 브랜드 진단 시트</strong>를 바로 보내 드려요.</p>
+      </div>
+      <!-- NEWSLETTER_LATEST_START -->
+      <a class="newsletter-issue" href="/newsletter/trend/2026-11-04/">
+        <span class="newsletter-issue__label">최신 호 · #1 · 2026. 11. 4.</span>
+        <span class="newsletter-issue__title">AI가 정답을 골라주는데, 사람들은 왜 더 '나한테 맞는 것'을 찾을까?</span>
+        <span class="newsletter-issue__topics">영점소비 · 이케아와 AI 검색 · 1억에서 20억이 된 영어 교재 · 러쉬의 5년 · 올해의 단어 '딸깍'</span>
+        <span class="newsletter-issue__more">웹에서 읽기 →</span>
+      </a>
+      <!-- NEWSLETTER_LATEST_END -->
+    </div>
+  </div>
+</section>
 
 <!-- ============================================================
      CONTACT

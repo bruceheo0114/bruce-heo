@@ -41,9 +41,9 @@
    - `email.html` : 스티비 붙여넣기용. **`newsletter/stibee/EMAIL_STYLE.md` 를 읽고 그대로 따른다**(구조·색·글꼴·치환자·커밋 전 확인 명령). 구독 블록 대신 "주변에 이 노트가 필요한 분께 전달해 주세요" + 구독 링크(utm_source=forward).
    - `linkedin.md` : LinkedIn 뉴스레터 붙여넣기용 평문(소제목 `###`, 인용은 `>`). 끝에 "메일로 받기" 링크(utm_source=linkedin).
    - `meta.json` : `{"date","issue","title","seo_title","seo_description","brands":[],"quotes":[{"chapter","text"}],"sources":[]}`
-   그리고 `newsletter/index.html` 의 「지난 호」 목록 맨 위에 이번 호 `related__item` 한 줄을 추가한다.
+   그리고 `newsletter/index.html` 의 「지난 호」 목록 맨 위에 이번 호 `related__item` 한 줄을 추가한다. 홈페이지 `index.html` 의 `<!-- NEWSLETTER_LATEST_START -->` ~ `<!-- NEWSLETTER_LATEST_END -->` 사이 `newsletter-issue` 카드도 이번 호(주소·호수·날짜·제목·다룬 사례 한 줄)로 바꾸고, 영문 홈페이지 `en/index.html` 의 같은 구간도 같은 내용을 영어로 옮겨 바꾼다(한글이 보이면 안 된다). 그 구간 밖은 건드리지 않는다.
    **검사**: `bash newsletter/stibee/check.sh <날짜>` 가 `OK` 를 낼 때까지 고친다(최대 3번). 그래도 FAIL 이면 커밋하지 않고 7단계 메일 제목을 `[트렌드 노트 #<호수>] 원고 검사 실패` 로 바꿔 FAIL 줄들을 보낸다.
-   `git add newsletter/trend/<날짜> newsletter/index.html sitemap.xml` → 커밋 `content: trend note #<호수> (<날짜>)` → `git pull --rebase -q && git push origin HEAD:main`. (홈페이지 `bruceheo.com/newsletter/trend/<날짜>/` 로 바로 공개된다. 수요일 발행 전에 공개돼도 괜찮다.)
+   `git add newsletter/trend/<날짜> newsletter/index.html index.html en/index.html sitemap.xml` → 커밋 `content: trend note #<호수> (<날짜>)` → `git pull --rebase -q && git push origin HEAD:main`. (홈페이지 `bruceheo.com/newsletter/trend/<날짜>/` 로 바로 공개된다. 수요일 발행 전에 공개돼도 괜찮다.)
 7. **메일** — Gmail `send_message` 로 **heoboram0114@gmail.com 한 곳에만**. 브루스가 이 메일만 보고 스티비 예약을 끝낼 수 있게 쓴다.
    - 제목: `[트렌드 노트 #<호수>] <제목> — 수요일 08:00 예약할 원고`
    - `htmlBody` 순서:
@@ -59,4 +59,4 @@
    - **대체 경로**: Gmail 도구가 없으면 메일 대신 마지막 메시지에 미리보기 링크·스티비 제목·확인할 것을 적는다(PushNotification 도구가 있으면 같은 내용으로 푸시).
 8. 끝나면 결과 한 줄(호수, 제목, 사례 수, 검사 결과, 메일 발송 여부, 대체 경로를 쓴 도구).
 
-하지 말 것: 스티비 로그인·API 호출·예약, LinkedIn·스레드에 직접 발행, 원고 PDF/docx 내용을 저장소에 저장, 원문에 없는 사실·수치·인용 추가, 다른 주소로 메일 발송, `newsletter/`(signals 제외)·`sitemap.xml` 밖의 파일 수정.
+하지 말 것: 스티비 로그인·API 호출·예약, LinkedIn·스레드에 직접 발행, 원고 PDF/docx 내용을 저장소에 저장, 원문에 없는 사실·수치·인용 추가, 다른 주소로 메일 발송, `newsletter/`(signals 제외)·`sitemap.xml`·홈페이지 `NEWSLETTER_LATEST` 구간 밖의 파일 수정.
