@@ -5,12 +5,35 @@
   "series": "reference",
   "series_theme": "소비자가 먼저 만든 장면(영상·한마디·문장·유행)을 광고로 가져온 브랜드",
   "title": "랩으로 주문한 버거, 진짜 광고가 됐다.",
-  "status": "render",
+  "status": "scheduled",
   "caption": "🍔 매장에서 랩으로 햄버거를 주문한 영상이 400만 회. 닷새 뒤 맥도날드는 그 랩으로 진짜 광고를 냈어요. 이번 달, 소비자가 먼저 만든 장면을 광고로 가져온 브랜드 4곳이에요 👉\n\n1️⃣ 맥도날드 × 존박 — 유튜브 '존이냐박이냐'의 랩 주문 영상이 400만 회를 넘자, 빅아치·코카콜라·오레오 맥플러리를 묶은 '존박 세트' 광고가 나왔어요.\n2️⃣ 삼성전자 × 리센느 원이 — 라디오에서 갤럭시를 만져 보고 한 \"그립감 좋다\"가 갤럭시Z폴드8 캠페인이 됐고, 영상은 하루 만에 200만 회를 넘겼어요.\n3️⃣ 배민 — '국물은 따로 주세요' 같은 실제 주문 요청사항으로 만든 영상이 18일 만에 530만 회(회사 발표).\n4️⃣ CU — SNS 찹쌀떡 오픈런 유행에 떡 디저트를 잇달아 내며 올해 1~9월 떡 매출이 96.5% 늘었어요.\n\n📌 넷 다 아이디어를 새로 짓지 않았어요. 영상, 한마디, 문장, 줄. 이미 돌고 있던 장면을 먼저 알아봤죠.\n\n💬 지금 우리 고객이 먼저 만들고 있는 장면, 떠오르는 게 있나요? 있다/없다로만 답해 주세요.\n\n출처: 마이데일리(10/31) · 한국경제(10/28) · 더페어(10/27) · 우먼타임스(10/29)\n\"새 아이디어 좀 가져와 봐\" 하는 회의 전에, 댓글·후기부터 같이 보자고 팀에 공유해 주세요.\n\n#브루스매거진 #소비자참여마케팅 #존박세트 #배민영수증 #떡지순례",
   "sources": [
     "https://www.mydaily.co.kr/page/view/2026103115070247121",
     "https://www.hankyung.com/article/202610280331g",
     "https://www.thefairnews.co.kr/news/articleView.html?idxno=91962",
     "https://www.womentimes.co.kr/news/articleView.html?idxno=107430"
-  ]
+  ],
+  "images": [
+    "https://bruceheo.com/insight-reels/media/2026-11-06-noon/cards/01.jpg",
+    "https://bruceheo.com/insight-reels/media/2026-11-06-noon/cards/02.jpg",
+    "https://bruceheo.com/insight-reels/media/2026-11-06-noon/cards/03.jpg",
+    "https://bruceheo.com/insight-reels/media/2026-11-06-noon/cards/04.jpg",
+    "https://bruceheo.com/insight-reels/media/2026-11-06-noon/cards/05.jpg",
+    "https://bruceheo.com/insight-reels/media/2026-11-06-noon/cards/06.jpg",
+    "https://bruceheo.com/insight-reels/media/2026-11-06-noon/cards/07.jpg",
+    "https://bruceheo.com/insight-reels/media/2026-11-06-noon/cards/08.jpg",
+    "https://bruceheo.com/insight-reels/media/2026-11-06-noon/cards/09.jpg"
+  ],
+  "images_backup": [
+    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/insight-reels/media/2026-11-06-noon/cards/01.jpg",
+    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/insight-reels/media/2026-11-06-noon/cards/02.jpg",
+    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/insight-reels/media/2026-11-06-noon/cards/03.jpg",
+    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/insight-reels/media/2026-11-06-noon/cards/04.jpg",
+    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/insight-reels/media/2026-11-06-noon/cards/05.jpg",
+    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/insight-reels/media/2026-11-06-noon/cards/06.jpg",
+    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/insight-reels/media/2026-11-06-noon/cards/07.jpg",
+    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/insight-reels/media/2026-11-06-noon/cards/08.jpg",
+    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/insight-reels/media/2026-11-06-noon/cards/09.jpg"
+  ],
+  "qa_url": "https://bruceheo.com/insight-reels/media/2026-11-06-noon/preview.html"
 }
