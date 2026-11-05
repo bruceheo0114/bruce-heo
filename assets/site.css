@@ -1831,7 +1831,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .collab-rail__more { font-size: 13.5px; font-weight: 700; color: var(--text-3); }
 .collab-rail__more:hover { color: var(--accent); }
 .collab-rail__list { display: grid; grid-template-columns: 1fr; gap: 14px; }
-@media (min-width: 720px) { .collab-rail__list { grid-template-columns: repeat(2, 1fr); gap: 18px; } }
+@media (min-width: 720px) { .collab-rail__list { grid-template-columns: repeat(3, 1fr); gap: 18px; } }
 .collab-card {
   display: flex;
   flex-direction: column;
