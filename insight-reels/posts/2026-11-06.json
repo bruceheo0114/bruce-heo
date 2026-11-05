@@ -1,33 +1,94 @@
 {
   "date": "2026-11-06",
-  "type": "carousel",
-  "source": "brunch-card-news",
-  "brunch_no": 183,
-  "title": "AI의 직관 vs 마케터의 직관",
-  "brunch_url": "https://brunch.co.kr/@heoboram/183",
-  "status": "cancelled",
-  "caption": "🧠 AI의 직관을 이기는 마케터의 무기는 '비합리성에 대한 이해'예요.\n\n잘 다룬 AI는 업무 시간을 3~4시간 줄여주고 인턴이나 신입사원을 대체할 수도 있어요. 그래도 수치화되지 않는 기업의 내부 상황, 담당자의 미묘한 심리, 데이터의 행간에 흐르는 소비자의 마음까지 읽어내기엔 아직 한계가 분명해요.\n\n📌 지금 쓰는 제품 중 '꼭 이 브랜드여야만 해서' 산 건 몇 개일까요? 대부분은 예쁜 광고, 마음에 드는 모델, 기업의 철학, 많은 리뷰 같은 비합리적인 이유로 샀을 거예요.\n\nAI가 선택하지 않을 그 비합리적인 요소들이 오히려 사람들의 선택을 이끌어내요. 소비자가 더 합리적이 되려 해도 사람은 여전히 감정으로 구매하고, 그 감정은 데이터로 측정하기 어려워요.\n\n최근 내가 산 제품은 어떤 비합리적인 이유로 골랐나요?\n\n🔍 더 많은 브랜드 이야기는 bruceheo.com 에서 만나보세요.\n\n나중에 다시 보고 싶다면 저장 꾹 👆\n\n#브루스매거진 #AI #마케터 #소비자심리 #브랜딩",
-  "images": [
-    "https://bruceheo.com/content/183/cards/01.jpg",
-    "https://bruceheo.com/content/183/cards/02.jpg",
-    "https://bruceheo.com/content/183/cards/03.jpg",
-    "https://bruceheo.com/content/183/cards/04.jpg",
-    "https://bruceheo.com/content/183/cards/05.jpg",
-    "https://bruceheo.com/content/183/cards/06.jpg",
-    "https://bruceheo.com/content/183/cards/07.jpg",
-    "https://bruceheo.com/content/183/cards/08.jpg",
-    "https://bruceheo.com/content/183/cards/09.jpg"
+  "time": "07:00",
+  "type": "reel",
+  "brunch_no": 214,
+  "title": "AI 시대, 도끼를 든 사람이 되자",
+  "brunch_url": "https://brunch.co.kr/@heoboram/214",
+  "angle": "33만 원 타임스스퀘어 광고는 미국 판매가 아니라 국내 화제 소재를 산 것 — AI가 아이디어를 쏟아낼수록 선택지 밖을 보고 실행하는 판단이 차이를 만든다",
+  "hook_candidates": [
+    {
+      "no": 1,
+      "screen": "33만 원으로 뉴욕 타임스스퀘어",
+      "first_line": "삼십삼만 원으로 뉴욕 타임스스퀘어.",
+      "method": "숫자"
+    },
+    {
+      "no": 2,
+      "screen": "봉화사과, 뉴욕 전광판에 떴다",
+      "first_line": "봉화사과가 뉴욕 전광판에 떴어요.",
+      "method": "낯선 장면"
+    },
+    {
+      "no": 3,
+      "screen": "미국에서 사과 팔려고요? 아니요",
+      "first_line": "미국에서 사과를 팔려고요? 아니에요.",
+      "method": "반전"
+    },
+    {
+      "no": 4,
+      "screen": "공무원이 사비로 산 광고",
+      "first_line": "공무원이 자기 돈으로 산 광고가 있어요.",
+      "method": "비밀 공개"
+    },
+    {
+      "no": 5,
+      "screen": "전광판 몇 초를 왜 샀을까?",
+      "first_line": "전광판 몇 초를 왜 샀을까요?",
+      "method": "질문"
+    },
+    {
+      "no": 6,
+      "screen": "AI도 낼 아이디어, 누가 실행했나",
+      "first_line": "AI도 낼 수 있는 아이디어, 실행한 건 한 사람이었어요.",
+      "method": "비교"
+    },
+    {
+      "no": 7,
+      "screen": "아이디어 수십 개, 다 버린 이유",
+      "first_line": "아이디어 수십 개 중에 왜 이걸 골랐을까요?",
+      "method": "흔한 실수"
+    },
+    {
+      "no": 8,
+      "screen": "봉화군 × 타임스스퀘어",
+      "first_line": "봉화군과 타임스스퀘어, 안 어울리죠?",
+      "method": "비교"
+    },
+    {
+      "no": 9,
+      "screen": "가장 핫한 마케터는 주무관",
+      "first_line": "요즘 가장 핫한 마케터, 군청 주무관이에요.",
+      "method": "반전"
+    },
+    {
+      "no": 10,
+      "screen": "도끼 같은 생각이 뭘까",
+      "first_line": "AI 시대에 필요한 건 도끼 같은 생각이에요.",
+      "method": "낯선 말"
+    }
   ],
-  "images_backup": [
-    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/content/183/cards/01.jpg",
-    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/content/183/cards/02.jpg",
-    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/content/183/cards/03.jpg",
-    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/content/183/cards/04.jpg",
-    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/content/183/cards/05.jpg",
-    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/content/183/cards/06.jpg",
-    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/content/183/cards/07.jpg",
-    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/content/183/cards/08.jpg",
-    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/content/183/cards/09.jpg"
-  ],
-  "cancel_reason": "2026-10-18 결정: 인스타는 매일 릴스 + 월요일 트렌드. 지금까지 만든 브런치 카드뉴스는 쓰지 않는다. 릴스 루틴이 이 날짜를 릴스로 덮어쓴다."
+  "hook_pick": {
+    "no": 1,
+    "reason": "원문의 의외의 숫자(33만 원)와 누구나 아는 장소(타임스스퀘어)의 대비로 0초에 멈추게 하고, '왜?'는 숨긴다. 검색 이름 봉화사과는 둘째 문장·제목에. 직전 3편(낯선 말·장면·반전)과 다른 숫자형."
+  },
+  "script": "삼십삼만 원으로 뉴욕 타임스스퀘어.\n봉화군 공무원이 사비로 사과 광고를 걸었어요.\n미국에서 사과를 팔려고요? 아니에요.\n타임스스퀘어에 떴다는 사실을 한국에서 이야기로 쓰려고요.\n산 건 전광판 몇 초가 아니라, 말하고 싶은 소재였죠.\nAI에게 물으면 아이디어는 수십 개 나와요.\n그중 하나를 골라 직접 실행한 건 사람이에요.\n선택지 밖을 보는 생각, 그게 도끼예요.\n여러분이라면 삼십삼만 원, 어디에 쓰겠어요?\n아이디어가 막힌 동료에게 보내 주세요.",
+  "caption": "🍎 33만 원으로 뉴욕 타임스스퀘어 전광판에 사과가 떴어요. 미국에서 팔려고 건 광고가 아니었다는 게 진짜 이야기예요 👇\n\n봉화군 김수성 주무관은 특산품 봉화사과를 알리려고 사비 약 33만 원을 들여 타임스스퀘어에 광고를 집행했어요. 전광판에 '봉화사과'가 뜬 장면이 공개되자 온라인에서 큰 화제가 됐죠. 목적은 미국 판매가 아니라, '봉화사과가 타임스스퀘어에 등장했다'는 사실 자체를 국내 콘텐츠로 쓰는 것이었어요.\n\n여기서 볼 건 세 가지예요.\n\n1️⃣ 산 건 전광판이 아니라 이야기 소재였어요.\n타임스스퀘어의 몇 초가 아니라, 사람들이 이야기하고 싶어지는 소재를 산 셈이에요. 봉화군과 타임스스퀘어, 좀처럼 연결하기 어려운 둘을 붙인 것만으로 이야기가 생겼죠.\n\n2️⃣ 아이디어는 흔해졌어요.\nAI에게 '봉화사과 홍보 아이디어'를 물으면 수많은 답이 나와요. 어쩌면 타임스스퀘어 광고도 그중 하나로 나올 수 있어요. 중요한 건 누가 처음 떠올렸느냐가 아니에요.\n\n3️⃣ 차이를 만든 건 판단과 실행이에요.\n'해외 광고를 국내 화제로 쓴다'는 맥락을 읽고, 30여만 원을 직접 써서 실행하기로 결정한 것. AI가 보여 준 A·B·C 안에서 고르는 대신 그 밖을 본 생각이에요.\n\n내 일에 옮기면 이래요. AI는 생각하는 비용을 낮췄지만, 생각하지 않는 비용도 낮췄어요. 그럴듯한 선택지를 많이 만드는 것보다, 지금 무엇을 고를지 정하는 데서 아이디어가 완성돼요.\n\"AI가 모두에게 비슷한 무기를 쥐여줄수록 차이를 만드는 것은 무기의 성능이 아닐 것이다.\"\n\n💬 여러분에게 33만 원이 있다면, 어디에 쓰겠어요? 한 단어로 남겨 주세요.\n📌 아이디어 회의가 AI 답변 비교로 끝나는 팀이 있다면, 그 팀에 이 영상을 보내 주세요.\n\n원문은 브런치 「브루스」에 봉화사과 사례와 'AI가 준 선택지 밖을 보는 법'까지 정리해 뒀어요 (프로필 링크)\n\n#브루스매거진 #봉화사과 #타임스스퀘어광고 #지자체마케팅 #AI시대마케터",
+  "youtube_short": {
+    "title": "33만 원으로 뉴욕 타임스스퀘어? 봉화사과 광고의 진짜 목적 #Shorts",
+    "description": "봉화군 공무원이 자기 돈으로 뉴욕 전광판을 산 이유, 사과를 팔려는 게 아니었어요.\nAI가 준 선택지 밖을 보는 생각, 그게 차이를 만들어요.\n원문: https://bruceheo.com/writing/214/\n#브루스매거진 #봉화사과 #타임스스퀘어광고",
+    "tags": "봉화사과,봉화군,타임스스퀘어 광고,뉴욕 전광판,지자체 마케팅,김수성 주무관,AI 시대,아이디어,마케팅 인사이트,브루스 인사이트",
+    "altered": true
+  },
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/40c1e6bc-2f71-4ab2-9181-0c0b3157b2fa.mp4",
+  "cover_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/81dac154-5ffe-4a27-984c-9964938ca649.jpg",
+  "qa_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/5f992dec-367f-4b66-b2b0-a1f1ba6d2306.jpg",
+  "video_backup_url": "https://bruceheo.com/insight-reels/media/2026-11-06.mp4",
+  "cover_backup_url": "https://bruceheo.com/insight-reels/media/2026-11-06.jpg",
+  "credits": {
+    "higgsfield": 6.0,
+    "elevenlabs": 500
+  },
+  "status": "scheduled",
+  "note": "취소된 카드뉴스 자리(11/06)를 214 릴스로 덮어씀. 시의성 훅 없음(trends 의 '스티커'는 스타벅스 기사라 다른 대상). 검색 훅 title_keyword 봉화사과."
 }
