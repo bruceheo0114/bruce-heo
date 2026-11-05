@@ -1969,3 +1969,28 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .newsletter-issue__topics { font-size: 13.5px; line-height: 1.65; color: rgba(255, 255, 255, 0.62); word-break: keep-all; }
 .newsletter-issue__more { margin-top: 4px; font-size: 14px; font-weight: 700; color: #fff; }
 @media (max-width: 640px) { .newsletter-band__cta .btn { flex: 1 1 100%; justify-content: center; } }
+.newsletter-band__gift a { color: var(--accent); font-weight: 700; }
+.free-tools__head { margin-top: clamp(48px, 7vw, 88px); }
+.nav__link--news { color: var(--accent); font-weight: 800; }
+/* 좁은 화면 상단 메뉴: 책·글·뉴스레터·EN·문의가 한 줄에 들어가도록 줄인다 */
+@media (max-width: 720px) {
+  .nav__inner { padding: 0 16px; gap: 10px; }
+  .nav__links { gap: 14px; }
+  .nav__link { white-space: nowrap; }
+  .nav__cta { padding: 9px 13px; }
+  .nav__lang { padding: 7px 9px; }
+}
+@media (max-width: 430px) {
+  .nav__brand { font-size: 0; gap: 0; }
+  .nav__brand .brand-mark { font-size: 13px; }
+  .nav__links { gap: 12px; }
+}
+@media (min-width: 721px) and (max-width: 1080px) {
+  .nav__inner { padding: 0 20px; gap: 16px; }
+  .nav__links { gap: 16px; }
+  .nav__link { font-size: 14px; white-space: nowrap; }
+  .nav__brand { white-space: nowrap; }
+}
+@media (min-width: 721px) and (max-width: 860px) {
+  .nav__link:not(.nav__cta):not(.nav__lang):not(.nav__link--keep) { display: none; }
+}

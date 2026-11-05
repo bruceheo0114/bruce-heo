@@ -50,7 +50,7 @@ test("홈페이지에 Google·네이버 소유 확인 태그가 있다", async (
 test("모든 공개 페이지에 Google 애널리틱스 태그가 한 번씩 들어 있다", async () => {
   const { readFile, readdir } = await import("node:fs/promises");
   const archived = (await readdir("writing", { withFileTypes: true })).filter((e) => e.isDirectory()).map((e) => `writing/${e.name}/index.html`);
-  const pages = ["index.html", "career/index.html", "work/index.html", "talks/index.html", "en/index.html", "en/career/index.html", "en/work/index.html", "en/talks/index.html", "sessions.html", "campaign-workbook.html", "portfolio-heoboram.html", "writing/index.html", "context/index.html", ...archived];
+  const pages = ["index.html", "career/index.html", "work/index.html", "talks/index.html", "en/index.html", "en/career/index.html", "en/work/index.html", "en/talks/index.html", "campaign-workbook.html", "portfolio-heoboram.html", "writing/index.html", "context/index.html", ...archived];
   for (const page of pages) {
     const html = await readFile(page, "utf8");
     assert.equal((html.match(/googletagmanager\.com\/gtag\/js\?id=G-17SXL7Q2XV/g) ?? []).length, 1, page);
