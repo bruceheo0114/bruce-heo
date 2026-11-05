@@ -89,6 +89,8 @@
     "higgsfield": 6.0,
     "elevenlabs": 500
   },
-  "status": "scheduled",
-  "note": "취소된 카드뉴스 자리(11/06)를 214 릴스로 덮어씀. 시의성 훅 없음(trends 의 '스티커'는 스타벅스 기사라 다른 대상). 검색 훅 title_keyword 봉화사과."
+  "status": "publishing",
+  "note": "취소된 카드뉴스 자리(11/06)를 214 릴스로 덮어씀. 시의성 훅 없음(trends 의 '스티커'는 스타벅스 기사라 다른 대상). 검색 훅 title_keyword 봉화사과.",
+  "claimed_by": "42117631371",
+  "claimed_at": "2026-11-05T22:00:31.500092Z"
 }
