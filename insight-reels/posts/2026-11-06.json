@@ -89,8 +89,11 @@
     "higgsfield": 6.0,
     "elevenlabs": 500
   },
-  "status": "publishing",
+  "status": "posted",
   "note": "취소된 카드뉴스 자리(11/06)를 214 릴스로 덮어씀. 시의성 훅 없음(trends 의 '스티커'는 스타벅스 기사라 다른 대상). 검색 훅 title_keyword 봉화사과.",
   "claimed_by": "42117631371",
-  "claimed_at": "2026-11-05T22:00:31.500092Z"
+  "claimed_at": "2026-11-05T22:00:31.500092Z",
+  "media_id": "18153291544504410",
+  "permalink": "https://www.instagram.com/reel/DfYDk8kgW44/",
+  "posted_at": "2026-11-05T22:01:42.375429Z"
 }
