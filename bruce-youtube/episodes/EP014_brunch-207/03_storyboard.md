@@ -252,7 +252,7 @@ MOTION: count
 SCENE ID: S020
 TIME: 01:45-01:50
 NARRATION:
-현수막 → 풍자 게시물 → 무쉰사 → 지긁재긁. 며칠 사이에, 이 모든 게 오갔어요.
+현수막, 풍자 게시물, 무쉰사, 지긁재긁. 며칠 사이에, 이 모든 게 오갔어요.
 VISUAL:
 미니멀 도식, 항목이 말에 맞춰 나타남
 SOURCE_TYPE: GRAPHIC
@@ -351,7 +351,21 @@ ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
 SCENE ID: S028
-TIME: 02:34-02:40
+TIME: 02:34-02:42
+NARRATION:
+보통의 회사라면, 현수막을 보고 회의부터 잡았을 거예요. 대응할지 말지, 문구는 누가 쓸지, 검토는 받았는지.
+VISUAL:
+미니멀 도식, 항목이 말에 맞춰 나타남
+SOURCE_TYPE: GRAPHIC
+ON_SCREEN_TEXT:
+대응할까?
+문구는 누가?
+검토는 받았나?
+ASSET: -
+HIGGSFIELD_REQUIRED: NO
+
+SCENE ID: S029
+TIME: 02:42-02:48
 NARRATION:
 결재를 몇 단계 거쳤다면, 다음 날 답하는 것도 빠른 편이에요. 그땐 이미 흐름이 식어 있죠.
 VISUAL:
@@ -362,8 +376,8 @@ ON_SCREEN_TEXT:
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
-SCENE ID: S029
-TIME: 02:40-02:46
+SCENE ID: S030
+TIME: 02:48-02:54
 NARRATION:
 잘 만든 콘텐츠도 결재를 기다리는 사이에, 사람들의 대화는 다른 곳으로 옮겨 가요.
 VISUAL:
@@ -372,20 +386,6 @@ SOURCE_TYPE: TYPE
 ON_SCREEN_TEXT:
 대화는
 기다려 주지 않는다
-ASSET: -
-HIGGSFIELD_REQUIRED: NO
-
-SCENE ID: S030
-TIME: 02:46-02:54
-NARRATION:
-보통의 회사라면, 현수막을 보고 회의부터 잡았을 거예요. 대응할지 말지, 문구는 누가 쓸지, 검토는 받았는지.
-VISUAL:
-미니멀 도식, 항목이 말에 맞춰 나타남
-SOURCE_TYPE: GRAPHIC
-ON_SCREEN_TEXT:
-대응할까?
-문구는 누가?
-검토는 받았나?
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
