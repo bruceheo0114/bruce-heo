@@ -1,0 +1,32 @@
+{
+  "brunch": true,
+  "items": [
+    {
+      "id": "A001",
+      "kind": "article",
+      "url": "https://www.hani.co.kr/arti/economy/consumer/1264403.html",
+      "source": "한겨레",
+      "scenes": [
+        "S004"
+      ]
+    },
+    {
+      "id": "A002",
+      "kind": "article",
+      "url": "https://www.mk.co.kr/news/business/12078650",
+      "source": "매일경제",
+      "scenes": [
+        "S011"
+      ]
+    },
+    {
+      "id": "A003",
+      "kind": "article",
+      "url": "https://www.hankyung.com/article/202608042978g",
+      "source": "한국경제 (2026-08-04)",
+      "scenes": [
+        "S025"
+      ]
+    }
+  ]
+}

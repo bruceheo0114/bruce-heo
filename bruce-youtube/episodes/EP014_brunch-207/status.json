@@ -1,0 +1,80 @@
+{
+  "episode": "EP014",
+  "folder": "EP014_brunch-207",
+  "article": {
+    "id": "207",
+    "url": "https://brunch.co.kr/@heoboram/207",
+    "title": "무신사와 지그재그는 왜 서로를 비꼬았을까",
+    "published_at": "2026-06-24T03:00:00.000Z",
+    "source_file": "source/brunch/207.md",
+    "body_hash": "0cef095fb3c86800bed68f0a0e128dcbb25fbafdf2eee6b38f0e50f131748806"
+  },
+  "status": "WAITING_APPROVAL",
+  "format": "v2",
+  "higgsfield_generation": false,
+  "recommendation": "MAKE_VIDEO",
+  "video_potential": {
+    "NARRATIVE": 9,
+    "CASE STUDY": 9,
+    "VISUAL MATERIAL": 7,
+    "TIMELINESS": 7,
+    "ORIGINAL POV": 8,
+    "30MIN POTENTIAL": 8,
+    "TOTAL": 48,
+    "MAX": 60
+  },
+  "approved_scenes": [],
+  "generated": {},
+  "plan": {
+    "runtime_seconds": 301,
+    "runtime": "5:01",
+    "total_scenes": 51,
+    "scenes_by_type": {
+      "REAL": 3,
+      "TYPE": 27,
+      "GRAPHIC": 14,
+      "AI": 7
+    },
+    "seconds_by_type": {
+      "REAL": 18,
+      "TYPE": 151,
+      "GRAPHIC": 81,
+      "AI": 51
+    },
+    "ai_share": 0.169,
+    "ai_scenes": [
+      "S013",
+      "S007",
+      "S016",
+      "S024",
+      "S033",
+      "S040",
+      "S044"
+    ],
+    "estimated_generations": 7,
+    "estimated_credits": 7,
+    "reusable_assets": [],
+    "cost_saving": [
+      "AI는 정지 이미지 6장(장당 0.25)만, 영상 클립은 사람 없는 G05 하나(5).",
+      "G02는 두 장면에서 재사용한다.",
+      "사례 장면은 기사 캡처와 인용·숫자 도식으로 채운다."
+    ]
+  },
+  "update": null,
+  "created_at": "2026-11-07T12:15:18.877Z",
+  "updated_at": "2026-11-07T12:17:44.051Z",
+  "history": [
+    {
+      "at": "2026-11-07T12:15:18.877Z",
+      "from": null,
+      "to": "PACKAGE_PENDING",
+      "note": "새 브런치 글"
+    },
+    {
+      "at": "2026-11-07T12:17:44.051Z",
+      "from": "PACKAGE_PENDING",
+      "to": "WAITING_APPROVAL",
+      "note": "영상화 평가 48/60 · MAKE_VIDEO"
+    }
+  ]
+}
