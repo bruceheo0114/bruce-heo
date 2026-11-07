@@ -1,0 +1,169 @@
+{
+  "references_hash": "364ddaecb43d3c4a",
+  "fetched_at": "2026-11-07T12:20:14.675Z",
+  "items": [
+    {
+      "file": "A001-screen.jpg",
+      "id": "A001",
+      "scenes": [
+        "S004"
+      ],
+      "kind": "screen",
+      "source": "한겨레",
+      "url": "https://www.hani.co.kr/arti/economy/consumer/1264403.html"
+    },
+    {
+      "file": "A001-scroll.jpg",
+      "id": "A001",
+      "scenes": [
+        "S004"
+      ],
+      "kind": "scroll",
+      "source": "한겨레",
+      "url": "https://www.hani.co.kr/arti/economy/consumer/1264403.html"
+    },
+    {
+      "file": "A001-img1.jpg",
+      "id": "A001",
+      "scenes": [
+        "S004"
+      ],
+      "kind": "image",
+      "source": "한겨레",
+      "url": "https://www.hani.co.kr/arti/economy/consumer/1264403.html"
+    },
+    {
+      "file": "A001-img2.jpg",
+      "id": "A001",
+      "scenes": [
+        "S004"
+      ],
+      "kind": "image",
+      "source": "한겨레",
+      "url": "https://www.hani.co.kr/arti/economy/consumer/1264403.html"
+    },
+    {
+      "file": "A001-img3.jpg",
+      "id": "A001",
+      "scenes": [
+        "S004"
+      ],
+      "kind": "image",
+      "source": "한겨레",
+      "url": "https://www.hani.co.kr/arti/economy/consumer/1264403.html"
+    },
+    {
+      "file": "A002-screen.jpg",
+      "id": "A002",
+      "scenes": [
+        "S011"
+      ],
+      "kind": "screen",
+      "source": "매일경제",
+      "url": "https://www.mk.co.kr/news/business/12078650"
+    },
+    {
+      "file": "A002-scroll.jpg",
+      "id": "A002",
+      "scenes": [
+        "S011"
+      ],
+      "kind": "scroll",
+      "source": "매일경제",
+      "url": "https://www.mk.co.kr/news/business/12078650"
+    },
+    {
+      "file": "A002-img1.jpg",
+      "id": "A002",
+      "scenes": [
+        "S011"
+      ],
+      "kind": "image",
+      "source": "매일경제",
+      "url": "https://www.mk.co.kr/news/business/12078650"
+    },
+    {
+      "file": "A003-screen.jpg",
+      "id": "A003",
+      "scenes": [
+        "S025"
+      ],
+      "kind": "screen",
+      "source": "한국경제 (2026-08-04)",
+      "url": "https://www.hankyung.com/article/202608042978g"
+    },
+    {
+      "file": "A003-scroll.jpg",
+      "id": "A003",
+      "scenes": [
+        "S025"
+      ],
+      "kind": "scroll",
+      "source": "한국경제 (2026-08-04)",
+      "url": "https://www.hankyung.com/article/202608042978g"
+    },
+    {
+      "file": "A003-img1.jpg",
+      "id": "A003",
+      "scenes": [
+        "S025"
+      ],
+      "kind": "image",
+      "source": "한국경제 (2026-08-04)",
+      "url": "https://www.hankyung.com/article/202608042978g"
+    },
+    {
+      "file": "A003-img2.jpg",
+      "id": "A003",
+      "scenes": [
+        "S025"
+      ],
+      "kind": "image",
+      "source": "한국경제 (2026-08-04)",
+      "url": "https://www.hankyung.com/article/202608042978g"
+    },
+    {
+      "file": "A003-img3.jpg",
+      "id": "A003",
+      "scenes": [
+        "S025"
+      ],
+      "kind": "image",
+      "source": "한국경제 (2026-08-04)",
+      "url": "https://www.hankyung.com/article/202608042978g"
+    },
+    {
+      "file": "brunch-01.jpg",
+      "id": "brunch",
+      "scenes": [],
+      "kind": "image",
+      "source": "브런치 @heoboram 원문",
+      "url": "https://brunch.co.kr/@heoboram/207"
+    },
+    {
+      "file": "brunch-02.jpg",
+      "id": "brunch",
+      "scenes": [],
+      "kind": "image",
+      "source": "브런치 @heoboram 원문",
+      "url": "https://brunch.co.kr/@heoboram/207"
+    },
+    {
+      "file": "brunch-03.jpg",
+      "id": "brunch",
+      "scenes": [],
+      "kind": "image",
+      "source": "브런치 @heoboram 원문",
+      "url": "https://brunch.co.kr/@heoboram/207"
+    },
+    {
+      "file": "brunch-04.jpg",
+      "id": "brunch",
+      "scenes": [],
+      "kind": "image",
+      "source": "브런치 @heoboram 원문",
+      "url": "https://brunch.co.kr/@heoboram/207"
+    }
+  ],
+  "failures": []
+}
