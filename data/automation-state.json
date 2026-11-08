@@ -1,8 +1,8 @@
 {
   "version": 1,
   "initialized": true,
-  "lastCheckedAt": "2026-11-08T01:57:11.216Z",
-  "lastCheckedCanonicalUrl": "https://brunch.co.kr/@heoboram/229",
+  "lastCheckedAt": "2026-11-08T23:00:25.948Z",
+  "lastCheckedCanonicalUrl": "https://brunch.co.kr/@heoboram/230",
   "reviewSuccessCount": 1,
   "mode": "review",
   "articles": {
@@ -1199,6 +1199,38 @@
       },
       "approvedAt": "2026-11-06T04:49:53.386Z",
       "scheduledAt": "2026-11-09T22:30:00.000Z",
+      "completedAt": null
+    },
+    "230": {
+      "id": "230",
+      "canonicalUrl": "https://brunch.co.kr/@heoboram/230",
+      "title": "존박의 맥도날드 콘텐츠는 왜 화제가 됐을까?",
+      "publishedAt": "2026-11-08T12:00:10.000Z",
+      "bodyHash": "d00d9ddf8a6359cc5d5bfbb2963b96d3426f6d0f86427d9e9c661a5dfc34648d",
+      "batchId": "42532963070",
+      "homepage": {
+        "status": "published",
+        "updatedAt": "2026-11-08T23:00:25.948Z"
+      },
+      "package": {
+        "status": "awaiting_review",
+        "manifestPath": "content/230/manifest.json",
+        "generatedAt": null
+      },
+      "linkedin": {
+        "status": "manual_pending",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "instagram": {
+        "status": "manual_pending",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "approvedAt": null,
+      "scheduledAt": null,
       "completedAt": null
     }
   }
