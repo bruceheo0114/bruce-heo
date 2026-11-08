@@ -1,0 +1,993 @@
+{
+  "fetched_at": "2026-11-08T17:15:02.193265Z",
+  "account": {
+    "username": "bruce.insight",
+    "followers_count": 83,
+    "follows_count": 181,
+    "media_count": 52,
+    "id": "28558968203769049"
+  },
+  "account_last_7d": {
+    "reach": 2871,
+    "views": 4520,
+    "profile_views": 11,
+    "accounts_engaged": 34,
+    "total_interactions": 67
+  },
+  "media_error": null,
+  "posts": [
+    {
+      "timestamp": "2026-11-07T22:06:49+0000",
+      "type": "REELS",
+      "permalink": "https://www.instagram.com/reel/DfdNulrkR0x/",
+      "first_line": "🥃 한 광고 안에 브랜드가 여럿. 장원영을 모델로 쓰는 서로 다른 카테고리의 브랜드들이 짐빔 광고 한 편에 ",
+      "like_count": 1,
+      "comments_count": 0,
+      "insights": {
+        "reach": 177,
+        "views": 208,
+        "likes": 1,
+        "comments": 0,
+        "saved": 0,
+        "shares": 1,
+        "total_interactions": 2,
+        "ig_reels_avg_watch_time": 4682
+      }
+    },
+    {
+      "timestamp": "2026-11-06T22:01:34+0000",
+      "type": "REELS",
+      "permalink": "https://www.instagram.com/reel/DfaoVOpjI_Z/",
+      "first_line": "\"조금 더 임팩트 있게.\" 회의 끝에 이 말을 들으면 뭘 고치세요? 👇",
+      "like_count": 2,
+      "comments_count": 0,
+      "insights": {
+        "reach": 164,
+        "views": 185,
+        "likes": 2,
+        "comments": 0,
+        "saved": 0,
+        "shares": 1,
+        "total_interactions": 3,
+        "ig_reels_avg_watch_time": 3221
+      }
+    },
+    {
+      "timestamp": "2026-11-06T03:31:05+0000",
+      "type": "FEED",
+      "permalink": "https://www.instagram.com/p/DfYpWYXjRlF/",
+      "first_line": "🍔 매장에서 랩으로 햄버거를 주문한 영상이 400만 회. 닷새 뒤 맥도날드는 그 랩으로 진짜 광고를 냈어요.",
+      "like_count": 3,
+      "comments_count": 0,
+      "insights": {
+        "reach": 60,
+        "views": 112,
+        "likes": 3,
+        "comments": 0,
+        "saved": 0,
+        "shares": 1,
+        "total_interactions": 5,
+        "follows": 0,
+        "profile_visits": 1
+      }
+    },
+    {
+      "timestamp": "2026-11-05T22:01:35+0000",
+      "type": "REELS",
+      "permalink": "https://www.instagram.com/reel/DfYDk8kgW44/",
+      "first_line": "🍎 33만 원으로 뉴욕 타임스스퀘어 전광판에 사과가 떴어요. 미국에서 팔려고 건 광고가 아니었다는 게 진짜 ",
+      "like_count": 6,
+      "comments_count": 0,
+      "insights": {
+        "reach": 1247,
+        "views": 1426,
+        "likes": 6,
+        "comments": 0,
+        "saved": 1,
+        "shares": 5,
+        "total_interactions": 12,
+        "ig_reels_avg_watch_time": 13106
+      }
+    },
+    {
+      "timestamp": "2026-11-04T22:01:50+0000",
+      "type": "REELS",
+      "permalink": "https://www.instagram.com/reel/DfVevdkAAH4/",
+      "first_line": "첫 책 3부의 첫 질문을 골랐어요. 후기 1,000개면 팔릴까요? 👇",
+      "like_count": 3,
+      "comments_count": 0,
+      "insights": {
+        "reach": 179,
+        "views": 210,
+        "likes": 3,
+        "comments": 0,
+        "saved": 1,
+        "shares": 2,
+        "total_interactions": 6,
+        "ig_reels_avg_watch_time": 3383
+      }
+    },
+    {
+      "timestamp": "2026-11-04T03:32:01+0000",
+      "type": "FEED",
+      "permalink": "https://www.instagram.com/p/DfTfwRkDT5J/",
+      "first_line": "🔍 백화점 지하 1층 하나가 일주일 새 검색량 39.6배. 이번 주 네이버에서 사람들이 직접 찾아본 브랜드 ",
+      "like_count": 2,
+      "comments_count": 0,
+      "insights": {
+        "reach": 58,
+        "views": 108,
+        "likes": 2,
+        "comments": 0,
+        "saved": 1,
+        "shares": 1,
+        "total_interactions": 4,
+        "follows": 0,
+        "profile_visits": 0
+      }
+    },
+    {
+      "timestamp": "2026-11-03T22:02:52+0000",
+      "type": "REELS",
+      "permalink": "https://www.instagram.com/reel/DfS6GWGmdQp/",
+      "first_line": "🎧 '미혼 앤 비혼'으로 들린다는 그 노래, 3분 28초짜리 곡이 하루 남짓 만에 멜론 1위를 했어요. 만든",
+      "like_count": 8,
+      "comments_count": 0,
+      "insights": {
+        "reach": 1119,
+        "views": 1291,
+        "likes": 8,
+        "comments": 0,
+        "saved": 0,
+        "shares": 1,
+        "total_interactions": 10,
+        "ig_reels_avg_watch_time": 12918
+      }
+    },
+    {
+      "timestamp": "2026-11-02T22:01:30+0000",
+      "type": "REELS",
+      "permalink": "https://www.instagram.com/reel/DfQVJdvjhfh/",
+      "first_line": "\"경쟁사가 이 밈으로 조회수 300만을 찍었대요. 우리도 이번 주 안에 하나 만들죠.\" 이 말, 들어 보셨죠",
+      "like_count": 1,
+      "comments_count": 0,
+      "insights": {
+        "reach": 201,
+        "views": 239,
+        "likes": 1,
+        "comments": 0,
+        "saved": 0,
+        "shares": 1,
+        "total_interactions": 2,
+        "ig_reels_avg_watch_time": 3428
+      }
+    },
+    {
+      "timestamp": "2026-11-01T22:01:06+0000",
+      "type": "FEED",
+      "permalink": "https://www.instagram.com/p/DfNwZ_Xj0K7/",
+      "first_line": "🧾 배달 앱 주문서 속 '요청사항' 한 줄이 530만 뷰 광고가 됐어요. 지난주 마케팅 이슈 10개, 넘겨서",
+      "like_count": 3,
+      "comments_count": 0,
+      "insights": {
+        "reach": 71,
+        "views": 117,
+        "likes": 3,
+        "comments": 0,
+        "saved": 1,
+        "shares": 1,
+        "total_interactions": 5,
+        "follows": 0,
+        "profile_visits": 2
+      }
+    },
+    {
+      "timestamp": "2026-10-31T22:01:26+0000",
+      "type": "REELS",
+      "permalink": "https://www.instagram.com/reel/DfLLlsTiF6w/",
+      "first_line": "사람들은 광고라는 사실을 모르지 않아요. 오히려 너무 잘 알아요. 그런데도 끝까지 보는 광고가 있죠 👇",
+      "like_count": 2,
+      "comments_count": 0,
+      "insights": {
+        "reach": 170,
+        "views": 203,
+        "likes": 2,
+        "comments": 0,
+        "saved": 0,
+        "shares": 1,
+        "total_interactions": 3,
+        "ig_reels_avg_watch_time": 3781
+      }
+    },
+    {
+      "timestamp": "2026-10-30T22:01:32+0000",
+      "type": "REELS",
+      "permalink": "https://www.instagram.com/reel/DfIm068knoS/",
+      "first_line": "🍼 밤늦게 우는 아기, 휴대폰에 오타 섞인 질문을 치는 초보 부모. 육아용품 광고 같지만 주인공은 구글이에요",
+      "like_count": 3,
+      "comments_count": 0,
+      "insights": {
+        "reach": 228,
+        "views": 270,
+        "likes": 3,
+        "comments": 0,
+        "saved": 1,
+        "shares": 1,
+        "total_interactions": 5,
+        "ig_reels_avg_watch_time": 5955
+      }
+    },
+    {
+      "timestamp": "2026-10-30T03:31:05+0000",
+      "type": "FEED",
+      "permalink": "https://www.instagram.com/p/DfGnyVsEeye/",
+      "first_line": "🍾 단종 11년 만에 돌아온 술 하나에 편의점 재고 검색이 30만 건 몰렸어요. 이번 달, 새것 대신 옛것을",
+      "like_count": 2,
+      "comments_count": 0,
+      "insights": {
+        "reach": 61,
+        "views": 115,
+        "likes": 2,
+        "comments": 0,
+        "saved": 0,
+        "shares": 1,
+        "total_interactions": 3,
+        "follows": 0,
+        "profile_visits": 5
+      }
+    },
+    {
+      "timestamp": "2026-10-29T22:01:35+0000",
+      "type": "REELS",
+      "permalink": "https://www.instagram.com/reel/DfGB-eCkrQ_/",
+      "first_line": "AI에게 물으면 콘셉트 20개가 몇 초 만에 나와요. 그런데 고르는 건 더 어려워졌어요 👇",
+      "like_count": 1,
+      "comments_count": 0,
+      "insights": {
+        "reach": 165,
+        "views": 202,
+        "likes": 1,
+        "comments": 0,
+        "saved": 1,
+        "shares": 1,
+        "total_interactions": 3,
+        "ig_reels_avg_watch_time": 2666
+      }
+    },
+    {
+      "timestamp": "2026-10-28T03:31:09+0000",
+      "type": "FEED",
+      "permalink": "https://www.instagram.com/p/DfBeNFgIDPu/",
+      "first_line": "🧢 문 열기 전부터 줄이 선 곳, 백화점이 아니라 가방·모자 매장이었어요. 이번 주 검색량이 뛴 브랜드 5개",
+      "like_count": 3,
+      "comments_count": 0,
+      "insights": {
+        "reach": 71,
+        "views": 129,
+        "likes": 3,
+        "comments": 0,
+        "saved": 0,
+        "shares": 1,
+        "total_interactions": 4,
+        "follows": 0,
+        "profile_visits": 0
+      }
+    },
+    {
+      "timestamp": "2026-10-27T22:01:33+0000",
+      "type": "REELS",
+      "permalink": "https://www.instagram.com/reel/DfA4b71nMgQ/",
+      "first_line": "브런치에 '브루스'라는 이름으로 200편 넘게 글을 썼어요. 그 기록이 첫 책이 됐어요 👇",
+      "like_count": 5,
+      "comments_count": 0,
+      "insights": {
+        "reach": 180,
+        "views": 216,
+        "likes": 5,
+        "comments": 0,
+        "saved": 0,
+        "shares": 1,
+        "total_interactions": 6,
+        "ig_reels_avg_watch_time": 4242
+      }
+    },
+    {
+      "timestamp": "2026-10-26T22:01:33+0000",
+      "type": "REELS",
+      "permalink": "https://www.instagram.com/reel/De-TpW4CXA5/",
+      "first_line": "병맛 광고 36편, 유튜브 누적 2억 1천만 뷰. 그런데 이 광고비의 진짜 성적표는 조회수가 아니었어요 👇",
+      "like_count": 2,
+      "comments_count": 0,
+      "insights": {
+        "reach": 176,
+        "views": 215,
+        "likes": 2,
+        "comments": 0,
+        "saved": 0,
+        "shares": 1,
+        "total_interactions": 3,
+        "ig_reels_avg_watch_time": 6255
+      }
+    },
+    {
+      "timestamp": "2026-10-25T22:00:52+0000",
+      "type": "FEED",
+      "permalink": "https://www.instagram.com/p/De7u0XNmCsh/",
+      "first_line": "🍟 맥도날드가 32년 동안 붙잡던 월드컵 후원을 놓아요. 지난주 마케팅 이슈 10개, 넘겨서 보세요.",
+      "like_count": 2,
+      "comments_count": 0,
+      "insights": {
+        "reach": 59,
+        "views": 127,
+        "likes": 2,
+        "comments": 0,
+        "saved": 0,
+        "shares": 1,
+        "total_interactions": 3,
+        "follows": 1,
+        "profile_visits": 3
+      }
+    },
+    {
+      "timestamp": "2026-10-24T22:01:47+0000",
+      "type": "REELS",
+      "permalink": "https://www.instagram.com/reel/De5KBW4lEeH/",
+      "first_line": "2,800년 전 이야기를 찍는 데 필름만 640km를 썼어요. 오디세이 얘기예요 👇",
+      "like_count": 7,
+      "comments_count": 0,
+      "insights": {
+        "reach": 1214,
+        "views": 1358,
+        "likes": 7,
+        "comments": 0,
+        "saved": 0,
+        "shares": 4,
+        "total_interactions": 11,
+        "ig_reels_avg_watch_time": 11913
+      }
+    },
+    {
+      "timestamp": "2026-10-23T22:01:52+0000",
+      "type": "REELS",
+      "permalink": "https://www.instagram.com/reel/De2lO88jx16/",
+      "first_line": "화면엔 거의 안 나오는데, 웃음 리액션만 모은 영상까지 생긴 사람이 있어요. 안원잘부의 '피디니무' 윤성원 ",
+      "like_count": 4,
+      "comments_count": 0,
+      "insights": {
+        "reach": 1191,
+        "views": 1312,
+        "likes": 4,
+        "comments": 0,
+        "saved": 1,
+        "shares": 1,
+        "total_interactions": 6,
+        "ig_reels_avg_watch_time": 5671
+      }
+    },
+    {
+      "timestamp": "2026-10-23T03:30:55+0000",
+      "type": "FEED",
+      "permalink": "https://www.instagram.com/p/De0mM6zlCz-/",
+      "first_line": "🎬 1억 6천만 뷰, 피자 광고였어요. 이번 달 조회수가 기사로 확인된 브랜드 영상 4편을 한 장씩 정리했어",
+      "like_count": 3,
+      "comments_count": 0,
+      "insights": {
+        "reach": 59,
+        "views": 113,
+        "likes": 3,
+        "comments": 0,
+        "saved": 0,
+        "shares": 1,
+        "total_interactions": 4,
+        "follows": 0,
+        "profile_visits": 1
+      }
+    },
+    {
+      "timestamp": "2026-10-22T22:01:26+0000",
+      "type": "REELS",
+      "permalink": "https://www.instagram.com/reel/De0AbXtFTBF/",
+      "first_line": "광고는 7년 연속 상을 받았는데, 아파트 브랜드 순위 Top 10엔 한 번도 못 든 브랜드가 있어요. 스위첸",
+      "like_count": 3,
+      "comments_count": 0,
+      "insights": {
+        "reach": 176,
+        "views": 207,
+        "likes": 3,
+        "comments": 0,
+        "saved": 0,
+        "shares": 1,
+        "total_interactions": 4,
+        "ig_reels_avg_watch_time": 3693
+      }
+    },
+    {
+      "timestamp": "2026-10-21T22:01:22+0000",
+      "type": "REELS",
+      "permalink": "https://www.instagram.com/reel/DexblomjdyD/",
+      "first_line": "아침 메뉴 매장을 58곳에서 120곳으로 늘린 날, 버거킹이 내건 건 광고판이 아니라 기사식당 입간판이었어요",
+      "like_count": 2,
+      "comments_count": 0,
+      "insights": {
+        "reach": 218,
+        "views": 283,
+        "likes": 2,
+        "comments": 0,
+        "saved": 0,
+        "shares": 1,
+        "total_interactions": 3,
+        "ig_reels_avg_watch_time": 8624
+      }
+    },
+    {
+      "timestamp": "2026-10-21T03:31:53+0000",
+      "type": "FEED",
+      "permalink": "https://www.instagram.com/p/DevcnDLlJ5X/",
+      "first_line": "🔎 이번 주 검색량이 4.8배 뛴 브랜드, 술이었어요. 기사 수 말고 사람들이 직접 찾아본 브랜드 5개를 모",
+      "like_count": 3,
+      "comments_count": 0,
+      "insights": {
+        "reach": 61,
+        "views": 115,
+        "likes": 3,
+        "comments": 0,
+        "saved": 0,
+        "shares": 1,
+        "total_interactions": 4,
+        "follows": 0,
+        "profile_visits": 0
+      }
+    },
+    {
+      "timestamp": "2026-10-20T22:01:22+0000",
+      "type": "REELS",
+      "permalink": "https://www.instagram.com/reel/Deu2zGDCT1I/",
+      "first_line": "🎬 관람료 1,000원, 13분짜리 영화를 보러 4만 6천 명이 극장에 갔어요. 끝나고 보니 아이오닉 광고였",
+      "like_count": 2,
+      "comments_count": 0,
+      "insights": {
+        "reach": 1229,
+        "views": 1329,
+        "likes": 2,
+        "comments": 0,
+        "saved": 0,
+        "shares": 2,
+        "total_interactions": 4,
+        "ig_reels_avg_watch_time": 6986
+      }
+    },
+    {
+      "timestamp": "2026-10-19T22:01:20+0000",
+      "type": "REELS",
+      "permalink": "https://www.instagram.com/reel/DesR_lxlLj3/",
+      "first_line": "🎂 영어 공부 앱이 생일카페를 열었어요. 주인공은 초록색 부엉이였죠. 그런데 이상하게 낯설지가 않아요 👇",
+      "like_count": 2,
+      "comments_count": 0,
+      "insights": {
+        "reach": 254,
+        "views": 282,
+        "likes": 2,
+        "comments": 0,
+        "saved": 0,
+        "shares": 1,
+        "total_interactions": 3,
+        "ig_reels_avg_watch_time": 4341
+      }
+    },
+    {
+      "timestamp": "2026-10-18T22:01:53+0000",
+      "type": "FEED",
+      "permalink": "https://www.instagram.com/p/DeptXjkFmXi/",
+      "first_line": "🏙️ 게임 하나가 마이애미를 통째로 '바이스시티'로 바꿨어요. 지난주 마케팅 이슈 10개, 넘겨서 보세요.",
+      "like_count": 5,
+      "comments_count": 0,
+      "insights": {
+        "reach": 71,
+        "views": 138,
+        "likes": 5,
+        "comments": 0,
+        "saved": 0,
+        "shares": 1,
+        "total_interactions": 6,
+        "follows": 0,
+        "profile_visits": 2
+      }
+    },
+    {
+      "timestamp": "2026-10-17T22:02:20+0000",
+      "type": "FEED",
+      "permalink": "https://www.instagram.com/p/DenIn9MgSp6/",
+      "first_line": "💬 후기는 많을수록 좋다? 중요한 건 양이 아니라 '답'이에요.",
+      "like_count": 4,
+      "comments_count": 0,
+      "insights": {
+        "reach": 61,
+        "views": 128,
+        "likes": 4,
+        "comments": 0,
+        "saved": 0,
+        "shares": 1,
+        "total_interactions": 5,
+        "follows": 1,
+        "profile_visits": 4
+      }
+    },
+    {
+      "timestamp": "2026-10-16T22:01:21+0000",
+      "type": "REELS",
+      "permalink": "https://www.instagram.com/reel/DekjnGhHGUz/",
+      "first_line": "르게다꼼. 프랑스 브랜드인 줄 알았는데, LG전자 광고였어요. 모르는 사람 없는 이름을 두고 왜 낯선 이름을",
+      "like_count": 17,
+      "comments_count": 0,
+      "insights": {
+        "reach": 1209,
+        "views": 1398,
+        "likes": 17,
+        "comments": 0,
+        "saved": 1,
+        "shares": 2,
+        "total_interactions": 20,
+        "ig_reels_avg_watch_time": 10230
+      }
+    },
+    {
+      "timestamp": "2026-10-15T22:01:02+0000",
+      "type": "FEED",
+      "permalink": "https://www.instagram.com/p/Deh-4koCXur/",
+      "first_line": "🤖 AI 시대, 사람의 일은 '하는 것'에서 '정하는 것'으로 옮겨가고 있어요.",
+      "like_count": 3,
+      "comments_count": 0,
+      "insights": {
+        "reach": 62,
+        "views": 109,
+        "likes": 3,
+        "comments": 0,
+        "saved": 0,
+        "shares": 1,
+        "total_interactions": 4,
+        "follows": 0,
+        "profile_visits": 1
+      }
+    },
+    {
+      "timestamp": "2026-10-14T22:01:41+0000",
+      "type": "REELS",
+      "permalink": "https://www.instagram.com/reel/DefaB8rAdzk/",
+      "first_line": "캠페인 보고서에 '새로운 방향'을 써 갔더니, 광고주가 말했어요. \"아직 각인되지 않았어요.\" 👇",
+      "like_count": 3,
+      "comments_count": 0,
+      "insights": {
+        "reach": 175,
+        "views": 200,
+        "likes": 3,
+        "comments": 0,
+        "saved": 0,
+        "shares": 1,
+        "total_interactions": 4,
+        "ig_reels_avg_watch_time": 3355
+      }
+    },
+    {
+      "timestamp": "2026-10-13T22:00:58+0000",
+      "type": "FEED",
+      "permalink": "https://www.instagram.com/p/Dec1SZUm-sD/",
+      "first_line": "🔤 LG전자는 왜 발음하기도 어려운 닉네임 '르게다꼼'을 만들었을까요?",
+      "like_count": 4,
+      "comments_count": 0,
+      "insights": {
+        "reach": 78,
+        "views": 149,
+        "likes": 4,
+        "comments": 0,
+        "saved": 0,
+        "shares": 1,
+        "total_interactions": 5,
+        "follows": 0,
+        "profile_visits": 1
+      }
+    },
+    {
+      "timestamp": "2026-10-12T22:01:16+0000",
+      "type": "REELS",
+      "permalink": "https://www.instagram.com/reel/DeaQbP7gaEx/",
+      "first_line": "출근길 지하철에서 미국 야구 개막전을 라이브로 봤습니다. 넷플릭스로요. 콘텐츠 회사가 왜 중계에 돈을 쏟을까",
+      "like_count": 4,
+      "comments_count": 0,
+      "insights": {
+        "reach": 185,
+        "views": 228,
+        "likes": 4,
+        "comments": 0,
+        "saved": 0,
+        "shares": 1,
+        "total_interactions": 6,
+        "ig_reels_avg_watch_time": 4115
+      }
+    },
+    {
+      "timestamp": "2026-10-11T22:00:54+0000",
+      "type": "FEED",
+      "permalink": "https://www.instagram.com/p/DeXrsD2jzR6/",
+      "first_line": "📰 이번 주 주목할 마케팅 이슈 10가지, 넘겨서 보세요 👉",
+      "like_count": 4,
+      "comments_count": 0,
+      "insights": {
+        "reach": 70,
+        "views": 143,
+        "likes": 4,
+        "comments": 0,
+        "saved": 0,
+        "shares": 1,
+        "total_interactions": 5,
+        "follows": 0,
+        "profile_visits": 0
+      }
+    },
+    {
+      "timestamp": "2026-10-10T22:00:54+0000",
+      "type": "FEED",
+      "permalink": "https://www.instagram.com/p/DeVG5VYGw3h/",
+      "first_line": "🎬 사람들은 왜 콘텐츠를 만든 사람까지 궁금해할까요?",
+      "like_count": 4,
+      "comments_count": 0,
+      "insights": {
+        "reach": 63,
+        "views": 137,
+        "likes": 4,
+        "comments": 0,
+        "saved": 0,
+        "shares": 1,
+        "total_interactions": 5,
+        "follows": 0,
+        "profile_visits": 1
+      }
+    },
+    {
+      "timestamp": "2026-10-08T22:01:02+0000",
+      "type": "FEED",
+      "permalink": "https://www.instagram.com/p/DeP9Ue5Hxam/",
+      "first_line": "🎬 사람들은 돈을 내고 불편을 삽니다.",
+      "like_count": 4,
+      "comments_count": 0,
+      "insights": {
+        "reach": 82,
+        "views": 169,
+        "likes": 4,
+        "comments": 0,
+        "saved": 0,
+        "shares": 1,
+        "total_interactions": 5,
+        "follows": 0,
+        "profile_visits": 6
+      }
+    },
+    {
+      "timestamp": "2026-10-07T22:01:15+0000",
+      "type": "REELS",
+      "permalink": "https://www.instagram.com/reel/DeNYfklEejQ/",
+      "first_line": "\"메시지 이야기는 너무 교과서 같지 않아요?\" 그 교과서가 이제 AI에게 추천받는 조건이 됐습니다 👇",
+      "like_count": 5,
+      "comments_count": 0,
+      "insights": {
+        "reach": 128,
+        "views": 176,
+        "likes": 5,
+        "comments": 0,
+        "saved": 0,
+        "shares": 1,
+        "total_interactions": 6,
+        "ig_reels_avg_watch_time": 3490
+      }
+    },
+    {
+      "timestamp": "2026-10-06T22:01:05+0000",
+      "type": "FEED",
+      "permalink": "https://www.instagram.com/p/DeKzuzlIFb1/",
+      "first_line": "🤖 이제 사람들은 검색창 대신 AI에게 묻습니다.",
+      "like_count": 6,
+      "comments_count": 0,
+      "insights": {
+        "reach": 86,
+        "views": 165,
+        "likes": 6,
+        "comments": 0,
+        "saved": 1,
+        "shares": 1,
+        "total_interactions": 8,
+        "follows": 1,
+        "profile_visits": 7
+      }
+    },
+    {
+      "timestamp": "2026-10-05T22:26:46+0000",
+      "type": "REELS",
+      "permalink": "https://www.instagram.com/reel/DeIRx02joLZ/",
+      "first_line": "수세미 브랜드가 임신 테스트기 영상을 올렸습니다. 조회수 200만. 실수가 아니라 설계였어요 👇",
+      "like_count": 3,
+      "comments_count": 0,
+      "insights": {
+        "reach": 231,
+        "views": 313,
+        "likes": 3,
+        "comments": 0,
+        "saved": 0,
+        "shares": 1,
+        "total_interactions": 4,
+        "ig_reels_avg_watch_time": 5954
+      }
+    },
+    {
+      "timestamp": "2026-10-05T03:00:26+0000",
+      "type": "FEED",
+      "permalink": "https://www.instagram.com/p/DeGMaCOjfel/",
+      "first_line": "📰 이번 주 주목할 마케팅 이슈 3가지, 넘겨서 보세요 👉",
+      "like_count": 5,
+      "comments_count": 0,
+      "insights": {
+        "reach": 108,
+        "views": 217,
+        "likes": 5,
+        "comments": 0,
+        "saved": 0,
+        "shares": 1,
+        "total_interactions": 6,
+        "follows": 0,
+        "profile_visits": 2
+      }
+    },
+    {
+      "timestamp": "2026-10-03T19:17:44+0000",
+      "type": "FEED",
+      "permalink": "https://www.instagram.com/p/DeCyqoQE5RH/",
+      "first_line": "기획서와 회의에서 덜 막히도록.",
+      "like_count": 2,
+      "comments_count": 0,
+      "insights": {
+        "reach": 20,
+        "views": 86,
+        "likes": 2,
+        "comments": 0,
+        "saved": 0,
+        "shares": 0,
+        "total_interactions": 2,
+        "follows": 0,
+        "profile_visits": 4
+      }
+    },
+    {
+      "timestamp": "2026-10-03T19:16:38+0000",
+      "type": "FEED",
+      "permalink": "https://www.instagram.com/p/DeCyirLk-dJ/",
+      "first_line": "기획서 첫 장, 이 5개부터 점검하세요.",
+      "like_count": 1,
+      "comments_count": 0,
+      "insights": {
+        "reach": 13,
+        "views": 48,
+        "likes": 1,
+        "comments": 0,
+        "saved": 0,
+        "shares": 0,
+        "total_interactions": 1,
+        "follows": 0,
+        "profile_visits": 0
+      }
+    },
+    {
+      "timestamp": "2026-10-03T19:15:16+0000",
+      "type": "FEED",
+      "permalink": "https://www.instagram.com/p/DeCyYqik0ZP/",
+      "first_line": "아이디어는 있는데, 제안서 첫 장에서 멈추나요?",
+      "like_count": 1,
+      "comments_count": 0,
+      "insights": {
+        "reach": 17,
+        "views": 54,
+        "likes": 1,
+        "comments": 0,
+        "saved": 0,
+        "shares": 0,
+        "total_interactions": 1,
+        "follows": 0,
+        "profile_visits": 2
+      }
+    },
+    {
+      "timestamp": "2026-07-13T23:02:15+0000",
+      "type": "FEED",
+      "permalink": "https://www.instagram.com/p/DawDLScE45P/",
+      "first_line": "하인즈는 케첩이 아니라 기억을 팝니다.",
+      "like_count": 3,
+      "comments_count": 2,
+      "insights": {
+        "reach": 205,
+        "views": 610,
+        "likes": 3,
+        "comments": 2,
+        "saved": 0,
+        "shares": 2,
+        "total_interactions": 7,
+        "follows": 0,
+        "profile_visits": 2
+      }
+    },
+    {
+      "timestamp": "2026-07-01T22:12:29+0000",
+      "type": "FEED",
+      "permalink": "https://www.instagram.com/p/DaRD8ZlE22Z/",
+      "first_line": "🟢 리센느의 유튜브가 500만 뷰를 만든 이유",
+      "like_count": 9,
+      "comments_count": 3,
+      "insights": {
+        "reach": 272,
+        "views": 877,
+        "likes": 9,
+        "comments": 3,
+        "saved": 2,
+        "shares": 1,
+        "total_interactions": 16,
+        "follows": 1,
+        "profile_visits": 5
+      }
+    },
+    {
+      "timestamp": "2026-06-28T22:58:42+0000",
+      "type": "FEED",
+      "permalink": "https://www.instagram.com/p/DaJa2KME0S6/",
+      "first_line": "🎭 뷰티 브랜드가 걸그룹의 가면을 썼습니다.",
+      "like_count": 6,
+      "comments_count": 2,
+      "insights": {
+        "reach": 219,
+        "views": 716,
+        "likes": 6,
+        "comments": 2,
+        "saved": 1,
+        "shares": 1,
+        "total_interactions": 10,
+        "follows": 0,
+        "profile_visits": 1
+      }
+    },
+    {
+      "timestamp": "2026-06-25T22:41:02+0000",
+      "type": "FEED",
+      "permalink": "https://www.instagram.com/p/DaBqcIbk_L6/",
+      "first_line": "🧽 청소용품 광고에 임신 테스트기가 등장했습니다.",
+      "like_count": 9,
+      "comments_count": 2,
+      "insights": {
+        "reach": 251,
+        "views": 772,
+        "likes": 9,
+        "comments": 2,
+        "saved": 0,
+        "shares": 1,
+        "total_interactions": 12,
+        "follows": 1,
+        "profile_visits": 6
+      }
+    },
+    {
+      "timestamp": "2026-06-24T09:04:45+0000",
+      "type": "FEED",
+      "permalink": "https://www.instagram.com/p/DZ9oOqYk2yk/",
+      "first_line": "🛋️ 유튜브 콘텐츠는 이제 ‘가구’가 되고 있습니다.",
+      "like_count": 6,
+      "comments_count": 2,
+      "insights": {
+        "reach": 177,
+        "views": 598,
+        "likes": 6,
+        "comments": 2,
+        "saved": 0,
+        "shares": 1,
+        "total_interactions": 9,
+        "follows": 4,
+        "profile_visits": 4
+      }
+    },
+    {
+      "timestamp": "2026-06-23T09:42:25+0000",
+      "type": "FEED",
+      "permalink": "https://www.instagram.com/p/DZ7HvpIk6Bv/",
+      "first_line": "AI가 못 보는 것,",
+      "like_count": 7,
+      "comments_count": 0,
+      "insights": {
+        "reach": 190,
+        "views": 642,
+        "likes": 7,
+        "comments": 0,
+        "saved": 0,
+        "shares": 1,
+        "total_interactions": 8,
+        "follows": 2,
+        "profile_visits": 10
+      }
+    }
+  ],
+  "youtube": {
+    "channel_id": "UCCRzzl43nHs5bwfJzqupylw",
+    "videos": [
+      {
+        "id": "FVTfcK5_Y94",
+        "title": "스위첸 광고는 상을 받았는데, 왜 순위는 그대로일까?",
+        "published": "2026-11-02T08:00:39+00:00",
+        "views": 53,
+        "likes": 2
+      },
+      {
+        "id": "HDgWKeeR0KE",
+        "title": "광고는 웃겼는데, 브랜드는 남았나 ",
+        "published": "2026-11-01T08:00:17+00:00",
+        "views": 23,
+        "likes": 1
+      },
+      {
+        "id": "ryOs4JvyfBE",
+        "title": "지난 캠페인에서도 했던 말인데, 또 해야 하나요?",
+        "published": "2026-10-30T10:48:35+00:00",
+        "views": 6,
+        "likes": 1
+      },
+      {
+        "id": "r1WAWARSdGE",
+        "title": "버거킹은 왜 매장에 기사식당 전단지를 붙였을까?",
+        "published": "2026-10-26T08:00:04+00:00",
+        "views": 478,
+        "likes": 2
+      },
+      {
+        "id": "HWXLw7u-Cjw",
+        "title": "월급 0원으로 시작한 마케터가 10년 뒤 깨달은 것 ",
+        "published": "2026-10-24T08:00:02+00:00",
+        "views": 79,
+        "likes": 2
+      },
+      {
+        "id": "dTfb8BCEsyY",
+        "title": "RFP 받으면 왜 '새로운 것'부터 찾으면 안 될까?",
+        "published": "2026-10-22T08:00:12+00:00",
+        "views": 337,
+        "likes": 2
+      },
+      {
+        "id": "CxrTvM_lW9M",
+        "title": "이노션은 왜 광고 대신 영화를 만들까?",
+        "published": "2026-10-20T08:00:05+00:00",
+        "views": 90,
+        "likes": 2
+      },
+      {
+        "id": "tvNpcu_CJs8",
+        "title": "이미 다 있는 시장에서, 후발 브랜드는 어떻게 살아남을까?",
+        "published": "2026-10-18T08:00:26+00:00",
+        "views": 75,
+        "likes": 4
+      },
+      {
+        "id": "nPNB_RuYads",
+        "title": "듀오링고는 어떻게 전 세계에서 '웃긴 브랜드'가 됐을까?",
+        "published": "2026-10-16T08:00:22+00:00",
+        "views": 284,
+        "likes": 4
+      },
+      {
+        "id": "fOsvYwcWFFg",
+        "title": "LG전자는 왜 발음하기도 어려운 이름을 만들었을까?",
+        "published": "2026-10-14T08:00:34+00:00",
+        "views": 288,
+        "likes": 5
+      },
+      {
+        "id": "n_dz1Q3K3_g",
+        "title": "로고를 가렸는데 광고가 됐다? 하인즈의 기막힌 전략",
+        "published": "2026-10-07T11:55:20+00:00",
+        "views": 195,
+        "likes": 5
+      }
+    ],
+    "subscribers_text": "13명"
+  }
+}
