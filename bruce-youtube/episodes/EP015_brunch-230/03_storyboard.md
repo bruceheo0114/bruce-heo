@@ -1,0 +1,691 @@
+# Storyboard — EP015
+
+```text
+SCENE ID: S001
+TIME: 00:00-00:04
+NARRATION:
+"국힙 95% 정리." 괴물 신인 래퍼에게 달린 댓글 같죠?
+VISUAL:
+오프화이트 배경 위 큰 문구, 포인트 컬러 한 단어
+SOURCE_TYPE: TYPE
+ON_SCREEN_TEXT:
+국힙 95% 정리
+ASSET: -
+HIGGSFIELD_REQUIRED: NO
+
+SCENE ID: S002
+TIME: 00:04-00:09
+NARRATION:
+아니에요. 가수 존박의 유튜브 채널, 존이냐박이냐에 달린 댓글이에요.
+VISUAL:
+오프화이트 배경 위 큰 문구, 포인트 컬러 한 단어
+SOURCE_TYPE: TYPE
+ON_SCREEN_TEXT:
+존박의 유튜브 채널
+‘존이냐박이냐’
+ASSET: -
+HIGGSFIELD_REQUIRED: NO
+
+SCENE ID: S003
+TIME: 00:09-00:14
+NARRATION:
+랩 실력이 좋다는 칭찬이, 래퍼가 아니라 발라드 가수에게 쏟아진 거예요.
+VISUAL:
+오프화이트 배경 위 큰 문구, 포인트 컬러 한 단어
+SOURCE_TYPE: TYPE
+ON_SCREEN_TEXT:
+래퍼가 아니라
+발라드 가수에게
+ASSET: -
+HIGGSFIELD_REQUIRED: NO
+
+SCENE ID: S004
+TIME: 00:14-00:19
+NARRATION:
+존박이 맥도날드 매장에서, 랩으로 햄버거를 주문하는 영상이었죠.
+VISUAL:
+존박 랩 주문 기사 화면
+SOURCE_TYPE: REAL
+ON_SCREEN_TEXT:
+존박 · 맥도날드 랩 주문
+ASSET: A001
+HIGGSFIELD_REQUIRED: NO
+
+SCENE ID: S005
+TIME: 00:19-00:23
+NARRATION:
+이 영상은 공개 5일(오 일) 만에 조회수 300만 회(삼백만 회)를 넘겼어요.
+VISUAL:
+미니멀 도식, 항목이 말에 맞춰 나타남
+SOURCE_TYPE: GRAPHIC
+ON_SCREEN_TEXT:
+300만 회
+공개 5일 만의 조회수
+ASSET: -
+HIGGSFIELD_REQUIRED: NO
+MOTION: count
+
+SCENE ID: S006
+TIME: 00:23-00:28
+NARRATION:
+그런데 반전이 있어요. 이 영상, 사실 맥도날드의 유료 광고였어요.
+VISUAL:
+오프화이트 배경 위 큰 문구, 포인트 컬러 한 단어
+SOURCE_TYPE: TYPE
+ON_SCREEN_TEXT:
+사실은
+유료 광고
+ASSET: -
+HIGGSFIELD_REQUIRED: NO
+
+SCENE ID: S007
+TIME: 00:28-00:33
+NARRATION:
+보통 광고라는 걸 알면, 우리는 바로 넘겨 버리죠. 건너뛰기 버튼부터 찾잖아요.
+VISUAL:
+휴대폰 화면 속 영상 건너뛰기 버튼을 누르려는 손가락, 얼굴 없음
+SOURCE_TYPE: AI
+ON_SCREEN_TEXT:
+-
+ASSET: G07
+HIGGSFIELD_REQUIRED: YES
+
+SCENE ID: S008
+TIME: 00:33-00:37
+NARRATION:
+광고인 걸 알고도, 사람들은 왜 이렇게 좋아했을까요?
+VISUAL:
+오프화이트 배경 위 큰 문구, 포인트 컬러 한 단어
+SOURCE_TYPE: TYPE
+ON_SCREEN_TEXT:
+광고인데
+왜 좋아했을까
+ASSET: -
+HIGGSFIELD_REQUIRED: NO
+
+SCENE ID: S009
+TIME: 00:37-00:42
+NARRATION:
+회의실에선 이런 말을 자주 해요. 우리도 화제 될 콘텐츠 하나 만들어 볼까요?
+VISUAL:
+미니멀 도식, 항목이 말에 맞춰 나타남
+SOURCE_TYPE: GRAPHIC
+ON_SCREEN_TEXT:
+우리도 화제 될 콘텐츠
+하나 만들어 볼까요?
+— 회의실에서 자주 듣는 말
+ASSET: -
+HIGGSFIELD_REQUIRED: NO
+MOTION: quote
+
+SCENE ID: S010
+TIME: 00:42-00:46
+NARRATION:
+그런데 화제는, 만들자고 해서 만들어지는 게 아니잖아요.
+VISUAL:
+오프화이트 배경 위 큰 문구, 포인트 컬러 한 단어
+SOURCE_TYPE: TYPE
+ON_SCREEN_TEXT:
+화제는 만들자고
+만들어지지 않는다
+ASSET: -
+HIGGSFIELD_REQUIRED: NO
+
+SCENE ID: S011
+TIME: 00:46-00:53
+NARRATION:
+끝까지 보시면, 우리 캠페인에 어떤 서사가 흐르는지 점검할 질문 두 개를 가져가실 수 있어요.
+VISUAL:
+오프화이트 배경 위 큰 문구, 포인트 컬러 한 단어
+SOURCE_TYPE: TYPE
+ON_SCREEN_TEXT:
+점검할 질문 2개
+ASSET: -
+HIGGSFIELD_REQUIRED: NO
+
+SCENE ID: S012
+TIME: 00:53-00:56
+NARRATION:
+존박은 요즘 래퍼에 도전하는 콘텐츠를 만들고 있어요.
+VISUAL:
+녹음실 마이크와 헤드폰, 사람 없음, 따뜻한 조명
+SOURCE_TYPE: AI
+ON_SCREEN_TEXT:
+-
+ASSET: G01
+HIGGSFIELD_REQUIRED: YES
+
+SCENE ID: S013
+TIME: 00:56-01:03
+NARRATION:
+그중 하나가, 해외에서 유행한 밈을 빌려 와서 맥도날드에서 랩으로 주문하는 영상이었죠.
+VISUAL:
+패스트푸드점 주문 카운터 앞, 뒷모습 실루엣만
+SOURCE_TYPE: AI
+ON_SCREEN_TEXT:
+-
+ASSET: G02
+HIGGSFIELD_REQUIRED: YES
+
+SCENE ID: S014
+TIME: 01:03-01:08
+NARRATION:
+같은 소속사 동료 곽진언과 함께 매장에 가서, 랩으로 메뉴를 주문했어요.
+VISUAL:
+오프화이트 배경 위 큰 문구, 포인트 컬러 한 단어
+SOURCE_TYPE: TYPE
+ON_SCREEN_TEXT:
+같은 소속사 동료와
+랩으로 주문
+ASSET: -
+HIGGSFIELD_REQUIRED: NO
+
+SCENE ID: S015
+TIME: 01:08-01:12
+NARRATION:
+의외의 랩 실력과 중독성 있는 멜로디에, 반응이 뜨거웠죠.
+VISUAL:
+오프화이트 배경 위 큰 문구, 포인트 컬러 한 단어
+SOURCE_TYPE: TYPE
+ON_SCREEN_TEXT:
+의외의 랩 실력
+중독성 있는 멜로디
+ASSET: -
+HIGGSFIELD_REQUIRED: NO
+
+SCENE ID: S016
+TIME: 01:12-01:17
+NARRATION:
+댓글에는 이런 요청까지 나왔어요. 랩 가사에 나온 메뉴로, 존박 세트를 내 달라.
+VISUAL:
+미니멀 도식, 항목이 말에 맞춰 나타남
+SOURCE_TYPE: GRAPHIC
+ON_SCREEN_TEXT:
+존박 세트를 내 달라
+— 시청자 댓글
+ASSET: -
+HIGGSFIELD_REQUIRED: NO
+MOTION: quote
+
+SCENE ID: S017
+TIME: 01:17-01:23
+NARRATION:
+흥미로운 건, 이 세트를 처음 꺼낸 게 맥도날드가 아니라 시청자였다는 점이에요.
+VISUAL:
+오프화이트 배경 위 큰 문구, 포인트 컬러 한 단어
+SOURCE_TYPE: TYPE
+ON_SCREEN_TEXT:
+세트를 처음 꺼낸 건
+시청자
+ASSET: -
+HIGGSFIELD_REQUIRED: NO
+
+SCENE ID: S018
+TIME: 01:23-01:30
+NARRATION:
+맥도날드는 이 반응을 놓치지 않았어요. 존박의 주문 랩을 후속 광고에 쓰고, 존박 세트까지 내놨죠.
+VISUAL:
+존박 세트 출시 기사 화면
+SOURCE_TYPE: REAL
+ON_SCREEN_TEXT:
+‘존박 세트’ 출시
+시청자 제안이 메뉴로
+ASSET: A002
+HIGGSFIELD_REQUIRED: NO
+
+SCENE ID: S019
+TIME: 01:30-01:34
+NARRATION:
+브랜드가 정답을 들고 온 게 아니라, 사람들이 먼저 판을 깔아 준 셈이죠.
+VISUAL:
+오프화이트 배경 위 큰 문구, 포인트 컬러 한 단어
+SOURCE_TYPE: TYPE
+ON_SCREEN_TEXT:
+사람들이 먼저
+판을 깔았다
+ASSET: -
+HIGGSFIELD_REQUIRED: NO
+
+SCENE ID: S020
+TIME: 01:34-01:39
+NARRATION:
+영상은 계속 퍼져서, 조회수가 700만 회(칠백만 회)에 가까워졌어요.
+VISUAL:
+미니멀 도식, 항목이 말에 맞춰 나타남
+SOURCE_TYPE: GRAPHIC
+ON_SCREEN_TEXT:
+700만 회
+랩 주문 영상 조회수
+ASSET: -
+HIGGSFIELD_REQUIRED: NO
+MOTION: count
+
+SCENE ID: S021
+TIME: 01:39-01:44
+NARRATION:
+협업 콘텐츠 하나가, 새 광고로, 다시 새 제품으로 이어진 거예요.
+VISUAL:
+미니멀 도식, 항목이 말에 맞춰 나타남
+SOURCE_TYPE: GRAPHIC
+ON_SCREEN_TEXT:
+협업 콘텐츠 → 후속 광고 → 존박 세트
+ASSET: -
+HIGGSFIELD_REQUIRED: NO
+
+SCENE ID: S022
+TIME: 01:44-01:48
+NARRATION:
+광고 하나가 끝나는 데서 멈추지 않고, 다음 이야기로 이어진 거죠.
+VISUAL:
+오프화이트 배경 위 큰 문구, 포인트 컬러 한 단어
+SOURCE_TYPE: TYPE
+ON_SCREEN_TEXT:
+끝나지 않고
+다음 이야기로
+ASSET: -
+HIGGSFIELD_REQUIRED: NO
+
+SCENE ID: S023
+TIME: 01:48-01:51
+NARRATION:
+이 협업이 성공한 이유는 여러 가지일 거예요.
+VISUAL:
+오프화이트 배경 위 큰 문구, 포인트 컬러 한 단어
+SOURCE_TYPE: TYPE
+ON_SCREEN_TEXT:
+성공의 이유
+ASSET: -
+HIGGSFIELD_REQUIRED: NO
+
+SCENE ID: S024
+TIME: 01:51-01:58
+NARRATION:
+그중 제가 눈여겨본 건, 브랜드가 이미 만들어지던 의외성의 서사에 자연스럽게 올라탔다는 점이에요.
+VISUAL:
+오프화이트 배경 위 큰 문구, 포인트 컬러 한 단어
+SOURCE_TYPE: TYPE
+ON_SCREEN_TEXT:
+이미 만들어지던
+서사에 올라탔다
+ASSET: -
+HIGGSFIELD_REQUIRED: NO
+
+SCENE ID: S025
+TIME: 01:58-02:03
+NARRATION:
+발라드 가수 존박이 래퍼에 도전한다. 이 설정 자체가 의외성을 만들어요.
+VISUAL:
+미니멀 도식, 항목이 말에 맞춰 나타남
+SOURCE_TYPE: GRAPHIC
+ON_SCREEN_TEXT:
+익숙한 존박 vs 래퍼 존박
+발라드 가수 | 랩 도전
+ASSET: -
+HIGGSFIELD_REQUIRED: NO
+MOTION: compare
+
+SCENE ID: S026
+TIME: 02:03-02:08
+NARRATION:
+그러면 궁금해지죠. 진짜 매장에서도, 랩으로 주문할 수 있을까?
+VISUAL:
+오프화이트 배경 위 큰 문구, 포인트 컬러 한 단어
+SOURCE_TYPE: TYPE
+ON_SCREEN_TEXT:
+진짜 매장에서도
+될까?
+ASSET: -
+HIGGSFIELD_REQUIRED: NO
+
+SCENE ID: S027
+TIME: 02:08-02:15
+NARRATION:
+맥도날드는 그 궁금증을 풀어 주는 무대가 됐어요. 평범한 햄버거 주문이, 하나의 볼거리로 바뀐 거죠.
+VISUAL:
+패스트푸드 쟁반 위 햄버거와 감자튀김, 사람 없음, 따뜻한 조명
+SOURCE_TYPE: AI
+ON_SCREEN_TEXT:
+-
+ASSET: G03
+HIGGSFIELD_REQUIRED: YES
+
+SCENE ID: S028
+TIME: 02:15-02:23
+NARRATION:
+여기서 맥도날드가 한 일은 사실 단순해요. 이야기를 새로 만들지 않고, 이미 굴러가던 이야기에 무대를 내줬을 뿐이에요.
+VISUAL:
+오프화이트 배경 위 큰 문구, 포인트 컬러 한 단어
+SOURCE_TYPE: TYPE
+ON_SCREEN_TEXT:
+새로 만들지 않고
+무대를 내줬다
+ASSET: -
+HIGGSFIELD_REQUIRED: NO
+
+SCENE ID: S029
+TIME: 02:23-02:31
+NARRATION:
+만약 맥도날드가 처음부터 랩 주문 캠페인을 기획해서 밀어붙였다면 어땠을까요? 아마 지금만큼 자연스럽진 않았을 거예요.
+VISUAL:
+미니멀 도식, 항목이 말에 맞춰 나타남
+SOURCE_TYPE: GRAPHIC
+ON_SCREEN_TEXT:
+기획해서 밀어붙인 캠페인 vs 이미 있던 이야기에 올라탄 캠페인
+어색하다 | 자연스럽다
+ASSET: -
+HIGGSFIELD_REQUIRED: NO
+MOTION: compare
+
+SCENE ID: S030
+TIME: 02:31-02:36
+NARRATION:
+요즘 화제가 되는 콘텐츠에서도, 이런 의외성이 자주 보여요.
+VISUAL:
+오프화이트 배경 위 큰 문구, 포인트 컬러 한 단어
+SOURCE_TYPE: TYPE
+ON_SCREEN_TEXT:
+화제의 공통점
+= 의외성
+ASSET: -
+HIGGSFIELD_REQUIRED: NO
+
+SCENE ID: S031
+TIME: 02:36-02:41
+NARRATION:
+무대 위에선 완벽한 아이돌이, 영상에선 서로 놀리고 웃으며 사람 냄새를 풍기죠.
+VISUAL:
+빈 연습실 거울과 바닥에 놓인 물병, 사람 없음
+SOURCE_TYPE: AI
+ON_SCREEN_TEXT:
+-
+ASSET: G04
+HIGGSFIELD_REQUIRED: YES
+
+SCENE ID: S032
+TIME: 02:41-02:51
+NARRATION:
+리센느의 거제 야호 영상이 그랬고, 이전 영상에서 다룬 A2O(에이투오) LITE(라이트)도, 어린 멤버들이 어려운 안무를 독기 어린 눈빛으로 소화하는 반전이 있었죠.
+VISUAL:
+미니멀 도식, 항목이 말에 맞춰 나타남
+SOURCE_TYPE: GRAPHIC
+ON_SCREEN_TEXT:
+리센느 · 거제 야호
+A2O LITE · 독기 어린 눈빛
+ASSET: -
+HIGGSFIELD_REQUIRED: NO
+
+SCENE ID: S033
+TIME: 02:51-02:57
+NARRATION:
+익숙한 이미지와 예상 밖의 모습 사이의 간극이, 사람들의 시선을 붙잡는 거예요.
+VISUAL:
+미니멀 도식, 항목이 말에 맞춰 나타남
+SOURCE_TYPE: GRAPHIC
+ON_SCREEN_TEXT:
+익숙한 이미지 vs 예상 밖의 모습
+알던 모습 | 새로운 모습
+ASSET: -
+HIGGSFIELD_REQUIRED: NO
+MOTION: compare
+
+SCENE ID: S034
+TIME: 02:57-03:02
+NARRATION:
+사람들은 그 간극을 보려고 영상을 끝까지 보고, 친구에게 공유하죠.
+VISUAL:
+오프화이트 배경 위 큰 문구, 포인트 컬러 한 단어
+SOURCE_TYPE: TYPE
+ON_SCREEN_TEXT:
+끝까지 보고
+공유하게 만드는 간극
+ASSET: -
+HIGGSFIELD_REQUIRED: NO
+
+SCENE ID: S035
+TIME: 03:02-03:05
+NARRATION:
+브랜드는 캠페인을 기획할 때, 늘 화제성을 기대해요.
+VISUAL:
+오프화이트 배경 위 큰 문구, 포인트 컬러 한 단어
+SOURCE_TYPE: TYPE
+ON_SCREEN_TEXT:
+늘 기대하는
+화제성
+ASSET: -
+HIGGSFIELD_REQUIRED: NO
+
+SCENE ID: S036
+TIME: 03:05-03:15
+NARRATION:
+하지만 브랜드 자산만으로 화제를 만들긴 쉽지 않아요. 매번 파격적인 프로모션을 하거나, 큰돈을 들여 팝업과 유명 모델을 쓸 순 없으니까요.
+VISUAL:
+미니멀 도식, 항목이 말에 맞춰 나타남
+SOURCE_TYPE: GRAPHIC
+ON_SCREEN_TEXT:
+파격 프로모션
+큰 비용의 팝업
+유명 모델
+ASSET: -
+HIGGSFIELD_REQUIRED: NO
+
+SCENE ID: S037
+TIME: 03:15-03:22
+NARRATION:
+게다가 AI(에이아이) 시대엔 콘텐츠 수준이 다 같이 올라가고 있어요. 잘 만들었다는 것만으론, 눈에 띄기 어렵죠.
+VISUAL:
+비슷한 디자인의 카드 수십 장이 격자로 놓인 테이블, 미니멀
+SOURCE_TYPE: AI
+ON_SCREEN_TEXT:
+-
+ASSET: G05
+HIGGSFIELD_REQUIRED: YES
+
+SCENE ID: S038
+TIME: 03:22-03:28
+NARRATION:
+그래서 브랜드가 목소리를 내는 방법 중 하나가, 의외성의 서사와 함께하는 거예요.
+VISUAL:
+오프화이트 배경 위 큰 문구, 포인트 컬러 한 단어
+SOURCE_TYPE: TYPE
+ON_SCREEN_TEXT:
+의외성의 서사와
+함께하기
+ASSET: -
+HIGGSFIELD_REQUIRED: NO
+
+SCENE ID: S039
+TIME: 03:28-03:38
+NARRATION:
+방법은 여러 가지예요. 어울리지 않을 것 같은 인물과 협업하거나, 누군가의 도전에 자연스럽게 등장하거나, 시리즈로 이야기를 쌓아 갈 수도 있죠.
+VISUAL:
+미니멀 도식, 항목이 말에 맞춰 나타남
+SOURCE_TYPE: GRAPHIC
+ON_SCREEN_TEXT:
+뜻밖의 인물과 협업
+누군가의 도전에 등장
+시리즈로 이야기 쌓기
+ASSET: -
+HIGGSFIELD_REQUIRED: NO
+
+SCENE ID: S040
+TIME: 03:38-03:41
+NARRATION:
+중요한 건, 의외성에서 멈추지 않는 거예요.
+VISUAL:
+오프화이트 배경 위 큰 문구, 포인트 컬러 한 단어
+SOURCE_TYPE: TYPE
+ON_SCREEN_TEXT:
+의외성에서
+멈추지 않기
+ASSET: -
+HIGGSFIELD_REQUIRED: NO
+
+SCENE ID: S041
+TIME: 03:41-03:49
+NARRATION:
+물론 의외성만 노리면, 억지스러운 콘텐츠가 되기 쉬워요. 브랜드와 아무 연결 없는 반전은, 한 번 웃고 잊히죠.
+VISUAL:
+오프화이트 배경 위 큰 문구, 포인트 컬러 한 단어
+SOURCE_TYPE: TYPE
+ON_SCREEN_TEXT:
+연결 없는 반전은
+한 번 웃고 잊힌다
+ASSET: -
+HIGGSFIELD_REQUIRED: NO
+
+SCENE ID: S042
+TIME: 03:49-03:55
+NARRATION:
+그래서 마케터라면 이렇게 봐야 해요. 이 의외성이, 우리 브랜드의 어떤 행동과 연결되는가.
+VISUAL:
+오프화이트 배경 위 큰 문구, 포인트 컬러 한 단어
+SOURCE_TYPE: TYPE
+ON_SCREEN_TEXT:
+이 의외성은
+우리의 어떤 행동과 이어지나
+ASSET: -
+HIGGSFIELD_REQUIRED: NO
+
+SCENE ID: S043
+TIME: 03:55-04:01
+NARRATION:
+의외성이 관심을 끄는 시작점이라면, 서사는 그 관심을 다음 콘텐츠로 이어 가는 힘이에요.
+VISUAL:
+미니멀 도식, 항목이 말에 맞춰 나타남
+SOURCE_TYPE: GRAPHIC
+ON_SCREEN_TEXT:
+의외성 = 시작점
+서사 = 다음으로 이어 가는 힘
+ASSET: -
+HIGGSFIELD_REQUIRED: NO
+
+SCENE ID: S044
+TIME: 04:01-04:06
+NARRATION:
+존박의 주문 랩이, 후속 광고와 존박 세트로 이어진 것처럼요.
+VISUAL:
+오프화이트 배경 위 큰 문구, 포인트 컬러 한 단어
+SOURCE_TYPE: TYPE
+ON_SCREEN_TEXT:
+주문 랩 → 후속 광고
+→ 존박 세트
+ASSET: -
+HIGGSFIELD_REQUIRED: NO
+
+SCENE ID: S045
+TIME: 04:06-04:13
+NARRATION:
+우리가 웹툰이나 드라마에 빠지는 것도, 결국 이야기 때문이에요. 다음 전개가 궁금하고, 주변에 전하고 싶어지죠.
+VISUAL:
+소파 위에 놓인 리모컨과 꺼진 TV 화면, 저녁 조명, 사람 없음
+SOURCE_TYPE: AI
+ON_SCREEN_TEXT:
+-
+ASSET: G06
+HIGGSFIELD_REQUIRED: YES
+
+SCENE ID: S046
+TIME: 04:13-04:18
+NARRATION:
+때로는 그 이야기를 주변에 전하며, 함께 즐기기도 하고요.
+VISUAL:
+오프화이트 배경 위 큰 문구, 포인트 컬러 한 단어
+SOURCE_TYPE: TYPE
+ON_SCREEN_TEXT:
+전하고 싶은
+이야기
+ASSET: -
+HIGGSFIELD_REQUIRED: NO
+
+SCENE ID: S047
+TIME: 04:18-04:24
+NARRATION:
+브랜드 콘텐츠도 같아요. 흥미로운 이야기 속에 제품이 나오면, 광고인 줄 알면서도 즐길 수 있어요.
+VISUAL:
+오프화이트 배경 위 큰 문구, 포인트 컬러 한 단어
+SOURCE_TYPE: TYPE
+ON_SCREEN_TEXT:
+이야기 속의 제품
+ASSET: -
+HIGGSFIELD_REQUIRED: NO
+
+SCENE ID: S048
+TIME: 04:24-04:33
+NARRATION:
+서사는 브랜드만의 자산이 될 수도 있어요. 맥도날드가 늘 해 오던 주문이라는 평범한 행동을, 특별한 콘텐츠로 만든 것처럼요.
+VISUAL:
+오프화이트 배경 위 큰 문구, 포인트 컬러 한 단어
+SOURCE_TYPE: TYPE
+ON_SCREEN_TEXT:
+평범한 주문이
+특별한 콘텐츠로
+ASSET: -
+HIGGSFIELD_REQUIRED: NO
+
+SCENE ID: S049
+TIME: 04:33-04:38
+NARRATION:
+브랜드의 역사와 철학, 제품과 공간에서도 이야기는 시작될 수 있어요.
+VISUAL:
+미니멀 도식, 항목이 말에 맞춰 나타남
+SOURCE_TYPE: GRAPHIC
+ON_SCREEN_TEXT:
+역사
+철학
+제품
+공간
+ASSET: -
+HIGGSFIELD_REQUIRED: NO
+
+SCENE ID: S050
+TIME: 04:38-04:46
+NARRATION:
+캠페인 안에서만이 아니라, 캠페인과 캠페인 사이에도 이야기가 이어진다면, 소비자가 다시 찾아올 이유가 생겨요.
+VISUAL:
+미니멀 도식, 항목이 말에 맞춰 나타남
+SOURCE_TYPE: GRAPHIC
+ON_SCREEN_TEXT:
+캠페인 → 이야기 → 다음 캠페인
+ASSET: -
+HIGGSFIELD_REQUIRED: NO
+
+SCENE ID: S051
+TIME: 04:46-04:52
+NARRATION:
+다음 캠페인 회의에서 화제 될 콘텐츠를 만들자는 말이 나오면, 먼저 이 두 가지를 물어보세요.
+VISUAL:
+오프화이트 배경 위 큰 문구, 포인트 컬러 한 단어
+SOURCE_TYPE: TYPE
+ON_SCREEN_TEXT:
+화제 될 콘텐츠 전에
+물어볼 두 가지
+ASSET: -
+HIGGSFIELD_REQUIRED: NO
+
+SCENE ID: S052
+TIME: 04:52-04:56
+NARRATION:
+첫째, 우리 브랜드가 하고 싶은 이야기는 무엇인가요?
+VISUAL:
+오프화이트 배경 위 큰 문구, 포인트 컬러 한 단어
+SOURCE_TYPE: TYPE
+ON_SCREEN_TEXT:
+첫째
+우리가 하고 싶은 이야기는?
+ASSET: -
+HIGGSFIELD_REQUIRED: NO
+
+SCENE ID: S053
+TIME: 04:56-05:00
+NARRATION:
+둘째, 우리는 그걸, 사람들이 궁금해하는 이야기로 만들 수 있나요?
+VISUAL:
+오프화이트 배경 위 큰 문구, 포인트 컬러 한 단어
+SOURCE_TYPE: TYPE
+ON_SCREEN_TEXT:
+둘째
+궁금해하는 이야기로 만들 수 있나?
+ASSET: -
+HIGGSFIELD_REQUIRED: NO
+
+```

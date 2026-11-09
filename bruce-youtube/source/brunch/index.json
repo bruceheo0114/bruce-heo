@@ -463,7 +463,18 @@
       "firstSeenAt": "2026-11-07T12:14:57.140Z",
       "updatedAt": "2026-11-07T12:14:57.140Z",
       "episode": null
+    },
+    "230": {
+      "id": "230",
+      "url": "https://brunch.co.kr/@heoboram/230",
+      "title": "존박의 맥도날드 콘텐츠는 왜 화제가 됐을까?",
+      "publishedAt": "2026-11-09T03:00:00.000Z",
+      "bodyHash": "481357cd923678decd4acd7c74fc0ba645c2683f5a06807b0d5a41229341219e",
+      "file": "230.md",
+      "firstSeenAt": "2026-11-09T12:22:32.263Z",
+      "updatedAt": "2026-11-09T12:22:32.263Z",
+      "episode": "EP015"
     }
   },
-  "lastSyncedAt": "2026-11-07T12:14:57.140Z"
+  "lastSyncedAt": "2026-11-09T12:22:32.263Z"
 }
