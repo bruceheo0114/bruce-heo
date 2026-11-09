@@ -1,0 +1,133 @@
+{
+  "references_hash": "e2e00dc56b27e090",
+  "fetched_at": "2026-11-09T12:27:06.130Z",
+  "items": [
+    {
+      "file": "A001-screen.jpg",
+      "id": "A001",
+      "scenes": [
+        "S004"
+      ],
+      "kind": "screen",
+      "source": "머니투데이 (2026-10-30)",
+      "url": "https://www.mt.co.kr/society/2026/10/30/2026103015515091506"
+    },
+    {
+      "file": "A001-scroll.jpg",
+      "id": "A001",
+      "scenes": [
+        "S004"
+      ],
+      "kind": "scroll",
+      "source": "머니투데이 (2026-10-30)",
+      "url": "https://www.mt.co.kr/society/2026/10/30/2026103015515091506"
+    },
+    {
+      "file": "A001-img1.jpg",
+      "id": "A001",
+      "scenes": [
+        "S004"
+      ],
+      "kind": "image",
+      "source": "머니투데이 (2026-10-30)",
+      "url": "https://www.mt.co.kr/society/2026/10/30/2026103015515091506"
+    },
+    {
+      "file": "A002-screen.jpg",
+      "id": "A002",
+      "scenes": [
+        "S018"
+      ],
+      "kind": "screen",
+      "source": "이투데이",
+      "url": "https://www.etoday.co.kr/news/view/2642030"
+    },
+    {
+      "file": "A002-scroll.jpg",
+      "id": "A002",
+      "scenes": [
+        "S018"
+      ],
+      "kind": "scroll",
+      "source": "이투데이",
+      "url": "https://www.etoday.co.kr/news/view/2642030"
+    },
+    {
+      "file": "A002-img1.jpg",
+      "id": "A002",
+      "scenes": [
+        "S018"
+      ],
+      "kind": "image",
+      "source": "이투데이",
+      "url": "https://www.etoday.co.kr/news/view/2642030"
+    },
+    {
+      "file": "A002-img2.jpg",
+      "id": "A002",
+      "scenes": [
+        "S018"
+      ],
+      "kind": "image",
+      "source": "이투데이",
+      "url": "https://www.etoday.co.kr/news/view/2642030"
+    },
+    {
+      "file": "A003-screen.jpg",
+      "id": "A003",
+      "scenes": [],
+      "kind": "screen",
+      "source": "뉴스워커",
+      "url": "https://www.newsworker.co.kr/news/articleView.html?idxno=511193"
+    },
+    {
+      "file": "A003-scroll.jpg",
+      "id": "A003",
+      "scenes": [],
+      "kind": "scroll",
+      "source": "뉴스워커",
+      "url": "https://www.newsworker.co.kr/news/articleView.html?idxno=511193"
+    },
+    {
+      "file": "A003-img1.jpg",
+      "id": "A003",
+      "scenes": [],
+      "kind": "image",
+      "source": "뉴스워커",
+      "url": "https://www.newsworker.co.kr/news/articleView.html?idxno=511193"
+    },
+    {
+      "file": "A003-img2.jpg",
+      "id": "A003",
+      "scenes": [],
+      "kind": "image",
+      "source": "뉴스워커",
+      "url": "https://www.newsworker.co.kr/news/articleView.html?idxno=511193"
+    },
+    {
+      "file": "A003-img3.jpg",
+      "id": "A003",
+      "scenes": [],
+      "kind": "image",
+      "source": "뉴스워커",
+      "url": "https://www.newsworker.co.kr/news/articleView.html?idxno=511193"
+    },
+    {
+      "file": "brunch-01.jpg",
+      "id": "brunch",
+      "scenes": [],
+      "kind": "image",
+      "source": "브런치 @heoboram 원문",
+      "url": "https://brunch.co.kr/@heoboram/230"
+    },
+    {
+      "file": "brunch-02.jpg",
+      "id": "brunch",
+      "scenes": [],
+      "kind": "image",
+      "source": "브런치 @heoboram 원문",
+      "url": "https://brunch.co.kr/@heoboram/230"
+    }
+  ],
+  "failures": []
+}
