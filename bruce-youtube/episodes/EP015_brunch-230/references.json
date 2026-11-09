@@ -25,6 +25,86 @@
       "url": "https://www.newsworker.co.kr/news/articleView.html?idxno=511193",
       "source": "뉴스워커",
       "scenes": []
+    },
+    {
+      "id": "G07",
+      "kind": "image",
+      "ai": true,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261109_122534_3df46dc1-a6ac-41e4-83a8-695517f33847.png",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "scenes": [
+        "S007"
+      ]
+    },
+    {
+      "id": "G01",
+      "kind": "image",
+      "ai": true,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261109_122534_81bcd389-c55e-4074-954a-b51c9bce43d5.png",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "scenes": [
+        "S012"
+      ]
+    },
+    {
+      "id": "G02",
+      "kind": "image",
+      "ai": true,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261109_122535_42936c2f-84c2-418a-9df9-c7c479bfada3.png",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "scenes": [
+        "S013"
+      ]
+    },
+    {
+      "id": "G03",
+      "kind": "image",
+      "ai": true,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261109_122535_01a45eb9-7284-453a-8238-86e9c99459ce.png",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "scenes": [
+        "S027"
+      ]
+    },
+    {
+      "id": "G04",
+      "kind": "image",
+      "ai": true,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261109_122606_9de46860-aeac-4e65-a1dc-8df632f9c564.png",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "scenes": [
+        "S031"
+      ]
+    },
+    {
+      "id": "G05",
+      "kind": "image",
+      "ai": true,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261109_122607_6de95102-7896-417f-915f-87b16d18b988.png",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "scenes": [
+        "S037"
+      ]
+    },
+    {
+      "id": "G06",
+      "kind": "image",
+      "ai": true,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261109_122607_c52160fc-16e7-4aec-8485-427be1570753.png",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "scenes": [
+        "S045"
+      ]
+    },
+    {
+      "id": "V01",
+      "kind": "video",
+      "ai": true,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261109_122626_99166ac8-cc6a-4f0a-beec-c148db934e08.mp4",
+      "source": "AI 생성 영상 (Higgsfield)",
+      "scenes": [
+        "S012"
+      ]
     }
   ]
 }
