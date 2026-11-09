@@ -428,6 +428,10 @@
     "229": {
       "category": "work",
       "auto": true
+    },
+    "230": {
+      "category": "brand",
+      "auto": true
     }
   }
 }
