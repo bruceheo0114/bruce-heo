@@ -1,8 +1,8 @@
 {
   "version": 1,
   "initialized": true,
-  "lastCheckedAt": "2026-11-10T04:25:46.120Z",
-  "lastCheckedCanonicalUrl": "https://brunch.co.kr/@heoboram/230",
+  "lastCheckedAt": "2026-11-10T23:00:29.528Z",
+  "lastCheckedCanonicalUrl": "https://brunch.co.kr/@heoboram/225",
   "reviewSuccessCount": 1,
   "mode": "review",
   "articles": {
@@ -1063,6 +1063,38 @@
       "scheduledAt": "2026-10-12T22:30:00.000Z",
       "completedAt": "2026-10-12T23:34:28.942Z",
       "approvalCounted": true
+    },
+    "225": {
+      "id": "225",
+      "canonicalUrl": "https://brunch.co.kr/@heoboram/225",
+      "title": "후발주자는 어떻게 브랜딩해야 할까?",
+      "publishedAt": "2026-11-10T12:00:01.000Z",
+      "bodyHash": "05689aa42d8c8d9e7a997a484df0a8589c2df5b0cf8abc4bee74bf6b43c57fd3",
+      "batchId": "42919548310",
+      "homepage": {
+        "status": "published",
+        "updatedAt": "2026-11-10T23:00:29.528Z"
+      },
+      "package": {
+        "status": "awaiting_review",
+        "manifestPath": "content/225/manifest.json",
+        "generatedAt": null
+      },
+      "linkedin": {
+        "status": "manual_pending",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "instagram": {
+        "status": "manual_pending",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "approvedAt": null,
+      "scheduledAt": null,
+      "completedAt": null
     },
     "226": {
       "id": "226",
