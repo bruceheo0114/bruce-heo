@@ -1874,7 +1874,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .main-slider__tab--book:not([aria-selected="true"]) { color: #D30874; }
 .book-story { display: grid; grid-template-columns: 1fr; gap: 20px; align-items: start; }
 @media (min-width: 900px) { .book-story { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 32px; } }
-.book-story__feed { min-width: 0; }
+.book-story__feed { min-width: 0; display: grid; gap: 12px; }
 .book-post {
   display: grid;
   grid-template-columns: 136px 1fr;
@@ -1896,6 +1896,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 @media (min-width: 560px) {
   .book-post { grid-template-columns: 220px 1fr; gap: 24px; padding: 12px 24px 12px 12px; }
 }
+.book-post--text { display: block; padding: 16px 20px; }
 .book-story__card {
   display: grid;
   grid-template-columns: 112px 1fr;
