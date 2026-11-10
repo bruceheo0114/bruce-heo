@@ -1,0 +1,1998 @@
+{
+  "date": "2026-11-11",
+  "generated_at": "2026-11-10T05:57:59.686Z",
+  "window": {
+    "since": "2026-10-31",
+    "until": "2026-11-10"
+  },
+  "source": "네이버 검색 API(뉴스·블로그) + 데이터랩 검색어 트렌드 · API HUB",
+  "note": "국내 사례 후보일 뿐이다. 채택 전에 원문을 열어 날짜·주체·숫자를 확인한다(content/routine_trend_newsletter_prompt.md).",
+  "stats": {
+    "api_calls": 68,
+    "articles": 1535,
+    "candidates": 40
+  },
+  "candidates": [
+    {
+      "keyword": "네이버애즈",
+      "title": "네이버, 광고주센터에 AI 기능 넣어 ‘네이버애즈’로 개편",
+      "description": "네이버가 기존 광고주센터를 ‘네이버애즈(N Ads)’로 개편하고 인공지능(AI)이 광고 운영 상태를 먼저 점검해 개선안을 알려주는 기능을 추가했다. 대행사 도움 없이 광고를 직접 운영해야 하는 중소형 광고주의 부담을...",
+      "field": "일하는 법",
+      "published": "2026-11-06",
+      "within7": true,
+      "outlets": [
+        "sedaily.com",
+        "mydaily.co.kr",
+        "mk.co.kr",
+        "byline.network",
+        "breaknews.com",
+        "etnews.com",
+        "hansbiz.co.kr",
+        "sentv.co.kr",
+        "womentimes.co.kr",
+        "aitimes.kr",
+        "newsfreezone.co.kr",
+        "digitaltoday.co.kr",
+        "dt.co.kr",
+        "kizmom.com",
+        "koreareport.co.kr",
+        "ftoday.co.kr",
+        "fnnews.com",
+        "megaeconomy.co.kr",
+        "kpenews.com"
+      ],
+      "signals": [
+        "80%",
+        "90%",
+        "3개",
+        "74%"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "sedaily.com",
+          "date": "2026-11-06",
+          "url": "https://www.sedaily.com/article/20110849?ref=naver"
+        },
+        {
+          "outlet": "mydaily.co.kr",
+          "date": "2026-11-05",
+          "url": "https://www.mydaily.co.kr/page/view/2026110516195511062"
+        },
+        {
+          "outlet": "mk.co.kr",
+          "date": "2026-11-05",
+          "url": "https://www.mk.co.kr/article/12198413"
+        },
+        {
+          "outlet": "byline.network",
+          "date": "2026-11-05",
+          "url": "https://byline.network/?p=9004111222626329"
+        },
+        {
+          "outlet": "breaknews.com",
+          "date": "2026-11-05",
+          "url": "http://www.breaknews.com/1248639"
+        }
+      ],
+      "blog7": 100,
+      "searchRise": 70.69,
+      "score": 25.5
+    },
+    {
+      "keyword": "카카오",
+      "title": "카카오, 2026년 3분기 매출 2조 867억 원... 전년 대비 6% 증가",
+      "description": "톡스토어 거래액도 대형 브랜드 협업과 라이브커머스, 인플루언서 딜 등 판매·구매 접점 확대에 힘입어 8% 증가했다. 톡비즈 커머스 매출은 2413억 원으로 전년 동기 대비 16% 늘었다. 모빌리티와 페이 등이 포함된...",
+      "field": "커머스",
+      "published": "2026-11-05",
+      "within7": true,
+      "outlets": [
+        "gamefocus.co.kr",
+        "financialreview.co.kr",
+        "news2day.co.kr",
+        "thebigdata.co.kr",
+        "ftoday.co.kr",
+        "byline.network",
+        "dailian.co.kr",
+        "inews24.com",
+        "ajunews.com",
+        "worktoday.co.kr",
+        "zdnet.co.kr",
+        "mt.co.kr"
+      ],
+      "signals": [
+        "돌파",
+        "역대",
+        "867억 원",
+        "6%",
+        "8%",
+        "2413억 원"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "gamefocus.co.kr",
+          "date": "2026-11-05",
+          "url": "https://gamefocus.co.kr/detail.php?number=180307"
+        },
+        {
+          "outlet": "financialreview.co.kr",
+          "date": "2026-11-05",
+          "url": "http://www.financialreview.co.kr/news/articleView.html?idxno=46056"
+        },
+        {
+          "outlet": "news2day.co.kr",
+          "date": "2026-11-05",
+          "url": "https://www.news2day.co.kr/article/20261105500159"
+        },
+        {
+          "outlet": "thebigdata.co.kr",
+          "date": "2026-11-05",
+          "url": "https://www.thebigdata.co.kr/view.php?ud=2026110510295874170a47484cf8_23"
+        },
+        {
+          "outlet": "ftoday.co.kr",
+          "date": "2026-11-05",
+          "url": "http://www.ftoday.co.kr/news/articleView.html?idxno=368970"
+        }
+      ],
+      "blog7": 100,
+      "searchRise": 1.67,
+      "score": 25.2
+    },
+    {
+      "keyword": "CJ ENM",
+      "title": "[더벨][컨콜 Q&A 리뷰] CJ ENM, TV광고 선방 자신…피프스시즌 투자 적정...",
+      "description": "크리에이터 커머스와 숏폼 취급고가 각각 172%, 129% 증가하며 성장을 견인했다. 다만 위탁 상품 비중 확대로 매출액이 1.9% 줄었고, 온트너 구축 등 투자 비용이 늘며 영업이익도 46.8% 감소했다. 출처=CJ ENM ◇TV광고...",
+      "field": "커머스",
+      "published": "2026-11-09",
+      "within7": true,
+      "outlets": [
+        "thebell.co.kr",
+        "lawissue.co.kr",
+        "financialpost.co.kr",
+        "biztribune.co.kr",
+        "techm.kr",
+        "news.tvchosun.com",
+        "dealsite.co.kr",
+        "g-enews.com",
+        "news.mtn.co.kr",
+        "mt.co.kr",
+        "biz.chosun.com",
+        "zdnet.co.kr",
+        "sportsworldi.com",
+        "viva100.com",
+        "dailian.co.kr",
+        "newsprime.co.kr",
+        "kjdaily.com",
+        "shinailbo.co.kr",
+        "straightnews.co.kr",
+        "womentimes.co.kr",
+        "inews24.com",
+        "pointdaily.co.kr",
+        "newsian.co.kr",
+        "nextdaily.co.kr",
+        "nc.press",
+        "apparelnews.co.kr",
+        "munhwa.com",
+        "asiaa.co.kr"
+      ],
+      "signals": [
+        "흥행",
+        "172%",
+        "129%",
+        "1.9%",
+        "46.8%"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "thebell.co.kr",
+          "date": "2026-11-09",
+          "url": "https://www.thebell.co.kr/free/content/ArticleView.asp?key=202611051438019000105483"
+        },
+        {
+          "outlet": "lawissue.co.kr",
+          "date": "2026-11-06",
+          "url": "https://www.lawissue.co.kr/view.php?ud=202611061836226058204ead0791_12"
+        },
+        {
+          "outlet": "financialpost.co.kr",
+          "date": "2026-11-06",
+          "url": "https://www.financialpost.co.kr/news/articleView.html?idxno=285201"
+        },
+        {
+          "outlet": "biztribune.co.kr",
+          "date": "2026-11-06",
+          "url": "http://www.biztribune.co.kr/news/articleView.html?idxno=362064"
+        },
+        {
+          "outlet": "techm.kr",
+          "date": "2026-11-06",
+          "url": "https://www.techm.kr/news/articleView.html?idxno=157006"
+        }
+      ],
+      "blog7": 100,
+      "searchRise": 1.32,
+      "score": 22.5
+    },
+    {
+      "keyword": "그랜드십일절",
+      "title": "11번가, 11일 ‘그랜드십일절’ 피날레 행사…타임딜 최대 80% 할인",
+      "description": "AI 검색 결과와 함께 랜덤 쇼핑 포인트를 제공하는 '오늘의 득템, AI한테 맡겨' 이벤트에서도 최대 당첨 금액을 5만 '11페이 포인트'로 늘려 진행합니다. 박현수 11번가 사장은 \"국내외 인기 브랜드 및 입점...",
+      "field": "AI 검색",
+      "published": "2026-11-10",
+      "within7": true,
+      "outlets": [
+        "inthenews.co.kr",
+        "news1.kr",
+        "slist.kr",
+        "news.dealsitetv.com",
+        "inews24.com",
+        "mt.co.kr",
+        "fnnews.com",
+        "newsis.com"
+      ],
+      "signals": [
+        "완판",
+        "흥행",
+        "급증",
+        "80%",
+        "89%",
+        "3배",
+        "109%"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "inthenews.co.kr",
+          "date": "2026-11-10",
+          "url": "https://www.inthenews.co.kr/news/article.html?no=94234"
+        },
+        {
+          "outlet": "news1.kr",
+          "date": "2026-11-10",
+          "url": "https://www.news1.kr/industry/distribution/6348553"
+        },
+        {
+          "outlet": "slist.kr",
+          "date": "2026-11-10",
+          "url": "https://www.slist.kr/news/articleView.html?idxno=780321"
+        },
+        {
+          "outlet": "news.dealsitetv.com",
+          "date": "2026-11-05",
+          "url": "https://news.dealsitetv.com/articles/178157"
+        },
+        {
+          "outlet": "inews24.com",
+          "date": "2026-11-05",
+          "url": "http://www.inews24.com/view/2022901"
+        }
+      ],
+      "blog7": 100,
+      "searchRise": 0.35,
+      "score": 22.1
+    },
+    {
+      "keyword": "CJ온스타일",
+      "title": "CJ온스타일, 겨울 패션위크로 보온감 강화한 패션 제안",
+      "description": "크리에이터의 매칭부터 글로벌 진출까지 통합 지원하는 비즈니스 모델을 제시했다. 앞으로 이 회사는 한국형 크리에이터 커머스 모델을 주요 성장 동력으로 삼아 콘텐츠 커머스 시장을 선도할 방침이다. [신아일보]",
+      "field": "커머스",
+      "published": "2026-11-09",
+      "within7": true,
+      "outlets": [
+        "shinailbo.co.kr",
+        "100ssd.co.kr",
+        "thefirstmedia.net",
+        "cstimes.com",
+        "megaeconomy.co.kr",
+        "updownnews.co.kr",
+        "inews24.com",
+        "kpenews.com",
+        "etnews.com",
+        "e-science.co.kr",
+        "etoday.co.kr",
+        "thepowernews.co.kr",
+        "newsis.com",
+        "m-i.kr",
+        "peoplewatch.co.kr",
+        "lawissue.co.kr",
+        "yna.co.kr",
+        "popcornnews.net",
+        "srtimes.kr",
+        "zdnet.co.kr",
+        "news1.kr",
+        "econovill.com",
+        "daily.hankooki.com",
+        "fnnews.com",
+        "hansbiz.co.kr"
+      ],
+      "signals": [
+        "65.6%",
+        "172%",
+        "129%",
+        "67억원"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "shinailbo.co.kr",
+          "date": "2026-11-09",
+          "url": "https://www.shinailbo.co.kr/news/articleView.html?idxno=5081150"
+        },
+        {
+          "outlet": "100ssd.co.kr",
+          "date": "2026-11-06",
+          "url": "https://www.100ssd.co.kr/news/articleView.html?idxno=214212"
+        },
+        {
+          "outlet": "thefirstmedia.net",
+          "date": "2026-11-06",
+          "url": "http://www.thefirstmedia.net/news/articleView.html?idxno=212886"
+        },
+        {
+          "outlet": "cstimes.com",
+          "date": "2026-11-06",
+          "url": "https://www.cstimes.com/news/articleView.html?idxno=726960"
+        },
+        {
+          "outlet": "megaeconomy.co.kr",
+          "date": "2026-11-06",
+          "url": "https://www.megaeconomy.co.kr/news/newsview.php?ncode=1065590986378650"
+        }
+      ],
+      "blog7": 100,
+      "searchRise": 1.02,
+      "score": 21.5
+    },
+    {
+      "keyword": "더블유위크",
+      "title": "W컨셉, 25일까지 '더블유위크'…패션·뷰티·라이프 할인",
+      "description": "매일 오전 10시에는 균일가 선착순 오픈런 이벤트를 진행한다. 츄퍼마켓 생초콜릿과 프론투라인 레깅스... 아우터와 니트 등 시즌 신상품, 인플루언서 화제 상품을 '더블유 픽'과 '키 아이템'으로 선정하고, 무니드 딥...",
+      "field": "소비자",
+      "published": "2026-11-09",
+      "within7": true,
+      "outlets": [
+        "apparelnews.co.kr",
+        "fashionbiz.co.kr",
+        "magazine.hankyung.com",
+        "newsis.com",
+        "slist.kr"
+      ],
+      "signals": [
+        "오픈런",
+        "화제",
+        "20만개",
+        "85%",
+        "50%"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "apparelnews.co.kr",
+          "date": "2026-11-09",
+          "url": "http://www.apparelnews.co.kr/news/news_view/?idx=228841"
+        },
+        {
+          "outlet": "fashionbiz.co.kr",
+          "date": "2026-11-09",
+          "url": "https://www.fashionbiz.co.kr/article/230925"
+        },
+        {
+          "outlet": "magazine.hankyung.com",
+          "date": "2026-11-09",
+          "url": "https://magazine.hankyung.com/business/article/202611094124b"
+        },
+        {
+          "outlet": "newsis.com",
+          "date": "2026-11-09",
+          "url": "https://www.newsis.com/view/NISX20261109_0003859659"
+        },
+        {
+          "outlet": "slist.kr",
+          "date": "2026-11-09",
+          "url": "https://www.slist.kr/news/articleView.html?idxno=779983"
+        }
+      ],
+      "blog7": 100,
+      "searchRise": 4.83,
+      "score": 21.5
+    },
+    {
+      "keyword": "2026 대한민국 상품대상",
+      "title": "시몬스, '대한민국 상품대상' 마케팅 부문 대상 수상",
+      "description": "시몬스는 브랜드 캠페인 'LIFE IS COMFORT'와 이머시브 아트 퍼포먼스 'The breath before inspiration'을 통해... AI 기술을 배제하고 앰비언트 사운드를 활용한 광고는 공개 두 달 만에 누적 조회수 1억 뷰를 돌파했다. 또한...",
+      "field": "브랜드 캠페인",
+      "published": "2026-11-09",
+      "within7": true,
+      "outlets": [
+        "amnews.co.kr",
+        "kfenews.co.kr",
+        "newspim.com",
+        "lkp.news",
+        "seoultimes.news",
+        "delighti.co.kr",
+        "ikld.kr",
+        "popcornnews.net"
+      ],
+      "signals": [
+        "조회수",
+        "돌파",
+        "1억 뷰",
+        "1억회",
+        "1억뷰"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "amnews.co.kr",
+          "date": "2026-11-09",
+          "url": "http://www.amnews.co.kr/news/articleView.html?idxno=75488"
+        },
+        {
+          "outlet": "kfenews.co.kr",
+          "date": "2026-11-06",
+          "url": "https://www.kfenews.co.kr/news/articleView.html?idxno=667694"
+        },
+        {
+          "outlet": "newspim.com",
+          "date": "2026-11-06",
+          "url": "https://www.newspim.com/news/view/20261106001056"
+        },
+        {
+          "outlet": "lkp.news",
+          "date": "2026-11-06",
+          "url": "http://www.lkp.news/news/articleView.html?idxno=85880"
+        },
+        {
+          "outlet": "seoultimes.news",
+          "date": "2026-11-06",
+          "url": "https://www.seoultimes.news/news/article.html?no=2000101891"
+        }
+      ],
+      "blog7": 100,
+      "searchRise": 0,
+      "score": 21.1
+    },
+    {
+      "keyword": "SK네트웍스",
+      "title": "SK네트웍스, 3분기 실적 발표…AI 전환 본격화",
+      "description": "방식과 조직 전반의 혁신을 추진하고 있다. 올해 초부터 외부 전문기관과 함께 전 구성원을 대상으로 AX 역량 내재화에 나섰으며, 이와 연계한 개인화 AI 에이전트 제작도 병행해 왔다. 구성원의 AI 활용 능력을 키우고...",
+      "field": "일하는 법",
+      "published": "2026-11-09",
+      "within7": true,
+      "outlets": [
+        "betanews.net",
+        "biztribune.co.kr",
+        "eroun.net",
+        "wemakenews.co.kr",
+        "epnc.co.kr",
+        "worktoday.co.kr",
+        "metroseoul.co.kr",
+        "newslock.co.kr",
+        "m-i.kr",
+        "polinews.co.kr",
+        "pointe.co.kr",
+        "biz.newdaily.co.kr",
+        "news.dealsitetv.com",
+        "news1.kr",
+        "finomy.com",
+        "ziksir.com",
+        "asiaa.co.kr",
+        "mt.co.kr",
+        "dailian.co.kr",
+        "etoday.co.kr",
+        "biz.heraldcorp.com",
+        "issuenbiz.com",
+        "ajunews.com"
+      ],
+      "signals": [
+        "201억원",
+        "9.9%"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "betanews.net",
+          "date": "2026-11-09",
+          "url": "https://www.betanews.net/article/view/beta202611060118"
+        },
+        {
+          "outlet": "biztribune.co.kr",
+          "date": "2026-11-08",
+          "url": "http://www.biztribune.co.kr/news/articleView.html?idxno=362118"
+        },
+        {
+          "outlet": "eroun.net",
+          "date": "2026-11-08",
+          "url": "https://www.eroun.net/news/articleView.html?idxno=94722"
+        },
+        {
+          "outlet": "wemakenews.co.kr",
+          "date": "2026-11-07",
+          "url": "https://wemakenews.co.kr/news/view.php?no=26775"
+        },
+        {
+          "outlet": "epnc.co.kr",
+          "date": "2026-11-07",
+          "url": "https://www.epnc.co.kr/news/articleView.html?idxno=409414"
+        }
+      ],
+      "blog7": 100,
+      "searchRise": 1,
+      "score": 20
+    },
+    {
+      "keyword": "역대 최대",
+      "title": "NHN KCP, 3분기 매출 3867억원·거래액 17조3490억원으로 역대 최대 경신",
+      "description": "쇼핑 시장 성장률을 크게 웃돌았다. NHN KCP는 대규모 트래픽의 안정적 처리 역량과 보안 체계, 고도화된 금융 네트워크 연동 서비스를 바탕으로 국내외 가맹점과의 거래 기반을 넓혀가고 있다. NHN KCP는 AI 에이전트가...",
+      "field": "AI 검색",
+      "published": "2026-11-10",
+      "within7": true,
+      "outlets": [
+        "tokenpost.kr",
+        "technoa.co.kr",
+        "industrynews.co.kr",
+        "job-post.co.kr",
+        "thetracker.co.kr",
+        "newswatch.kr",
+        "efnews.co.kr"
+      ],
+      "signals": [
+        "역대",
+        "급증",
+        "3867억원",
+        "3490억원",
+        "3,867억원",
+        "75%"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "tokenpost.kr",
+          "date": "2026-11-10",
+          "url": "https://www.tokenpost.kr/news/blockchain/435569"
+        },
+        {
+          "outlet": "technoa.co.kr",
+          "date": "2026-11-10",
+          "url": "http://www.technoa.co.kr/news/articleView.html?idxno=101619"
+        },
+        {
+          "outlet": "industrynews.co.kr",
+          "date": "2026-11-10",
+          "url": "https://www.industrynews.co.kr/news/articleView.html?idxno=89216"
+        },
+        {
+          "outlet": "job-post.co.kr",
+          "date": "2026-11-10",
+          "url": "https://www.job-post.co.kr/news/articleView.html?idxno=237458"
+        },
+        {
+          "outlet": "thetracker.co.kr",
+          "date": "2026-11-10",
+          "url": "https://thetracker.co.kr/View.aspx?No=4305030"
+        }
+      ],
+      "blog7": 100,
+      "searchRise": 0,
+      "score": 19.9
+    },
+    {
+      "keyword": "헬리녹스",
+      "title": "헬리녹스, 중국서 통했다! 상하이 첫 팝업 성료",
+      "description": "첫 팝업스토어가 성황리에 마무리하며 중국 시장 안착 가능성을 확인했다. 헬리녹스 웨어는 코오롱FnC가... 그 결과 팝업 기간 전체 매출은 목표 대비 200%를 달성했으며, 누적 방문객은 약 1만 8천 명, 하루 최대...",
+      "field": "소비자",
+      "published": "2026-11-10",
+      "within7": true,
+      "outlets": [
+        "okfashion.co.kr",
+        "lawissue.co.kr",
+        "kdfnews.com",
+        "biz.newdaily.co.kr",
+        "fashionbiz.co.kr",
+        "apparelnews.co.kr",
+        "news1.kr"
+      ],
+      "signals": [
+        "돌파",
+        "200%",
+        "8천 명",
+        "8000명",
+        "2배"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "okfashion.co.kr",
+          "date": "2026-11-10",
+          "url": "http://okfashion.co.kr/detail.php?number=64364&thread=81r06r04"
+        },
+        {
+          "outlet": "lawissue.co.kr",
+          "date": "2026-11-10",
+          "url": "https://www.lawissue.co.kr/view.php?ud=202611101059093656204ead0791_12"
+        },
+        {
+          "outlet": "kdfnews.com",
+          "date": "2026-11-10",
+          "url": "http://www.kdfnews.com/news/articleView.html?idxno=190700"
+        },
+        {
+          "outlet": "biz.newdaily.co.kr",
+          "date": "2026-11-10",
+          "url": "https://biz.newdaily.co.kr/site/data/html/2026/11/10/2026111000113.html"
+        },
+        {
+          "outlet": "fashionbiz.co.kr",
+          "date": "2026-11-10",
+          "url": "https://www.fashionbiz.co.kr/article/230964"
+        }
+      ],
+      "blog7": 100,
+      "searchRise": 0.7,
+      "score": 18.9
+    },
+    {
+      "keyword": "구글 애즈 임팩트 어워즈",
+      "title": "인크로스, '구글 애즈 임팩트 어워즈' 2개 부문 파이널리스트 선정",
+      "description": "제시한 광고주와 대행사를 선정하는 글로벌 어워즈다. 올해 국내에서는 ▲AI 엑설런스 ▲데이터 이노베이션 ▲미디어 성과 ▲글로벌 성장 ▲앱 성장 등 5개 부문에서 광고주와 대행사 트랙을 각각 운영했다....",
+      "field": "일하는 법",
+      "published": "2026-11-10",
+      "within7": true,
+      "outlets": [
+        "newsis.com",
+        "edaily.co.kr",
+        "koreareport.co.kr",
+        "financialpost.co.kr",
+        "hbnpress.com",
+        "pinpointnews.co.kr",
+        "todayenergy.kr",
+        "g-enews.com",
+        "queen.co.kr",
+        "ppss.kr",
+        "view.asiae.co.kr"
+      ],
+      "signals": [
+        "2개",
+        "5개",
+        "208%"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "newsis.com",
+          "date": "2026-11-10",
+          "url": "https://www.newsis.com/view/NISX20261110_0003861520"
+        },
+        {
+          "outlet": "edaily.co.kr",
+          "date": "2026-11-09",
+          "url": "https://www.edaily.co.kr/News/Read?newsId=02063126645644080&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article"
+        },
+        {
+          "outlet": "koreareport.co.kr",
+          "date": "2026-11-06",
+          "url": "https://www.koreareport.co.kr/news/articleView.html?idxno=54412"
+        },
+        {
+          "outlet": "financialpost.co.kr",
+          "date": "2026-11-06",
+          "url": "https://www.financialpost.co.kr/news/articleView.html?idxno=285244"
+        },
+        {
+          "outlet": "hbnpress.com",
+          "date": "2026-11-06",
+          "url": "https://hbnpress.com/news/view/1065587538848090"
+        }
+      ],
+      "blog7": 4,
+      "searchRise": 0,
+      "score": 18.7
+    },
+    {
+      "keyword": "한양증권",
+      "title": "한양증권, 유튜브 채널 개설 1년 만에 1만 구독자 돌파",
+      "description": "특히 지난 9월 공개된 여의도 프라이빗웰스매니지먼트(PWM)센터 소속 권충현 이사의 일과를 다룬 '16년 차... 직원들의 소소한 직장 생활을 다룬 '여의도 탕비실'과 회사 창립 70주년 기념 브랜드 필름 '비HY인드'는 한양증권...",
+      "field": "브랜드 캠페인",
+      "published": "2026-11-04",
+      "within7": true,
+      "outlets": [
+        "newslock.co.kr",
+        "joongang.co.kr",
+        "pinpointnews.co.kr",
+        "pointdaily.co.kr",
+        "thepowernews.co.kr",
+        "newsdream.kr"
+      ],
+      "signals": [
+        "조회수",
+        "돌파",
+        "2000명",
+        "34만뷰",
+        "1만명",
+        "2,000명"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "newslock.co.kr",
+          "date": "2026-11-04",
+          "url": "http://www.newslock.co.kr/news/articleView.html?idxno=139363"
+        },
+        {
+          "outlet": "joongang.co.kr",
+          "date": "2026-11-04",
+          "url": "https://www.joongang.co.kr/article/25475742"
+        },
+        {
+          "outlet": "pinpointnews.co.kr",
+          "date": "2026-11-04",
+          "url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=501217"
+        },
+        {
+          "outlet": "pointdaily.co.kr",
+          "date": "2026-11-04",
+          "url": "https://www.pointdaily.co.kr/news/articleView.html?idxno=324757"
+        },
+        {
+          "outlet": "thepowernews.co.kr",
+          "date": "2026-11-04",
+          "url": "https://www.thepowernews.co.kr/view.php?ud=202611041026278045de3f0aa1be_7"
+        }
+      ],
+      "blog7": 100,
+      "searchRise": 0.57,
+      "score": 18.7
+    },
+    {
+      "keyword": "카페24",
+      "title": "카페24, 커머스 특화 AI 앱 출시 4.5배 증가…활용 분야도 확대",
+      "description": "생성형 AI 검색 결과에서 브랜드와 상품의 노출을 돕는 생성형 엔진 최적화(GEO) 관련 앱은 지난해 1개에서 올해 10월 기준 7개로 증가했다. AI 앱 공급 확대는 실제 쇼핑몰의 설치로도 이어졌다. 현재 카페24 스토어에서...",
+      "field": "AI 검색",
+      "published": "2026-11-10",
+      "within7": true,
+      "outlets": [
+        "ddaily.co.kr",
+        "daily.hankooki.com",
+        "edaily.co.kr",
+        "etnews.com",
+        "byline.network",
+        "economytalk.kr",
+        "shinailbo.co.kr"
+      ],
+      "signals": [
+        "4.5배",
+        "1개",
+        "7개",
+        "17개"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "ddaily.co.kr",
+          "date": "2026-11-10",
+          "url": "https://www.ddaily.co.kr/page/view/2026111009242152555"
+        },
+        {
+          "outlet": "daily.hankooki.com",
+          "date": "2026-11-10",
+          "url": "https://daily.hankooki.com/news/articleView.html?idxno=1423436"
+        },
+        {
+          "outlet": "edaily.co.kr",
+          "date": "2026-11-10",
+          "url": "https://www.edaily.co.kr/News/Read?newsId=03391526645644408&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article"
+        },
+        {
+          "outlet": "etnews.com",
+          "date": "2026-11-08",
+          "url": "https://www.etnews.com/20261106000218"
+        },
+        {
+          "outlet": "byline.network",
+          "date": "2026-11-05",
+          "url": "https://byline.network/?p=9004111222626425"
+        }
+      ],
+      "blog7": 100,
+      "searchRise": 1.05,
+      "score": 17.9
+    },
+    {
+      "keyword": "삼립호빵",
+      "title": "삼립호빵, 출시 첫 3주 편의점 매출 44% 증가…전 채널 매출도 20% 늘어",
+      "description": "광고와 '찌는 법' 게시물이 함께 확산 배우 공명을 신규 모델로 발탁한 삼립호빵 광고 캠페인은 공개 일주일 만에 조회수 200만 회를 돌파하는 한편, SNS 플랫폼 스레드(Threads)에서 시작된 '호빵 맛있게 찌는 법' 관련...",
+      "field": "브랜드 캠페인",
+      "published": "2026-11-06",
+      "within7": true,
+      "outlets": [
+        "dailypop.kr",
+        "cnbizm.com",
+        "techholic.co.kr",
+        "m-i.kr"
+      ],
+      "signals": [
+        "조회수",
+        "돌파",
+        "화제",
+        "44%",
+        "20%",
+        "200만 회",
+        "200만회"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "dailypop.kr",
+          "date": "2026-11-06",
+          "url": "http://www.dailypop.kr/news/articleView.html?idxno=104241"
+        },
+        {
+          "outlet": "cnbizm.com",
+          "date": "2026-11-05",
+          "url": "https://www.cnbizm.com/news/articleView.html?idxno=320488"
+        },
+        {
+          "outlet": "techholic.co.kr",
+          "date": "2026-11-05",
+          "url": "http://www.techholic.co.kr/news/articleView.html?idxno=223541"
+        },
+        {
+          "outlet": "m-i.kr",
+          "date": "2026-11-05",
+          "url": "https://www.m-i.kr/news/articleView.html?idxno=2014678"
+        }
+      ],
+      "blog7": 100,
+      "searchRise": 1.2,
+      "score": 17.3
+    },
+    {
+      "keyword": "광고 왜 안 뜨지?",
+      "title": "네이버, 광고주센터 '네이버애즈'로 개편…AI가 광고 성과 분석·개선 제...",
+      "description": "네이버는 광고 운영 편의성과 효율성을 높이기 위해 기존 광고주센터에 AI 광고 에이전트 기능을 추가하고... 또 '나에게 맞는 광고'를 통해 쇼핑 광고를 시작한 광고주의 약 90%가 한 달 이내에 광고를 통한 전환 성과를...",
+      "field": "AI 검색",
+      "published": "2026-11-05",
+      "within7": true,
+      "outlets": [
+        "zdnet.co.kr",
+        "itdaily.kr",
+        "newsis.com",
+        "m-i.kr",
+        "finomy.com",
+        "e-science.co.kr",
+        "etoday.co.kr"
+      ],
+      "signals": [
+        "90%",
+        "3개"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "zdnet.co.kr",
+          "date": "2026-11-05",
+          "url": "https://zdnet.co.kr/view/?no=20261105145948"
+        },
+        {
+          "outlet": "itdaily.kr",
+          "date": "2026-11-05",
+          "url": "https://www.itdaily.kr/news/articleView.html?idxno=242713"
+        },
+        {
+          "outlet": "newsis.com",
+          "date": "2026-11-05",
+          "url": "https://www.newsis.com/view/NISX20261105_0003855763"
+        },
+        {
+          "outlet": "m-i.kr",
+          "date": "2026-11-05",
+          "url": "https://www.m-i.kr/news/articleView.html?idxno=2014832"
+        },
+        {
+          "outlet": "finomy.com",
+          "date": "2026-11-05",
+          "url": "http://www.finomy.com/news/articleView.html?idxno=265728"
+        }
+      ],
+      "blog7": 100,
+      "searchRise": 0,
+      "score": 16.4
+    },
+    {
+      "keyword": "테라 제로",
+      "title": "'테라 제로', 1483만개 판매···출시 첫해 브랜드상",
+      "description": "(왜, 안 돼?)' 캠페인은 갈증과 월요병, 번뇌 등 일상적인 상황을 유머로 풀어내며 무알코올 음료를 평소에도 즐길 수 있다는 점을 강조했다. 해당 광고는 공개 약 60일 만에 온라인 누적 조회수 5000만회를 기록했다....",
+      "field": "브랜드 캠페인",
+      "published": "2026-11-04",
+      "within7": true,
+      "outlets": [
+        "finomy.com",
+        "joongangenews.com",
+        "ziksir.com",
+        "widedaily.com"
+      ],
+      "signals": [
+        "조회수",
+        "돌파",
+        "1483만개",
+        "5000만회",
+        "5000만 회"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "finomy.com",
+          "date": "2026-11-04",
+          "url": "http://www.finomy.com/news/articleView.html?idxno=265607"
+        },
+        {
+          "outlet": "joongangenews.com",
+          "date": "2026-11-04",
+          "url": "https://www.joongangenews.com/news/articleView.html?idxno=560936"
+        },
+        {
+          "outlet": "ziksir.com",
+          "date": "2026-11-04",
+          "url": "https://www.ziksir.com/news/articleView.html?idxno=151989"
+        },
+        {
+          "outlet": "widedaily.com",
+          "date": "2026-11-04",
+          "url": "https://www.widedaily.com/news/articleView.html?idxno=302775"
+        }
+      ],
+      "blog7": 100,
+      "searchRise": 1.04,
+      "score": 16.3
+    },
+    {
+      "keyword": "껑충",
+      "title": "삼립호빵, 편의점 매출 '껑충'",
+      "description": "배우 공명을 신규 모델로 발탁해 선보인 광고 캠페인은 공개 일주일 만에 조회수 200만 회를 돌파하며 화제를 모았다. 여기에 SNS 플랫폼 스레드(Threads)에서 시작된 '호빵 맛있게 찌는 법' 관련 게시물이 인스타그램 릴스 등...",
+      "field": "브랜드 캠페인",
+      "published": "2026-11-05",
+      "within7": true,
+      "outlets": [
+        "bokuennews.com",
+        "dealsite.co.kr",
+        "metroseoul.co.kr"
+      ],
+      "signals": [
+        "조회수",
+        "돌파",
+        "화제",
+        "200만 회",
+        "172%",
+        "129%",
+        "5.8%"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "bokuennews.com",
+          "date": "2026-11-05",
+          "url": "http://www.bokuennews.com/news/article.html?no=286723"
+        },
+        {
+          "outlet": "dealsite.co.kr",
+          "date": "2026-11-05",
+          "url": "https://dealsite.co.kr/articles/172194"
+        },
+        {
+          "outlet": "metroseoul.co.kr",
+          "date": "2026-11-05",
+          "url": "http://www.metroseoul.co.kr/article/20261105500221"
+        }
+      ],
+      "blog7": 100,
+      "searchRise": 1.48,
+      "score": 16.1
+    },
+    {
+      "keyword": "LG전자",
+      "title": "LG전자, 구글 광고 어워즈 2관왕…AI 마케팅으로 광고 수익률 1190% 달성",
+      "description": "미국·캐나다와 유럽·중동·아프리카, 아시아태평양, 중남미 등 주요 지역에서 진행되며 광고주와 광고대행사를 대상으로 평가가 이뤄진다. 올해는 AI 엑설런스와 데이터 이노베이션, 미디어 성과, 글로벌 성장, 앱...",
+      "field": "일하는 법",
+      "published": "2026-11-06",
+      "within7": true,
+      "outlets": [
+        "joongangenews.com",
+        "newscj.com",
+        "cstimes.com",
+        "news.bbsi.co.kr",
+        "news1.kr"
+      ],
+      "signals": [
+        "1190%",
+        "208%",
+        "470%",
+        "2개"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "joongangenews.com",
+          "date": "2026-11-06",
+          "url": "https://www.joongangenews.com/news/articleView.html?idxno=561768"
+        },
+        {
+          "outlet": "newscj.com",
+          "date": "2026-11-06",
+          "url": "https://www.newscj.com/news/articleView.html?idxno=3446550"
+        },
+        {
+          "outlet": "cstimes.com",
+          "date": "2026-11-06",
+          "url": "https://www.cstimes.com/news/articleView.html?idxno=726945"
+        },
+        {
+          "outlet": "news.bbsi.co.kr",
+          "date": "2026-11-06",
+          "url": "https://news.bbsi.co.kr/news/articleView.html?idxno=4117084"
+        },
+        {
+          "outlet": "news1.kr",
+          "date": "2026-11-06",
+          "url": "https://www.news1.kr/industry/general-industry/6345294"
+        }
+      ],
+      "blog7": 100,
+      "searchRise": 0.92,
+      "score": 15.5
+    },
+    {
+      "keyword": "네이버",
+      "title": "[이커머스 톺아보기②] 네이버, 멤버십·AI로 쿠팡 추격…커머스 영토 ...",
+      "description": "이에 힘입어 지난 8월 쇼핑 AI 에이전트의 월간 이용자 수와 일평균 대화 수는 출시 초기인 3월 대비 각각 약 5배 늘었다. 에이전트를 통한 일평균 거래액도 같은 기간 약 4배 증가했다. 네이버는 연내 일부 상품군에 AI...",
+      "field": "AI 검색",
+      "published": "2026-11-06",
+      "within7": true,
+      "outlets": [
+        "thebigdata.co.kr",
+        "news.tf.co.kr",
+        "newskr.kr",
+        "etnews.com",
+        "fnnews.com"
+      ],
+      "signals": [
+        "5배",
+        "4배",
+        "80%",
+        "90%"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "thebigdata.co.kr",
+          "date": "2026-11-06",
+          "url": "https://www.thebigdata.co.kr/view.php?ud=2026110516594261040a47484cf8_23"
+        },
+        {
+          "outlet": "news.tf.co.kr",
+          "date": "2026-11-05",
+          "url": "https://news.tf.co.kr/read/economy/2385369.htm"
+        },
+        {
+          "outlet": "newskr.kr",
+          "date": "2026-11-05",
+          "url": "http://www.newskr.kr/news/articleView.html?idxno=107728"
+        },
+        {
+          "outlet": "etnews.com",
+          "date": "2026-11-04",
+          "url": "https://www.etnews.com/20261104000273"
+        },
+        {
+          "outlet": "fnnews.com",
+          "date": "2026-11-02",
+          "url": "https://www.fnnews.com/news/202611020943125879"
+        }
+      ],
+      "blog7": 100,
+      "searchRise": 1.17,
+      "score": 15.5
+    },
+    {
+      "keyword": "이노션",
+      "title": "이노션, AI 검색 시대 맞춰 광고 사업 확대…생성형 엔진 최적화 매출 발...",
+      "description": "김회재 대신증권 연구원은 5일 이노션에 대한 기업분석 레포트를 통해 생성형 엔진 최적화(GEO·Generative Engine Optimization) 서비스에서 매출이 발생하기 시작한 점을 의미 있는 변화로 평가했다. 투자의견 매수(BUY)와...",
+      "field": "AI 검색",
+      "published": "2026-11-05",
+      "within7": true,
+      "outlets": [
+        "khgames.co.kr",
+        "sedaily.com",
+        "mk.co.kr",
+        "financialpost.co.kr"
+      ],
+      "signals": [
+        "화제",
+        "4.2%",
+        "31회",
+        "13.8%",
+        "7.8%"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "khgames.co.kr",
+          "date": "2026-11-05",
+          "url": "https://www.khgames.co.kr/news/articleView.html?idxno=310034"
+        },
+        {
+          "outlet": "sedaily.com",
+          "date": "2026-11-05",
+          "url": "https://www.sedaily.com/article/20110533?ref=naver"
+        },
+        {
+          "outlet": "mk.co.kr",
+          "date": "2026-11-04",
+          "url": "https://www.mk.co.kr/article/12196737"
+        },
+        {
+          "outlet": "financialpost.co.kr",
+          "date": "2026-11-04",
+          "url": "https://www.financialpost.co.kr/news/articleView.html?idxno=284699"
+        }
+      ],
+      "blog7": 100,
+      "searchRise": 1.16,
+      "score": 15.3
+    },
+    {
+      "keyword": "SK텔레콤",
+      "title": "SK텔레콤, 사내 AI 에이전트 5000개 개발…업무 혁신 확산",
+      "description": "그 결과 올해 사내에서 개발된 업무 관련 AI 에이전트는 5000개 이상으로 집계됐다. 지난 8월부터 10월까지 진행된 AX 스파크에는 총 173건의 사례가 출품됐다. 마케팅과 네트워크 인프라, AI 사업 등 다양한 조직에서...",
+      "field": "일하는 법",
+      "published": "2026-11-03",
+      "within7": true,
+      "outlets": [
+        "thefirstmedia.net",
+        "autodaily.co.kr",
+        "mk.co.kr",
+        "eroun.net"
+      ],
+      "signals": [
+        "돌파",
+        "5000개",
+        "173건",
+        "20건"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "thefirstmedia.net",
+          "date": "2026-11-03",
+          "url": "http://www.thefirstmedia.net/news/articleView.html?idxno=212615"
+        },
+        {
+          "outlet": "autodaily.co.kr",
+          "date": "2026-11-03",
+          "url": "https://www.autodaily.co.kr/news/articleView.html?idxno=601740"
+        },
+        {
+          "outlet": "mk.co.kr",
+          "date": "2026-11-03",
+          "url": "https://www.mk.co.kr/article/12194742"
+        },
+        {
+          "outlet": "eroun.net",
+          "date": "2026-11-03",
+          "url": "https://www.eroun.net/news/articleView.html?idxno=94238"
+        }
+      ],
+      "score": 12.3
+    },
+    {
+      "keyword": "급증",
+      "title": "CS부터 생성형 검색까지…카페24, 전자상거래 AI 앱 출시 4.5배 '급증'",
+      "description": "생성형 AI 검색창에서 자사 브랜드와 상품이 우선 노출되도록 돕는 '생성형 엔진 최적화(GEO)' 솔루션의 약진도 두드러졌다. GEO 관련 신규 앱은 지난해 1개에 불과했으나 올해 7개로 늘어났다. 소비자가 챗봇 등 대화형...",
+      "field": "AI 검색",
+      "published": "2026-11-10",
+      "within7": true,
+      "outlets": [
+        "widedaily.com",
+        "choicenews.co.kr"
+      ],
+      "signals": [
+        "조회수",
+        "돌파",
+        "급증",
+        "화제",
+        "4.5배",
+        "1개",
+        "7개",
+        "200만 회"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "widedaily.com",
+          "date": "2026-11-10",
+          "url": "https://www.widedaily.com/news/articleView.html?idxno=303233"
+        },
+        {
+          "outlet": "choicenews.co.kr",
+          "date": "2026-11-05",
+          "url": "http://www.choicenews.co.kr/news/articleView.html?idxno=172924"
+        }
+      ],
+      "score": 11.9
+    },
+    {
+      "keyword": "맞짱",
+      "title": "삼성·구글 AI 안경, 12일 예약판매",
+      "description": "차지한 AI 스마트 안경 시장에 새로운 경쟁 구도를 형성할지 주목된다. 국내 안경 브랜드 젠틀몬스터와 미국... 기반의 AI 에이전트가 사용자가 바라보는 사물과 주변 환경을 인식해 실시간 번역과 길 안내, 정보 검색 등을...",
+      "field": "AI 검색",
+      "published": "2026-11-09",
+      "within7": true,
+      "outlets": [
+        "seoul.co.kr",
+        "view.asiae.co.kr",
+        "seouleconews.com",
+        "livebiz.today",
+        "newsfc.co.kr",
+        "biz.sbs.co.kr",
+        "yna.co.kr"
+      ],
+      "signals": [
+        "80%"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "seoul.co.kr",
+          "date": "2026-11-09",
+          "url": "https://www.seoul.co.kr/news/economy/IT/2026/11/09/20261109500386?wlog_tag3=naver"
+        },
+        {
+          "outlet": "view.asiae.co.kr",
+          "date": "2026-11-09",
+          "url": "https://view.asiae.co.kr/article/2026110915282404877"
+        },
+        {
+          "outlet": "seouleconews.com",
+          "date": "2026-11-09",
+          "url": "http://www.seouleconews.com/news/articleView.html?idxno=94887"
+        },
+        {
+          "outlet": "livebiz.today",
+          "date": "2026-11-09",
+          "url": "https://www.livebiz.today/news/articleView.html?idxno=206326"
+        },
+        {
+          "outlet": "newsfc.co.kr",
+          "date": "2026-11-09",
+          "url": "http://www.newsfc.co.kr/news/articleView.html?idxno=82330"
+        }
+      ],
+      "score": 11.9
+    },
+    {
+      "keyword": "피클",
+      "title": "쿠팡서 쇼핑하고 KTX 예매까지… 한국판 뮤즈 '피클' 써보니",
+      "description": "인공지능(AI) 에이전트 '피클(Pickle)'이 스스로 기자 메일함과 캘린더 애플리케이션(앱)을 살펴본 뒤 다음날... 쿠팡 등 쇼핑몰에서 상품을 검색해 주문하거나 결제하는 기능을 지원하고, 통신사 고객센터에 직접 전화하지...",
+      "field": "AI 검색",
+      "published": "2026-11-08",
+      "within7": true,
+      "outlets": [
+        "mk.co.kr",
+        "newsway.co.kr",
+        "gamevu.co.kr",
+        "digitaltoday.co.kr"
+      ],
+      "signals": [
+        "매진",
+        "돌파",
+        "1000만명",
+        "25%"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "mk.co.kr",
+          "date": "2026-11-08",
+          "url": "https://www.mk.co.kr/article/12201908"
+        },
+        {
+          "outlet": "mk.co.kr",
+          "date": "2026-11-08",
+          "url": "https://www.mk.co.kr/article/12201680"
+        },
+        {
+          "outlet": "newsway.co.kr",
+          "date": "2026-11-07",
+          "url": "https://www.newsway.co.kr/news/view?ud=2026110615405125697"
+        },
+        {
+          "outlet": "gamevu.co.kr",
+          "date": "2026-11-06",
+          "url": "https://www.gamevu.co.kr/news/articleView.html?idxno=62090"
+        },
+        {
+          "outlet": "digitaltoday.co.kr",
+          "date": "2026-11-06",
+          "url": "https://www.digitaltoday.co.kr/news/articleView.html?idxno=712647"
+        }
+      ],
+      "score": 11.8
+    },
+    {
+      "keyword": "네이버 DOOH",
+      "title": "네이버 DOOH, 광고주 78.5% 직접 집행",
+      "description": "중심으로 광고 도달 범위를 지속 넓히며 솔루션을 지속 고도화해갈 계획”이라고 밝혔다. 한편 네이버는 지난 6월 생성형 AI 기반 대화형 검색 서비스 ‘AI탭’을 정식 출시했다. AI탭은 이용자의 검색 의도와 맥락을...",
+      "field": "AI 검색",
+      "published": "2026-11-02",
+      "within7": false,
+      "outlets": [
+        "dailian.co.kr",
+        "econovill.com",
+        "munhwa.com",
+        "thereport.co.kr",
+        "yna.co.kr",
+        "news1.kr"
+      ],
+      "signals": [
+        "78.5%",
+        "10명",
+        "8명"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "dailian.co.kr",
+          "date": "2026-11-02",
+          "url": "https://www.dailian.co.kr/news/view/1709632/?sc=Naver"
+        },
+        {
+          "outlet": "econovill.com",
+          "date": "2026-11-02",
+          "url": "https://www.econovill.com/news/articleView.html?idxno=755691"
+        },
+        {
+          "outlet": "munhwa.com",
+          "date": "2026-11-02",
+          "url": "https://www.munhwa.com/article/11627983?ref=naver"
+        },
+        {
+          "outlet": "thereport.co.kr",
+          "date": "2026-11-02",
+          "url": "https://www.thereport.co.kr/news/articleView.html?idxno=92935"
+        },
+        {
+          "outlet": "yna.co.kr",
+          "date": "2026-11-02",
+          "url": "https://www.yna.co.kr/view/AKR20261102068800017?input=1195m"
+        }
+      ],
+      "score": 11.7
+    },
+    {
+      "keyword": "시에라디자인",
+      "title": "시에라디자인, 중국 시장 진출…상하이 웨스트번드에 첫 팝업 매장",
+      "description": "웨스트번드 스토어'를 개설했다고 10일 밝혔다. 이번 매장은 시에라디자인의 중국 첫 팝업 매장으로, 현지... 회사 측에 따르면 연간 방문객은 1000만명 이상이며, 전체 방문객의 약 90%가 25~45세다. 시에라디자인 매장은...",
+      "field": "소비자",
+      "published": "2026-11-10",
+      "within7": true,
+      "outlets": [
+        "m-i.kr",
+        "ktnews.com",
+        "kpenews.com",
+        "beyondpost.co.kr"
+      ],
+      "signals": [
+        "1000만명",
+        "90%",
+        "1000만 명"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "m-i.kr",
+          "date": "2026-11-10",
+          "url": "https://www.m-i.kr/news/articleView.html?idxno=2016621"
+        },
+        {
+          "outlet": "ktnews.com",
+          "date": "2026-11-10",
+          "url": "http://www.ktnews.com/news/articleView.html?idxno=150045"
+        },
+        {
+          "outlet": "kpenews.com",
+          "date": "2026-11-10",
+          "url": "https://kpenews.com/View.aspx?No=4304992"
+        },
+        {
+          "outlet": "beyondpost.co.kr",
+          "date": "2026-11-10",
+          "url": "http://www.beyondpost.co.kr/view.php?ud=20261110080329299346a9e4dd7f_30"
+        }
+      ],
+      "score": 11.3
+    },
+    {
+      "keyword": "1인 1 AI 비서 시대",
+      "title": "SKT 직원들이 만든 'AI 에이전트' 5000개...왕중왕전 대상은?",
+      "description": "지난 8월부터 10월까지 3개월간 진행된 이번 대회에는 총 173건의 에이전트가 출품됐다. MNO CIC(마케팅, 네트워크 인프라), AI CIC, 직속 조직 등 전사 조직이 참여했으며, 개발자와 비개발자 구분 없이 다양한 분야의...",
+      "field": "일하는 법",
+      "published": "2026-11-03",
+      "within7": true,
+      "outlets": [
+        "insight.co.kr",
+        "newsinside.kr",
+        "newsis.com"
+      ],
+      "signals": [
+        "돌파",
+        "5000개",
+        "3개",
+        "173건"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "insight.co.kr",
+          "date": "2026-11-03",
+          "url": "https://www.insight.co.kr/news/580441"
+        },
+        {
+          "outlet": "newsinside.kr",
+          "date": "2026-11-03",
+          "url": "https://www.newsinside.kr/news/articleView.html?idxno=5039398"
+        },
+        {
+          "outlet": "newsis.com",
+          "date": "2026-11-03",
+          "url": "https://www.newsis.com/view/NISX20261103_0003852132"
+        }
+      ],
+      "score": 11.1
+    },
+    {
+      "keyword": "주크",
+      "title": "주크, 론칭 30주년 기념 ‘ZOOC: 30’s Layer’ 서촌 팝업스토어 행사 마...",
+      "description": "서촌 팝업스토어 ‘ZOOC: 30’s Layer’ 행사를 마쳤다고 10일 밝혔다. 주크에 따르면 이번 행사는 지난 11월... 방문객을 위한 현장 참여 행사도 진행됐다. 당일 방문 순서에 맞춰 배부한 ‘30주년 한정 헤어 집게핀’...",
+      "field": "소비자",
+      "published": "2026-11-10",
+      "within7": true,
+      "outlets": [
+        "segyebiz.com",
+        "newspim.com",
+        "swtvnews.com",
+        "businesskorea.co.kr",
+        "fntoday.co.kr",
+        "beyondpost.co.kr",
+        "dt.co.kr",
+        "babytimes.co.kr",
+        "fashionn.com",
+        "ktnews.com"
+      ],
+      "signals": [],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "segyebiz.com",
+          "date": "2026-11-10",
+          "url": "http://www.segyebiz.com/newsView/20261110510380?OutUrl=naver"
+        },
+        {
+          "outlet": "newspim.com",
+          "date": "2026-11-10",
+          "url": "https://www.newspim.com/news/view/20261110000948"
+        },
+        {
+          "outlet": "swtvnews.com",
+          "date": "2026-11-10",
+          "url": "https://swtvnews.com/news/newsview.php?ncode=1065584164324540"
+        },
+        {
+          "outlet": "businesskorea.co.kr",
+          "date": "2026-11-10",
+          "url": "https://www.businesskorea.co.kr/news/articleView.html?idxno=280899"
+        },
+        {
+          "outlet": "fntoday.co.kr",
+          "date": "2026-11-10",
+          "url": "https://www.fntoday.co.kr/news/articleView.html?idxno=397398"
+        }
+      ],
+      "score": 11
+    },
+    {
+      "keyword": "크레이버",
+      "title": "크레이버, 사내 'AI 에이전트' 도입…글로벌 사업 운영 효율화",
+      "description": "이를 통해 100개 이상의 국가와 권역을 비롯해 브랜드, 판매 채널, 제품(SKU) 등 다양한 기준으로 사업... 품질과 검색 속도를 개선할 계획이다. 사내 AI 교육과 활용 사례 발굴을 통해 구성원의 AI 활용 역량을 높이고 반복...",
+      "field": "AI 검색",
+      "published": "2026-11-09",
+      "within7": true,
+      "outlets": [
+        "apparelnews.co.kr",
+        "hansbiz.co.kr",
+        "dailysmart.co.kr",
+        "news1.kr",
+        "fashionbiz.co.kr"
+      ],
+      "signals": [
+        "100개",
+        "98%"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "apparelnews.co.kr",
+          "date": "2026-11-09",
+          "url": "http://www.apparelnews.co.kr/news/news_view/?idx=228830"
+        },
+        {
+          "outlet": "hansbiz.co.kr",
+          "date": "2026-11-09",
+          "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=881173"
+        },
+        {
+          "outlet": "dailysmart.co.kr",
+          "date": "2026-11-09",
+          "url": "http://www.dailysmart.co.kr/news/articleView.html?idxno=132216"
+        },
+        {
+          "outlet": "news1.kr",
+          "date": "2026-11-09",
+          "url": "https://www.news1.kr/industry/general-industry/6347387"
+        },
+        {
+          "outlet": "fashionbiz.co.kr",
+          "date": "2026-11-09",
+          "url": "https://www.fashionbiz.co.kr/article/230919"
+        }
+      ],
+      "score": 11
+    },
+    {
+      "keyword": "파이",
+      "title": "SOOP 계열사 플레이디, 사내 AI 에이전트 플랫폼 '파이' 구축… 광고·마...",
+      "description": "AI TF 2기에서 개발한 'AI 키워드 인사이트 솔루션'은 경쟁입찰에 활용돼 신규 광고주 수주에 기여했다. 해당 솔루션은 현재 파이에 탑재돼 전사 마케터가 사용할 수 있다. 플레이디는 향후 임직원이 개발한 에이전트...",
+      "field": "일하는 법",
+      "published": "2026-11-05",
+      "within7": true,
+      "outlets": [
+        "gamefocus.co.kr",
+        "ziksir.com",
+        "newsis.com",
+        "worktoday.co.kr",
+        "getnews.co.kr",
+        "economist.co.kr",
+        "hansbiz.co.kr",
+        "etnews.com",
+        "thebilliards.kr",
+        "pinpointnews.co.kr",
+        "ebn.co.kr",
+        "sportsworldi.com",
+        "zdnet.co.kr",
+        "etoday.co.kr"
+      ],
+      "signals": [],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "gamefocus.co.kr",
+          "date": "2026-11-05",
+          "url": "https://gamefocus.co.kr/detail.php?number=180296"
+        },
+        {
+          "outlet": "ziksir.com",
+          "date": "2026-11-05",
+          "url": "https://www.ziksir.com/news/articleView.html?idxno=152246"
+        },
+        {
+          "outlet": "newsis.com",
+          "date": "2026-11-05",
+          "url": "https://www.newsis.com/view/NISX20261105_0003856772"
+        },
+        {
+          "outlet": "worktoday.co.kr",
+          "date": "2026-11-05",
+          "url": "http://www.worktoday.co.kr/news/articleView.html?idxno=91540"
+        },
+        {
+          "outlet": "getnews.co.kr",
+          "date": "2026-11-05",
+          "url": "https://www.getnews.co.kr/news/articleView.html?idxno=886168"
+        }
+      ],
+      "score": 11
+    },
+    {
+      "keyword": "침대 없는 마케팅",
+      "title": "시몬스, 광고 조회수 1억 뷰 돌파… '침대 없는 마케팅'으로 상품대상 ...",
+      "description": "올해 선보인 브랜드 캠페인은 공개 두 달 만에 누적 조회수 1억 회를 돌파했으며, 예술과 공간을 결합한... 제품 기능과 가격을 강조하는 전통적인 가구 광고에서 벗어나 브랜드 이미지와 소비자 경험을 중심으로...",
+      "field": "브랜드 캠페인",
+      "published": "2026-11-09",
+      "within7": true,
+      "outlets": [
+        "biztribune.co.kr",
+        "biz.heraldcorp.com"
+      ],
+      "signals": [
+        "조회수",
+        "돌파",
+        "1억 뷰",
+        "1억 회",
+        "1억회"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "biztribune.co.kr",
+          "date": "2026-11-09",
+          "url": "http://www.biztribune.co.kr/news/articleView.html?idxno=362198"
+        },
+        {
+          "outlet": "biz.heraldcorp.com",
+          "date": "2026-11-06",
+          "url": "https://biz.heraldcorp.com/article/10928838?ref=naver"
+        }
+      ],
+      "score": 10.9
+    },
+    {
+      "keyword": "빼빼로데이",
+      "title": "롯데웰푸드, '빼빼로데이' 세계화로 해외 매출 870억…14년 아동복지 나...",
+      "description": "올해 상반기 빼빼로 수출액이 530억원으로 전년 동기 대비 27% 증가한 가운데, 미국 뉴욕 타임스스퀘어 광고와... 경복궁과 청계천을 배경으로 제작한 글로벌 캠페인 영상은 공개 6일 만에 누적 조회수 1000만회를 돌파했다....",
+      "field": "브랜드 캠페인",
+      "published": "2026-11-09",
+      "within7": true,
+      "outlets": [
+        "upkoreanews.kr",
+        "cnbizm.com"
+      ],
+      "signals": [
+        "조회수",
+        "돌파",
+        "530억원",
+        "27%",
+        "1000만회",
+        "1개"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "upkoreanews.kr",
+          "date": "2026-11-09",
+          "url": "https://www.upkoreanews.kr/news/articleView.html?idxno=101055"
+        },
+        {
+          "outlet": "cnbizm.com",
+          "date": "2026-11-03",
+          "url": "https://www.cnbizm.com/news/articleView.html?idxno=320157"
+        }
+      ],
+      "score": 10.9
+    },
+    {
+      "keyword": "플래티어",
+      "title": "플래티어, 하이트진로음료 자사몰 GEO 운영 사례 공개…AI 검색 대응 지...",
+      "description": "기존 진로토닉몰의 상세페이지는 이미지 중심으로 구성돼 AI 검색엔진이 상품별 세부 정보를 텍스트로... 생성형 AI 3종에 매일 입력하는 방식으로 점검하고 있다. AI 답변에서 브랜드와 진로토닉몰 공식 페이지가...",
+      "field": "AI 검색",
+      "published": "2026-11-09",
+      "within7": true,
+      "outlets": [
+        "apparelnews.co.kr",
+        "hansbiz.co.kr",
+        "edaily.co.kr",
+        "viva100.com",
+        "etnews.com",
+        "cstimes.com"
+      ],
+      "signals": [
+        "50개"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "apparelnews.co.kr",
+          "date": "2026-11-09",
+          "url": "http://www.apparelnews.co.kr/news/news_view/?idx=228838"
+        },
+        {
+          "outlet": "hansbiz.co.kr",
+          "date": "2026-11-09",
+          "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=881135"
+        },
+        {
+          "outlet": "edaily.co.kr",
+          "date": "2026-11-09",
+          "url": "https://www.edaily.co.kr/News/Read?newsId=02699446645644080&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article"
+        },
+        {
+          "outlet": "viva100.com",
+          "date": "2026-11-09",
+          "url": "https://www.viva100.com/article/20261109500525"
+        },
+        {
+          "outlet": "etnews.com",
+          "date": "2026-11-09",
+          "url": "https://www.etnews.com/20261109000038"
+        }
+      ],
+      "score": 10.7
+    },
+    {
+      "keyword": "와이즈버즈",
+      "title": "와이즈버즈, 2026 구글 애즈 임팩트 어워드 수상",
+      "description": "올해 한국에서는 5개 부문을 광고주, 대행사 트랙으로 나눠 심사했으며 대행사 트랙에서는 5개사가 선정됐다. 와이즈버즈는 Google Ads와 AI 광고 솔루션을 활용해 정밀한 타겟팅과 맞춤형 메시지를 전달하고...",
+      "field": "일하는 법",
+      "published": "2026-11-09",
+      "within7": true,
+      "outlets": [
+        "forbeskorea.co.kr",
+        "joongangenews.com",
+        "itbiznews.com",
+        "newspim.com",
+        "thebell.co.kr",
+        "hansbiz.co.kr"
+      ],
+      "signals": [
+        "5개"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "forbeskorea.co.kr",
+          "date": "2026-11-09",
+          "url": "https://www.forbeskorea.co.kr/news/articleView.html?idxno=402939"
+        },
+        {
+          "outlet": "joongangenews.com",
+          "date": "2026-11-09",
+          "url": "https://www.joongangenews.com/news/articleView.html?idxno=562178"
+        },
+        {
+          "outlet": "itbiznews.com",
+          "date": "2026-11-09",
+          "url": "https://www.itbiznews.com/news/articleView.html?idxno=230681"
+        },
+        {
+          "outlet": "newspim.com",
+          "date": "2026-11-09",
+          "url": "https://www.newspim.com/news/view/20261109000254"
+        },
+        {
+          "outlet": "thebell.co.kr",
+          "date": "2026-11-09",
+          "url": "https://www.thebell.co.kr/free/content/ArticleView.asp?key=202611090836155080106747"
+        }
+      ],
+      "score": 10.7
+    },
+    {
+      "keyword": "블럭스",
+      "title": "블럭스, AI 에이전트 기반 CRM 실행 전략 공개",
+      "description": "첫 세션에서는 박찬희 카카오스타일 글로벌 CRM 마케터가 AI를 활용한 CRM 실험 체계 설계 방식을 소개했다. 개별 캠페인의 성과만 보는 대신 정성·정량 데이터를 분석해 다음 캠페인 아이디어를 만들고 A/B 테스트와 후속...",
+      "field": "일하는 법",
+      "published": "2026-11-05",
+      "within7": true,
+      "outlets": [
+        "epnc.co.kr",
+        "hansbiz.co.kr",
+        "the-biz.co.kr",
+        "datanet.co.kr",
+        "econovill.com",
+        "venturesquare.net"
+      ],
+      "signals": [
+        "3천건"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "epnc.co.kr",
+          "date": "2026-11-05",
+          "url": "https://www.epnc.co.kr/news/articleView.html?idxno=409282"
+        },
+        {
+          "outlet": "hansbiz.co.kr",
+          "date": "2026-11-04",
+          "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=879648"
+        },
+        {
+          "outlet": "the-biz.co.kr",
+          "date": "2026-11-04",
+          "url": "http://www.the-biz.co.kr/news/articleView.html?idxno=730631"
+        },
+        {
+          "outlet": "datanet.co.kr",
+          "date": "2026-11-04",
+          "url": "https://www.datanet.co.kr/news/articleView.html?idxno=215592"
+        },
+        {
+          "outlet": "econovill.com",
+          "date": "2026-11-04",
+          "url": "https://www.econovill.com/news/articleView.html?idxno=755965"
+        }
+      ],
+      "score": 10.7
+    },
+    {
+      "keyword": "리센느노믹스",
+      "title": "삼촌팬 지갑 연 ‘리센느노믹스’",
+      "description": "도미노피자가 리센느와 함께 제작한 광고 영상은 누적 조회수 1억6000만 회를 넘어섰다. 모델 발탁 이후 10... 삼성전자는 지난달 28일 리센느를 전면에 내세운 '갤럭시 Z 폴드8' 캠페인을 공개했다. 멤버들의 실제 제품...",
+      "field": "브랜드 캠페인",
+      "published": "2026-11-08",
+      "within7": true,
+      "outlets": [
+        "magazine.hankyung.com",
+        "koreareport.co.kr"
+      ],
+      "signals": [
+        "조회수",
+        "흥행",
+        "화제",
+        "6000만 회",
+        "60만회"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "magazine.hankyung.com",
+          "date": "2026-11-08",
+          "url": "https://magazine.hankyung.com/business/article/202611058469b"
+        },
+        {
+          "outlet": "koreareport.co.kr",
+          "date": "2026-11-06",
+          "url": "https://www.koreareport.co.kr/news/articleView.html?idxno=54387"
+        }
+      ],
+      "score": 10.4
+    },
+    {
+      "keyword": "호빵",
+      "title": "일찍 찾아온 '호빵' 열풍…삼립, 편의점 매출 44% 늘었다",
+      "description": "삼립은 광고 캠페인의 흥행과 SNS를 통한 자발적인 입소문, 제품 경쟁력 강화가 매출 성장에 복합적으로 작용한 것으로 분석했다. 배우 공명을 신규 모델로 발탁해 선보인 광고는 공개 일주일 만에 조회수 200만회를 돌파했...",
+      "field": "브랜드 캠페인",
+      "published": "2026-11-05",
+      "within7": true,
+      "outlets": [
+        "news.bizwatch.co.kr",
+        "edaily.co.kr"
+      ],
+      "signals": [
+        "조회수",
+        "돌파",
+        "흥행",
+        "열풍",
+        "44%",
+        "200만회"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "news.bizwatch.co.kr",
+          "date": "2026-11-05",
+          "url": "https://news.bizwatch.co.kr/article/consumer/2026/11/05/0012"
+        },
+        {
+          "outlet": "edaily.co.kr",
+          "date": "2026-11-05",
+          "url": "https://www.edaily.co.kr/News/Read?newsId=04644486645642768&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article"
+        }
+      ],
+      "score": 10.4
+    },
+    {
+      "keyword": "플러스제로",
+      "title": "플러스제로, AI 검색 최적화로 알뜰폰 고객사 유입 29% 증가",
+      "description": "GEO는 생성형 AI가 이용자의 질문에 답변할 때 특정 기업의 제품이나 서비스 정보를 적절하게 인식하고 활용하도록 온라인 콘텐츠를 구성하는 기술이다. 기존 검색엔진 최적화(SEO)가 검색 결과 노출에 초점을 맞췄다면...",
+      "field": "AI 검색",
+      "published": "2026-11-04",
+      "within7": true,
+      "outlets": [
+        "enewstoday.co.kr",
+        "zdnet.co.kr",
+        "hansbiz.co.kr"
+      ],
+      "signals": [
+        "29%",
+        "30%",
+        "6개"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "enewstoday.co.kr",
+          "date": "2026-11-04",
+          "url": "http://www.enewstoday.co.kr/news/articleView.html?idxno=2488205"
+        },
+        {
+          "outlet": "zdnet.co.kr",
+          "date": "2026-11-04",
+          "url": "https://zdnet.co.kr/view/?no=20261104113308"
+        },
+        {
+          "outlet": "hansbiz.co.kr",
+          "date": "2026-11-03",
+          "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=879432"
+        }
+      ],
+      "score": 10.1
+    },
+    {
+      "keyword": "NHN KCP",
+      "title": "NHN KCP, 3분기 매출 3867억 ...분기 최대 기록 경신",
+      "description": "국내 가맹점 거래액은 전년 동기 대비 20% 증가하며 국내 온라인쇼핑 시장 성장률을 크게 웃돌았다.기존... NHN KCP는 AI 에이전트가 소비자를 대신해 상품을 고르고 결제까지 수행하는 에이전틱 커머스 시대에 대비해...",
+      "field": "AI 검색",
+      "published": "2026-11-10",
+      "within7": true,
+      "outlets": [
+        "kdpress.co.kr",
+        "newsroad.co.kr",
+        "newsfreezone.co.kr"
+      ],
+      "signals": [
+        "20%",
+        "432억원",
+        "11%",
+        "22%"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "kdpress.co.kr",
+          "date": "2026-11-10",
+          "url": "https://www.kdpress.co.kr/news/articleView.html?idxno=209808"
+        },
+        {
+          "outlet": "newsroad.co.kr",
+          "date": "2026-11-10",
+          "url": "http://www.newsroad.co.kr/news/articleView.html?idxno=67414"
+        },
+        {
+          "outlet": "newsfreezone.co.kr",
+          "date": "2026-11-10",
+          "url": "https://www.newsfreezone.co.kr/news/articleView.html?idxno=718504"
+        }
+      ],
+      "score": 10.1
+    },
+    {
+      "keyword": "미래 투자 영향",
+      "title": "CJ온스타일, 3분기 영업익 67억원 전년비 46.8%↓…\"투자 확대 영향\"",
+      "description": "이 가운데 커머스 부문은 3분기 매출 3489억원으로 전년 동기 대비 1.9% 감소했다. 영업이익은 67억원으로... 콘텐츠 커머스(MLC) 취급고는 전년 동기 대비 104% 증가했다. 모바일 콘텐츠 커머스(MLC) 취급고는 라이브...",
+      "field": "커머스",
+      "published": "2026-11-05",
+      "within7": true,
+      "outlets": [
+        "newspost.kr",
+        "the-biz.co.kr",
+        "4th.kr"
+      ],
+      "signals": [
+        "67억원",
+        "46.8%",
+        "3489억원",
+        "1.9%"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "newspost.kr",
+          "date": "2026-11-05",
+          "url": "https://www.newspost.kr/news/articleView.html?idxno=227097"
+        },
+        {
+          "outlet": "the-biz.co.kr",
+          "date": "2026-11-05",
+          "url": "http://www.the-biz.co.kr/news/articleView.html?idxno=730785"
+        },
+        {
+          "outlet": "4th.kr",
+          "date": "2026-11-05",
+          "url": "http://www.4th.kr/news/articleView.html?idxno=2121222"
+        }
+      ],
+      "score": 10.1
+    }
+  ]
+}
