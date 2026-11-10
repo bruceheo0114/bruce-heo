@@ -1,0 +1,60 @@
+{
+  "date": "2026-11-11",
+  "issue": 2,
+  "title": "AI로 무엇이든 만들 수 있는데, 사람들은 왜 '만든 티'부터 알아챌까?",
+  "seo_title": "AI로 다 만드는데 왜 '만든 티'부터 알아챌까 | 트렌드 노트 #2",
+  "seo_description": "취향 편집증, 맥도날드 존박세트, 삼립호빵 '찌는 법', ChatGPT의 브랜드 언급 수, AI로 부풀린 브리프. 국내외 사례를 형식이 아니라 반응의 이유로 읽습니다.",
+  "brands": [
+    "TBWA(백슬래시)",
+    "메타",
+    "맥도날드",
+    "닥터페퍼",
+    "삼립(삼립호빵)",
+    "오픈AI(ChatGPT)",
+    "서처블",
+    "M&C 사치",
+    "베이시스 테크놀로지스",
+    "GWI",
+    "마일 마커",
+    "시몬스",
+    "캐릿"
+  ],
+  "quotes": [
+    {
+      "chapter": 1,
+      "text": "형식은 가져오기 쉽지만, 이유는 가져오기 어렵다."
+    },
+    {
+      "chapter": 16,
+      "text": "문장을 너무 강하게 정해 주면 후기마다 비슷한 표현이 반복된다. 소비자는 금방 눈치챈다. 브랜드가 준비한 문장을 옮겨 적은 콘텐츠라는 것을."
+    },
+    {
+      "chapter": 6,
+      "text": "중요한 건 광고가 아닌 척하는 게 아니라, 광고인 걸 알아도 계속 볼 이유를 만드는 일이다."
+    },
+    {
+      "chapter": 10,
+      "text": "제품을 지키는 건 결국 소비자가 그 제품을 떠올리는 방식이다."
+    },
+    {
+      "chapter": 8,
+      "text": "관심은 말이 만들지만 유지는 경험이 만든다."
+    },
+    {
+      "chapter": 22,
+      "text": "AI를 쓰면서 아이디어를 꺼내는 속도는 확실히 빨라졌다."
+    }
+  ],
+  "sources": [
+    "https://www.the-pr.co.kr/news/articleView.html?idxno=63028",
+    "https://www.brandbrief.co.kr/site/data/html/2026/11/04/2026110450008.html",
+    "https://news.bizwatch.co.kr/article/consumer/2026/11/05/0012",
+    "https://datalab.naver.com/",
+    "https://digiday.com/marketing/chatgpt-is-about-to-show-brands-their-mention-count/",
+    "https://www.the-pr.co.kr/news/articleView.html?idxno=63156",
+    "https://digiday.com/marketing/a-little-bit-ridiculous-agencies-find-ai-overuse-is-leading-to-brief-bloat/",
+    "https://biz.heraldcorp.com/article/10928838",
+    "https://www.the-pr.co.kr/news/articleView.html?idxno=63206",
+    "https://www.careet.net/2032"
+  ]
+}
