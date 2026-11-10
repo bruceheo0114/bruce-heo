@@ -1,0 +1,54 @@
+{
+  "date": "2026-11-11",
+  "generated_at": "2026-11-10T06:00:28.394Z",
+  "window": {
+    "startDate": "2026-10-14",
+    "endDate": "2026-11-10"
+  },
+  "source": "네이버 데이터랩 검색어 트렌드 · API HUB",
+  "note": "recent7 은 같은 batch(최대 5개) 안에서만 비교한다. rise = 최근 7일 평균 ÷ 그 전 21일 평균(null = 그 전엔 검색 없음). 본문에는 '네이버 검색 관심도(데이터랩)'로 출처를 적는다.",
+  "results": [
+    {
+      "keyword": "존박세트",
+      "batch": 1,
+      "recent7": 40,
+      "rise": 0.6,
+      "peak": "2026-10-30"
+    },
+    {
+      "keyword": "존박 랩",
+      "batch": 1,
+      "recent7": 9.6,
+      "rise": 1.2,
+      "peak": "2026-11-03"
+    },
+    {
+      "keyword": "삼립호빵",
+      "batch": 1,
+      "recent7": 62.9,
+      "rise": 1.7,
+      "peak": "2026-11-03"
+    },
+    {
+      "keyword": "호빵 찌는법",
+      "batch": 1,
+      "recent7": 0.9,
+      "rise": 1.73,
+      "peak": "2026-11-08"
+    },
+    {
+      "keyword": "취향 편집증",
+      "batch": 1,
+      "recent7": 0,
+      "rise": 0,
+      "peak": null
+    },
+    {
+      "keyword": "시몬스 광고",
+      "batch": 2,
+      "recent7": 75,
+      "rise": 0.88,
+      "peak": "2026-10-14"
+    }
+  ]
+}
