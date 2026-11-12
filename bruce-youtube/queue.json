@@ -225,11 +225,12 @@
     {
       "no": 227,
       "title": "구글과 ChatGPT는 왜 평범한 일상을 광고할까?",
-      "status": "todo",
+      "status": "episode",
       "note": "새 글 — 제작 때 영상화 평가",
       "yt_slot": "2026-11-13",
       "series": "브루스의 관점",
-      "runtime": "5~6분"
+      "runtime": "5~6분",
+      "episode": "EP017"
     },
     {
       "no": 228,
