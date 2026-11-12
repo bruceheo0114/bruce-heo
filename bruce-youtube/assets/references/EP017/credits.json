@@ -1,0 +1,304 @@
+{
+  "references_hash": "54e043097a935d8c",
+  "fetched_at": "2026-11-12T11:02:30.521Z",
+  "items": [
+    {
+      "file": "A001-screen.jpg",
+      "id": "A001",
+      "scenes": [
+        "S003",
+        "S004",
+        "S022"
+      ],
+      "kind": "screen",
+      "source": "디지털인사이트",
+      "url": "https://ditoday.com/%EC%A0%9C%EB%AF%B8%EB%82%98%EC%9D%B4%EC%99%80-%EC%B1%97gpt-%EA%B4%91%EA%B3%A0%EC%9D%98-%EA%B3%B5%ED%86%B5%EC%A0%90-%EC%B6%9C%EC%82%B0%EA%B3%BC-%EA%B2%B0%ED%98%BC/"
+    },
+    {
+      "file": "A001-scroll.jpg",
+      "id": "A001",
+      "scenes": [
+        "S003",
+        "S004",
+        "S022"
+      ],
+      "kind": "scroll",
+      "source": "디지털인사이트",
+      "url": "https://ditoday.com/%EC%A0%9C%EB%AF%B8%EB%82%98%EC%9D%B4%EC%99%80-%EC%B1%97gpt-%EA%B4%91%EA%B3%A0%EC%9D%98-%EA%B3%B5%ED%86%B5%EC%A0%90-%EC%B6%9C%EC%82%B0%EA%B3%BC-%EA%B2%B0%ED%98%BC/"
+    },
+    {
+      "file": "A001-img1.jpg",
+      "id": "A001",
+      "scenes": [
+        "S003",
+        "S004",
+        "S022"
+      ],
+      "kind": "image",
+      "source": "디지털인사이트",
+      "url": "https://ditoday.com/%EC%A0%9C%EB%AF%B8%EB%82%98%EC%9D%B4%EC%99%80-%EC%B1%97gpt-%EA%B4%91%EA%B3%A0%EC%9D%98-%EA%B3%B5%ED%86%B5%EC%A0%90-%EC%B6%9C%EC%82%B0%EA%B3%BC-%EA%B2%B0%ED%98%BC/"
+    },
+    {
+      "file": "A002-screen.jpg",
+      "id": "A002",
+      "scenes": [
+        "S012",
+        "S029"
+      ],
+      "kind": "screen",
+      "source": "구글 코리아 공식 블로그 (2026-08)",
+      "url": "https://blog.google/intl/ko-kr/company-news/inside-google/gemini-one-billion-monthly-users-kr/"
+    },
+    {
+      "file": "A002-video1.mp4",
+      "id": "A002",
+      "scenes": [
+        "S012",
+        "S029"
+      ],
+      "kind": "video",
+      "source": "구글 코리아 공식 블로그 (2026-08)",
+      "url": "https://blog.google/intl/ko-kr/company-news/inside-google/gemini-one-billion-monthly-users-kr/"
+    },
+    {
+      "file": "A002-img1.jpg",
+      "id": "A002",
+      "scenes": [
+        "S012",
+        "S029"
+      ],
+      "kind": "image",
+      "source": "구글 코리아 공식 블로그 (2026-08)",
+      "url": "https://blog.google/intl/ko-kr/company-news/inside-google/gemini-one-billion-monthly-users-kr/"
+    },
+    {
+      "file": "A003-screen.jpg",
+      "id": "A003",
+      "scenes": [
+        "S014",
+        "S015"
+      ],
+      "kind": "screen",
+      "source": "정보통신정책연구원",
+      "url": "https://www.kisdi.re.kr/report/view.do?key=m2101113025790&masterId=4333447&arrMasterId=4333447&artId=1942416"
+    },
+    {
+      "file": "A004-screen.jpg",
+      "id": "A004",
+      "scenes": [
+        "S017"
+      ],
+      "kind": "screen",
+      "source": "조선비즈 (2026-05)",
+      "url": "https://cbiz.chosun.com/svc/bulletin/bulletin_art.html?contid=2026051503270"
+    },
+    {
+      "file": "A004-scroll.jpg",
+      "id": "A004",
+      "scenes": [
+        "S017"
+      ],
+      "kind": "scroll",
+      "source": "조선비즈 (2026-05)",
+      "url": "https://cbiz.chosun.com/svc/bulletin/bulletin_art.html?contid=2026051503270"
+    },
+    {
+      "file": "A005-screen.jpg",
+      "id": "A005",
+      "scenes": [
+        "S012"
+      ],
+      "kind": "screen",
+      "source": "KBS 뉴스",
+      "url": "https://news.kbs.co.kr/news/view.do?ncd=8635146"
+    },
+    {
+      "file": "A005-scroll.jpg",
+      "id": "A005",
+      "scenes": [
+        "S012"
+      ],
+      "kind": "scroll",
+      "source": "KBS 뉴스",
+      "url": "https://news.kbs.co.kr/news/view.do?ncd=8635146"
+    },
+    {
+      "file": "A005-img1.jpg",
+      "id": "A005",
+      "scenes": [
+        "S012"
+      ],
+      "kind": "image",
+      "source": "KBS 뉴스",
+      "url": "https://news.kbs.co.kr/news/view.do?ncd=8635146"
+    },
+    {
+      "file": "A005-img2.jpg",
+      "id": "A005",
+      "scenes": [
+        "S012"
+      ],
+      "kind": "image",
+      "source": "KBS 뉴스",
+      "url": "https://news.kbs.co.kr/news/view.do?ncd=8635146"
+    },
+    {
+      "file": "A005-img3.jpg",
+      "id": "A005",
+      "scenes": [
+        "S012"
+      ],
+      "kind": "image",
+      "source": "KBS 뉴스",
+      "url": "https://news.kbs.co.kr/news/view.do?ncd=8635146"
+    },
+    {
+      "file": "A006-screen.jpg",
+      "id": "A006",
+      "scenes": [
+        "S005",
+        "S027"
+      ],
+      "kind": "screen",
+      "source": "OpenAI 공식 홈페이지",
+      "url": "https://openai.com/ko-KR/business/learn/vision-and-voice-in-chatgpt/"
+    },
+    {
+      "file": "A006-scroll.jpg",
+      "id": "A006",
+      "scenes": [
+        "S005",
+        "S027"
+      ],
+      "kind": "scroll",
+      "source": "OpenAI 공식 홈페이지",
+      "url": "https://openai.com/ko-KR/business/learn/vision-and-voice-in-chatgpt/"
+    },
+    {
+      "file": "A006-img1.jpg",
+      "id": "A006",
+      "scenes": [
+        "S005",
+        "S027"
+      ],
+      "kind": "image",
+      "source": "OpenAI 공식 홈페이지",
+      "url": "https://openai.com/ko-KR/business/learn/vision-and-voice-in-chatgpt/"
+    },
+    {
+      "file": "A007-screen.jpg",
+      "id": "A007",
+      "scenes": [
+        "S011"
+      ],
+      "kind": "screen",
+      "source": "매일경제",
+      "url": "https://www.mk.co.kr/news/it/12125185"
+    },
+    {
+      "file": "A007-scroll.jpg",
+      "id": "A007",
+      "scenes": [
+        "S011"
+      ],
+      "kind": "scroll",
+      "source": "매일경제",
+      "url": "https://www.mk.co.kr/news/it/12125185"
+    },
+    {
+      "file": "A007-img1.jpg",
+      "id": "A007",
+      "scenes": [
+        "S011"
+      ],
+      "kind": "image",
+      "source": "매일경제",
+      "url": "https://www.mk.co.kr/news/it/12125185"
+    },
+    {
+      "file": "G01.jpg",
+      "id": "G01",
+      "scenes": [
+        "S026"
+      ],
+      "kind": "ai",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261112_104710_ffd7d153-0943-49a4-be0b-6e1be6e7f105.png"
+    },
+    {
+      "file": "G02.jpg",
+      "id": "G02",
+      "scenes": [
+        "S034"
+      ],
+      "kind": "ai",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261112_104710_18f05d02-ac21-465b-9977-39c310f5f413.png"
+    },
+    {
+      "file": "G03.jpg",
+      "id": "G03",
+      "scenes": [
+        "S040"
+      ],
+      "kind": "ai",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261112_104709_abb10287-8d6d-4b88-ad5e-3229b4908d78.png"
+    },
+    {
+      "file": "V01.mp4",
+      "id": "V01",
+      "scenes": [
+        "S034"
+      ],
+      "kind": "video",
+      "source": "AI 생성 영상 (Higgsfield)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261112_104729_80f3531e-c0e7-4730-83e4-8353a166ab3d.mp4"
+    },
+    {
+      "file": "brunch-01.jpg",
+      "id": "brunch",
+      "scenes": [],
+      "kind": "image",
+      "source": "브런치 @heoboram 원문",
+      "url": "https://brunch.co.kr/@heoboram/227"
+    }
+  ],
+  "failures": [
+    {
+      "id": "B01",
+      "url": "fast scrolling data dashboard screens technology",
+      "error": "PEXELS_API_KEY가 없습니다 (저장소 Secrets에 넣는다)"
+    },
+    {
+      "id": "B02",
+      "url": "parent holding crying baby at night using smartphone",
+      "error": "PEXELS_API_KEY가 없습니다 (저장소 Secrets에 넣는다)"
+    },
+    {
+      "id": "B03",
+      "url": "person automating work on laptop with code and charts",
+      "error": "PEXELS_API_KEY가 없습니다 (저장소 Secrets에 넣는다)"
+    },
+    {
+      "id": "B04",
+      "url": "hands editing a photo on smartphone",
+      "error": "PEXELS_API_KEY가 없습니다 (저장소 Secrets에 넣는다)"
+    },
+    {
+      "id": "B05",
+      "url": "elderly man talking to smartphone voice assistant",
+      "error": "PEXELS_API_KEY가 없습니다 (저장소 Secrets에 넣는다)"
+    },
+    {
+      "id": "B06",
+      "url": "marketing team reviewing ad layouts on table",
+      "error": "PEXELS_API_KEY가 없습니다 (저장소 Secrets에 넣는다)"
+    },
+    {
+      "id": "B07",
+      "url": "family morning kitchen using phone everyday routine",
+      "error": "PEXELS_API_KEY가 없습니다 (저장소 Secrets에 넣는다)"
+    }
+  ]
+}
