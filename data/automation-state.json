@@ -1076,9 +1076,10 @@
         "updatedAt": "2026-11-10T23:00:29.528Z"
       },
       "package": {
-        "status": "awaiting_review",
+        "status": "generated",
         "manifestPath": "content/225/manifest.json",
-        "generatedAt": null
+        "generatedAt": "2026-11-12T10:42:40.644Z",
+        "approvedAt": "2026-11-12T10:42:53.975Z"
       },
       "linkedin": {
         "status": "manual_pending",
@@ -1087,13 +1088,13 @@
         "error": null
       },
       "instagram": {
-        "status": "manual_pending",
+        "status": "manual_source_ready",
         "id": null,
         "lastAttemptAt": null,
         "error": null
       },
-      "approvedAt": null,
-      "scheduledAt": null,
+      "approvedAt": "2026-11-12T10:42:53.975Z",
+      "scheduledAt": "2026-11-23T22:30:00.000Z",
       "completedAt": null
     },
     "226": {
