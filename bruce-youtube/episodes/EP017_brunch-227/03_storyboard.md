@@ -172,7 +172,7 @@ HIGGSFIELD_REQUIRED: NO
 SCENE ID: S014
 TIME: 01:18-01:24
 NARRATION:
-정보통신정책연구원이 한국미디어패널 응답자 8,002명(팔천이 명)의 2년 치 답을 들여다봤어요.
+정보통신정책연구원이 한국미디어패널 응답자 8,002명(팔천이 명)의 2년(이 년) 치 답을 들여다봤어요.
 VISUAL:
 
 SOURCE_TYPE: REAL

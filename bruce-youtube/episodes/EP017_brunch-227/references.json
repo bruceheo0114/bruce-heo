@@ -1,19 +1,170 @@
 {
   "brunch": true,
   "items": [
-    {"id": "A001", "kind": "article", "url": "https://ditoday.com/%EC%A0%9C%EB%AF%B8%EB%82%98%EC%9D%B4%EC%99%80-%EC%B1%97gpt-%EA%B4%91%EA%B3%A0%EC%9D%98-%EA%B3%B5%ED%86%B5%EC%A0%90-%EC%B6%9C%EC%82%B0%EA%B3%BC-%EA%B2%B0%ED%98%BC/", "source": "디지털인사이트", "scenes": ["S003", "S004", "S022"]},
-    {"id": "A002", "kind": "page", "url": "https://blog.google/intl/ko-kr/company-news/inside-google/gemini-one-billion-monthly-users-kr/", "source": "구글 코리아 공식 블로그 (2026-08)", "scenes": ["S012", "S029"]},
-    {"id": "A003", "kind": "page", "url": "https://www.kisdi.re.kr/report/view.do?key=m2101113025790&masterId=4333447&arrMasterId=4333447&artId=1942416", "source": "정보통신정책연구원", "scenes": ["S014", "S015"]},
-    {"id": "A004", "kind": "article", "url": "https://cbiz.chosun.com/svc/bulletin/bulletin_art.html?contid=2026051503270", "source": "조선비즈 (2026-05)", "scenes": ["S017"]},
-    {"id": "A005", "kind": "article", "url": "https://news.kbs.co.kr/news/view.do?ncd=8635146", "source": "KBS 뉴스", "scenes": ["S012"]},
-    {"id": "A006", "kind": "page", "url": "https://openai.com/ko-KR/business/learn/vision-and-voice-in-chatgpt/", "source": "OpenAI 공식 홈페이지", "scenes": ["S005", "S027"], "scroll": true},
-    {"id": "A007", "kind": "article", "url": "https://www.mk.co.kr/news/it/12125185", "source": "매일경제", "scenes": ["S011"]},
-    {"id": "B01", "kind": "stock", "query": "fast scrolling data dashboard screens technology", "scenes": ["S002"]},
-    {"id": "B02", "kind": "stock", "query": "parent holding crying baby at night using smartphone", "scenes": ["S003"]},
-    {"id": "B03", "kind": "stock", "query": "person automating work on laptop with code and charts", "scenes": ["S019"]},
-    {"id": "B04", "kind": "stock", "query": "hands editing a photo on smartphone", "scenes": ["S020"]},
-    {"id": "B05", "kind": "stock", "query": "elderly man talking to smartphone voice assistant", "scenes": ["S027"]},
-    {"id": "B06", "kind": "stock", "query": "marketing team reviewing ad layouts on table", "scenes": ["S037"]},
-    {"id": "B07", "kind": "stock", "query": "family morning kitchen using phone everyday routine", "scenes": ["S033"]}
+    {
+      "id": "A001",
+      "kind": "article",
+      "url": "https://ditoday.com/%EC%A0%9C%EB%AF%B8%EB%82%98%EC%9D%B4%EC%99%80-%EC%B1%97gpt-%EA%B4%91%EA%B3%A0%EC%9D%98-%EA%B3%B5%ED%86%B5%EC%A0%90-%EC%B6%9C%EC%82%B0%EA%B3%BC-%EA%B2%B0%ED%98%BC/",
+      "source": "디지털인사이트",
+      "scenes": [
+        "S003",
+        "S004",
+        "S022"
+      ]
+    },
+    {
+      "id": "A002",
+      "kind": "page",
+      "url": "https://blog.google/intl/ko-kr/company-news/inside-google/gemini-one-billion-monthly-users-kr/",
+      "source": "구글 코리아 공식 블로그 (2026-08)",
+      "scenes": [
+        "S012",
+        "S029"
+      ]
+    },
+    {
+      "id": "A003",
+      "kind": "page",
+      "url": "https://www.kisdi.re.kr/report/view.do?key=m2101113025790&masterId=4333447&arrMasterId=4333447&artId=1942416",
+      "source": "정보통신정책연구원",
+      "scenes": [
+        "S014",
+        "S015"
+      ]
+    },
+    {
+      "id": "A004",
+      "kind": "article",
+      "url": "https://cbiz.chosun.com/svc/bulletin/bulletin_art.html?contid=2026051503270",
+      "source": "조선비즈 (2026-05)",
+      "scenes": [
+        "S017"
+      ]
+    },
+    {
+      "id": "A005",
+      "kind": "article",
+      "url": "https://news.kbs.co.kr/news/view.do?ncd=8635146",
+      "source": "KBS 뉴스",
+      "scenes": [
+        "S012"
+      ]
+    },
+    {
+      "id": "A006",
+      "kind": "page",
+      "url": "https://openai.com/ko-KR/business/learn/vision-and-voice-in-chatgpt/",
+      "source": "OpenAI 공식 홈페이지",
+      "scenes": [
+        "S005",
+        "S027"
+      ],
+      "scroll": true
+    },
+    {
+      "id": "A007",
+      "kind": "article",
+      "url": "https://www.mk.co.kr/news/it/12125185",
+      "source": "매일경제",
+      "scenes": [
+        "S011"
+      ]
+    },
+    {
+      "id": "B01",
+      "kind": "stock",
+      "query": "fast scrolling data dashboard screens technology",
+      "scenes": [
+        "S002"
+      ]
+    },
+    {
+      "id": "B02",
+      "kind": "stock",
+      "query": "parent holding crying baby at night using smartphone",
+      "scenes": [
+        "S003"
+      ]
+    },
+    {
+      "id": "B03",
+      "kind": "stock",
+      "query": "person automating work on laptop with code and charts",
+      "scenes": [
+        "S019"
+      ]
+    },
+    {
+      "id": "B04",
+      "kind": "stock",
+      "query": "hands editing a photo on smartphone",
+      "scenes": [
+        "S020"
+      ]
+    },
+    {
+      "id": "B05",
+      "kind": "stock",
+      "query": "elderly man talking to smartphone voice assistant",
+      "scenes": [
+        "S027"
+      ]
+    },
+    {
+      "id": "B06",
+      "kind": "stock",
+      "query": "marketing team reviewing ad layouts on table",
+      "scenes": [
+        "S037"
+      ]
+    },
+    {
+      "id": "B07",
+      "kind": "stock",
+      "query": "family morning kitchen using phone everyday routine",
+      "scenes": [
+        "S033"
+      ]
+    },
+    {
+      "id": "G01",
+      "kind": "image",
+      "ai": true,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261112_104710_ffd7d153-0943-49a4-be0b-6e1be6e7f105.png",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "scenes": [
+        "S026"
+      ]
+    },
+    {
+      "id": "G02",
+      "kind": "image",
+      "ai": true,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261112_104710_18f05d02-ac21-465b-9977-39c310f5f413.png",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "scenes": [
+        "S034"
+      ]
+    },
+    {
+      "id": "G03",
+      "kind": "image",
+      "ai": true,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261112_104709_abb10287-8d6d-4b88-ad5e-3229b4908d78.png",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "scenes": [
+        "S040"
+      ]
+    },
+    {
+      "id": "V01",
+      "kind": "video",
+      "ai": true,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261112_104729_80f3531e-c0e7-4730-83e4-8353a166ab3d.mp4",
+      "source": "AI 생성 영상 (Higgsfield)",
+      "scenes": [
+        "S034"
+      ]
+    }
   ]
 }
