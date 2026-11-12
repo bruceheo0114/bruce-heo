@@ -22,7 +22,9 @@ VISUAL:
 빠르게 넘어가는 데이터 화면 자료 영상
 SOURCE_TYPE: GRAPHIC
 ON_SCREEN_TEXT:
--
+화려한 화면
+쏟아지는 답
+성능 비교표
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
@@ -244,7 +246,7 @@ VISUAL:
 노트북으로 자동화 작업을 하는 자료 영상
 SOURCE_TYPE: GRAPHIC
 ON_SCREEN_TEXT:
--
+AI로 일을 자동화
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
@@ -256,7 +258,7 @@ VISUAL:
 휴대폰으로 사진을 고치는 손 자료 영상
 SOURCE_TYPE: GRAPHIC
 ON_SCREEN_TEXT:
--
+검색·사진 손보기 정도
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
@@ -472,7 +474,8 @@ VISUAL:
 회의실에서 광고 시안을 넘겨보는 손 자료 영상
 SOURCE_TYPE: GRAPHIC
 ON_SCREEN_TEXT:
--
+성능과 새 기능을
+어떻게 전할까
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
