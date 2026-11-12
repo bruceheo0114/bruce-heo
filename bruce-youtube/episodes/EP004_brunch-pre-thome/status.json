@@ -2,13 +2,15 @@
   "episode": "EP004",
   "folder": "EP004_brunch-pre-thome",
   "article": {
-    "id": "pre-thome",
-    "url": "https://brunch.co.kr/@heoboram",
+    "id": "225",
+    "url": "https://brunch.co.kr/@heoboram/225",
     "title": "후발주자는 어떻게 브랜딩해야 할까?",
-    "published_at": "2026-10-08T12:40:00.638Z",
-    "source_file": "source/brunch/pre-thome.md",
-    "body_hash": "cafe1f03d53295429e6c2550f240b18019dbf5093999a4dee741c6f669dccebd",
-    "prebuilt": true
+    "published_at": "2026-11-11T03:00:00.000Z",
+    "source_file": "source/brunch/225.md",
+    "body_hash": "e934742676d8e54744b2312b915eeea8121bea030aef8bec305ba80d3ec11f38",
+    "prebuilt": false,
+    "draft_id": "pre-thome",
+    "linked_at": "2026-11-12T10:42:00.784Z"
   },
   "status": "APPROVED",
   "higgsfield_generation": true,
@@ -196,7 +198,7 @@
   },
   "update": null,
   "created_at": "2026-10-08T12:40:00.638Z",
-  "updated_at": "2026-10-08T12:48:05.211Z",
+  "updated_at": "2026-11-12T10:42:00.784Z",
   "history": [
     {
       "at": "2026-10-08T12:40:00.638Z",
