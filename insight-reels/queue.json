@@ -318,7 +318,8 @@
       "axis": "브랜드 사례",
       "insight": "취향은 반복으로 아비투스가 된다",
       "status": "todo",
-      "reason": "카드뉴스로 이관(carousel_queue.json)"
+      "reason": "카드뉴스로 이관(carousel_queue.json)",
+      "exhausted": true
     },
     {
       "no": 209,
