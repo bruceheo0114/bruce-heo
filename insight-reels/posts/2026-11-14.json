@@ -86,8 +86,11 @@
     "higgsfield": 6.0,
     "elevenlabs": 486
   },
-  "status": "publishing",
+  "status": "posted",
   "note": "합성이 07:00을 넘겨 끝나 insight-reels-publish.yml 을 post_date 2026-11-14 로 수동 실행.",
   "claimed_by": "43520726800",
-  "claimed_at": "2026-11-13T22:37:16.208071Z"
+  "claimed_at": "2026-11-13T22:37:16.208071Z",
+  "media_id": "17891449845477878",
+  "permalink": "https://www.instagram.com/reel/DfsuHDlipeN/",
+  "posted_at": "2026-11-13T22:38:31.465078Z"
 }
