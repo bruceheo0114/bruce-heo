@@ -9,7 +9,7 @@
     "source_file": "source/brunch/202.md",
     "body_hash": "2ccfe7a367b44c0e7c84068061e8293241ebc020811521ef9d5bc55511f5e3c3"
   },
-  "status": "WAITING_APPROVAL",
+  "status": "ASSETS_READY",
   "format": "v2",
   "higgsfield_generation": false,
   "recommendation": "MAKE_VIDEO",
@@ -23,8 +23,37 @@
     "TOTAL": 48,
     "MAX": 60
   },
-  "approved_scenes": [],
-  "generated": {},
+  "approved_scenes": [
+    "S003",
+    "S021",
+    "S029"
+  ],
+  "generated": {
+    "S021": {
+      "job": "75e60a91-da30-44b8-9d1c-8e8fde2f2aa7,b0bae13e-2799-428b-86ea-df081609b347",
+      "files": [
+        "bruce-youtube/assets/references/EP018/G02.png"
+      ],
+      "credits": 5.25,
+      "at": "2026-11-14T12:18:06.514Z"
+    },
+    "S003": {
+      "job": "06efa480-70af-4d83-b245-6f87b2be42e6",
+      "files": [
+        "bruce-youtube/assets/references/EP018/G01.png"
+      ],
+      "credits": 0.25,
+      "at": "2026-11-14T12:18:06.592Z"
+    },
+    "S029": {
+      "job": "17e9c319-ecea-4867-9e57-a7a9b2c64719",
+      "files": [
+        "bruce-youtube/assets/references/EP018/G03.png"
+      ],
+      "credits": 0.25,
+      "at": "2026-11-14T12:18:06.683Z"
+    }
+  },
   "plan": {
     "runtime_seconds": 302,
     "runtime": "5:02",
@@ -36,8 +65,8 @@
       "AI": 3
     },
     "seconds_by_type": {
-      "REAL": 75,
-      "TYPE": 117,
+      "REAL": 77,
+      "TYPE": 115,
       "GRAPHIC": 87,
       "AI": 23
     },
@@ -58,7 +87,7 @@
   },
   "update": null,
   "created_at": "2026-11-14T12:14:19.281Z",
-  "updated_at": "2026-11-14T12:16:35.402Z",
+  "updated_at": "2026-11-14T12:19:24.252Z",
   "history": [
     {
       "at": "2026-11-14T12:14:19.281Z",
@@ -71,6 +100,45 @@
       "from": "PACKAGE_PENDING",
       "to": "WAITING_APPROVAL",
       "note": "영상화 평가 48/60 · MAKE_VIDEO"
+    },
+    {
+      "at": "2026-11-14T12:17:36.237Z",
+      "from": "WAITING_APPROVAL",
+      "to": "APPROVED",
+      "note": "Higgsfield 승인: S003, S021, S029"
+    },
+    {
+      "at": "2026-11-14T12:18:06.683Z",
+      "from": "APPROVED",
+      "to": "ASSETS_READY",
+      "note": "승인된 AI Scene 생성 완료"
     }
-  ]
+  ],
+  "approved_at": "2026-11-14T12:17:36.237Z",
+  "narration": {
+    "takes": [
+      {
+        "file": "bruce-youtube/output/EP018/narration/EP018_CH01.mp3",
+        "seconds": 51.40898,
+        "added_at": "2026-11-14T12:19:24.252Z"
+      },
+      {
+        "file": "bruce-youtube/output/EP018/narration/EP018_CH02.mp3",
+        "seconds": 68.127347,
+        "added_at": "2026-11-14T12:19:24.252Z"
+      },
+      {
+        "file": "bruce-youtube/output/EP018/narration/EP018_CH03.mp3",
+        "seconds": 88.685714,
+        "added_at": "2026-11-14T12:19:24.252Z"
+      },
+      {
+        "file": "bruce-youtube/output/EP018/narration/EP018_CH04.mp3",
+        "seconds": 104.829388,
+        "added_at": "2026-11-14T12:19:24.252Z"
+      }
+    ],
+    "total_seconds": 313.051429,
+    "updated_at": "2026-11-14T12:19:24.252Z"
+  }
 }
