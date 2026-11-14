@@ -1,0 +1,76 @@
+{
+  "episode": "EP018",
+  "folder": "EP018_brunch-202",
+  "article": {
+    "id": "202",
+    "url": "https://brunch.co.kr/@heoboram/202",
+    "title": "스크럽대디는 왜 청소용품 광고에 임신 테스트기를 썼나",
+    "published_at": "2026-05-07T03:00:00.000Z",
+    "source_file": "source/brunch/202.md",
+    "body_hash": "2ccfe7a367b44c0e7c84068061e8293241ebc020811521ef9d5bc55511f5e3c3"
+  },
+  "status": "WAITING_APPROVAL",
+  "format": "v2",
+  "higgsfield_generation": false,
+  "recommendation": "MAKE_VIDEO",
+  "video_potential": {
+    "NARRATIVE": 9,
+    "CASE STUDY": 9,
+    "VISUAL MATERIAL": 7,
+    "TIMELINESS": 7,
+    "ORIGINAL POV": 8,
+    "30MIN POTENTIAL": 8,
+    "TOTAL": 48,
+    "MAX": 60
+  },
+  "approved_scenes": [],
+  "generated": {},
+  "plan": {
+    "runtime_seconds": 302,
+    "runtime": "5:02",
+    "total_scenes": 42,
+    "scenes_by_type": {
+      "REAL": 10,
+      "TYPE": 17,
+      "GRAPHIC": 12,
+      "AI": 3
+    },
+    "seconds_by_type": {
+      "REAL": 75,
+      "TYPE": 117,
+      "GRAPHIC": 87,
+      "AI": 23
+    },
+    "ai_share": 0.076,
+    "ai_scenes": [
+      "S003",
+      "S021",
+      "S029"
+    ],
+    "estimated_generations": 5,
+    "estimated_credits": 6,
+    "reusable_assets": [],
+    "cost_saving": [
+      "릴스·광고 화면은 공식몰·공식 홈페이지·기사 캡처로 채운다.",
+      "영상 클립은 사람이 없는 S021 하나만.",
+      "나머지 AI 장면은 정지 이미지 + 편집에서 천천히 움직이기."
+    ]
+  },
+  "update": null,
+  "created_at": "2026-11-14T12:14:19.281Z",
+  "updated_at": "2026-11-14T12:16:35.402Z",
+  "history": [
+    {
+      "at": "2026-11-14T12:14:19.281Z",
+      "from": null,
+      "to": "PACKAGE_PENDING",
+      "note": "새 브런치 글"
+    },
+    {
+      "at": "2026-11-14T12:16:35.402Z",
+      "from": "PACKAGE_PENDING",
+      "to": "WAITING_APPROVAL",
+      "note": "영상화 평가 48/60 · MAKE_VIDEO"
+    }
+  ]
+}

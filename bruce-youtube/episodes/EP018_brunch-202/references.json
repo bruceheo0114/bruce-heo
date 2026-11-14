@@ -1,0 +1,10 @@
+{
+  "brunch": true,
+  "items": [
+    {"id": "A001", "kind": "page", "url": "https://scrubdaddy.kr/event/detail.html?product_no=292", "source": "스크럽대디 코리아 공식몰", "scenes": ["S001", "S018", "S022", "S026", "S038"]},
+    {"id": "A002", "kind": "page", "url": "https://scrubdaddy.com/", "source": "Scrub Daddy 공식 홈페이지", "scenes": ["S009", "S013"], "scroll": true},
+    {"id": "A003", "kind": "article", "url": "https://www.theceomagazine.com/business/innovation-technology/scrub-daddy-the-story-behind-shark-tank-uss-biggest-success/", "source": "The CEO Magazine", "scenes": ["S011"]},
+    {"id": "A004", "kind": "page", "url": "https://en.wikipedia.org/wiki/Scrub_Daddy", "source": "Wikipedia", "scenes": ["S010"]},
+    {"id": "A005", "kind": "page", "url": "https://scrubdaddy.kr/", "source": "스크럽대디 코리아 공식몰", "scenes": ["S014", "S015"], "scroll": true}
+  ]
+}
