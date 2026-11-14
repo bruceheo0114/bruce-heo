@@ -43,7 +43,7 @@ HIGGSFIELD_REQUIRED: YES
 SCENE ID: S004
 TIME: 00:22-00:26
 NARRATION:
-그런데 이 영상, 조회수 200만(이백만) 회를 찍었습니다.
+그런데도 이 영상은 조회수 200만(이백만) 회를 찍었습니다.
 VISUAL:
 미니멀 도식, 항목이 말에 맞춰 나타남
 SOURCE_TYPE: GRAPHIC
@@ -136,9 +136,9 @@ HIGGSFIELD_REQUIRED: NO
 MOTION: timeline
 
 SCENE ID: S011
-TIME: 01:02-01:10
+TIME: 01:02-01:11
 NARRATION:
-원문 기준으로 2020년(이천이십 년) 회사 가치는 1억(일억) 7천만(칠천만) 달러, 출연 전보다 170배(백칠십 배)가 됐습니다. 샤크탱크의 대표 성공 사례죠.
+알려진 바로는 2020년(이천이십 년) 회사 가치는 1억(일억) 7천만(칠천만) 달러, 출연 전보다 170배(백칠십 배)가 됐습니다. 샤크탱크의 대표 성공 사례죠.
 VISUAL:
 
 SOURCE_TYPE: REAL
@@ -149,7 +149,7 @@ ASSET: A003
 HIGGSFIELD_REQUIRED: NO
 
 SCENE ID: S012
-TIME: 01:10-01:16
+TIME: 01:11-01:16
 NARRATION:
 미국에서의 메시지는 한 줄입니다. Smile(스마일) While(와일) You(유) Scrub(스크럽). 문지르면서 웃자.
 VISUAL:
@@ -317,7 +317,7 @@ HIGGSFIELD_REQUIRED: NO
 SCENE ID: S025
 TIME: 02:44-02:53
 NARRATION:
-2차(이 차) 베이비부머라고 불리는 세대가 부모가 되는 시기와 정확히 겹친 거죠. 지금 많은 사람이 실제로 겪고 있는 순간입니다.
+2차(이 차) 베이비부머라고 불리는 세대가 부모가 되는 시기와 정확히 겹쳤습니다. 지금 많은 사람이 실제로 겪고 있는 순간입니다.
 VISUAL:
 오프화이트 배경 위 큰 문구, 포인트 컬러 한 단어
 SOURCE_TYPE: TYPE
@@ -379,7 +379,7 @@ ASSET: -
 HIGGSFIELD_REQUIRED: YES
 
 SCENE ID: S030
-TIME: 03:21-03:24
+TIME: 03:21-03:25
 NARRATION:
 제안서를 쓰다 보면, 저도 이 대목에서 늘 부딪힙니다.
 VISUAL:
@@ -392,7 +392,7 @@ ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
 SCENE ID: S031
-TIME: 03:24-03:35
+TIME: 03:25-03:35
 NARRATION:
 클라이언트는 지금 당장 팔리는 콘텐츠를 원해요. 성분, 사용법, 후기. 이야기 콘텐츠를 제안하면 거의 같은 말이 돌아옵니다. 이게 매출로 이어지나요?
 VISUAL:
@@ -419,7 +419,7 @@ ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
 SCENE ID: S033
-TIME: 03:45-03:55
+TIME: 03:45-03:56
 NARRATION:
 제품을 알리는 방법은 크게 두 가지예요. 하나는 필요를 강조하는 것. 사는 게 합리적이라고 설득하는 방식입니다. 가격에 민감한 때일수록 바로 매출에 닿죠.
 VISUAL:
@@ -432,7 +432,7 @@ ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
 SCENE ID: S034
-TIME: 03:55-04:03
+TIME: 03:56-04:03
 NARRATION:
 다른 하나는 이야기로 좋은 인식을 쌓는 것. 제품이 다 비슷비슷해진 시장에서 차이를 만드는 방식이에요.
 VISUAL:
@@ -485,7 +485,7 @@ HIGGSFIELD_REQUIRED: NO
 MOTION: quote
 
 SCENE ID: S038
-TIME: 04:26-04:33
+TIME: 04:26-04:34
 NARRATION:
 스크럽대디의 임테기 영상이 퍼진 것도 수세미가 필요해서가 아니었어요. 그 이야기에 공감했기 때문입니다.
 VISUAL:
@@ -498,7 +498,7 @@ ASSET: A001
 HIGGSFIELD_REQUIRED: NO
 
 SCENE ID: S039
-TIME: 04:33-04:39
+TIME: 04:34-04:39
 NARRATION:
 그렇다고 성능 콘텐츠를 버리자는 말은 아닙니다. 둘의 비율을 한번 보자는 거예요.
 VISUAL:
@@ -511,7 +511,7 @@ ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
 SCENE ID: S040
-TIME: 04:39-04:50
+TIME: 04:39-04:51
 NARRATION:
 우리 브랜드에도 원래 있던 이야기가 있을 거예요. 캐릭터든, 만든 사람이든, 오래 지켜 온 습관이든. 새로 지어내기 전에 그걸 먼저 찾아보는 게 순서라고 생각합니다.
 VISUAL:
@@ -523,7 +523,7 @@ ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
 SCENE ID: S041
-TIME: 04:50-04:56
+TIME: 04:51-04:56
 NARRATION:
 제품을 사게 만드는 콘텐츠는 많습니다. 브랜드를 원하게 만드는 콘텐츠는 드물죠.
 VISUAL:
