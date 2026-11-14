@@ -1,6 +1,6 @@
 {
-  "references_hash": "10bedc39c3fad1fb",
-  "fetched_at": "2026-11-14T12:18:50.317Z",
+  "references_hash": "2ac8b50de5cdbdef",
+  "fetched_at": "2026-11-14T12:21:36.754Z",
   "items": [
     {
       "file": "A001-screen.jpg",
@@ -152,6 +152,16 @@
       "url": "https://en.wikipedia.org/wiki/Scrub_Daddy"
     },
     {
+      "file": "A004-img1.jpg",
+      "id": "A004",
+      "scenes": [
+        "S010"
+      ],
+      "kind": "image",
+      "source": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Scrub_Daddy"
+    },
+    {
       "file": "A005-screen.jpg",
       "id": "A005",
       "scenes": [
@@ -205,6 +215,46 @@
       "kind": "image",
       "source": "스크럽대디 코리아 공식몰",
       "url": "https://scrubdaddy.kr/"
+    },
+    {
+      "file": "G01.jpg",
+      "id": "G01",
+      "scenes": [
+        "S003"
+      ],
+      "kind": "ai",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261114_121743_06efa480-70af-4d83-b245-6f87b2be42e6.png"
+    },
+    {
+      "file": "G02.jpg",
+      "id": "G02",
+      "scenes": [
+        "S021"
+      ],
+      "kind": "ai",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261114_121743_75e60a91-da30-44b8-9d1c-8e8fde2f2aa7.png"
+    },
+    {
+      "file": "G03.jpg",
+      "id": "G03",
+      "scenes": [
+        "S029"
+      ],
+      "kind": "ai",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261114_121743_17e9c319-ecea-4867-9e57-a7a9b2c64719.png"
+    },
+    {
+      "file": "V01.mp4",
+      "id": "V01",
+      "scenes": [
+        "S021"
+      ],
+      "kind": "video",
+      "source": "AI 생성 영상 (Higgsfield)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261114_121800_b0bae13e-2799-428b-86ea-df081609b347.mp4"
     },
     {
       "file": "brunch-01.jpg",
