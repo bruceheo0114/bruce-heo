@@ -1,0 +1,235 @@
+{
+  "references_hash": "10bedc39c3fad1fb",
+  "fetched_at": "2026-11-14T12:18:50.317Z",
+  "items": [
+    {
+      "file": "A001-screen.jpg",
+      "id": "A001",
+      "scenes": [
+        "S001",
+        "S018",
+        "S022",
+        "S026",
+        "S038"
+      ],
+      "kind": "screen",
+      "source": "스크럽대디 코리아 공식몰",
+      "url": "https://scrubdaddy.kr/event/detail.html?product_no=292"
+    },
+    {
+      "file": "A001-img1.jpg",
+      "id": "A001",
+      "scenes": [
+        "S001",
+        "S018",
+        "S022",
+        "S026",
+        "S038"
+      ],
+      "kind": "image",
+      "source": "스크럽대디 코리아 공식몰",
+      "url": "https://scrubdaddy.kr/event/detail.html?product_no=292"
+    },
+    {
+      "file": "A001-img2.jpg",
+      "id": "A001",
+      "scenes": [
+        "S001",
+        "S018",
+        "S022",
+        "S026",
+        "S038"
+      ],
+      "kind": "image",
+      "source": "스크럽대디 코리아 공식몰",
+      "url": "https://scrubdaddy.kr/event/detail.html?product_no=292"
+    },
+    {
+      "file": "A001-img3.jpg",
+      "id": "A001",
+      "scenes": [
+        "S001",
+        "S018",
+        "S022",
+        "S026",
+        "S038"
+      ],
+      "kind": "image",
+      "source": "스크럽대디 코리아 공식몰",
+      "url": "https://scrubdaddy.kr/event/detail.html?product_no=292"
+    },
+    {
+      "file": "A002-screen.jpg",
+      "id": "A002",
+      "scenes": [
+        "S009",
+        "S013"
+      ],
+      "kind": "screen",
+      "source": "Scrub Daddy 공식 홈페이지",
+      "url": "https://scrubdaddy.com/"
+    },
+    {
+      "file": "A002-scroll.jpg",
+      "id": "A002",
+      "scenes": [
+        "S009",
+        "S013"
+      ],
+      "kind": "scroll",
+      "source": "Scrub Daddy 공식 홈페이지",
+      "url": "https://scrubdaddy.com/"
+    },
+    {
+      "file": "A002-img1.jpg",
+      "id": "A002",
+      "scenes": [
+        "S009",
+        "S013"
+      ],
+      "kind": "image",
+      "source": "Scrub Daddy 공식 홈페이지",
+      "url": "https://scrubdaddy.com/"
+    },
+    {
+      "file": "A003-screen.jpg",
+      "id": "A003",
+      "scenes": [
+        "S011"
+      ],
+      "kind": "screen",
+      "source": "The CEO Magazine",
+      "url": "https://www.theceomagazine.com/business/innovation-technology/scrub-daddy-the-story-behind-shark-tank-uss-biggest-success/"
+    },
+    {
+      "file": "A003-scroll.jpg",
+      "id": "A003",
+      "scenes": [
+        "S011"
+      ],
+      "kind": "scroll",
+      "source": "The CEO Magazine",
+      "url": "https://www.theceomagazine.com/business/innovation-technology/scrub-daddy-the-story-behind-shark-tank-uss-biggest-success/"
+    },
+    {
+      "file": "A003-img1.jpg",
+      "id": "A003",
+      "scenes": [
+        "S011"
+      ],
+      "kind": "image",
+      "source": "The CEO Magazine",
+      "url": "https://www.theceomagazine.com/business/innovation-technology/scrub-daddy-the-story-behind-shark-tank-uss-biggest-success/"
+    },
+    {
+      "file": "A003-img2.jpg",
+      "id": "A003",
+      "scenes": [
+        "S011"
+      ],
+      "kind": "image",
+      "source": "The CEO Magazine",
+      "url": "https://www.theceomagazine.com/business/innovation-technology/scrub-daddy-the-story-behind-shark-tank-uss-biggest-success/"
+    },
+    {
+      "file": "A003-img3.jpg",
+      "id": "A003",
+      "scenes": [
+        "S011"
+      ],
+      "kind": "image",
+      "source": "The CEO Magazine",
+      "url": "https://www.theceomagazine.com/business/innovation-technology/scrub-daddy-the-story-behind-shark-tank-uss-biggest-success/"
+    },
+    {
+      "file": "A004-screen.jpg",
+      "id": "A004",
+      "scenes": [
+        "S010"
+      ],
+      "kind": "screen",
+      "source": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Scrub_Daddy"
+    },
+    {
+      "file": "A005-screen.jpg",
+      "id": "A005",
+      "scenes": [
+        "S014",
+        "S015"
+      ],
+      "kind": "screen",
+      "source": "스크럽대디 코리아 공식몰",
+      "url": "https://scrubdaddy.kr/"
+    },
+    {
+      "file": "A005-scroll.jpg",
+      "id": "A005",
+      "scenes": [
+        "S014",
+        "S015"
+      ],
+      "kind": "scroll",
+      "source": "스크럽대디 코리아 공식몰",
+      "url": "https://scrubdaddy.kr/"
+    },
+    {
+      "file": "A005-img1.jpg",
+      "id": "A005",
+      "scenes": [
+        "S014",
+        "S015"
+      ],
+      "kind": "image",
+      "source": "스크럽대디 코리아 공식몰",
+      "url": "https://scrubdaddy.kr/"
+    },
+    {
+      "file": "A005-img2.jpg",
+      "id": "A005",
+      "scenes": [
+        "S014",
+        "S015"
+      ],
+      "kind": "image",
+      "source": "스크럽대디 코리아 공식몰",
+      "url": "https://scrubdaddy.kr/"
+    },
+    {
+      "file": "A005-img3.jpg",
+      "id": "A005",
+      "scenes": [
+        "S014",
+        "S015"
+      ],
+      "kind": "image",
+      "source": "스크럽대디 코리아 공식몰",
+      "url": "https://scrubdaddy.kr/"
+    },
+    {
+      "file": "brunch-01.jpg",
+      "id": "brunch",
+      "scenes": [],
+      "kind": "image",
+      "source": "브런치 @heoboram 원문",
+      "url": "https://brunch.co.kr/@heoboram/202"
+    },
+    {
+      "file": "brunch-02.jpg",
+      "id": "brunch",
+      "scenes": [],
+      "kind": "image",
+      "source": "브런치 @heoboram 원문",
+      "url": "https://brunch.co.kr/@heoboram/202"
+    },
+    {
+      "file": "brunch-03.jpg",
+      "id": "brunch",
+      "scenes": [],
+      "kind": "image",
+      "source": "브런치 @heoboram 원문",
+      "url": "https://brunch.co.kr/@heoboram/202"
+    }
+  ],
+  "failures": []
+}
