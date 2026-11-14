@@ -86,6 +86,8 @@
     "higgsfield": 6.0,
     "elevenlabs": 514
   },
-  "status": "scheduled",
-  "note": "시의성 훅: trends 11/15 상위어 '유튜브'(검색량 최상위)를 본문 축으로. 원문 사례(김선태×시몬스)로 시작."
+  "status": "publishing",
+  "note": "시의성 훅: trends 11/15 상위어 '유튜브'(검색량 최상위)를 본문 축으로. 원문 사례(김선태×시몬스)로 시작.",
+  "claimed_by": "43645718440",
+  "claimed_at": "2026-11-14T22:00:20.395690Z"
 }
