@@ -1,8 +1,8 @@
 {
   "version": 1,
   "initialized": true,
-  "lastCheckedAt": "2026-11-15T02:17:45.697Z",
-  "lastCheckedCanonicalUrl": "https://brunch.co.kr/@heoboram/225",
+  "lastCheckedAt": "2026-11-15T23:00:24.132Z",
+  "lastCheckedCanonicalUrl": "https://brunch.co.kr/@heoboram/231",
   "reviewSuccessCount": 1,
   "mode": "review",
   "articles": {
@@ -1265,6 +1265,38 @@
       },
       "approvedAt": "2026-11-09T04:49:36.643Z",
       "scheduledAt": "2026-11-16T22:30:00.000Z",
+      "completedAt": null
+    },
+    "231": {
+      "id": "231",
+      "canonicalUrl": "https://brunch.co.kr/@heoboram/231",
+      "title": "배민은 왜 다시 사람을 이야기할까?",
+      "publishedAt": "2026-11-15T12:00:11.000Z",
+      "bodyHash": "750321460e60442542ae8f8e241fa945c90a1dd9c49e62a43cdeb53a22b2e0dc",
+      "batchId": "43772350326",
+      "homepage": {
+        "status": "published",
+        "updatedAt": "2026-11-15T23:00:24.132Z"
+      },
+      "package": {
+        "status": "awaiting_review",
+        "manifestPath": "content/231/manifest.json",
+        "generatedAt": null
+      },
+      "linkedin": {
+        "status": "manual_pending",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "instagram": {
+        "status": "manual_pending",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "approvedAt": null,
+      "scheduledAt": null,
       "completedAt": null
     }
   }
