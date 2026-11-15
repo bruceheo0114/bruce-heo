@@ -1,14 +1,33 @@
 {
-  "generated_at": "2026-11-08T15:56:03.802Z",
+  "generated_at": "2026-11-15T16:15:29.194Z",
   "window": {
-    "since": "2026-11-02",
-    "until": "2026-11-09"
+    "since": "2026-11-09",
+    "until": "2026-11-16"
   },
   "source": "네이버 검색 API(블로그·카페·뉴스) · API HUB",
   "counts": {
-    "blog": 0,
+    "blog": 2,
     "cafearticle": 0,
     "news": 0
   },
-  "mentions": []
+  "mentions": [
+    {
+      "type": "blog",
+      "query": "허보람 마케터",
+      "title": "[도서 협찬] AI는 답을 만들고 마케터는 맥락을 설계한다 _허보람",
+      "description": "여러분은 AI시대를 잘 살아가고 있으신가요? #AI는답을만들고마케터는맥락을설계한다 #허보람 #슬로디미디어 #AI #마케터 #책 #독서 #책스타그램 #책추천 #도서협찬 #책읽는루치아 #책읽는루치아_2026",
+      "by": "루치아의 서재",
+      "date": "2026-11-14",
+      "url": "https://blog.naver.com/lucia_reading_a_book/224476882044"
+    },
+    {
+      "type": "blog",
+      "query": "허보람 마케터",
+      "title": "[마케터·기획자 필독서] 버거킹 기사식당부터 무신사 매거진 B 인수....",
+      "description": "<채성모의 손에 잡히는 독서>를 통해서 도서 '협찬' @chae_seongmo @slodymedia #AI는답을만들고마케터는맥락을설계한다 #허보람 #슬로디미디어출판사 #채성모의손에잡히는독서 도서 기본 정보 도서명: AI는 답을...",
+      "by": "Skullism",
+      "date": "2026-11-13",
+      "url": "https://blog.naver.com/mibgo/224475519448"
+    }
+  ]
 }
