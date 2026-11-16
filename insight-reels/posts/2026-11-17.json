@@ -86,6 +86,8 @@
     "higgsfield": 6.0,
     "elevenlabs": 512
   },
-  "status": "scheduled",
-  "note": "11/16 새 글 231. 시의성 훅: trends 11/17 '배민'(검색량 상위·상승 1.07)."
+  "status": "publishing",
+  "note": "11/16 새 글 231. 시의성 훅: trends 11/17 '배민'(검색량 상위·상승 1.07).",
+  "claimed_by": "43965668698",
+  "claimed_at": "2026-11-16T22:00:22.634322Z"
 }
