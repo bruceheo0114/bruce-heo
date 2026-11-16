@@ -98,7 +98,7 @@ HIGGSFIELD_REQUIRED: NO
 SCENE ID: S008
 TIME: 00:42-00:50
 NARRATION:
-익숙했던 웃음 대신, 조용한 문장들이 화면을 채우거든요. 광고라기보다 누군가의 일기장을 넘겨 보는 느낌이었어요.
+익숙했던 웃음 대신, 조용한 문장들이 화면을 채웁니다. 광고라기보다 누군가의 일기장을 넘겨 보는 느낌이었어요.
 VISUAL:
 오프화이트 배경 위 큰 문구, 포인트 컬러 한 단어
 SOURCE_TYPE: TYPE
@@ -124,12 +124,12 @@ HIGGSFIELD_REQUIRED: NO
 SCENE ID: S010
 TIME: 00:58-01:07
 NARRATION:
-배민은 오랫동안 유쾌하고 재치 있는 브랜드였어요. 배민신춘문예 같은 캠페인, 특유의 B급(비급) 감성과 말장난이 배민의 얼굴이었죠.
+배민은 오랫동안 유쾌하고 재치 있는 브랜드였어요. 배민신춘문예 같은 캠페인, 특유의 엉뚱한 감성과 말장난이 배민의 얼굴이었죠.
 VISUAL:
 
 SOURCE_TYPE: REAL
 ON_SCREEN_TEXT:
-배민신춘문예 · B급 감성 · 말장난
+배민신춘문예 · 엉뚱한 감성 · 말장난
 오랫동안 배민의 얼굴
 ASSET: A001
 HIGGSFIELD_REQUIRED: NO
