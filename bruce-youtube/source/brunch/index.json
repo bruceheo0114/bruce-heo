@@ -485,7 +485,18 @@
       "firstSeenAt": "2026-11-09T12:22:32.263Z",
       "updatedAt": "2026-11-09T12:22:32.263Z",
       "episode": "EP015"
+    },
+    "231": {
+      "id": "231",
+      "url": "https://brunch.co.kr/@heoboram/231",
+      "title": "배민은 왜 다시 사람을 이야기할까?",
+      "publishedAt": "2026-11-16T03:00:00.000Z",
+      "bodyHash": "3b19ab93a35317ec7ba1a4996038470e7826f79c114cf2417e1f1de573a89972",
+      "file": "231.md",
+      "firstSeenAt": "2026-11-16T12:13:51.859Z",
+      "updatedAt": "2026-11-16T12:13:51.859Z",
+      "episode": "EP019"
     }
   },
-  "lastSyncedAt": "2026-11-14T12:14:18.235Z"
+  "lastSyncedAt": "2026-11-16T12:13:51.859Z"
 }

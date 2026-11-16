@@ -1,0 +1,9 @@
+{
+  "brunch": true,
+  "items": [
+    {"id": "A001", "kind": "page", "url": "https://www.woowahan.com/report/detail/975?page=1", "source": "우아한형제들 보도자료", "scenes": ["S010", "S012"]},
+    {"id": "A002", "kind": "article", "url": "https://www.news1.kr/industry/distribution/6332880", "source": "뉴스1 (2026-10-27)", "scenes": ["S005", "S006", "S021", "S023"]},
+    {"id": "A003", "kind": "article", "url": "https://www.mt.co.kr/tech/2025/08/24/2025082211034078621", "source": "머니투데이 (2025-08-24)", "scenes": ["S013"]},
+    {"id": "A004", "kind": "article", "url": "https://www.cnbnews.com/news/articleView.html?idxno=739598", "source": "CNB뉴스", "scenes": ["S017"]}
+  ]
+}

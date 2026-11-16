@@ -1,0 +1,76 @@
+{
+  "episode": "EP019",
+  "folder": "EP019_brunch-231",
+  "article": {
+    "id": "231",
+    "url": "https://brunch.co.kr/@heoboram/231",
+    "title": "배민은 왜 다시 사람을 이야기할까?",
+    "published_at": "2026-11-16T03:00:00.000Z",
+    "source_file": "source/brunch/231.md",
+    "body_hash": "3b19ab93a35317ec7ba1a4996038470e7826f79c114cf2417e1f1de573a89972"
+  },
+  "status": "WAITING_APPROVAL",
+  "format": "v2",
+  "higgsfield_generation": false,
+  "recommendation": "MAKE_VIDEO",
+  "video_potential": {
+    "NARRATIVE": 9,
+    "CASE STUDY": 9,
+    "VISUAL MATERIAL": 7,
+    "TIMELINESS": 10,
+    "ORIGINAL POV": 8,
+    "30MIN POTENTIAL": 8,
+    "TOTAL": 51,
+    "MAX": 60
+  },
+  "approved_scenes": [],
+  "generated": {},
+  "plan": {
+    "runtime_seconds": 305,
+    "runtime": "5:05",
+    "total_scenes": 39,
+    "scenes_by_type": {
+      "REAL": 6,
+      "TYPE": 17,
+      "GRAPHIC": 13,
+      "AI": 3
+    },
+    "seconds_by_type": {
+      "REAL": 51,
+      "TYPE": 133,
+      "GRAPHIC": 101,
+      "AI": 20
+    },
+    "ai_share": 0.066,
+    "ai_scenes": [
+      "S003",
+      "S027",
+      "S033"
+    ],
+    "estimated_generations": 5,
+    "estimated_credits": 6,
+    "reusable_assets": [],
+    "cost_saving": [
+      "캠페인 영상은 보도자료·기사 캡처로 채운다.",
+      "영상 클립은 사람이 없는 S027 하나만.",
+      "나머지 AI 장면은 정지 이미지 + 편집에서 천천히 움직이기."
+    ]
+  },
+  "update": null,
+  "created_at": "2026-11-16T12:14:06.994Z",
+  "updated_at": "2026-11-16T12:15:48.180Z",
+  "history": [
+    {
+      "at": "2026-11-16T12:14:06.994Z",
+      "from": null,
+      "to": "PACKAGE_PENDING",
+      "note": "새 브런치 글"
+    },
+    {
+      "at": "2026-11-16T12:15:48.180Z",
+      "from": "PACKAGE_PENDING",
+      "to": "WAITING_APPROVAL",
+      "note": "영상화 평가 51/60 · MAKE_VIDEO"
+    }
+  ]
+}
