@@ -9,7 +9,7 @@
     "source_file": "source/brunch/231.md",
     "body_hash": "3b19ab93a35317ec7ba1a4996038470e7826f79c114cf2417e1f1de573a89972"
   },
-  "status": "WAITING_APPROVAL",
+  "status": "ASSETS_READY",
   "format": "v2",
   "higgsfield_generation": false,
   "recommendation": "MAKE_VIDEO",
@@ -23,8 +23,37 @@
     "TOTAL": 51,
     "MAX": 60
   },
-  "approved_scenes": [],
-  "generated": {},
+  "approved_scenes": [
+    "S003",
+    "S027",
+    "S033"
+  ],
+  "generated": {
+    "S027": {
+      "job": "ddfb0c6c-3d76-4a78-9ff5-4d35268a2193,e0b212e6-8c27-4226-b7dd-7ae9e9cc5d3b",
+      "files": [
+        "bruce-youtube/assets/references/EP019/G02.png"
+      ],
+      "credits": 5.25,
+      "at": "2026-11-16T12:17:56.606Z"
+    },
+    "S003": {
+      "job": "232002d0-cdd5-4417-85ed-da312f67b0b2",
+      "files": [
+        "bruce-youtube/assets/references/EP019/G01.png"
+      ],
+      "credits": 0.25,
+      "at": "2026-11-16T12:17:56.671Z"
+    },
+    "S033": {
+      "job": "463e5d56-ae5f-48e1-bf37-110db4c120e9",
+      "files": [
+        "bruce-youtube/assets/references/EP019/G03.png"
+      ],
+      "credits": 0.25,
+      "at": "2026-11-16T12:17:56.735Z"
+    }
+  },
   "plan": {
     "runtime_seconds": 305,
     "runtime": "5:05",
@@ -58,7 +87,7 @@
   },
   "update": null,
   "created_at": "2026-11-16T12:14:06.994Z",
-  "updated_at": "2026-11-16T12:15:48.180Z",
+  "updated_at": "2026-11-16T12:17:56.735Z",
   "history": [
     {
       "at": "2026-11-16T12:14:06.994Z",
@@ -71,6 +100,19 @@
       "from": "PACKAGE_PENDING",
       "to": "WAITING_APPROVAL",
       "note": "영상화 평가 51/60 · MAKE_VIDEO"
+    },
+    {
+      "at": "2026-11-16T12:17:13.722Z",
+      "from": "WAITING_APPROVAL",
+      "to": "APPROVED",
+      "note": "Higgsfield 승인: S003, S027, S033"
+    },
+    {
+      "at": "2026-11-16T12:17:56.735Z",
+      "from": "APPROVED",
+      "to": "ASSETS_READY",
+      "note": "승인된 AI Scene 생성 완료"
     }
-  ]
+  ],
+  "approved_at": "2026-11-16T12:17:13.722Z"
 }
