@@ -1,0 +1,47 @@
+{
+  "date": "2026-11-18",
+  "generated_at": "2026-11-17T07:04:04.692Z",
+  "window": {
+    "startDate": "2026-10-21",
+    "endDate": "2026-11-17"
+  },
+  "source": "네이버 데이터랩 검색어 트렌드 · API HUB",
+  "note": "recent7 은 같은 batch(최대 5개) 안에서만 비교한다. rise = 최근 7일 평균 ÷ 그 전 21일 평균(null = 그 전엔 검색 없음). 본문에는 '네이버 검색 관심도(데이터랩)'로 출처를 적는다.",
+  "results": [
+    {
+      "keyword": "신라면 해물어묵",
+      "batch": 1,
+      "recent7": 100,
+      "rise": null,
+      "peak": "2026-11-16"
+    },
+    {
+      "keyword": "신라면 투표",
+      "batch": 1,
+      "recent7": 0,
+      "rise": 0,
+      "peak": null
+    },
+    {
+      "keyword": "오뚜기 왕만두",
+      "batch": 1,
+      "recent7": 2.2,
+      "rise": null,
+      "peak": "2026-11-14"
+    },
+    {
+      "keyword": "얇은피 왕만두",
+      "batch": 1,
+      "recent7": 0,
+      "rise": 0,
+      "peak": "2026-10-26"
+    },
+    {
+      "keyword": "XO만두",
+      "batch": 1,
+      "recent7": 14,
+      "rise": 1.25,
+      "peak": "2026-11-07"
+    }
+  ]
+}
