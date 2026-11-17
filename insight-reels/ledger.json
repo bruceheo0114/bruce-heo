@@ -154,7 +154,7 @@
       ]
     },
     "2026-11": {
-      "higgsfield_spent": 43.2,
+      "higgsfield_spent": 43.45,
       "elevenlabs_spent": 3470,
       "entries": [
         {
@@ -228,6 +228,11 @@
           "what": "릴스 231(11/17 게시분) — 이미지 4장(1.0) + Grok Lite 클립 1개(5.0) + eleven_v4 2테이크(256+256)",
           "higgsfield": 6.0,
           "elevenlabs": 512
+        },
+        {
+          "date": "2026-11-17",
+          "what": "수요일 카드뉴스(11/18 검색량 리포트) 표지 이미지 1장",
+          "higgsfield": 0.25
         }
       ]
     }
