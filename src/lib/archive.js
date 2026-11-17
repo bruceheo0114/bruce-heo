@@ -603,7 +603,9 @@ function seoulDate(value) {
 }
 
 // 검색엔진이 /writing/ 글을 찾도록 사이트 전체 sitemap 을 만든다.
-export function renderSitemap(articles) {
+// newsletterDates: newsletter/trend/<YYYY-MM-DD>/ 폴더 이름들(트렌드 노트 각 호).
+export function renderSitemap(articles, newsletterDates = []) {
+  const issues = [...newsletterDates].sort().reverse();
   const urls = [
     { loc: `${SITE}/` },
     { loc: `${SITE}/context/` },
@@ -615,6 +617,8 @@ export function renderSitemap(articles) {
     { loc: `${SITE}/en/work/` },
     { loc: `${SITE}/en/talks/` },
     { loc: `${SITE}/writing/`, lastmod: sortArticles(articles)[0]?.publishedAt },
+    { loc: `${SITE}/newsletter/`, lastmod: issues[0] },
+    ...issues.map((date) => ({ loc: `${SITE}/newsletter/trend/${date}/`, lastmod: date })),
     ...sortArticles(articles).map((article) => ({ loc: articleUrl(article.id), lastmod: article.publishedAt })),
   ];
   return `<?xml version="1.0" encoding="UTF-8"?>

@@ -55,7 +55,7 @@ for (const date of dates) {
     const html = await readFile(`${dir}/email.html`, "utf8");
     const subject = subjectOf(meta);
     const hash = contentHash(subject, html);
-    const reserveTime = reserveTimeOf(date);
+    const reserveTime = reserveTimeOf(date, meta.sendTime ?? TREND_NOTE.sendTime); // meta.json 의 sendTime(HHMMSS)으로 발송 시각을 바꿀 수 있다
     const plan = planReservation({ stibee: state, hash, reserveTime, now });
 
     if (plan === "skip") {

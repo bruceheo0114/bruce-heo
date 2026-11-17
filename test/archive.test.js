@@ -53,6 +53,12 @@ test("sitemap 에 백업한 글 주소를 모두 넣는다", () => {
   assert.match(sitemap, /<loc>https:\/\/bruceheo\.com\/<\/loc>/);
 });
 
+test("sitemap 에 트렌드 노트 각 호 주소를 넣는다", () => {
+  const sitemap = renderSitemap([], ["2026-11-04", "2026-11-18"]);
+  assert.match(sitemap, /<loc>https:\/\/bruceheo\.com\/newsletter\/<\/loc><lastmod>2026-11-18<\/lastmod>/);
+  assert.match(sitemap, /<loc>https:\/\/bruceheo\.com\/newsletter\/trend\/2026-11-04\/<\/loc><lastmod>2026-11-04<\/lastmod>/);
+});
+
 test("내려받은 이미지가 있으면 저장소 주소로 보여 준다", async () => {
   const { localImageName, imageSlots } = await import("../src/lib/archive.js");
   assert.equal(localImageName("https://img1.kakaocdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/2fCF/image/a.jpg"), "a.webp");

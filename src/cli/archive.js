@@ -160,7 +160,10 @@ async function render() {
   }
   await writeFileAtomic(path.join(PATHS.archivePages, "index.html"), renderArchiveIndex(articles, meta));
   await writeFileAtomic(path.join("context", "index.html"), renderContextPage(articles, meta));
-  await writeFileAtomic("sitemap.xml", renderSitemap(articles));
+  const newsletterDates = (await readdir("newsletter/trend", { withFileTypes: true }).catch(() => []))
+    .filter((entry) => entry.isDirectory() && /^\d{4}-\d{2}-\d{2}$/.test(entry.name))
+    .map((entry) => entry.name);
+  await writeFileAtomic("sitemap.xml", renderSitemap(articles, newsletterDates));
   // 홈페이지(한·영) Writing 목록의 글 링크를 브런치 대신 이 사이트의 백업 페이지로 연결한다.
   for (const homepage of [PATHS.homepage, "en/index.html"]) {
     const html = await readFile(homepage, "utf8");
