@@ -236,7 +236,8 @@
       "title": "우리도 요즘 애들이 좋아하는 거 해보면 어떨까요",
       "axis": "마케터의 판단",
       "insight": "밈은 브랜드를 번역하는 장치",
-      "status": "todo"
+      "status": "todo",
+      "exhausted": true
     },
     {
       "no": 195,
