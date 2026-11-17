@@ -1,18 +1,75 @@
 {
   "date": "2026-11-18",
-  "generated_at": "2026-11-17T07:01:27.623Z",
+  "generated_at": "2026-11-17T18:23:10.013Z",
   "window": {
-    "since": "2026-11-07",
-    "until": "2026-11-17"
+    "since": "2026-11-08",
+    "until": "2026-11-18"
   },
   "source": "네이버 검색 API(뉴스·블로그) + 데이터랩 검색어 트렌드 · API HUB",
   "note": "국내 사례 후보일 뿐이다. 채택 전에 원문을 열어 날짜·주체·숫자를 확인한다(content/routine_trend_newsletter_prompt.md).",
   "stats": {
-    "api_calls": 67,
-    "articles": 1536,
+    "api_calls": 66,
+    "articles": 1566,
     "candidates": 40
   },
   "candidates": [
+    {
+      "keyword": "2026 구글 애즈 임팩트 어워즈",
+      "title": "[특징주] 매드업, '2026 구글 애즈 임팩트 어워즈' 수상 소식에 장중 10%...",
+      "description": "매드업은 구글의 'AI Max 검색 캠페인'과 앱 캠페인 등을 소비자 구매 여정 전반에 촘촘히 연계하여 기존... 또한, 데이터 교차 검증을 통해 채널별 기여도를 분석하고 브랜드 검색광고의 입찰 전략을 전환가치 중심...",
+      "field": "AI 검색",
+      "published": "2026-11-17",
+      "within7": true,
+      "outlets": [
+        "widedaily.com",
+        "etoday.co.kr",
+        "economist.co.kr",
+        "ziksir.com",
+        "newsdream.kr",
+        "mk.co.kr",
+        "news.tf.co.kr",
+        "newsmap.co.kr",
+        "kpenews.com",
+        "ditoday.com",
+        "koreastocknews.com"
+      ],
+      "signals": [
+        "10%",
+        "2개",
+        "5개"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "widedaily.com",
+          "date": "2026-11-17",
+          "url": "https://www.widedaily.com/news/articleView.html?idxno=303879"
+        },
+        {
+          "outlet": "etoday.co.kr",
+          "date": "2026-11-16",
+          "url": "https://www.etoday.co.kr/news/view/2648689"
+        },
+        {
+          "outlet": "economist.co.kr",
+          "date": "2026-11-12",
+          "url": "https://economist.co.kr/article/view/ecn202611120072"
+        },
+        {
+          "outlet": "ziksir.com",
+          "date": "2026-11-12",
+          "url": "https://www.ziksir.com/news/articleView.html?idxno=153081"
+        },
+        {
+          "outlet": "newsdream.kr",
+          "date": "2026-11-12",
+          "url": "http://www.newsdream.kr/news/articleView.html?idxno=122055"
+        }
+      ],
+      "blog7": 63,
+      "searchRise": null,
+      "score": 23.5
+    },
     {
       "keyword": "한국타이어",
       "title": "한국타이어, 리드볼트 협업 제품 온라인 이틀 만에 완판…성수·백화점...",
@@ -70,121 +127,8 @@
         }
       ],
       "blog7": 100,
-      "searchRise": 0.81,
+      "searchRise": 0.76,
       "score": 22.5
-    },
-    {
-      "keyword": "챗GPT 월렛",
-      "title": "[AI 출근길] 오픈AI '챗GPT 월렛', 1회용 토큰에 지문 승인으로 AI가 대신...",
-      "description": "오픈AI가 비자(Visa)·마스터카드(Mastercard)·아메리칸익스프레스와 손잡고 AI 에이전트가 이용자 대신 온라인 쇼핑 결제를 끝내 주는 '챗GPT 월렛(ChatGPT Wallet)'을 내놓았다. 오픈AI 발표와 미국 경제방송 CNBC 보도에...",
-      "field": "AI 검색",
-      "published": "2026-11-17",
-      "within7": true,
-      "outlets": [
-        "coinreaders.com",
-        "zdnet.co.kr",
-        "cbci.co.kr",
-        "tfmedia.co.kr",
-        "hansbiz.co.kr",
-        "mbnmoney.mbn.co.kr",
-        "getnews.co.kr",
-        "biz.heraldcorp.com",
-        "ajunews.com",
-        "biz.sbs.co.kr",
-        "yna.co.kr"
-      ],
-      "signals": [
-        "1회",
-        "42.8%"
-      ],
-      "exclude": [],
-      "links": [
-        {
-          "outlet": "coinreaders.com",
-          "date": "2026-11-17",
-          "url": "http://coinreaders.com/270831"
-        },
-        {
-          "outlet": "coinreaders.com",
-          "date": "2026-11-15",
-          "url": "http://coinreaders.com/270387"
-        },
-        {
-          "outlet": "zdnet.co.kr",
-          "date": "2026-11-15",
-          "url": "https://zdnet.co.kr/view/?no=20261115102351"
-        },
-        {
-          "outlet": "cbci.co.kr",
-          "date": "2026-11-15",
-          "url": "https://www.cbci.co.kr/news/articleView.html?idxno=626950"
-        },
-        {
-          "outlet": "tfmedia.co.kr",
-          "date": "2026-11-15",
-          "url": "https://www.tfmedia.co.kr/news/article.html?no=208893"
-        }
-      ],
-      "blog7": 100,
-      "searchRise": null,
-      "score": 22
-    },
-    {
-      "keyword": "무신사 뷰티",
-      "title": "무신사 뷰티, 성수 매장 오픈 5일 만에 5억원…외국인 고객 65% 몰렸다",
-      "description": "무신사 뷰티는 지난 11일부터 15일까지 서울 성동구 연무장길에 문을 연 무신사 뷰티 성수의 누적 방문객이... 별도 팝업스토어를 방문하지 않아도 매장 안에서 신상품과 브랜드 체험 콘텐츠를 접할 수 있도록 구성했다....",
-      "field": "소비자",
-      "published": "2026-11-17",
-      "within7": true,
-      "outlets": [
-        "megaeconomy.co.kr",
-        "zdnet.co.kr",
-        "sedaily.com",
-        "dailian.co.kr",
-        "newsinside.kr",
-        "inews24.com",
-        "edaily.co.kr",
-        "sportschosun.com",
-        "etoday.co.kr",
-        "peoplewatch.co.kr"
-      ],
-      "signals": [
-        "5억원",
-        "65%",
-        "31%",
-        "3명"
-      ],
-      "exclude": [],
-      "links": [
-        {
-          "outlet": "megaeconomy.co.kr",
-          "date": "2026-11-17",
-          "url": "https://www.megaeconomy.co.kr/news/newsview.php?ncode=1065595646606596"
-        },
-        {
-          "outlet": "zdnet.co.kr",
-          "date": "2026-11-17",
-          "url": "https://zdnet.co.kr/view/?no=20261117151515"
-        },
-        {
-          "outlet": "sedaily.com",
-          "date": "2026-11-17",
-          "url": "https://www.sedaily.com/article/20115418?ref=naver"
-        },
-        {
-          "outlet": "dailian.co.kr",
-          "date": "2026-11-17",
-          "url": "https://www.dailian.co.kr/news/view/1715841/?sc=Naver"
-        },
-        {
-          "outlet": "newsinside.kr",
-          "date": "2026-11-17",
-          "url": "https://www.newsinside.kr/news/articleView.html?idxno=5050126"
-        }
-      ],
-      "blog7": 100,
-      "searchRise": 1.37,
-      "score": 21.5
     },
     {
       "keyword": "네이버",
@@ -240,122 +184,7 @@
         }
       ],
       "blog7": 100,
-      "searchRise": 0.87,
-      "score": 21.5
-    },
-    {
-      "keyword": "2026 구글 애즈 임팩트 어워즈",
-      "title": "[특징주] 매드업, '2026 구글 애즈 임팩트 어워즈' 수상 소식에 장중 10%...",
-      "description": "매드업은 구글의 'AI Max 검색 캠페인'과 앱 캠페인 등을 소비자 구매 여정 전반에 촘촘히 연계하여 기존... 또한, 데이터 교차 검증을 통해 채널별 기여도를 분석하고 브랜드 검색광고의 입찰 전략을 전환가치 중심...",
-      "field": "AI 검색",
-      "published": "2026-11-17",
-      "within7": true,
-      "outlets": [
-        "widedaily.com",
-        "etoday.co.kr",
-        "economist.co.kr",
-        "ziksir.com",
-        "newsdream.kr",
-        "mk.co.kr",
-        "news.tf.co.kr",
-        "newsmap.co.kr",
-        "kpenews.com",
-        "ditoday.com",
-        "datanet.co.kr",
-        "koreastocknews.com"
-      ],
-      "signals": [
-        "10%",
-        "2개",
-        "5개"
-      ],
-      "exclude": [],
-      "links": [
-        {
-          "outlet": "widedaily.com",
-          "date": "2026-11-17",
-          "url": "https://www.widedaily.com/news/articleView.html?idxno=303879"
-        },
-        {
-          "outlet": "etoday.co.kr",
-          "date": "2026-11-16",
-          "url": "https://www.etoday.co.kr/news/view/2648689"
-        },
-        {
-          "outlet": "economist.co.kr",
-          "date": "2026-11-12",
-          "url": "https://economist.co.kr/article/view/ecn202611120072"
-        },
-        {
-          "outlet": "ziksir.com",
-          "date": "2026-11-12",
-          "url": "https://www.ziksir.com/news/articleView.html?idxno=153081"
-        },
-        {
-          "outlet": "newsdream.kr",
-          "date": "2026-11-12",
-          "url": "http://www.newsdream.kr/news/articleView.html?idxno=122055"
-        }
-      ],
-      "blog7": 19,
-      "searchRise": null,
-      "score": 21.5
-    },
-    {
-      "keyword": "KT알파",
-      "title": "KT알파, 3분기 영업이익 115억원…전년比 1.5% 증가",
-      "description": "매출은 위수탁 중심으로 상품 운영을 전환한 영향으로 2.6% 줄어든 938억원을 기록했다. 사업별로는 T커머스... 구체적으로 KT알파 쇼핑은 AI 공지·답변 기능을 갖춘 ‘라이브톡’을 고도화해 데이터 방송에서 실시간...",
-      "field": "커머스",
-      "published": "2026-11-12",
-      "within7": true,
-      "outlets": [
-        "biz.heraldcorp.com",
-        "mdtoday.co.kr",
-        "sedaily.com",
-        "econovill.com",
-        "ebn.co.kr",
-        "hansbiz.co.kr",
-        "joongangenews.com",
-        "yna.co.kr",
-        "newsway.co.kr",
-        "asiatime.co.kr"
-      ],
-      "signals": [
-        "115억원",
-        "1.5%",
-        "2.6%",
-        "938억원"
-      ],
-      "exclude": [],
-      "links": [
-        {
-          "outlet": "biz.heraldcorp.com",
-          "date": "2026-11-12",
-          "url": "https://biz.heraldcorp.com/article/10934435?ref=naver"
-        },
-        {
-          "outlet": "mdtoday.co.kr",
-          "date": "2026-11-11",
-          "url": "https://www.mdtoday.co.kr/news/articleView.html?idxno=624562"
-        },
-        {
-          "outlet": "sedaily.com",
-          "date": "2026-11-11",
-          "url": "https://www.sedaily.com/article/20113204?ref=naver"
-        },
-        {
-          "outlet": "econovill.com",
-          "date": "2026-11-11",
-          "url": "https://www.econovill.com/news/articleView.html?idxno=756901"
-        },
-        {
-          "outlet": "ebn.co.kr",
-          "date": "2026-11-11",
-          "url": "https://www.ebn.co.kr/news/articleView.html?idxno=1731313"
-        }
-      ],
-      "blog7": 100,
-      "searchRise": 0.99,
+      "searchRise": 0.82,
       "score": 21.5
     },
     {
@@ -412,17 +241,19 @@
         }
       ],
       "blog7": 100,
-      "searchRise": 0.87,
+      "searchRise": 0.84,
       "score": 21.1
     },
     {
       "keyword": "한양증권",
-      "title": "한양증권, 한국PR대상 IR 부문 우수상 수상",
-      "description": "창립 70주년을 맞아 주요 경영성과와 사업 경쟁력, 주주가치 제고, 미래 비전 등을 담은 브랜드 필름 '비HY인드'를 공식 유튜브 채널에 공개하는 등 디지털 커뮤니케이션도 확대했습니다. 한양증권은 2022년 사내...",
+      "title": "한양증권, 한국PR대상 투자자관계(IR) 부문 우수상",
+      "description": "담은 브랜드 필름 ‘비HY인드’를 공식 유튜브 채널에 공개했다. 한양증권은 2022년 사내커뮤니케이션 부문 최우수상에 이어 4년 만에 다시 한국PR대상을 수상했으며 새로운 경영체제 출범 이후 회사의 변화와 성장...",
       "field": "브랜드 캠페인",
       "published": "2026-11-17",
       "within7": true,
       "outlets": [
+        "joongang.co.kr",
+        "fnnews.com",
         "news.bbsi.co.kr",
         "etoday.co.kr",
         "newspost.kr",
@@ -436,8 +267,8 @@
         "cstimes.com",
         "m-i.kr",
         "munhwa.com",
-        "sentv.co.kr",
         "edaily.co.kr",
+        "sentv.co.kr",
         "newsmap.co.kr",
         "biz.heraldcorp.com"
       ],
@@ -448,6 +279,16 @@
       ],
       "exclude": [],
       "links": [
+        {
+          "outlet": "joongang.co.kr",
+          "date": "2026-11-17",
+          "url": "https://www.joongang.co.kr/article/25479486"
+        },
+        {
+          "outlet": "fnnews.com",
+          "date": "2026-11-17",
+          "url": "https://www.fnnews.com/news/202611171605045438"
+        },
         {
           "outlet": "news.bbsi.co.kr",
           "date": "2026-11-17",
@@ -462,20 +303,10 @@
           "outlet": "newspost.kr",
           "date": "2026-11-17",
           "url": "https://www.newspost.kr/news/articleView.html?idxno=227488"
-        },
-        {
-          "outlet": "industrynews.co.kr",
-          "date": "2026-11-17",
-          "url": "https://www.industrynews.co.kr/news/articleView.html?idxno=89655"
-        },
-        {
-          "outlet": "pinpointnews.co.kr",
-          "date": "2026-11-17",
-          "url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=504819"
         }
       ],
       "blog7": 100,
-      "searchRise": 0.78,
+      "searchRise": 0.84,
       "score": 21
     },
     {
@@ -640,9 +471,62 @@
           "url": "https://www.newspim.com/news/view/20261117000185"
         }
       ],
-      "blog7": 19,
-      "searchRise": 1.18,
-      "score": 19.5
+      "blog7": 18,
+      "searchRise": 1.07,
+      "score": 19.4
+    },
+    {
+      "keyword": "챗GPT 월렛",
+      "title": "AI가 대신 쇼핑하고 결제한다…오픈AI ‘챗GPT 월렛’ 공개",
+      "description": "오픈AI가 챗GPT의 AI 에이전트를 통해 상품 구매와 결제까지 처리할 수 있는 새로운 서비스를 선보였다.... 이후 지난 3월 상품 검색과 비교 기능을 강화한 쇼핑 서비스를 출시했으며, 이번에는 실제 구매와 결제까지...",
+      "field": "AI 검색",
+      "published": "2026-11-17",
+      "within7": true,
+      "outlets": [
+        "koreadaily.com",
+        "coinreaders.com",
+        "zdnet.co.kr",
+        "mbnmoney.mbn.co.kr",
+        "getnews.co.kr",
+        "biz.heraldcorp.com",
+        "ajunews.com",
+        "biz.sbs.co.kr",
+        "yna.co.kr"
+      ],
+      "signals": [
+        "1회"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "koreadaily.com",
+          "date": "2026-11-17",
+          "url": "https://www.koreadaily.com/article/20261116185016237"
+        },
+        {
+          "outlet": "coinreaders.com",
+          "date": "2026-11-17",
+          "url": "http://coinreaders.com/270831"
+        },
+        {
+          "outlet": "zdnet.co.kr",
+          "date": "2026-11-15",
+          "url": "https://zdnet.co.kr/view/?no=20261115102351"
+        },
+        {
+          "outlet": "mbnmoney.mbn.co.kr",
+          "date": "2026-11-14",
+          "url": "http://mbnmoney.mbn.co.kr/news/view?news_no=MM1005962223"
+        },
+        {
+          "outlet": "getnews.co.kr",
+          "date": "2026-11-14",
+          "url": "https://www.getnews.co.kr/news/articleView.html?idxno=887192"
+        }
+      ],
+      "blog7": 100,
+      "searchRise": null,
+      "score": 19.3
     },
     {
       "keyword": "아임웹",
@@ -695,7 +579,7 @@
         }
       ],
       "blog7": 100,
-      "searchRise": 0.95,
+      "searchRise": 0.92,
       "score": 18.9
     },
     {
@@ -748,8 +632,169 @@
         }
       ],
       "blog7": 100,
-      "searchRise": 0.94,
+      "searchRise": 0.96,
       "score": 17.9
+    },
+    {
+      "keyword": "무신사 뷰티",
+      "title": "무신사 뷰티, 성수점 개점 닷새 거래액 5억원…구매자 65%가 외국인",
+      "description": "찾아…첫 팝업 ‘투에이엔’ 거래액 1위 개점 첫 5일간 무신사 뷰티 성수 방문객 가운데 31%는 성수 일대의 다른 무신사 오프라인 매장도 방문했다. 특히 무신사 스탠다드와 무신사 스토어 성수를 이용한 고객의 방문이...",
+      "field": "소비자",
+      "published": "2026-11-17",
+      "within7": true,
+      "outlets": [
+        "socialvalue.kr",
+        "ajunews.com",
+        "news.ifm.kr",
+        "megaeconomy.co.kr",
+        "zdnet.co.kr",
+        "dailian.co.kr",
+        "edaily.co.kr"
+      ],
+      "signals": [
+        "5억원",
+        "65%",
+        "31%"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "socialvalue.kr",
+          "date": "2026-11-17",
+          "url": "https://www.socialvalue.kr/news/view/1065601312415774"
+        },
+        {
+          "outlet": "ajunews.com",
+          "date": "2026-11-17",
+          "url": "https://www.ajunews.com/view/20261117141942176"
+        },
+        {
+          "outlet": "news.ifm.kr",
+          "date": "2026-11-17",
+          "url": "https://news.ifm.kr/news/articleView.html?idxno=484680"
+        },
+        {
+          "outlet": "megaeconomy.co.kr",
+          "date": "2026-11-17",
+          "url": "https://www.megaeconomy.co.kr/news/newsview.php?ncode=1065595646606596"
+        },
+        {
+          "outlet": "zdnet.co.kr",
+          "date": "2026-11-17",
+          "url": "https://zdnet.co.kr/view/?no=20261117151515"
+        }
+      ],
+      "blog7": 100,
+      "searchRise": 1.11,
+      "score": 17.9
+    },
+    {
+      "keyword": "KT알파",
+      "title": "KT알파, 3분기 영업이익 115억원…전년比 1.5% 증가",
+      "description": "매출은 위수탁 중심으로 상품 운영을 전환한 영향으로 2.6% 줄어든 938억원을 기록했다. 사업별로는 T커머스... 구체적으로 KT알파 쇼핑은 AI 공지·답변 기능을 갖춘 ‘라이브톡’을 고도화해 데이터 방송에서 실시간...",
+      "field": "커머스",
+      "published": "2026-11-12",
+      "within7": true,
+      "outlets": [
+        "biz.heraldcorp.com",
+        "mdtoday.co.kr",
+        "sedaily.com",
+        "econovill.com",
+        "ebn.co.kr",
+        "hansbiz.co.kr",
+        "asiatime.co.kr"
+      ],
+      "signals": [
+        "115억원",
+        "1.5%",
+        "2.6%",
+        "938억원"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "biz.heraldcorp.com",
+          "date": "2026-11-12",
+          "url": "https://biz.heraldcorp.com/article/10934435?ref=naver"
+        },
+        {
+          "outlet": "mdtoday.co.kr",
+          "date": "2026-11-11",
+          "url": "https://www.mdtoday.co.kr/news/articleView.html?idxno=624562"
+        },
+        {
+          "outlet": "sedaily.com",
+          "date": "2026-11-11",
+          "url": "https://www.sedaily.com/article/20113204?ref=naver"
+        },
+        {
+          "outlet": "econovill.com",
+          "date": "2026-11-11",
+          "url": "https://www.econovill.com/news/articleView.html?idxno=756901"
+        },
+        {
+          "outlet": "ebn.co.kr",
+          "date": "2026-11-11",
+          "url": "https://www.ebn.co.kr/news/articleView.html?idxno=1731313"
+        }
+      ],
+      "blog7": 100,
+      "searchRise": 0.92,
+      "score": 17.9
+    },
+    {
+      "keyword": "강남언니",
+      "title": "강남언니, 글로벌 이용자 1040만 명 돌파…한국 미용의료 예약 1300만 건...",
+      "description": "글로벌 브랜드 ‘언니(Unni)’를 통해 한국 미용의료 시술의 가격과 후기, 병원 정보를 제공하고 있다. 특히... 대화형 검색 서비스 ‘언니 AI(Unni AI)’는 이용자가 미용의료와 관련한 고민이나 관심사를 대화 형태로...",
+      "field": "AI 검색",
+      "published": "2026-11-17",
+      "within7": true,
+      "outlets": [
+        "venturesquare.net",
+        "datanet.co.kr",
+        "whosaeng.com",
+        "econovill.com",
+        "medicaltimes.com",
+        "fashionbiz.co.kr"
+      ],
+      "signals": [
+        "돌파",
+        "1040만 명",
+        "1300만 건",
+        "1300만건",
+        "1,000만명"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "venturesquare.net",
+          "date": "2026-11-17",
+          "url": "https://www.venturesquare.net/1129464/"
+        },
+        {
+          "outlet": "datanet.co.kr",
+          "date": "2026-11-17",
+          "url": "https://www.datanet.co.kr/news/articleView.html?idxno=300255"
+        },
+        {
+          "outlet": "whosaeng.com",
+          "date": "2026-11-17",
+          "url": "http://www.whosaeng.com/175390"
+        },
+        {
+          "outlet": "econovill.com",
+          "date": "2026-11-17",
+          "url": "https://www.econovill.com/news/articleView.html?idxno=757521"
+        },
+        {
+          "outlet": "medicaltimes.com",
+          "date": "2026-11-17",
+          "url": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171894&ref=naverpc"
+        }
+      ],
+      "blog7": 100,
+      "searchRise": 0.96,
+      "score": 17.7
     },
     {
       "keyword": "11번가",
@@ -801,7 +846,7 @@
         }
       ],
       "blog7": 100,
-      "searchRise": 0.89,
+      "searchRise": 0.74,
       "score": 17.7
     },
     {
@@ -920,7 +965,7 @@
         }
       ],
       "blog7": 100,
-      "searchRise": 1.01,
+      "searchRise": 1.03,
       "score": 16.5
     },
     {
@@ -983,106 +1028,6 @@
       "score": 16.5
     },
     {
-      "keyword": "AI가 읽기 좋은 웹사이트",
-      "title": "현대차그룹 공식 웹사이트, 국내외 어워드 13개 수상…GEO 강화 성과",
-      "description": "5개 생성형 AI 엔진 평가를 토대로 브랜드 인지도와 신뢰도, 추천 경쟁력을 평가했다. 다양한 수상은 현대차그룹이 GEO(Generative Engine Optimization) 전략을 강화해온 결과다. 현대차그룹은 생성형 AI가 공식 정보를...",
-      "field": "AI 검색",
-      "published": "2026-11-15",
-      "within7": true,
-      "outlets": [
-        "cbci.co.kr",
-        "sports.donga.com",
-        "nextdaily.co.kr",
-        "m.skyedaily.com",
-        "socialvalue.kr",
-        "g-enews.com",
-        "businessplus.kr"
-      ],
-      "signals": [
-        "13개",
-        "5개"
-      ],
-      "exclude": [],
-      "links": [
-        {
-          "outlet": "cbci.co.kr",
-          "date": "2026-11-15",
-          "url": "https://www.cbci.co.kr/news/articleView.html?idxno=627041"
-        },
-        {
-          "outlet": "sports.donga.com",
-          "date": "2026-11-15",
-          "url": "https://sports.donga.com/economy/article/all/20261115/135025817/1"
-        },
-        {
-          "outlet": "nextdaily.co.kr",
-          "date": "2026-11-15",
-          "url": "https://www.nextdaily.co.kr/news/articleView.html?idxno=254912"
-        },
-        {
-          "outlet": "m.skyedaily.com",
-          "date": "2026-11-15",
-          "url": "https://m.skyedaily.com/news_view.html?ID=314610"
-        },
-        {
-          "outlet": "socialvalue.kr",
-          "date": "2026-11-15",
-          "url": "https://www.socialvalue.kr/news/view/1065574727423095"
-        }
-      ],
-      "blog7": 100,
-      "searchRise": 0,
-      "score": 16.4
-    },
-    {
-      "keyword": "피알원",
-      "title": "피알원, 제34회 한국PR대상 4개 부문 수상",
-      "description": "위한 캠페인으로, 영상 공개 약 60일 만에 온라인 누적 조회수 약 5000만회를 기록했다. 브랜드 검색량은 106.5% 증가했으며 제품 출시 100일 만에 누적 판매량 400만캔을 돌파했다. 이벤트·스폰서십 부문에서는...",
-      "field": "브랜드 캠페인",
-      "published": "2026-11-17",
-      "within7": true,
-      "outlets": [
-        "naeil.com",
-        "hansbiz.co.kr",
-        "venturesquare.net",
-        "joongangenews.com"
-      ],
-      "signals": [
-        "조회수",
-        "돌파",
-        "34회",
-        "4개",
-        "5000만회",
-        "106.5%"
-      ],
-      "exclude": [],
-      "links": [
-        {
-          "outlet": "naeil.com",
-          "date": "2026-11-17",
-          "url": "https://www.naeil.com/news/read/608984?ref=naver"
-        },
-        {
-          "outlet": "hansbiz.co.kr",
-          "date": "2026-11-16",
-          "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=883584"
-        },
-        {
-          "outlet": "venturesquare.net",
-          "date": "2026-11-16",
-          "url": "https://www.venturesquare.net/1128965/"
-        },
-        {
-          "outlet": "joongangenews.com",
-          "date": "2026-11-16",
-          "url": "https://www.joongangenews.com/news/articleView.html?idxno=564058"
-        }
-      ],
-      "blog7": 50,
-      "searchRise": 1.12,
-      "score": 15.8
-    },
-    {
       "keyword": "",
       "title": "무신사 뷰티 성수 \"오픈 5일 만에 누적 거래액 5억원 달성\"",
       "description": "매장 방문객의 31%가 무신사 스탠다드, 무신사 스토어 성수, 무신사 엠프티 성수, 무신사 킥스, 이구홈 등 인근 패션·라이프스타일 매장을 함께 방문한 것으로 집계됐다. 브랜드별로는 15평 규모의 전용 팝업 공간에 첫...",
@@ -1132,6 +1077,194 @@
         }
       ],
       "score": 14.7
+    },
+    {
+      "keyword": "",
+      "title": "무신사 뷰티 성수, 5일만에 누적거래액 5억… \"외국인 고객 비중 65% 이상...",
+      "description": "무신사 뷰티 성수는 지난 11일부터 15일까지 오픈 첫 5일간 누적 방문객 3만3000명, 거래액 5억원을 기록했다.... 무신사 스토어 성수 이용 고객이 많았다. 패션 매장을 찾은 고객이 자연스럽게 뷰티 매장으로 이동하는...",
+      "field": "소비자",
+      "published": "2026-11-17",
+      "within7": true,
+      "outlets": [
+        "biztribune.co.kr",
+        "sedaily.com",
+        "inews24.com",
+        "sportschosun.com",
+        "etoday.co.kr",
+        "peoplewatch.co.kr"
+      ],
+      "signals": [
+        "65%",
+        "3000명",
+        "5억원",
+        "31%"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "biztribune.co.kr",
+          "date": "2026-11-17",
+          "url": "http://www.biztribune.co.kr/news/articleView.html?idxno=362632"
+        },
+        {
+          "outlet": "sedaily.com",
+          "date": "2026-11-17",
+          "url": "https://www.sedaily.com/article/20115418?ref=naver"
+        },
+        {
+          "outlet": "inews24.com",
+          "date": "2026-11-17",
+          "url": "http://www.inews24.com/view/2026995"
+        },
+        {
+          "outlet": "sportschosun.com",
+          "date": "2026-11-17",
+          "url": "https://www.sportschosun.com/life/2026-11-17/202611170100108820010041"
+        },
+        {
+          "outlet": "etoday.co.kr",
+          "date": "2026-11-17",
+          "url": "https://www.etoday.co.kr/news/view/2649024"
+        }
+      ],
+      "score": 13.7
+    },
+    {
+      "keyword": "AI가 읽기 좋은 웹사이트",
+      "title": "현대차그룹 공식 웹사이트, 국내외 어워드 13개 수상…GEO 강화 성과",
+      "description": "5개 생성형 AI 엔진 평가를 토대로 브랜드 인지도와 신뢰도, 추천 경쟁력을 평가했다. 다양한 수상은 현대차그룹이 GEO(Generative Engine Optimization) 전략을 강화해온 결과다. 현대차그룹은 생성형 AI가 공식 정보를...",
+      "field": "AI 검색",
+      "published": "2026-11-15",
+      "within7": true,
+      "outlets": [
+        "cbci.co.kr",
+        "sports.donga.com",
+        "nextdaily.co.kr",
+        "m.skyedaily.com",
+        "socialvalue.kr",
+        "g-enews.com",
+        "businessplus.kr"
+      ],
+      "signals": [
+        "13개",
+        "5개"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "cbci.co.kr",
+          "date": "2026-11-15",
+          "url": "https://www.cbci.co.kr/news/articleView.html?idxno=627041"
+        },
+        {
+          "outlet": "sports.donga.com",
+          "date": "2026-11-15",
+          "url": "https://sports.donga.com/economy/article/all/20261115/135025817/1"
+        },
+        {
+          "outlet": "nextdaily.co.kr",
+          "date": "2026-11-15",
+          "url": "https://www.nextdaily.co.kr/news/articleView.html?idxno=254912"
+        },
+        {
+          "outlet": "m.skyedaily.com",
+          "date": "2026-11-15",
+          "url": "https://m.skyedaily.com/news_view.html?ID=314610"
+        },
+        {
+          "outlet": "socialvalue.kr",
+          "date": "2026-11-15",
+          "url": "https://www.socialvalue.kr/news/view/1065574727423095"
+        }
+      ],
+      "score": 13.4
+    },
+    {
+      "keyword": "피알원",
+      "title": "피알원, 제34회 한국PR대상 4개 부문 수상",
+      "description": "위한 캠페인으로, 영상 공개 약 60일 만에 온라인 누적 조회수 약 5000만회를 기록했다. 브랜드 검색량은 106.5% 증가했으며 제품 출시 100일 만에 누적 판매량 400만캔을 돌파했다. 이벤트·스폰서십 부문에서는...",
+      "field": "브랜드 캠페인",
+      "published": "2026-11-17",
+      "within7": true,
+      "outlets": [
+        "naeil.com",
+        "hansbiz.co.kr",
+        "venturesquare.net",
+        "joongangenews.com"
+      ],
+      "signals": [
+        "조회수",
+        "돌파",
+        "34회",
+        "4개",
+        "5000만회",
+        "106.5%"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "naeil.com",
+          "date": "2026-11-17",
+          "url": "https://www.naeil.com/news/read/608984?ref=naver"
+        },
+        {
+          "outlet": "hansbiz.co.kr",
+          "date": "2026-11-16",
+          "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=883584"
+        },
+        {
+          "outlet": "venturesquare.net",
+          "date": "2026-11-16",
+          "url": "https://www.venturesquare.net/1128965/"
+        },
+        {
+          "outlet": "joongangenews.com",
+          "date": "2026-11-16",
+          "url": "https://www.joongangenews.com/news/articleView.html?idxno=564058"
+        }
+      ],
+      "score": 13.3
+    },
+    {
+      "keyword": "코스토니",
+      "title": "더네이쳐홀딩스, 26FW 주력 '코스토니' 1차 물량 판매율 70% 돌파",
+      "description": "캠페인 화제성에 힘입어 1차 물량 판매율 70%를 기록했다. 17일 내셔널지오그래픽 어패럴에 따르면 코스토니는 지난 9월 캠페인 공개 이후 1주 만에 일부 제품 판매율이 50%를 넘어서며 출시 초반부터 빠른 판매 속도를...",
+      "field": "브랜드 캠페인",
+      "published": "2026-11-17",
+      "within7": true,
+      "outlets": [
+        "globale.co.kr",
+        "fashionn.com",
+        "etoday.co.kr"
+      ],
+      "signals": [
+        "완판",
+        "조회수",
+        "돌파",
+        "화제",
+        "70%",
+        "50%",
+        "3600만 회"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "globale.co.kr",
+          "date": "2026-11-17",
+          "url": "https://www.globale.co.kr/news/articleView.html?idxno=41701"
+        },
+        {
+          "outlet": "fashionn.com",
+          "date": "2026-11-17",
+          "url": "http://www.fashionn.com/board/read_new.php?table=1006&number=63181"
+        },
+        {
+          "outlet": "etoday.co.kr",
+          "date": "2026-11-17",
+          "url": "https://www.etoday.co.kr/news/view/2648993"
+        }
+      ],
+      "score": 13.1
     },
     {
       "keyword": "G마켓",
@@ -1284,51 +1417,6 @@
       "score": 12.5
     },
     {
-      "keyword": "강남언니",
-      "title": "강남언니, 해외서 키운 K-미용의료 예약 1300만건 돌파",
-      "description": "(글로벌 브랜드명 Unni)의 국내 및 글로벌 유저가 1000만명을 돌파했고 한국 미용의료 병원 예약 건수도... 대화형 검색 서비스 '언니 AI(Unni AI)'와 AI 이미지 기반 후기 검색으로 유저가 자신의 고민에 가장 적합한 병원과...",
-      "field": "AI 검색",
-      "published": "2026-11-17",
-      "within7": true,
-      "outlets": [
-        "econovill.com",
-        "medicaltimes.com",
-        "fashionbiz.co.kr",
-        "medigatenews.com"
-      ],
-      "signals": [
-        "돌파",
-        "1300만건",
-        "1000만명",
-        "1000만 명",
-        "1300만 건"
-      ],
-      "exclude": [],
-      "links": [
-        {
-          "outlet": "econovill.com",
-          "date": "2026-11-17",
-          "url": "https://www.econovill.com/news/articleView.html?idxno=757521"
-        },
-        {
-          "outlet": "medicaltimes.com",
-          "date": "2026-11-17",
-          "url": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171894&ref=naverpc"
-        },
-        {
-          "outlet": "fashionbiz.co.kr",
-          "date": "2026-11-17",
-          "url": "https://www.fashionbiz.co.kr/article/231134"
-        },
-        {
-          "outlet": "medigatenews.com",
-          "date": "2026-11-17",
-          "url": "https://www.medigatenews.com/news/878224864"
-        }
-      ],
-      "score": 12.3
-    },
-    {
       "keyword": "더현대 하이",
       "title": "현대백화점, 챗GPT에 '더현대하이' 연동... AI 맞춤 쇼핑 확대",
       "description": "팝업스토어나 브랜드 정보를 미리 검색하고, 실제 매장 방문으로 이어지는 선순환 구조를 만든다는 구상이다. 이기호 현대백화점 디지털전략담당(상무)은 “글로벌 대표 AI 플랫폼과의 협업을 확대하는 한편, 생성형...",
@@ -1376,46 +1464,6 @@
         }
       ],
       "score": 11.9
-    },
-    {
-      "keyword": "코스토니",
-      "title": "내셔널지오그래픽, 고윤정•허남준 착용 플리스 ‘코스토니’ 인기만점...",
-      "description": "캠페인 화제에 힘입어 1차 물량의 판매율이 70%를 기록했다. 코스토니는 지난 9월 캠페인 공개 이후 1주 만에... 이번 시즌에는 브랜드 모델 고윤정과 2026년 F/W 시즌 모델 허남준이 함께한 캠페인으로 출시 초반부터 화제를...",
-      "field": "브랜드 캠페인",
-      "published": "2026-11-17",
-      "within7": true,
-      "outlets": [
-        "fashionn.com",
-        "hansbiz.co.kr",
-        "etoday.co.kr"
-      ],
-      "signals": [
-        "완판",
-        "조회수",
-        "돌파",
-        "화제",
-        "70%",
-        "3600만 회"
-      ],
-      "exclude": [],
-      "links": [
-        {
-          "outlet": "fashionn.com",
-          "date": "2026-11-17",
-          "url": "http://www.fashionn.com/board/read_new.php?table=1006&number=63181"
-        },
-        {
-          "outlet": "hansbiz.co.kr",
-          "date": "2026-11-17",
-          "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=883986"
-        },
-        {
-          "outlet": "etoday.co.kr",
-          "date": "2026-11-17",
-          "url": "https://www.etoday.co.kr/news/view/2648993"
-        }
-      ],
-      "score": 11.6
     },
     {
       "keyword": "와이즈넛",
@@ -1501,12 +1549,18 @@
     },
     {
       "keyword": "아이온",
-      "title": "한국타이어, '아이온' 신규 브랜드 필름 공개…EV 전용 타이어 기술력 ...",
-      "description": "한국타이어는 이번 브랜드 필름 공개를 계기로 글로벌 소비자와의 접점을 넓히고, 전기차 특화 기술 고도화를 지속해 미래 모빌리티 시장을 선도하는 톱티어(Top-tier) 기업으로서의 지위를 굳힌다는 방침이다. [팝콘뉴스]",
+      "title": "한국타이어, 전기차 전용 '아이온' 정숙성·그립력 부각⋯브랜드 필름 ...",
+      "description": "타이어 브랜드 '아이온(iON)'의 정숙성과 접지 성능을 강조한 브랜드 영상 2편을 공개했다. 엔진 소음이 없는... 신규 브랜드 필름을 선보였다고 17일 밝혔다. 영상은 '정숙성'과 '그립력'을 각각 주제로 제작됐으며, 전기차...",
       "field": "브랜드 캠페인",
       "published": "2026-11-17",
       "within7": true,
       "outlets": [
+        "autodaily.co.kr",
+        "ccdn.co.kr",
+        "news2day.co.kr",
+        "thebigdata.co.kr",
+        "m-i.kr",
+        "seoultimes.news",
         "popcornnews.net",
         "megaeconomy.co.kr",
         "metroseoul.co.kr",
@@ -1531,29 +1585,29 @@
       "exclude": [],
       "links": [
         {
-          "outlet": "popcornnews.net",
+          "outlet": "autodaily.co.kr",
           "date": "2026-11-17",
-          "url": "http://www.popcornnews.net/news/articleView.html?idxno=140410"
+          "url": "https://www.autodaily.co.kr/news/articleView.html?idxno=602174"
         },
         {
-          "outlet": "megaeconomy.co.kr",
+          "outlet": "ccdn.co.kr",
           "date": "2026-11-17",
-          "url": "https://www.megaeconomy.co.kr/news/newsview.php?ncode=1065589674680897"
+          "url": "https://www.ccdn.co.kr/news/articleView.html?idxno=1111780"
         },
         {
-          "outlet": "metroseoul.co.kr",
+          "outlet": "news2day.co.kr",
           "date": "2026-11-17",
-          "url": "http://www.metroseoul.co.kr/article/20261117500288"
+          "url": "https://www.news2day.co.kr/article/20261117500311"
         },
         {
-          "outlet": "asiatime.co.kr",
+          "outlet": "thebigdata.co.kr",
           "date": "2026-11-17",
-          "url": "https://www.asiatime.co.kr/article/20261117500264"
+          "url": "https://www.thebigdata.co.kr/view.php?ud=2026111717220728520ecbf9426b_23"
         },
         {
-          "outlet": "newsmap.co.kr",
+          "outlet": "m-i.kr",
           "date": "2026-11-17",
-          "url": "https://www.newsmap.co.kr/news/articleView.html?idxno=5339"
+          "url": "https://www.m-i.kr/news/articleView.html?idxno=2019771"
         }
       ],
       "score": 11
@@ -1822,46 +1876,42 @@
       "score": 10.1
     },
     {
-      "keyword": "익스팬드 2027",
-      "title": "카페24, 이커머스 컨퍼런스 '익스팬드 2027' 개최…AI 커머스 전략 제시",
-      "description": "쇼핑몰 운영과 마케팅, 크리에이터 커머스, 글로벌 판매 등 사업 운영 전반을 다루는 세션도 마련된다. 임마누엘 지능형경험설계팀 팀장은 ‘선택받는 브랜드는 무엇이 다른가’를 주제로 고객의 선택을 이끄는...",
-      "field": "커머스",
-      "published": "2026-11-13",
+      "keyword": "5일 만에 5억 팔렸다",
+      "title": "무신사 뷰티 성수, 5일 만에 5억원…구매객 3명 중 2명 외국인",
+      "description": "매장에는 브랜드 단독 팝업존과 520여개 향수를 모은 프래그런스존, 여러 향을 조합해보는 향수 레이어링존... 무신사 뷰티 성수 방문객 가운데 31%는 무신사 스탠다드와 무신사 스토어 성수 등 인근의 다른 무신사 매장을...",
+      "field": "소비자",
+      "published": "2026-11-17",
       "within7": true,
       "outlets": [
-        "news.mtn.co.kr",
-        "klnews.co.kr",
-        "news2day.co.kr",
-        "daily.hankooki.com"
+        "newsinside.kr",
+        "newsis.com",
+        "fashionbiz.co.kr"
       ],
       "signals": [
-        "9개",
-        "6개"
+        "5억원",
+        "3명",
+        "2명",
+        "31%"
       ],
       "exclude": [],
       "links": [
         {
-          "outlet": "news.mtn.co.kr",
-          "date": "2026-11-13",
-          "url": "https://news.mtn.co.kr/article/2026111315075710908"
+          "outlet": "newsinside.kr",
+          "date": "2026-11-17",
+          "url": "https://www.newsinside.kr/news/articleView.html?idxno=5050126"
         },
         {
-          "outlet": "klnews.co.kr",
-          "date": "2026-11-13",
-          "url": "https://www.klnews.co.kr/news/articleView.html?idxno=323516"
+          "outlet": "newsis.com",
+          "date": "2026-11-17",
+          "url": "https://www.newsis.com/view/NISX20261117_0003870749"
         },
         {
-          "outlet": "news2day.co.kr",
-          "date": "2026-11-13",
-          "url": "https://www.news2day.co.kr/article/20261113500139"
-        },
-        {
-          "outlet": "daily.hankooki.com",
-          "date": "2026-11-13",
-          "url": "https://daily.hankooki.com/news/articleView.html?idxno=1424787"
+          "outlet": "fashionbiz.co.kr",
+          "date": "2026-11-17",
+          "url": "https://www.fashionbiz.co.kr/article/231133"
         }
       ],
-      "score": 9.8
+      "score": 10.1
     },
     {
       "keyword": "직장인들 주목",
@@ -1886,39 +1936,6 @@
           "outlet": "enewstoday.co.kr",
           "date": "2026-11-11",
           "url": "http://www.enewstoday.co.kr/news/articleView.html?idxno=2490945"
-        }
-      ],
-      "score": 9.7
-    },
-    {
-      "keyword": "해리포터",
-      "title": "올리브영, IP 협업 더 힘준다…‘해리포터’와 대형 캠페인",
-      "description": "성수와 홍대에 마련한 팝업스토어 방문객 가운데 남성 비중은 35%로 앞서 진행한 망그러진 곰 협업 때보다 두 배 높았다. 외국인 방문객 비중도 60%에 달했다. 캐릭터 IP를 매개로 기존 여성 중심의 고객층을 남성과...",
-      "field": "소비자",
-      "published": "2026-11-17",
-      "within7": true,
-      "outlets": [
-        "sedaily.com"
-      ],
-      "signals": [
-        "역대",
-        "최다",
-        "35%",
-        "60%",
-        "3000명",
-        "33%"
-      ],
-      "exclude": [],
-      "links": [
-        {
-          "outlet": "sedaily.com",
-          "date": "2026-11-17",
-          "url": "https://www.sedaily.com/article/20115121?ref=naver"
-        },
-        {
-          "outlet": "sedaily.com",
-          "date": "2026-11-16",
-          "url": "https://www.sedaily.com/article/20114967?ref=naver"
         }
       ],
       "score": 9.7
