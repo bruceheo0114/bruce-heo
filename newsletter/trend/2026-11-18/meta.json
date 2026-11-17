@@ -54,5 +54,10 @@
     "https://www.brandbrief.co.kr/site/data/html/2026/11/12/2026111250006.html",
     "https://www.the-pr.co.kr/news/articleView.html?idxno=63305",
     "https://www.brandbrief.co.kr/site/data/html/2026/11/12/2026111250007.html"
-  ]
+  ],
+  "stibee": {
+    "status": "failed",
+    "error": "Stibee API 오류 (400): {\"code\":\"Errors.Service.UnsupportedAPI\",\"httpStatusCode\":400,\"message\":\"지원하지 않는 API 입니다.\",\"values\":{\"message\":\"프로 요금제가 필요합니다. \"}}",
+    "updatedAt": "2026-11-17T07:08:46.508Z"
+  }
 }
