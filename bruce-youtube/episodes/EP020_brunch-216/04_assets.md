@@ -1,0 +1,12 @@
+# 04 Assets — EP020
+
+```text
+ASSET ID: BR01
+SCENE: 공용
+NEEDED MATERIAL: 브런치 원문 이미지
+BRAND: 브루스 인사이트
+SOURCE TYPE: REAL
+SEARCH KEYWORD: -
+EXPECTED SOURCE: 브런치 원문
+PRIORITY: LOW
+```
