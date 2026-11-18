@@ -408,13 +408,13 @@ HIGGSFIELD_REQUIRED: NO
 SCENE ID: S032
 TIME: 04:11-04:19
 NARRATION:
-네 개를 다 채울 필요는 없어요. 다만 앞의 두 개 중 하나도 없다면, 그 콘텐츠는 브랜드가 돈을 내고 남의 유행을 빌려 준 셈입니다.
+네 개를 다 채울 필요는 없어요. 다만 앞의 두 개 중 하나도 없다면, 그 콘텐츠는 브랜드가 돈을 내고 남의 유행을 홍보해 준 셈입니다.
 VISUAL:
 오프화이트 배경 위 큰 문구, 포인트 컬러 한 단어
 SOURCE_TYPE: TYPE
 ON_SCREEN_TEXT:
 앞의 두 개가 없다면
-돈 내고 빌려 준 남의 유행
+돈 내고 홍보해 준 남의 유행
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
@@ -432,7 +432,7 @@ ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
 SCENE ID: S034
-TIME: 04:30-04:39
+TIME: 04:30-04:40
 NARRATION:
 성과를 볼 때도 조회수에서 멈추지 않습니다. 프로필 방문, 브랜드 이름 검색, 다음 콘텐츠의 반응, 댓글에서 제품이 언급되는 비율.
 VISUAL:
@@ -445,7 +445,7 @@ ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
 SCENE ID: S035
-TIME: 04:39-04:46
+TIME: 04:40-04:47
 NARRATION:
 이런 흔적까지 같이 봐야, 그 밈이 그냥 노출이었는지 브랜드로 들어오는 입구였는지 구분할 수 있어요.
 VISUAL:
@@ -458,7 +458,7 @@ ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
 SCENE ID: S036
-TIME: 04:46-04:56
+TIME: 04:47-04:56
 NARRATION:
 사람들이 웃었다면 좋습니다. 공유했다면 더 좋죠. 그런데 브랜드 콘텐츠라면, 그 웃음 뒤에 조금이라도 브랜드의 얼굴이 남아야 해요.
 VISUAL:
