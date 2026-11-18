@@ -1,0 +1,23 @@
+{
+  "references_hash": "ac949c68c920a1bd",
+  "fetched_at": "2026-11-18T12:17:13.426Z",
+  "items": [
+    {
+      "file": "brunch-01.jpg",
+      "id": "brunch",
+      "scenes": [],
+      "kind": "image",
+      "source": "브런치 @heoboram 원문",
+      "url": "https://brunch.co.kr/@heoboram/216"
+    },
+    {
+      "file": "brunch-02.jpg",
+      "id": "brunch",
+      "scenes": [],
+      "kind": "image",
+      "source": "브런치 @heoboram 원문",
+      "url": "https://brunch.co.kr/@heoboram/216"
+    }
+  ],
+  "failures": []
+}
