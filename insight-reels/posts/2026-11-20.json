@@ -86,6 +86,8 @@
     "higgsfield": 6.0,
     "elevenlabs": 444
   },
-  "status": "scheduled",
-  "note": "남은 큐에 브랜드 사례 글이 없어 판단 축 215 사용(광고주 실명 없음). trends 'RFP' 연관."
+  "status": "publishing",
+  "note": "남은 큐에 브랜드 사례 글이 없어 판단 축 215 사용(광고주 실명 없음). trends 'RFP' 연관.",
+  "claimed_by": "44624302333",
+  "claimed_at": "2026-11-19T22:00:24.575943Z"
 }
