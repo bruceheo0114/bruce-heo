@@ -5,12 +5,35 @@
   "series": "reference",
   "series_theme": "해외 현장에서 숫자로 증명한 K브랜드(팝업·온라인·기념일·몰)",
   "title": "팝업 17일에 8만 명, 비결은?",
-  "status": "render",
+  "status": "scheduled",
   "caption": "🛍️ 오사카 우메다에서 17일 연 팝업에 약 8만 명이 왔고, 참여 브랜드 거래액은 268% 늘었어요. 이번 달, 해외 현장에서 숫자로 증명한 K브랜드 4곳이에요 👉\n\n1️⃣ 무신사 — 오사카 팝업 17일간 약 8만 명, 70% 이상이 18~29세. 참여 71개 브랜드 거래액이 같은 기간 268% 늘었어요(회사 발표).\n2️⃣ W컨셉 — 글로벌몰 개편 후 1년 새 일본 온라인 거래액 약 6배. 이제 하라주쿠·시부야 팝업으로 오프라인을 열어요.\n3️⃣ 빼빼로데이 — 스트레이 키즈 캠페인 영상이 공개 6일 만에 1,000만 회. 타임스스퀘어 옥외광고와 하노이 팝업까지 펼쳤어요.\n4️⃣ 롯데몰 웨스트레이크 하노이 — 개점 3년 만에 누적 매출 1조 원, 하루 평균 5만 명이 찾아요(회사 발표).\n\n📌 넷 다 광고를 트는 데서 멈추지 않고, 현지 사람이 직접 와서 보고 겪는 자리를 만들었어요.\n\n💬 우리 브랜드가 해외에 연다면 무엇부터? A 팝업, B 온라인몰, C 기념일 중 하나만 남겨 주세요.\n\n출처: 뉴시스(11/12) · 뉴스저널리즘(11/10) · 세계비즈(11/2)\n해외 진출 기획서 첫 장 쓰기 전에, 이 네 곳을 다시 꺼내 보게 저장해 두세요.\n\n#브루스매거진 #해외마케팅 #K패션 #팝업스토어 #글로벌브랜딩",
   "sources": [
     "https://www.newsis.com/view/NISX20261112_0003864763",
     "https://www.newsis.com/view/NISX20261112_0003864702",
     "https://www.ngetnews.com/news/articleView.html?idxno=555701",
     "http://www.segyebiz.com/newsView/20261102511710"
-  ]
+  ],
+  "images": [
+    "https://bruceheo.com/insight-reels/media/2026-11-20-noon/cards/01.jpg",
+    "https://bruceheo.com/insight-reels/media/2026-11-20-noon/cards/02.jpg",
+    "https://bruceheo.com/insight-reels/media/2026-11-20-noon/cards/03.jpg",
+    "https://bruceheo.com/insight-reels/media/2026-11-20-noon/cards/04.jpg",
+    "https://bruceheo.com/insight-reels/media/2026-11-20-noon/cards/05.jpg",
+    "https://bruceheo.com/insight-reels/media/2026-11-20-noon/cards/06.jpg",
+    "https://bruceheo.com/insight-reels/media/2026-11-20-noon/cards/07.jpg",
+    "https://bruceheo.com/insight-reels/media/2026-11-20-noon/cards/08.jpg",
+    "https://bruceheo.com/insight-reels/media/2026-11-20-noon/cards/09.jpg"
+  ],
+  "images_backup": [
+    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/insight-reels/media/2026-11-20-noon/cards/01.jpg",
+    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/insight-reels/media/2026-11-20-noon/cards/02.jpg",
+    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/insight-reels/media/2026-11-20-noon/cards/03.jpg",
+    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/insight-reels/media/2026-11-20-noon/cards/04.jpg",
+    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/insight-reels/media/2026-11-20-noon/cards/05.jpg",
+    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/insight-reels/media/2026-11-20-noon/cards/06.jpg",
+    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/insight-reels/media/2026-11-20-noon/cards/07.jpg",
+    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/insight-reels/media/2026-11-20-noon/cards/08.jpg",
+    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/insight-reels/media/2026-11-20-noon/cards/09.jpg"
+  ],
+  "qa_url": "https://bruceheo.com/insight-reels/media/2026-11-20-noon/preview.html"
 }
