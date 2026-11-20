@@ -1996,3 +1996,4 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 @media (min-width: 721px) and (max-width: 860px) {
   .nav__link:not(.nav__cta):not(.nav__lang):not(.nav__link--keep) { display: none; }
 }
+.book-post__thumb--free { aspect-ratio: auto; }
