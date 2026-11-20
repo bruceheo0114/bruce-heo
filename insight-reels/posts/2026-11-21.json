@@ -79,7 +79,7 @@
     "description": "AI 답이 늘 5~7점짜리라면, 반박당하기 싫어 검증부터 받는 습관을 의심해 보세요.\n날것의 생각을 먼저 펼치고 AI는 그다음에.\n원문: https://bruceheo.com/writing/210/\n#브루스매거진 #생성형AI #제안서",
     "tags": "생성형 AI,AI 활용,제안서,아이디어 발상,광고 대행사,브레인스토밍,마케팅 인사이트,브루스 인사이트"
   },
-  "status": "scheduled",
+  "status": "publishing",
   "credits": {
     "higgsfield": 6.0,
     "elevenlabs": 528
@@ -87,5 +87,7 @@
   "note": "남은 큐에 브랜드 사례 글이 없어 판단 축 210 사용(광고주 실명 없음). trends 'AI' rising.",
   "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/a5ed20b4-7adf-4cd9-9022-82394ffaa989.mp4",
   "cover_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/e65d134a-ce3d-4567-917a-6b8892aa84aa.jpg",
-  "qa_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/0f2e3489-369c-4b80-9be5-93ae769c68d7.jpg"
+  "qa_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/0f2e3489-369c-4b80-9be5-93ae769c68d7.jpg",
+  "claimed_by": "44825174521",
+  "claimed_at": "2026-11-20T22:00:25.852096Z"
 }
