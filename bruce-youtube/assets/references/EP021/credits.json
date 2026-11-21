@@ -1,7 +1,67 @@
 {
-  "references_hash": "ac949c68c920a1bd",
-  "fetched_at": "2026-11-21T12:20:34.040Z",
+  "references_hash": "efef3ecd89328989",
+  "fetched_at": "2026-11-21T12:22:43.872Z",
   "items": [
+    {
+      "file": "G01.jpg",
+      "id": "G01",
+      "scenes": [
+        "S002"
+      ],
+      "kind": "ai",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261121_122013_21fbe20a-8f10-4b86-86ee-04a2517dde11.png"
+    },
+    {
+      "file": "G02.jpg",
+      "id": "G02",
+      "scenes": [
+        "S010"
+      ],
+      "kind": "ai",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261121_122036_c8e2b3d1-3e09-4d04-b307-96152a00bdce.png"
+    },
+    {
+      "file": "G03.jpg",
+      "id": "G03",
+      "scenes": [
+        "S019"
+      ],
+      "kind": "ai",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261121_122012_2cb7fcf4-a375-4742-acd1-43c9b1597bf2.png"
+    },
+    {
+      "file": "G04.jpg",
+      "id": "G04",
+      "scenes": [
+        "S025"
+      ],
+      "kind": "ai",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261121_122012_276a711f-91c8-4d9d-b126-b3d609c6e2ca.png"
+    },
+    {
+      "file": "G05.jpg",
+      "id": "G05",
+      "scenes": [
+        "S034"
+      ],
+      "kind": "ai",
+      "source": "AI 생성 이미지 (Higgsfield)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261121_122012_f08017a1-206f-4ef8-8f63-9e1fa924fd9c.png"
+    },
+    {
+      "file": "V01.mp4",
+      "id": "V01",
+      "scenes": [
+        "S002"
+      ],
+      "kind": "video",
+      "source": "AI 생성 영상 (Higgsfield)",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261121_122038_b63c5a3d-1ec6-45f7-8522-927020850c5a.mp4"
+    },
     {
       "file": "brunch-01.jpg",
       "id": "brunch",
