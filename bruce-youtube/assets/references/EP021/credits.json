@@ -1,6 +1,6 @@
 {
-  "references_hash": "efef3ecd89328989",
-  "fetched_at": "2026-11-21T12:22:43.872Z",
+  "references_hash": "20af79d3d9604303",
+  "fetched_at": "2026-11-21T12:32:31.988Z",
   "items": [
     {
       "file": "G01.jpg",
@@ -61,22 +61,6 @@
       "kind": "video",
       "source": "AI 생성 영상 (Higgsfield)",
       "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/hf_20261121_122038_b63c5a3d-1ec6-45f7-8522-927020850c5a.mp4"
-    },
-    {
-      "file": "brunch-01.jpg",
-      "id": "brunch",
-      "scenes": [],
-      "kind": "image",
-      "source": "브런치 @heoboram 원문",
-      "url": "https://brunch.co.kr/@heoboram/218"
-    },
-    {
-      "file": "brunch-02.jpg",
-      "id": "brunch",
-      "scenes": [],
-      "kind": "image",
-      "source": "브런치 @heoboram 원문",
-      "url": "https://brunch.co.kr/@heoboram/218"
     }
   ],
   "failures": []
