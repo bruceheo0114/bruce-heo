@@ -547,7 +547,7 @@
       ]
     },
     "2026-11": {
-      "spent": 43,
+      "spent": 49.25,
       "entries": [
         {
           "date": "2026-11-02",
@@ -739,6 +739,36 @@
           "date": "2026-11-18",
           "episode": "EP020",
           "scene": "S036",
+          "credits": 0.25
+        },
+        {
+          "date": "2026-11-21",
+          "episode": "EP021",
+          "scene": "S002",
+          "credits": 5.25
+        },
+        {
+          "date": "2026-11-21",
+          "episode": "EP021",
+          "scene": "S010",
+          "credits": 0.25
+        },
+        {
+          "date": "2026-11-21",
+          "episode": "EP021",
+          "scene": "S019",
+          "credits": 0.25
+        },
+        {
+          "date": "2026-11-21",
+          "episode": "EP021",
+          "scene": "S025",
+          "credits": 0.25
+        },
+        {
+          "date": "2026-11-21",
+          "episode": "EP021",
+          "scene": "S034",
           "credits": 0.25
         }
       ]
