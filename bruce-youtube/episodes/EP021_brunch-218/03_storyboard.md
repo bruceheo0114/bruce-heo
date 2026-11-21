@@ -137,7 +137,7 @@ VISUAL:
 미니멀 도식, 항목이 말에 맞춰 나타남
 SOURCE_TYPE: GRAPHIC
 ON_SCREEN_TEXT:
-01 시청자가 실제 구매자인가
+시청자가 실제 구매자인가
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
@@ -149,8 +149,8 @@ VISUAL:
 미니멀 도식, 항목이 말에 맞춰 나타남
 SOURCE_TYPE: GRAPHIC
 ON_SCREEN_TEXT:
-02 생활 방식·말투가 메시지를 믿게 하나
-03 댓글의 구체성 · 저장과 공유의 성격
+생활 방식·말투가 메시지를 믿게 하나
+댓글의 구체성 · 저장과 공유의 성격
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
@@ -162,8 +162,8 @@ VISUAL:
 미니멀 도식, 항목이 말에 맞춰 나타남
 SOURCE_TYPE: GRAPHIC
 ON_SCREEN_TEXT:
-04 바이럴 한두 편이 평균을 부풀리나
-05 짧은 광고 · 상세 페이지로 다시 쓸 수 있나
+바이럴 한두 편이 평균을 부풀리나
+짧은 광고 · 상세 페이지로 다시 쓸 수 있나
 ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
