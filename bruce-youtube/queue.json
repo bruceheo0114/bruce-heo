@@ -149,9 +149,10 @@
       "no": 218,
       "title": "IMC 캠페인은 인플루언서가 전부 아닌가요",
       "why": "",
-      "status": "reserve",
+      "status": "todo",
       "series": "마케터의 질문",
-      "runtime": "5~6분"
+      "runtime": "5~6분",
+      "yt_slot": "2026-11-23"
     },
     {
       "no": 217,

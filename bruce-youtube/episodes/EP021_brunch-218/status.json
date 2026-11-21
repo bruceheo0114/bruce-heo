@@ -1,0 +1,77 @@
+{
+  "episode": "EP021",
+  "folder": "EP021_brunch-218",
+  "article": {
+    "id": "218",
+    "url": "https://brunch.co.kr/@heoboram/218",
+    "title": "IMC 캠페인은 인플루언서가 전부 아닌가요",
+    "published_at": "2026-09-21T03:00:00.000Z",
+    "source_file": "source/brunch/218.md",
+    "body_hash": "fbe15e4f996dcc63ee8d5df6d2059804c1b1ec2bbb7b506e1e21a986274bee70"
+  },
+  "status": "WAITING_APPROVAL",
+  "format": "v2",
+  "higgsfield_generation": false,
+  "recommendation": "MAKE_VIDEO",
+  "video_potential": {
+    "NARRATIVE": 8,
+    "CASE STUDY": 6,
+    "VISUAL MATERIAL": 5,
+    "TIMELINESS": 7,
+    "ORIGINAL POV": 9,
+    "30MIN POTENTIAL": 8,
+    "TOTAL": 43,
+    "MAX": 60
+  },
+  "approved_scenes": [],
+  "generated": {},
+  "plan": {
+    "runtime_seconds": 307,
+    "runtime": "5:07",
+    "total_scenes": 35,
+    "scenes_by_type": {
+      "REAL": 0,
+      "TYPE": 13,
+      "GRAPHIC": 17,
+      "AI": 5
+    },
+    "seconds_by_type": {
+      "REAL": 0,
+      "TYPE": 107,
+      "GRAPHIC": 158,
+      "AI": 42
+    },
+    "ai_share": 0.137,
+    "ai_scenes": [
+      "S002",
+      "S010",
+      "S019",
+      "S025",
+      "S034"
+    ],
+    "estimated_generations": 7,
+    "estimated_credits": 7,
+    "reusable_assets": [],
+    "cost_saving": [
+      "브랜드 사례가 없는 글이라 TYPE·GRAPHIC·움직이는 도식 위주로 구성한다.",
+      "영상 클립은 사람이 없는 S002 하나만."
+    ]
+  },
+  "update": null,
+  "created_at": "2026-11-21T12:18:26.500Z",
+  "updated_at": "2026-11-21T12:19:16.281Z",
+  "history": [
+    {
+      "at": "2026-11-21T12:18:26.500Z",
+      "from": null,
+      "to": "PACKAGE_PENDING",
+      "note": "새 브런치 글"
+    },
+    {
+      "at": "2026-11-21T12:19:16.281Z",
+      "from": "PACKAGE_PENDING",
+      "to": "WAITING_APPROVAL",
+      "note": "영상화 평가 43/60 · MAKE_VIDEO"
+    }
+  ]
+}
