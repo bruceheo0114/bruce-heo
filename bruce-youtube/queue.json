@@ -140,10 +140,11 @@
       "no": 216,
       "title": "우리도 요즘 애들이 좋아하는 거 해보면 어떨까요",
       "why": "",
-      "status": "todo",
+      "status": "episode",
       "series": "마케터의 질문",
       "runtime": "5~6분",
-      "yt_slot": "2026-11-20"
+      "yt_slot": "2026-11-20",
+      "episode": "EP020"
     },
     {
       "no": 218,
