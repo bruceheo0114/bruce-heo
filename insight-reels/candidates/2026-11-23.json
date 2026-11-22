@@ -1,0 +1,2629 @@
+{
+  "monday": "2026-11-23",
+  "generated_at": "2026-11-22T17:02:00.585Z",
+  "window": {
+    "since": "2026-11-09",
+    "until": "2026-11-23"
+  },
+  "source": "네이버 검색 API(뉴스·블로그) + 데이터랩 검색어 트렌드 · API HUB",
+  "note": "후보일 뿐이다. 채택 전에 원문을 열어 게시일·실행일·숫자를 확인한다(CAROUSEL.md).",
+  "stats": {
+    "api_calls": 91,
+    "articles": 1579,
+    "candidates": 60
+  },
+  "candidates": [
+    {
+      "keyword": "콜대원",
+      "title": "대원제약 '콜대원', 연중 광고 캠페인 누적 조회수 1억뷰 돌파",
+      "description": "대원제약의 짜 먹는 감기약 '콜대원'이 연중 광고 캠페인으로 누적 조회수 1억회를 돌파했다. 겨울철에 집중했던 기존 광고 방식에서 벗어나 계절과 연령, 생활환경에 따른 감기 상황을 다양한 에피소드로 선보인...",
+      "field": "콘텐츠·엔터",
+      "published": "2026-11-19",
+      "within7": true,
+      "outlets": [
+        "ziksir.com",
+        "pinpointnews.co.kr",
+        "press9.kr",
+        "medipana.com",
+        "new.dailypharm.com",
+        "financialpost.co.kr",
+        "biz.chosun.com",
+        "medisobizanews.com",
+        "news1.kr"
+      ],
+      "signals": [
+        "조회수",
+        "돌파",
+        "흥행",
+        "1억뷰",
+        "1억회",
+        "1억 회"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "ziksir.com",
+          "date": "2026-11-19",
+          "url": "https://www.ziksir.com/news/articleView.html?idxno=153993"
+        },
+        {
+          "outlet": "pinpointnews.co.kr",
+          "date": "2026-11-19",
+          "url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=505927"
+        },
+        {
+          "outlet": "press9.kr",
+          "date": "2026-11-19",
+          "url": "http://www.press9.kr/news/articleView.html?idxno=86641"
+        },
+        {
+          "outlet": "medipana.com",
+          "date": "2026-11-19",
+          "url": "https://www.medipana.com/news/articleView.html?idxno=422199"
+        },
+        {
+          "outlet": "new.dailypharm.com",
+          "date": "2026-11-19",
+          "url": "https://new.dailypharm.com/user/news/344778?REFERER=NP"
+        }
+      ],
+      "blog7": 100,
+      "searchRise": 0.71,
+      "score": 23.3
+    },
+    {
+      "keyword": "테라 제로",
+      "title": "하이트진로음료 ‘테라 제로’, PR·커뮤니케이션대상 최우수상…출시...",
+      "description": "‘why not?’ 캠페인, 한국PR대상·대한민국 커뮤니케이션대상 수상 김원훈 출연 광고·인플루언서 협업... 광고 영상은 공개된 지 약 60일 만에 온라인 누적 조회수 5000만 회를 기록했다. 판매 실적은 지난 9월 말 기준 병...",
+      "field": "캠페인",
+      "published": "2026-11-21",
+      "within7": true,
+      "outlets": [
+        "seoultimes.news",
+        "newsian.co.kr",
+        "weekly.hankooki.com",
+        "etoday.co.kr",
+        "cnbnews.com",
+        "dailysmart.co.kr",
+        "ttlnews.com",
+        "globalepic.co.kr",
+        "kukinews.com"
+      ],
+      "signals": [
+        "조회수",
+        "돌파",
+        "5000만 회",
+        "34회",
+        "5000만회",
+        "1500만 개"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "seoultimes.news",
+          "date": "2026-11-21",
+          "url": "https://www.seoultimes.news/news/article.html?no=2000102499"
+        },
+        {
+          "outlet": "newsian.co.kr",
+          "date": "2026-11-20",
+          "url": "https://www.newsian.co.kr/news/articleView.html?idxno=101707"
+        },
+        {
+          "outlet": "weekly.hankooki.com",
+          "date": "2026-11-20",
+          "url": "https://weekly.hankooki.com/news/articleView.html?idxno=7194994"
+        },
+        {
+          "outlet": "etoday.co.kr",
+          "date": "2026-11-20",
+          "url": "https://www.etoday.co.kr/news/view/2650991"
+        },
+        {
+          "outlet": "cnbnews.com",
+          "date": "2026-11-20",
+          "url": "https://www.cnbnews.com/news/articleView.html?idxno=1024641"
+        }
+      ],
+      "blog7": 100,
+      "searchRise": 0.89,
+      "score": 22.3
+    },
+    {
+      "keyword": "5일 만에 5억 팔렸다",
+      "title": "무신사 뷰티 성수, 닷새 만에 매출 5억원…구매 고객 65% 외국인",
+      "description": "무신사는 지난 11일부터 15일까지 무신사 뷰티 성수의 누적 방문객이 3만3000명, 거래액은 5억원으로... 매장 1층에는 브랜드별 신상품을 소개하는 '브랜드 단독 팝업존'과 520여 개 향수를 모은 '프래그런스 존', 여러 향을...",
+      "field": "패션·뷰티",
+      "published": "2026-11-17",
+      "within7": true,
+      "outlets": [
+        "ajunews.com",
+        "news.ifm.kr",
+        "news.tvchosun.com",
+        "zdnet.co.kr",
+        "sedaily.com",
+        "dailian.co.kr",
+        "inews24.com",
+        "edaily.co.kr",
+        "newsis.com",
+        "sportschosun.com",
+        "etoday.co.kr",
+        "peoplewatch.co.kr"
+      ],
+      "signals": [
+        "5억원",
+        "65%",
+        "3000명",
+        "31%"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "ajunews.com",
+          "date": "2026-11-17",
+          "url": "https://www.ajunews.com/view/20261117141942176"
+        },
+        {
+          "outlet": "news.ifm.kr",
+          "date": "2026-11-17",
+          "url": "https://news.ifm.kr/news/articleView.html?idxno=484680"
+        },
+        {
+          "outlet": "news.tvchosun.com",
+          "date": "2026-11-17",
+          "url": "https://news.tvchosun.com/site/data/html_dir/2026/11/17/2026111790184.html"
+        },
+        {
+          "outlet": "zdnet.co.kr",
+          "date": "2026-11-17",
+          "url": "https://zdnet.co.kr/view/?no=20261117151515"
+        },
+        {
+          "outlet": "sedaily.com",
+          "date": "2026-11-17",
+          "url": "https://www.sedaily.com/article/20115418?ref=naver"
+        }
+      ],
+      "blog7": 100,
+      "searchRise": 0,
+      "score": 21.5
+    },
+    {
+      "keyword": "청년희망터",
+      "title": "삼성생명, '청년희망터' 5년 성과 공유…61개 지역 청년 2801명 지원",
+      "description": "경북 영천의 '꿈을 꽃피우는 사람들'은 산업단지에서 팝업스토어와 버스킹을 결합한 퇴근길 문화장터 '공장장'을 운영했다. 지난 1년간 방문객 1593명을 모았으며 청년 근로자의 여가 공간과 소상공인 판로를 만든 점을...",
+      "field": "유통·공간",
+      "published": "2026-11-22",
+      "within7": true,
+      "outlets": [
+        "bizwnews.com",
+        "thepublic.kr",
+        "eroun.net",
+        "apnews.kr",
+        "inthenews.co.kr",
+        "ziksir.com",
+        "asiaa.co.kr",
+        "seoul.co.kr",
+        "megaeconomy.co.kr",
+        "globalepic.co.kr",
+        "g-enews.com"
+      ],
+      "signals": [
+        "61개",
+        "2801명",
+        "1593명",
+        "101개"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "bizwnews.com",
+          "date": "2026-11-22",
+          "url": "http://www.bizwnews.com/news/articleView.html?idxno=152650"
+        },
+        {
+          "outlet": "thepublic.kr",
+          "date": "2026-11-22",
+          "url": "https://www.thepublic.kr/news/articleView.html?idxno=327885"
+        },
+        {
+          "outlet": "eroun.net",
+          "date": "2026-11-21",
+          "url": "https://www.eroun.net/news/articleView.html?idxno=96154"
+        },
+        {
+          "outlet": "apnews.kr",
+          "date": "2026-11-21",
+          "url": "https://www.apnews.kr/news/articleView.html?idxno=3053365"
+        },
+        {
+          "outlet": "inthenews.co.kr",
+          "date": "2026-11-20",
+          "url": "https://www.inthenews.co.kr/news/article.html?no=94805"
+        }
+      ],
+      "blog7": 11,
+      "searchRise": 1.8,
+      "score": 20.9
+    },
+    {
+      "keyword": "샤넬 홀리데이 팝업",
+      "title": "생모리츠 설원 담은 '샤넬 홀리데이 팝업', 11월 21일 성수에 오픈",
+      "description": "있어 방문객들에게 특별한 추억을 선사할 예정이다. 이와 함께 홀리데이 시즌을 더욱 특별하게 만들어줄... 방문은 샤넬 홀리데이 팝업 예약 사이트 또는 샤넬 뷰티 카카오톡 채널 팔로우를 통한 사전 예약으로 가능하며...",
+      "field": "패션·뷰티",
+      "published": "2026-11-21",
+      "within7": true,
+      "outlets": [
+        "delighti.co.kr",
+        "lawissue.co.kr",
+        "fntoday.co.kr",
+        "sisunnews.co.kr",
+        "thepublic.kr",
+        "job-post.co.kr",
+        "enetnews.co.kr",
+        "thebigdata.co.kr",
+        "woodkorea.co.kr",
+        "newsroad.co.kr",
+        "kbsm.net",
+        "livesnews.com"
+      ],
+      "signals": [
+        "화제"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "delighti.co.kr",
+          "date": "2026-11-21",
+          "url": "https://www.delighti.co.kr/news/articleView.html?idxno=125352"
+        },
+        {
+          "outlet": "lawissue.co.kr",
+          "date": "2026-11-21",
+          "url": "https://www.lawissue.co.kr/view.php?ud=20261120172700707837600e7ec7_12"
+        },
+        {
+          "outlet": "fntoday.co.kr",
+          "date": "2026-11-21",
+          "url": "https://www.fntoday.co.kr/news/articleView.html?idxno=399501"
+        },
+        {
+          "outlet": "sisunnews.co.kr",
+          "date": "2026-11-21",
+          "url": "http://www.sisunnews.co.kr/news/articleView.html?idxno=250193"
+        },
+        {
+          "outlet": "thepublic.kr",
+          "date": "2026-11-21",
+          "url": "https://www.thepublic.kr/news/articleView.html?idxno=327835"
+        }
+      ],
+      "blog7": 100,
+      "searchRise": 2.94,
+      "score": 20.9
+    },
+    {
+      "keyword": "코스토니",
+      "title": "내셔널지오 플리스 '코스토니' 고윤정·허남준 효과봤다",
+      "description": "'코스토니'는 지난 9월 캠페인 공개 이후 1주 만에 일부 제품을 중심으로 판매율이 50%를 넘어서는 등 출시... 함께한 캠페인으로 출시 초반부터 화제를 모았다. 여기에 광고제작사 돌고래유괴단 특유의 유쾌한 반전...",
+      "field": "캠페인",
+      "published": "2026-11-22",
+      "within7": true,
+      "outlets": [
+        "newsbrite.net",
+        "ftoday.co.kr",
+        "globale.co.kr",
+        "fashionn.com",
+        "hansbiz.co.kr",
+        "etoday.co.kr"
+      ],
+      "signals": [
+        "완판",
+        "조회수",
+        "돌파",
+        "화제",
+        "50%",
+        "70%",
+        "3600만 회",
+        "3,600만 회"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "newsbrite.net",
+          "date": "2026-11-22",
+          "url": "http://www.newsbrite.net/news/articleView.html?idxno=201664"
+        },
+        {
+          "outlet": "ftoday.co.kr",
+          "date": "2026-11-17",
+          "url": "http://www.ftoday.co.kr/news/articleView.html?idxno=369968"
+        },
+        {
+          "outlet": "globale.co.kr",
+          "date": "2026-11-17",
+          "url": "https://www.globale.co.kr/news/articleView.html?idxno=41701"
+        },
+        {
+          "outlet": "fashionn.com",
+          "date": "2026-11-17",
+          "url": "http://www.fashionn.com/board/read_new.php?table=1006&number=63181"
+        },
+        {
+          "outlet": "hansbiz.co.kr",
+          "date": "2026-11-17",
+          "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=883986"
+        }
+      ],
+      "blog7": 100,
+      "searchRise": 1.37,
+      "score": 19.7
+    },
+    {
+      "keyword": "무진장",
+      "title": "패션 넘어 버거·통신까지…무신사, '무진장'으로 고객 확보 총력전",
+      "description": "롯데리아·배스킨라빈스·SK텔레콤 등 생활 밀착형 브랜드와 협업하고, 오프라인 매장과 수험생 대상... 매일 두 차례 최대 80% 할인 쿠폰을 제공하는 '오픈런 뽑기'와 누적 판매액 100억원 달성 때마다 쿠폰을 지급하는...",
+      "field": "유통·공간",
+      "published": "2026-11-20",
+      "within7": true,
+      "outlets": [
+        "asiatoday.co.kr",
+        "mt.co.kr",
+        "financialreview.co.kr",
+        "fnnews.com",
+        "finomy.com",
+        "newsinside.kr"
+      ],
+      "signals": [
+        "오픈런",
+        "80%",
+        "100억원",
+        "220만명",
+        "1억원"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "asiatoday.co.kr",
+          "date": "2026-11-20",
+          "url": "https://www.asiatoday.co.kr/kn/view.php?key=20261120010008090"
+        },
+        {
+          "outlet": "mt.co.kr",
+          "date": "2026-11-20",
+          "url": "https://www.mt.co.kr/living/2026/11/20/2026112016053257249"
+        },
+        {
+          "outlet": "financialreview.co.kr",
+          "date": "2026-11-20",
+          "url": "http://www.financialreview.co.kr/news/articleView.html?idxno=46475"
+        },
+        {
+          "outlet": "fnnews.com",
+          "date": "2026-11-20",
+          "url": "https://www.fnnews.com/news/202611201018507783"
+        },
+        {
+          "outlet": "finomy.com",
+          "date": "2026-11-20",
+          "url": "http://www.finomy.com/news/articleView.html?idxno=267338"
+        }
+      ],
+      "blog7": 100,
+      "searchRise": 1.75,
+      "score": 19.5
+    },
+    {
+      "keyword": "무신사",
+      "title": "무신사, 겨울 블랙프라이데이 연다…11일간 온·오프라인 할인",
+      "description": "20일 무신사에 따르면 무진장은 오는 22일 오후 7시부터 12월2일 자정까지 11일간 온라인과 전국 오프라인 매장에서 진행한다. 행사에서는 인기 상품 1500여개 할인 판매와 브랜드별 특가를 비롯해 오픈런 뽑기, 수험생...",
+      "field": "유통·공간",
+      "published": "2026-11-20",
+      "within7": true,
+      "outlets": [
+        "sports.hankooki.com",
+        "weekly.hankooki.com",
+        "meconomynews.com",
+        "etoday.co.kr",
+        "jasm.co.kr",
+        "yna.co.kr",
+        "finomy.com"
+      ],
+      "signals": [
+        "오픈런",
+        "719만개",
+        "140만명",
+        "9900원",
+        "100억원"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "sports.hankooki.com",
+          "date": "2026-11-20",
+          "url": "https://sports.hankooki.com/news/articleView.html?idxno=6943964"
+        },
+        {
+          "outlet": "weekly.hankooki.com",
+          "date": "2026-11-20",
+          "url": "https://weekly.hankooki.com/news/articleView.html?idxno=7194972"
+        },
+        {
+          "outlet": "meconomynews.com",
+          "date": "2026-11-20",
+          "url": "https://www.meconomynews.com/news/articleView.html?idxno=203945"
+        },
+        {
+          "outlet": "etoday.co.kr",
+          "date": "2026-11-20",
+          "url": "https://www.etoday.co.kr/news/view/2650876"
+        },
+        {
+          "outlet": "jasm.co.kr",
+          "date": "2026-11-20",
+          "url": "https://www.jasm.co.kr/news/view/325912/?sc=Naver"
+        }
+      ],
+      "blog7": 100,
+      "searchRise": 1.06,
+      "score": 18.9
+    },
+    {
+      "keyword": "기아",
+      "title": "기아, 테니스 유망주 육성 프로그램 브랜드 필름 공개",
+      "description": "기아는 세계적인 테니스 스타이자 기아 글로벌 홍보대사인 라파엘 나달과의 20년 넘는 파트너십을 바탕으로 차세대 테니스 유망주들의 성장 과정을 담은 브랜드 필름을 공개했다고 20일 밝혔다. 기아 월드와이드 유튜브...",
+      "field": "캠페인",
+      "published": "2026-11-22",
+      "within7": true,
+      "outlets": [
+        "enewstoday.co.kr",
+        "sports.donga.com",
+        "koreareport.co.kr",
+        "businessplus.kr",
+        "hg-times.com",
+        "cbci.co.kr",
+        "smarttimes.co.kr",
+        "seoultimes.news",
+        "joongangenews.com",
+        "moneystorm.kr",
+        "news1.kr",
+        "getnews.co.kr",
+        "etnews.com",
+        "worktoday.co.kr",
+        "cnbizm.com",
+        "pinpointnews.co.kr",
+        "news.bbsi.co.kr",
+        "biz.heraldcorp.com",
+        "autotimes.co.kr",
+        "econonews.co.kr",
+        "autodaily.co.kr",
+        "etoday.co.kr",
+        "edaily.co.kr",
+        "cstimes.com",
+        "yna.co.kr"
+      ],
+      "signals": [
+        "1회"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "enewstoday.co.kr",
+          "date": "2026-11-22",
+          "url": "http://www.enewstoday.co.kr/news/articleView.html?idxno=2495470"
+        },
+        {
+          "outlet": "sports.donga.com",
+          "date": "2026-11-22",
+          "url": "https://sports.donga.com/economy/article/all/20261122/135065924/1"
+        },
+        {
+          "outlet": "koreareport.co.kr",
+          "date": "2026-11-20",
+          "url": "https://www.koreareport.co.kr/news/articleView.html?idxno=54982"
+        },
+        {
+          "outlet": "businessplus.kr",
+          "date": "2026-11-20",
+          "url": "https://www.businessplus.kr/news/articleView.html?idxno=120236"
+        },
+        {
+          "outlet": "hg-times.com",
+          "date": "2026-11-20",
+          "url": "https://www.hg-times.com/news/articleView.html?idxno=307225"
+        }
+      ],
+      "blog7": 100,
+      "searchRise": 0.92,
+      "score": 18.5
+    },
+    {
+      "keyword": "무진장 26 겨울 블프",
+      "title": "[유통단신] 무신사, '무진장 26 겨울 블프' 개최 外 신세계사이먼·알바...",
+      "description": "행사 기간 인기 상품 1500여개를 최저가에 선보이는 '시그니처 특가'와 최대 80% 할인 쿠폰을 주는 '오픈런 뽑기', 무신사 유즈드 9900원 특가 등을 운영한다. 전국 11개 오프라인 매장 아우터 대전과 롯데리아...",
+      "field": "유통·공간",
+      "published": "2026-11-20",
+      "within7": true,
+      "outlets": [
+        "getnews.co.kr",
+        "biztribune.co.kr",
+        "srtimes.kr",
+        "apparelnews.co.kr",
+        "etnews.com",
+        "pinpointnews.co.kr"
+      ],
+      "signals": [
+        "오픈런",
+        "80%",
+        "9900원",
+        "11개",
+        "100억원"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "getnews.co.kr",
+          "date": "2026-11-20",
+          "url": "https://www.getnews.co.kr/news/articleView.html?idxno=887939"
+        },
+        {
+          "outlet": "biztribune.co.kr",
+          "date": "2026-11-20",
+          "url": "http://www.biztribune.co.kr/news/articleView.html?idxno=362901"
+        },
+        {
+          "outlet": "srtimes.kr",
+          "date": "2026-11-20",
+          "url": "http://www.srtimes.kr/news/articleView.html?idxno=218218"
+        },
+        {
+          "outlet": "apparelnews.co.kr",
+          "date": "2026-11-20",
+          "url": "http://www.apparelnews.co.kr/news/news_view/?idx=229150"
+        },
+        {
+          "outlet": "etnews.com",
+          "date": "2026-11-20",
+          "url": "https://www.etnews.com/20261120000177"
+        }
+      ],
+      "blog7": 100,
+      "searchRise": 0,
+      "score": 17.7
+    },
+    {
+      "keyword": "더핏",
+      "title": "제일기획 ‘더핏’ 보험 광고…보는 재미에 1500만뷰 돌파",
+      "description": "누적 조회수 1500만회를 돌파했다고 19일 밝혔다. 지난달 론칭한 이 캠페인은 건강보험에 주거, 운전자, 요양 보험을 결합할 수 있는 신개념 모듈형 보험 출시에 맞춰 TV 광고와 디지털 필름으로 제작됐다. TV 광고는 보험...",
+      "field": "콘텐츠·엔터",
+      "published": "2026-11-19",
+      "within7": true,
+      "outlets": [
+        "sedaily.com",
+        "munhwa.com",
+        "hankyung.com",
+        "jasm.co.kr",
+        "fnnews.com"
+      ],
+      "signals": [
+        "조회수",
+        "돌파",
+        "1500만뷰",
+        "1500만회",
+        "1500만 회",
+        "600만회"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "sedaily.com",
+          "date": "2026-11-19",
+          "url": "https://www.sedaily.com/article/20116578?ref=naver"
+        },
+        {
+          "outlet": "munhwa.com",
+          "date": "2026-11-19",
+          "url": "https://www.munhwa.com/article/11632616?ref=naver"
+        },
+        {
+          "outlet": "hankyung.com",
+          "date": "2026-11-19",
+          "url": "https://www.hankyung.com/article/202611196883i"
+        },
+        {
+          "outlet": "jasm.co.kr",
+          "date": "2026-11-19",
+          "url": "https://www.jasm.co.kr/news/view/325774/?sc=Naver"
+        },
+        {
+          "outlet": "fnnews.com",
+          "date": "2026-11-19",
+          "url": "https://www.fnnews.com/news/202611190857463256"
+        }
+      ],
+      "blog7": 100,
+      "searchRise": 0.91,
+      "score": 17.5
+    },
+    {
+      "keyword": "하나투어 하나LIVE",
+      "title": "하나투어 '하나LIVE', 누적 조회수 1억2000만회 돌파",
+      "description": "2021년 7월 29일 출범한 하나LIVE의 누적 조회수가 1억2000만회, 누적 예약자 수가 13만3000명을 넘어섰다.... 이러한 운영 성과를 바탕으로 지난해 '2025 대한민국 디지털 광고 대상' 이커머스 부문에서 금상을 수상했다....",
+      "field": "콘텐츠·엔터",
+      "published": "2026-11-19",
+      "within7": true,
+      "outlets": [
+        "kfenews.co.kr",
+        "weekly.hankooki.com",
+        "ttlnews.com",
+        "ziksir.com",
+        "newsfreezone.co.kr"
+      ],
+      "signals": [
+        "조회수",
+        "돌파",
+        "2000만회",
+        "3000명",
+        "2000만 뷰",
+        "1.2억회"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "kfenews.co.kr",
+          "date": "2026-11-19",
+          "url": "https://www.kfenews.co.kr/news/articleView.html?idxno=668452"
+        },
+        {
+          "outlet": "weekly.hankooki.com",
+          "date": "2026-11-19",
+          "url": "https://weekly.hankooki.com/news/articleView.html?idxno=7194788"
+        },
+        {
+          "outlet": "ttlnews.com",
+          "date": "2026-11-19",
+          "url": "http://www.ttlnews.com/news/articleView.html?idxno=3164164"
+        },
+        {
+          "outlet": "ziksir.com",
+          "date": "2026-11-19",
+          "url": "https://www.ziksir.com/news/articleView.html?idxno=153928"
+        },
+        {
+          "outlet": "newsfreezone.co.kr",
+          "date": "2026-11-19",
+          "url": "https://www.newsfreezone.co.kr/news/articleView.html?idxno=720179"
+        }
+      ],
+      "blog7": 100,
+      "searchRise": 0,
+      "score": 17.5
+    },
+    {
+      "keyword": "46cm",
+      "title": "46cm, 누적 판매 130만개 돌파...세포랩, CCFK 2026서 온오프라인 흥행",
+      "description": "방송은 조회수 30만 회를 기록했다. 퓨젠바이오에 따르면 이 방송은 CCFK 기간 진행된 모바일 방송 가운데 뷰티 부문 판매 실적 1위에 올랐다. 세포랩은 배우 전도연이 출연한 TV 광고를 바탕으로 행사장에 미술관...",
+      "field": "콘텐츠·엔터",
+      "published": "2026-11-19",
+      "within7": true,
+      "outlets": [
+        "slist.kr",
+        "newsworks.co.kr",
+        "nongaek.com",
+        "bokuennews.com"
+      ],
+      "signals": [
+        "조회수",
+        "돌파",
+        "흥행",
+        "화제",
+        "130만개",
+        "30만 회",
+        "8개",
+        "2천개"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "slist.kr",
+          "date": "2026-11-19",
+          "url": "https://www.slist.kr/news/articleView.html?idxno=783209"
+        },
+        {
+          "outlet": "newsworks.co.kr",
+          "date": "2026-11-17",
+          "url": "https://www.newsworks.co.kr/news/articleView.html?idxno=903417"
+        },
+        {
+          "outlet": "nongaek.com",
+          "date": "2026-11-17",
+          "url": "http://www.nongaek.com/news/articleView.html?idxno=97502"
+        },
+        {
+          "outlet": "bokuennews.com",
+          "date": "2026-11-17",
+          "url": "http://www.bokuennews.com/news/article.html?no=287275"
+        }
+      ],
+      "blog7": 100,
+      "searchRise": 1.26,
+      "score": 17.3
+    },
+    {
+      "keyword": "스타벅스",
+      "title": "스타벅스, 크리스마스 홀케이크 예약",
+      "description": "사전 예약 하루 전 먼저 공개한 '조선델리 노엘 트리 케이크'는 당일 품절되며 높은 관심을 모았다. 이번... '트리 베어리 오너먼트 케이크' 구매 고객에게는 키링으로도 쓸 수 있는 한정판 트리 베어리스타 오너먼트를...",
+      "field": "금융·생활",
+      "published": "2026-11-16",
+      "within7": true,
+      "outlets": [
+        "cooknchefnews.com",
+        "viva100.com",
+        "ddaily.co.kr",
+        "ajunews.com",
+        "segye.com",
+        "dailian.co.kr",
+        "dailyt.co.kr"
+      ],
+      "signals": [
+        "품절",
+        "화제",
+        "10%"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "cooknchefnews.com",
+          "date": "2026-11-16",
+          "url": "https://cooknchefnews.com/news/view/1065581831370534"
+        },
+        {
+          "outlet": "viva100.com",
+          "date": "2026-11-16",
+          "url": "https://www.viva100.com/article/20261116500298"
+        },
+        {
+          "outlet": "ddaily.co.kr",
+          "date": "2026-11-15",
+          "url": "https://www.ddaily.co.kr/page/view/2026111520220693847"
+        },
+        {
+          "outlet": "ajunews.com",
+          "date": "2026-11-15",
+          "url": "https://www.ajunews.com/view/20261115151217258"
+        },
+        {
+          "outlet": "segye.com",
+          "date": "2026-11-15",
+          "url": "https://www.segye.com/newsView/20261115506010?OutUrl=naver"
+        }
+      ],
+      "blog7": 100,
+      "searchRise": 1.26,
+      "score": 16.9
+    },
+    {
+      "keyword": "why not?",
+      "title": "테라 제로 'why not?' 캠페인, PR·커뮤니케이션대상 최우수상",
+      "description": "방송인 김원훈을 모델로 한 'why not?' 광고 캠페인은 무알코올 맥주맛 음료의 새로운 음용 상황을 유쾌하게... 이 같은 활동에 힘입어 'why not?' 광고 영상은 공개 60일 만에 온라인 누적 조회수 약 5000만 회를 기록했다....",
+      "field": "캠페인",
+      "published": "2026-11-20",
+      "within7": true,
+      "outlets": [
+        "gukjenews.com",
+        "lawissue.co.kr",
+        "fntimes.com",
+        "e-science.co.kr"
+      ],
+      "signals": [
+        "조회수",
+        "5000만 회",
+        "5,000만 회",
+        "5000만회"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "gukjenews.com",
+          "date": "2026-11-20",
+          "url": "https://www.gukjenews.com/news/articleView.html?idxno=3758520"
+        },
+        {
+          "outlet": "lawissue.co.kr",
+          "date": "2026-11-20",
+          "url": "https://www.lawissue.co.kr/view.php?ud=202611201406479189204ead0791_12"
+        },
+        {
+          "outlet": "fntimes.com",
+          "date": "2026-11-20",
+          "url": "https://www.fntimes.com/html/view.php?ud=202611201202276830923defd0cc_18"
+        },
+        {
+          "outlet": "e-science.co.kr",
+          "date": "2026-11-20",
+          "url": "https://www.e-science.co.kr/news/articleView.html?idxno=140332"
+        }
+      ],
+      "blog7": 100,
+      "searchRise": 1.62,
+      "score": 16.9
+    },
+    {
+      "keyword": "맥도날드 랩",
+      "title": "해외에서 무단 유통된 존박 '맥도날드 랩', 저작권 되찾을 수 있을까?",
+      "description": "큰 화제가 됐습니다. 실제 맥도날드 광고와 세트 메뉴 출시로도 이어졌고요. 그런데 지난 2일, 이 랩이... 지난 4일(현지시간) JYP엔터테인먼트는 미국 유통사 원싱크(OneSync)와 설립자가 스트레이 키즈 멤버 한의 솔로곡...",
+      "field": "해외",
+      "published": "2026-11-12",
+      "within7": false,
+      "outlets": [
+        "marieclairekorea.com",
+        "news.tvchosun.com",
+        "fnnews.com",
+        "insight.co.kr",
+        "sportsseoul.com"
+      ],
+      "signals": [
+        "조회수",
+        "돌파",
+        "화제",
+        "950만 회",
+        "880만 뷰",
+        "888만 회",
+        "1400만 회"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "marieclairekorea.com",
+          "date": "2026-11-12",
+          "url": "https://www.marieclairekorea.com/culture/music/2026/11/music-copyright/?utm_source=naver&utm_medium=partnership"
+        },
+        {
+          "outlet": "news.tvchosun.com",
+          "date": "2026-11-12",
+          "url": "https://news.tvchosun.com/site/data/html_dir/2026/11/12/2026111290063.html"
+        },
+        {
+          "outlet": "fnnews.com",
+          "date": "2026-11-12",
+          "url": "https://www.fnnews.com/news/202611111932177270"
+        },
+        {
+          "outlet": "insight.co.kr",
+          "date": "2026-11-11",
+          "url": "https://www.insight.co.kr/news/581611"
+        },
+        {
+          "outlet": "sportsseoul.com",
+          "date": "2026-11-11",
+          "url": "https://www.sportsseoul.com/news/read/1649027?ref=naver"
+        }
+      ],
+      "blog7": 100,
+      "searchRise": 1.38,
+      "score": 16.5
+    },
+    {
+      "keyword": "모듈형 보험",
+      "title": "제일기획이 만든 삼성화재 광고 조회수 1500만회 돌파",
+      "description": "제일기획이 제작한 삼성화재의 맞춤 모듈 시스템 보험 ‘THE FIT(더핏)’(사진) 광고가 온라인 누적 조회수 1500만회를 돌파했다. 19일 제일기획에 따르면 지난달 선보인 ‘더핏’ 광고는 TV 광고와 디지털 필름으로...",
+      "field": "콘텐츠·엔터",
+      "published": "2026-11-19",
+      "within7": true,
+      "outlets": [
+        "biz.heraldcorp.com",
+        "whitepaper.co.kr",
+        "etoday.co.kr",
+        "view.asiae.co.kr"
+      ],
+      "signals": [
+        "조회수",
+        "돌파",
+        "1500만회",
+        "1500만 뷰",
+        "1500만 회"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "biz.heraldcorp.com",
+          "date": "2026-11-19",
+          "url": "https://biz.heraldcorp.com/article/10942589?ref=naver"
+        },
+        {
+          "outlet": "whitepaper.co.kr",
+          "date": "2026-11-19",
+          "url": "http://www.whitepaper.co.kr/news/articleView.html?idxno=268935"
+        },
+        {
+          "outlet": "etoday.co.kr",
+          "date": "2026-11-19",
+          "url": "https://www.etoday.co.kr/news/view/2650101"
+        },
+        {
+          "outlet": "view.asiae.co.kr",
+          "date": "2026-11-19",
+          "url": "https://view.asiae.co.kr/article/2026111908274614505"
+        },
+        {
+          "outlet": "biz.heraldcorp.com",
+          "date": "2026-11-19",
+          "url": "https://biz.heraldcorp.com/article/10942117?ref=naver"
+        }
+      ],
+      "blog7": 100,
+      "searchRise": 0,
+      "score": 16.3
+    },
+    {
+      "keyword": "감기의 소리",
+      "title": "대원제약 콜대원, '감기의 소리를 찾아서' 캠페인 누적 조회수 1억뷰 돌...",
+      "description": "대원제약 콜대원, '감기의 소리를 찾아서' 캠페인 누적 조회수 1억뷰 돌파 대원제약은 짜 먹는 감기약 '콜대원'의 연간 광고 캠페인 '전국방방곡곡-감기의 소리를 찾아서'가 유튜브와 숏폼 콘텐츠 합산 누적 조회수 1억...",
+      "field": "콘텐츠·엔터",
+      "published": "2026-11-19",
+      "within7": true,
+      "outlets": [
+        "biztribune.co.kr",
+        "newswell.co.kr",
+        "newsmap.co.kr",
+        "sentv.co.kr"
+      ],
+      "signals": [
+        "조회수",
+        "돌파",
+        "1억뷰",
+        "1억회",
+        "1억 회"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "biztribune.co.kr",
+          "date": "2026-11-19",
+          "url": "http://www.biztribune.co.kr/news/articleView.html?idxno=362844"
+        },
+        {
+          "outlet": "newswell.co.kr",
+          "date": "2026-11-19",
+          "url": "http://www.newswell.co.kr/news/articleView.html?idxno=23764"
+        },
+        {
+          "outlet": "newsmap.co.kr",
+          "date": "2026-11-19",
+          "url": "https://www.newsmap.co.kr/news/articleView.html?idxno=5510"
+        },
+        {
+          "outlet": "sentv.co.kr",
+          "date": "2026-11-19",
+          "url": "https://www.sentv.co.kr/article/view/sentv202611190048"
+        }
+      ],
+      "blog7": 100,
+      "searchRise": 0,
+      "score": 16.3
+    },
+    {
+      "keyword": "더현대 하이",
+      "title": "현대백화점, 더현대 하이 AI 쇼핑 챗GPT로 확대",
+      "description": "현대백화점은 오픈AI(OpenAI)의 '앱스 인 챗GPT(Apps in ChatGPT)'에 더현대 하이 전용 쇼핑 플러그인 서비스를... 생신·집들이 선물 추천부터 더현대 서울의 팝업스토어와 입점 브랜드, 가족 식사를 위한 식당 안내까지...",
+      "field": "유통·공간",
+      "published": "2026-11-16",
+      "within7": true,
+      "outlets": [
+        "ktnews.com",
+        "apparelnews.co.kr",
+        "fashionbiz.co.kr",
+        "econovill.com",
+        "metroseoul.co.kr",
+        "dailysmart.co.kr",
+        "edaily.co.kr",
+        "etnews.com"
+      ],
+      "signals": [
+        "10만원"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "ktnews.com",
+          "date": "2026-11-16",
+          "url": "http://www.ktnews.com/news/articleView.html?idxno=150214"
+        },
+        {
+          "outlet": "apparelnews.co.kr",
+          "date": "2026-11-16",
+          "url": "http://www.apparelnews.co.kr/news/news_view/?idx=229005"
+        },
+        {
+          "outlet": "fashionbiz.co.kr",
+          "date": "2026-11-16",
+          "url": "https://www.fashionbiz.co.kr/article/231117"
+        },
+        {
+          "outlet": "econovill.com",
+          "date": "2026-11-15",
+          "url": "https://www.econovill.com/news/articleView.html?idxno=757305"
+        },
+        {
+          "outlet": "metroseoul.co.kr",
+          "date": "2026-11-15",
+          "url": "http://www.metroseoul.co.kr/article/20261115500060"
+        }
+      ],
+      "blog7": 100,
+      "searchRise": 0.9,
+      "score": 16.1
+    },
+    {
+      "keyword": "오픈런",
+      "title": "[스포츠머그] 때아닌 '오픈런' 농구 때문 아니었다? 마이애미 경기장에...",
+      "description": "팬들은 한정판 유니폼을 구매하기 위해 매장으로 몰려들었고, 구단은 특별 유니폼부터 농구 코트까지 게임 속 세계관을 재현했습니다. 한편 휴스턴 로키츠의 스티븐 아담스는 GTA 6 출시로 스포츠 리그 전체의 경기력이...",
+      "field": "유통·공간",
+      "published": "2026-11-19",
+      "within7": true,
+      "outlets": [
+        "news.sbs.co.kr",
+        "newsway.co.kr",
+        "fnnews.com",
+        "goodmorningcc.com",
+        "ddaily.co.kr"
+      ],
+      "signals": [
+        "완판",
+        "오픈런",
+        "1만원",
+        "9000원"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "news.sbs.co.kr",
+          "date": "2026-11-19",
+          "url": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008853763&plink=ORI&cooper=NAVER"
+        },
+        {
+          "outlet": "newsway.co.kr",
+          "date": "2026-11-18",
+          "url": "https://www.newsway.co.kr/news/view?ud=2026111816041804738"
+        },
+        {
+          "outlet": "fnnews.com",
+          "date": "2026-11-17",
+          "url": "https://www.fnnews.com/news/202611171853518380"
+        },
+        {
+          "outlet": "goodmorningcc.com",
+          "date": "2026-11-15",
+          "url": "https://www.goodmorningcc.com/news/articleView.html?idxno=455791"
+        },
+        {
+          "outlet": "ddaily.co.kr",
+          "date": "2026-11-13",
+          "url": "https://www.ddaily.co.kr/page/view/2026111309240817727"
+        }
+      ],
+      "blog7": 100,
+      "searchRise": 0.99,
+      "score": 16
+    },
+    {
+      "keyword": "부캉이",
+      "title": "시와 시민이 함께 키운 브랜드 '부캉이'",
+      "description": "시민들이 부캉이를 소재로 다양한 2차 창작물을 공유하며 관심을 보이자 시는 이를 일회성 화제로... 관광 숏폼 제작, 카카오톡 이모티콘 배포, 캐릭터 상품 개발, 상표권 출원 등 체계적인 브랜드 사업을 추진했다. 시는...",
+      "field": "콘텐츠·엔터",
+      "published": "2026-11-22",
+      "within7": true,
+      "outlets": [
+        "fnnews.com",
+        "thepowernews.co.kr",
+        "newspim.com",
+        "nocutnews.co.kr",
+        "smartbizn.com"
+      ],
+      "signals": [
+        "조회수",
+        "화제",
+        "260만회",
+        "91%"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "fnnews.com",
+          "date": "2026-11-22",
+          "url": "https://www.fnnews.com/news/202611221845394402"
+        },
+        {
+          "outlet": "thepowernews.co.kr",
+          "date": "2026-11-21",
+          "url": "https://www.thepowernews.co.kr/view.php?ud=20261121113042594661d72a7352_7"
+        },
+        {
+          "outlet": "newspim.com",
+          "date": "2026-11-20",
+          "url": "https://www.newspim.com/news/view/20261120001011"
+        },
+        {
+          "outlet": "nocutnews.co.kr",
+          "date": "2026-11-20",
+          "url": "https://www.nocutnews.co.kr/news/6610404?utm_source=naver&utm_medium=article&utm_campaign=20261120171815"
+        },
+        {
+          "outlet": "fnnews.com",
+          "date": "2026-11-20",
+          "url": "https://www.fnnews.com/news/202611201653456267"
+        }
+      ],
+      "blog7": 100,
+      "searchRise": 0.6,
+      "score": 16
+    },
+    {
+      "keyword": "이브",
+      "title": "일상으로 걸어 나온 '이브'로 팬심 겨냥…닌텐도 새광고",
+      "description": "6일 공개한 광고입니다. 국내 게임 개발사 시프트업(Shift Up)이 만든 싱글 플레이 액션 어드벤처 게임 '스텔라... 보인 캠페인입니다. 현실로 확장된 캐릭터로 팬심 자극 AP신문 광고평론가들은 게임 속 주인공 이브를...",
+      "field": "테크·플랫폼",
+      "published": "2026-11-17",
+      "within7": true,
+      "outlets": [
+        "apnews.kr",
+        "thetracker.co.kr",
+        "newsdream.kr",
+        "thefairnews.co.kr",
+        "gameple.co.kr"
+      ],
+      "signals": [
+        "조회수",
+        "돌파",
+        "200만 회"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "apnews.kr",
+          "date": "2026-11-17",
+          "url": "https://www.apnews.kr/news/articleView.html?idxno=3053157"
+        },
+        {
+          "outlet": "thetracker.co.kr",
+          "date": "2026-11-12",
+          "url": "https://thetracker.co.kr/View.aspx?No=4309642"
+        },
+        {
+          "outlet": "newsdream.kr",
+          "date": "2026-11-12",
+          "url": "http://www.newsdream.kr/news/articleView.html?idxno=122038"
+        },
+        {
+          "outlet": "thefairnews.co.kr",
+          "date": "2026-11-12",
+          "url": "https://www.thefairnews.co.kr/news/articleView.html?idxno=93979"
+        },
+        {
+          "outlet": "gameple.co.kr",
+          "date": "2026-11-09",
+          "url": "https://www.gameple.co.kr/news/articleView.html?idxno=216926"
+        }
+      ],
+      "blog7": 100,
+      "searchRise": 1.51,
+      "score": 16
+    },
+    {
+      "keyword": "피알원",
+      "title": "피알원, 제34회 한국PR대상 4개 부문 수상",
+      "description": "누적 조회수 약 5000만회를 기록했다. 브랜드 검색량은 106.5% 증가했으며 제품 출시 100일 만에 누적 판매량 400만캔을 돌파했다. 이벤트·스폰서십 부문에서는 현대자동차의 ‘HMS Playground’가 우수상을 받았다. 현대...",
+      "field": "콘텐츠·엔터",
+      "published": "2026-11-17",
+      "within7": true,
+      "outlets": [
+        "naeil.com",
+        "hansbiz.co.kr",
+        "venturesquare.net",
+        "joongangenews.com"
+      ],
+      "signals": [
+        "조회수",
+        "돌파",
+        "34회",
+        "4개",
+        "5000만회",
+        "106.5%"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "naeil.com",
+          "date": "2026-11-17",
+          "url": "https://www.naeil.com/news/read/608984?ref=naver"
+        },
+        {
+          "outlet": "hansbiz.co.kr",
+          "date": "2026-11-16",
+          "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=883584"
+        },
+        {
+          "outlet": "venturesquare.net",
+          "date": "2026-11-16",
+          "url": "https://www.venturesquare.net/1128965/"
+        },
+        {
+          "outlet": "joongangenews.com",
+          "date": "2026-11-16",
+          "url": "https://www.joongangenews.com/news/articleView.html?idxno=564058"
+        }
+      ],
+      "blog7": 43,
+      "searchRise": 1.1,
+      "score": 15.5
+    },
+    {
+      "keyword": "제일기획 제작",
+      "title": "제일기획-삼성화재, 더핏 캠페인 1500만 뷰",
+      "description": "누적 조회수 1500만 회를 돌파했다고 제일기획이 19일 밝혔다. 제일기획이 제작해 지난달 론칭한 이번 캠페인은 건강보험에 주거, 운전자, 요양 보험을 결합할 수 있는 신개념 모듈형 보험 출시에 맞춰 TV광고와 디지털...",
+      "field": "콘텐츠·엔터",
+      "published": "2026-11-19",
+      "within7": true,
+      "outlets": [
+        "ditoday.com",
+        "news1.kr",
+        "ajunews.com"
+      ],
+      "signals": [
+        "조회수",
+        "돌파",
+        "1500만 뷰",
+        "1500만 회",
+        "1,500만 뷰",
+        "1500만회"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "ditoday.com",
+          "date": "2026-11-19",
+          "url": "https://ditoday.com/%ec%a0%9c%ec%9d%bc%ea%b8%b0%ed%9a%8d-%ec%82%bc%ec%84%b1%ed%99%94%ec%9e%ac-%eb%8d%94%ed%95%8f-%ec%ba%a0%ed%8e%98%ec%9d%b8-1500%eb%a7%8c-%eb%b7%b0/"
+        },
+        {
+          "outlet": "news1.kr",
+          "date": "2026-11-19",
+          "url": "https://www.news1.kr/industry/general-industry/6358946"
+        },
+        {
+          "outlet": "ajunews.com",
+          "date": "2026-11-19",
+          "url": "https://www.ajunews.com/view/20261119085220026"
+        }
+      ],
+      "blog7": 100,
+      "searchRise": 0,
+      "score": 15.1
+    },
+    {
+      "keyword": "한국장학재단",
+      "title": "한국장학재단, 대한민국소통어워즈 2개 부문 대상",
+      "description": "한국장학재단이 국가장학금 광고 조회수 1,000만 회를 돌파하고 사회관계망서비스(SNS) 콘텐츠 공유 건수를 전년 대비 2.1배 늘린 성과를 인정받아 디지털 소통 분야에서 2개 부문 대상을 수상했다. 한국장학재단은 13일...",
+      "field": "콘텐츠·엔터",
+      "published": "2026-11-16",
+      "within7": true,
+      "outlets": [
+        "hankookilbo.com",
+        "kbsm.net",
+        "imaeil.com"
+      ],
+      "signals": [
+        "조회수",
+        "돌파",
+        "2개",
+        "1,000만 회",
+        "2.1배",
+        "1000만회"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "hankookilbo.com",
+          "date": "2026-11-16",
+          "url": "https://www.hankookilbo.com/news/article/A2026111609150005935?did=NA"
+        },
+        {
+          "outlet": "kbsm.net",
+          "date": "2026-11-15",
+          "url": "https://www.kbsm.net/news/view.php?idx=541702"
+        },
+        {
+          "outlet": "imaeil.com",
+          "date": "2026-11-13",
+          "url": "https://www.imaeil.com/page/view/2026111315223112457"
+        }
+      ],
+      "blog7": 100,
+      "searchRise": 0.91,
+      "score": 15.1
+    },
+    {
+      "keyword": "크림",
+      "title": "기안84 개인전 티켓도 '크림'에서 산다…17만장 흥행 잇는 신작 전시 단...",
+      "description": "티켓도 한정판 패션 상품이나 공연 티켓처럼 출시 일정 자체가 관심을 끄는 상품으로 자리 잡고 있다는... 크림은 앞으로도 화제성 높은 전시를 비롯해 팬덤과 수집 수요가 결합된 문화 콘텐츠를 지속적으로 발굴할...",
+      "field": "캠페인",
+      "published": "2026-11-20",
+      "within7": true,
+      "outlets": [
+        "techm.kr",
+        "lawissue.co.kr"
+      ],
+      "signals": [
+        "흥행",
+        "급증",
+        "화제",
+        "84 개",
+        "17만장",
+        "1304%",
+        "262만 명"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "techm.kr",
+          "date": "2026-11-20",
+          "url": "https://www.techm.kr/news/articleView.html?idxno=157604"
+        },
+        {
+          "outlet": "lawissue.co.kr",
+          "date": "2026-11-11",
+          "url": "https://www.lawissue.co.kr/view.php?ud=202611110912482453204ead0791_12"
+        }
+      ],
+      "blog7": 100,
+      "searchRise": 1.04,
+      "score": 14.9
+    },
+    {
+      "keyword": "이마트",
+      "title": "[똑똑한쇼핑] 이마트, 롯데온, 쿠팡 알럭스, 마리오아울렛, 신세계사이...",
+      "description": "◇ 롯데온, 소상공인 우수 브랜드 동탄점 팝업 운영 롯데온이 소상공인 브랜드 '조은자리', '랄라카트'와... 방문객 대상 미션 이벤트도 진행해 참여 고객 가운데 약 500명을 추첨해 경품을 증정한다. 롯데온은 올해 TOPS...",
+      "field": "패션·뷰티",
+      "published": "2026-11-20",
+      "within7": true,
+      "outlets": [
+        "ekn.kr",
+        "theviewers.co.kr",
+        "4th.kr"
+      ],
+      "signals": [
+        "오픈런",
+        "500명",
+        "100억원",
+        "50%"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "ekn.kr",
+          "date": "2026-11-20",
+          "url": "https://www.ekn.kr/web/view.php?key=20261120027002337"
+        },
+        {
+          "outlet": "theviewers.co.kr",
+          "date": "2026-11-20",
+          "url": "https://theviewers.co.kr/View.aspx?No=4321506"
+        },
+        {
+          "outlet": "4th.kr",
+          "date": "2026-11-20",
+          "url": "http://www.4th.kr/news/articleView.html?idxno=2122267"
+        }
+      ],
+      "blog7": 100,
+      "searchRise": 0.77,
+      "score": 14.1
+    },
+    {
+      "keyword": "350만개 완판",
+      "title": "CU, '350만개 완판' 리센느 빵 흥행 이어 캐릭터 굿즈 27종 전국 출시",
+      "description": "편의점 CU가 걸그룹 리센느(RESCENE)와 손잡고 선보인 협업 빵의 폭발적인 흥행에 힘입어 캐릭터 굿즈... 앞서 CU가 내놓은 리센느 협업 빵 5종은 멤버들이 개발 단계부터 직접 참여하고 한정판 포토카드까지 담아내며 출시...",
+      "field": "식음료",
+      "published": "2026-11-16",
+      "within7": true,
+      "outlets": [
+        "widedaily.com",
+        "wolyo.co.kr",
+        "pinpointnews.co.kr"
+      ],
+      "signals": [
+        "완판",
+        "품절",
+        "흥행",
+        "350만개",
+        "7600원",
+        "2개"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "widedaily.com",
+          "date": "2026-11-16",
+          "url": "https://www.widedaily.com/news/articleView.html?idxno=303706"
+        },
+        {
+          "outlet": "wolyo.co.kr",
+          "date": "2026-11-16",
+          "url": "https://www.wolyo.co.kr/news/articleView.html?idxno=320538"
+        },
+        {
+          "outlet": "pinpointnews.co.kr",
+          "date": "2026-11-16",
+          "url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=504295"
+        }
+      ],
+      "blog7": 11,
+      "searchRise": 0,
+      "score": 13.7
+    },
+    {
+      "keyword": "350만개 판매 신화",
+      "title": "CU, 리센느 ‘리트와 메트’ 굿즈 출시…전국 110여곳서 판매",
+      "description": "약 2주간 관련 상품이 5만개 이상 팔렸으며 일부 피규어 키링은 3일 만에 품절됐습니다. 이번에 선보이는... 참여했으며 한정판 포토카드를 포함한 해당 상품은 2개월 만에 누적 판매량 350만개를 넘어섰습니다. 협업...",
+      "field": "금융·생활",
+      "published": "2026-11-16",
+      "within7": true,
+      "outlets": [
+        "inthenews.co.kr",
+        "biz.newdaily.co.kr",
+        "newsis.com",
+        "news1.kr"
+      ],
+      "signals": [
+        "품절",
+        "5만개",
+        "2개",
+        "350만개",
+        "350만 개"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "inthenews.co.kr",
+          "date": "2026-11-16",
+          "url": "https://www.inthenews.co.kr/news/article.html?no=94575"
+        },
+        {
+          "outlet": "biz.newdaily.co.kr",
+          "date": "2026-11-16",
+          "url": "https://biz.newdaily.co.kr/site/data/html/2026/11/16/2026111650023.html"
+        },
+        {
+          "outlet": "newsis.com",
+          "date": "2026-11-16",
+          "url": "https://www.newsis.com/view/NISX20261116_0003868935"
+        },
+        {
+          "outlet": "news1.kr",
+          "date": "2026-11-16",
+          "url": "https://www.news1.kr/industry/distribution/6354691"
+        }
+      ],
+      "blog7": 2,
+      "searchRise": 0,
+      "score": 12.4
+    },
+    {
+      "keyword": "",
+      "title": "무신사 뷰티 성수, 누적 거래액 5억 돌파…2030·외국인 관심 높아",
+      "description": "무신사 뷰티 성수는 지난 11일부터 15일까지 오픈 첫 5일간 누적 방문객 3만 3000명, 거래액 5억 원을 기록했다.... 단독 팝업존 첫 브랜드로 선보인 메이크업 브랜드 투에이엔의 거래액이 가장 높았다. 무신사 뷰티 단독...",
+      "field": "패션·뷰티",
+      "published": "2026-11-17",
+      "within7": true,
+      "outlets": [
+        "news1.kr",
+        "ftoday.co.kr",
+        "daily.hankooki.com",
+        "etnews.com"
+      ],
+      "signals": [
+        "돌파",
+        "3000명",
+        "5억 원",
+        "3.3만명",
+        "5억원"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "news1.kr",
+          "date": "2026-11-17",
+          "url": "https://www.news1.kr/industry/distribution/6357105"
+        },
+        {
+          "outlet": "ftoday.co.kr",
+          "date": "2026-11-17",
+          "url": "http://www.ftoday.co.kr/news/articleView.html?idxno=369915"
+        },
+        {
+          "outlet": "daily.hankooki.com",
+          "date": "2026-11-17",
+          "url": "https://daily.hankooki.com/news/articleView.html?idxno=1425889"
+        },
+        {
+          "outlet": "etnews.com",
+          "date": "2026-11-17",
+          "url": "https://www.etnews.com/20261117000098"
+        }
+      ],
+      "score": 12.3
+    },
+    {
+      "keyword": "AI 커닝",
+      "title": "'AI 커닝' 장비 검색량 124배 폭증하자…중고 플랫폼도 '판매 빗장'",
+      "description": "기기 검색량이 급증하자, 플랫폼들도 거래 제한과 감시 강화에 나섰다. 중고나라는 이날 오전부터 AI 안경과 초소형 카메라·이어폰 등 부정행위 악용 우려가 있는 기기의 상품 등록과 거래를 제한했다. 관련 기기 판매...",
+      "field": "소비 트렌드",
+      "published": "2026-11-18",
+      "within7": true,
+      "outlets": [
+        "fnnews.com",
+        "hansbiz.co.kr",
+        "edaily.co.kr"
+      ],
+      "signals": [
+        "급증",
+        "124배",
+        "2만원",
+        "7919%",
+        "6707%"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "fnnews.com",
+          "date": "2026-11-18",
+          "url": "https://www.fnnews.com/news/202611181241336330"
+        },
+        {
+          "outlet": "hansbiz.co.kr",
+          "date": "2026-11-18",
+          "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=884561"
+        },
+        {
+          "outlet": "edaily.co.kr",
+          "date": "2026-11-17",
+          "url": "https://www.edaily.co.kr/News/Read?newsId=04719926645646704&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article"
+        }
+      ],
+      "score": 11.1
+    },
+    {
+      "keyword": "롯데웰푸드 자일리톨",
+      "title": "롯데웰푸드 '자일리톨', 김소현·손준호 부부 모델 발탁",
+      "description": "앞서 롯데웰푸드는 지난달 서울 성수동에서 학교 콘셉트의 체험형 팝업스토어 '자일리톨 스쿨'을 운영했다. 방문객이 구강 산도 조절 원리와 치아 관리 습관을 체험할 수 있는 콘텐츠를 마련했다. 롯데웰푸드 관계자는...",
+      "field": "유통·공간",
+      "published": "2026-11-20",
+      "within7": true,
+      "outlets": [
+        "newsworks.co.kr",
+        "ibabynews.com",
+        "thefirstmedia.net",
+        "megaeconomy.co.kr",
+        "pinpointnews.co.kr",
+        "lawissue.co.kr",
+        "fntimes.com",
+        "e-science.co.kr",
+        "popcornnews.net",
+        "newsmap.co.kr",
+        "newsdream.kr"
+      ],
+      "signals": [],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "newsworks.co.kr",
+          "date": "2026-11-20",
+          "url": "https://www.newsworks.co.kr/news/articleView.html?idxno=903912"
+        },
+        {
+          "outlet": "ibabynews.com",
+          "date": "2026-11-20",
+          "url": "https://www.ibabynews.com/news/articleView.html?idxno=157137"
+        },
+        {
+          "outlet": "thefirstmedia.net",
+          "date": "2026-11-20",
+          "url": "http://www.thefirstmedia.net/news/articleView.html?idxno=214300"
+        },
+        {
+          "outlet": "megaeconomy.co.kr",
+          "date": "2026-11-20",
+          "url": "https://www.megaeconomy.co.kr/news/newsview.php?ncode=1065593573094913"
+        },
+        {
+          "outlet": "pinpointnews.co.kr",
+          "date": "2026-11-20",
+          "url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=506372"
+        }
+      ],
+      "score": 11
+    },
+    {
+      "keyword": "아이온",
+      "title": "한국타이어, 전기차 타이어 '아이온' 소재 브랜드 필름 공개",
+      "description": "한국타이어가 지난 16일 세계 최초 풀라인업 전기차 전용 타이어 브랜드 '아이온(iON)'을 소재로 한 신규 브랜드 필름을 선보였다. '전기차에는 전기차 전용 타이어가 필요하다'는 메시지를 담은 이번 브랜드 필름은 전기차...",
+      "field": "캠페인",
+      "published": "2026-11-18",
+      "within7": true,
+      "outlets": [
+        "enewstoday.co.kr",
+        "autodaily.co.kr",
+        "ccdn.co.kr",
+        "news2day.co.kr",
+        "thebigdata.co.kr",
+        "seoultimes.news",
+        "popcornnews.net",
+        "metroseoul.co.kr",
+        "asiatime.co.kr",
+        "newsmap.co.kr",
+        "sports.khan.co.kr",
+        "cstimes.com",
+        "fnnews.com",
+        "autotimes.co.kr",
+        "newsclaim.co.kr",
+        "biz.heraldcorp.com",
+        "kdfnews.com",
+        "sportsworldi.com",
+        "getnews.co.kr",
+        "news1.kr",
+        "sports.donga.com",
+        "mt.co.kr",
+        "daily.hankooki.com"
+      ],
+      "signals": [],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "enewstoday.co.kr",
+          "date": "2026-11-18",
+          "url": "http://www.enewstoday.co.kr/news/articleView.html?idxno=2494353"
+        },
+        {
+          "outlet": "autodaily.co.kr",
+          "date": "2026-11-17",
+          "url": "https://www.autodaily.co.kr/news/articleView.html?idxno=602174"
+        },
+        {
+          "outlet": "ccdn.co.kr",
+          "date": "2026-11-17",
+          "url": "https://www.ccdn.co.kr/news/articleView.html?idxno=1111780"
+        },
+        {
+          "outlet": "news2day.co.kr",
+          "date": "2026-11-17",
+          "url": "https://www.news2day.co.kr/article/20261117500311"
+        },
+        {
+          "outlet": "thebigdata.co.kr",
+          "date": "2026-11-17",
+          "url": "https://www.thebigdata.co.kr/view.php?ud=2026111717220728520ecbf9426b_23"
+        }
+      ],
+      "score": 11
+    },
+    {
+      "keyword": "스핀들",
+      "title": "삼양식품 '스핀들', 첫 광고모델에 소지섭…홈쇼핑 판매 확대",
+      "description": "삼양식품은 소지섭이 출연한 광고 영상 4편을 공개하고 스핀들의 본격적인 광고 캠페인에 나선다고 20일 밝혔다. 이번 광고는 근력을 지속적으로 관리해야 할 대상으로 제시하면서 이를 재테크 용어와 연결해 표현한...",
+      "field": "캠페인",
+      "published": "2026-11-22",
+      "within7": true,
+      "outlets": [
+        "thepublic.kr",
+        "newsbrite.net",
+        "newsworks.co.kr",
+        "ibabynews.com",
+        "nbntv.co.kr",
+        "kfenews.co.kr",
+        "businesspost.co.kr",
+        "industrynews.co.kr",
+        "the-biz.co.kr",
+        "consumuch.com",
+        "megaeconomy.co.kr",
+        "dailysmart.co.kr",
+        "weekly.hankooki.com",
+        "m-i.kr",
+        "enewstoday.co.kr",
+        "insightkorea.co.kr",
+        "e-science.co.kr",
+        "delighti.co.kr",
+        "womentimes.co.kr",
+        "newsmap.co.kr",
+        "newsdream.kr",
+        "pinpointnews.co.kr",
+        "newscape.co.kr",
+        "news1.kr",
+        "thefairnews.co.kr"
+      ],
+      "signals": [],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "thepublic.kr",
+          "date": "2026-11-22",
+          "url": "https://www.thepublic.kr/news/articleView.html?idxno=327810"
+        },
+        {
+          "outlet": "newsbrite.net",
+          "date": "2026-11-21",
+          "url": "http://www.newsbrite.net/news/articleView.html?idxno=201660"
+        },
+        {
+          "outlet": "newsworks.co.kr",
+          "date": "2026-11-20",
+          "url": "https://www.newsworks.co.kr/news/articleView.html?idxno=903913"
+        },
+        {
+          "outlet": "ibabynews.com",
+          "date": "2026-11-20",
+          "url": "https://www.ibabynews.com/news/articleView.html?idxno=157135"
+        },
+        {
+          "outlet": "nbntv.co.kr",
+          "date": "2026-11-20",
+          "url": "https://www.nbntv.co.kr/news/articleView.html?idxno=4027748"
+        }
+      ],
+      "score": 11
+    },
+    {
+      "keyword": "찹쌀떡 팔아 3000억 몸값?",
+      "title": "\"찹쌀떡 팔아 3000억 몸값?\"... 성수동서 시작한 '한정선', 투자유치 나...",
+      "description": "SNS를 중심으로 인지도가 높아지면서 매장 앞에 긴 대기 줄이 형성되는 등 이른바 '오픈런' 열풍을 일으켰다.... 전망이 현실화하면 매출과 영업이익 모두 지난해보다 4배 이상 증가하게 된다.최근 디저트 브랜드가 높은...",
+      "field": "식음료",
+      "published": "2026-11-21",
+      "within7": true,
+      "outlets": [
+        "insight.co.kr",
+        "hankyung.com"
+      ],
+      "signals": [
+        "오픈런",
+        "열풍",
+        "4배",
+        "1000억원",
+        "300억원"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "insight.co.kr",
+          "date": "2026-11-21",
+          "url": "https://www.insight.co.kr/news/583030"
+        },
+        {
+          "outlet": "hankyung.com",
+          "date": "2026-11-18",
+          "url": "https://www.hankyung.com/article/202611184718r"
+        }
+      ],
+      "score": 10.9
+    },
+    {
+      "keyword": "무진장 겨울 블랙프라이데이",
+      "title": "무신사, '무진장 겨울 블랙프라이데이' 돌입…1500여개 상품 특가",
+      "description": "오프라인 매장에서 본 행사를 진행한다. 사전 행사에서는 최대 30% 할인 쿠폰을 선착순 지급하는... 구매 금액에 따라 혜택을 제공하는 '구매 챌린지'와 최대 80% 할인 쿠폰을 무작위로 지급하는 '오픈런 뽑기' 등 참여형...",
+      "field": "유통·공간",
+      "published": "2026-11-20",
+      "within7": true,
+      "outlets": [
+        "inews24.com",
+        "daily.hankooki.com"
+      ],
+      "signals": [
+        "오픈런",
+        "돌파",
+        "30%",
+        "80%",
+        "6회",
+        "100억원"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "inews24.com",
+          "date": "2026-11-20",
+          "url": "http://www.inews24.com/view/2028731"
+        },
+        {
+          "outlet": "daily.hankooki.com",
+          "date": "2026-11-20",
+          "url": "https://daily.hankooki.com/news/articleView.html?idxno=1427300"
+        }
+      ],
+      "score": 10.9
+    },
+    {
+      "keyword": "CU",
+      "title": "CU, 리센느와 협업 확대…캐릭터 굿즈 전국 110여 점포 판매",
+      "description": "특히 리트와 메트 피규어 키링 등 일부 굿즈는 판매 시작 3일 만에 조기 품절된바 있다. CU는... 멤버 이미지가 담긴 한정판 포토카드도 함께 제공한 바 있다. 출시 약 2개월 만에 누적 판매량 350만개를 돌파했다....",
+      "field": "금융·생활",
+      "published": "2026-11-16",
+      "within7": true,
+      "outlets": [
+        "sportsseoul.com",
+        "m-i.kr"
+      ],
+      "signals": [
+        "품절",
+        "돌파",
+        "2개",
+        "350만개",
+        "5만 개"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "sportsseoul.com",
+          "date": "2026-11-16",
+          "url": "https://www.sportsseoul.com/news/read/1650035?ref=naver"
+        },
+        {
+          "outlet": "m-i.kr",
+          "date": "2026-11-16",
+          "url": "https://www.m-i.kr/news/articleView.html?idxno=2018735"
+        }
+      ],
+      "score": 10.9
+    },
+    {
+      "keyword": "한 알에 9000원이어도 오픈런",
+      "title": "\"한 알에 9000원이어도 오픈런\"… 스몰 럭셔리 열풍에 프리미엄 디저트...",
+      "description": "이를 통해 지난 2024년 매출 984억원에서 지난해 1138억원으로 15.6% 급증하며 인기를 증명했다. 이처럼 디저트 시장이 프리미엄 제품으로 이동하는 이유는 고물가 기조 속 평상시에는 소비를 줄이다가 한 번 소비를 할 때...",
+      "field": "식음료",
+      "published": "2026-11-17",
+      "within7": true,
+      "outlets": [
+        "fnnews.com"
+      ],
+      "signals": [
+        "오픈런",
+        "급증",
+        "열풍",
+        "9000원",
+        "984억원",
+        "1138억원",
+        "15.6%"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "fnnews.com",
+          "date": "2026-11-17",
+          "url": "https://www.fnnews.com/news/202611161354398334"
+        }
+      ],
+      "score": 10.7
+    },
+    {
+      "keyword": "코웨이",
+      "title": "코웨이, 부산 신세계 센텀시티몰에 체험형 팝업스토어 마련",
+      "description": "코웨이는 신세계 센텀시티몰 지하 2층에 브랜드 체험 및 판매 공간인 ‘코웨이갤러리 팝업스토어’를... 방문객이 각 생활 공간에서 제품을 직접 살펴보고 기능을 체험할 수 있도록 했다. 침실 공간에는 비렉스 침대...",
+      "field": "유통·공간",
+      "published": "2026-11-19",
+      "within7": true,
+      "outlets": [
+        "lawissue.co.kr",
+        "pointdaily.co.kr",
+        "seoultimes.news",
+        "g-enews.com",
+        "e-science.co.kr",
+        "popcornnews.net"
+      ],
+      "signals": [
+        "20만원"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "lawissue.co.kr",
+          "date": "2026-11-19",
+          "url": "https://www.lawissue.co.kr/view.php?ud=202611192104583358204ead0791_12"
+        },
+        {
+          "outlet": "pointdaily.co.kr",
+          "date": "2026-11-19",
+          "url": "https://www.pointdaily.co.kr/news/articleView.html?idxno=326736"
+        },
+        {
+          "outlet": "seoultimes.news",
+          "date": "2026-11-19",
+          "url": "https://www.seoultimes.news/news/article.html?no=2000102434"
+        },
+        {
+          "outlet": "g-enews.com",
+          "date": "2026-11-19",
+          "url": "https://www.g-enews.com/view.php?ud=202611191605001329056c162803_1"
+        },
+        {
+          "outlet": "e-science.co.kr",
+          "date": "2026-11-19",
+          "url": "https://www.e-science.co.kr/news/articleView.html?idxno=140276"
+        }
+      ],
+      "score": 10.7
+    },
+    {
+      "keyword": "알바몬",
+      "title": "알바몬, 최예나·스윙스 출연 새 겨울 캠페인 공개",
+      "description": "12월에는 두 사람이 인공지능(AI) 기반 매칭 기능을 소개하는 두 번째 에피소드가 나온다. 알바몬은 캠페인... 공개되며, 성수·홍대·이태원 상권과 서울·부산·대구 대중교통 등에서 옥외광고로도 집행된다. 캠페인 연계...",
+      "field": "테크·플랫폼",
+      "published": "2026-11-17",
+      "within7": true,
+      "outlets": [
+        "hansbiz.co.kr",
+        "venturesquare.net",
+        "job-post.co.kr",
+        "ditoday.com",
+        "kdfnews.com",
+        "socialvalue.kr"
+      ],
+      "signals": [
+        "5개"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "hansbiz.co.kr",
+          "date": "2026-11-17",
+          "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=884027"
+        },
+        {
+          "outlet": "venturesquare.net",
+          "date": "2026-11-17",
+          "url": "https://www.venturesquare.net/1129317/"
+        },
+        {
+          "outlet": "job-post.co.kr",
+          "date": "2026-11-17",
+          "url": "https://www.job-post.co.kr/news/articleView.html?idxno=238993"
+        },
+        {
+          "outlet": "ditoday.com",
+          "date": "2026-11-17",
+          "url": "https://ditoday.com/%ec%95%8c%eb%b0%94%eb%aa%ac-%ec%b5%9c%ec%98%88%eb%82%98%c2%b7%ec%8a%a4%ec%9c%99%ec%8a%a4%ec%99%80-%ed%95%a8%ea%bb%98%ed%95%9c-%ea%b2%a8%ec%9a%b8-%ec%ba%a0%ed%8e%98%ec%9d%b8-%ea%b3%b5%ea%b0%9c/"
+        },
+        {
+          "outlet": "kdfnews.com",
+          "date": "2026-11-17",
+          "url": "http://www.kdfnews.com/news/articleView.html?idxno=191036"
+        }
+      ],
+      "score": 10.7
+    },
+    {
+      "keyword": "재혼 황후",
+      "title": "‘재혼 황후’로 감 잡은 디즈니+…기대감 높이는 내년 라인업 [연승의...",
+      "description": "짧은 포맷에서도 화제성과 팬덤을 확보할 수 있다는 점에서 콘텐츠 투자 효율과 확장성을 함께 기대할 수... (MLB), 미국프로농구(NBA), 2027년 포뮬러 E 시즌까지 다양한 종목을 아우를 예정입니다. G마켓과의 제휴, 광고형...",
+      "field": "해외",
+      "published": "2026-11-19",
+      "within7": true,
+      "outlets": [
+        "sedaily.com",
+        "wikitree.co.kr",
+        "isplus.com"
+      ],
+      "signals": [
+        "조회수",
+        "돌파",
+        "화제",
+        "26억 회"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "sedaily.com",
+          "date": "2026-11-19",
+          "url": "https://www.sedaily.com/article/20116136?ref=naver"
+        },
+        {
+          "outlet": "wikitree.co.kr",
+          "date": "2026-11-17",
+          "url": "https://www.wikitree.co.kr/articles/1175326"
+        },
+        {
+          "outlet": "isplus.com",
+          "date": "2026-11-15",
+          "url": "https://isplus.com/article/view/isp202611150108"
+        }
+      ],
+      "score": 10.1
+    },
+    {
+      "keyword": "품절 대란",
+      "title": "빼빼로 대신 츄러스 찾는다…‘품절 대란’에 굿즈까지 달라진 11월 11일",
+      "description": "유통업계는 디저트 신제품과 캐릭터 협업 상품을 앞다퉈 내놓고 있다. 파리바게뜨 ‘초코쫀득츄러스’. 상미당홀딩스 제공 11일 업계에 따르면 파리바게뜨 ‘초코쫀득츄러스’ 누적 판매량이 600만개를 넘었다. 지난...",
+      "field": "식음료",
+      "published": "2026-11-11",
+      "within7": false,
+      "outlets": [
+        "segye.com",
+        "cstimes.com"
+      ],
+      "signals": [
+        "품절",
+        "대란",
+        "돌파",
+        "600만개",
+        "600만 개",
+        "10만 개"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "segye.com",
+          "date": "2026-11-11",
+          "url": "https://www.segye.com/newsView/20261111512660?OutUrl=naver"
+        },
+        {
+          "outlet": "cstimes.com",
+          "date": "2026-11-10",
+          "url": "https://www.cstimes.com/news/articleView.html?idxno=727365"
+        }
+      ],
+      "score": 9.9
+    },
+    {
+      "keyword": "무진장 겨울 블프",
+      "title": "'무진장 겨울 블프' 22일 개막…패션부터 외식·통신까지",
+      "description": "온라인과 전국 오프라인 매장을 넘어 외식·통신 분야로 고객 접점을 확대한다. 무신사는 오늘(20일) 오후... 제공하는 '오픈런 뽑기'도 마련했다. 누적 판매액이 100억원 늘어날 때마다 쿠폰을 지급하는 '카운트업...",
+      "field": "유통·공간",
+      "published": "2026-11-20",
+      "within7": true,
+      "outlets": [
+        "ktnews.com",
+        "slist.kr"
+      ],
+      "signals": [
+        "오픈런",
+        "100억원",
+        "80%",
+        "100억 원"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "ktnews.com",
+          "date": "2026-11-20",
+          "url": "http://www.ktnews.com/news/articleView.html?idxno=150337"
+        },
+        {
+          "outlet": "slist.kr",
+          "date": "2026-11-20",
+          "url": "https://www.slist.kr/news/articleView.html?idxno=783238"
+        }
+      ],
+      "score": 9.9
+    },
+    {
+      "keyword": "텍스트힙",
+      "title": "문학 작품 옷 입은 먹거리와 굿즈…'텍스트힙' 동참하는 유통업계",
+      "description": "독서를 취향으로 소비하는 '텍스트힙' 문화가 확산하면서 업계도 고전문학을 접목한 먹거리에 책갈피 등... 특히 올해는 편의점 GS25가 출판사 민음사와 협업해 지난 8월 선보인 '민음사 빵'이 인기를 끌며 텍스트힙...",
+      "field": "소비 트렌드",
+      "published": "2026-11-18",
+      "within7": true,
+      "outlets": [
+        "srtimes.kr",
+        "newsq.co.kr"
+      ],
+      "signals": [
+        "오픈런",
+        "28.5%",
+        "30.1%",
+        "30.6%"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "srtimes.kr",
+          "date": "2026-11-18",
+          "url": "http://www.srtimes.kr/news/articleView.html?idxno=218001"
+        },
+        {
+          "outlet": "newsq.co.kr",
+          "date": "2026-11-17",
+          "url": "https://www.newsq.co.kr/news/articleView.html?idxno=500916"
+        }
+      ],
+      "score": 9.9
+    },
+    {
+      "keyword": "제우스",
+      "title": "컴투스, '제우스' 흥행에 3분기 흑자전환…향후 수익성·글로벌 확장 '과...",
+      "description": "'서머너즈 워: 천공의 아레나'는 '장송의 프리렌' 콜라보레이션과 '스카이피버' 이벤트로 전년 동기 대비... 게임사업 기준 국내 매출은 1천85억원으로 전년 동기 대비 118.9%, 전분기 대비 99.3% 늘었다. 반면 해외...",
+      "field": "콘텐츠·엔터",
+      "published": "2026-11-16",
+      "within7": true,
+      "outlets": [
+        "youthdaily.co.kr",
+        "seoulfn.com"
+      ],
+      "signals": [
+        "흥행",
+        "85억원",
+        "118.9%",
+        "99.3%",
+        "139억원"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "youthdaily.co.kr",
+          "date": "2026-11-16",
+          "url": "https://www.youthdaily.co.kr/news/article.html?no=229781"
+        },
+        {
+          "outlet": "seoulfn.com",
+          "date": "2026-11-12",
+          "url": "https://www.seoulfn.com/news/articleView.html?idxno=642676"
+        }
+      ],
+      "score": 9.9
+    },
+    {
+      "keyword": "리트와 메트",
+      "title": "리브·메이 '리트와 메트' 굿즈, 편의점에 등장…'리센느 빵' 350만개 흥...",
+      "description": "약 2주간 관련 상품은 5만개 이상 판매됐으며 리트와 메트 피규어 키링 등 일부 상품은 3일 만에 품절됐다.... 멤버들이 상품 개발에 참여하고 한정판 포토카드를 함께 구성한 점이 팬덤 수요를 끌어냈다는 설명이다. 이...",
+      "field": "금융·생활",
+      "published": "2026-11-16",
+      "within7": true,
+      "outlets": [
+        "fnnews.com",
+        "etnews.com"
+      ],
+      "signals": [
+        "품절",
+        "350만개",
+        "5만개",
+        "350만 개"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "fnnews.com",
+          "date": "2026-11-16",
+          "url": "https://www.fnnews.com/news/202611161349445231"
+        },
+        {
+          "outlet": "etnews.com",
+          "date": "2026-11-16",
+          "url": "https://www.etnews.com/20261116000075"
+        }
+      ],
+      "score": 9.9
+    },
+    {
+      "keyword": "몽벨",
+      "title": "몽벨, 매출 목표 초과에 흑자 전환…외형·내실 다 잡았다",
+      "description": "특히 2024년부터는 일부 인기 상품에서 품절과 오픈런 현상이 나타나는 등 브랜드 선호도가 빠르게... 그 결과 지난 10월에는 21개 오프라인 매장과 3개 온라인 채널에서 총 36억 원의 매출을 기록했다. 채널당 평균 매출이...",
+      "field": "유통·공간",
+      "published": "2026-11-19",
+      "within7": true,
+      "outlets": [
+        "apparelnews.co.kr"
+      ],
+      "signals": [
+        "품절",
+        "오픈런",
+        "21개",
+        "3개",
+        "36억 원"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "apparelnews.co.kr",
+          "date": "2026-11-19",
+          "url": "http://www.apparelnews.co.kr/news/news_view/?idx=229125"
+        }
+      ],
+      "score": 9.7
+    },
+    {
+      "keyword": "진해성",
+      "title": "진해성, 유튜버로서 기분 좋은 성장세…조회수 10만 회·구독자 600명 증...",
+      "description": "세 번째 라이브 방송을 통해 팬들과 한층 가까워진 소통의 시간을 가진 데 이어, 조회수 10만 회와 구독자... 팬들의 뜨거운 관심 속에 진행된 이날 라이브 방송은 동시 접속자 수 1,100명을 돌파하고 '좋아요' 역시 1,200개를...",
+      "field": "콘텐츠·엔터",
+      "published": "2026-11-16",
+      "within7": true,
+      "outlets": [
+        "topstarnews.net"
+      ],
+      "signals": [
+        "조회수",
+        "돌파",
+        "10만 회",
+        "600명",
+        "1,100명",
+        "1,200개"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "topstarnews.net",
+          "date": "2026-11-16",
+          "url": "https://www.topstarnews.net/news/articleView.html?idxno=16277687"
+        }
+      ],
+      "score": 9.7
+    },
+    {
+      "keyword": "5년간 누적 1억2000만뷰",
+      "title": "‘5년간 누적 1억2000만뷰’…하나투어, 라이브커머스 성과 달성",
+      "description": "하나LIVE 누적 예약자 13만3000명 돌파..방송 1055회 진행 인더뉴스 문정태 기자ㅣ하나투어는 라이브커머스 채널 ‘하나LIVE’가 출시 5주년을 맞아 누적 조회수 1억2000만회를 기록했다고 19일 밝혔습니다. 누적 예약자도...",
+      "field": "콘텐츠·엔터",
+      "published": "2026-11-19",
+      "within7": true,
+      "outlets": [
+        "inthenews.co.kr"
+      ],
+      "signals": [
+        "조회수",
+        "돌파",
+        "2000만뷰",
+        "3000명",
+        "1055회",
+        "2000만회"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "inthenews.co.kr",
+          "date": "2026-11-19",
+          "url": "https://www.inthenews.co.kr/news/article.html?no=94748"
+        }
+      ],
+      "score": 9.7
+    },
+    {
+      "keyword": "",
+      "title": "여행상품도 라방이 대세?\"…하나투어, 5년간 1억2000만 뷰·13만명 예약",
+      "description": "누적 조회수 1억2000만 뷰, 예약자 13만3000명을 돌파하며 여행상품 판매의 주요 창구로 성장했다.... 지난해에는 이러한 성과를 인정받아 '2025 대한민국 디지털 광고 대상' 이커머스 부문 금상을 받았다. 5주년 기념...",
+      "field": "콘텐츠·엔터",
+      "published": "2026-11-19",
+      "within7": true,
+      "outlets": [
+        "tournews21.com"
+      ],
+      "signals": [
+        "조회수",
+        "돌파",
+        "2000만 뷰",
+        "13만명",
+        "3000명"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "tournews21.com",
+          "date": "2026-11-19",
+          "url": "https://www.tournews21.com/news/articleView.html?idxno=148916"
+        }
+      ],
+      "score": 9.7
+    },
+    {
+      "keyword": "1분 막장",
+      "title": "‘1분 막장’ 숏드라마에 빠진 한국… 인기 상위권 5개 앱 모두 중국계",
+      "description": "유튜브에 따르면 자사 플랫폼에서 숏드라마 조회수는 올해 상반기에만 65억회를 돌파해 지난해 상반기... 이 의원은 “선정적인 숏드라마 콘텐츠와 광고가 확산하고 있지만 관련 심의 건수는 0건”이라며 제도 개선을...",
+      "field": "콘텐츠·엔터",
+      "published": "2026-11-18",
+      "within7": true,
+      "outlets": [
+        "biz.chosun.com"
+      ],
+      "signals": [
+        "조회수",
+        "돌파",
+        "5개",
+        "65억회",
+        "0건"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "biz.chosun.com",
+          "date": "2026-11-18",
+          "url": "https://biz.chosun.com/it-science/ict/2026/11/18/EQYVRTQEWVDENN6N67UXDRCFTQ/?utm_source=naver&utm_medium=original&utm_campaign=biz"
+        }
+      ],
+      "score": 9.7
+    },
+    {
+      "keyword": "현대적으로",
+      "title": "정기선 HD현대 회장, 정주영의 도전정신을 '현대적으로' 재해석하다",
+      "description": "디테일에 '광고인데도 스킵할 수 없었다'는 댓글이 이어졌다. 영상은 게시 2주 만에 조회수 500만회를 넘었고 3개월 만에 쇼트 버전과 풀 버전을 합쳐 2000만회를 돌파했다. 임직원들 사이에서 '못 바이러스에 걸렸다'는...",
+      "field": "콘텐츠·엔터",
+      "published": "2026-11-16",
+      "within7": true,
+      "outlets": [
+        "koreareport.co.kr"
+      ],
+      "signals": [
+        "조회수",
+        "돌파",
+        "500만회",
+        "3개",
+        "2000만회"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "koreareport.co.kr",
+          "date": "2026-11-16",
+          "url": "https://www.koreareport.co.kr/news/articleView.html?idxno=54749"
+        }
+      ],
+      "score": 9.7
+    },
+    {
+      "keyword": "연필 대란에 급 추위까지",
+      "title": "\"연필 대란에 급 추위까지\"…수능 앞두고 수험생들 '막바지 수요' 몰려",
+      "description": "CU는 수능 시험장 인근 매장에서 연필과 손목시계, 핫팩 등 관련 상품 재고를 평소보다 최대 30배 이상... 500% 급증했다. 전용 온라인 몰 '다이소몰'의 '연필' 검색량도 전전날 대비 전날 약 90% 늘었다. 수요가 몰리면서...",
+      "field": "소비 트렌드",
+      "published": "2026-11-19",
+      "within7": true,
+      "outlets": [
+        "fnnews.com"
+      ],
+      "signals": [
+        "대란",
+        "급증",
+        "30배",
+        "500%",
+        "90%"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "fnnews.com",
+          "date": "2026-11-19",
+          "url": "https://www.fnnews.com/news/202611191126141446"
+        }
+      ],
+      "score": 9.7
+    },
+    {
+      "keyword": "",
+      "title": "마운자로 열풍에 사이즈도 다양하게…패션업계, 체형변화 맞춤 전략",
+      "description": "122만건으로 급증했다. 올해 상반기에는 약 186만건을 기록하며 지난해 연간 실적을 이미 넘어섰다. 특히... 관련 검색량은 전년 동기 대비 33% 증가했다. 민소매(슬리브리스)와 브라톱 등 몸의 라인을 드러내는 상품...",
+      "field": "소비 트렌드",
+      "published": "2026-11-17",
+      "within7": true,
+      "outlets": [
+        "newsis.com"
+      ],
+      "signals": [
+        "급증",
+        "열풍",
+        "122만건",
+        "186만건",
+        "33%"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "newsis.com",
+          "date": "2026-11-17",
+          "url": "https://www.newsis.com/view/NISX20261116_0003870258"
+        }
+      ],
+      "score": 9.7
+    },
+    {
+      "keyword": "29CM 이구홈",
+      "title": "29CM 이구홈, 누적 방문객 300만명 돌파…외국인 매출도↑",
+      "description": "누적 방문객 300만명을 돌파했다. 온라인에서 축적한 디자인 브랜드 큐레이션 역량을 오프라인으로 확장한... 주목도 높은 라이프스타일 브랜드의 팝업 공간도 운영하며 방문 목적을 다양화하고 있다. 이 같은 전략은 홈...",
+      "field": "패션·뷰티",
+      "published": "2026-11-16",
+      "within7": true,
+      "outlets": [
+        "newsis.com",
+        "etnews.com",
+        "metroseoul.co.kr"
+      ],
+      "signals": [
+        "돌파",
+        "300만명",
+        "5개"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "newsis.com",
+          "date": "2026-11-16",
+          "url": "https://www.newsis.com/view/NISX20261116_0003868968"
+        },
+        {
+          "outlet": "etnews.com",
+          "date": "2026-11-16",
+          "url": "https://www.etnews.com/20261116000089"
+        },
+        {
+          "outlet": "metroseoul.co.kr",
+          "date": "2026-11-16",
+          "url": "http://www.metroseoul.co.kr/article/20261116500022"
+        }
+      ],
+      "score": 9.6
+    },
+    {
+      "keyword": "메이크오버 프로젝트",
+      "title": "올젠, 남성 스타일 변신 '메이크오버 프로젝트' 전개",
+      "description": "클래식 브랜드 올젠(OLZEN)이 남성들의 새로운 스타일 발견을 돕는 '메이크오버(Makeover) 프로젝트'를... 올젠은 프로젝트 론칭에 맞춰 다양한 직업군의 남성 10인이 참여한 메이크오버 화보와 필름도 공개했다. 과도한...",
+      "field": "캠페인",
+      "published": "2026-11-20",
+      "within7": true,
+      "outlets": [
+        "livesnews.com",
+        "news1.kr",
+        "ktnews.com",
+        "newsroad.co.kr",
+        "apparelnews.co.kr"
+      ],
+      "signals": [
+        "10명"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "livesnews.com",
+          "date": "2026-11-20",
+          "url": "https://www.livesnews.com/news/article.html?no=66192"
+        },
+        {
+          "outlet": "news1.kr",
+          "date": "2026-11-19",
+          "url": "https://www.news1.kr/industry/distribution/6359557"
+        },
+        {
+          "outlet": "ktnews.com",
+          "date": "2026-11-19",
+          "url": "http://www.ktnews.com/news/articleView.html?idxno=150324"
+        },
+        {
+          "outlet": "newsroad.co.kr",
+          "date": "2026-11-19",
+          "url": "http://www.newsroad.co.kr/news/articleView.html?idxno=68046"
+        },
+        {
+          "outlet": "apparelnews.co.kr",
+          "date": "2026-11-19",
+          "url": "http://www.apparelnews.co.kr/news/news_view/?idx=229108"
+        }
+      ],
+      "score": 9.5
+    },
+    {
+      "keyword": "일동후디스 하이뮨",
+      "title": "일동후디스 하이뮨, 가수 장민호와 모델 재계약…8년 동행",
+      "description": "지난해 공개한 광고 누적 조회수 1500만회 돌파 인더뉴스 장승윤 기자ㅣ일동후디스는 단백질 브랜드 하이뮨이 가수 장민호와 전속 모델 계약을 1년 연장한다고 18일 밝혔습니다. 이로써 장민호는 지난 2020년 하이뮨 전속...",
+      "field": "콘텐츠·엔터",
+      "published": "2026-11-18",
+      "within7": true,
+      "outlets": [
+        "inthenews.co.kr",
+        "news1.kr"
+      ],
+      "signals": [
+        "조회수",
+        "돌파",
+        "1500만회",
+        "1500만 회"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "inthenews.co.kr",
+          "date": "2026-11-18",
+          "url": "https://www.inthenews.co.kr/news/article.html?no=94679"
+        },
+        {
+          "outlet": "news1.kr",
+          "date": "2026-11-18",
+          "url": "https://www.news1.kr/industry/distribution/6357463"
+        }
+      ],
+      "score": 9.4
+    },
+    {
+      "keyword": "아주르 프로밀리아",
+      "title": "넥슨, 26일 출시 ‘아주르 프로밀리아’ 서울 곳곳을 물들이다",
+      "description": "옥외광고 캠페인을 펼치며 출시 분위기를 전했다. 넥슨(공동대표 강대현·김정욱)은 게임속 주인공... 한편 넥슨은 출시 전 프리뷰 방송을 오는 20일 20시에 진행, 출시 이벤트와 게임 정보를 공개할 예정이다.",
+      "field": "캠페인",
+      "published": "2026-11-18",
+      "within7": true,
+      "outlets": [
+        "mk.co.kr",
+        "finomy.com"
+      ],
+      "signals": [
+        "돌파",
+        "급증",
+        "7%",
+        "8만명"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "mk.co.kr",
+          "date": "2026-11-18",
+          "url": "https://www.mk.co.kr/article/12212677"
+        },
+        {
+          "outlet": "finomy.com",
+          "date": "2026-11-17",
+          "url": "http://www.finomy.com/news/articleView.html?idxno=266971"
+        }
+      ],
+      "score": 9.4
+    },
+    {
+      "keyword": "",
+      "title": "무신사 뷰티 성수, 하루 평균 1억 팔았다",
+      "description": "1층에는 브랜드 단독 팝업존과 520여 개 향수를 모은 프래그런스 존, 여러 향을 조합하는 향수 레이어링존을... 개점 첫 5일간 무신사 뷰티 성수 방문객의 31%가 인근 무신사 매장을 함께 방문했다. 특히 무신사...",
+      "field": "패션·뷰티",
+      "published": "2026-11-18",
+      "within7": true,
+      "outlets": [
+        "ktnews.com",
+        "busan.com"
+      ],
+      "signals": [
+        "31%",
+        "3000명",
+        "5억 원"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "ktnews.com",
+          "date": "2026-11-18",
+          "url": "http://www.ktnews.com/news/articleView.html?idxno=150282"
+        },
+        {
+          "outlet": "busan.com",
+          "date": "2026-11-17",
+          "url": "https://www.busan.com/view/busan/view.php?code=2026111717162104574"
+        }
+      ],
+      "score": 8.9
+    },
+    {
+      "keyword": "",
+      "title": "무신사 뷰티 성수, 5일간 3만3000명 방문…거래액 5억원",
+      "description": "브랜드 팝업 공간과 520여개 향수를 모은 프래그런스 존, 피부 고민별 상품 상담을 제공하는 공간 등도 마련했다. 성수 일대 다른 무신사 매장과의 교차 방문도 나타났다. 개점 후 5일간 무신사 뷰티 성수 방문객의 31%는...",
+      "field": "패션·뷰티",
+      "published": "2026-11-17",
+      "within7": true,
+      "outlets": [
+        "digitalchosun.dizzo.com",
+        "biz.chosun.com"
+      ],
+      "signals": [
+        "3000명",
+        "5억원",
+        "31%",
+        "65%"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "digitalchosun.dizzo.com",
+          "date": "2026-11-17",
+          "url": "http://digitalchosun.dizzo.com/site/data/html_dir/2026/11/17/2026111780027.html"
+        },
+        {
+          "outlet": "biz.chosun.com",
+          "date": "2026-11-17",
+          "url": "https://biz.chosun.com/distribution/channel/2026/11/17/MSKVIBH6UZCFXAVHUOPCFDVJFY/?utm_source=naver&utm_medium=original&utm_campaign=biz"
+        }
+      ],
+      "score": 8.9
+    }
+  ]
+}

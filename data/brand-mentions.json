@@ -1,33 +1,114 @@
 {
-  "generated_at": "2026-11-15T16:15:29.194Z",
+  "generated_at": "2026-11-22T17:03:54.819Z",
   "window": {
-    "since": "2026-11-09",
-    "until": "2026-11-16"
+    "since": "2026-11-16",
+    "until": "2026-11-23"
   },
   "source": "네이버 검색 API(블로그·카페·뉴스) · API HUB",
   "counts": {
-    "blog": 2,
+    "blog": 11,
     "cafearticle": 0,
     "news": 0
   },
   "mentions": [
     {
       "type": "blog",
-      "query": "허보람 마케터",
-      "title": "[도서 협찬] AI는 답을 만들고 마케터는 맥락을 설계한다 _허보람",
-      "description": "여러분은 AI시대를 잘 살아가고 있으신가요? #AI는답을만들고마케터는맥락을설계한다 #허보람 #슬로디미디어 #AI #마케터 #책 #독서 #책스타그램 #책추천 #도서협찬 #책읽는루치아 #책읽는루치아_2026",
-      "by": "루치아의 서재",
-      "date": "2026-11-14",
-      "url": "https://blog.naver.com/lucia_reading_a_book/224476882044"
+      "query": "bruceheo",
+      "title": "무신사는 왜 매거진 B를 인수했을까｜브랜드 콘텐츠 전략 분석",
+      "description": "이 글은 제가 기존에 작성한 칼럼을 바탕으로 네이버 블로그 독자에게 맞게 다시 구성했습니다. 원문 읽기: https://bruceheo.com/writing/200/ 다른 글 읽기: https://bruceheo.com",
+      "by": "마케터 브루스의 이야기",
+      "date": "2026-11-22",
+      "url": "https://blog.naver.com/bruceheo91/224477239808"
+    },
+    {
+      "type": "blog",
+      "query": "bruceheo",
+      "title": "밈 마케팅이 조회수로 끝나는 이유｜브랜드가 남는 콘텐츠의 조건",
+      "description": "이 글은 제가 기존에 작성한 칼럼을 바탕으로 네이버 블로그 독자에게 맞게 다시 구성했습니다. 원문 읽기: https://bruceheo.com/writing/216/ 다른 글 읽기: https://bruceheo.com",
+      "by": "마케터 브루스의 이야기",
+      "date": "2026-11-21",
+      "url": "https://blog.naver.com/bruceheo91/224477239494"
+    },
+    {
+      "type": "blog",
+      "query": "bruceheo",
+      "title": "GEO와 제로클릭 시대, AI 검색에 선택받는 브랜드의 콘텐츠 전략",
+      "description": "이 글은 제가 기존에 작성한 칼럼을 바탕으로 네이버 블로그 독자에게 맞게 다시 구성했습니다. 원문 읽기: https://bruceheo.com/writing/186/ 다른 글 읽기: https://bruceheo.com",
+      "by": "마케터 브루스의 이야기",
+      "date": "2026-11-20",
+      "url": "https://blog.naver.com/bruceheo91/224477239221"
+    },
+    {
+      "type": "blog",
+      "query": "bruceheo",
+      "title": "블로그 체험단과 리뷰 마케팅, 후기 개수보다 중요한 것",
+      "description": "이 글은 제가 기존에 작성한 칼럼을 바탕으로 네이버 블로그 독자에게 맞게 다시 구성했습니다. 원문 읽기: https://bruceheo.com/writing/217/ 다른 글 읽기: https://bruceheo.com",
+      "by": "마케터 브루스의 이야기",
+      "date": "2026-11-19",
+      "url": "https://blog.naver.com/bruceheo91/224477238877"
     },
     {
       "type": "blog",
       "query": "허보람 마케터",
-      "title": "[마케터·기획자 필독서] 버거킹 기사식당부터 무신사 매거진 B 인수....",
-      "description": "<채성모의 손에 잡히는 독서>를 통해서 도서 '협찬' @chae_seongmo @slodymedia #AI는답을만들고마케터는맥락을설계한다 #허보람 #슬로디미디어출판사 #채성모의손에잡히는독서 도서 기본 정보 도서명: AI는 답을...",
-      "by": "Skullism",
-      "date": "2026-11-13",
-      "url": "https://blog.naver.com/mibgo/224475519448"
+      "title": "『AI는 답을 만들고 마케터는 맥락을 설계한다』 정답이 넘치는 AI ....",
+      "description": "답을 만드는 시대, 끝내 차이를 만드는 것은 사람의 경험과 관찰, 그리고 맥락을 읽어내는 판단력이라는 사실을 다시 생각하게 하는 책이다. AI는 답을 만들고 마케터는 맥락을 설계한다 허보람2026슬로디미디어",
+      "by": "아레시보 메시지",
+      "date": "2026-11-19",
+      "url": "https://blog.naver.com/reekey22/224484025446"
+    },
+    {
+      "type": "blog",
+      "query": "허보람 마케터",
+      "title": "AI는 답을 만들고 마케터는 맥락을 설계한다(허보람)",
+      "description": "저자는 허보람 11년차 마케터십니다. 브랜치와 링크드인에 오랜기간 마케팅관련 글을 개재해왔고 그 결과 이 책으로 결실을 맺으신듯합니다. 가끔 미디어에 무슨 매장에 신상품이 출시되어 전날 저녁부터...",
+      "by": "책과함께 꿈을",
+      "date": "2026-11-19",
+      "url": "https://blog.naver.com/xnosis/224483977776"
+    },
+    {
+      "type": "blog",
+      "query": "bruceheo",
+      "title": "스위첸 광고 분석｜8년 동안 집 이야기를 반복한 이유",
+      "description": "이 글은 제가 기존에 작성한 칼럼을 바탕으로 네이버 블로그 독자에게 맞게 다시 구성했습니다. 원문 읽기: https://bruceheo.com/writing/212/ 다른 글 읽기: https://bruceheo.com",
+      "by": "마케터 브루스의 이야기",
+      "date": "2026-11-18",
+      "url": "https://blog.naver.com/bruceheo91/224477238585"
+    },
+    {
+      "type": "blog",
+      "query": "허보람 마케터",
+      "title": "[독서-1960] AI는 답을 만들고 마케터는 맥락을 설계한다",
+      "description": "AI는 답을 만들고 마케터는 맥락을 설계한다 허보람2026슬로디미디어 #AI는답을만들고마케터는맥락을설계한다 #허보람 #슬로디미디어 #AI마케팅 #AI시대마케팅전략 #마케팅기획 #브랜드전략 #마케팅판단력...",
+      "by": "한걸음씩 Step by Step",
+      "date": "2026-11-18",
+      "url": "https://blog.naver.com/agapeuni/224482617609"
+    },
+    {
+      "type": "blog",
+      "query": "허보람 마케터",
+      "title": "AI는 답을 만들고 마케터는 맥락을 설계한다",
+      "description": "#AI는답을만들고마케터는맥락을설계한다 #책과콩나무 #슬로디미디어 #허보람 #AI #마케터 #차이를만드는판단의기준 #마케팅 #세일즈 #브랜드 #비즈니스 #경영전략 #혁신 #경영관리 #관심 #행동 #연결 #기업경영...",
+      "by": "djkidol님의블로그",
+      "date": "2026-11-18",
+      "url": "https://blog.naver.com/djkidol/224482206940"
+    },
+    {
+      "type": "blog",
+      "query": "허보람 마케터",
+      "title": "2026 서평 #143 AI 답을 만들고 마케터는 맥락을 설계한다(슬로디미디....",
+      "description": "막연하게 남들이 AI를 활용하는 게 쉬워만 보이고 정작 AI를 그리 접하지 않으면서 쉽게 타인에게 말하는 이들에게 권하며 글을 줄인다. -坤 AI는 답을 만들고 마케터는 맥락을 설계한다 허보람2026슬로디미디어",
+      "by": "라파엘의 네 멋대로 읽고 써라!",
+      "date": "2026-11-18",
+      "url": "https://blog.naver.com/lyricistkbg/224481888099"
+    },
+    {
+      "type": "blog",
+      "query": "bruceheo",
+      "title": "인플루언서 마케팅, 팔로워 수보다 먼저 확인해야 할 5가지",
+      "description": "이 글은 제가 기존에 작성한 칼럼을 바탕으로 네이버 블로그 독자에게 맞게 다시 구성했습니다. 원문 읽기: https://bruceheo.com/writing/218/ 다른 글 읽기: https://bruceheo.com",
+      "by": "마케터 브루스의 이야기",
+      "date": "2026-11-17",
+      "url": "https://blog.naver.com/bruceheo91/224477238291"
     }
   ]
 }
