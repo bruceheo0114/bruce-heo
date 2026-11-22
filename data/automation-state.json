@@ -1,8 +1,8 @@
 {
   "version": 1,
   "initialized": true,
-  "lastCheckedAt": "2026-11-22T02:45:20.199Z",
-  "lastCheckedCanonicalUrl": "https://brunch.co.kr/@heoboram/231",
+  "lastCheckedAt": "2026-11-22T23:00:31.355Z",
+  "lastCheckedCanonicalUrl": "https://brunch.co.kr/@heoboram/232",
   "reviewSuccessCount": 1,
   "mode": "review",
   "articles": {
@@ -1298,6 +1298,38 @@
       },
       "approvedAt": "2026-11-16T04:50:03.687Z",
       "scheduledAt": "2026-11-30T22:30:00.000Z",
+      "completedAt": null
+    },
+    "232": {
+      "id": "232",
+      "canonicalUrl": "https://brunch.co.kr/@heoboram/232",
+      "title": "당신은 원본입니까?",
+      "publishedAt": "2026-11-22T12:00:14.000Z",
+      "bodyHash": "d7b793248aaccbd92cb241bae79d40e911d89ec605c62be69a54f303db66672f",
+      "batchId": "45080778531",
+      "homepage": {
+        "status": "published",
+        "updatedAt": "2026-11-22T23:00:31.355Z"
+      },
+      "package": {
+        "status": "awaiting_review",
+        "manifestPath": "content/232/manifest.json",
+        "generatedAt": null
+      },
+      "linkedin": {
+        "status": "manual_pending",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "instagram": {
+        "status": "manual_pending",
+        "id": null,
+        "lastAttemptAt": null,
+        "error": null
+      },
+      "approvedAt": null,
+      "scheduledAt": null,
       "completedAt": null
     }
   }
