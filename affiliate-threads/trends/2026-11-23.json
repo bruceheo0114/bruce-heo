@@ -1,0 +1,471 @@
+{
+  "generated_at": "2026-11-22T17:45:07.504Z",
+  "window": {
+    "startDate": "2026-10-27",
+    "endDate": "2026-11-23",
+    "recent_days": 7
+  },
+  "provider": "API HUB",
+  "calls": 20,
+  "items": [
+    {
+      "keyword": "결로 제거",
+      "category": "청소 도구",
+      "rise": null,
+      "avg": 1.9
+    },
+    {
+      "keyword": "뽁뽁이",
+      "category": "현관·단열",
+      "rise": 1.67,
+      "avg": 29.6
+    },
+    {
+      "keyword": "문풍지",
+      "category": "현관·단열",
+      "rise": 1.42,
+      "avg": 50.6
+    },
+    {
+      "keyword": "김장 매트",
+      "category": "주방 도구·보관",
+      "rise": 1.4,
+      "avg": 37.2
+    },
+    {
+      "keyword": "케이블 정리",
+      "category": "책상·케이블 정리",
+      "rise": 1.21,
+      "avg": 2.2
+    },
+    {
+      "keyword": "책상 정리함",
+      "category": "책상·케이블 정리",
+      "rise": 1.2,
+      "avg": 9.6
+    },
+    {
+      "keyword": "단열 커튼",
+      "category": "현관·단열",
+      "rise": 1.18,
+      "avg": 4.6
+    },
+    {
+      "keyword": "성에 제거",
+      "category": "차량 정리",
+      "rise": 1.18,
+      "avg": 5.3
+    },
+    {
+      "keyword": "세탁망",
+      "category": "세탁·건조",
+      "rise": 1.15,
+      "avg": 5
+    },
+    {
+      "keyword": "모니터 받침대",
+      "category": "책상·케이블 정리",
+      "rise": 1.03,
+      "avg": 40.7
+    },
+    {
+      "keyword": "샤워기 거치대",
+      "category": "욕실 정리",
+      "rise": 1.03,
+      "avg": 46
+    },
+    {
+      "keyword": "수면 양말",
+      "category": "침실·생활",
+      "rise": 1.03,
+      "avg": 36.8
+    },
+    {
+      "keyword": "우산꽂이",
+      "category": "현관·단열",
+      "rise": 1.02,
+      "avg": 19.5
+    },
+    {
+      "keyword": "차량 컵홀더",
+      "category": "차량 정리",
+      "rise": 1.02,
+      "avg": 7.1
+    },
+    {
+      "keyword": "신발 정리대",
+      "category": "현관·단열",
+      "rise": 1.01,
+      "avg": 11.9
+    },
+    {
+      "keyword": "차량용 수납",
+      "category": "차량 정리",
+      "rise": 1.01,
+      "avg": 0.8
+    },
+    {
+      "keyword": "김장 용기",
+      "category": "주방 도구·보관",
+      "rise": 1,
+      "avg": 0.3
+    },
+    {
+      "keyword": "노트북 거치대",
+      "category": "책상·케이블 정리",
+      "rise": 0.99,
+      "avg": 50.9
+    },
+    {
+      "keyword": "빨래 바구니",
+      "category": "세탁·건조",
+      "rise": 0.97,
+      "avg": 22.1
+    },
+    {
+      "keyword": "옷장 정리",
+      "category": "옷장·서랍 수납",
+      "rise": 0.96,
+      "avg": 12.8
+    },
+    {
+      "keyword": "욕실 선반",
+      "category": "욕실 정리",
+      "rise": 0.96,
+      "avg": 62.2
+    },
+    {
+      "keyword": "암막 커튼",
+      "category": "침실·생활",
+      "rise": 0.96,
+      "avg": 67.4
+    },
+    {
+      "keyword": "멀티탭 정리함",
+      "category": "책상·케이블 정리",
+      "rise": 0.95,
+      "avg": 7.6
+    },
+    {
+      "keyword": "식기건조대",
+      "category": "주방 도구·보관",
+      "rise": 0.93,
+      "avg": 57.5
+    },
+    {
+      "keyword": "바지걸이",
+      "category": "옷장·서랍 수납",
+      "rise": 0.9,
+      "avg": 63.4
+    },
+    {
+      "keyword": "이불 건조대",
+      "category": "세탁·건조",
+      "rise": 0.89,
+      "avg": 2.8
+    },
+    {
+      "keyword": "냉장고 정리",
+      "category": "주방 도구·보관",
+      "rise": 0.88,
+      "avg": 4.8
+    },
+    {
+      "keyword": "빨래 건조대",
+      "category": "세탁·건조",
+      "rise": 0.88,
+      "avg": 67.7
+    },
+    {
+      "keyword": "서랍 정리함",
+      "category": "옷장·서랍 수납",
+      "rise": 0.87,
+      "avg": 17.8
+    },
+    {
+      "keyword": "먼지떨이",
+      "category": "청소 도구",
+      "rise": 0.87,
+      "avg": 10.2
+    },
+    {
+      "keyword": "수건 걸이",
+      "category": "욕실 정리",
+      "rise": 0.87,
+      "avg": 25.6
+    },
+    {
+      "keyword": "밀대 걸레",
+      "category": "청소 도구",
+      "rise": 0.86,
+      "avg": 80.3
+    },
+    {
+      "keyword": "욕실 매트",
+      "category": "욕실 정리",
+      "rise": 0.86,
+      "avg": 43.9
+    },
+    {
+      "keyword": "니트 건조대",
+      "category": "세탁·건조",
+      "rise": 0.82,
+      "avg": 0.4
+    },
+    {
+      "keyword": "방석",
+      "category": "침실·생활",
+      "rise": 0.82,
+      "avg": 27.8
+    },
+    {
+      "keyword": "러그",
+      "category": "침실·생활",
+      "rise": 0.81,
+      "avg": 62.4
+    },
+    {
+      "keyword": "창문 청소",
+      "category": "청소 도구",
+      "rise": 0.8,
+      "avg": 48.2
+    },
+    {
+      "keyword": "극세사 이불",
+      "category": "침실·생활",
+      "rise": 0.78,
+      "avg": 51.3
+    },
+    {
+      "keyword": "이불 압축팩",
+      "category": "옷장·서랍 수납",
+      "rise": 0.77,
+      "avg": 25.3
+    },
+    {
+      "keyword": "패딩 보관",
+      "category": "옷장·서랍 수납",
+      "rise": 0.73,
+      "avg": 0.7
+    },
+    {
+      "keyword": "차량 햇빛가리개",
+      "category": "차량 정리",
+      "rise": 0.73,
+      "avg": 13.6
+    },
+    {
+      "keyword": "칫솔 거치대",
+      "category": "욕실 정리",
+      "rise": 0.72,
+      "avg": 21.9
+    },
+    {
+      "keyword": "밀폐용기",
+      "category": "주방 도구·보관",
+      "rise": 0.7,
+      "avg": 26.8
+    },
+    {
+      "keyword": "트렁크 정리함",
+      "category": "차량 정리",
+      "rise": 0.67,
+      "avg": 50.1
+    },
+    {
+      "keyword": "틈새 브러시",
+      "category": "청소 도구",
+      "rise": 0,
+      "avg": 0
+    }
+  ],
+  "topic_tags": {
+    "책상·케이블 정리": {
+      "best": "데스크테리어",
+      "candidates": [
+        {
+          "tag": "데스크테리어",
+          "avg": 81
+        },
+        {
+          "tag": "책상정리",
+          "avg": 9.1
+        },
+        {
+          "tag": "홈오피스",
+          "avg": 2.4
+        }
+      ]
+    },
+    "옷장·서랍 수납": {
+      "best": "옷장정리",
+      "candidates": [
+        {
+          "tag": "옷장정리",
+          "avg": 73.4
+        },
+        {
+          "tag": "정리수납",
+          "avg": 20.1
+        },
+        {
+          "tag": "수납정리",
+          "avg": 13.7
+        }
+      ]
+    },
+    "주방 도구·보관": {
+      "best": "주방정리",
+      "candidates": [
+        {
+          "tag": "주방정리",
+          "avg": 80.1
+        },
+        {
+          "tag": "살림템",
+          "avg": 6
+        },
+        {
+          "tag": "주방살림",
+          "avg": 4.6
+        }
+      ]
+    },
+    "청소 도구": {
+      "best": "청소용품",
+      "candidates": [
+        {
+          "tag": "청소용품",
+          "avg": 36.9
+        },
+        {
+          "tag": "살림팁",
+          "avg": 1.6
+        },
+        {
+          "tag": "청소꿀팁",
+          "avg": 0
+        }
+      ]
+    },
+    "세탁·건조": {
+      "best": "빨래건조",
+      "candidates": [
+        {
+          "tag": "빨래건조",
+          "avg": 54
+        },
+        {
+          "tag": "살림팁",
+          "avg": 12.8
+        },
+        {
+          "tag": "세탁꿀팁",
+          "avg": 0
+        }
+      ]
+    },
+    "욕실 정리": {
+      "best": "욕실인테리어",
+      "candidates": [
+        {
+          "tag": "욕실인테리어",
+          "avg": 79.1
+        },
+        {
+          "tag": "욕실용품",
+          "avg": 35
+        },
+        {
+          "tag": "욕실정리",
+          "avg": 9.5
+        }
+      ]
+    },
+    "현관·신발 정리": {
+      "best": "현관인테리어",
+      "candidates": [
+        {
+          "tag": "현관인테리어",
+          "avg": 73.1
+        },
+        {
+          "tag": "신발정리",
+          "avg": 21.5
+        },
+        {
+          "tag": "현관정리",
+          "avg": 3.8
+        }
+      ]
+    },
+    "현관·단열": {
+      "best": "월동준비",
+      "candidates": [
+        {
+          "tag": "월동준비",
+          "avg": 58.2
+        },
+        {
+          "tag": "외풍차단",
+          "avg": 41
+        },
+        {
+          "tag": "겨울준비",
+          "avg": 4.7
+        }
+      ]
+    },
+    "차량 정리": {
+      "best": "자동차용품",
+      "candidates": [
+        {
+          "tag": "자동차용품",
+          "avg": 42.4
+        },
+        {
+          "tag": "차량용품",
+          "avg": 40.5
+        },
+        {
+          "tag": "차량정리",
+          "avg": 0
+        }
+      ]
+    },
+    "침실·생활": {
+      "best": "침구",
+      "candidates": [
+        {
+          "tag": "침구",
+          "avg": 46
+        },
+        {
+          "tag": "겨울침구",
+          "avg": 10
+        },
+        {
+          "tag": "겨울준비",
+          "avg": 7.1
+        }
+      ]
+    },
+    "시즌": {
+      "best": "월동준비",
+      "candidates": [
+        {
+          "tag": "월동준비",
+          "avg": 75.5
+        },
+        {
+          "tag": "김장준비",
+          "avg": 11.6
+        },
+        {
+          "tag": "겨울준비",
+          "avg": 6.1
+        }
+      ]
+    }
+  }
+}
