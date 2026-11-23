@@ -1312,9 +1312,10 @@
         "updatedAt": "2026-11-22T23:00:31.355Z"
       },
       "package": {
-        "status": "awaiting_review",
+        "status": "generated",
         "manifestPath": "content/232/manifest.json",
-        "generatedAt": null
+        "generatedAt": "2026-11-23T04:49:51.366Z",
+        "approvedAt": "2026-11-23T04:50:04.730Z"
       },
       "linkedin": {
         "status": "manual_pending",
@@ -1323,13 +1324,13 @@
         "error": null
       },
       "instagram": {
-        "status": "manual_pending",
+        "status": "manual_source_ready",
         "id": null,
         "lastAttemptAt": null,
         "error": null
       },
-      "approvedAt": null,
-      "scheduledAt": null,
+      "approvedAt": "2026-11-23T04:50:04.730Z",
+      "scheduledAt": "2026-12-07T22:30:00.000Z",
       "completedAt": null
     }
   }
