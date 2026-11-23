@@ -1,0 +1,7 @@
+{
+  "brunch": true,
+  "items": [
+    {"id": "A001", "kind": "article", "url": "https://www.yna.co.kr/view/AKR20260916115100005", "source": "연합뉴스 (2026-09-16)", "scenes": ["S003", "S004"]},
+    {"id": "A002", "kind": "article", "url": "https://www.openads.co.kr/content/contentDetail?contsId=20151", "source": "오픈애즈", "scenes": ["S021"]}
+  ]
+}

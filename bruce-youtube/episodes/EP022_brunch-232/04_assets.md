@@ -1,0 +1,21 @@
+# 04 Assets — EP022
+
+```text
+ASSET ID: A001
+SCENE: S003, S004
+NEEDED MATERIAL: 『시대예보: 수고인류의 시간』 출간 간담회 기사
+BRAND: 송길영
+SOURCE TYPE: REAL
+SEARCH KEYWORD: 송길영 수고인류의 시간 원본인간
+EXPECTED SOURCE: 연합뉴스
+PRIORITY: HIGH
+
+ASSET ID: A002
+SCENE: S021
+NEEDED MATERIAL: 버거킹 기사식당 전단지 캠페인 기사
+BRAND: 버거킹
+SOURCE TYPE: REAL
+SEARCH KEYWORD: 버거킹 기사식당 전단지 아침
+EXPECTED SOURCE: 오픈애즈
+PRIORITY: MEDIUM
+```

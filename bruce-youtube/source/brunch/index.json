@@ -496,7 +496,18 @@
       "firstSeenAt": "2026-11-16T12:13:51.859Z",
       "updatedAt": "2026-11-16T12:13:51.859Z",
       "episode": "EP019"
+    },
+    "232": {
+      "id": "232",
+      "url": "https://brunch.co.kr/@heoboram/232",
+      "title": "당신은 원본입니까?",
+      "publishedAt": "2026-11-23T03:00:00.000Z",
+      "bodyHash": "606e55183b5917fd8bb154b2a4f511174952f848fe9d6e330d987ab0d7c6dd53",
+      "file": "232.md",
+      "firstSeenAt": "2026-11-23T12:14:28.648Z",
+      "updatedAt": "2026-11-23T12:14:28.648Z",
+      "episode": "EP022"
     }
   },
-  "lastSyncedAt": "2026-11-21T12:17:45.344Z"
+  "lastSyncedAt": "2026-11-23T12:14:28.648Z"
 }
