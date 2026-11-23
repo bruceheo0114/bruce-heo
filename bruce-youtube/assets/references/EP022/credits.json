@@ -1,0 +1,123 @@
+{
+  "references_hash": "31c2089822d42616",
+  "fetched_at": "2026-11-23T12:17:51.315Z",
+  "items": [
+    {
+      "file": "A001-screen.jpg",
+      "id": "A001",
+      "scenes": [
+        "S003",
+        "S004"
+      ],
+      "kind": "screen",
+      "source": "연합뉴스 (2026-09-16)",
+      "url": "https://www.yna.co.kr/view/AKR20260916115100005"
+    },
+    {
+      "file": "A001-scroll.jpg",
+      "id": "A001",
+      "scenes": [
+        "S003",
+        "S004"
+      ],
+      "kind": "scroll",
+      "source": "연합뉴스 (2026-09-16)",
+      "url": "https://www.yna.co.kr/view/AKR20260916115100005"
+    },
+    {
+      "file": "A001-img1.jpg",
+      "id": "A001",
+      "scenes": [
+        "S003",
+        "S004"
+      ],
+      "kind": "image",
+      "source": "연합뉴스 (2026-09-16)",
+      "url": "https://www.yna.co.kr/view/AKR20260916115100005"
+    },
+    {
+      "file": "A001-img2.jpg",
+      "id": "A001",
+      "scenes": [
+        "S003",
+        "S004"
+      ],
+      "kind": "image",
+      "source": "연합뉴스 (2026-09-16)",
+      "url": "https://www.yna.co.kr/view/AKR20260916115100005"
+    },
+    {
+      "file": "A002-screen.jpg",
+      "id": "A002",
+      "scenes": [
+        "S021"
+      ],
+      "kind": "screen",
+      "source": "오픈애즈",
+      "url": "https://www.openads.co.kr/content/contentDetail?contsId=20151"
+    },
+    {
+      "file": "A002-scroll.jpg",
+      "id": "A002",
+      "scenes": [
+        "S021"
+      ],
+      "kind": "scroll",
+      "source": "오픈애즈",
+      "url": "https://www.openads.co.kr/content/contentDetail?contsId=20151"
+    },
+    {
+      "file": "A002-img1.jpg",
+      "id": "A002",
+      "scenes": [
+        "S021"
+      ],
+      "kind": "image",
+      "source": "오픈애즈",
+      "url": "https://www.openads.co.kr/content/contentDetail?contsId=20151"
+    },
+    {
+      "file": "A002-img2.jpg",
+      "id": "A002",
+      "scenes": [
+        "S021"
+      ],
+      "kind": "image",
+      "source": "오픈애즈",
+      "url": "https://www.openads.co.kr/content/contentDetail?contsId=20151"
+    },
+    {
+      "file": "brunch-01.jpg",
+      "id": "brunch",
+      "scenes": [],
+      "kind": "image",
+      "source": "브런치 @heoboram 원문",
+      "url": "https://brunch.co.kr/@heoboram/232"
+    },
+    {
+      "file": "brunch-02.jpg",
+      "id": "brunch",
+      "scenes": [],
+      "kind": "image",
+      "source": "브런치 @heoboram 원문",
+      "url": "https://brunch.co.kr/@heoboram/232"
+    },
+    {
+      "file": "brunch-03.jpg",
+      "id": "brunch",
+      "scenes": [],
+      "kind": "image",
+      "source": "브런치 @heoboram 원문",
+      "url": "https://brunch.co.kr/@heoboram/232"
+    },
+    {
+      "file": "brunch-04.jpg",
+      "id": "brunch",
+      "scenes": [],
+      "kind": "image",
+      "source": "브런치 @heoboram 원문",
+      "url": "https://brunch.co.kr/@heoboram/232"
+    }
+  ],
+  "failures": []
+}
