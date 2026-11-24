@@ -9,7 +9,8 @@
       "media_id": "18579466585076900"
     },
     {
-      "stage": "creating"
+      "stage": "container",
+      "container_id": "18160690639507421"
     }
   ]
 }
