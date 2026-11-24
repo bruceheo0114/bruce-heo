@@ -1,15 +1,15 @@
 {
   "date": "2026-11-25",
-  "generated_at": "2026-11-24T11:59:25.518Z",
+  "generated_at": "2026-11-24T20:04:30.760Z",
   "window": {
-    "since": "2026-11-14",
-    "until": "2026-11-24"
+    "since": "2026-11-15",
+    "until": "2026-11-25"
   },
   "source": "네이버 검색 API(뉴스·블로그) + 데이터랩 검색어 트렌드 · API HUB",
   "note": "국내 사례 후보일 뿐이다. 채택 전에 원문을 열어 날짜·주체·숫자를 확인한다(content/routine_trend_newsletter_prompt.md).",
   "stats": {
     "api_calls": 68,
-    "articles": 1599,
+    "articles": 1606,
     "candidates": 40
   },
   "candidates": [
@@ -69,7 +69,7 @@
         }
       ],
       "blog7": 100,
-      "searchRise": 0.85,
+      "searchRise": 0.98,
       "score": 23.3
     },
     {
@@ -188,65 +188,8 @@
         }
       ],
       "blog7": 100,
-      "searchRise": 1.04,
+      "searchRise": 1.02,
       "score": 21.5
-    },
-    {
-      "keyword": "5년 내 구매 의향",
-      "title": "전기차 미보유자 절반 \"5년 내 구매\"…소비자 관심 1년 새 2배↑",
-      "description": "조사' 결과를 발표했다. 이번 조사는 지난 8월 17일부터 9월 10일까지 전국 운전면허 보유 성인을 대상으로 진행됐다. 일반 소비자 2025명과 전기차 구매 의향자 1518명, 전기차 보유자 1808명이 참여했으며 중복을...",
-      "field": "리포트",
-      "published": "2026-11-24",
-      "within7": true,
-      "outlets": [
-        "m-i.kr",
-        "starnewskorea.com",
-        "g-enews.com",
-        "biz.newdaily.co.kr",
-        "socialvalue.kr",
-        "fnnews.com",
-        "pointdaily.co.kr",
-        "etoday.co.kr",
-        "edaily.co.kr"
-      ],
-      "signals": [
-        "급증",
-        "2배",
-        "2025명",
-        "1518명",
-        "1808명"
-      ],
-      "exclude": [],
-      "links": [
-        {
-          "outlet": "m-i.kr",
-          "date": "2026-11-24",
-          "url": "https://www.m-i.kr/news/articleView.html?idxno=2022849"
-        },
-        {
-          "outlet": "starnewskorea.com",
-          "date": "2026-11-24",
-          "url": "https://www.starnewskorea.com/business-life/2026/11/24/2026112322293919459"
-        },
-        {
-          "outlet": "g-enews.com",
-          "date": "2026-11-24",
-          "url": "https://www.g-enews.com/view.php?ud=202611241349531386112616b072_1"
-        },
-        {
-          "outlet": "biz.newdaily.co.kr",
-          "date": "2026-11-24",
-          "url": "https://biz.newdaily.co.kr/site/data/html/2026/11/24/2026112450114.html"
-        },
-        {
-          "outlet": "socialvalue.kr",
-          "date": "2026-11-24",
-          "url": "https://www.socialvalue.kr/news/view/1065575111901408"
-        }
-      ],
-      "blog7": 100,
-      "searchRise": 0,
-      "score": 21.3
     },
     {
       "keyword": "더핏",
@@ -302,7 +245,7 @@
         }
       ],
       "blog7": 100,
-      "searchRise": 0.8,
+      "searchRise": 0.73,
       "score": 21.1
     },
     {
@@ -371,9 +314,65 @@
           "url": "https://www.hellot.net/news/article.html?no=116525"
         }
       ],
-      "blog7": 38,
-      "searchRise": 1.26,
+      "blog7": 37,
+      "searchRise": 1.45,
       "score": 20.4
+    },
+    {
+      "keyword": "5년 내 구매 의향",
+      "title": "전기차 미보유자 절반 \"5년 내 구매\"…소비자 관심 1년 새 2배↑",
+      "description": "조사' 결과를 발표했다. 이번 조사는 지난 8월 17일부터 9월 10일까지 전국 운전면허 보유 성인을 대상으로 진행됐다. 일반 소비자 2025명과 전기차 구매 의향자 1518명, 전기차 보유자 1808명이 참여했으며 중복을...",
+      "field": "리포트",
+      "published": "2026-11-24",
+      "within7": true,
+      "outlets": [
+        "m-i.kr",
+        "starnewskorea.com",
+        "g-enews.com",
+        "biz.newdaily.co.kr",
+        "fnnews.com",
+        "pointdaily.co.kr",
+        "etoday.co.kr",
+        "edaily.co.kr"
+      ],
+      "signals": [
+        "급증",
+        "2배",
+        "2025명",
+        "1518명",
+        "1808명"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "m-i.kr",
+          "date": "2026-11-24",
+          "url": "https://www.m-i.kr/news/articleView.html?idxno=2022849"
+        },
+        {
+          "outlet": "starnewskorea.com",
+          "date": "2026-11-24",
+          "url": "https://www.starnewskorea.com/business-life/2026/11/24/2026112322293919459"
+        },
+        {
+          "outlet": "g-enews.com",
+          "date": "2026-11-24",
+          "url": "https://www.g-enews.com/view.php?ud=202611241349531386112616b072_1"
+        },
+        {
+          "outlet": "biz.newdaily.co.kr",
+          "date": "2026-11-24",
+          "url": "https://biz.newdaily.co.kr/site/data/html/2026/11/24/2026112450114.html"
+        },
+        {
+          "outlet": "fnnews.com",
+          "date": "2026-11-24",
+          "url": "https://www.fnnews.com/news/202611240938571053"
+        }
+      ],
+      "blog7": 100,
+      "searchRise": 0,
+      "score": 20.1
     },
     {
       "keyword": "롯데온",
@@ -428,7 +427,7 @@
         }
       ],
       "blog7": 100,
-      "searchRise": 1.02,
+      "searchRise": 1,
       "score": 20
     },
     {
@@ -484,7 +483,7 @@
         }
       ],
       "blog7": 100,
-      "searchRise": 1.13,
+      "searchRise": 0.97,
       "score": 19.7
     },
     {
@@ -551,7 +550,7 @@
         }
       ],
       "blog7": 100,
-      "searchRise": 0.89,
+      "searchRise": 0.88,
       "score": 18.5
     },
     {
@@ -604,8 +603,8 @@
           "url": "https://www.viva100.com/article/20261120500358"
         }
       ],
-      "blog7": 36,
-      "searchRise": 1.16,
+      "blog7": 35,
+      "searchRise": 1.12,
       "score": 17.9
     },
     {
@@ -658,7 +657,7 @@
         }
       ],
       "blog7": 100,
-      "searchRise": 0.9,
+      "searchRise": 0.89,
       "score": 17.3
     },
     {
@@ -758,7 +757,7 @@
         }
       ],
       "blog7": 100,
-      "searchRise": 0.82,
+      "searchRise": 0.87,
       "score": 15.7
     },
     {
@@ -809,9 +808,9 @@
           "url": "https://www.bntnews.co.kr/article/view/bnt202611190193"
         }
       ],
-      "blog7": 19,
+      "blog7": 18,
       "searchRise": null,
-      "score": 15.5
+      "score": 15.4
     },
     {
       "keyword": "무신사 뷰티",
@@ -857,7 +856,7 @@
         }
       ],
       "blog7": 100,
-      "searchRise": 0.93,
+      "searchRise": 0.98,
       "score": 15.3
     },
     {
@@ -899,7 +898,7 @@
         }
       ],
       "blog7": 100,
-      "searchRise": 0.81,
+      "searchRise": 0.84,
       "score": 15.1
     },
     {
@@ -949,8 +948,8 @@
           "url": "https://zdnet.co.kr/view/?no=20261119103917"
         }
       ],
-      "blog7": 75,
-      "searchRise": 1.33,
+      "blog7": 70,
+      "searchRise": 1.35,
       "score": 14.9
     },
     {
@@ -1001,7 +1000,7 @@
         }
       ],
       "blog7": 100,
-      "searchRise": 0.71,
+      "searchRise": 0.7,
       "score": 14.9
     },
     {
@@ -1046,7 +1045,53 @@
         }
       ],
       "blog7": 100,
-      "searchRise": 1.06,
+      "searchRise": 1.1,
+      "score": 14.3
+    },
+    {
+      "keyword": "소비자 49%가 전기차 구매 의향",
+      "title": "한국수입자동차협회 “전기차 미보유자 49%, 5년 내 구매 의향”",
+      "description": "한국수입자동차협회는 국내 소비자의 전기차 인식 변화를 분석한 ‘2026 국내 전기차 시장 진단 조사’ 결과를 발표했다고 24일 밝혔다. 컨슈머인사이트와 공동으로...",
+      "field": "리포트",
+      "published": "2026-11-24",
+      "within7": true,
+      "outlets": [
+        "breaknews.com",
+        "metroseoul.co.kr",
+        "cwn.kr",
+        "newslock.co.kr"
+      ],
+      "signals": [
+        "49%",
+        "4866명",
+        "2025명",
+        "1518명"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "breaknews.com",
+          "date": "2026-11-24",
+          "url": "http://www.breaknews.com/1253650"
+        },
+        {
+          "outlet": "metroseoul.co.kr",
+          "date": "2026-11-24",
+          "url": "http://www.metroseoul.co.kr/article/20261124500396"
+        },
+        {
+          "outlet": "cwn.kr",
+          "date": "2026-11-24",
+          "url": "https://www.cwn.kr/news/articleView.html?idxno=62445"
+        },
+        {
+          "outlet": "newslock.co.kr",
+          "date": "2026-11-24",
+          "url": "http://www.newslock.co.kr/news/articleView.html?idxno=140764"
+        }
+      ],
+      "blog7": 100,
+      "searchRise": 0,
       "score": 14.3
     },
     {
@@ -1110,20 +1155,18 @@
           "url": "https://www.thebigdata.co.kr/view.php?ud=2026111717220728520ecbf9426b_23"
         }
       ],
-      "blog7": 100,
-      "searchRise": 0.74,
-      "score": 14
+      "score": 11
     },
     {
       "keyword": "오토뉴스",
-      "title": "‘오토뉴스’ 창간...뉴스·공공데이터·AI 연결한 차세대 자동차 언론...",
-      "description": "기존 검색엔진 최적화(SEO)를 넘어 생성형 AI가 기사와 데이터를 정확히 이해해 검색 결과와 답변에 반영하도록 설계하는 생성형 엔진 최적화(GEO)를 매체 운영에 적용했다. 기사와 자동차 데이터의 구조화, 정보...",
+      "title": "AI 기반 자동차 전문 미디어 ‘오토뉴스’ 공식 창간",
+      "description": "오토뉴스는 기존 검색엔진 최적화(SEO)를 넘어 생성형 인공지능이 콘텐츠를 이해하고 검색 결과와 답변에 활용할 수 있도록 하는 생성형 엔진 최적화(GEO)를 매체 운영에 적용한다. 기사와 자동차 데이터의 구조화...",
       "field": "AI 검색",
       "published": "2026-11-20",
       "within7": true,
       "outlets": [
-        "lawissue.co.kr",
         "thepowernews.co.kr",
+        "lawissue.co.kr",
         "thebigdata.co.kr",
         "globalepic.co.kr",
         "beyondpost.co.kr",
@@ -1137,14 +1180,14 @@
       "exclude": [],
       "links": [
         {
-          "outlet": "lawissue.co.kr",
-          "date": "2026-11-20",
-          "url": "https://www.lawissue.co.kr/view.php?ud=2026112018584235629aeda69934_12"
-        },
-        {
           "outlet": "thepowernews.co.kr",
           "date": "2026-11-20",
           "url": "https://www.thepowernews.co.kr/view.php?ud=2026112018574387179aeda69934_7"
+        },
+        {
+          "outlet": "lawissue.co.kr",
+          "date": "2026-11-20",
+          "url": "https://www.lawissue.co.kr/view.php?ud=2026112018584235629aeda69934_12"
         },
         {
           "outlet": "thebigdata.co.kr",
@@ -1592,149 +1635,6 @@
       "score": 9.9
     },
     {
-      "keyword": "디 올 뉴 아반떼",
-      "title": "현대차, LA오토쇼서 '디 올 뉴 아반떼' 공개…AI 비서 품었다",
-      "description": "생성형 AI 에이전트 '글레오 AI'는 운전자의 음성 명령에 따라 차량 기능을 제어하고 필요한 정보를 검색하... 호세 무뇨스 현대차 대표이사 사장은 \"많은 고객들이 아반떼를 통해 현대차 브랜드를 처음 경험할 정도로...",
-      "field": "AI 검색",
-      "published": "2026-11-20",
-      "within7": true,
-      "outlets": [
-        "newsinside.kr",
-        "dizzotv.com",
-        "sportschosun.com",
-        "biz.newdaily.co.kr",
-        "newspim.com",
-        "view.asiae.co.kr",
-        "shinailbo.co.kr",
-        "etoday.co.kr",
-        "cstimes.com"
-      ],
-      "signals": [],
-      "exclude": [],
-      "links": [
-        {
-          "outlet": "newsinside.kr",
-          "date": "2026-11-20",
-          "url": "https://www.newsinside.kr/news/articleView.html?idxno=5052633"
-        },
-        {
-          "outlet": "dizzotv.com",
-          "date": "2026-11-20",
-          "url": "https://www.dizzotv.com/site/data/html_dir/2026/11/20/2026112080122.html"
-        },
-        {
-          "outlet": "sportschosun.com",
-          "date": "2026-11-20",
-          "url": "https://www.sportschosun.com/life/2026-11-20/202611200100129710012120"
-        },
-        {
-          "outlet": "biz.newdaily.co.kr",
-          "date": "2026-11-20",
-          "url": "https://biz.newdaily.co.kr/site/data/html/2026/11/20/2026112050092.html"
-        },
-        {
-          "outlet": "newspim.com",
-          "date": "2026-11-20",
-          "url": "https://www.newspim.com/news/view/20261120000281"
-        }
-      ],
-      "score": 9.8
-    },
-    {
-      "keyword": "AI 도입",
-      "title": "현대차그룹 공식 웹사이트, 국내외 주요 어워드 13관왕 달성",
-      "description": "업계에서는 이번 13관왕 달성의 핵심 배경으로 현대차그룹이 선제적으로 추진해 온 ‘GEO(Generative Engine Optimization·생성형 엔진 최적화)’ 전략을 꼽는다. GEO는 대규모 언어모델(LLM) 기반의 AI 검색·답변 서비스가...",
-      "field": "AI 검색",
-      "published": "2026-11-22",
-      "within7": true,
-      "outlets": [
-        "sports.khan.co.kr",
-        "sedaily.com",
-        "ujeil.com",
-        "sportsworldi.com",
-        "mk.co.kr"
-      ],
-      "signals": [
-        "13개"
-      ],
-      "exclude": [],
-      "links": [
-        {
-          "outlet": "sports.khan.co.kr",
-          "date": "2026-11-22",
-          "url": "https://sports.khan.co.kr/article/202611221130023?pt=nv"
-        },
-        {
-          "outlet": "sedaily.com",
-          "date": "2026-11-15",
-          "url": "https://www.sedaily.com/article/20114596?ref=naver"
-        },
-        {
-          "outlet": "ujeil.com",
-          "date": "2026-11-15",
-          "url": "http://www.ujeil.com/news/articleView.html?idxno=395237"
-        },
-        {
-          "outlet": "sportsworldi.com",
-          "date": "2026-11-15",
-          "url": "https://www.sportsworldi.com/newsView/20261115508227"
-        },
-        {
-          "outlet": "mk.co.kr",
-          "date": "2026-11-15",
-          "url": "https://www.mk.co.kr/article/12209193"
-        }
-      ],
-      "score": 9.5
-    },
-    {
-      "keyword": "집값 상승 기대 꺾였다",
-      "title": "집값 상승 기대 8개월 만에 최대폭 하락",
-      "description": "한국은행이 24일 발표한 ‘소비자동향조사’ 결과에 따르면 현재와 비교한 1년 후 집값 전망을 나타내는 11월 주택가격전망지수는 118로, 전월(124)보다 6포인트 하락했다. 이는 올해 5월(112) 이후 가장 낮은 수준이다....",
-      "field": "리포트",
-      "published": "2026-11-24",
-      "within7": true,
-      "outlets": [
-        "segye.com",
-        "dnews.co.kr",
-        "busan.com",
-        "ddaily.co.kr",
-        "vop.co.kr"
-      ],
-      "signals": [
-        "8개"
-      ],
-      "exclude": [],
-      "links": [
-        {
-          "outlet": "segye.com",
-          "date": "2026-11-24",
-          "url": "https://www.segye.com/newsView/20261124516149?OutUrl=naver"
-        },
-        {
-          "outlet": "dnews.co.kr",
-          "date": "2026-11-24",
-          "url": "https://www.dnews.co.kr/uhtml/view.jsp?idxno=202611241432470790398"
-        },
-        {
-          "outlet": "busan.com",
-          "date": "2026-11-24",
-          "url": "https://www.busan.com/view/busan/view.php?code=2026112414422392512"
-        },
-        {
-          "outlet": "ddaily.co.kr",
-          "date": "2026-11-24",
-          "url": "https://www.ddaily.co.kr/page/view/2026112414301036329"
-        },
-        {
-          "outlet": "vop.co.kr",
-          "date": "2026-11-24",
-          "url": "https://vop.co.kr/A00001697738.html"
-        }
-      ],
-      "score": 9.5
-    },
-    {
       "keyword": "일동후디스",
       "title": "일동후디스, 장민호와 모델 재계약",
       "description": "장민호와 함께한 광고 캠페인 역시 큰 호응을 얻었다. 파트너십 초창기에 선보인 '하이뮨송'은 장민호의 가창력과 중독성 강한 멜로디로 큰 화제를 모으며 브랜드 인지도를 높이는 데 기여했다. 지난해 공개한 TVC 광고...",
@@ -1918,6 +1818,74 @@
           "outlet": "ibabynews.com",
           "date": "2026-11-19",
           "url": "https://www.ibabynews.com/news/articleView.html?idxno=157080"
+        }
+      ],
+      "score": 8.9
+    },
+    {
+      "keyword": "주가 하락",
+      "title": "소비심리 두 달 연속 악화… 집값 상승 기대도 곤두박질",
+      "description": "한국은행이 24일 발표한 소비자동향조사 결과에 따르면 11월 소비자심리지수(CCSI)는 103.1로 전월보다 2.3포인트 하락했다. 두 달 연속 내림세로 지난 4월 이후 7개월 만에 가장 낮은 수준이다. 현재경기판단과...",
+      "field": "리포트",
+      "published": "2026-11-25",
+      "within7": true,
+      "outlets": [
+        "kmib.co.kr",
+        "khan.co.kr"
+      ],
+      "signals": [
+        "7개",
+        "8개",
+        "2개"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "kmib.co.kr",
+          "date": "2026-11-25",
+          "url": "https://www.kmib.co.kr/article/20261124502127"
+        },
+        {
+          "outlet": "khan.co.kr",
+          "date": "2026-11-24",
+          "url": "https://www.khan.co.kr/article/202611242038035"
+        },
+        {
+          "outlet": "khan.co.kr",
+          "date": "2026-11-24",
+          "url": "https://www.khan.co.kr/article/202611241058011"
+        }
+      ],
+      "score": 8.9
+    },
+    {
+      "keyword": "5년 내 구매",
+      "title": "캐즘 넘어 전기차 시대 열린다… 미보유자 49% \"5년 내 구매\"",
+      "description": "한국수입자동차협회(KAIDA)는 24일 소비자의 전기차 인식 변화를 분석한 '2026 국내 전기차 시장 진단 조사' 결과를 발표했다. 조사는 컨슈머인사이트와 공동으로 8월 17일~9월 10일 전국 운전면허 보유 성인 4,866명(중복...",
+      "field": "리포트",
+      "published": "2026-11-24",
+      "within7": true,
+      "outlets": [
+        "hankookilbo.com",
+        "businessplus.kr"
+      ],
+      "signals": [
+        "49%",
+        "4,866명",
+        "47.3%",
+        "2025명"
+      ],
+      "exclude": [],
+      "links": [
+        {
+          "outlet": "hankookilbo.com",
+          "date": "2026-11-24",
+          "url": "https://www.hankookilbo.com/news/article/A2026112413550001024?did=NA"
+        },
+        {
+          "outlet": "businessplus.kr",
+          "date": "2026-11-24",
+          "url": "https://www.businessplus.kr/news/articleView.html?idxno=120373"
         }
       ],
       "score": 8.9
