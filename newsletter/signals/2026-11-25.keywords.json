@@ -1,0 +1,54 @@
+{
+  "date": "2026-11-25",
+  "generated_at": "2026-11-24T12:01:15.716Z",
+  "window": {
+    "startDate": "2026-10-28",
+    "endDate": "2026-11-24"
+  },
+  "source": "네이버 데이터랩 검색어 트렌드 · API HUB",
+  "note": "recent7 은 같은 batch(최대 5개) 안에서만 비교한다. rise = 최근 7일 평균 ÷ 그 전 21일 평균(null = 그 전엔 검색 없음). 본문에는 '네이버 검색 관심도(데이터랩)'로 출처를 적는다.",
+  "results": [
+    {
+      "keyword": "더핏",
+      "batch": 1,
+      "recent7": 1,
+      "rise": 0.77,
+      "peak": "2026-11-14"
+    },
+    {
+      "keyword": "삼성화재 더핏",
+      "batch": 1,
+      "recent7": 0,
+      "rise": 0,
+      "peak": "2026-10-30"
+    },
+    {
+      "keyword": "무진장",
+      "batch": 1,
+      "recent7": 33.1,
+      "rise": 3.1,
+      "peak": "2026-11-20"
+    },
+    {
+      "keyword": "무신사 블랙프라이데이",
+      "batch": 1,
+      "recent7": 44.4,
+      "rise": 0.92,
+      "peak": "2026-11-15"
+    },
+    {
+      "keyword": "현대카드 AI",
+      "batch": 1,
+      "recent7": 0.2,
+      "rise": null,
+      "peak": "2026-11-20"
+    },
+    {
+      "keyword": "프렌드플레이션",
+      "batch": 2,
+      "recent7": 0,
+      "rise": 0,
+      "peak": "2026-11-01"
+    }
+  ]
+}
