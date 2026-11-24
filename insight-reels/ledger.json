@@ -154,7 +154,7 @@
       ]
     },
     "2026-11": {
-      "higgsfield_spent": 79.95,
+      "higgsfield_spent": 80.2,
       "elevenlabs_spent": 6382,
       "entries": [
         {
@@ -280,6 +280,11 @@
           "what": "릴스 232(11/24 게시분)",
           "higgsfield": 6.0,
           "elevenlabs": 482
+        },
+        {
+          "date": "2026-11-24",
+          "what": "수요일 카드뉴스(11/25 검색량 리포트) 표지 이미지 1장",
+          "higgsfield": 0.25
         }
       ]
     }
