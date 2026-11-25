@@ -28,13 +28,15 @@
     "reason": "수요일 숫자형 기본. 60만·10위 숫자가 7세 미만용이라는 반전과 붙어 궁금증이 큼"
   },
   "reply_text": "하츄핑 흥행 요인 세 가지는 홈페이지에 더 길게 정리해 뒀어 👉 https://bruceheo.com/writing/121/",
-  "status": "scheduled",
+  "status": "posted",
   "media_id": "18105651923547659",
   "permalink": "https://www.threads.com/@heo.boram/post/DgJkX-oILQk",
   "reply_ids": [
     "17914250961580520",
     "18609876142070864",
     "18037353323904343",
-    "18112177765924349"
-  ]
+    "18112177765924349",
+    "18132991906849119"
+  ],
+  "posted_at": "2026-11-25T09:46:09.342490Z"
 }
