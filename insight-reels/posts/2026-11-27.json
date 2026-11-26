@@ -79,7 +79,7 @@
     "description": "사람들은 이제 기분을 산다. 필코노미 시대, 브랜드는 감정의 순간을 설계해야 해요.\n원문: https://bruceheo.com/writing/188/\n#브루스매거진 #필코노미 #감정마케팅",
     "tags": "필코노미,감정 마케팅,소비 트렌드,우울해서 빵 샀어,팝업스토어,브랜딩,마케팅 인사이트,브루스 인사이트"
   },
-  "status": "scheduled",
+  "status": "publishing",
   "credits": {
     "higgsfield": 6.0,
     "elevenlabs": 572
@@ -87,5 +87,7 @@
   "note": "새 브런치 글이 없어 카드뉴스로 이관됐던 188을 릴스로 사용(사용자 결정 2026-11-26 '고우').",
   "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/6d8e0fff-a85a-4b2c-ba6d-3545be4c28ac.mp4",
   "cover_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/8f8692d9-9bf8-4c81-bbaf-b60d8904a970.jpg",
-  "qa_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/4027ef5c-6f13-4327-a179-665aa3218d3b.jpg"
+  "qa_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3ILWKVWCQQfGa1zPMQQKU19C6Wm/4027ef5c-6f13-4327-a179-665aa3218d3b.jpg",
+  "claimed_by": "45901866464",
+  "claimed_at": "2026-11-26T22:00:24.201662Z"
 }
