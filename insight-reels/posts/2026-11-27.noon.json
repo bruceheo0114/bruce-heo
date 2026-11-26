@@ -5,12 +5,35 @@
   "series": "reference",
   "series_theme": "설명이 어려운 상품을 '쓰는 장면'으로 풀어 조회수로 증명한 광고",
   "title": "감기약 광고가 1억 뷰 된 이유",
-  "status": "render",
+  "status": "scheduled",
   "caption": "🤧 짜 먹는 감기약 광고가 유튜브·숏폼에서 1억 회를 넘었어요. 모델이 아니라 '감기 걸린 상황'을 주인공으로 세웠거든요 👉\n\n1️⃣ 콜대원 — 겨울 한철 광고 대신 야간 기침·여름 냉방 같은 감기 상황을 에피소드로 풀어 누적 1억 회(회사 발표).\n2️⃣ 삼성화재 더핏 — 모듈형 보험을 '가족여행주의보' 같은 드라마 필름으로 소개해 한 달여 만에 1,500만 회(회사 발표).\n3️⃣ 테라 제로 — 월요일 출근길·예비군 훈련·템플스테이에서 마시는 장면으로 공개 60일 만에 약 5,000만 회.\n4️⃣ 하나투어 하나LIVE — 여행 상품을 라이브 방송으로 팔아 5년간 1억 2,000만 회, 예약자 13만 3,000명.\n\n📌 넷 다 기능을 늘어놓지 않고 '쓰는 장면' 하나를 보여 줬어요. 설명이 긴 상품일수록 장면이 설명을 대신해요.\n\n💬 우리 상품을 장면 하나로 보여 준다면? A 상황, B 드라마, C 새 순간, D 실시간 문답 중 하나만 남겨 주세요.\n\n출처: 비즈트리뷴·서울경제·인더뉴스(11/19), 국제뉴스(11/20)\n상품 설명 장표 붙잡고 있는 동료에게 이 네 장을 보내 주세요.\n\n#브루스매거진 #광고레퍼런스 #콜대원 #삼성화재더핏 #하나투어",
   "sources": [
     "http://www.biztribune.co.kr/news/articleView.html?idxno=362844",
     "https://www.sedaily.com/article/20116578",
     "https://www.gukjenews.com/news/articleView.html?idxno=3758520",
     "https://www.inthenews.co.kr/news/article.html?no=94748"
-  ]
+  ],
+  "images": [
+    "https://bruceheo.com/insight-reels/media/2026-11-27-noon/cards/01.jpg",
+    "https://bruceheo.com/insight-reels/media/2026-11-27-noon/cards/02.jpg",
+    "https://bruceheo.com/insight-reels/media/2026-11-27-noon/cards/03.jpg",
+    "https://bruceheo.com/insight-reels/media/2026-11-27-noon/cards/04.jpg",
+    "https://bruceheo.com/insight-reels/media/2026-11-27-noon/cards/05.jpg",
+    "https://bruceheo.com/insight-reels/media/2026-11-27-noon/cards/06.jpg",
+    "https://bruceheo.com/insight-reels/media/2026-11-27-noon/cards/07.jpg",
+    "https://bruceheo.com/insight-reels/media/2026-11-27-noon/cards/08.jpg",
+    "https://bruceheo.com/insight-reels/media/2026-11-27-noon/cards/09.jpg"
+  ],
+  "images_backup": [
+    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/insight-reels/media/2026-11-27-noon/cards/01.jpg",
+    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/insight-reels/media/2026-11-27-noon/cards/02.jpg",
+    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/insight-reels/media/2026-11-27-noon/cards/03.jpg",
+    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/insight-reels/media/2026-11-27-noon/cards/04.jpg",
+    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/insight-reels/media/2026-11-27-noon/cards/05.jpg",
+    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/insight-reels/media/2026-11-27-noon/cards/06.jpg",
+    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/insight-reels/media/2026-11-27-noon/cards/07.jpg",
+    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/insight-reels/media/2026-11-27-noon/cards/08.jpg",
+    "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/main/insight-reels/media/2026-11-27-noon/cards/09.jpg"
+  ],
+  "qa_url": "https://bruceheo.com/insight-reels/media/2026-11-27-noon/preview.html"
 }
