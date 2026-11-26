@@ -362,8 +362,10 @@
       "title": "필코노미 시대, 감정은 ‘팔지 말고 설계'해야한다.",
       "axis": "브랜드 사례",
       "insight": "감정은 팔지 말고 설계한다",
-      "status": "todo",
-      "reason": "카드뉴스로 이관(carousel_queue.json)"
+      "status": "exhausted",
+      "reason": "카드뉴스로 이관(carousel_queue.json)",
+      "exhausted": true,
+      "exhausted_reason": "인스타 릴스 게시(2026-11-27)"
     },
     {
       "no": 201,
