@@ -388,8 +388,9 @@
       "title": "10년 경험을 AI에게 인수인계할 수 있나요?",
       "axis": "마케터의 판단",
       "insight": "10년 경험은 AI에게 인수인계되지 않는다",
-      "status": "todo",
-      "reason": "카드뉴스로 이관(carousel_queue.json)"
+      "status": "exhausted",
+      "reason": "카드뉴스로 이관(carousel_queue.json)",
+      "exhausted_reason": "인스타 릴스 게시(2026-11-28)"
     },
     {
       "no": 187,

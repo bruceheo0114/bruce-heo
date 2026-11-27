@@ -1,0 +1,197 @@
+{
+ "audio": "R28.mp3",
+ "series": "브루스 인사이트  |  맥락을 설계하는 일",
+ "title": "10년 경험,\nAI에게 넘길 수 있을까",
+ "card": {
+  "line1": "원문은 브런치 「브루스」",
+  "line2": "brunch.co.kr/@heoboram"
+ },
+ "bgm": "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/c88e80cefcc1eb33f99e4e01dddf11e7f1b70c93/bruce-youtube/channel/bgm/bgm.mp3",
+ "bgm_start": 300,
+ "sfx_base": "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/c88e80cefcc1eb33f99e4e01dddf11e7f1b70c93/bruce-youtube/channel/sfx/",
+ "visuals": [
+  {
+   "kind": "image",
+   "src": "i0.png",
+   "start": 0,
+   "end": 3.1,
+   "focus_y": 0.45,
+   "zoom": "in",
+   "xfade": "slideleft",
+   "punch": [
+    {
+     "at": 0.5,
+     "x": 0.6,
+     "y": 0.42
+    }
+   ],
+   "labels": [
+    {
+     "at": 0.5,
+     "text": "챗GPT에 맡긴대요",
+     "x": 0.6,
+     "y": 0.42,
+     "dy": -0.26,
+     "hl": true
+    }
+   ]
+  },
+  {
+   "kind": "image",
+   "src": "i1.png",
+   "start": 3.1,
+   "end": 12.26,
+   "focus_y": 0.45,
+   "zoom": "in",
+   "xfade": "slideup",
+   "labels": [
+    {
+     "at": 0.4,
+     "text": "10년 차의 일도?",
+     "x": 0.45,
+     "y": 0.4,
+     "dy": -0.25,
+     "hl": true
+    },
+    {
+     "at": 6.5,
+     "text": "팔로워 수·참여율은 금방",
+     "x": 0.45,
+     "y": 0.5,
+     "dy": 0.25
+    }
+   ]
+  },
+  {
+   "kind": "compare",
+   "start": 12.26,
+   "end": 23.0,
+   "head": [
+    "AI가 정리한 것",
+    "AI가 못 고른 것"
+   ],
+   "rows": [
+    [
+     "팔로워 수",
+     "캠페인에 맞는 사람"
+    ],
+    [
+     "참여율",
+     "호흡이 맞던 느낌"
+    ]
+   ],
+   "xfade": "fade"
+  },
+  {
+   "kind": "quote",
+   "start": 23.0,
+   "end": 26.5,
+   "text": "AI가 못한 게 아니라\n제가 설명을 못 한 거예요",
+   "xfade": "fade"
+  },
+  {
+   "kind": "clip",
+   "src": "clip.mp4",
+   "start": 26.5,
+   "end": 31.2,
+   "focus_y": 0.5,
+   "xfade": "slideleft",
+   "labels": [
+    {
+     "at": 1.6,
+     "text": "순서와 판단 기준",
+     "x": 0.5,
+     "y": 0.45,
+     "dy": -0.25,
+     "hl": true
+    }
+   ]
+  },
+  {
+   "kind": "image",
+   "src": "i2.png",
+   "start": 31.2,
+   "end": 37.7,
+   "focus_y": 0.4,
+   "zoom": "in",
+   "xfade": "fadeblack",
+   "labels": [
+    {
+     "at": 0.6,
+     "text": "한 문장으로 말할 수 있나요?",
+     "x": 0.5,
+     "y": 0.4,
+     "dy": -0.22,
+     "hl": true
+    }
+   ]
+  },
+  {
+   "kind": "card",
+   "start": 37.7,
+   "end": 39.7
+  }
+ ],
+ "captions": [
+  {
+   "start": 0,
+   "end": 3.0,
+   "text": "간단한 디자인은 이제 챗GPT에 맡긴대요"
+  },
+  {
+   "start": 3.1,
+   "end": 6.6,
+   "text": "그럼 10년 차 마케터의 일도 넘길 수 있을까요?"
+  },
+  {
+   "start": 6.9,
+   "end": 9.4,
+   "text": "저도 인플루언서 섭외를 맡겨 봤어요"
+  },
+  {
+   "start": 9.56,
+   "end": 12.1,
+   "text": "팔로워 수, 참여율은 금방 정리해 줬죠"
+  },
+  {
+   "start": 12.26,
+   "end": 15.9,
+   "text": "그런데 이 캠페인에 맞는 사람인지는 못 골랐어요"
+  },
+  {
+   "start": 16.12,
+   "end": 19.5,
+   "text": "브랜드가 예민하게 보는 이미지, 호흡이 맞던 느낌"
+  },
+  {
+   "start": 19.6,
+   "end": 22.8,
+   "text": "그 기준을 말로 꺼내 본 적이 없었거든요"
+  },
+  {
+   "start": 23.02,
+   "end": 26.3,
+   "text": "AI가 못한 게 아니라, 제가 설명을 못 한 거예요"
+  },
+  {
+   "start": 26.58,
+   "end": 28.4,
+   "text": "신입에게 인수인계하듯"
+  },
+  {
+   "start": 28.4,
+   "end": 31.0,
+   "text": "일하는 순서와 판단 기준부터 적어 보세요"
+  },
+  {
+   "start": 31.25,
+   "end": 34.3,
+   "text": "여러분의 판단 기준, 한 문장으로 말할 수 있나요?"
+  },
+  {
+   "start": 34.4,
+   "end": 37.6,
+   "text": "AI 자동화에서 막힌 동료에게 보내 주세요"
+  }
+ ]
+}
