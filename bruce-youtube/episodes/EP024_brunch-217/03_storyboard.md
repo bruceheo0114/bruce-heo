@@ -517,7 +517,7 @@ HIGGSFIELD_REQUIRED: NO
 SCENE ID: S041
 TIME: 04:30-04:33
 NARRATION:
-그래서 저는 후기 캠페인을 다섯 단계로 설계합니다.
+저는 후기 캠페인을 다섯 단계로 설계합니다.
 VISUAL:
 오프화이트 배경 위 큰 문구, 포인트 컬러 한 단어
 SOURCE_TYPE: TYPE
@@ -544,7 +544,7 @@ ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
 SCENE ID: S043
-TIME: 04:43-04:54
+TIME: 04:43-04:53
 NARRATION:
 참여자는 팔로워 수보다 톤과 전문성, 실제 독자와 맞는지를 봐요. 측정도 조회수만이 아니라 검색 유입과 구매 전환, 후기 속 메시지 분포까지 함께 봅니다.
 VISUAL:
@@ -556,7 +556,7 @@ ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
 SCENE ID: S044
-TIME: 04:54-04:59
+TIME: 04:53-04:59
 NARRATION:
 이 구조가 있어야 후기는 콘텐츠 수량이 아니라, 캠페인의 전환 인프라가 됩니다.
 VISUAL:
@@ -569,7 +569,7 @@ ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
 SCENE ID: S045
-TIME: 04:59-05:07
+TIME: 04:59-05:06
 NARRATION:
 브랜드가 하고 싶은 말만 복제한 후기 천 개보다, 소비자가 궁금해하는 질문에 답하는 후기 백 개가 더 강할 수 있어요.
 VISUAL:
@@ -583,7 +583,7 @@ HIGGSFIELD_REQUIRED: NO
 MOTION: compare
 
 SCENE ID: S046
-TIME: 05:07-05:14
+TIME: 05:06-05:13
 NARRATION:
 양은 필요합니다. 다만 양의 목적은 화면을 채우는 게 아니라, 의사결정의 빈틈을 줄이는 데 있어요.
 VISUAL:
@@ -596,7 +596,7 @@ ASSET: -
 HIGGSFIELD_REQUIRED: NO
 
 SCENE ID: S047
-TIME: 05:14-05:22
+TIME: 05:13-05:21
 NARRATION:
 우리 브랜드의 검색 결과는 지금 어떤 질문에 답하고 있을까요? 그리고 아직 아무도 답하지 않은 질문은 무엇일까요?
 VISUAL:

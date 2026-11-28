@@ -9,7 +9,7 @@
     "source_file": "source/brunch/217.md",
     "body_hash": "9d10b1d804381030ed9192372608640eb717c4e6264842c4e389f18101f22df7"
   },
-  "status": "WAITING_APPROVAL",
+  "status": "ASSETS_READY",
   "format": "v2",
   "higgsfield_generation": false,
   "recommendation": "MAKE_VIDEO",
@@ -23,11 +23,49 @@
     "TOTAL": 39,
     "MAX": 60
   },
-  "approved_scenes": [],
-  "generated": {},
+  "approved_scenes": [
+    "S004",
+    "S014",
+    "S024",
+    "S037"
+  ],
+  "generated": {
+    "S014": {
+      "job": "89126866-1f3d-428c-a23e-001a827355f9,51a458e9-04a5-4430-aa41-b0cc186b7c0f",
+      "files": [
+        "/tmp/claude-0/-home-user-bruce-heo/13ec63f0-b623-5628-b96f-97947bc55178/scratchpad/ep24/ai/G02.png"
+      ],
+      "credits": 5.25,
+      "at": "2026-11-28T12:19:25.110Z"
+    },
+    "S004": {
+      "job": "d4b04600-3e7c-42e6-a1bb-8e08b758eff5",
+      "files": [
+        "/tmp/claude-0/-home-user-bruce-heo/13ec63f0-b623-5628-b96f-97947bc55178/scratchpad/ep24/ai/G01.png"
+      ],
+      "credits": 0.25,
+      "at": "2026-11-28T12:19:25.183Z"
+    },
+    "S024": {
+      "job": "40be118b-f2ce-41cb-9981-68a3b07a69a1",
+      "files": [
+        "/tmp/claude-0/-home-user-bruce-heo/13ec63f0-b623-5628-b96f-97947bc55178/scratchpad/ep24/ai/G03.png"
+      ],
+      "credits": 0.25,
+      "at": "2026-11-28T12:19:25.248Z"
+    },
+    "S037": {
+      "job": "5ad14024-61f3-443c-a618-7ff78d609fda",
+      "files": [
+        "/tmp/claude-0/-home-user-bruce-heo/13ec63f0-b623-5628-b96f-97947bc55178/scratchpad/ep24/ai/G04.png"
+      ],
+      "credits": 0.25,
+      "at": "2026-11-28T12:19:25.313Z"
+    }
+  },
   "plan": {
-    "runtime_seconds": 322,
-    "runtime": "5:22",
+    "runtime_seconds": 321,
+    "runtime": "5:21",
     "total_scenes": 47,
     "scenes_by_type": {
       "REAL": 2,
@@ -37,8 +75,8 @@
     },
     "seconds_by_type": {
       "REAL": 19,
-      "TYPE": 136,
-      "GRAPHIC": 138,
+      "TYPE": 137,
+      "GRAPHIC": 136,
       "AI": 29
     },
     "ai_share": 0.09,
@@ -60,7 +98,7 @@
   },
   "update": null,
   "created_at": "2026-11-28T12:14:45.914Z",
-  "updated_at": "2026-11-28T12:17:38.620Z",
+  "updated_at": "2026-11-28T12:19:25.313Z",
   "history": [
     {
       "at": "2026-11-28T12:14:45.914Z",
@@ -73,6 +111,19 @@
       "from": "PACKAGE_PENDING",
       "to": "WAITING_APPROVAL",
       "note": "영상화 평가 39/60 · MAKE_VIDEO"
+    },
+    {
+      "at": "2026-11-28T12:18:41.385Z",
+      "from": "WAITING_APPROVAL",
+      "to": "APPROVED",
+      "note": "Higgsfield 승인: S004, S014, S024, S037"
+    },
+    {
+      "at": "2026-11-28T12:19:25.313Z",
+      "from": "APPROVED",
+      "to": "ASSETS_READY",
+      "note": "승인된 AI Scene 생성 완료"
     }
-  ]
+  ],
+  "approved_at": "2026-11-28T12:18:41.385Z"
 }
