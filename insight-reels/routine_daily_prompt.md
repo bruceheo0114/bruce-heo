@@ -67,6 +67,7 @@
    - `compose.py` 는 **올리지 않는다.** 저장소가 공개라 샌드박스에서 바로 받는다: `curl -sfL -o compose.py https://raw.githubusercontent.com/bruceheo0114/bruce-heo/$(git rev-parse HEAD)/insight-reels/scripts/compose.py` — `$(git rev-parse HEAD)` 는 **로컬에서** 먼저 구해 명령에 값으로 넣는다. spec 형식은 compose.py 맨 위 주석, 샘플은 `posts/2026-10-06.spec.json`.
    - `spec.json` 도 **올리지 않는다.** 샌드박스 명령 안에서 `cat > spec.json <<'EOF' … EOF` 로 만든다.
    - `media_upload` 는 결과물만, **한 번에** 받는다: `files: [reel.mp4, cover.jpg, qa.jpg]`.
+   - **표지는 compose.py 가 만든 `cover.jpg` 를 그대로 올린다(사용자 지적 2026-11-28 — 11/28 편에서 ffmpeg 로 영상 프레임을 뽑아 cover.jpg 를 덮어써 썸네일이 깨졌다).** 렌더 뒤에 cover.jpg 를 다시 만들거나 덮어쓰지 않는다.
    - 샌드박스 한 명령 안에서: 재료 다운로드 → faster-whisper(`small`, language ko, word_timestamps)로 단어 시작 시각 → `python3 compose.py spec.json` → 결과 PUT 업로드. 오래 걸리면 `background: true` 후 폴링.
    - **BGM(2026-10-15):** spec 에 `"bgm": "https://raw.githubusercontent.com/bruceheo0114/bruce-heo/<HEAD>/bruce-youtube/channel/bgm/bgm.mp3"`, `"bgm_start"`(요일별 월 0 · 화 60 · 수 120 · 목 180 · 금 240 · 토 300 · 일 360 — 이어지는 날끼리 같은 구간이 겹치지 않게)를 넣는다. 유튜브와 같은 채널 곡이고, compose.py 가 말할 때 자동으로 줄인다. 내레이션은 -14 LUFS로 맞춰진다.
    - spec 연출 원칙(샘플: 저장소 `insight-reels/posts/2026-10-06.spec.json` 의 202편):
