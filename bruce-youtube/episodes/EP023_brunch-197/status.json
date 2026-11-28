@@ -1,0 +1,76 @@
+{
+  "episode": "EP023",
+  "folder": "EP023_brunch-197",
+  "article": {
+    "id": "197",
+    "url": "https://brunch.co.kr/@heoboram/197",
+    "title": "브랜드는 이제 시간을 판다",
+    "published_at": "2026-04-02T03:00:00.000Z",
+    "source_file": "source/brunch/197.md",
+    "body_hash": "d46ad277b4570c96871df35520803f38931c3480bc40b7a667e728699edbb1a7"
+  },
+  "status": "WAITING_APPROVAL",
+  "format": "v2",
+  "higgsfield_generation": false,
+  "recommendation": "MAKE_VIDEO",
+  "video_potential": {
+    "NARRATIVE": 8,
+    "CASE STUDY": 8,
+    "VISUAL MATERIAL": 7,
+    "TIMELINESS": 7,
+    "ORIGINAL POV": 8,
+    "30MIN POTENTIAL": 8,
+    "TOTAL": 46,
+    "MAX": 60
+  },
+  "approved_scenes": [],
+  "generated": {},
+  "plan": {
+    "runtime_seconds": 305,
+    "runtime": "5:05",
+    "total_scenes": 38,
+    "scenes_by_type": {
+      "REAL": 3,
+      "TYPE": 17,
+      "GRAPHIC": 14,
+      "AI": 4
+    },
+    "seconds_by_type": {
+      "REAL": 33,
+      "TYPE": 121,
+      "GRAPHIC": 117,
+      "AI": 34
+    },
+    "ai_share": 0.111,
+    "ai_scenes": [
+      "S004",
+      "S014",
+      "S019",
+      "S032"
+    ],
+    "estimated_generations": 6,
+    "estimated_credits": 7,
+    "reusable_assets": [],
+    "cost_saving": [
+      "실제 화면은 넷플릭스 작품 페이지·기사 캡처로.",
+      "영상 클립은 사람이 없는 S014 하나만."
+    ]
+  },
+  "update": null,
+  "created_at": "2026-11-28T03:01:21.248Z",
+  "updated_at": "2026-11-28T03:03:25.893Z",
+  "history": [
+    {
+      "at": "2026-11-28T03:01:21.248Z",
+      "from": null,
+      "to": "PACKAGE_PENDING",
+      "note": "새 브런치 글"
+    },
+    {
+      "at": "2026-11-28T03:03:25.893Z",
+      "from": "PACKAGE_PENDING",
+      "to": "WAITING_APPROVAL",
+      "note": "영상화 평가 46/60 · MAKE_VIDEO"
+    }
+  ]
+}

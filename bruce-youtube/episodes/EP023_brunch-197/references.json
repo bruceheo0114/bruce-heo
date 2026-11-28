@@ -1,0 +1,9 @@
+{
+  "brunch": true,
+  "items": [
+    {"id": "A001", "kind": "page", "url": "https://www.netflix.com/kr/title/82174907", "source": "넷플릭스 공식 페이지", "scenes": ["S001"]},
+    {"id": "A002", "kind": "article", "url": "https://www.chosun.com/entertainments/broadcast/2026/03/25/MEZGCYJYGI2GGMTCGNSDQNLFMI/", "source": "조선일보 (2026-03-25)", "scenes": ["S003"]},
+    {"id": "A003", "kind": "page", "url": "https://www.netflix.com/kr/title/82157128", "source": "넷플릭스 공식 페이지", "scenes": ["S008"]},
+    {"id": "A004", "kind": "article", "url": "https://www.khan.co.kr/article/202603181353001", "source": "경향신문 (2026-03-18)", "scenes": ["S009"]}
+  ]
+}
