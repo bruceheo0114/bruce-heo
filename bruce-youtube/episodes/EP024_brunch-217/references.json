@@ -1,0 +1,23 @@
+{
+  "brunch": true,
+  "items": [
+    {
+      "id": "A001",
+      "kind": "article",
+      "url": "https://www.hani.co.kr/arti/economy/economy_general/1187176.html",
+      "source": "한겨레",
+      "scenes": [
+        "S030"
+      ]
+    },
+    {
+      "id": "A002",
+      "kind": "article",
+      "url": "https://www.chosun.com/economy/economy_general/2024/08/21/H3G4J26RZBDZZFLPFWROEH4IQQ/",
+      "source": "조선일보 (2024-08-21)",
+      "scenes": [
+        "S031"
+      ]
+    }
+  ]
+}

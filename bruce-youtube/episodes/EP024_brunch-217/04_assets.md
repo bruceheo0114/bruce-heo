@@ -1,0 +1,21 @@
+# 04 Assets — EP024
+
+```text
+ASSET ID: A001
+SCENE: S030
+NEEDED MATERIAL: 공정위 SNS 뒷광고 2만2천 건 적발 기사
+BRAND: 공정거래위원회
+SOURCE TYPE: REAL
+SEARCH KEYWORD: 엠버서더 체험단 문구 뒤에 숨은 SNS 뒷광고 2만2천건
+EXPECTED SOURCE: 한겨레
+PRIORITY: HIGH
+
+ASSET ID: A002
+SCENE: S031
+NEEDED MATERIAL: 돈 받고 쓴 후기 '광고' 표시 기사
+BRAND: 공정거래위원회
+SOURCE TYPE: REAL
+SEARCH KEYWORD: 돈 받고 쓴 상품 후기 맨 앞에 광고 표시
+EXPECTED SOURCE: 조선일보
+PRIORITY: MEDIUM
+```

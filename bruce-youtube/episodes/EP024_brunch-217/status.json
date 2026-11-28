@@ -1,0 +1,78 @@
+{
+  "episode": "EP024",
+  "folder": "EP024_brunch-217",
+  "article": {
+    "id": "217",
+    "url": "https://brunch.co.kr/@heoboram/217",
+    "title": "후기를 많이 쌓으면 해결되는 거 아닐까요",
+    "published_at": "2026-09-14T03:00:00.000Z",
+    "source_file": "source/brunch/217.md",
+    "body_hash": "9d10b1d804381030ed9192372608640eb717c4e6264842c4e389f18101f22df7"
+  },
+  "status": "WAITING_APPROVAL",
+  "format": "v2",
+  "higgsfield_generation": false,
+  "recommendation": "MAKE_VIDEO",
+  "video_potential": {
+    "NARRATIVE": 7,
+    "CASE STUDY": 6,
+    "VISUAL MATERIAL": 5,
+    "TIMELINESS": 6,
+    "ORIGINAL POV": 8,
+    "30MIN POTENTIAL": 7,
+    "TOTAL": 39,
+    "MAX": 60
+  },
+  "approved_scenes": [],
+  "generated": {},
+  "plan": {
+    "runtime_seconds": 322,
+    "runtime": "5:22",
+    "total_scenes": 47,
+    "scenes_by_type": {
+      "REAL": 2,
+      "TYPE": 24,
+      "GRAPHIC": 17,
+      "AI": 4
+    },
+    "seconds_by_type": {
+      "REAL": 19,
+      "TYPE": 136,
+      "GRAPHIC": 138,
+      "AI": 29
+    },
+    "ai_share": 0.09,
+    "ai_scenes": [
+      "S004",
+      "S014",
+      "S024",
+      "S037"
+    ],
+    "estimated_generations": 6,
+    "estimated_credits": 7,
+    "reusable_assets": [],
+    "cost_saving": [
+      "기준 이미지를 먼저 만들고 image-to-video로 움직임만 추가한다.",
+      "같은 장소·분위기 Scene은 같은 reference asset을 재사용한다.",
+      "REAL 자료가 확보되면 해당 AI Scene은 생성하지 않는다.",
+      "승인된 Scene만 생성하고, 결과가 나쁘면 프롬프트를 고친 뒤 한 번만 다시 생성한다."
+    ]
+  },
+  "update": null,
+  "created_at": "2026-11-28T12:14:45.914Z",
+  "updated_at": "2026-11-28T12:17:38.620Z",
+  "history": [
+    {
+      "at": "2026-11-28T12:14:45.914Z",
+      "from": null,
+      "to": "PACKAGE_PENDING",
+      "note": "새 브런치 글"
+    },
+    {
+      "at": "2026-11-28T12:17:38.620Z",
+      "from": "PACKAGE_PENDING",
+      "to": "WAITING_APPROVAL",
+      "note": "영상화 평가 39/60 · MAKE_VIDEO"
+    }
+  ]
+}
