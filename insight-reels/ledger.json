@@ -154,8 +154,8 @@
       ]
     },
     "2026-11": {
-      "higgsfield_spent": 92.45,
-      "elevenlabs_spent": 7546,
+      "higgsfield_spent": 98.45,
+      "elevenlabs_spent": 8090,
       "entries": [
         {
           "date": "2026-11-03",
@@ -302,6 +302,12 @@
           "what": "릴스 196(11/28 게시분)",
           "higgsfield": 6.0,
           "elevenlabs": 592
+        },
+        {
+          "date": "2026-11-28",
+          "what": "릴스 198(11/29 게시분)",
+          "higgsfield": 6.0,
+          "elevenlabs": 544
         }
       ]
     }

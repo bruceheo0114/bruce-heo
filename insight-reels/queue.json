@@ -380,8 +380,9 @@
       "title": "가본 만큼만 내 땅이다:AI가 줄 수 없는 것",
       "axis": "마케터의 판단",
       "insight": "가본 만큼만 내 땅이다",
-      "status": "todo",
-      "reason": "카드뉴스로 이관(carousel_queue.json)"
+      "status": "exhausted",
+      "reason": "카드뉴스로 이관(carousel_queue.json)",
+      "exhausted_reason": "인스타 릴스 게시(2026-11-29)"
     },
     {
       "no": 196,
