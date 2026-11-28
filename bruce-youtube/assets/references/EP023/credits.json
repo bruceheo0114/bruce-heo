@@ -1,0 +1,147 @@
+{
+  "references_hash": "7521a05b2f35f09d",
+  "fetched_at": "2026-11-28T03:05:57.835Z",
+  "items": [
+    {
+      "file": "A001-screen.jpg",
+      "id": "A001",
+      "scenes": [
+        "S001"
+      ],
+      "kind": "screen",
+      "source": "넷플릭스 공식 페이지",
+      "url": "https://www.netflix.com/kr/title/82174907"
+    },
+    {
+      "file": "A001-img1.jpg",
+      "id": "A001",
+      "scenes": [
+        "S001"
+      ],
+      "kind": "image",
+      "source": "넷플릭스 공식 페이지",
+      "url": "https://www.netflix.com/kr/title/82174907"
+    },
+    {
+      "file": "A002-screen.jpg",
+      "id": "A002",
+      "scenes": [
+        "S003"
+      ],
+      "kind": "screen",
+      "source": "조선일보 (2026-03-25)",
+      "url": "https://www.chosun.com/entertainments/broadcast/2026/03/25/MEZGCYJYGI2GGMTCGNSDQNLFMI/"
+    },
+    {
+      "file": "A002-scroll.jpg",
+      "id": "A002",
+      "scenes": [
+        "S003"
+      ],
+      "kind": "scroll",
+      "source": "조선일보 (2026-03-25)",
+      "url": "https://www.chosun.com/entertainments/broadcast/2026/03/25/MEZGCYJYGI2GGMTCGNSDQNLFMI/"
+    },
+    {
+      "file": "A002-img1.jpg",
+      "id": "A002",
+      "scenes": [
+        "S003"
+      ],
+      "kind": "image",
+      "source": "조선일보 (2026-03-25)",
+      "url": "https://www.chosun.com/entertainments/broadcast/2026/03/25/MEZGCYJYGI2GGMTCGNSDQNLFMI/"
+    },
+    {
+      "file": "A002-img2.jpg",
+      "id": "A002",
+      "scenes": [
+        "S003"
+      ],
+      "kind": "image",
+      "source": "조선일보 (2026-03-25)",
+      "url": "https://www.chosun.com/entertainments/broadcast/2026/03/25/MEZGCYJYGI2GGMTCGNSDQNLFMI/"
+    },
+    {
+      "file": "A003-screen.jpg",
+      "id": "A003",
+      "scenes": [
+        "S008"
+      ],
+      "kind": "screen",
+      "source": "넷플릭스 공식 페이지",
+      "url": "https://www.netflix.com/kr/title/82157128"
+    },
+    {
+      "file": "A004-screen.jpg",
+      "id": "A004",
+      "scenes": [
+        "S009"
+      ],
+      "kind": "screen",
+      "source": "경향신문 (2026-03-18)",
+      "url": "https://www.khan.co.kr/article/202603181353001"
+    },
+    {
+      "file": "A004-scroll.jpg",
+      "id": "A004",
+      "scenes": [
+        "S009"
+      ],
+      "kind": "scroll",
+      "source": "경향신문 (2026-03-18)",
+      "url": "https://www.khan.co.kr/article/202603181353001"
+    },
+    {
+      "file": "A004-img1.jpg",
+      "id": "A004",
+      "scenes": [
+        "S009"
+      ],
+      "kind": "image",
+      "source": "경향신문 (2026-03-18)",
+      "url": "https://www.khan.co.kr/article/202603181353001"
+    },
+    {
+      "file": "brunch-01.jpg",
+      "id": "brunch",
+      "scenes": [],
+      "kind": "image",
+      "source": "브런치 @heoboram 원문",
+      "url": "https://brunch.co.kr/@heoboram/197"
+    },
+    {
+      "file": "brunch-02.jpg",
+      "id": "brunch",
+      "scenes": [],
+      "kind": "image",
+      "source": "브런치 @heoboram 원문",
+      "url": "https://brunch.co.kr/@heoboram/197"
+    },
+    {
+      "file": "brunch-03.jpg",
+      "id": "brunch",
+      "scenes": [],
+      "kind": "image",
+      "source": "브런치 @heoboram 원문",
+      "url": "https://brunch.co.kr/@heoboram/197"
+    },
+    {
+      "file": "brunch-04.jpg",
+      "id": "brunch",
+      "scenes": [],
+      "kind": "image",
+      "source": "브런치 @heoboram 원문",
+      "url": "https://brunch.co.kr/@heoboram/197"
+    },
+    {
+      "file": "brunch-05.jpg",
+      "id": "brunch",
+      "scenes": [],
+      "kind": "image",
+      "source": "브런치 @heoboram 원문",
+      "url": "https://brunch.co.kr/@heoboram/197"
+    }
+  ],
+  "failures": []
+}
