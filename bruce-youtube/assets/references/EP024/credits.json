@@ -1,0 +1,93 @@
+{
+  "references_hash": "859d1b794e034e5b",
+  "fetched_at": "2026-11-28T12:19:36.696Z",
+  "items": [
+    {
+      "file": "A001-screen.jpg",
+      "id": "A001",
+      "scenes": [
+        "S030"
+      ],
+      "kind": "screen",
+      "source": "한겨레",
+      "url": "https://www.hani.co.kr/arti/economy/economy_general/1187176.html"
+    },
+    {
+      "file": "A001-scroll.jpg",
+      "id": "A001",
+      "scenes": [
+        "S030"
+      ],
+      "kind": "scroll",
+      "source": "한겨레",
+      "url": "https://www.hani.co.kr/arti/economy/economy_general/1187176.html"
+    },
+    {
+      "file": "A001-img1.jpg",
+      "id": "A001",
+      "scenes": [
+        "S030"
+      ],
+      "kind": "image",
+      "source": "한겨레",
+      "url": "https://www.hani.co.kr/arti/economy/economy_general/1187176.html"
+    },
+    {
+      "file": "A002-screen.jpg",
+      "id": "A002",
+      "scenes": [
+        "S031"
+      ],
+      "kind": "screen",
+      "source": "조선일보 (2024-08-21)",
+      "url": "https://www.chosun.com/economy/economy_general/2024/08/21/H3G4J26RZBDZZFLPFWROEH4IQQ/"
+    },
+    {
+      "file": "A002-scroll.jpg",
+      "id": "A002",
+      "scenes": [
+        "S031"
+      ],
+      "kind": "scroll",
+      "source": "조선일보 (2024-08-21)",
+      "url": "https://www.chosun.com/economy/economy_general/2024/08/21/H3G4J26RZBDZZFLPFWROEH4IQQ/"
+    },
+    {
+      "file": "A002-img1.jpg",
+      "id": "A002",
+      "scenes": [
+        "S031"
+      ],
+      "kind": "image",
+      "source": "조선일보 (2024-08-21)",
+      "url": "https://www.chosun.com/economy/economy_general/2024/08/21/H3G4J26RZBDZZFLPFWROEH4IQQ/"
+    },
+    {
+      "file": "A002-img2.jpg",
+      "id": "A002",
+      "scenes": [
+        "S031"
+      ],
+      "kind": "image",
+      "source": "조선일보 (2024-08-21)",
+      "url": "https://www.chosun.com/economy/economy_general/2024/08/21/H3G4J26RZBDZZFLPFWROEH4IQQ/"
+    },
+    {
+      "file": "brunch-01.jpg",
+      "id": "brunch",
+      "scenes": [],
+      "kind": "image",
+      "source": "브런치 @heoboram 원문",
+      "url": "https://brunch.co.kr/@heoboram/217"
+    },
+    {
+      "file": "brunch-02.jpg",
+      "id": "brunch",
+      "scenes": [],
+      "kind": "image",
+      "source": "브런치 @heoboram 원문",
+      "url": "https://brunch.co.kr/@heoboram/217"
+    }
+  ],
+  "failures": []
+}
